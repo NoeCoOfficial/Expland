@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+@onready var camera_3d = $Head/Camera3D
 
 # bob variables
 @export var BOB_FREQ := 3.0
@@ -28,6 +29,11 @@ func _unhandled_input(event):
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Settings.global_settings.on_camera_fov_updated.connect(update_camera_fov)
+	update_camera_fov(Settings.global_settings.get_camera_fov())
+
+func update_camera_fov(fov: int) -> void:
+	camera_3d.fov = fov
 
 func _physics_process(delta):
 	# Add the gravity.

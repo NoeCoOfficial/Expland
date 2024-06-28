@@ -14,6 +14,10 @@ config/name="Expland"
 run/main_scene="res://Scenes and Scripts/World/TestLevel.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 
+[autoload]
+
+Settings="*res://Settings/Settings.gd"
+
 [display]
 
 window/size/mode=4
