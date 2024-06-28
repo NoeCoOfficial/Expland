@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Expland"
-run/main_scene="res://Scenes and Scripts/world/world.tscn"
+run/main_scene="res://Scenes and Scripts/World/TestLevel.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 
 [display]

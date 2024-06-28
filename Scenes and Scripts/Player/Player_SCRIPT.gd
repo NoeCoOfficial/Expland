@@ -2,16 +2,16 @@ extends CharacterBody3D
 
 
 # bob variables
-const BOB_FREQ = 3
-const BOB_AMP = 0.08
-var t_bob = 0.0
+@export var BOB_FREQ := 3.0
+@export var BOB_AMP = 0.08
+@export var t_bob = 0.0
 
 
-const SENSITIVITY = 0.001
+@export var SENSITIVITY = 0.001
 var speed
-const WALK_SPEED = 5.0
-const SPRINT_SPEED = 6.5
-const JUMP_VELOCITY = 4.5
+@export var WALK_SPEED = 5.0
+@export var SPRINT_SPEED = 6.5
+@export var JUMP_VELOCITY = 4.5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 12
@@ -68,8 +68,3 @@ func _headbob(time) -> Vector3:
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
 	return pos
 
-func _input(_event):
-	if Input.is_action_just_pressed("quit"):
-		get_tree().quit()
-	elif Input.is_action_just_pressed("reset"):
-		$".".position = Vector3(0, 0, 0)
