@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes and Scripts/World/TestLevel_SCRIPT.gd" id="1_x37cx"]
 [ext_resource type="PackedScene" uid="uid://cjm5lrxicdgsf" path="res://Scenes and Scripts/Player/Player.tscn" id="2_i2as5"]
-[ext_resource type="Script" path="res://Scenes and Scripts/World/GameMenu_SCRIPT.gd" id="3_m1krc"]
+[ext_resource type="Script" path="res://Settings/PauseMenu_SCRIPT.gd" id="3_m1krc"]
 [ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="4_88vqa"]
 [ext_resource type="FontFile" uid="uid://b2o44xwqnsb5k" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf" id="5_mkyl8"]
 
@@ -366,6 +366,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="FOV_SLIDER" type="HSlider" parent="PauseMenu/PauseMenu"]
+layout_mode = 0
 offset_left = 139.0
 offset_top = 62.0
 offset_right = 334.0
@@ -375,6 +376,7 @@ max_value = 120.0
 value = 60.0
 
 [node name="CameraFOV_LBL" type="Label" parent="PauseMenu/PauseMenu"]
+layout_mode = 0
 offset_left = 23.0
 offset_top = 62.0
 offset_right = 137.0
@@ -386,6 +388,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CameraFOV_COUNT" type="Label" parent="PauseMenu/PauseMenu"]
+layout_mode = 0
 offset_left = 175.0
 offset_top = 30.0
 offset_right = 289.0
