@@ -1,19 +1,16 @@
-; Engine configuration file.
-; It's best edited using the editor UI and not directly,
-; since the parameters that go here are not all obvious.
-;
-; Format:
-;   [section] ; section goes between []
-;   param=value ; assign values to parameters
-
 config_version=5
 
 [application]
 
 config/name="Expland"
-config/tags=PackedStringArray("noeco")
+config/description="Face adversity and discover a second chance in a mysterious world."
+config/version="0.0.1-beta"
+config/tags=PackedStringArray("3d", "noeco")
 run/main_scene="res://Scenes and Scripts/World/TestLevel.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
+config/icon="res://Textures/Icons/Expland-icon.png"
 
 [autoload]
 
@@ -22,6 +19,10 @@ Settings="*res://Settings/Settings.gd"
 [display]
 
 window/size/mode=4
+
+[filesystem]
+
+import/blender/enabled=false
 
 [input]
 
