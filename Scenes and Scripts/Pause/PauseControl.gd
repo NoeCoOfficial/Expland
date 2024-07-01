@@ -24,3 +24,4 @@ func _input(event):
 func _on_fov_sldr_value_changed(value):
 	$Panel/FOV_LBL.text = str(value)
 	SettingsData.FOV = int(value)
+	SettingsData.SaveSettings()
