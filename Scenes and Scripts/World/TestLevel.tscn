@@ -1,11 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://cppbacmh8fl1r"]
+[gd_scene load_steps=18 format=3 uid="uid://cppbacmh8fl1r"]
 
-[ext_resource type="Script" path="res://Scenes and Scripts/World/TestLevel_SCRIPT.gd" id="1_x37cx"]
 [ext_resource type="PackedScene" uid="uid://cjm5lrxicdgsf" path="res://Scenes and Scripts/Player/Player.tscn" id="2_i2as5"]
-[ext_resource type="Script" path="res://Settings/PauseMenu_SCRIPT.gd" id="3_m1krc"]
+[ext_resource type="PackedScene" uid="uid://dcxokul8p1fts" path="res://Scenes and Scripts/Pause/PauseLayer.tscn" id="3_4ihan"]
 [ext_resource type="Texture2D" uid="uid://tmqrfb1atg1j" path="res://Textures/Crosshairs/Expland_Crosshair.png" id="3_ya58n"]
-[ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="4_88vqa"]
-[ext_resource type="FontFile" uid="uid://b2o44xwqnsb5k" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf" id="5_mkyl8"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Pause/PauseControl_SCRIPT.gd" id="4_ucxx6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q1rrk"]
 albedo_color = Color(0.438053, 1, 0.198331, 1)
@@ -56,7 +54,6 @@ glow_hdr_scale = 1.49
 glow_hdr_luminance_cap = 52.41
 
 [node name="TestLevel" type="Node3D"]
-script = ExtResource("1_x37cx")
 
 [node name="Player" parent="." instance=ExtResource("2_i2as5")]
 BOB_FREQ = 2.5
@@ -359,60 +356,12 @@ directional_shadow_max_distance = 700.0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
 environment = SubResource("Environment_21hyk")
 
-[node name="PauseMenu" type="CanvasLayer" parent="."]
-process_mode = 3
+[node name="PauseLayer" parent="." instance=ExtResource("3_4ihan")]
+editor_description = "
+"
 
-[node name="PauseMenu" type="Control" parent="PauseMenu"]
-process_mode = 3
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("3_m1krc")
-
-[node name="Panel" type="Panel" parent="PauseMenu/PauseMenu"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="FOV_SLIDER" type="HSlider" parent="PauseMenu/PauseMenu"]
-layout_mode = 0
-offset_left = 139.0
-offset_top = 62.0
-offset_right = 334.0
-offset_bottom = 114.0
-min_value = 60.0
-max_value = 120.0
-value = 60.0
-
-[node name="CameraFOV_LBL" type="Label" parent="PauseMenu/PauseMenu"]
-layout_mode = 0
-offset_left = 23.0
-offset_top = 62.0
-offset_right = 137.0
-offset_bottom = 121.0
-theme_override_fonts/font = ExtResource("4_88vqa")
-theme_override_font_sizes/font_size = 50
-text = "FOV"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="CameraFOV_COUNT" type="Label" parent="PauseMenu/PauseMenu"]
-layout_mode = 0
-offset_left = 175.0
-offset_top = 30.0
-offset_right = 289.0
-offset_bottom = 89.0
-theme_override_fonts/font = ExtResource("5_mkyl8")
-theme_override_font_sizes/font_size = 30
-text = "60"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Control" parent="PauseLayer" index="0"]
+script = ExtResource("4_ucxx6")
 
 [editable path="Player"]
+[editable path="PauseLayer"]
