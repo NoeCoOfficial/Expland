@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcxokul8p1fts"]
+[gd_scene load_steps=4 format=3 uid="uid://dcxokul8p1fts"]
 
 [ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="1_0auuh"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Pause/PauseControl.gd" id="1_i8kpg"]
 [ext_resource type="FontFile" uid="uid://btimp4hwg4jis" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Regular.otf" id="2_2fxk5"]
 
 [node name="PauseLayer" type="CanvasLayer"]
@@ -13,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_i8kpg")
 
 [node name="Panel" type="Panel" parent="Control"]
 layout_mode = 1
@@ -55,3 +57,5 @@ offset_bottom = 118.0
 min_value = 60.0
 max_value = 120.0
 value = 60.0
+
+[connection signal="value_changed" from="Control/Panel/FOV_SLDR" to="Control" method="_on_fov_sldr_value_changed"]

@@ -19,3 +19,8 @@ func _input(event):
 		else:
 			hide()
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+
+func _on_fov_sldr_value_changed(value):
+	$Panel/FOV_LBL.text = str(value)
+	SettingsData.FOV = int(value)

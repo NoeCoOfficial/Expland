@@ -1,9 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://cppbacmh8fl1r"]
+[gd_scene load_steps=17 format=3 uid="uid://cppbacmh8fl1r"]
 
 [ext_resource type="PackedScene" uid="uid://cjm5lrxicdgsf" path="res://Scenes and Scripts/Player/Player.tscn" id="2_i2as5"]
 [ext_resource type="PackedScene" uid="uid://dcxokul8p1fts" path="res://Scenes and Scripts/Pause/PauseLayer.tscn" id="3_4ihan"]
 [ext_resource type="Texture2D" uid="uid://tmqrfb1atg1j" path="res://Textures/Crosshairs/Expland_Crosshair.png" id="3_ya58n"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Pause/PauseControl_SCRIPT.gd" id="4_ucxx6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q1rrk"]
 albedo_color = Color(0.438053, 1, 0.198331, 1)
@@ -359,9 +358,6 @@ environment = SubResource("Environment_21hyk")
 [node name="PauseLayer" parent="." instance=ExtResource("3_4ihan")]
 editor_description = "
 "
-
-[node name="Control" parent="PauseLayer" index="0"]
-script = ExtResource("4_ucxx6")
 
 [editable path="Player"]
 [editable path="PauseLayer"]

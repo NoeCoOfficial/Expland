@@ -2,7 +2,7 @@ extends Node
 
 const SAVE_PATH = "res://settings.dat"
 
-var FOV = 110
+var FOV = 88
 
 
 
