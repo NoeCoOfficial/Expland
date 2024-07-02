@@ -1,9 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://cppbacmh8fl1r"]
+[gd_scene load_steps=17 format=3 uid="uid://cppbacmh8fl1r"]
 
 [ext_resource type="PackedScene" uid="uid://cjm5lrxicdgsf" path="res://Scenes and Scripts/Player/Player.tscn" id="2_i2as5"]
 [ext_resource type="PackedScene" uid="uid://dcxokul8p1fts" path="res://Scenes and Scripts/Pause/PauseLayer.tscn" id="3_4ihan"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Pause/Settings/FOV/FOV_LBL_SCRIPT.gd" id="3_xdu6u"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Pause/Settings/FOV/FOV_SLDR_SCRIPT.gd" id="4_icr1e"]
+[ext_resource type="Texture2D" uid="uid://tmqrfb1atg1j" path="res://Textures/Crosshairs/Expland_Crosshair.png" id="3_ya58n"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q1rrk"]
 albedo_color = Color(0.438053, 1, 0.198331, 1)
@@ -59,6 +58,21 @@ glow_hdr_luminance_cap = 52.41
 BOB_FREQ = 2.5
 BOB_AMP = 0.09
 SPRINT_SPEED = 7.5
+
+[node name="Crosshair" type="TextureRect" parent="Player/Head/Camera3D" index="0"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 594.0
+offset_bottom = 594.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("3_ya58n")
 
 [node name="Objects" type="Node" parent="."]
 
@@ -345,11 +359,14 @@ environment = SubResource("Environment_21hyk")
 editor_description = "
 "
 
+<<<<<<< HEAD
 [node name="FOV_LBL" parent="PauseLayer/Control/Panel" index="2"]
 script = ExtResource("3_xdu6u")
 
 [node name="FOV_SLDR" parent="PauseLayer/Control/Panel" index="3"]
 script = ExtResource("4_icr1e")
 
+=======
+>>>>>>> parent of 04521d4 (OC8)
 [editable path="Player"]
 [editable path="PauseLayer"]

@@ -2,14 +2,10 @@ extends Node
 
 const SAVE_PATH = "res://settings.dat"
 
-# In order to have the settings saved, you need to create a variable outside the save dictionary,
-# then adding a name and a value in the save dictionary.
-# It's recommened that you use this area to make the variables.
-##########################################################################
 var FOV = 88
 
 
-##########################################################################
+
 
 var SaveData = {
 	# SETTINGS #
@@ -42,7 +38,7 @@ func LoadSettings() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	LoadSettings()
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
