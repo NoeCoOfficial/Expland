@@ -1,17 +1,17 @@
-<<<<<<< HEAD
-[gd_scene load_steps=5 format=3 uid="uid://dcxokul8p1fts"]
-=======
-[gd_scene load_steps=4 format=3 uid="uid://dcxokul8p1fts"]
->>>>>>> parent of 04521d4 (OC8)
+[gd_scene load_steps=6 format=3 uid="uid://dcxokul8p1fts"]
 
 [ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="1_0auuh"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Pause/PauseControl.gd" id="1_i8kpg"]
 [ext_resource type="FontFile" uid="uid://btimp4hwg4jis" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Regular.otf" id="2_2fxk5"]
-<<<<<<< HEAD
 [ext_resource type="FontFile" uid="uid://b2o44xwqnsb5k" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf" id="4_hayv3"]
 
-[node name="PauseLayer" type="Control"]
-=======
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sfqg5"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
 
 [node name="PauseLayer" type="CanvasLayer"]
 >>>>>>> parent of 04521d4 (OC8)
@@ -40,35 +40,54 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-<<<<<<< HEAD
+[node name="Panel" type="Panel" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1380.0
+offset_top = -95.0
+offset_right = 579.0
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sfqg5")
+
 [node name="PAUSE_TTL" type="Label" parent="Control/Panel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -273.5
-offset_right = 273.5
-offset_bottom = 94.0
+offset_left = -171.0
+offset_right = 171.0
+offset_bottom = 60.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("4_hayv3")
 theme_override_font_sizes/font_size = 80
 text = "GAME PAUSED"
 horizontal_alignment = 1
 
+[node name="SETTINGS_TTL" type="Label" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 390.0
+offset_top = 129.0
+offset_right = 937.0
+offset_bottom = 223.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_0auuh")
+theme_override_font_sizes/font_size = 70
+text = "SETTINGS"
+horizontal_alignment = 1
+
 [node name="FOV_TTL" type="Label" parent="Control/Panel"]
 layout_mode = 0
-offset_left = 19.0
-offset_top = 1007.0
-offset_right = 125.0
-offset_bottom = 1054.0
-=======
-[node name="FOV_TTL" type="Label" parent="Control/Panel"]
-layout_mode = 0
-offset_left = 103.0
-offset_top = 90.0
-offset_right = 209.0
-offset_bottom = 137.0
->>>>>>> parent of 04521d4 (OC8)
+offset_left = 1463.0
+offset_top = 264.0
+offset_right = 1569.0
+offset_bottom = 311.0
 theme_override_fonts/font = ExtResource("1_0auuh")
 theme_override_font_sizes/font_size = 40
 text = "FOV"
@@ -77,17 +96,10 @@ vertical_alignment = 1
 
 [node name="FOV_LBL" type="Label" parent="Control/Panel"]
 layout_mode = 0
-<<<<<<< HEAD
-offset_left = 183.0
-offset_top = 983.0
-offset_right = 289.0
-offset_bottom = 1030.0
-=======
-offset_left = 267.0
-offset_top = 66.0
-offset_right = 373.0
-offset_bottom = 113.0
->>>>>>> parent of 04521d4 (OC8)
+offset_left = 1627.0
+offset_top = 240.0
+offset_right = 1733.0
+offset_bottom = 287.0
 theme_override_fonts/font = ExtResource("2_2fxk5")
 theme_override_font_sizes/font_size = 30
 text = "75"
@@ -96,17 +108,10 @@ vertical_alignment = 1
 
 [node name="FOV_SLDR" type="HSlider" parent="Control/Panel"]
 layout_mode = 0
-<<<<<<< HEAD
-offset_left = 130.0
-offset_top = 1019.0
-offset_right = 344.0
-offset_bottom = 1035.0
-=======
-offset_left = 214.0
-offset_top = 102.0
-offset_right = 428.0
-offset_bottom = 118.0
->>>>>>> parent of 04521d4 (OC8)
+offset_left = 1574.0
+offset_top = 276.0
+offset_right = 1788.0
+offset_bottom = 292.0
 min_value = 60.0
 max_value = 120.0
 value = 60.0

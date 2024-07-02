@@ -359,11 +359,10 @@ environment = SubResource("Environment_21hyk")
 editor_description = "
 "
 
-<<<<<<< HEAD
-[node name="FOV_LBL" parent="PauseLayer/Control/Panel" index="2"]
+[node name="FOV_LBL" parent="PauseLayer/Control/Panel" index="4"]
 script = ExtResource("3_xdu6u")
 
-[node name="FOV_SLDR" parent="PauseLayer/Control/Panel" index="3"]
+[node name="FOV_SLDR" parent="PauseLayer/Control/Panel" index="5"]
 script = ExtResource("4_icr1e")
 
 =======
