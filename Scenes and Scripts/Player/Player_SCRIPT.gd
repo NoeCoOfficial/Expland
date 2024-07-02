@@ -1,5 +1,5 @@
 extends CharacterBody3D
-
+class_name Player
 # General Variables
 @export_category("General")
 @export var StartPOS := Vector3(0, 0, 0)
