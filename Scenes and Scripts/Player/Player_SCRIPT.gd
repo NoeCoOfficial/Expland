@@ -9,7 +9,7 @@ extends CharacterBody3D
 @export_category("View Bobbing")
 @export var BOB_FREQ := 3.0
 @export var BOB_AMP = 0.08
-@export var t_bob = 0.0
+@export var Sine_Wave_Length = 0.0
 
 # Mouse Variables
 @export_category("Mouse")
@@ -79,8 +79,8 @@ func _physics_process(delta):
 		velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
 		velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
 	
-	t_bob += delta * velocity.length() * float(is_on_floor())
-	camera.transform.origin = _headbob(t_bob)
+	Sine_Wave_Length += delta * velocity.length() * float(is_on_floor())
+	camera.transform.origin = _headbob(Sine_Wave_Length)
 	
 	move_and_slide()
 

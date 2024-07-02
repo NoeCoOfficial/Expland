@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://wdmmuld33xsg"]
+[gd_scene load_steps=9 format=3 uid="uid://wdmmuld33xsg"]
 
 [ext_resource type="PackedScene" uid="uid://cjm5lrxicdgsf" path="res://Scenes and Scripts/Player/Player.tscn" id="2_i2as5"]
 
@@ -22,6 +22,12 @@ glow_enabled = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2cn48"]
 albedo_color = Color(0, 1, 0, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cjjb6"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fbfqv"]
+albedo_color = Color(1, 1, 0, 1)
+
 [node name="World" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -38,6 +44,18 @@ transform = Transform3D(11.5769, 0, 0, 0, 1.36123, 0, 0, 0, 8.28559, -0.155273, 
 use_collision = true
 mesh = SubResource("BoxMesh_ehqci")
 material = SubResource("StandardMaterial3D_2cn48")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="."]
+transform = Transform3D(11.5769, 0, 0, 0, 1.36123, 0, 0, 0, 8.28559, -8.65298, 0.424405, 4.18947)
+use_collision = true
+mesh = SubResource("BoxMesh_ehqci")
+material = SubResource("StandardMaterial3D_cjjb6")
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="."]
+transform = Transform3D(11.5769, 0, 0, 0, 1.36123, 0, 0, 0, 8.28559, -18.2407, 1.21583, 9.59252)
+use_collision = true
+mesh = SubResource("BoxMesh_ehqci")
+material = SubResource("StandardMaterial3D_fbfqv")
 
 [node name="Player" parent="." instance=ExtResource("2_i2as5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.591349, 0)
