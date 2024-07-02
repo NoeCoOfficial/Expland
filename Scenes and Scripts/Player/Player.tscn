@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=5 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Player/Player_SCRIPT.gd" id="1_5mhs1"]
+[ext_resource type="Texture2D" uid="uid://tmqrfb1atg1j" path="res://Textures/Crosshairs/Expland_Crosshair.png" id="2_606ex"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_e8ep2"]
 
@@ -22,3 +23,20 @@ shape = SubResource("ConvexPolygonShape3D_ocuv0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
+
+[node name="CrosshairCanvas" type="CanvasLayer" parent="Head/Camera3D"]
+
+[node name="Crosshair" type="TextureRect" parent="Head/Camera3D/CrosshairCanvas"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.0
+offset_top = -7.0
+offset_right = 7.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_606ex")
+expand_mode = 1

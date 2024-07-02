@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 # General Variables
 @export_category("General")
+@export var StartPOS := Vector3(0, 0, 0)
 @export var ResetPOS := Vector3(0, 0, 0)
 
 # Bob variables
@@ -47,6 +48,7 @@ func _process(_delta):
 
 func _ready():
 	SettingsData.LoadSettings()
+	self.position = StartPOS
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 func _physics_process(delta):
 	# Add the gravity.
