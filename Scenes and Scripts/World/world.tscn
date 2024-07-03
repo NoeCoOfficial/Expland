@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd24ed5mdweah"]
+
+[ext_resource type="PackedScene" uid="uid://dcvm0024gf7g0" path="res://Scenes and Scripts/Objects/Water/LowPolyWater.tscn" id="1_1e71w"]
+
+[node name="World" type="Node3D"]
+
+[node name="LowPolyWater" parent="." instance=ExtResource("1_1e71w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14)

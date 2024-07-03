@@ -1,22 +1,26 @@
 extends CharacterBody3D
 class_name Player
 # General Variables
-@export_category("General")
+
+@export_group("General")
 @export var StartPOS := Vector3(0, 0, 0)
 @export var ResetPOS := Vector3(0, 0, 0)
 
+@export_category("Physics")
+
 # Bob variables
-@export_category("View Bobbing")
+@export_group("View Bobbing")
 @export var BOB_FREQ := 3.0
 @export var BOB_AMP = 0.08
-@export var Sine_Wave_Length = 0.0
+@export_subgroup("Other")
+@export var Wave_Length = 0.0
 
 # Mouse Variables
-@export_category("Mouse")
+@export_group("Mouse")
 @export var SENSITIVITY = 0.001
 
 # Physics Variables
-@export_category("Physics")
+@export_group("Physics")
 var speed
 @export var WALK_SPEED = 5.0
 @export var SPRINT_SPEED = 6.5
@@ -79,8 +83,8 @@ func _physics_process(delta):
 		velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
 		velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
 	
-	Sine_Wave_Length += delta * velocity.length() * float(is_on_floor())
-	camera.transform.origin = _headbob(Sine_Wave_Length)
+	Wave_Length += delta * velocity.length() * float(is_on_floor())
+	camera.transform.origin = _headbob(Wave_Length)
 	
 	move_and_slide()
 
