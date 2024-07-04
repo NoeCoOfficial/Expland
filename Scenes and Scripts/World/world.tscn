@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cd24ed5mdweah"]
+[gd_scene load_steps=9 format=3 uid="uid://cd24ed5mdweah"]
 
 [ext_resource type="PackedScene" uid="uid://dcvm0024gf7g0" path="res://Scenes and Scripts/Objects/Water/LowPolyWater.tscn" id="1_1e71w"]
 [ext_resource type="PackedScene" uid="uid://bse22747lk111" path="res://Assets/3D Models/Tree2.blend" id="2_07q38"]
+[ext_resource type="PackedScene" uid="uid://cdbylnsm71dkk" path="res://Assets/3D Models/Tree3.blend" id="3_6jryj"]
 [ext_resource type="PackedScene" uid="uid://cjm5lrxicdgsf" path="res://Scenes and Scripts/Player/Player.tscn" id="3_6yh0b"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3idn0"]
@@ -25,8 +26,7 @@ glow_enabled = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.802817, -0.596225, -2.60618e-08, 0, -4.37114e-08, 1, -0.596225, 0.802817, 3.50923e-08, 0, 0, 0)
-light_color = Color(1, 1, 0, 1)
-light_energy = 9.55
+light_energy = 3.409
 shadow_enabled = true
 directional_shadow_max_distance = 700.0
 
@@ -39,32 +39,43 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14)
 [node name="Tree2" parent="." instance=ExtResource("2_07q38")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.85221, 11.6253, -27.5052)
 
+[node name="Tree3" parent="." instance=ExtResource("3_6jryj")]
+transform = Transform3D(0.81312, 0, 0, 0, 0.81312, 0, 0, 0, 0.81312, -27.6961, 10.2232, -29.3405)
+
 [node name="Player" parent="." instance=ExtResource("3_6yh0b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.35405, 24.7629, -47.0385)
 StartPOS = Vector3(-5.354, 24.763, -47.038)
 ResetPOS = Vector3(999, 999, 999)
+FOV = 100
 
-[node name="Wall" type="CSGMesh3D" parent="."]
+[node name="Walls" type="Node" parent="."]
+
+[node name="Wall" type="CSGMesh3D" parent="Walls"]
 transform = Transform3D(23.2495, 0, 0, 0, 1.25379, 0, 0, 0, 9.57102, -5.2763, 23.7827, -47.0463)
+visible = false
 use_collision = true
 mesh = SubResource("BoxMesh_nfaly")
 
-[node name="Wall2" type="CSGMesh3D" parent="."]
+[node name="Wall2" type="CSGMesh3D" parent="Walls"]
 transform = Transform3D(23.2495, 0, 0, 0, -5.4805e-08, 9.57102, 0, -1.25379, -4.18363e-07, -5.2763, 23.7827, -51.8734)
+visible = false
 use_collision = true
 mesh = SubResource("BoxMesh_nfaly")
 
-[node name="Wall3" type="CSGMesh3D" parent="."]
+[node name="Wall3" type="CSGMesh3D" parent="Walls"]
 transform = Transform3D(23.2495, 0, 0, 0, -5.4805e-08, 9.57102, 0, -1.25379, -4.18363e-07, -5.2763, 23.7827, -42.1129)
+visible = false
 use_collision = true
 mesh = SubResource("BoxMesh_nfaly")
 
-[node name="Wall4" type="CSGMesh3D" parent="."]
+[node name="Wall4" type="CSGMesh3D" parent="Walls"]
 transform = Transform3D(-1.01627e-06, -1.25379, -4.18363e-07, 0, -5.4805e-08, 9.57102, -23.2495, 5.48051e-08, -1.57159e-14, 5.46131, 23.7827, -49.7679)
+visible = false
 use_collision = true
 mesh = SubResource("BoxMesh_nfaly")
 
-[node name="Wall5" type="CSGMesh3D" parent="."]
+[node name="Wall5" type="CSGMesh3D" parent="Walls"]
 transform = Transform3D(-1.01627e-06, -1.25379, -4.18363e-07, 0, -5.4805e-08, 9.57102, -23.2495, 5.48051e-08, -1.57159e-14, -16.0353, 23.7827, -49.7679)
+visible = false
 use_collision = true
 mesh = SubResource("BoxMesh_nfaly")

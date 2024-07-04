@@ -1,22 +1,24 @@
 extends CharacterBody3D
-class_name Player
 
-# General Variables
-@export_category("General")
-
+# Spawn variables
 @export_group("Spawn")
 @export var StartPOS := Vector3(0, 0, 0)
-@export var ResetPOS := Vector3(0, 0, 0)
+@export var ResetPOS := Vector3(0, 0, 0) # 999, 999, 999 for same as startpos
 
-@export_group("Camera")
+# Visual variables
+@export_group("Visual")
+# Camera variables
+@export_subgroup("Camera")
 @export var FOV = 75
+# Crosshair variables
+@export_subgroup("Crosshair")
+@export var crosshair_size = Vector2(12, 12)
 
-@export_category("Physics")
-
-# Bob variables
+# View bobbing variables
 @export_group("View Bobbing")
 @export var BOB_FREQ := 3.0
 @export var BOB_AMP = 0.08
+# Other view bobbing variables
 @export_subgroup("Other")
 @export var Wave_Length = 0.0
 
@@ -32,14 +34,15 @@ var speed
 @export var JUMP_VELOCITY = 4.5
 @export var gravity = 12.0
 
+
+
+
 # Body parts variables
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
+########################################
 
-
-
-
-
+########################################
 func _input(_event):
 	if Input.is_action_just_pressed("Quit"):
 		get_tree().quit()
@@ -48,21 +51,14 @@ func _input(_event):
 			self.position = StartPOS
 		else:
 			self.position = ResetPOS
-
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(80))
+########################################
 
-func _process(_delta):
-	$Head/Camera3D.fov = FOV
-
-func _ready():
-	SettingsData.LoadSettings()
-	self.position = StartPOS
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
+########################################
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -96,9 +92,22 @@ func _physics_process(delta):
 	camera.transform.origin = _headbob(Wave_Length)
 	
 	move_and_slide()
-
+func _process(_delta):
+	
+	# This has stuff like export var setting
+	$Head/Camera3D.fov = FOV
+	
+	$Head/Camera3D/CrosshairCanvas/Crosshair.size = crosshair_size
+	
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
 	return pos
+######################################
+func _ready():
+	SettingsData.LoadSettings()
+	self.position = StartPOS
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+######################################
+
 
