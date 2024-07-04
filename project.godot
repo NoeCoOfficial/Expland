@@ -28,10 +28,6 @@ SettingsData="*res://Scenes and Scripts/Singletons/SettingsData.gd"
 
 window/size/mode=4
 
-[filesystem]
-
-import/blender/enabled=false
-
 [input]
 
 Jump={

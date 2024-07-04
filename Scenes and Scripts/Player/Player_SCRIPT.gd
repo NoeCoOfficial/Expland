@@ -1,10 +1,15 @@
 extends CharacterBody3D
 class_name Player
-# General Variables
 
-@export_group("General")
+# General Variables
+@export_category("General")
+
+@export_group("Spawn")
 @export var StartPOS := Vector3(0, 0, 0)
 @export var ResetPOS := Vector3(0, 0, 0)
+
+@export_group("Camera")
+@export var FOV = 75
 
 @export_category("Physics")
 
@@ -39,7 +44,10 @@ func _input(_event):
 	if Input.is_action_just_pressed("Quit"):
 		get_tree().quit()
 	elif Input.is_action_just_pressed("Reset"):
-		self.position = ResetPOS
+		if ResetPOS == Vector3(999, 999, 999):
+			self.position = StartPOS
+		else:
+			self.position = ResetPOS
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
@@ -48,12 +56,13 @@ func _unhandled_input(event):
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(80))
 
 func _process(_delta):
-	$Head/Camera3D.fov = SettingsData.FOV
+	$Head/Camera3D.fov = FOV
 
 func _ready():
 	SettingsData.LoadSettings()
 	self.position = StartPOS
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
