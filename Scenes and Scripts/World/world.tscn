@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cd24ed5mdweah"]
+[gd_scene load_steps=12 format=3 uid="uid://cd24ed5mdweah"]
 
 [ext_resource type="Shader" path="res://Scenes and Scripts/Objects/Water/LowPolyWater.gdshader" id="1_70r2a"]
 [ext_resource type="PackedScene" uid="uid://bse22747lk111" path="res://Assets/3D Models/Tree2.blend" id="2_07q38"]
 [ext_resource type="PackedScene" uid="uid://cdbylnsm71dkk" path="res://Assets/3D Models/Tree3.blend" id="3_6jryj"]
 [ext_resource type="PackedScene" uid="uid://cjm5lrxicdgsf" path="res://Scenes and Scripts/Player/Player.tscn" id="3_6yh0b"]
+[ext_resource type="PackedScene" uid="uid://c83ij1khevxpc" path="res://Assets/3D Models/Tree4.blend" id="4_f67wn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3idn0"]
 sky_top_color = Color(0.429029, 0.50793, 0.948547, 1)
@@ -55,10 +56,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.5096, 0)
 mesh = SubResource("PlaneMesh_jjwy4")
 
 [node name="Tree2" parent="." instance=ExtResource("2_07q38")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.85221, 11.6253, -27.5052)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6098, 11.6253, -27.5052)
 
 [node name="Tree3" parent="." instance=ExtResource("3_6jryj")]
 transform = Transform3D(0.81312, 0, 0, 0, 0.81312, 0, 0, 0, 0.81312, -27.6961, 10.2232, -29.3405)
+
+[node name="Tree4" parent="." instance=ExtResource("4_f67wn")]
+transform = Transform3D(1.33581, 0, 0, 0, 1.33581, 0, 0, 0, 1.33581, 37.2414, 15.3481, -35.465)
 
 [node name="Player" parent="." instance=ExtResource("3_6yh0b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.35405, 24.7629, -47.0385)
