@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+
+
 # Spawn variables
 @export_group("Spawn")
 @export var StartPOS := Vector3(0, 0, 0)
@@ -41,7 +43,6 @@ var speed
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 ########################################
-
 ########################################
 func _input(_event):
 	if Input.is_action_just_pressed("Quit"):
@@ -105,7 +106,7 @@ func _headbob(time) -> Vector3:
 	return pos
 ######################################
 func _ready():
-	SettingsData.LoadSettings()
+	PlayerSettingsData.LoadSettings()
 	self.position = StartPOS
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 ######################################

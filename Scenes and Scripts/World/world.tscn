@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://cd24ed5mdweah"]
+[gd_scene load_steps=11 format=3 uid="uid://cd24ed5mdweah"]
 
-[ext_resource type="PackedScene" uid="uid://dcvm0024gf7g0" path="res://Scenes and Scripts/Objects/Water/LowPolyWater.tscn" id="1_1e71w"]
+[ext_resource type="Shader" path="res://Scenes and Scripts/Objects/Water/LowPolyWater.gdshader" id="1_70r2a"]
 [ext_resource type="PackedScene" uid="uid://bse22747lk111" path="res://Assets/3D Models/Tree2.blend" id="2_07q38"]
 [ext_resource type="PackedScene" uid="uid://cdbylnsm71dkk" path="res://Assets/3D Models/Tree3.blend" id="3_6jryj"]
 [ext_resource type="PackedScene" uid="uid://cjm5lrxicdgsf" path="res://Scenes and Scripts/Player/Player.tscn" id="3_6yh0b"]
@@ -20,6 +20,23 @@ sky = SubResource("Sky_wcbmd")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v0ins"]
+render_priority = 0
+shader = ExtResource("1_70r2a")
+shader_parameter/out_color = Color(0.262745, 1, 1, 1)
+shader_parameter/amount = 2.3
+shader_parameter/speed = 1.2
+shader_parameter/beer_factor = 1.0
+shader_parameter/metallic = 0.6
+shader_parameter/specular = 3.0
+shader_parameter/roughness = 0.2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jjwy4"]
+material = SubResource("ShaderMaterial_v0ins")
+size = Vector2(100, 100)
+subdivide_width = 30
+subdivide_depth = 30
+
 [sub_resource type="BoxMesh" id="BoxMesh_nfaly"]
 
 [node name="World" type="Node3D"]
@@ -33,8 +50,8 @@ directional_shadow_max_distance = 700.0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_erbq8")
 
-[node name="LowPolyWater" parent="." instance=ExtResource("1_1e71w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_jjwy4")
 
 [node name="Tree2" parent="." instance=ExtResource("2_07q38")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.85221, 11.6253, -27.5052)
@@ -51,31 +68,31 @@ FOV = 100
 [node name="Walls" type="Node" parent="."]
 
 [node name="Wall" type="CSGMesh3D" parent="Walls"]
-transform = Transform3D(23.2495, 0, 0, 0, 1.25379, 0, 0, 0, 9.57102, -5.2763, 23.7827, -47.0463)
+transform = Transform3D(168.149, 0, 0, 0, 1.25379, 0, 0, 0, 9.57102, -5.2763, 23.7827, -47.0463)
 visible = false
 use_collision = true
 mesh = SubResource("BoxMesh_nfaly")
 
 [node name="Wall2" type="CSGMesh3D" parent="Walls"]
-transform = Transform3D(23.2495, 0, 0, 0, -5.4805e-08, 9.57102, 0, -1.25379, -4.18363e-07, -5.2763, 23.7827, -51.8734)
+transform = Transform3D(106.648, 0, 0, 0, -5.4805e-08, 9.57102, 0, -1.25379, -4.18363e-07, -5.2763, 23.7827, -51.8734)
 visible = false
 use_collision = true
 mesh = SubResource("BoxMesh_nfaly")
 
 [node name="Wall3" type="CSGMesh3D" parent="Walls"]
-transform = Transform3D(23.2495, 0, 0, 0, -5.4805e-08, 9.57102, 0, -1.25379, -4.18363e-07, -5.2763, 23.7827, -42.1129)
+transform = Transform3D(104.93, 0, 0, 0, -5.34578e-08, 9.33575, 0, -1.22297, -4.08079e-07, -5.2763, 23.7827, -41.7639)
 visible = false
 use_collision = true
 mesh = SubResource("BoxMesh_nfaly")
 
 [node name="Wall4" type="CSGMesh3D" parent="Walls"]
-transform = Transform3D(-1.01627e-06, -1.25379, -4.18363e-07, 0, -5.4805e-08, 9.57102, -23.2495, 5.48051e-08, -1.57159e-14, 5.46131, 23.7827, -49.7679)
+transform = Transform3D(-1.28671e-06, -1.25379, -4.18363e-07, 0, -5.4805e-08, 9.57102, -29.4365, 5.48051e-08, -1.57159e-14, 40.7053, 23.7827, -49.7679)
 visible = false
 use_collision = true
 mesh = SubResource("BoxMesh_nfaly")
 
 [node name="Wall5" type="CSGMesh3D" parent="Walls"]
-transform = Transform3D(-1.01627e-06, -1.25379, -4.18363e-07, 0, -5.4805e-08, 9.57102, -23.2495, 5.48051e-08, -1.57159e-14, -16.0353, 23.7827, -49.7679)
+transform = Transform3D(-1.01627e-06, -1.25379, -4.18363e-07, 0, -5.4805e-08, 9.57102, -23.2495, 5.48051e-08, -1.57159e-14, -55.397, 23.7985, -49.7539)
 visible = false
 use_collision = true
 mesh = SubResource("BoxMesh_nfaly")

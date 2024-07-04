@@ -22,7 +22,7 @@ config/icon="res://Textures/Icons/Expland-icon.png"
 
 [autoload]
 
-SettingsData="*res://Scenes and Scripts/Singletons/SettingsData.gd"
+PlayerSettingsData="*res://Scenes and Scripts/Singletons/PlayerSettingsData.gd"
 
 [display]
 

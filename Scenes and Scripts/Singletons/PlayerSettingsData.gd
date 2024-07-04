@@ -2,7 +2,7 @@ extends Node
 
 const SAVE_PATH = "res://settings.dat"
 
-var FOV = 88
+var FOV = 100
 
 
 
@@ -21,11 +21,12 @@ func SaveSettings() -> void:
 	}
 	var jstr = JSON.stringify(data)
 	file.store_line(jstr)
+	print("--Saved Player Settings--")
 
 func LoadSettings() -> void:
 	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
 	if not file:
-		print("File doesn't exist (" + SAVE_PATH + ")")
+		push_warning("File doesn't exist (" + SAVE_PATH + ")")
 		return
 	if file == null:
 		return
@@ -33,7 +34,7 @@ func LoadSettings() -> void:
 		if not file.eof_reached():
 			var current_line = JSON.parse_string(file.get_line())
 			if current_line:
-				print("--Loaded Settings--")
+				print("--Loaded Player Settings--")
 				FOV = current_line["FOV"]
 
 # Called when the node enters the scene tree for the first time.
