@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=7 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Player/Player_SCRIPT.gd" id="1_5mhs1"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Player/Children/Camera3D_SCRIPT.gd" id="2_37tst"]
 [ext_resource type="Texture2D" uid="uid://tmqrfb1atg1j" path="res://Textures/Crosshairs/Expland_Crosshair.png" id="2_606ex"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Player/Children/Crosshair_SCRIPT.gd" id="3_t4an0"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_e8ep2"]
 
@@ -10,6 +12,7 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_5mhs1")
+Fade_In = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -23,6 +26,7 @@ shape = SubResource("ConvexPolygonShape3D_ocuv0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
+script = ExtResource("2_37tst")
 
 [node name="CrosshairCanvas" type="CanvasLayer" parent="Head/Camera3D"]
 
@@ -40,3 +44,17 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_606ex")
 expand_mode = 1
+script = ExtResource("3_t4an0")
+
+[node name="FadeIn_OutCanvas" type="CanvasLayer" parent="Head/Camera3D"]
+
+[node name="Overlay" type="ColorRect" parent="Head/Camera3D/FadeIn_OutCanvas"]
+process_priority = 10
+editor_description = "A Multipurpose overlay."
+z_as_relative = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

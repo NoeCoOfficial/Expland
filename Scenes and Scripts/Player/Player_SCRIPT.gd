@@ -1,3 +1,4 @@
+@icon("res://Textures/Icons/Script Icons/32x32/character_edit.png")
 extends CharacterBody3D
 
 
@@ -6,6 +7,15 @@ extends CharacterBody3D
 @export_group("Spawn")
 @export var StartPOS := Vector3(0, 0, 0)
 @export var ResetPOS := Vector3(0, 0, 0) # 999, 999, 999 for same as startpos
+
+@export_subgroup("Fade_In")
+@export var Fade_In := false
+@export var Fade_In_Colour := Color(0, 0, 0, 1)
+@export var Fade_In_Time := 1.000
+
+@export_group("Input")
+@export var Reset := true
+@export var Quit := true
 
 # Visual variables
 @export_group("Visual")
@@ -45,9 +55,9 @@ var speed
 ########################################
 ########################################
 func _input(_event):
-	if Input.is_action_just_pressed("Quit"):
+	if Input.is_action_just_pressed("Quit") and Quit == true:
 		get_tree().quit()
-	elif Input.is_action_just_pressed("Reset"):
+	if Input.is_action_just_pressed("Reset") and Reset == true:
 		if ResetPOS == Vector3(999, 999, 999):
 			self.position = StartPOS
 		else:
@@ -106,9 +116,17 @@ func _headbob(time) -> Vector3:
 	return pos
 ######################################
 func _ready():
-	PlayerSettingsData.LoadSettings()
-	self.position = StartPOS
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	PlayerSettingsData.LoadSettings()
+	
+	if Fade_In == true:
+		$Head/Camera3D/FadeIn_OutCanvas/Overlay.show()
+		var tween = get_tree().create_tween()
+		tween.tween_property($Head/Camera3D/FadeIn_OutCanvas/Overlay, "self_modulate", Color(0, 0, 0, 0), Fade_In_Time).from(Fade_In_Colour)
+		tween.tween_property($Head/Camera3D/FadeIn_OutCanvas/Overlay, "visible", false, 0)
+	else:
+		$Head/Camera3D/FadeIn_OutCanvas/Overlay.hide()
+	self.position = StartPOS
 ######################################
 
 
