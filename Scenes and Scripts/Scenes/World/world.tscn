@@ -1,19 +1,18 @@
-[gd_scene load_steps=21 format=3 uid="uid://cd24ed5mdweah"]
+[gd_scene load_steps=20 format=3 uid="uid://cd24ed5mdweah"]
 
-[ext_resource type="Script" path="res://Scenes and Scripts/World/Children/WorldEnvironment_SCRIPT.gd" id="1_1gnsl"]
-[ext_resource type="Shader" path="res://Scenes and Scripts/Objects/Water/LowPolyWater.gdshader" id="1_70r2a"]
-[ext_resource type="Script" path="res://Scenes and Scripts/World/world_SCRIPT.gd" id="1_j3awn"]
-[ext_resource type="PackedScene" uid="uid://bse22747lk111" path="res://Assets/3D Models/Tree2.blend" id="2_07q38"]
-[ext_resource type="Script" path="res://Scenes and Scripts/World/Children/DirectionalLight3D_SCRIPT.gd" id="2_ox5mt"]
-[ext_resource type="PackedScene" uid="uid://cdbylnsm71dkk" path="res://Assets/3D Models/Tree3.blend" id="3_6jryj"]
-[ext_resource type="PackedScene" uid="uid://cjm5lrxicdgsf" path="res://Scenes and Scripts/Player/Player.tscn" id="3_6yh0b"]
-[ext_resource type="Script" path="res://Assets/3D Models/Scripts/Tree2_SCRIPT.gd" id="4_esxor"]
-[ext_resource type="PackedScene" uid="uid://c83ij1khevxpc" path="res://Assets/3D Models/Tree4.blend" id="4_f67wn"]
-[ext_resource type="Script" path="res://Assets/3D Models/Scripts/Tree3_SCRIPT.gd" id="5_r8qc8"]
-[ext_resource type="Script" path="res://Scenes and Scripts/World/Children/LowPolyWater_SCRIPT.gd" id="5_uiuqr"]
-[ext_resource type="PackedScene" uid="uid://bcnphmmp32ftb" path="res://Assets/3D Models/Tree5.blend" id="6_ctw76"]
-[ext_resource type="Script" path="res://Assets/3D Models/Scripts/Tree4_SCRIPT.gd" id="7_3idym"]
-[ext_resource type="Script" path="res://Assets/3D Models/Scripts/Tree5_SCRIPT.gd" id="9_ym4qs"]
+[ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/WorldpageIcon_SCRIPT.gd" id="1_1gnsl"]
+[ext_resource type="Shader" path="res://Assets/3D Models/Water/LowPolyWater.gdshader" id="1_70r2a"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/World/world_SCRIPT.gd" id="1_j3awn"]
+[ext_resource type="PackedScene" uid="uid://bse22747lk111" path="res://Assets/3D Models/Trees/Normal/Tree2.blend" id="2_07q38"]
+[ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/LightbulbIcon_SCRIPT.gd" id="2_ox5mt"]
+[ext_resource type="PackedScene" uid="uid://cdbylnsm71dkk" path="res://Assets/3D Models/Trees/Normal/Tree3.blend" id="3_6jryj"]
+[ext_resource type="PackedScene" uid="uid://cjm5lrxicdgsf" path="res://Scenes and Scripts/Scenes/Player/Player.tscn" id="3_6yh0b"]
+[ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/TreeIcon_SCRIPT.gd" id="4_esxor"]
+[ext_resource type="PackedScene" uid="uid://c83ij1khevxpc" path="res://Assets/3D Models/Trees/Normal/Tree4.blend" id="4_f67wn"]
+[ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/RiverIcon_SCRIPT.gd" id="5_uiuqr"]
+[ext_resource type="PackedScene" uid="uid://d0uinxy2wgtd3" path="res://Assets/3D Models/Trees/Normal/Tree1.blend" id="6_adqfm"]
+[ext_resource type="PackedScene" uid="uid://bcnphmmp32ftb" path="res://Assets/3D Models/Trees/Normal/Tree5.blend" id="6_ctw76"]
+[ext_resource type="PackedScene" uid="uid://c2m0os2tluixv" path="res://Assets/3D Models/Trees/Normal/Animation Test/Tree1 (Animation Test).blend" id="13_4phb7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3idn0"]
 sky_top_color = Color(0.429029, 0.50793, 0.948547, 1)
@@ -68,21 +67,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.5096, 0)
 mesh = SubResource("PlaneMesh_jjwy4")
 script = ExtResource("5_uiuqr")
 
+[node name="Tree1" parent="." instance=ExtResource("6_adqfm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.53419, 10.4217, -0.828329)
+script = ExtResource("4_esxor")
+
 [node name="Tree2" parent="." instance=ExtResource("2_07q38")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6098, 11.6253, -27.5052)
 script = ExtResource("4_esxor")
 
 [node name="Tree3" parent="." instance=ExtResource("3_6jryj")]
 transform = Transform3D(0.81312, 0, 0, 0, 0.81312, 0, 0, 0, 0.81312, -27.6961, 10.2232, -29.3405)
-script = ExtResource("5_r8qc8")
+script = ExtResource("4_esxor")
 
 [node name="Tree4" parent="." instance=ExtResource("4_f67wn")]
 transform = Transform3D(1.33581, 0, 0, 0, 1.33581, 0, 0, 0, 1.33581, 37.2414, 15.3481, -35.465)
-script = ExtResource("7_3idym")
+script = ExtResource("4_esxor")
 
 [node name="Tree5" parent="." instance=ExtResource("6_ctw76")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.9487, 11.0572, -7.28475)
-script = ExtResource("9_ym4qs")
+transform = Transform3D(-7.43094e-08, 0, -1.7, 0, 1.7, 0, 1.7, 0, -7.43094e-08, 34.9487, 13.2041, -4.15865)
+script = ExtResource("4_esxor")
 
 [node name="Player" parent="." instance=ExtResource("3_6yh0b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.35405, 24.7629, -47.0385)
@@ -122,3 +125,6 @@ transform = Transform3D(-8.38194e-06, -1.25379, -4.18363e-07, 0, -5.4805e-08, 9.
 visible = false
 use_collision = true
 mesh = SubResource("BoxMesh_nfaly")
+
+[node name="Tree1 (Animation Test)" parent="." instance=ExtResource("13_4phb7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.1472, 24.4096, 15.91)

@@ -1,3 +1,4 @@
+// USE THIS ON A CSGMESH PLANE SUBDIVIDED BY 50 ON BOTH AXIS (or whatever your preferences are)
 shader_type spatial;
 
 uniform sampler2D DEPTH_TEXTURE : hint_depth_texture, filter_linear_mipmap;

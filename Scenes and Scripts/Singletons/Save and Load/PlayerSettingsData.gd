@@ -34,8 +34,10 @@ func LoadSettings() -> void:
 		if not file.eof_reached():
 			var current_line = JSON.parse_string(file.get_line())
 			if current_line:
-				print("--Loaded Player Settings--")
 				FOV = current_line["FOV"]
+				print_rich("[center][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf][font_size=30]--PLAYER SETTINGS HAVE BEEN LOADED--[/font_size][/font][/center]")
+				
+				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]FOV: "+str(FOV)+"[/font][/font_size][/center]")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

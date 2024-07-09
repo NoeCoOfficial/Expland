@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bse22747lk111"
-path="res://.godot/imported/Tree2.blend-1f2e155aa5c15859c894e753bb7cf214.scn"
+uid="uid://c2vb563dpgipc"
+path="res://.godot/imported/Tree8.blend-1e5b901d8059dec7f29e5241e0f720f6.scn"
 
 [deps]
 
-source_file="res://Assets/3D Models/Tree2.blend"
-dest_files=["res://.godot/imported/Tree2.blend-1f2e155aa5c15859c894e753bb7cf214.scn"]
+source_file="res://Assets/3D Models/Trees/Normal/Tree8.blend"
+dest_files=["res://.godot/imported/Tree8.blend-1e5b901d8059dec7f29e5241e0f720f6.scn"]
 
 [params]
 
@@ -37,7 +37,7 @@ blender/nodes/punctual_lights=true
 blender/nodes/cameras=true
 blender/nodes/custom_properties=true
 blender/nodes/modifiers=1
-blender/meshes/colors=true
+blender/meshes/colors=false
 blender/meshes/uvs=true
 blender/meshes/normals=true
 blender/meshes/tangents=true

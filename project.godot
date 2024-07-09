@@ -14,7 +14,7 @@ config/name="Expland"
 config/description="Face adversity and discover a second chance in a mysterious world."
 config/version="0.0.1-beta"
 config/tags=PackedStringArray("3d", "noeco")
-run/main_scene="res://Scenes and Scripts/World/world.tscn"
+run/main_scene="res://Scenes and Scripts/Scenes/World/world.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
@@ -22,7 +22,7 @@ config/icon="res://Textures/Icons/Expland-icon.png"
 
 [autoload]
 
-PlayerSettingsData="*res://Scenes and Scripts/Singletons/PlayerSettingsData.gd"
+PlayerSettingsData="*res://Scenes and Scripts/Singletons/Save and Load/PlayerSettingsData.gd"
 
 [display]
 
