@@ -19,9 +19,11 @@ extends CharacterBody3D
 
 # Visual variables
 @export_group("Visual")
+
 # Camera variables
 @export_subgroup("Camera")
-@export var FOV = 75
+@export var FOV := 116 # set to 9999 to get the player save value
+
 # Crosshair variables
 @export_subgroup("Crosshair")
 @export var crosshair_size = Vector2(12, 12)
@@ -106,7 +108,12 @@ func _physics_process(delta):
 func _process(_delta):
 	
 	# This has stuff like export var setting
-	$Head/Camera3D.fov = FOV
+	
+	
+	if FOV == 9999:
+		$Head/Camera3D.fov = PlayerSettingsData.FOV
+	else:
+		$Head/Camera3D.fov = FOV
 	
 	$Head/Camera3D/CrosshairCanvas/Crosshair.size = crosshair_size
 	

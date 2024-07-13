@@ -12,7 +12,7 @@
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/RiverIcon_SCRIPT.gd" id="5_uiuqr"]
 [ext_resource type="PackedScene" uid="uid://d0uinxy2wgtd3" path="res://Assets/3D Models/Trees/Normal/Tree1.blend" id="6_adqfm"]
 [ext_resource type="PackedScene" uid="uid://bcnphmmp32ftb" path="res://Assets/3D Models/Trees/Normal/Tree5.blend" id="6_ctw76"]
-[ext_resource type="PackedScene" uid="uid://c2m0os2tluixv" path="res://Assets/3D Models/Trees/Normal/Animation Test/Tree1 (Animation Test).blend" id="13_4phb7"]
+[ext_resource type="PackedScene" uid="uid://cwyukuqyf0pxb" path="res://Assets/3D Models/Trees/Normal/Tree6.blend" id="13_gl4d7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3idn0"]
 sky_top_color = Color(0.429029, 0.50793, 0.948547, 1)
@@ -87,12 +87,16 @@ script = ExtResource("4_esxor")
 transform = Transform3D(-7.43094e-08, 0, -1.7, 0, 1.7, 0, 1.7, 0, -7.43094e-08, 34.9487, 13.2041, -4.15865)
 script = ExtResource("4_esxor")
 
+[node name="Tree6" parent="." instance=ExtResource("13_gl4d7")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -27.174, 13.2729, 0.623828)
+script = ExtResource("4_esxor")
+
 [node name="Player" parent="." instance=ExtResource("3_6yh0b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.35405, 24.7629, -47.0385)
 StartPOS = Vector3(-5.354, 24.763, -47.038)
 ResetPOS = Vector3(999, 999, 999)
 Fade_In_Time = 0.4
-FOV = 100
+FOV = 9999
 
 [node name="Walls" type="Node" parent="."]
 
@@ -125,6 +129,3 @@ transform = Transform3D(-8.38194e-06, -1.25379, -4.18363e-07, 0, -5.4805e-08, 9.
 visible = false
 use_collision = true
 mesh = SubResource("BoxMesh_nfaly")
-
-[node name="Tree1 (Animation Test)" parent="." instance=ExtResource("13_4phb7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.1472, 24.4096, 15.91)
