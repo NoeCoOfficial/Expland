@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cd24ed5mdweah"]
+[gd_scene load_steps=23 format=3 uid="uid://cd24ed5mdweah"]
 
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/WorldpageIcon_SCRIPT.gd" id="1_1gnsl"]
 [ext_resource type="Shader" path="res://Assets/3D Models/Water/LowPolyWater.gdshader" id="1_70r2a"]
@@ -13,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://d0uinxy2wgtd3" path="res://Assets/3D Models/Trees/Normal/Tree1.blend" id="6_adqfm"]
 [ext_resource type="PackedScene" uid="uid://bcnphmmp32ftb" path="res://Assets/3D Models/Trees/Normal/Tree5.blend" id="6_ctw76"]
 [ext_resource type="PackedScene" uid="uid://cwyukuqyf0pxb" path="res://Assets/3D Models/Trees/Normal/Tree6.blend" id="13_gl4d7"]
+[ext_resource type="PackedScene" uid="uid://daxauomaprtus" path="res://Assets/3D Models/Trees/Normal/Tree7.blend" id="14_mkpsf"]
+[ext_resource type="PackedScene" uid="uid://c2vb563dpgipc" path="res://Assets/3D Models/Trees/Normal/Tree8.blend" id="15_txoru"]
+[ext_resource type="PackedScene" uid="uid://0stf8uio7dg2" path="res://Assets/3D Models/Trees/Normal/Tree9.blend" id="16_mxrey"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3idn0"]
 sky_top_color = Color(0.429029, 0.50793, 0.948547, 1)
@@ -68,28 +71,31 @@ mesh = SubResource("PlaneMesh_jjwy4")
 script = ExtResource("5_uiuqr")
 
 [node name="Tree1" parent="." instance=ExtResource("6_adqfm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.53419, 10.4217, -0.828329)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.606, 9.80146, -41.6105)
 script = ExtResource("4_esxor")
 
 [node name="Tree2" parent="." instance=ExtResource("2_07q38")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6098, 11.6253, -27.5052)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5111, 11.6253, -38.2846)
 script = ExtResource("4_esxor")
 
 [node name="Tree3" parent="." instance=ExtResource("3_6jryj")]
-transform = Transform3D(0.81312, 0, 0, 0, 0.81312, 0, 0, 0, 0.81312, -27.6961, 10.2232, -29.3405)
+transform = Transform3D(0.81312, 0, 0, 0, 0.81312, 0, 0, 0, 0.81312, 8.39265, 10.0692, -35.9368)
 script = ExtResource("4_esxor")
 
 [node name="Tree4" parent="." instance=ExtResource("4_f67wn")]
-transform = Transform3D(1.33581, 0, 0, 0, 1.33581, 0, 0, 0, 1.33581, 37.2414, 15.3481, -35.465)
+transform = Transform3D(1.33581, 0, 0, 0, 1.33581, 0, 0, 0, 1.33581, 29.6221, 14.2958, -41.3299)
 script = ExtResource("4_esxor")
 
 [node name="Tree5" parent="." instance=ExtResource("6_ctw76")]
-transform = Transform3D(-7.43094e-08, 0, -1.7, 0, 1.7, 0, 1.7, 0, -7.43094e-08, 34.9487, 13.2041, -4.15865)
+transform = Transform3D(-7.43094e-08, 0, -1.7, 0, 1.7, 0, 1.7, 0, -7.43094e-08, -36.6414, 13.2041, -19.5887)
 script = ExtResource("4_esxor")
 
 [node name="Tree6" parent="." instance=ExtResource("13_gl4d7")]
-transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -27.174, 13.2729, 0.623828)
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -12.2282, 13.2729, -20.853)
 script = ExtResource("4_esxor")
+
+[node name="Tree7" parent="." instance=ExtResource("14_mkpsf")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 13.1603, 8.31137, -20.1709)
 
 [node name="Player" parent="." instance=ExtResource("3_6yh0b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.35405, 24.7629, -47.0385)
@@ -129,3 +135,9 @@ transform = Transform3D(-8.38194e-06, -1.25379, -4.18363e-07, 0, -5.4805e-08, 9.
 visible = false
 use_collision = true
 mesh = SubResource("BoxMesh_nfaly")
+
+[node name="Tree8" parent="." instance=ExtResource("15_txoru")]
+transform = Transform3D(1.9, 0, 0, 0, 1.9, 0, 0, 0, 1.9, 30.3708, 10.9559, -18.9366)
+
+[node name="Tree9" parent="." instance=ExtResource("16_mxrey")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -38.0394, 11.7072, 0.276182)

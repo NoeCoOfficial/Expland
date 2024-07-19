@@ -44,7 +44,7 @@ extends CharacterBody3D
 @export_group("Physics")
 var speed
 @export var WALK_SPEED = 5.0
-@export var SPRINT_SPEED = 6.5
+@export var SPRINT_SPEED = 8.0
 @export var JUMP_VELOCITY = 4.5
 @export var gravity = 12.0
 
