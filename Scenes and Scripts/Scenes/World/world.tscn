@@ -96,6 +96,15 @@ script = ExtResource("4_esxor")
 
 [node name="Tree7" parent="." instance=ExtResource("14_mkpsf")]
 transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 13.1603, 8.31137, -20.1709)
+script = ExtResource("4_esxor")
+
+[node name="Tree8" parent="." instance=ExtResource("15_txoru")]
+transform = Transform3D(1.9, 0, 0, 0, 1.9, 0, 0, 0, 1.9, 30.3708, 10.9559, -18.9366)
+script = ExtResource("4_esxor")
+
+[node name="Tree9" parent="." instance=ExtResource("16_mxrey")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -38.0394, 11.7072, 0.276182)
+script = ExtResource("4_esxor")
 
 [node name="Player" parent="." instance=ExtResource("3_6yh0b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.35405, 24.7629, -47.0385)
@@ -135,9 +144,3 @@ transform = Transform3D(-8.38194e-06, -1.25379, -4.18363e-07, 0, -5.4805e-08, 9.
 visible = false
 use_collision = true
 mesh = SubResource("BoxMesh_nfaly")
-
-[node name="Tree8" parent="." instance=ExtResource("15_txoru")]
-transform = Transform3D(1.9, 0, 0, 0, 1.9, 0, 0, 0, 1.9, 30.3708, 10.9559, -18.9366)
-
-[node name="Tree9" parent="." instance=ExtResource("16_mxrey")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -38.0394, 11.7072, 0.276182)
