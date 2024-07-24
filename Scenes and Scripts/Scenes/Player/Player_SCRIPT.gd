@@ -189,7 +189,6 @@ func TakeDamageOverlay():
 func RespawnFromDeath():
 	self.position = StartPOS
 	Health = MaxHealth
-	PlayerData.Health = Health
 	var tween = get_tree().create_tween()
 	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay, "self_modulate", Color(0, 0, 0, 0), 3)
 func _on_death_screen_finished():

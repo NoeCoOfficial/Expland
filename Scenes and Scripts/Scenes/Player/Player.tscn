@@ -23,7 +23,7 @@ Fade_In = true
 FOV = 9999
 
 [node name="AutoSaveTimer" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 2.0
 autostart = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
