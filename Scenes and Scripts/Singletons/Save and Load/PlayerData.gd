@@ -4,10 +4,7 @@ const SAVE_PATH = "res://player.dat"
 
 var Health := 100
 
-
-
-
-func SaveSettings() -> void:
+func SaveData() -> void:
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	var data = {
 		
@@ -17,7 +14,7 @@ func SaveSettings() -> void:
 	file.store_line(jstr)
 	print("--Saved Player Settings--")
 
-func LoadSettings() -> void:
+func LoadData() -> void:
 	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
 	if not file:
 		push_warning("File doesn't exist (" + SAVE_PATH + ")")

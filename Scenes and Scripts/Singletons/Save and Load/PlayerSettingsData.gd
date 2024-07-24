@@ -22,7 +22,6 @@ func SaveSettings() -> void:
 	var jstr = JSON.stringify(data)
 	file.store_line(jstr)
 	print("--Saved Player Settings--")
-
 func LoadSettings() -> void:
 	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
 	if not file:

@@ -119,15 +119,20 @@ func _process(_delta):
 		$Head/Camera3D.fov = FOV
 	
 	$Head/Camera3D/CrosshairCanvas/Crosshair.size = crosshair_size
-	
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP
 	return pos
 ######################################
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock mouse
+	
+	
 	PlayerSettingsData.LoadSettings()
+	PlayerData.LoadData()
+	
+	
 	
 	if Fade_In == true:
 		$Head/Camera3D/FadeIn_OutCanvas/Overlay.show()
