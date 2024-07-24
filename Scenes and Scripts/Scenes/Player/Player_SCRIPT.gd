@@ -110,7 +110,7 @@ func _physics_process(delta):
 	move_and_slide()
 func _process(_delta):
 	
-	$Head/Camera3D/CanvasLayer/HealthLBL.text = "Health: " + str(Health)
+	$Head/Camera3D/CrosshairCanvas/HealthLBL.text = "Health: " + str(Health)
 	# This has stuff like export var setting
 	
 	
@@ -127,28 +127,27 @@ func _headbob(time) -> Vector3:
 ######################################
 func _ready():
 	
-	$Head/Camera3D/TakeDamageRedOverlay/RedOverlay.set_self_modulate(Color(1, 0.016, 0, 0))
+	$Head/Camera3D/CrosshairCanvas/RedOverlay.set_self_modulate(Color(1, 0.016, 0, 0))
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock mouse
 	
 	
 	PlayerSettingsData.LoadSettings()
 	PlayerData.LoadData()
 	
-	
 	if Fade_In == true:
-		$Head/Camera3D/FadeIn_OutCanvas/Overlay.show()
+		$Head/Camera3D/CrosshairCanvas/Overlay.show()
 		var tween = get_tree().create_tween()
-		tween.tween_property($Head/Camera3D/FadeIn_OutCanvas/Overlay, "self_modulate", Color(0, 0, 0, 0), Fade_In_Time).from(Fade_In_Colour)
-		tween.tween_property($Head/Camera3D/FadeIn_OutCanvas/Overlay, "visible", false, 0)
+		tween.tween_property($Head/Camera3D/CrosshairCanvas/Overlay, "self_modulate", Color(0, 0, 0, 0), Fade_In_Time).from(Fade_In_Colour)
+		tween.tween_property($Head/Camera3D/CrosshairCanvas/Overlay, "visible", false, 0)
 	else:
-		$Head/Camera3D/FadeIn_OutCanvas/Overlay.hide()
+		$Head/Camera3D/CrosshairCanvas/Overlay.hide()
 	self.position = StartPOS
 ######################################
 
 func TakeDamageOverlay():
 	var tween = get_tree().create_tween()
-	tween.tween_property($Head/Camera3D/TakeDamageRedOverlay/RedOverlay, "self_modulate", Color(1, 0.018, 0, 0.808), 0).from(Color(1, 0.016, 0, 0))
-	tween.tween_property($Head/Camera3D/TakeDamageRedOverlay/RedOverlay, "self_modulate", Color(1, 0.016, 0, 0), 0.5)
+	tween.tween_property($Head/Camera3D/CrosshairCanvas/RedOverlay, "self_modulate", Color(1, 0.018, 0, 0.808), 0).from(Color(1, 0.016, 0, 0))
+	tween.tween_property($Head/Camera3D/CrosshairCanvas/RedOverlay, "self_modulate", Color(1, 0.016, 0, 0), 0.5)
 func DeathScreen():
 	pass
 

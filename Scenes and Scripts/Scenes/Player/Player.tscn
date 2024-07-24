@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=11 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
 [ext_resource type="Texture2D" uid="uid://tmqrfb1atg1j" path="res://Textures/Crosshairs/Expland_Crosshair.png" id="2_606ex"]
-[ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CrosshairIcon_SCRIPT.gd" id="3_t4an0"]
 [ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="3_yecwp"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/HealthLBL_SCRIPT.gd" id="4_56i84"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Crosshair_SCRIPT.gd" id="5_56a8a"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/RedOverlay_SCRIPT.gd" id="7_gnu1v"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Overlay_SCRIPT.gd" id="8_uxqns"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_e8ep2"]
 
@@ -29,9 +32,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 [node name="Camera3D" type="Camera3D" parent="Head"]
 script = ExtResource("2_37tst")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Head/Camera3D"]
+[node name="CrosshairCanvas" type="CanvasLayer" parent="Head/Camera3D"]
 
-[node name="HealthLBL" type="Label" parent="Head/Camera3D/CanvasLayer"]
+[node name="HealthLBL" type="Label" parent="Head/Camera3D/CrosshairCanvas"]
 offset_left = 8.0
 offset_top = 10.0
 offset_right = 163.0
@@ -39,8 +42,7 @@ offset_bottom = 81.0
 theme_override_fonts/font = ExtResource("3_yecwp")
 theme_override_font_sizes/font_size = 30
 text = "Health : 100"
-
-[node name="CrosshairCanvas" type="CanvasLayer" parent="Head/Camera3D"]
+script = ExtResource("4_56i84")
 
 [node name="Crosshair" type="TextureRect" parent="Head/Camera3D/CrosshairCanvas"]
 anchors_preset = 8
@@ -56,24 +58,9 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_606ex")
 expand_mode = 1
-script = ExtResource("3_t4an0")
+script = ExtResource("5_56a8a")
 
-[node name="FadeIn_OutCanvas" type="CanvasLayer" parent="Head/Camera3D"]
-
-[node name="Overlay" type="ColorRect" parent="Head/Camera3D/FadeIn_OutCanvas"]
-process_priority = 10
-editor_description = "A Multipurpose overlay."
-z_as_relative = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="TakeDamageRedOverlay" type="CanvasLayer" parent="Head/Camera3D"]
-
-[node name="RedOverlay" type="ColorRect" parent="Head/Camera3D/TakeDamageRedOverlay"]
+[node name="RedOverlay" type="ColorRect" parent="Head/Camera3D/CrosshairCanvas"]
 process_priority = 10
 editor_description = "A Multipurpose overlay."
 z_as_relative = false
@@ -83,3 +70,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 0.016, 0, 0.808)
+script = ExtResource("7_gnu1v")
+
+[node name="Overlay" type="ColorRect" parent="Head/Camera3D/CrosshairCanvas"]
+process_priority = 10
+editor_description = "A Multipurpose overlay."
+z_as_relative = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("8_uxqns")
