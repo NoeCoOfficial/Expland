@@ -20,6 +20,11 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_5mhs1")
 Fade_In = true
+FOV = 9999
+
+[node name="AutoSaveTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -137,3 +142,5 @@ text = "Get Up."
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("11_0enap")
+
+[connection signal="timeout" from="AutoSaveTimer" to="." method="_on_auto_save_timer_timeout"]

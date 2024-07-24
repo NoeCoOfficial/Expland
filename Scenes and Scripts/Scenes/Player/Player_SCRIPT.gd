@@ -3,9 +3,12 @@ extends CharacterBody3D
 
 
 @export_group("Gameplay")
+@export_subgroup("Health")
 @export var UseHealth := true
 @export var MaxHealth := 100
 @export var Health := 100
+@export_subgroup("Other")
+@export var Position := Vector3(0, 0, 0)
 # Spawn variables
 @export_group("Spawn")
 @export var StartPOS := Vector3(0, 0, 0)
@@ -13,7 +16,6 @@ extends CharacterBody3D
 
 @export_subgroup("Fade_In")
 @export var Fade_In := false
-@export var Fade_In_Colour := Color(0, 0, 0, 1)
 @export var Fade_In_Time := 1.000
 
 @export_group("Input")
@@ -80,7 +82,7 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-
+	PlayerData.Position = self.position
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -111,6 +113,12 @@ func _physics_process(delta):
 	move_and_slide()
 func _process(_delta):
 	
+	
+	if UseHealth == false:
+		$Head/Camera3D/CrosshairCanvas/HealthLBL.hide()
+	else:
+		$Head/Camera3D/CrosshairCanvas/HealthLBL.show()
+	
 	$Head/Camera3D/CrosshairCanvas/HealthLBL.text = "Health: " + str(Health)
 	# This has stuff like export var setting
 	
@@ -127,20 +135,24 @@ func _headbob(time) -> Vector3:
 	return pos
 ######################################
 func _ready():
+	
+	
 	$Head/Camera3D/DeathScreen/BlackOverlay/GetUp.set_self_modulate(Color(0, 0, 0, 0))
 	$Head/Camera3D/DeathScreen/BlackOverlay/RandomText.set_self_modulate(Color(0, 0, 0, 0))
 	$Head/Camera3D/DeathScreen/BlackOverlay.set_self_modulate(Color(0, 0, 0, 0))
 	$Head/Camera3D/CrosshairCanvas/RedOverlay.set_self_modulate(Color(1, 0.016, 0, 0))
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock mouse
 	
+	
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock mouse
 	
 	PlayerSettingsData.LoadSettings()
 	PlayerData.LoadData()
 	
+	Health = PlayerData.Health
 	if Fade_In == true:
 		$Head/Camera3D/CrosshairCanvas/Overlay.show()
 		var tween = get_tree().create_tween()
-		tween.tween_property($Head/Camera3D/CrosshairCanvas/Overlay, "self_modulate", Color(0, 0, 0, 0), Fade_In_Time).from(Fade_In_Colour)
+		tween.tween_property($Head/Camera3D/CrosshairCanvas/Overlay, "self_modulate", Color(0, 0, 0, 0), Fade_In_Time)
 		tween.tween_property($Head/Camera3D/CrosshairCanvas/Overlay, "visible", false, 0)
 	else:
 		$Head/Camera3D/CrosshairCanvas/Overlay.hide()
@@ -191,9 +203,17 @@ func DeathScreen():
 
 ######################################
 func _on_spike_take_damage(DamageTaken):
-	Health -= DamageTaken
-	if Health <= 0:
-		Health = 0
-		DeathScreen()
-	else:
-		TakeDamageOverlay()
+	if UseHealth == true:
+		Health -= DamageTaken
+		PlayerData.Health = Health
+		if Health <= 0:
+			Health = 0
+			DeathScreen()
+		else:
+			TakeDamageOverlay()
+######################################
+
+######################################
+func _on_auto_save_timer_timeout():
+	PlayerData.SaveData()
+	PlayerSettingsData.SaveSettings()

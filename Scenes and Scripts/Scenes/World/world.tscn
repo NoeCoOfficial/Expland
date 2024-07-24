@@ -147,6 +147,6 @@ use_collision = true
 mesh = SubResource("BoxMesh_nfaly")
 
 [node name="Spike" parent="." instance=ExtResource("17_3w3yg")]
-transform = Transform3D(2.99407, 0, 0, 0, 2.99407, 0, 0, 0, 2.99407, 0, 23.401, -24.8647)
+transform = Transform3D(2.99407, 0, 0, 0, 2.99407, 0, 0, 0, 2.99407, 0, 23.401, -38.8647)
 
 [connection signal="TakeDamage" from="Spike" to="Player" method="_on_spike_take_damage"]
