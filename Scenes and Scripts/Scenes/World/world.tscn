@@ -112,7 +112,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.35405, 24.7629, -47.0385)
 StartPOS = Vector3(-5.354, 24.763, -47.038)
 ResetPOS = Vector3(999, 999, 999)
 Fade_In_Time = 2.0
-FOV = 9999
 
 [node name="Walls" type="Node" parent="."]
 
