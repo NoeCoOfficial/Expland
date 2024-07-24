@@ -121,12 +121,6 @@ visible = false
 use_collision = true
 mesh = SubResource("BoxMesh_nfaly")
 
-[node name="Wall2" type="CSGMesh3D" parent="Walls"]
-transform = Transform3D(106.648, 0, 0, 0, -5.4805e-08, 9.57102, 0, -1.25379, -4.18363e-07, -5.2763, 23.7827, -51.8734)
-visible = false
-use_collision = true
-mesh = SubResource("BoxMesh_nfaly")
-
 [node name="Wall3" type="CSGMesh3D" parent="Walls"]
 transform = Transform3D(104.93, 0, 0, 0, -5.34578e-08, 9.33575, 0, -1.22297, -4.08079e-07, -5.2763, 23.7827, 53.0704)
 visible = false
@@ -147,5 +141,10 @@ mesh = SubResource("BoxMesh_nfaly")
 
 [node name="Spike" parent="." instance=ExtResource("17_3w3yg")]
 transform = Transform3D(2.99407, 0, 0, 0, 2.99407, 0, 0, 0, 2.99407, 0, 23.401, -38.8647)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.01572, -12.1415, -55.1727)
+use_collision = true
+size = Vector3(17.9526, 2.51515, 7.1709)
 
 [connection signal="TakeDamage" from="Spike" to="Player" method="_on_spike_take_damage"]

@@ -2,6 +2,12 @@
 extends CharacterBody3D
 
 
+
+@export var fall_damage_threshold = 10  # Adjust this value
+@export var damage_multiplier = 1
+
+var highest_point = 0
+
 @export_group("Gameplay")
 @export_subgroup("Health")
 @export var UseHealth := true
@@ -81,7 +87,15 @@ func _unhandled_input(event):
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
+		highest_point = max(highest_point, global_transform.origin.y)
 		velocity.y -= gravity * delta
+	else:
+		var fall_distance = highest_point - global_transform.origin.y
+		if fall_distance > fall_damage_threshold:
+			var damage = fall_distance * damage_multiplier
+			TakeDamage(damage)
+			# Add damage effects here
+		highest_point = 0
 	PlayerData.Position = self.position
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
@@ -158,6 +172,16 @@ func _ready():
 		$Head/Camera3D/CrosshairCanvas/Overlay.hide()
 	self.position = StartPOS
 ######################################
+func TakeDamage(DamageToTake):
+	if UseHealth == true:
+		Health -= DamageToTake
+		PlayerData.Health = Health
+		if Health <= 0:
+			Health = 0
+			PlayerData.Health = Health
+			DeathScreen()
+		else:
+			TakeDamageOverlay()
 func TakeDamageOverlay():
 	var tween = get_tree().create_tween()
 	tween.tween_property($Head/Camera3D/CrosshairCanvas/RedOverlay, "self_modulate", Color(1, 0.018, 0, 0.808), 0).from(Color(1, 0.016, 0, 0))
@@ -173,6 +197,7 @@ func _on_death_screen_finished():
 func DeathScreen():
 	var tween = get_tree().create_tween()
 	tween.connect("finished", _on_death_screen_finished, 1)
+	
 	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay, "self_modulate", Color(0, 0, 0, 1), 0.5)
 	
 	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/RandomText, "self_modulate", Color(0, 0, 0, 0), 0)
@@ -204,14 +229,7 @@ func DeathScreen():
 
 ######################################
 func _on_spike_take_damage(DamageTaken):
-	if UseHealth == true:
-		Health -= DamageTaken
-		PlayerData.Health = Health
-		if Health <= 0:
-			Health = 0
-			DeathScreen()
-		else:
-			TakeDamageOverlay()
+	TakeDamage(DamageTaken)
 ######################################
 
 ######################################
