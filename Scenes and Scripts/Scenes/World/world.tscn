@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cd24ed5mdweah"]
+[gd_scene load_steps=24 format=3 uid="uid://cd24ed5mdweah"]
 
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/WorldpageIcon_SCRIPT.gd" id="1_1gnsl"]
 [ext_resource type="Shader" path="res://Assets/3D Models/Water/LowPolyWater.gdshader" id="1_70r2a"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://daxauomaprtus" path="res://Assets/3D Models/Trees/Normal/Tree7.blend" id="14_mkpsf"]
 [ext_resource type="PackedScene" uid="uid://c2vb563dpgipc" path="res://Assets/3D Models/Trees/Normal/Tree8.blend" id="15_txoru"]
 [ext_resource type="PackedScene" uid="uid://0stf8uio7dg2" path="res://Assets/3D Models/Trees/Normal/Tree9.blend" id="16_mxrey"]
+[ext_resource type="PackedScene" uid="uid://dd8nwfbgsd7ld" path="res://Scenes and Scripts/Scenes/Tests/Spike.tscn" id="17_3w3yg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3idn0"]
 sky_top_color = Color(0.429029, 0.50793, 0.948547, 1)
@@ -106,7 +107,7 @@ script = ExtResource("4_esxor")
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -38.0394, 11.7072, 0.276182)
 script = ExtResource("4_esxor")
 
-[node name="Player" parent="." instance=ExtResource("3_6yh0b")]
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("3_6yh0b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.35405, 24.7629, -47.0385)
 StartPOS = Vector3(-5.354, 24.763, -47.038)
 ResetPOS = Vector3(999, 999, 999)
@@ -144,3 +145,6 @@ transform = Transform3D(-8.38194e-06, -1.25379, -4.18363e-07, 0, -5.4805e-08, 9.
 visible = false
 use_collision = true
 mesh = SubResource("BoxMesh_nfaly")
+
+[node name="Spike" parent="." instance=ExtResource("17_3w3yg")]
+transform = Transform3D(2.99407, 0, 0, 0, 2.99407, 0, 0, 0, 2.99407, 0, 23.401, 0)

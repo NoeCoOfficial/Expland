@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dd8nwfbgsd7ld"]
+
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Tests/Spiketest_SCRIPT.gd" id="1_drfcf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fth4n"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_8g1m1"]
+
+[node name="Spike" type="Area3D"]
+script = ExtResource("1_drfcf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.498329, 0)
+shape = SubResource("BoxShape3D_fth4n")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("PrismMesh_8g1m1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
