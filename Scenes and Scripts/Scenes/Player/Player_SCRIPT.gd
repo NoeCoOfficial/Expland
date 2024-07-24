@@ -2,7 +2,10 @@
 extends CharacterBody3D
 
 
-
+@export_group("Gameplay")
+@export var UseHealth := true
+@export var MaxHealth := 100
+@export var Health := 100
 # Spawn variables
 @export_group("Spawn")
 @export var StartPOS := Vector3(0, 0, 0)
