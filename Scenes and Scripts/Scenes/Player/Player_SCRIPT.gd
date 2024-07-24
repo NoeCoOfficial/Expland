@@ -110,6 +110,7 @@ func _physics_process(delta):
 	move_and_slide()
 func _process(_delta):
 	
+	$Head/Camera3D/CanvasLayer/HealthLBL.text = "Health: " + str(Health)
 	# This has stuff like export var setting
 	
 	
@@ -126,12 +127,12 @@ func _headbob(time) -> Vector3:
 ######################################
 func _ready():
 	
+	$Head/Camera3D/TakeDamageRedOverlay/RedOverlay.set_self_modulate(Color(1, 0.016, 0, 0))
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock mouse
 	
 	
 	PlayerSettingsData.LoadSettings()
 	PlayerData.LoadData()
-	
 	
 	
 	if Fade_In == true:
@@ -144,4 +145,19 @@ func _ready():
 	self.position = StartPOS
 ######################################
 
+func TakeDamageOverlay():
+	var tween = get_tree().create_tween()
+	tween.tween_property($Head/Camera3D/TakeDamageRedOverlay/RedOverlay, "self_modulate", Color(1, 0.018, 0, 0.808), 0).from(Color(1, 0.016, 0, 0))
+	tween.tween_property($Head/Camera3D/TakeDamageRedOverlay/RedOverlay, "self_modulate", Color(1, 0.016, 0, 0), 0.5)
+func DeathScreen():
+	pass
 
+
+
+# DAMAGE CONTROL
+func _on_spike_take_damage(DamageTaken):
+	Health -= DamageTaken
+	TakeDamageOverlay()
+	if Health <= 0:
+		Health = 0
+		DeathScreen()
