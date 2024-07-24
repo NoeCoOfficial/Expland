@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=14 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -8,6 +8,9 @@
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Crosshair_SCRIPT.gd" id="5_56a8a"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/RedOverlay_SCRIPT.gd" id="7_gnu1v"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Overlay_SCRIPT.gd" id="8_uxqns"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/BlackOverlay_SCRIPT.gd" id="9_g6nwl"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/RandomText_SCRIPT.gd" id="10_6w37c"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/GetUp_SCRIPT.gd" id="11_0enap"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_e8ep2"]
 
@@ -83,3 +86,54 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("8_uxqns")
+
+[node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
+
+[node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/DeathScreen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("9_g6nwl")
+
+[node name="RandomText" type="Label" parent="Head/Camera3D/DeathScreen/BlackOverlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -233.0
+offset_top = -29.5
+offset_right = 233.0
+offset_bottom = 29.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_yecwp")
+theme_override_font_sizes/font_size = 50
+text = "What have you done?"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("10_6w37c")
+
+[node name="GetUp" type="Label" parent="Head/Camera3D/DeathScreen/BlackOverlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -29.5
+offset_right = 140.0
+offset_bottom = 29.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_yecwp")
+theme_override_font_sizes/font_size = 50
+text = "Get Up."
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("11_0enap")

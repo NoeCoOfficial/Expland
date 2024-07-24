@@ -52,7 +52,8 @@ var speed
 @export var gravity = 12.0
 
 
-
+func wait(seconds: float) -> void:
+	await get_tree().create_timer(seconds).timeout
 
 # Body parts variables
 @onready var head = $Head
@@ -126,7 +127,9 @@ func _headbob(time) -> Vector3:
 	return pos
 ######################################
 func _ready():
-	
+	$Head/Camera3D/DeathScreen/BlackOverlay/GetUp.set_self_modulate(Color(0, 0, 0, 0))
+	$Head/Camera3D/DeathScreen/BlackOverlay/RandomText.set_self_modulate(Color(0, 0, 0, 0))
+	$Head/Camera3D/DeathScreen/BlackOverlay.set_self_modulate(Color(0, 0, 0, 0))
 	$Head/Camera3D/CrosshairCanvas/RedOverlay.set_self_modulate(Color(1, 0.016, 0, 0))
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock mouse
 	
@@ -143,20 +146,54 @@ func _ready():
 		$Head/Camera3D/CrosshairCanvas/Overlay.hide()
 	self.position = StartPOS
 ######################################
-
 func TakeDamageOverlay():
 	var tween = get_tree().create_tween()
 	tween.tween_property($Head/Camera3D/CrosshairCanvas/RedOverlay, "self_modulate", Color(1, 0.018, 0, 0.808), 0).from(Color(1, 0.016, 0, 0))
 	tween.tween_property($Head/Camera3D/CrosshairCanvas/RedOverlay, "self_modulate", Color(1, 0.016, 0, 0), 0.5)
+func RespawnFromDeath():
+	self.position = StartPOS
+	Health = MaxHealth
+	var tween = get_tree().create_tween()
+	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay, "self_modulate", Color(0, 0, 0, 0), 3)
+func _on_death_screen_finished():
+	RespawnFromDeath()
 func DeathScreen():
-	pass
+	var tween = get_tree().create_tween()
+	tween.connect("finished", _on_death_screen_finished, 1)
+	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay, "self_modulate", Color(0, 0, 0, 1), 0.5)
+	
+	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/RandomText, "self_modulate", Color(0, 0, 0, 0), 0)
+	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/GetUp, "self_modulate", Color(0, 0, 0, 0), 0)
+	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/GetUp, "visible", true, 0)
+	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/RandomText, "visible", true, 0)
+	
+	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/RandomText, "self_modulate", Color(0, 0, 0, 1), 3) # hold
+	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/RandomText, "self_modulate", Color(1, 1, 1, 1), 0.5)
+	
+	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/RandomText, "self_modulate", Color(1, 1, 1, 1), 3) # hold
+	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/RandomText, "self_modulate", Color(0, 0, 0, 1), 0.5)
+	
+	
+	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/GetUp, "self_modulate", Color(0, 0, 0, 1), 3)
+	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/GetUp, "self_modulate", Color(1, 1, 1, 1), 0.5)
+	
+	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/GetUp, "self_modulate", Color(1, 1, 1, 1), 2.6)
+	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/GetUp, "self_modulate", Color(0, 0, 0, 1), 0.5)
+	
+	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/GetUp, "visible", false, 0)
+	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/RandomText, "visible", false, 0)
+	
+	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/RandomText, "visible", false, 2) # hold
+	
+	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay, "color", Color(1, 1, 1, 1), 0)
+	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay, "self_modulate", Color(1, 1, 1, 1), 3)
+######################################
 
-
-
-# DAMAGE CONTROL
+######################################
 func _on_spike_take_damage(DamageTaken):
 	Health -= DamageTaken
-	TakeDamageOverlay()
 	if Health <= 0:
 		Health = 0
 		DeathScreen()
+	else:
+		TakeDamageOverlay()
