@@ -154,6 +154,8 @@ func _ready():
 	GAME_STATE = PlayerData.GAME_STATE
 	
 	if GAME_STATE == "DEAD":
+		$Head/Camera3D/DeathScreen/BlackOverlay.set_self_modulate(Color(0, 0, 0, 1))
+		$Head/Camera3D/CrosshairCanvas/Overlay.show()
 		DeathScreen()
 	
 	if Fade_In == true:
@@ -183,10 +185,11 @@ func TakeDamageOverlay():
 	tween.tween_property($Head/Camera3D/CrosshairCanvas/RedOverlay, "self_modulate", Color(1, 0.016, 0, 0), 0.5)
 func _on_respawn():
 	GAME_STATE = "NORMAL"
-	PlayerData.GAME_STATE = "NORMAL"
+	PlayerData.GAME_STATE = GAME_STATE
 func RespawnFromDeath():
 	self.position = StartPOS
 	Health = MaxHealth
+	PlayerData.Health = Health
 	var tween = get_tree().create_tween()
 	tween.connect("finished", _on_respawn, 1)
 	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay, "self_modulate", Color(0, 0, 0, 0), 3)	
