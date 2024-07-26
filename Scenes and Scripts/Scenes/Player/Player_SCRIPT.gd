@@ -139,7 +139,6 @@ func _headbob(time) -> Vector3:
 ######################################
 func _ready():
 	
-	
 	$Head/Camera3D/DeathScreen/BlackOverlay/GetUp.set_self_modulate(Color(0, 0, 0, 0))
 	$Head/Camera3D/DeathScreen/BlackOverlay/RandomText.set_self_modulate(Color(0, 0, 0, 0))
 	$Head/Camera3D/DeathScreen/BlackOverlay.set_self_modulate(Color(0, 0, 0, 0))
@@ -172,6 +171,7 @@ func TakeDamage(DamageToTake):
 		PlayerData.Health = Health
 		if Health <= 0:
 			GAME_STATE = "DEAD"
+			PlayerData.GAME_STATE = "DEAD"
 			Health = 0
 			PlayerData.Health = Health
 			DeathScreen()
@@ -181,14 +181,39 @@ func TakeDamageOverlay():
 	var tween = get_tree().create_tween()
 	tween.tween_property($Head/Camera3D/CrosshairCanvas/RedOverlay, "self_modulate", Color(1, 0.018, 0, 0.808), 0).from(Color(1, 0.016, 0, 0))
 	tween.tween_property($Head/Camera3D/CrosshairCanvas/RedOverlay, "self_modulate", Color(1, 0.016, 0, 0), 0.5)
+func _on_respawn():
+	GAME_STATE = "NORMAL"
+	PlayerData.GAME_STATE = "NORMAL"
 func RespawnFromDeath():
 	self.position = StartPOS
 	Health = MaxHealth
 	var tween = get_tree().create_tween()
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay, "self_modulate", Color(0, 0, 0, 0), 3)
+	tween.connect("finished", _on_respawn, 1)
+	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay, "self_modulate", Color(0, 0, 0, 0), 3)	
 func _on_death_screen_finished():
 	RespawnFromDeath()
 func DeathScreen():
+	var randomtext = [
+		"Pull yourself together.",
+		"Why did you have to die?",
+		"You will never get back now.",
+		"Your soul has been sealed.",
+		"You have now become one with the sky.",
+		"What have you done?",
+		"As you die, they will make more.",
+		"The more you fight, the more you lose.",
+		"Every fail you have the more they succeed.",
+		"Even gods fall.",
+		"There have been many cycles.",
+		"Why am I even talking to you?",
+		"Stop kidding yourself. This isn't a game.",
+		"What did you do?",
+		"You did everything to deserve this.",
+		]
+	randomize()  # Seed the random number generator
+	var random_index = randi() % randomtext.size()
+	$Head/Camera3D/DeathScreen/BlackOverlay/RandomText.text = randomtext[random_index]
+	
 	var tween = get_tree().create_tween()
 	tween.connect("finished", _on_death_screen_finished, 1)
 	
