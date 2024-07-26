@@ -142,9 +142,4 @@ mesh = SubResource("BoxMesh_nfaly")
 [node name="Spike" parent="." instance=ExtResource("17_3w3yg")]
 transform = Transform3D(2.99407, 0, 0, 0, 2.99407, 0, 0, 0, 2.99407, 0, 23.401, -38.8647)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.01572, -12.1415, -55.1727)
-use_collision = true
-size = Vector3(17.9526, 2.51515, 7.1709)
-
 [connection signal="TakeDamage" from="Spike" to="Player" method="_on_spike_take_damage"]

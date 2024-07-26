@@ -2,15 +2,15 @@ extends Node
 
 const SAVE_PATH = "res://player.dat"
 
-var Position := Vector3(0.0, 0.0, 0.0)
+var GAME_STATE = "NORMAL"
 var Health := 100
 
 func SaveData() -> void:
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	var data = {
 		
+		"GAME_STATE" : GAME_STATE,
 		"Health" : Health,
-		"Position" : Position,
 	}
 	var jstr = JSON.stringify(data)
 	file.store_line(jstr)
@@ -28,10 +28,12 @@ func LoadData() -> void:
 			var current_line = JSON.parse_string(file.get_line())
 			if current_line:
 				Health = current_line["Health"]
+				GAME_STATE = current_line["GAME_STATE"]
 				
 				print_rich("[center][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf][font_size=30]--PLAYER DATA HAS BEEN LOADED--[/font_size][/font][/center]")
 				
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Health: "+str(Health)+"[/font][/font_size][/center]")
+				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Game State: "+GAME_STATE+"[/font][/font_size][/center]")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass

@@ -2,11 +2,7 @@
 extends CharacterBody3D
 
 
-
-@export var fall_damage_threshold = 10  # Adjust this value
-@export var damage_multiplier = 1
-
-var highest_point = 0
+var GAME_STATE := "NORMAL"
 
 @export_group("Gameplay")
 @export_subgroup("Health")
@@ -69,9 +65,9 @@ func wait(seconds: float) -> void:
 ########################################
 ########################################
 func _input(_event):
-	if Input.is_action_just_pressed("Quit") and Quit == true:
+	if Input.is_action_just_pressed("Quit") and Quit == true && GAME_STATE == "NORMAL":
 		get_tree().quit()
-	if Input.is_action_just_pressed("Reset") and Reset == true:
+	if Input.is_action_just_pressed("Reset") and Reset == true && GAME_STATE == "NORMAL":
 		if ResetPOS == Vector3(999, 999, 999):
 			self.position = StartPOS
 		else:
@@ -86,22 +82,13 @@ func _unhandled_input(event):
 ########################################
 func _physics_process(delta):
 	# Add the gravity.
-	if not is_on_floor():
-		highest_point = max(highest_point, global_transform.origin.y)
+	if not is_on_floor() && GAME_STATE == "NORMAL":
 		velocity.y -= gravity * delta
-	else:
-		var fall_distance = highest_point - global_transform.origin.y
-		if fall_distance > fall_damage_threshold:
-			var damage = fall_distance * damage_multiplier
-			TakeDamage(damage)
-			# Add damage effects here
-		highest_point = 0
-	PlayerData.Position = self.position
 	# Handle jump.
-	if Input.is_action_just_pressed("Jump") and is_on_floor():
+	if Input.is_action_just_pressed("Jump") and is_on_floor() && GAME_STATE == "NORMAL":
 		velocity.y = JUMP_VELOCITY
 	
-	if Input.is_action_pressed("Sprint"):
+	if Input.is_action_pressed("Sprint") && GAME_STATE == "NORMAL":
 		speed = SPRINT_SPEED
 	else:
 		speed = WALK_SPEED
@@ -110,7 +97,7 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if is_on_floor():
+	if is_on_floor() && GAME_STATE == "NORMAL":
 		if direction:
 			velocity.x = direction.x * speed
 			velocity.z = direction.z * speed
@@ -121,10 +108,12 @@ func _physics_process(delta):
 		velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
 		velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
 	
-	Wave_Length += delta * velocity.length() * float(is_on_floor())
-	camera.transform.origin = _headbob(Wave_Length)
+	if GAME_STATE == "NORMAL":
+		Wave_Length += delta * velocity.length() * float(is_on_floor())
+		camera.transform.origin = _headbob(Wave_Length)
 	
-	move_and_slide()
+	if GAME_STATE == "NORMAL":
+		move_and_slide()
 func _process(_delta):
 	
 	
@@ -163,6 +152,11 @@ func _ready():
 	PlayerData.LoadData()
 	
 	Health = PlayerData.Health
+	GAME_STATE = PlayerData.GAME_STATE
+	
+	if GAME_STATE == "DEAD":
+		DeathScreen()
+	
 	if Fade_In == true:
 		$Head/Camera3D/CrosshairCanvas/Overlay.show()
 		var tween = get_tree().create_tween()
@@ -177,6 +171,7 @@ func TakeDamage(DamageToTake):
 		Health -= DamageToTake
 		PlayerData.Health = Health
 		if Health <= 0:
+			GAME_STATE = "DEAD"
 			Health = 0
 			PlayerData.Health = Health
 			DeathScreen()
