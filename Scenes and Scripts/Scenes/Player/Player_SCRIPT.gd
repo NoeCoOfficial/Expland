@@ -138,26 +138,23 @@ func _headbob(time) -> Vector3:
 	return pos
 ######################################
 func _ready():
-	
 	$Head/Camera3D/DeathScreen/BlackOverlay/GetUp.set_self_modulate(Color(0, 0, 0, 0))
 	$Head/Camera3D/DeathScreen/BlackOverlay/RandomText.set_self_modulate(Color(0, 0, 0, 0))
 	$Head/Camera3D/DeathScreen/BlackOverlay.set_self_modulate(Color(0, 0, 0, 0))
 	$Head/Camera3D/CrosshairCanvas/RedOverlay.set_self_modulate(Color(1, 0.016, 0, 0))
-	
-	
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock mouse
-	
+
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # lock mouse
+
 	PlayerSettingsData.LoadSettings()
-	PlayerData.LoadData()
-	
+
 	Health = PlayerData.Health
 	GAME_STATE = PlayerData.GAME_STATE
-	
+
 	if GAME_STATE == "DEAD":
 		$Head/Camera3D/DeathScreen/BlackOverlay.set_self_modulate(Color(0, 0, 0, 1))
 		$Head/Camera3D/CrosshairCanvas/Overlay.show()
 		DeathScreen()
-	
+
 	if Fade_In == true:
 		$Head/Camera3D/CrosshairCanvas/Overlay.show()
 		var tween = get_tree().create_tween()
@@ -165,7 +162,16 @@ func _ready():
 		tween.tween_property($Head/Camera3D/CrosshairCanvas/Overlay, "visible", false, 0)
 	else:
 		$Head/Camera3D/CrosshairCanvas/Overlay.hide()
+	# Ensure the player starts at the correct position
 	self.position = StartPOS
+	push_warning("Initial position: ", self.position)
+
+	# Load player data again to ensure position is set correctly
+	if PlayerData:
+		PlayerData.LoadData()
+	else:
+		printerr("PlayerData autoload not found")
+
 ######################################
 func TakeDamage(DamageToTake):
 	if UseHealth == true:
