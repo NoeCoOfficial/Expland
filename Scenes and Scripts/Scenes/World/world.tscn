@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cd24ed5mdweah"]
+[gd_scene load_steps=24 format=3 uid="uid://cd24ed5mdweah"]
 
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/WorldpageIcon_SCRIPT.gd" id="1_1gnsl"]
 [ext_resource type="Shader" path="res://Assets/3D Models/Water/LowPolyWater.gdshader" id="1_70r2a"]
