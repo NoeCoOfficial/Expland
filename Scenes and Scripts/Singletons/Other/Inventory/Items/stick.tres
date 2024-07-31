@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://cee2oae6m4ryq"]
+
+[ext_resource type="Script" path="res://Scenes and Scripts/Singletons/Other/Inventory/ItemData_SCRIPT.gd" id="1_ashud"]
+[ext_resource type="Texture2D" uid="uid://bw4uwbevsfbmt" path="res://Scenes and Scripts/Singletons/Other/Inventory/Transparent Icons & Drop Shadow.png" id="2_af7x2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iljyw"]
+atlas = ExtResource("2_af7x2")
+region = Rect2(0, 544, 32, 32)
+
+[resource]
+script = ExtResource("1_ashud")
+name = "Stick"
+description = "A small stick."
+stackable = true
+texture = SubResource("AtlasTexture_iljyw")
