@@ -71,6 +71,7 @@ script = ExtResource("5_56a8a")
 [node name="RedOverlay" type="ColorRect" parent="Head/Camera3D/CrosshairCanvas"]
 process_priority = 10
 editor_description = "A Multipurpose overlay."
+visible = false
 z_as_relative = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -83,6 +84,7 @@ script = ExtResource("7_gnu1v")
 [node name="Overlay" type="ColorRect" parent="Head/Camera3D/CrosshairCanvas"]
 process_priority = 10
 editor_description = "A Multipurpose overlay."
+visible = false
 z_as_relative = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -92,7 +94,47 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("8_uxqns")
 
+[node name="InventoryLayer" type="CanvasLayer" parent="Head/Camera3D"]
+
+[node name="DarkOverlay" type="ColorRect" parent="Head/Camera3D/InventoryLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.529412)
+
+[node name="Border" type="ColorRect" parent="Head/Camera3D/InventoryLayer/DarkOverlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -485.0
+offset_top = -332.5
+offset_right = 485.0
+offset_bottom = 332.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="ColorRect" parent="Head/Camera3D/InventoryLayer/DarkOverlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -473.5
+offset_top = -322.5
+offset_right = 473.5
+offset_bottom = 322.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.18359, 0.18359, 0.18359, 1)
+
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/DeathScreen"]
 anchors_preset = 15

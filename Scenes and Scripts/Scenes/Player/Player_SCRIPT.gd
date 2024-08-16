@@ -55,23 +55,25 @@ var speed
 @export var JUMP_VELOCITY = 4.5
 @export var gravity = 12.0
 
-
+# Utility Functions
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
 
-# Body parts variables
+# Body part references
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 ########################################
 ########################################
 func _input(_event):
-	if Input.is_action_just_pressed("Quit") and Quit == true && GAME_STATE == "NORMAL":
+	if Input.is_action_just_pressed("Quit") and Quit == true and GAME_STATE == "NORMAL":
 		get_tree().quit()
-	if Input.is_action_just_pressed("Reset") and Reset == true && GAME_STATE == "NORMAL":
+	if Input.is_action_just_pressed("Reset") and Reset == true and GAME_STATE == "NORMAL":
 		if ResetPOS == Vector3(999, 999, 999):
 			self.position = StartPOS
 		else:
 			self.position = ResetPOS
+	if Input.is_action_just_pressed("Inventory") and GAME_STATE == "NORMAL":
+		print("Inventory")  #TODO
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
@@ -82,22 +84,21 @@ func _unhandled_input(event):
 ########################################
 func _physics_process(delta):
 	# Add the gravity.
-	if not is_on_floor() && GAME_STATE == "NORMAL":
+	if not is_on_floor() and GAME_STATE == "NORMAL":
 		velocity.y -= gravity * delta
 	# Handle jump.
-	if Input.is_action_just_pressed("Jump") and is_on_floor() && GAME_STATE == "NORMAL":
+	if Input.is_action_just_pressed("Jump") and is_on_floor() and GAME_STATE == "NORMAL":
 		velocity.y = JUMP_VELOCITY
 	
-	if Input.is_action_pressed("Sprint") && GAME_STATE == "NORMAL":
+	if Input.is_action_pressed("Sprint") and GAME_STATE == "NORMAL":
 		speed = SPRINT_SPEED
 	else:
 		speed = WALK_SPEED
 	
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if is_on_floor() && GAME_STATE == "NORMAL":
+	if is_on_floor() and GAME_STATE == "NORMAL":
 		if direction:
 			velocity.x = direction.x * speed
 			velocity.z = direction.z * speed
@@ -138,6 +139,8 @@ func _headbob(time) -> Vector3:
 	return pos
 ######################################
 func _ready():
+	
+	init() # Custom function that initializes nodes (below this function)
 	$Head/Camera3D/DeathScreen/BlackOverlay/GetUp.set_self_modulate(Color(0, 0, 0, 0))
 	$Head/Camera3D/DeathScreen/BlackOverlay/RandomText.set_self_modulate(Color(0, 0, 0, 0))
 	$Head/Camera3D/DeathScreen/BlackOverlay.set_self_modulate(Color(0, 0, 0, 0))
@@ -171,7 +174,8 @@ func _ready():
 		PlayerData.LoadData()
 	else:
 		printerr("PlayerData autoload not found")
-
+func init():
+	$Head/Camera3D/InventoryLayer.hide()
 ######################################
 func TakeDamage(DamageToTake):
 	if UseHealth == true:
@@ -194,8 +198,8 @@ func _on_respawn():
 	PlayerData.GAME_STATE = GAME_STATE
 func RespawnFromDeath():
 	self.position = StartPOS
-	Health = MaxHealth
-	PlayerData.Health = Health
+	Health = MaxHealth # Set local player var
+	PlayerData.Health = Health # Set global player var
 	var tween = get_tree().create_tween()
 	tween.connect("finished", _on_respawn, 1)
 	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay, "self_modulate", Color(0, 0, 0, 0), 3)	
