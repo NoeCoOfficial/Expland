@@ -14,13 +14,14 @@ Welcome to a wide world of exploring! <br>
 This is the official repo for the game (obviously lol) <br>
 Me (sebashtioon) and Tristan (GoatsAreTB) have worked tirelessly on this game, and we hope you enjoy playing it as much as we loved making it. This is our first proper game, and we have many more coming. <br>
 
-If you have any questions or feedback, please see the FAQ below, or contact this email for business inquiries: [noeco.official@gmail.com](mailto:noeco.official@gmail.com)
+If you have any questions or feedback, please see the FAQ below, or contact this email (We accept business inquiries): [noeco.official@gmail.com](mailto:noeco.official@gmail.com)
 
 
 ---
 ## FAQ
 
 ### How can I download the game?
-[TEXT HERE]
+You can download the game by going to the [main page of the repo.](https://github.com/sebashtioon/Expland) After you have done this look on the right side, and under the description snd some other info there will be a section called "Releases". Click on that.
+Also, you can use [this link](https://api.github.com/repos/sebashtioon/Expland/releases/latest) to go to the latest release for our game.
 
 
