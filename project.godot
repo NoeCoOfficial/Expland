@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="Expland"
-config/description="Face adversity and discover a second chance in a mysterious world."
-config/version="0.0.1-beta"
+config/description="Expland
+"
+config/version="0.1.0"
 config/tags=PackedStringArray("3d", "noeco")
 run/main_scene="res://Scenes and Scripts/Scenes/World/world.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
