@@ -14,8 +14,7 @@ Welcome to a wide world of exploring! <br>
 This is the official repo for the game (obviously lol) <br>
 Me (sebashtioon) and Tristan (GoatsAreTB) have worked tirelessly on this game, and we hope you enjoy playing it as much as we loved making it. This is our first proper game, and we have many more coming. <br>
 
-If you have any questions or feedback, please see the FAQ below, or contact our email at [noeco.official@gmail.com](mailto:noeco.official@gmail.com)
-. We will respond. We accept business inquiries. 
+If you have any questions or feedback, please see the FAQ below, or contact our email at [noeco.official@gmail.com](mailto:noeco.official@gmail.com). We will respond! We accept business inquiries. 
 
 ---
 ## FAQ
