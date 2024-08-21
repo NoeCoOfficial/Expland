@@ -21,6 +21,5 @@ If you have any questions or feedback, please see the FAQ below, or contact our 
 
 ### How can I download the game?
 You can download the game by going to the [main page of the repo.](https://github.com/sebashtioon/Expland) After you have done this look on the right side, and under the description and some other info there will be a section called "Releases". Click on that. The release at the top is the latest version of the game.
-Also, you can use [this link](https://api.github.com/repos/sebashtioon/Expland/releases/latest) to go to the latest release.
 
 
