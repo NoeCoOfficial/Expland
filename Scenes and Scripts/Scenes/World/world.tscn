@@ -125,12 +125,12 @@ visible = false
 use_collision = true
 mesh = SubResource("BoxMesh_uqofq")
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="ActualSizeTree9"]
+[node name="CollisionSphere" type="CSGSphere3D" parent="ActualSizeTree9"]
 transform = Transform3D(2.33329, 0.008552, 0, -0.008552, 2.33329, 0, 0, 0, 2.19324, 1.2083, 4.97355, 1.63847)
 visible = false
 use_collision = true
 
-[node name="CSGSphere3D2" type="CSGSphere3D" parent="ActualSizeTree9"]
+[node name="CollisionSphere2" type="CSGSphere3D" parent="ActualSizeTree9"]
 transform = Transform3D(2.33329, 0.008552, 0, -0.008552, 2.33329, 0, 0, 0, 2.19324, -0.212063, 4.86202, -1.67748)
 visible = false
 use_collision = true
@@ -174,36 +174,36 @@ transform = Transform3D(2.99407, 0, 0, 0, 2.99407, 0, 0, 0, 2.99407, 0, 23.401, 
 [node name="Rock1" parent="." instance=ExtResource("18_ti13x")]
 transform = Transform3D(1.47781, 0, -0.537614, 0, 1.57256, 0, 0.537614, 0, 1.47781, -38.3469, 24, 30.3969)
 
-[node name="CSGSphere3D3" type="CSGSphere3D" parent="Rock1"]
+[node name="CollisionSphere" type="CSGSphere3D" parent="Rock1"]
 transform = Transform3D(1.46112, 0.00535532, 0.499638, -0.00569869, 1.55481, 0, -0.531543, -0.00194822, 1.37342, -0.296623, 0.156033, -0.89567)
 visible = false
 use_collision = true
 
-[node name="CSGSphere3D4" type="CSGSphere3D" parent="Rock1"]
+[node name="CollisionSphere2" type="CSGSphere3D" parent="Rock1"]
 transform = Transform3D(1.46112, 0.00535532, 0.499638, -0.00569869, 1.55481, 0, -0.531543, -0.00194822, 1.37342, 1.00715, -0.0385389, -0.024704)
 visible = false
 use_collision = true
 
-[node name="CSGSphere3D5" type="CSGSphere3D" parent="Rock1"]
+[node name="CollisionSphere3" type="CSGSphere3D" parent="Rock1"]
 transform = Transform3D(1.46112, 0.00535532, 0.499638, -0.00569869, 1.55481, 0, -0.531543, -0.00194822, 1.37342, -0.691504, -0.143061, 0.470924)
 visible = false
 use_collision = true
 
-[node name="CSGSphere3D6" type="CSGSphere3D" parent="Rock1"]
+[node name="CollisionSphere4" type="CSGSphere3D" parent="Rock1"]
 transform = Transform3D(1.60275, 0.0058744, 0.635303, -0.00625106, 1.70551, 0, -0.583065, -0.00213705, 1.74634, 0.0658188, 0.133953, -0.00904465)
 visible = false
 use_collision = true
 
-[node name="Rock5" parent="." instance=ExtResource("18_ti13x")]
+[node name="DetailRock" parent="." instance=ExtResource("18_ti13x")]
 transform = Transform3D(1.47781, -0.168878, -0.510401, -7.45058e-09, 1.49296, -0.493981, 0.537614, 0.464216, 1.40301, -35.1793, 22.3844, 26.1476)
 
-[node name="Rock2" parent="." instance=ExtResource("18_ti13x")]
+[node name="DetailRock2" parent="." instance=ExtResource("18_ti13x")]
 transform = Transform3D(1.47781, 0, -0.537614, 0, 1.57256, 0, 0.537614, 0, 1.47781, -32.1297, 22.6258, 32.6586)
 
-[node name="Rock3" parent="." instance=ExtResource("18_ti13x")]
+[node name="DetailRock3" parent="." instance=ExtResource("18_ti13x")]
 transform = Transform3D(1.18907, -0.87752, -0.537614, 0.933784, 1.2653, -2.98023e-08, 0.432572, -0.319234, 1.47781, -38.9892, 22.0202, 34.079)
 
-[node name="Rock4" parent="." instance=ExtResource("18_ti13x")]
+[node name="DetailRock4" parent="." instance=ExtResource("18_ti13x")]
 transform = Transform3D(1.18907, -0.87752, -0.537614, 0.933784, 1.2653, -2.98023e-08, 0.432572, -0.319234, 1.47781, -35.9128, 21.9636, 35.5509)
 
 [node name="GrassBlock" type="CSGMesh3D" parent="."]
