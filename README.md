@@ -2,7 +2,7 @@
 ---
 ### Current version: v0.1.0-alpha
 ---
-## Some info
+## Information
 - Name : **Expland**
 - Description : **Face adversity and discover a second chance in a mysterious world.**
 - Game mode : **Single player**
