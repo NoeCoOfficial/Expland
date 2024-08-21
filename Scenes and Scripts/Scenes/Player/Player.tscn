@@ -143,4 +143,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("11_0enap")
 
+[node name="InventoryLayer" type="CanvasLayer" parent="Head/Camera3D"]
+
 [connection signal="timeout" from="AutoSaveTimer" to="." method="_on_auto_save_timer_timeout"]
