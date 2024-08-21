@@ -43,25 +43,30 @@ script = ExtResource("2_37tst")
 [node name="CrosshairCanvas" type="CanvasLayer" parent="Head/Camera3D"]
 
 [node name="HealthLBL" type="Label" parent="Head/Camera3D/CrosshairCanvas"]
-offset_left = 8.0
-offset_top = 10.0
-offset_right = 163.0
-offset_bottom = 81.0
+anchors_preset = -1
+anchor_left = 0.003
+anchor_top = 0.005
+anchor_right = 0.137
+anchor_bottom = 0.114
+offset_left = -0.456
+offset_top = -0.24
+offset_right = 0.175995
+offset_bottom = 0.127998
 theme_override_fonts/font = ExtResource("3_yecwp")
 theme_override_font_sizes/font_size = 30
 text = "Health : 100"
 script = ExtResource("4_56i84")
 
 [node name="Crosshair" type="TextureRect" parent="Head/Camera3D/CrosshairCanvas"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -7.0
-offset_top = -7.0
-offset_right = 7.0
-offset_bottom = 7.0
+anchors_preset = -1
+anchor_left = 0.494
+anchor_top = 0.489
+anchor_right = 0.506
+anchor_bottom = 0.511
+offset_left = -0.0880127
+offset_top = 0.127991
+offset_right = 0.0879517
+offset_bottom = -0.128021
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_606ex")
@@ -144,5 +149,7 @@ vertical_alignment = 1
 script = ExtResource("11_0enap")
 
 [node name="InventoryLayer" type="CanvasLayer" parent="Head/Camera3D"]
+
+[node name="TestLayer" type="CanvasLayer" parent="."]
 
 [connection signal="timeout" from="AutoSaveTimer" to="." method="_on_auto_save_timer_timeout"]
