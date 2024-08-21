@@ -141,7 +141,10 @@ func _ready():
 	$Head/Camera3D/DeathScreen/BlackOverlay/GetUp.set_self_modulate(Color(0, 0, 0, 0))
 	$Head/Camera3D/DeathScreen/BlackOverlay/RandomText.set_self_modulate(Color(0, 0, 0, 0))
 	$Head/Camera3D/DeathScreen/BlackOverlay.set_self_modulate(Color(0, 0, 0, 0))
-	$Head/Camera3D/CrosshairCanvas/RedOverlay.set_self_modulate(Color(1, 0.016, 0, 0))
+	$Head/Camera3D/OverlayLayer/RedOverlay.set_self_modulate(Color(1, 0.016, 0, 0))
+
+
+
 
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # lock mouse
 
@@ -152,16 +155,16 @@ func _ready():
 
 	if GAME_STATE == "DEAD":
 		$Head/Camera3D/DeathScreen/BlackOverlay.set_self_modulate(Color(0, 0, 0, 1))
-		$Head/Camera3D/CrosshairCanvas/Overlay.show()
+		$Head/Camera3D/OverlayLayer/Overlay.show()
 		DeathScreen()
 
 	if Fade_In == true:
-		$Head/Camera3D/CrosshairCanvas/Overlay.show()
+		$Head/Camera3D/OverlayLayer/Overlay.show()
 		var tween = get_tree().create_tween()
-		tween.tween_property($Head/Camera3D/CrosshairCanvas/Overlay, "self_modulate", Color(0, 0, 0, 0), Fade_In_Time)
-		tween.tween_property($Head/Camera3D/CrosshairCanvas/Overlay, "visible", false, 0)
+		tween.tween_property($Head/Camera3D/OverlayLayer/Overlay, "self_modulate", Color(0, 0, 0, 0), Fade_In_Time)
+		tween.tween_property($Head/Camera3D/OverlayLayer/Overlay, "visible", false, 0)
 	else:
-		$Head/Camera3D/CrosshairCanvas/Overlay.hide()
+		$Head/Camera3D/OverlayLayer/Overlay.hide()
 	# Ensure the player starts at the correct position
 	self.position = StartPOS
 	push_warning("Initial position: ", self.position)
@@ -187,8 +190,8 @@ func TakeDamage(DamageToTake):
 			TakeDamageOverlay()
 func TakeDamageOverlay():
 	var tween = get_tree().create_tween()
-	tween.tween_property($Head/Camera3D/CrosshairCanvas/RedOverlay, "self_modulate", Color(1, 0.018, 0, 0.808), 0).from(Color(1, 0.016, 0, 0))
-	tween.tween_property($Head/Camera3D/CrosshairCanvas/RedOverlay, "self_modulate", Color(1, 0.016, 0, 0), 0.5)
+	tween.tween_property($Head/Camera3D/OverlayLayer/RedOverlay, "self_modulate", Color(1, 0.018, 0, 0.808), 0).from(Color(1, 0.016, 0, 0))
+	tween.tween_property($Head/Camera3D/OverlayLayer/RedOverlay, "self_modulate", Color(1, 0.016, 0, 0), 0.5)
 func _on_respawn():
 	GAME_STATE = "NORMAL"
 	PlayerData.GAME_STATE = GAME_STATE
