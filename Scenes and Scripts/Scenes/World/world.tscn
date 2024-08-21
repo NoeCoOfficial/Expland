@@ -36,7 +36,7 @@ glow_enabled = true
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v0ins"]
 render_priority = 0
 shader = ExtResource("1_70r2a")
-shader_parameter/out_color = Color(0.262745, 1, 1, 1)
+shader_parameter/out_color = Color(0, 0.027451, 1, 1)
 shader_parameter/amount = 2.3
 shader_parameter/speed = 1.2
 shader_parameter/beer_factor = 1.0
@@ -47,8 +47,8 @@ shader_parameter/roughness = 0.2
 [sub_resource type="PlaneMesh" id="PlaneMesh_jjwy4"]
 material = SubResource("ShaderMaterial_v0ins")
 size = Vector2(100, 100)
-subdivide_width = 20
-subdivide_depth = 20
+subdivide_width = 30
+subdivide_depth = 30
 
 [sub_resource type="BoxMesh" id="BoxMesh_nfaly"]
 
