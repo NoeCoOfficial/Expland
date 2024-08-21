@@ -125,27 +125,35 @@ visible = false
 use_collision = true
 mesh = SubResource("BoxMesh_uqofq")
 
-[node name="CollisionShape2" type="CSGMesh3D" parent="ActualSizeTree9/CollisionShape"]
-transform = Transform3D(1.7, 0, 0, 0, 0.179178, 0, 0, 0, 1.7, 0.818878, 0.228791, 1.86918)
+[node name="CSGSphere3D" type="CSGSphere3D" parent="ActualSizeTree9"]
+transform = Transform3D(2.33329, 0.008552, 0, -0.008552, 2.33329, 0, 0, 0, 2.19324, 1.2083, 4.97355, 1.63847)
 visible = false
 use_collision = true
-mesh = SubResource("BoxMesh_uqofq")
 
-[node name="CollisionShape3" type="CSGMesh3D" parent="ActualSizeTree9/CollisionShape"]
-transform = Transform3D(1.05874, -0.0010942, 1.33002, 0.00187523, 0.179174, 0.0117762, -1.33006, -0.000618373, 1.05872, 0.818878, 0.228791, 1.86918)
-use_collision = true
-mesh = SubResource("BoxMesh_uqofq")
-
-[node name="CollisionShape4" type="CSGMesh3D" parent="ActualSizeTree9/CollisionShape"]
-transform = Transform3D(1.78956, 0, 1.11833, 0, 0.179178, 0, -1.20176, 0, 1.66532, -0.656635, 0.217154, -2.24059)
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="ActualSizeTree9"]
+transform = Transform3D(2.33329, 0.008552, 0, -0.008552, 2.33329, 0, 0, 0, 2.19324, -0.212059, 4.86202, -1.67748)
 visible = false
 use_collision = true
-mesh = SubResource("BoxMesh_uqofq")
 
-[node name="CollisionShape5" type="CSGMesh3D" parent="ActualSizeTree9/CollisionShape"]
-transform = Transform3D(0.141059, -0.00128257, 2.23811, 0.0019247, 0.183385, 0.0155551, -1.73913, 9.89249e-05, 0.181547, -0.656635, 0.217154, -2.24059)
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="ActualSizeTree9"]
+transform = Transform3D(2.33329, 0.008552, 0, -0.008552, 2.33329, 0, 0, 0, 2.19324, -0.221691, 2.23366, -0.85293)
+visible = false
 use_collision = true
-mesh = SubResource("BoxMesh_uqofq")
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="ActualSizeTree9"]
+transform = Transform3D(2.33329, 0.008552, 0, -0.008552, 2.33329, 0, 0, 0, 2.19324, 0.772339, 2.23001, 0.529955)
+visible = false
+use_collision = true
+
+[node name="CSGSphere3D5" type="CSGSphere3D" parent="ActualSizeTree9"]
+transform = Transform3D(2.33329, 0.008552, 0, -0.008552, 2.33329, 0, 0, 0, 2.19324, -0.996435, 2.2365, 0.529955)
+visible = false
+use_collision = true
+
+[node name="CSGSphere3D6" type="CSGSphere3D" parent="ActualSizeTree9"]
+transform = Transform3D(2.33329, 0.008552, 0, -0.008552, 2.33329, 0, 0, 0, 2.19324, 0.245924, 2.23195, 0.931986)
+visible = false
+use_collision = true
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("3_6yh0b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.35405, 24.7629, -47.0385)
