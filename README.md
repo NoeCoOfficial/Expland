@@ -22,7 +22,7 @@
 
 A special thanks to everyone who has supported us throughout the development of **Expland**. Your encouragement and feedback mean the world to us.
 
-- **Melinda Timpson**
+- **Melinda Timpson**, for being the worlds greatest school teacher.
 - **Erik Miller**, another founder of Noe Co.
 
 <!--## 🎉 Credits
