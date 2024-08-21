@@ -1,4 +1,7 @@
 # Expland by Noe Co.
+---
+### Current version: v0.1.0-alpha
+---
 ## Some info
 - Name : **Expland**
 - Description : **Face adversity and discover a second chance in a mysterious world.**
