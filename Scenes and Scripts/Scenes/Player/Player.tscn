@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=15 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/BlackOverlay_SCRIPT.gd" id="9_g6nwl"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/RandomText_SCRIPT.gd" id="10_6w37c"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/GetUp_SCRIPT.gd" id="11_0enap"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/TextureRect.gd" id="12_une45"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_e8ep2"]
 
@@ -151,5 +152,14 @@ script = ExtResource("11_0enap")
 [node name="InventoryLayer" type="CanvasLayer" parent="Head/Camera3D"]
 
 [node name="TestLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="TestLayer"]
+anchors_preset = -1
+anchor_right = 0.035
+anchor_bottom = 0.062
+offset_right = -0.32
+offset_bottom = -0.176003
+expand_mode = 1
+script = ExtResource("12_une45")
 
 [connection signal="timeout" from="AutoSaveTimer" to="." method="_on_auto_save_timer_timeout"]
