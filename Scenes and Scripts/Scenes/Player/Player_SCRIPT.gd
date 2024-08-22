@@ -2,6 +2,8 @@
 extends CharacterBody3D
 
 
+
+
 var GAME_STATE := "NORMAL"
 
 @export_group("Gameplay")
@@ -65,13 +67,18 @@ func wait(seconds: float) -> void:
 ########################################
 ########################################
 func _input(_event):
-	if Input.is_action_just_pressed("Quit") and Quit == true && GAME_STATE == "NORMAL":
-		get_tree().quit()
-	if Input.is_action_just_pressed("Reset") and Reset == true && GAME_STATE == "NORMAL":
+	if Input.is_action_just_pressed("Quit") and Quit == true and GAME_STATE == "NORMAL":
+		get_tree().quit() ## fix this
+	if Input.is_action_just_pressed("Reset") and Reset == true and GAME_STATE == "NORMAL":
 		if ResetPOS == Vector3(999, 999, 999):
 			self.position = StartPOS
 		else:
 			self.position = ResetPOS
+	if Input.is_action_just_pressed("Inventory") and GAME_STATE == "NORMAL":
+		if $Head/Camera3D/InventoryLayer.is_visible():
+			$Head/Camera3D/InventoryLayer.hide()
+		else:
+			$Head/Camera3D/InventoryLayer.show()
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
@@ -142,13 +149,10 @@ func _ready():
 	$Head/Camera3D/DeathScreen/BlackOverlay/RandomText.set_self_modulate(Color(0, 0, 0, 0))
 	$Head/Camera3D/DeathScreen/BlackOverlay.set_self_modulate(Color(0, 0, 0, 0))
 	$Head/Camera3D/OverlayLayer/RedOverlay.set_self_modulate(Color(1, 0.016, 0, 0))
-
-
-
-
+	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # lock mouse
 
-	PlayerSettingsData.LoadSettings()
+	PlayerSettingsData.LoadSettings() # Load settings from 
 
 	Health = PlayerData.Health
 	GAME_STATE = PlayerData.GAME_STATE

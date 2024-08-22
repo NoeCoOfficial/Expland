@@ -1,7 +1,6 @@
 extends CharacterBody3D
 
 ## Test inventory populating function (To be used in player_SCRIPT.gd
-## blame
 
 
 ## SLOT MUST BE BETWEEN 1 AND 9
