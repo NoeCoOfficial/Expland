@@ -47,8 +47,7 @@ A heartfelt thank you to the tools and communities that have helped us along the
 Follow our progress and get the latest updates on:
 
 - **The GitHub Repository:** [Expland GitHub](https://github.com/sebashtioon/Expland)
-<!--- **Our Discord Server:** [Join our Discord server for discussions and updates](https://discord.com/users/sebashtioon)
--->
+- **Our Discord Server:** [Join our Discord server for discussions and updates](https://discord.gg/QNgcKCAJn3)
 ## 📧 Contact Us
 Thank you for your interest in this game. We can’t wait to share more with you soon! If you have any questions or want to get involved, feel free to reach out to our [email](mailto:noeco.official@gmail.com) and we promise we **will** respond.
 
