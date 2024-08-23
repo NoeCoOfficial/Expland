@@ -155,7 +155,12 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # lock mouse
 
 	PlayerSettingsData.LoadSettings() # Load settings from player settings data
-
+	
+	if PlayerData: # check if player data exists (it may not be initialized correctly
+		PlayerData.LoadData() # loads player data
+	else:
+		printerr("PlayerData autoload not found")
+		
 	Health = PlayerData.Health
 	GAME_STATE = PlayerData.GAME_STATE
 

@@ -169,7 +169,7 @@ use_collision = true
 mesh = SubResource("BoxMesh_nfaly")
 
 [node name="Spike" parent="." instance=ExtResource("17_3w3yg")]
-transform = Transform3D(2.99407, 0, 0, 0, 1.10263, 0, 0, 0, 2.99407, 0, 23.9019, -38.8647)
+transform = Transform3D(2.717, 0, 0, 0, 0.725476, 0, 0, 0, 2.717, 0, 23.9019, -38.8647)
 
 [node name="Rock1" parent="." instance=ExtResource("18_ti13x")]
 transform = Transform3D(1.47781, 0, -0.537614, 0, 1.57256, 0, 0.537614, 0, 1.47781, -38.3469, 24, 30.3969)
