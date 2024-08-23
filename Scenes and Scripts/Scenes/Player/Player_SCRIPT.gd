@@ -51,13 +51,13 @@ var GAME_STATE := "NORMAL"
 
 # Physics Variables
 @export_group("Physics")
-var speed
+var speed # determines whether the player is pressing shift or not and whether to use the sprint speed or normal speed (code in physics process)
 @export var WALK_SPEED = 5.0
 @export var SPRINT_SPEED = 8.0
 @export var JUMP_VELOCITY = 4.5
 @export var gravity = 12.0
 
-
+# Utility
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
 
@@ -77,8 +77,10 @@ func _input(_event):
 	if Input.is_action_just_pressed("Inventory") and GAME_STATE == "NORMAL":
 		if $Head/Camera3D/InventoryLayer.is_visible():
 			$Head/Camera3D/InventoryLayer.hide()
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # lock mouse
 		else:
 			$Head/Camera3D/InventoryLayer.show()
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)  # unlock mouse
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
