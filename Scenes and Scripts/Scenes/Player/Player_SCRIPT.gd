@@ -154,7 +154,7 @@ func _ready():
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # lock mouse
 
-	PlayerSettingsData.LoadSettings() # Load settings from 
+	PlayerSettingsData.LoadSettings() # Load settings from player settings data
 
 	Health = PlayerData.Health
 	GAME_STATE = PlayerData.GAME_STATE
@@ -186,7 +186,11 @@ func TakeDamage(DamageToTake):
 	if UseHealth == true:
 		Health -= DamageToTake
 		PlayerData.Health = Health
-		if Health <= 0:
+		if Health <= 0: # check if health = 0 or below
+			
+			$Head/Camera3D/InventoryLayer.hide() # hide inventory
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # lock mouse
+			
 			GAME_STATE = "DEAD"
 			PlayerData.GAME_STATE = "DEAD"
 			Health = 0
