@@ -94,7 +94,7 @@ func _physics_process(delta):
 	if not is_on_floor() && GAME_STATE == "NORMAL":
 		velocity.y -= gravity * delta
 	# Handle jump.
-	if Input.is_action_just_pressed("Jump") and is_on_floor() && GAME_STATE == "NORMAL":
+	if Input.is_action_just_pressed("Jump") and is_on_floor() and GAME_STATE == "NORMAL" and !$Head/Camera3D/InventoryLayer.is_visible():
 		velocity.y = JUMP_VELOCITY
 	
 	if Input.is_action_pressed("Sprint") && GAME_STATE == "NORMAL":
@@ -121,7 +121,7 @@ func _physics_process(delta):
 		Wave_Length += delta * velocity.length() * float(is_on_floor())
 		camera.transform.origin = _headbob(Wave_Length)
 	
-	if GAME_STATE == "NORMAL":
+	if GAME_STATE == "NORMAL" and !$Head/Camera3D/InventoryLayer.is_visible():
 		move_and_slide()
 func _process(_delta):
 	
