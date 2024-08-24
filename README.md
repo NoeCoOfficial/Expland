@@ -6,7 +6,7 @@
 - Name : **Expland**
 - Description : **Face adversity and discover a second chance in a mysterious world.**
 - Game mode : **Single player**
-- Gameplay mechanics : **Simple smooth camera movements. You will be able to jump, and the mouse and WSD will be player movement, and there will be a white dot as a crosshair.**
+- Gameplay mechanics : **Simple smooth camera movements. You will be able to jump, and the mouse and WASD will be player movement, and there will be a white dot as a crosshair.**
 - Compatibility : **PC and Website only (we might make it mobile compatible later)**
 - Style : **Low Poly 3D.**
 - Target audience : **Gamers who enjoy single-player experiences with simple and smooth gameplay mechanics. The game's low poly 3D style may also appeal to fans of similar titles like Gang Beasts and Human Fall Flat.**
