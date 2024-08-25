@@ -1,6 +1,7 @@
 @icon("res://Textures/Icons/Script Icons/32x32/character_edit.png")
 extends CharacterBody3D
 
+var inventory_opened_in_air := false
 
 var GAME_STATE := "NORMAL"
 
@@ -49,13 +50,13 @@ var GAME_STATE := "NORMAL"
 
 # Physics Variables
 @export_group("Physics")
-var speed
+var speed # determines whether the player is pressing shift or not and whether to use the sprint speed or normal speed (code in physics process)
 @export var WALK_SPEED = 5.0
 @export var SPRINT_SPEED = 8.0
 @export var JUMP_VELOCITY = 4.5
 @export var gravity = 12.0
 
-
+# Utility
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
 
@@ -65,55 +66,85 @@ func wait(seconds: float) -> void:
 ########################################
 ########################################
 func _input(_event):
-	if Input.is_action_just_pressed("Quit") and Quit == true && GAME_STATE == "NORMAL":
+	if Input.is_action_just_pressed("Quit") and Quit == true and GAME_STATE == "NORMAL":
 		get_tree().quit()
-	if Input.is_action_just_pressed("Reset") and Reset == true && GAME_STATE == "NORMAL":
+	if Input.is_action_just_pressed("Reset") and Reset == true and GAME_STATE == "NORMAL":
 		if ResetPOS == Vector3(999, 999, 999):
 			self.position = StartPOS
 		else:
 			self.position = ResetPOS
+	
+	if Input.is_action_just_pressed("Inventory"):
+		if GAME_STATE == "NORMAL":
+			$Head/Camera3D/InventoryLayer.show()
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			GAME_STATE = "INVENTORY"
+
+			# Check if the player is in the air when inventory is opened
+			inventory_opened_in_air = not is_on_floor()
+
+		elif GAME_STATE == "INVENTORY":
+			$Head/Camera3D/InventoryLayer.hide()
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			GAME_STATE = "NORMAL"
+			inventory_opened_in_air = false  # Reset the flag when inventory is closed
+
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+
 ########################################
 
 ########################################
 func _physics_process(delta):
-	# Add the gravity.
-	if not is_on_floor() && GAME_STATE == "NORMAL":
+	# Always apply gravity regardless of the game state
+	if not is_on_floor():
 		velocity.y -= gravity * delta
-	# Handle jump.
-	if Input.is_action_just_pressed("Jump") and is_on_floor() && GAME_STATE == "NORMAL":
+
+	# Allow gravity but prevent movement when the inventory is open
+	if GAME_STATE == "INVENTORY":
+		# If the player was in the air when the inventory was opened and they just landed, stop movement
+		if inventory_opened_in_air and is_on_floor():
+			velocity.x = 0
+			velocity.z = 0
+			inventory_opened_in_air = false  # Reset the flag once player lands
+
+		move_and_slide()  # Apply gravity and handle movement
+		return
+
+	# Jumping
+	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	
-	if Input.is_action_pressed("Sprint") && GAME_STATE == "NORMAL":
+	# Sprinting
+	if Input.is_action_pressed("Sprint"):
 		speed = SPRINT_SPEED
 	else:
 		speed = WALK_SPEED
 	
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+	# Movement
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if is_on_floor() && GAME_STATE == "NORMAL":
+	if is_on_floor():
 		if direction:
 			velocity.x = direction.x * speed
 			velocity.z = direction.z * speed
 		else:
-			velocity.x = lerp(velocity.x, direction.x * speed, delta * 10.0)
-			velocity.z = lerp(velocity.z, direction.z * speed, delta * 10.0)
+			velocity.x = lerp(velocity.x, float(direction.x) * speed, delta * 10.0)
+			velocity.z = lerp(velocity.z, float(direction.z) * speed, delta * 10.0)
 	else:
-		velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
-		velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
-	
-	if GAME_STATE == "NORMAL":
-		Wave_Length += delta * velocity.length() * float(is_on_floor())
-		camera.transform.origin = _headbob(Wave_Length)
-	
-	if GAME_STATE == "NORMAL":
-		move_and_slide()
+		velocity.x = lerp(velocity.x, float(direction.x) * speed, delta * 3.0)
+		velocity.z = lerp(velocity.z, float(direction.z) * speed, delta * 3.0)
+
+	# View bobbing
+	Wave_Length += delta * velocity.length() * float(is_on_floor())
+	camera.transform.origin = _headbob(Wave_Length)
+	move_and_slide()
+
+
+
 func _process(_delta):
 	
 	
@@ -141,27 +172,32 @@ func _ready():
 	$Head/Camera3D/DeathScreen/BlackOverlay/GetUp.set_self_modulate(Color(0, 0, 0, 0))
 	$Head/Camera3D/DeathScreen/BlackOverlay/RandomText.set_self_modulate(Color(0, 0, 0, 0))
 	$Head/Camera3D/DeathScreen/BlackOverlay.set_self_modulate(Color(0, 0, 0, 0))
-	$Head/Camera3D/CrosshairCanvas/RedOverlay.set_self_modulate(Color(1, 0.016, 0, 0))
-
+	$Head/Camera3D/OverlayLayer/RedOverlay.set_self_modulate(Color(1, 0.016, 0, 0))
+	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # lock mouse
 
-	PlayerSettingsData.LoadSettings()
-
+	PlayerSettingsData.LoadSettings() # Load settings from player settings data
+	
+	if PlayerData: # check if player data exists (it may not be initialized correctly
+		PlayerData.LoadData() # loads player data
+	else:
+		printerr("PlayerData autoload not found")
+		
 	Health = PlayerData.Health
 	GAME_STATE = PlayerData.GAME_STATE
 
 	if GAME_STATE == "DEAD":
 		$Head/Camera3D/DeathScreen/BlackOverlay.set_self_modulate(Color(0, 0, 0, 1))
-		$Head/Camera3D/CrosshairCanvas/Overlay.show()
+		$Head/Camera3D/OverlayLayer/Overlay.show()
 		DeathScreen()
 
 	if Fade_In == true:
-		$Head/Camera3D/CrosshairCanvas/Overlay.show()
+		$Head/Camera3D/OverlayLayer/Overlay.show()
 		var tween = get_tree().create_tween()
-		tween.tween_property($Head/Camera3D/CrosshairCanvas/Overlay, "self_modulate", Color(0, 0, 0, 0), Fade_In_Time)
-		tween.tween_property($Head/Camera3D/CrosshairCanvas/Overlay, "visible", false, 0)
+		tween.tween_property($Head/Camera3D/OverlayLayer/Overlay, "self_modulate", Color(0, 0, 0, 0), Fade_In_Time)
+		tween.tween_property($Head/Camera3D/OverlayLayer/Overlay, "visible", false, 0)
 	else:
-		$Head/Camera3D/CrosshairCanvas/Overlay.hide()
+		$Head/Camera3D/OverlayLayer/Overlay.hide()
 	# Ensure the player starts at the correct position
 	self.position = StartPOS
 	push_warning("Initial position: ", self.position)
@@ -177,7 +213,11 @@ func TakeDamage(DamageToTake):
 	if UseHealth == true:
 		Health -= DamageToTake
 		PlayerData.Health = Health
-		if Health <= 0:
+		if Health <= 0: # check if health = 0 or below
+			
+			$Head/Camera3D/InventoryLayer.hide() # hide inventory
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # lock mouse
+			
 			GAME_STATE = "DEAD"
 			PlayerData.GAME_STATE = "DEAD"
 			Health = 0
@@ -187,8 +227,8 @@ func TakeDamage(DamageToTake):
 			TakeDamageOverlay()
 func TakeDamageOverlay():
 	var tween = get_tree().create_tween()
-	tween.tween_property($Head/Camera3D/CrosshairCanvas/RedOverlay, "self_modulate", Color(1, 0.018, 0, 0.808), 0).from(Color(1, 0.016, 0, 0))
-	tween.tween_property($Head/Camera3D/CrosshairCanvas/RedOverlay, "self_modulate", Color(1, 0.016, 0, 0), 0.5)
+	tween.tween_property($Head/Camera3D/OverlayLayer/RedOverlay, "self_modulate", Color(1, 0.018, 0, 0.808), 0).from(Color(1, 0.016, 0, 0))
+	tween.tween_property($Head/Camera3D/OverlayLayer/RedOverlay, "self_modulate", Color(1, 0.016, 0, 0), 0.5)
 func _on_respawn():
 	GAME_STATE = "NORMAL"
 	PlayerData.GAME_STATE = GAME_STATE
