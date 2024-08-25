@@ -40,26 +40,8 @@ corner_radius_top_right = 12
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_5mhs1")
-UseHealth = null
-MaxHealth = null
-Health = null
-Position = null
-StartPOS = null
-ResetPOS = null
 Fade_In = true
-Fade_In_Time = null
-Reset = null
-Quit = null
 FOV = 9999
-crosshair_size = null
-BOB_FREQ = null
-BOB_AMP = null
-Wave_Length = null
-SENSITIVITY = null
-WALK_SPEED = null
-SPRINT_SPEED = null
-JUMP_VELOCITY = null
-gravity = null
 
 [node name="AutoSaveTimer" type="Timer" parent="."]
 wait_time = 0.3

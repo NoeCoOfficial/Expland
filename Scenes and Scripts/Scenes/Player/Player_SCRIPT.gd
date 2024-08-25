@@ -74,11 +74,9 @@ func _input(_event):
 			self.position = ResetPOS
 	if Input.is_action_just_pressed("Inventory") and GAME_STATE == "NORMAL":
 		if $Head/Camera3D/InventoryLayer.is_visible():
-			renable_movement()
 			$Head/Camera3D/InventoryLayer.hide()
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # lock mouse
 		else:
-			disable_movement()
 			$Head/Camera3D/InventoryLayer.show()
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)  # unlock mouse
 func _unhandled_input(event):
