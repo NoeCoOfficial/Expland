@@ -1,6 +1,6 @@
 # Expland by Noe Co.
 ---
-### Current version: v0.1.2
+### Current version: v0.1.3
 ---
 ## 📜 About Expland
 - Name : **Expland**
