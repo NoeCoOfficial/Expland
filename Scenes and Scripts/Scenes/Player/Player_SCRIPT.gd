@@ -66,14 +66,16 @@ func wait(seconds: float) -> void:
 ########################################
 ########################################
 func _input(_event):
-	if Input.is_action_just_pressed("Quit") and Quit == true and GAME_STATE == "NORMAL":
-		get_tree().quit()
-	if Input.is_action_just_pressed("Reset") and Reset == true and GAME_STATE == "NORMAL":
-		if ResetPOS == Vector3(999, 999, 999):
-			self.position = StartPOS
-		else:
-			self.position = ResetPOS
-	
+	if Input.is_action_just_pressed("Quit") and Quit == true:
+		if GAME_STATE == "NORMAL" or "INVENTORY":
+			get_tree().quit()
+	if Input.is_action_just_pressed("Reset") and Reset == true:
+		if GAME_STATE == "NORMAL" or "INVENTORY":
+			if ResetPOS == Vector3(999, 999, 999):
+				self.position = StartPOS
+			else:
+				self.position = ResetPOS
+		
 	if Input.is_action_just_pressed("Inventory"):
 		if GAME_STATE == "NORMAL":
 			$Head/Camera3D/InventoryLayer.show()
