@@ -1,6 +1,7 @@
 @icon("res://Textures/Icons/Script Icons/32x32/character_edit.png")
 extends CharacterBody3D
 
+var inventory_opened_in_air := false
 
 var GAME_STATE := "NORMAL"
 
@@ -66,58 +67,84 @@ func wait(seconds: float) -> void:
 ########################################
 func _input(_event):
 	if Input.is_action_just_pressed("Quit") and Quit == true and GAME_STATE == "NORMAL":
-		get_tree().quit() ## fix this
+		get_tree().quit()
 	if Input.is_action_just_pressed("Reset") and Reset == true and GAME_STATE == "NORMAL":
 		if ResetPOS == Vector3(999, 999, 999):
 			self.position = StartPOS
 		else:
 			self.position = ResetPOS
-	if Input.is_action_just_pressed("Inventory") and GAME_STATE == "NORMAL":
-		if $Head/Camera3D/InventoryLayer.is_visible():
-			$Head/Camera3D/InventoryLayer.hide()
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # lock mouse
-		else:
+	
+	if Input.is_action_just_pressed("Inventory"):
+		if GAME_STATE == "NORMAL":
 			$Head/Camera3D/InventoryLayer.show()
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)  # unlock mouse
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			GAME_STATE = "INVENTORY"
+
+			# Check if the player is in the air when inventory is opened
+			inventory_opened_in_air = not is_on_floor()
+
+		elif GAME_STATE == "INVENTORY":
+			$Head/Camera3D/InventoryLayer.hide()
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			GAME_STATE = "NORMAL"
+			inventory_opened_in_air = false  # Reset the flag when inventory is closed
+
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+
 ########################################
 
 ########################################
 func _physics_process(delta):
-	# Add the gravity.
-	if not is_on_floor() && GAME_STATE == "NORMAL": ##  and !$Head/Camera3D/InventoryLayer.is_visible()
+	# Always apply gravity regardless of the game state
+	if not is_on_floor():
 		velocity.y -= gravity * delta
-	# Handle jump.
-	if Input.is_action_just_pressed("Jump") and is_on_floor() and GAME_STATE == "NORMAL":
+
+	# Allow gravity but prevent movement when the inventory is open
+	if GAME_STATE == "INVENTORY":
+		# If the player was in the air when the inventory was opened and they just landed, stop movement
+		if inventory_opened_in_air and is_on_floor():
+			velocity.x = 0
+			velocity.z = 0
+			inventory_opened_in_air = false  # Reset the flag once player lands
+
+		move_and_slide()  # Apply gravity and handle movement
+		return
+
+	# Jumping
+	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	
-	if Input.is_action_pressed("Sprint") && GAME_STATE == "NORMAL":
+	# Sprinting
+	if Input.is_action_pressed("Sprint"):
 		speed = SPRINT_SPEED
 	else:
 		speed = WALK_SPEED
 	
-	# Get the input direction and handle the movement/deceleration.
+	# Movement
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if is_on_floor() && GAME_STATE == "NORMAL":
+	if is_on_floor():
 		if direction:
 			velocity.x = direction.x * speed
 			velocity.z = direction.z * speed
 		else:
-			velocity.x = lerp(velocity.x, direction.x * speed, delta * 10.0)
-			velocity.z = lerp(velocity.z, direction.z * speed, delta * 10.0)
+			velocity.x = lerp(velocity.x, float(direction.x) * speed, delta * 10.0)
+			velocity.z = lerp(velocity.z, float(direction.z) * speed, delta * 10.0)
 	else:
-		velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
-		velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
-	
-	if GAME_STATE == "NORMAL":
-		Wave_Length += delta * velocity.length() * float(is_on_floor())
-		camera.transform.origin = _headbob(Wave_Length)
-		move_and_slide()
+		velocity.x = lerp(velocity.x, float(direction.x) * speed, delta * 3.0)
+		velocity.z = lerp(velocity.z, float(direction.z) * speed, delta * 3.0)
+
+	# View bobbing
+	Wave_Length += delta * velocity.length() * float(is_on_floor())
+	camera.transform.origin = _headbob(Wave_Length)
+	move_and_slide()
+
+
+
 func _process(_delta):
 	
 	
