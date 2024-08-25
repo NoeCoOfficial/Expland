@@ -103,14 +103,13 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
-	# Allow gravity but prevent movement when the inventory is open
+	# Handle movement restrictions when the inventory is open
 	if GAME_STATE == "INVENTORY":
-		# If the player was in the air when the inventory was opened and they just landed, stop movement
-		if inventory_opened_in_air and is_on_floor():
+		# If the player is on the ground when the inventory is opened or lands, stop movement
+		if is_on_floor():
 			velocity.x = 0
 			velocity.z = 0
 			inventory_opened_in_air = false  # Reset the flag once player lands
-
 		move_and_slide()  # Apply gravity and handle movement
 		return
 
