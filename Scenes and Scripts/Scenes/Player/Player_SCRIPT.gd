@@ -3,7 +3,6 @@ extends CharacterBody3D
 
 
 
-
 var GAME_STATE := "NORMAL"
 
 @export_group("Gameplay")
