@@ -1,7 +1,7 @@
 @icon("res://Textures/Icons/Script Icons/32x32/character_edit.png")
 extends CharacterBody3D
 
-var inventory_opened_in_air := false # check if the inventory is opened in the air (used in _physics_process)
+var inventory_opened_in_air := false
 
 var GAME_STATE := "NORMAL"
 
@@ -116,42 +116,39 @@ func _physics_process(delta):
 	# Jumping
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-
+	
 	# Sprinting
 	if Input.is_action_pressed("Sprint"):
 		speed = SPRINT_SPEED
 	else:
 		speed = WALK_SPEED
-
+	
 	# Movement
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-
 	if is_on_floor():
 		if direction:
 			velocity.x = direction.x * speed
 			velocity.z = direction.z * speed
 		else:
-			velocity.x = lerp(velocity.x, float(0), delta * 10.0)
-			velocity.z = lerp(velocity.z, float(0), delta * 10.0)
+			velocity.x = lerp(velocity.x, float(direction.x) * speed, delta * 10.0)
+			velocity.z = lerp(velocity.z, float(direction.z) * speed, delta * 10.0)
 	else:
-		# In the air, maintain the current velocity if there's no input
-		if direction != Vector3.ZERO:
-			velocity.x = direction.x * speed
-			velocity.z = direction.z * speed
-
-	# Move the character and handle collisions
+		velocity.x = lerp(velocity.x, float(direction.x) * speed, delta * 3.0)
+		velocity.z = lerp(velocity.z, float(direction.z) * speed, delta * 3.0)
+	
+	
 	move_and_slide()
-
 	# Check if the player is moving (i.e., not just stopped by a collision) and on the floor
 	var is_moving = velocity.length() > 0.1 and is_on_floor()
-
+	
 	# Apply view bobbing only if the player is moving
 	if is_moving:
 		Wave_Length += delta * velocity.length()
 		camera.transform.origin = _headbob(Wave_Length)
 	else:
 		camera.transform.origin.y = 0  # Reset bobbing when not moving
+
 
 
 func _process(_delta):
