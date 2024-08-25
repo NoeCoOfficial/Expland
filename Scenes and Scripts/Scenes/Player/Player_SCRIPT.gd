@@ -117,8 +117,6 @@ func _physics_process(delta):
 	if GAME_STATE == "NORMAL":
 		Wave_Length += delta * velocity.length() * float(is_on_floor())
 		camera.transform.origin = _headbob(Wave_Length)
-	
-	if GAME_STATE == "NORMAL" and !$Head/Camera3D/InventoryLayer.is_visible():
 		move_and_slide()
 func _process(_delta):
 	
