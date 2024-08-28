@@ -6,4 +6,5 @@ class_name Textures
 # Define all the textures that will be used for the inventory.
 
 const TEXTURE_APPLE:Texture2D = preload("res://Textures/Icons/Script Icons/32x32/world.png")
-
+const TEXTURE_STICK:Texture2D = preload("res://Textures/Icons/Script Icons/32x32/world.png")
+const TEXTURE_ROCK:Texture2D = preload("res://Textures/Icons/Script Icons/32x32/world.png")
