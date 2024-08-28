@@ -25,6 +25,7 @@ The keyword @export means that they can be accessed in the inspector panel (righ
 
 
 @export_group("Spawn") # A group for spawn variables
+
 @export var StartPOS := Vector3(0, 0, 0) # This no longer does anything if changed because this is always set to the value from the save file.
 @export var ResetPOS := Vector3(0, 0, 0) # Where the player goes if the Reset input is pressed. 999, 999, 999 for same as StartPOS.
 
@@ -32,32 +33,30 @@ The keyword @export means that they can be accessed in the inspector panel (righ
 @export var Fade_In := false # Whether to use the fade-in or not.
 @export var Fade_In_Time := 1.000 # The time it takes for the overlay to reach Color(1, 1, 1, 0) (Invisible).
 
-@export_group("Input") 
-@export var Reset := true
-@export var Quit := true
+@export_group("Input") # A group relating to inputs (keys on your keyboard)
+@export var Reset := true # Whether or not the player can use the Reset input to reset the player's position (will be off for final game.)
+@export var Quit := true # Whether or not the player can use the Quit input to quit the game (will be off for final game.)
 
-# Visual variables
-@export_group("Visual")
 
-# Camera variables
-@export_subgroup("Camera")
-@export var FOV := 116 # set to 9999 to get the player save value
+@export_group("Visual") # A group for visual/camera variables
 
-# Crosshair variables
-@export_subgroup("Crosshair")
-@export var crosshair_size = Vector2(12, 12)
+@export_subgroup("Camera") # Camera variables subgroup.
+@export var FOV := 116 # the Field Of Vision of the camera on the player. Set to 9999 to get the saved FOV value (settings.dat)
 
-# View bobbing variables
-@export_group("View Bobbing")
-@export var BOB_FREQ := 3.0
-@export var BOB_AMP = 0.08
-# Other view bobbing variables
-@export_subgroup("Other")
-@export var Wave_Length = 0.0
+@export_subgroup("Crosshair") # A subgroup for crosshair variables.
+@export var crosshair_size = Vector2(12, 12) # The size of the crosshair.
 
-# Mouse Variables
-@export_group("Mouse")
-@export var SENSITIVITY = 0.001
+@export_group("View Bobbing") # a group for view bobbing variables.
+
+
+@export var BOB_FREQ := 3.0 # The frequency of the waves (how often it occurs)
+@export var BOB_AMP = 0.08 # The amplitude of the waves (how much you actually go up and down)
+
+@export_subgroup("Other") # a subgroup for other view bobbing variables.
+@export var Wave_Length = 0.0 # The wavelength of the bobbing
+
+@export_group("Mouse") # a group for mouse variables.
+@export var SENSITIVITY = 0.001 
 
 # Physics Variables
 @export_group("Physics")
