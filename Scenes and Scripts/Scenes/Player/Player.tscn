@@ -7,12 +7,12 @@
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/CrosshairCanvas/HealthLBL_SCRIPT.gd" id="4_56i84"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/CrosshairCanvas/Crosshair_SCRIPT.gd" id="5_56a8a"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/InventoryLayer/InventoryBG_SCRIPT.gd" id="7_e7c62"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/RedOverlay_SCRIPT.gd" id="7_gnu1v"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/OverlayLayer/RedOverlay_SCRIPT.gd" id="7_gnu1v"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/InventoryLayer/InventoryLayerOverlay.gd" id="8_qhbaq"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Overlay_SCRIPT.gd" id="8_uxqns"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/BlackOverlay_SCRIPT.gd" id="9_g6nwl"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/RandomText_SCRIPT.gd" id="10_6w37c"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/GetUp_SCRIPT.gd" id="11_0enap"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/OverlayLayer/Overlay_SCRIPT.gd" id="8_uxqns"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/BlackOverlay_SCRIPT.gd" id="9_g6nwl"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/RandomText_SCRIPT.gd" id="10_6w37c"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/GetUp_SCRIPT.gd" id="11_0enap"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_e8ep2"]
 
