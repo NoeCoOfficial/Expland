@@ -106,6 +106,11 @@ func format_number(n: int) -> String: # A function for formatting numbers easily
 		return str(n)
 func _get_mouse_pos(): # get the position
 	return get_viewport().get_mouse_position()
+func center_mouse_cursor():
+	var viewport = get_viewport()
+	var viewport_size = viewport.get_visible_rect().size
+	var center_position = viewport_size / 2
+	viewport.warp_mouse(center_position)
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
 
@@ -134,6 +139,7 @@ func _input(_event):
 	if Input.is_action_just_pressed("Inventory"):
 		if GAME_STATE == "NORMAL":
 			$Head/Camera3D/InventoryLayer.show()
+			center_mouse_cursor()
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			GAME_STATE = "INVENTORY"
 
@@ -143,14 +149,20 @@ func _input(_event):
 		elif GAME_STATE == "INVENTORY":
 			$Head/Camera3D/InventoryLayer.hide()
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			center_mouse_cursor()
 			GAME_STATE = "NORMAL"
 			inventory_opened_in_air = false  # Reset the flag when inventory is closed
 
 func _unhandled_input(event):
-	if event is InputEventMouseMotion and !GAME_STATE == "INVENTORY":
-		head.rotate_y(-event.relative.x * SENSITIVITY)
-		camera.rotate_x(-event.relative.y * SENSITIVITY)
-		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+	if event is InputEventMouseMotion:
+		if GAME_STATE == "INVENTORY":
+			head.rotate_y(-event.relative.x * SENSITIVITY/20)
+			camera.rotate_x(-event.relative.y * SENSITIVITY/20)
+			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+		else:
+			head.rotate_y(-event.relative.x * SENSITIVITY)
+			camera.rotate_x(-event.relative.y * SENSITIVITY)
+			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
