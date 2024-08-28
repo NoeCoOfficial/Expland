@@ -8,7 +8,7 @@ var GAME_STATE := "NORMAL" # The local game state. (saved game state variable is
 
 """
 
-Up next are export variables. These are useful for flexibility between maps/levels.
+Below are the player scene's export variables. These are useful for flexibility between maps/levels.
 The keyword @export means that they can be accessed in the inspector panel (right side)
 
 """
