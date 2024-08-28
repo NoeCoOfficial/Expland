@@ -1,6 +1,15 @@
 extends CharacterBody3D
 
-## Test inventory populating function (To be used in player_SCRIPT.gd
+## Test inventory populating function (To be used in player_SCRIPT.gd)
+
+
+"""
+Some info:
+
+InventoryManager is the autoload to a new script that will be made.
+It will skib
+"""
+
 
 
 ## SLOT MUST BE BETWEEN 1 AND 9

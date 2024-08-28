@@ -1,12 +1,12 @@
-[gd_scene load_steps=28 format=3 uid="uid://cd24ed5mdweah"]
+[gd_scene load_steps=27 format=3 uid="uid://cd24ed5mdweah"]
 
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/WorldpageIcon_SCRIPT.gd" id="1_1gnsl"]
-[ext_resource type="Shader" path="res://Assets/3D Models/Water/LowPolyWater.gdshader" id="1_70r2a"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/World/world_SCRIPT.gd" id="1_j3awn"]
 [ext_resource type="PackedScene" uid="uid://bse22747lk111" path="res://Assets/3D Models/Trees/Normal/Tree2.blend" id="2_07q38"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/LightbulbIcon_SCRIPT.gd" id="2_ox5mt"]
 [ext_resource type="PackedScene" uid="uid://cdbylnsm71dkk" path="res://Assets/3D Models/Trees/Normal/Tree3.blend" id="3_6jryj"]
 [ext_resource type="PackedScene" uid="uid://cjm5lrxicdgsf" path="res://Scenes and Scripts/Scenes/Player/Player.tscn" id="3_6yh0b"]
+[ext_resource type="Material" uid="uid://b8rwx3qifw3mf" path="res://Shaders/Low Poly Water/LowPolyWater_MATERIAL.tres" id="4_515m5"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/TreeIcon_SCRIPT.gd" id="4_esxor"]
 [ext_resource type="PackedScene" uid="uid://c83ij1khevxpc" path="res://Assets/3D Models/Trees/Normal/Tree4.blend" id="4_f67wn"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/RiverIcon_SCRIPT.gd" id="5_uiuqr"]
@@ -34,19 +34,8 @@ sky = SubResource("Sky_wcbmd")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_v0ins"]
-render_priority = 0
-shader = ExtResource("1_70r2a")
-shader_parameter/out_color = Color(0, 0.027451, 1, 1)
-shader_parameter/amount = 2.3
-shader_parameter/speed = 1.2
-shader_parameter/beer_factor = 1.0
-shader_parameter/metallic = 0.6
-shader_parameter/specular = 3.0
-shader_parameter/roughness = 0.2
-
 [sub_resource type="PlaneMesh" id="PlaneMesh_jjwy4"]
-material = SubResource("ShaderMaterial_v0ins")
+material = ExtResource("4_515m5")
 size = Vector2(100, 100)
 subdivide_width = 30
 subdivide_depth = 30
