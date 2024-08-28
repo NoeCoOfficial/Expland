@@ -28,11 +28,11 @@ The keyword @export means that they can be accessed in the inspector panel (righ
 @export var StartPOS := Vector3(0, 0, 0) # This no longer does anything if changed because this is always set to the value from the save file.
 @export var ResetPOS := Vector3(0, 0, 0) # Where the player goes if the Reset input is pressed. 999, 999, 999 for same as StartPOS.
 
-@export_subgroup("Fade_In")
-@export var Fade_In := false
-@export var Fade_In_Time := 1.000
+@export_subgroup("Fade_In") # A subgroup for the fade-in variables (on spawn)
+@export var Fade_In := false # Whether to use the fade-in or not.
+@export var Fade_In_Time := 1.000 # The time it takes for the overlay to reach Color(1, 1, 1, 0) (Invisible).
 
-@export_group("Input")
+@export_group("Input") 
 @export var Reset := true
 @export var Quit := true
 
