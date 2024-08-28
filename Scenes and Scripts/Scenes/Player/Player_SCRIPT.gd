@@ -67,29 +67,61 @@ var speed # determines whether the player is pressing shift or not and whether t
 @export var JUMP_VELOCITY = 4.5 # Basically how high you can jump.
 @export var gravity = 12.0 # Was originally 9.8 but I felt it to be too unrealistic. We all know what gravity is... right?
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
 """
 Below are some utility functions. These are very useful when trying to preform actions that need to be custom made with code. 
 """
-func create_timer(wait_time:float, one_shot:bool):
-	var timer = Timer.new()
-	timer.set_wait_time(wait_time)
-	timer.set_one_shot(one_shot)
-	timer.connect("timeout", timer, "queue_free")
-	add_child(timer)
-	timer.start()
-	return timer
+func format_number(n: int) -> String: # A function for formatting numbers easily. Must be an integer!
+	if n >= 1_000:
 
-func _get_mouse_pos():
+		var i:float = snapped(float(n)/1_000, .01)
+		return str(i).replace(",", ".") + "k"
+
+	elif n >= 1_000_000:
+
+		var i:float = snapped(float(n)/1_000_000, .01)
+		return str(i).replace(",", ".") + "M"
+
+	elif n >= 1_000_000_000:
+
+		var i:float = snapped(float(n)/1_000_000_000, .01)
+		return str(i).replace(",", ".") + "B"
+
+	elif n >= 1_000_000_000_000:
+
+		var i:float = snapped(float(n)/1_000_000_000_000, .01)
+		return str(i).replace(",", ".") + "T"
+
+	elif n >= 1_000_000_000_000_000:
+
+		var i:float = snapped(float(n)/1_000_000_000_000_000, .01)
+		return str(i).replace(",", ".") + "aa"
+
+	else:
+
+		# ran otherwise
+		return str(n)
+
+func _get_mouse_pos(): # get the position
 	return get_viewport().get_mouse_position()
 
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
 # Body parts variables
-@onready var head = $Head
-@onready var camera = $Head/Camera3D
-########################################
-########################################
+@onready var head = $Head # reference to the head of the player scene.
+@onready var camera = $Head/Camera3D # reference to the camera of the player (used for mouse movement and looking around)
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 func _input(_event):
 	if Input.is_action_just_pressed("Quit") and Quit == true:
 		if GAME_STATE == "NORMAL" or "INVENTORY":
