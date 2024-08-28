@@ -7,7 +7,7 @@ extends CharacterBody3D
 Some info:
 
 InventoryManager is the autoload to a new script that will be made.
-It will skib
+It will handle 
 """
 
 
@@ -22,21 +22,21 @@ func PopulateInventorySlot(Slot : int, Item : String):
 
 		match Item:
 			"APPLE":
-				$PathToSlot_1.texture = InventoryManager.TEXTURE_APPLE # Define variables with the name of the item after "TEXTURE_"
+				$PathToSlot_1.texture = Textures.TEXTURE_APPLE # Define variables with the name of the item after "TEXTURE_"
 			"ROCK":
-				$PathToSlot_1.texture = InventoryManager.TEXTURE_ROCK
+				$PathToSlot_1.texture = Textures.TEXTURE_ROCK
 			"STICK":
-				$PathToSlot_1.texture = InventoryManager.TEXTURE_STICK
+				$PathToSlot_1.texture = Textures.TEXTURE_STICK
 				
 	elif Slot == 2: # Check if the slot is 2
 
 		match Item:
 			"APPLE":
-				$PathToSlot_2.texture = InventoryManager.TEXTURE_APPLE # Define variables with the name of the item after "TEXTURE_"
+				$PathToSlot_2.texture = Textures.TEXTURE_APPLE # Define variables with the name of the item after "TEXTURE_"
 			"ROCK":
-				$PathToSlot_2.texture = InventoryManager.TEXTURE_ROCK
+				$PathToSlot_2.texture = Textures.TEXTURE_ROCK
 			"STICK":
-				$PathToSlot_2.texture = InventoryManager.TEXTURE_STICK
+				$PathToSlot_2.texture = Textures.TEXTURE_STICK
 				
 	elif Slot == 3: # Check if the slot is 3
 		pass
