@@ -147,7 +147,7 @@ func _input(_event):
 			inventory_opened_in_air = false  # Reset the flag when inventory is closed
 
 func _unhandled_input(event):
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and !GAME_STATE == "INVENTORY":
 		head.rotate_y(-event.relative.x * SENSITIVITY)
 		camera.rotate_x(-event.relative.y * SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
