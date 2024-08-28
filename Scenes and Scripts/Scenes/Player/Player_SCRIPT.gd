@@ -1,21 +1,32 @@
-@icon("res://Textures/Icons/Script Icons/32x32/character_edit.png")
-extends CharacterBody3D
+@icon("res://Textures/Icons/Script Icons/32x32/character_edit.png") # Give the node an icon (for it looks cool)
+extends CharacterBody3D # Inheritance
 
-var inventory_opened_in_air := false
+# Utility variables
+var inventory_opened_in_air := false # checks if the inventory UI is opened in the air (so the same velocity can be kept, used in _physics_process()
 
-var GAME_STATE := "NORMAL"
+var GAME_STATE := "NORMAL" # The local game state. (saved game state variable is in PlayerData.gd)
 
-@export_group("Gameplay")
-@export_subgroup("Health")
-@export var UseHealth := true
-@export var MaxHealth := 100
-@export var Health := 100
-@export_subgroup("Other")
-@export var Position := Vector3(0, 0, 0)
-# Spawn variables
-@export_group("Spawn")
-@export var StartPOS := Vector3(0, 0, 0)
-@export var ResetPOS := Vector3(0, 0, 0) # 999, 999, 999 for same as startpos
+"""
+
+Up next are export variables. These are useful for flexibility between maps/levels.
+The keyword @export means that they can be accessed in the inspector panel (right side)
+
+"""
+
+@export_group("Gameplay") # A group for gameplay variables
+
+@export_subgroup("Health") # Health varibales subgroup
+@export var UseHealth := true # Checks if health should be used. If false no health label/bar will be displayed and the player won't be able to die/take damage)
+@export var MaxHealth := 100 # After death or when the game is first opened, the Health variable is set to this.
+@export var Health := 100 # The player's health.
+
+@export_subgroup("Other") 
+@export var Position := Vector3(0, 0, 0) # What the live position for the player is. This no longer does anything if changed in the inspector panel.
+
+
+@export_group("Spawn") # A group for spawn variables
+@export var StartPOS := Vector3(0, 0, 0) # This no longer does anything if changed because this is always set to the value from the save file.
+@export var ResetPOS := Vector3(0, 0, 0) # Where the player goes if the Reset input is pressed. 999, 999, 999 for same as StartPOS.
 
 @export_subgroup("Fade_In")
 @export var Fade_In := false
