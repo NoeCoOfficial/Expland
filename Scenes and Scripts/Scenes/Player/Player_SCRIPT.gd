@@ -56,17 +56,32 @@ The keyword @export means that they can be accessed in the inspector panel (righ
 @export var Wave_Length = 0.0 # The wavelength of the bobbing
 
 @export_group("Mouse") # a group for mouse variables.
-@export var SENSITIVITY = 0.001 
+@export var SENSITIVITY = 0.001 # The sensitivity of the mouse when it is locked in the center (during gameplay)
 
-# Physics Variables
-@export_group("Physics")
+@export_group("Physics") # A group for physics variables.
+
+
 var speed # determines whether the player is pressing shift or not and whether to use the sprint speed or normal speed (code in physics process)
-@export var WALK_SPEED = 5.0
-@export var SPRINT_SPEED = 8.0
-@export var JUMP_VELOCITY = 4.5
-@export var gravity = 12.0
+@export var WALK_SPEED = 5.0 # The speed of the player when the user isn't pressing/holding the Sprint input.
+@export var SPRINT_SPEED = 8.0 # The speed of the player when the user is pressing/holding the Sprint input.
+@export var JUMP_VELOCITY = 4.5 # Basically how high you can jump.
+@export var gravity = 12.0 # Was originally 9.8 but I felt it to be too unrealistic. We all know what gravity is... right?
 
-# Utility
+"""
+Below are some utility functions. These are very useful when trying to preform actions that need to be custom made with code. 
+"""
+func create_timer(wait_time:float, one_shot:bool):
+	var timer = Timer.new()
+	timer.set_wait_time(wait_time)
+	timer.set_one_shot(one_shot)
+	timer.connect("timeout", timer, "queue_free")
+	add_child(timer)
+	timer.start()
+	return timer
+
+func _get_mouse_pos():
+	return get_viewport().get_mouse_position()
+
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
 
