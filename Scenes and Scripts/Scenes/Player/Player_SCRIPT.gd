@@ -104,10 +104,8 @@ func format_number(n: int) -> String: # A function for formatting numbers easily
 
 		# ran otherwise
 		return str(n)
-
 func _get_mouse_pos(): # get the position
 	return get_viewport().get_mouse_position()
-
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
 
