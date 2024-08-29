@@ -104,14 +104,14 @@ func format_number(n: int) -> String: # A function for formatting numbers easily
 
 		# ran otherwise
 		return str(n)
-func _get_mouse_pos(): # get the position
+func _get_mouse_pos(): # get the position of the cursor.
 	return get_viewport().get_mouse_position()
-func center_mouse_cursor():
+func center_mouse_cursor(): # center the mouse cursor (relative to the viewport size)
 	var viewport = get_viewport()
 	var viewport_size = viewport.get_visible_rect().size
 	var center_position = viewport_size / 2
 	viewport.warp_mouse(center_position)
-func wait(seconds: float) -> void:
+func wait(seconds: float) -> void: # wait until the next line of code is executed. Similar to time.sleep() in python.
 	await get_tree().create_timer(seconds).timeout
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
