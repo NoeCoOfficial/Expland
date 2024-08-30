@@ -115,7 +115,7 @@ use_collision = true
 mesh = SubResource("BoxMesh_uqofq")
 
 [node name="CollisionSphere" type="CSGSphere3D" parent="ActualSizeTree9"]
-transform = Transform3D(2.33329, 0.008552, 0, -0.008552, 2.33329, 0, 0, 0, 2.19324, 1.2083, 4.97355, 1.63847)
+transform = Transform3D(2.33329, 0.00855201, 0, -0.00855201, 2.33329, 0, 0, 0, 2.19324, 1.18071, 4.98284, 1.67513)
 visible = false
 use_collision = true
 
