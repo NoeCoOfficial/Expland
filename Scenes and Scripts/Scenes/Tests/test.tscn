@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://clqkg5xb8eu01"]
 
-[ext_resource type="PackedScene" uid="uid://bsljbif1rji7e" path="res://Game Assets/Player/3DPlayer.tscn" id="1_5eu0s"]
+[ext_resource type="PackedScene" uid="uid://dlbkch6iuy8gn" path="res://Godot_First-Person-Controller-7310c731306fc98c7209fb28666ea85523cf86f5/addons/fp_controller/player.tscn" id="1_86eax"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_csbo8"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -29,5 +29,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0912914, 0.0251261, -1.6345
 use_collision = true
 size = Vector3(17.249, 1, 21.6737)
 
-[node name="Player" parent="." instance=ExtResource("1_5eu0s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.805227, 0.602243, 0.472525)
+[node name="Player" parent="." instance=ExtResource("1_86eax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

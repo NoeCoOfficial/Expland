@@ -51,6 +51,7 @@ The keyword @export means that they can be accessed in the inspector panel (righ
 
 @export var BOB_FREQ := 3.0 # The frequency of the waves (how often it occurs)
 @export var BOB_AMP = 0.08 # The amplitude of the waves (how much you actually go up and down)
+@export var BOB_SMOOTHING_SPEED := 3.0  # Speed to smooth the return to the original position. The lower it get's, the smoother it is.
 
 @export_subgroup("Other") # a subgroup for other view bobbing variables.
 @export var Wave_Length = 0.0 # The wavelength of the bobbing
@@ -174,7 +175,6 @@ func _physics_process(delta):
 
 	# Handle movement restrictions when the inventory is open
 	if GAME_STATE == "INVENTORY":
-		# If the player is on the ground when the inventory is opened or lands, stop movement
 		if is_on_floor():
 			velocity.x = 0
 			velocity.z = 0
@@ -185,38 +185,44 @@ func _physics_process(delta):
 	# Jumping
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-	
+
 	# Sprinting
-	if Input.is_action_pressed("Sprint"):
-		speed = SPRINT_SPEED
-	else:
-		speed = WALK_SPEED
-	
+	speed = SPRINT_SPEED if Input.is_action_pressed("Sprint") else WALK_SPEED
+
 	# Movement
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+
 	if is_on_floor():
-		if direction:
+		if direction != Vector3.ZERO:
 			velocity.x = direction.x * speed
 			velocity.z = direction.z * speed
 		else:
-			velocity.x = lerp(velocity.x, float(direction.x) * speed, delta * 10.0)
-			velocity.z = lerp(velocity.z, float(direction.z) * speed, delta * 10.0)
+			velocity.x = lerp(velocity.x, 0.0, delta * 10.0)
+			velocity.z = lerp(velocity.z, 0.0, delta * 10.0)
 	else:
-		velocity.x = lerp(velocity.x, float(direction.x) * speed, delta * 3.0)
-		velocity.z = lerp(velocity.z, float(direction.z) * speed, delta * 3.0)
-	
-	
+		velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
+		velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
+
 	move_and_slide()
-	# Check if the player is moving (i.e., not just stopped by a collision) and on the floor
+
+	# Check if the player is moving and on the floor
 	var is_moving = velocity.length() > 0.1 and is_on_floor()
-	
+
 	# Apply view bobbing only if the player is moving
 	if is_moving:
 		Wave_Length += delta * velocity.length()
 		camera.transform.origin = _headbob(Wave_Length)
 	else:
-		camera.transform.origin.y = 0  # Reset bobbing when not moving
+		# Smoothly return to original position when not moving
+		var target_pos = Vector3(camera.transform.origin.x, 0, camera.transform.origin.z)
+		camera.transform.origin = camera.transform.origin.lerp(target_pos, delta * BOB_SMOOTHING_SPEED)
+
+# The headbob function remains the same
+func _headbob(time) -> Vector3:
+	var pos = Vector3.ZERO
+	pos.y = sin(time * BOB_FREQ) * BOB_AMP
+	return pos
 func _process(_delta):
 
 	if UseHealth == false:
@@ -234,10 +240,7 @@ func _process(_delta):
 		$Head/Camera3D.fov = FOV
 	
 	$Head/Camera3D/CrosshairCanvas/Crosshair.size = crosshair_size
-func _headbob(time) -> Vector3:
-	var pos = Vector3.ZERO
-	pos.y = sin(time * BOB_FREQ) * BOB_AMP
-	return pos
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
