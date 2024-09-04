@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cd24ed5mdweah"]
+[gd_scene load_steps=28 format=3 uid="uid://cd24ed5mdweah"]
 
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/WorldpageIcon_SCRIPT.gd" id="1_1gnsl"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/World/world_SCRIPT.gd" id="1_j3awn"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://0stf8uio7dg2" path="res://Assets/3D Models/Trees/Normal/Tree9.blend" id="16_mxrey"]
 [ext_resource type="PackedScene" uid="uid://dd8nwfbgsd7ld" path="res://Scenes and Scripts/Scenes/Tests/Spike.tscn" id="17_3w3yg"]
 [ext_resource type="PackedScene" uid="uid://b6ijgxw1ym8h0" path="res://Assets/3D Models/Rocks/Rock1.blend" id="18_ti13x"]
+[ext_resource type="PackedScene" uid="uid://qyom2vll2mu4" path="res://Assets/3D Models/Trees/Normal/Tree10.blend" id="19_fnxy5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3idn0"]
 sky_top_color = Color(0.429029, 0.50793, 0.948547, 1)
@@ -199,5 +200,8 @@ transform = Transform3D(1.18907, -0.87752, -0.537614, 0.933784, 1.2653, -2.98023
 transform = Transform3D(15.8813, 0, 0, 0, 1, 0, 0, 0, 14.4515, -37.2857, 23.3918, 30.6509)
 material_override = SubResource("StandardMaterial3D_nklhj")
 mesh = SubResource("BoxMesh_jnrf1")
+
+[node name="Tree10" parent="." instance=ExtResource("19_fnxy5")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -19.3381, 11.5455, 1.72677)
 
 [connection signal="TakeDamage" from="Spike" to="Player" method="_on_spike_take_damage"]
