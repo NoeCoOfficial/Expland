@@ -67,34 +67,30 @@ script = ExtResource("2_37tst")
 
 [node name="HealthLBL" type="Label" parent="Head/Camera3D/CrosshairCanvas"]
 anchors_preset = -1
-anchor_left = 0.003
-anchor_top = 0.005
-anchor_right = 0.137
-anchor_bottom = 0.114
-offset_left = -0.456
-offset_top = -0.24
-offset_right = 0.175995
-offset_bottom = 0.127998
+anchor_left = 0.00260417
+anchor_top = 0.00462963
+anchor_right = 0.137153
+anchor_bottom = 0.114198
+offset_right = -1.52588e-05
 theme_override_fonts/font = ExtResource("3_yecwp")
 theme_override_font_sizes/font_size = 30
 text = "Health : 100"
 script = ExtResource("4_56i84")
+metadata/_edit_use_anchors_ = true
 
 [node name="Crosshair" type="TextureRect" parent="Head/Camera3D/CrosshairCanvas"]
 anchors_preset = -1
-anchor_left = 0.494
-anchor_top = 0.489
-anchor_right = 0.506
-anchor_bottom = 0.511
-offset_left = -0.0880127
-offset_top = 0.127991
-offset_right = 0.0879517
-offset_bottom = -0.128021
+anchor_left = 0.493924
+anchor_top = 0.489198
+anchor_right = 0.506076
+anchor_bottom = 0.510802
+offset_bottom = -3.05176e-05
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_606ex")
 expand_mode = 1
 script = ExtResource("5_56a8a")
+metadata/_edit_use_anchors_ = true
 
 [node name="InventoryLayer" type="CanvasLayer" parent="Head/Camera3D"]
 visible = false
