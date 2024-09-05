@@ -55,7 +55,7 @@ Thank you for your interest in this game. We can’t wait to share more with you
 ## ❓ FAQ
 
 ### How can I download the game?
-You can download the game at the [releases page](https://github.com/sebashtioon/Expland/releases/). The top release is the latest version. Under assets, you will find a .exe file. Click on that. Enjoy!
+You can download the game at the [releases page](https://github.com/sebashtioon/Expland/releases/). The top release is the latest version. Under **Assets**, you will find a .exe file. Click on that. Enjoy!
 
 _Note: If you get a popup saying that "Windows protected your PC", simply click "More Info" and then "Run anyway"._
 
