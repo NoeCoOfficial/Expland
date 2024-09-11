@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cd24ed5mdweah"]
+[gd_scene load_steps=32 format=3 uid="uid://cd24ed5mdweah"]
 
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/WorldpageIcon_SCRIPT.gd" id="1_1gnsl"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/World/world_SCRIPT.gd" id="1_j3awn"]
@@ -22,6 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://b0j1gyp7i41i7" path="res://Assets/3D Models/Trees/Normal/Hitbox/Tree1Hitbox.tscn" id="20_gs8cl"]
 [ext_resource type="PackedScene" uid="uid://dk6q4do6ixsph" path="res://Assets/3D Models/Trees/Normal/Hitbox/Tree2Hitbox.tscn" id="21_4lydo"]
 [ext_resource type="PackedScene" uid="uid://ltr3serdxbbc" path="res://Assets/3D Models/Trees/Normal/Hitbox/Tree3Hitbox.tscn" id="22_dcndt"]
+[ext_resource type="PackedScene" uid="uid://d4bjrj42ysrop" path="res://Assets/3D Models/Rocks/Rock3_Brown.blend" id="23_jhmo1"]
+[ext_resource type="PackedScene" uid="uid://b5d0ah73v2doj" path="res://Assets/3D Models/Rocks/Rock5_Mossy.blend" id="24_8xtuu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3idn0"]
 sky_top_color = Color(0.429029, 0.50793, 0.948547, 1)
@@ -208,5 +210,11 @@ transform = Transform3D(0.342101, 0, 0, 0, 0.342101, 0, 0, 0, 0.342101, -31.2699
 
 [node name="Tree3Hitbox" parent="." instance=ExtResource("22_dcndt")]
 transform = Transform3D(0.281264, 0, 0, 0, 0.281264, 0, 0, 0, 0.281264, -38.3974, 23.5633, 31.946)
+
+[node name="Rock3_Brown" parent="." instance=ExtResource("23_jhmo1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.478, 23.8502, 36.5406)
+
+[node name="Rock5_Mossy" parent="." instance=ExtResource("24_8xtuu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.1554, 23.6395, 39.3308)
 
 [connection signal="TakeDamage" from="Spike" to="Player" method="_on_spike_take_damage"]
