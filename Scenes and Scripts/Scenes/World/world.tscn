@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cd24ed5mdweah"]
+[gd_scene load_steps=30 format=3 uid="uid://cd24ed5mdweah"]
 
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/WorldpageIcon_SCRIPT.gd" id="1_1gnsl"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/World/world_SCRIPT.gd" id="1_j3awn"]
@@ -19,6 +19,9 @@
 [ext_resource type="PackedScene" uid="uid://dd8nwfbgsd7ld" path="res://Scenes and Scripts/Scenes/Tests/Spike.tscn" id="17_3w3yg"]
 [ext_resource type="PackedScene" uid="uid://b6ijgxw1ym8h0" path="res://Assets/3D Models/Rocks/Rock1.blend" id="18_ti13x"]
 [ext_resource type="PackedScene" uid="uid://qyom2vll2mu4" path="res://Assets/3D Models/Trees/Normal/Tree10.blend" id="19_fnxy5"]
+[ext_resource type="PackedScene" uid="uid://b0j1gyp7i41i7" path="res://Assets/3D Models/Trees/Normal/Hitbox/Tree1Hitbox.tscn" id="20_gs8cl"]
+[ext_resource type="PackedScene" uid="uid://dk6q4do6ixsph" path="res://Assets/3D Models/Trees/Normal/Hitbox/Tree2Hitbox.tscn" id="21_4lydo"]
+[ext_resource type="PackedScene" uid="uid://ltr3serdxbbc" path="res://Assets/3D Models/Trees/Normal/Hitbox/Tree3Hitbox.tscn" id="22_dcndt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3idn0"]
 sky_top_color = Color(0.429029, 0.50793, 0.948547, 1)
@@ -40,8 +43,6 @@ material = ExtResource("4_515m5")
 size = Vector2(100, 100)
 subdivide_width = 30
 subdivide_depth = 30
-
-[sub_resource type="BoxMesh" id="BoxMesh_uqofq"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_nfaly"]
 
@@ -104,26 +105,6 @@ script = ExtResource("4_esxor")
 [node name="Tree9" parent="." instance=ExtResource("16_mxrey")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -38.0394, 11.7072, 0.276182)
 script = ExtResource("4_esxor")
-
-[node name="ActualSizeTree9" parent="." instance=ExtResource("16_mxrey")]
-transform = Transform3D(0.929693, 0, 0, 0, 0.929693, 0, 0, 0, 0.929693, -38.0394, 22.5304, 30.1994)
-script = ExtResource("4_esxor")
-
-[node name="CollisionShape" type="CSGMesh3D" parent="ActualSizeTree9"]
-transform = Transform3D(0.831697, 0, 0, 0, 9.06471, 0, 0, 0, 0.831697, 0.461531, 2.85101, 0.201679)
-visible = false
-use_collision = true
-mesh = SubResource("BoxMesh_uqofq")
-
-[node name="CollisionSphere" type="CSGSphere3D" parent="ActualSizeTree9"]
-transform = Transform3D(2.33329, 0.00855201, 0, -0.00855201, 2.33329, 0, 0, 0, 2.19324, 1.18071, 4.98284, 1.67513)
-visible = false
-use_collision = true
-
-[node name="CollisionSphere2" type="CSGSphere3D" parent="ActualSizeTree9"]
-transform = Transform3D(2.33329, 0.008552, 0, -0.008552, 2.33329, 0, 0, 0, 2.19324, -0.212063, 4.86202, -1.67748)
-visible = false
-use_collision = true
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("3_6yh0b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.35405, 24.7629, -47.0385)
@@ -196,12 +177,36 @@ transform = Transform3D(1.18907, -0.87752, -0.537614, 0.933784, 1.2653, -2.98023
 [node name="DetailRock4" parent="." instance=ExtResource("18_ti13x")]
 transform = Transform3D(1.18907, -0.87752, -0.537614, 0.933784, 1.2653, -2.98023e-08, 0.432572, -0.319234, 1.47781, -35.9128, 21.9636, 35.5509)
 
+[node name="DetailRock5" parent="." instance=ExtResource("18_ti13x")]
+transform = Transform3D(1.18907, -0.87752, -0.537614, 0.933784, 1.2653, -2.98023e-08, 0.432572, -0.319234, 1.47781, -25.5837, 21.9636, 35.5509)
+
+[node name="DetailRock6" parent="." instance=ExtResource("18_ti13x")]
+transform = Transform3D(1.18907, -0.87752, -0.537614, 0.933784, 1.2653, -2.98023e-08, 0.432572, -0.319234, 1.47781, -33.8603, 23.1434, 34.6599)
+
+[node name="DetailRock9" parent="." instance=ExtResource("18_ti13x")]
+transform = Transform3D(1.18907, -0.87752, -0.537614, 0.933784, 1.2653, -2.98023e-08, 0.432572, -0.319234, 1.47781, -33.8603, 23.1434, 24.0821)
+
+[node name="DetailRock7" parent="." instance=ExtResource("18_ti13x")]
+transform = Transform3D(0.759533, -0.628167, 1.22534, -0.565845, -1.41816, -0.376274, 1.25534, -0.259173, -0.910989, -39.9509, 22.6059, 20.8405)
+
+[node name="DetailRock8" parent="." instance=ExtResource("18_ti13x")]
+transform = Transform3D(-1.17044, -0.423521, 0.961072, 0.907759, -1.13169, 0.606792, 0.528212, 1.0064, 1.08678, -34.8514, 23.1513, 39.7362)
+
 [node name="GrassBlock" type="CSGMesh3D" parent="."]
-transform = Transform3D(15.8813, 0, 0, 0, 1, 0, 0, 0, 14.4515, -37.2857, 23.3918, 30.6509)
+transform = Transform3D(32.8348, 0, 0, 0, 1, 0, 0, 0, 29.6568, -37.2857, 23.3918, 30.6509)
 material_override = SubResource("StandardMaterial3D_nklhj")
 mesh = SubResource("BoxMesh_jnrf1")
 
 [node name="Tree10" parent="." instance=ExtResource("19_fnxy5")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -19.3381, 11.5455, 1.72677)
+
+[node name="Tree1Hitbox" parent="." instance=ExtResource("20_gs8cl")]
+transform = Transform3D(0.360451, 0, 0, 0, 0.360451, 0, 0, 0, 0.360451, -35.6168, 23.693, 38.8061)
+
+[node name="Tree2Hitbox" parent="." instance=ExtResource("21_4lydo")]
+transform = Transform3D(0.342101, 0, 0, 0, 0.342101, 0, 0, 0, 0.342101, -31.2699, 23.5886, 35)
+
+[node name="Tree3Hitbox" parent="." instance=ExtResource("22_dcndt")]
+transform = Transform3D(0.281264, 0, 0, 0, 0.281264, 0, 0, 0, 0.281264, -38.3974, 23.5633, 31.946)
 
 [connection signal="TakeDamage" from="Spike" to="Player" method="_on_spike_take_damage"]
