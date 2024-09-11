@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=20 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -13,7 +13,6 @@
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/BlackOverlay_SCRIPT.gd" id="9_g6nwl"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/IgnoreMouseFilter.gd" id="9_svfxy"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/RandomText_SCRIPT.gd" id="10_6w37c"]
-[ext_resource type="Texture2D" uid="uid://ckn730v2wn1y8" path="res://Textures/Icons/Expland-icon.png" id="10_ff6pi"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/GetUp_SCRIPT.gd" id="11_0enap"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_e8ep2"]
@@ -149,226 +148,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("8_qhbaq")
 
-[node name="Slot1_BG" type="Panel" parent="Head/Camera3D/InventoryLayer"]
-anchors_preset = -1
-anchor_left = 0.357639
-anchor_top = 0.277778
-anchor_right = 0.448785
-anchor_bottom = 0.439815
-offset_top = -1.52588e-05
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("9_svfxy")
-metadata/_edit_use_anchors_ = true
-
-[node name="Slot1_BG_2" type="Panel" parent="Head/Camera3D/InventoryLayer"]
-modulate = Color(0, 0, 0, 1)
-anchors_preset = -1
-anchor_left = 0.360243
-anchor_top = 0.282407
-anchor_right = 0.446181
-anchor_bottom = 0.435185
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("9_svfxy")
-metadata/_edit_use_anchors_ = true
-
-[node name="Slot2_BG" type="Panel" parent="Head/Camera3D/InventoryLayer"]
-anchors_preset = -1
-anchor_left = 0.454861
-anchor_top = 0.277778
-anchor_right = 0.546007
-anchor_bottom = 0.439815
-offset_top = -1.52588e-05
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("9_svfxy")
-metadata/_edit_use_anchors_ = true
-
-[node name="Slot2_BG_2" type="Panel" parent="Head/Camera3D/InventoryLayer"]
-modulate = Color(0, 0, 0, 1)
-anchors_preset = -1
-anchor_left = 0.457465
-anchor_top = 0.282407
-anchor_right = 0.543403
-anchor_bottom = 0.435185
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("9_svfxy")
-metadata/_edit_use_anchors_ = true
-
-[node name="Slot3_BG" type="Panel" parent="Head/Camera3D/InventoryLayer"]
-anchors_preset = -1
-anchor_left = 0.552083
-anchor_top = 0.277778
-anchor_right = 0.643229
-anchor_bottom = 0.439815
-offset_top = -1.52588e-05
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("9_svfxy")
-metadata/_edit_use_anchors_ = true
-
-[node name="Slot3_BG_2" type="Panel" parent="Head/Camera3D/InventoryLayer"]
-modulate = Color(0, 0, 0, 1)
-anchors_preset = -1
-anchor_left = 0.554688
-anchor_top = 0.282407
-anchor_right = 0.640625
-anchor_bottom = 0.435185
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("9_svfxy")
-metadata/_edit_use_anchors_ = true
-
-[node name="Slot4_BG" type="Panel" parent="Head/Camera3D/InventoryLayer"]
-anchors_preset = -1
-anchor_left = 0.357639
-anchor_top = 0.45679
-anchor_right = 0.448785
-anchor_bottom = 0.618827
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("9_svfxy")
-metadata/_edit_use_anchors_ = true
-
-[node name="Slot4_BG_2" type="Panel" parent="Head/Camera3D/InventoryLayer"]
-modulate = Color(0, 0, 0, 1)
-anchors_preset = -1
-anchor_left = 0.360243
-anchor_top = 0.46142
-anchor_right = 0.446181
-anchor_bottom = 0.614198
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("9_svfxy")
-metadata/_edit_use_anchors_ = true
-
-[node name="Slot5_BG" type="Panel" parent="Head/Camera3D/InventoryLayer"]
-anchors_preset = -1
-anchor_left = 0.454861
-anchor_top = 0.45679
-anchor_right = 0.546007
-anchor_bottom = 0.618827
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("9_svfxy")
-metadata/_edit_use_anchors_ = true
-
-[node name="Slot5_BG_2" type="Panel" parent="Head/Camera3D/InventoryLayer"]
-modulate = Color(0, 0, 0, 1)
-anchors_preset = -1
-anchor_left = 0.457465
-anchor_top = 0.46142
-anchor_right = 0.543403
-anchor_bottom = 0.614198
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("9_svfxy")
-metadata/_edit_use_anchors_ = true
-
-[node name="Slot6_BG" type="Panel" parent="Head/Camera3D/InventoryLayer"]
-anchors_preset = -1
-anchor_left = 0.552083
-anchor_top = 0.45679
-anchor_right = 0.643229
-anchor_bottom = 0.618827
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("9_svfxy")
-metadata/_edit_use_anchors_ = true
-
-[node name="Slot6_BG_2" type="Panel" parent="Head/Camera3D/InventoryLayer"]
-modulate = Color(0, 0, 0, 1)
-anchors_preset = -1
-anchor_left = 0.554688
-anchor_top = 0.46142
-anchor_right = 0.640625
-anchor_bottom = 0.614198
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("9_svfxy")
-metadata/_edit_use_anchors_ = true
-
-[node name="Slot7_BG" type="Panel" parent="Head/Camera3D/InventoryLayer"]
-anchors_preset = -1
-anchor_left = 0.357639
-anchor_top = 0.635802
-anchor_right = 0.448785
-anchor_bottom = 0.79784
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("9_svfxy")
-metadata/_edit_use_anchors_ = true
-
-[node name="Slot7_BG_2" type="Panel" parent="Head/Camera3D/InventoryLayer"]
-modulate = Color(0, 0, 0, 1)
-anchors_preset = -1
-anchor_left = 0.360243
-anchor_top = 0.640432
-anchor_right = 0.446181
-anchor_bottom = 0.79321
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("9_svfxy")
-metadata/_edit_use_anchors_ = true
-
-[node name="Slot8_BG" type="Panel" parent="Head/Camera3D/InventoryLayer"]
-anchors_preset = -1
-anchor_left = 0.454861
-anchor_top = 0.635802
-anchor_right = 0.546007
-anchor_bottom = 0.79784
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("9_svfxy")
-metadata/_edit_use_anchors_ = true
-
-[node name="Slot8_BG_2" type="Panel" parent="Head/Camera3D/InventoryLayer"]
-modulate = Color(0, 0, 0, 1)
-anchors_preset = -1
-anchor_left = 0.457465
-anchor_top = 0.640432
-anchor_right = 0.543403
-anchor_bottom = 0.79321
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("9_svfxy")
-metadata/_edit_use_anchors_ = true
-
-[node name="Slot9_BG" type="Panel" parent="Head/Camera3D/InventoryLayer"]
-anchors_preset = -1
-anchor_left = 0.552083
-anchor_top = 0.635802
-anchor_right = 0.643229
-anchor_bottom = 0.79784
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("9_svfxy")
-metadata/_edit_use_anchors_ = true
-
-[node name="Slot9_BG_2" type="Panel" parent="Head/Camera3D/InventoryLayer"]
-modulate = Color(0, 0, 0, 1)
-anchors_preset = -1
-anchor_left = 0.554688
-anchor_top = 0.640432
-anchor_right = 0.640625
-anchor_bottom = 0.79321
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("9_svfxy")
-metadata/_edit_use_anchors_ = true
-
 [node name="Title" type="Label" parent="Head/Camera3D/InventoryLayer"]
 anchors_preset = -1
-anchor_left = 0.388
-anchor_top = 0.187
-anchor_right = 0.612
-anchor_bottom = 0.279
-offset_left = -0.476013
-offset_top = 2.324
-offset_right = 0.475952
-offset_bottom = 1.70799
+anchor_left = 0.387587
+anchor_top = 0.190586
+anchor_right = 0.612413
+anchor_bottom = 0.281636
+offset_left = 3.05176e-05
+offset_right = -6.10352e-05
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_yecwp")
@@ -377,87 +164,6 @@ text = "INVENTORY"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("9_svfxy")
-
-[node name="SLOT_1" type="TextureRect" parent="Head/Camera3D/InventoryLayer"]
-anchors_preset = -1
-anchor_left = 0.363715
-anchor_top = 0.28858
-anchor_right = 0.44184
-anchor_bottom = 0.427469
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="SLOT_2" type="TextureRect" parent="Head/Camera3D/InventoryLayer"]
-anchors_preset = -1
-anchor_left = 0.461806
-anchor_top = 0.28858
-anchor_right = 0.539931
-anchor_bottom = 0.427469
-texture = ExtResource("10_ff6pi")
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="SLOT_3" type="TextureRect" parent="Head/Camera3D/InventoryLayer"]
-anchors_preset = -1
-anchor_left = 0.559028
-anchor_top = 0.28858
-anchor_right = 0.637153
-anchor_bottom = 0.427469
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="SLOT_4" type="TextureRect" parent="Head/Camera3D/InventoryLayer"]
-anchors_preset = -1
-anchor_left = 0.363715
-anchor_top = 0.467593
-anchor_right = 0.44184
-anchor_bottom = 0.606481
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="SLOT_5" type="TextureRect" parent="Head/Camera3D/InventoryLayer"]
-anchors_preset = -1
-anchor_left = 0.461806
-anchor_top = 0.467593
-anchor_right = 0.539931
-anchor_bottom = 0.606481
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="SLOT_6" type="TextureRect" parent="Head/Camera3D/InventoryLayer"]
-anchors_preset = -1
-anchor_left = 0.559028
-anchor_top = 0.467593
-anchor_right = 0.637153
-anchor_bottom = 0.606481
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="SLOT_7" type="TextureRect" parent="Head/Camera3D/InventoryLayer"]
-anchors_preset = -1
-anchor_left = 0.363715
-anchor_top = 0.646605
-anchor_right = 0.44184
-anchor_bottom = 0.785494
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="SLOT_8" type="TextureRect" parent="Head/Camera3D/InventoryLayer"]
-anchors_preset = -1
-anchor_left = 0.461806
-anchor_top = 0.646605
-anchor_right = 0.539931
-anchor_bottom = 0.785494
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="SLOT_9" type="TextureRect" parent="Head/Camera3D/InventoryLayer"]
-anchors_preset = -1
-anchor_left = 0.559028
-anchor_top = 0.646605
-anchor_right = 0.637153
-anchor_bottom = 0.785494
-expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
