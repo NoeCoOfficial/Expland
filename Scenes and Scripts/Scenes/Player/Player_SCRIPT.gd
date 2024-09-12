@@ -313,15 +313,14 @@ func TakeDamageOverlay():
 	var tween = get_tree().create_tween()
 	tween.tween_property($Head/Camera3D/OverlayLayer/RedOverlay, "self_modulate", Color(1, 0.018, 0, 0.808), 0).from(Color(1, 0.016, 0, 0))
 	tween.tween_property($Head/Camera3D/OverlayLayer/RedOverlay, "self_modulate", Color(1, 0.016, 0, 0), 0.5)
-func _on_respawn():
-	GAME_STATE = "NORMAL"
-	PlayerData.GAME_STATE = GAME_STATE
+
 func RespawnFromDeath():
 	self.position = StartPOS
 	Health = MaxHealth
 	PlayerData.Health = Health
+	GAME_STATE = "NORMAL"
+	PlayerData.GAME_STATE = GAME_STATE
 	var tween = get_tree().create_tween()
-	tween.connect("finished", _on_respawn, 1)
 	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay, "self_modulate", Color(0, 0, 0, 0), 3)
 func _on_death_screen_finished():
 	RespawnFromDeath()
