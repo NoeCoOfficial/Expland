@@ -6,9 +6,7 @@
 [ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="3_yecwp"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/CrosshairCanvas/HealthLBL_SCRIPT.gd" id="4_56i84"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/CrosshairCanvas/Crosshair_SCRIPT.gd" id="5_56a8a"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/InventoryLayer/InventoryBG_SCRIPT.gd" id="7_e7c62"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/OverlayLayer/RedOverlay_SCRIPT.gd" id="7_gnu1v"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/InventoryLayer/InventoryLayerOverlay.gd" id="8_qhbaq"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/OverlayLayer/Overlay_SCRIPT.gd" id="8_uxqns"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/BlackOverlay_SCRIPT.gd" id="9_g6nwl"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/IgnoreMouseFilter.gd" id="9_svfxy"]
@@ -27,6 +25,20 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="GDScript" id="GDScript_tq46f"]
+script/source = "extends Panel
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	self.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+	pass
+"
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xa5l0"]
 bg_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 12
@@ -38,6 +50,20 @@ corner_radius_bottom_left = 12
 bg_color = Color(0.103744, 0.103744, 0.103744, 1)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
+
+[sub_resource type="GDScript" id="GDScript_dc442"]
+script/source = "extends Panel
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	self.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+	pass
+"
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_5mhs1")
@@ -107,7 +133,7 @@ offset_bottom = 0.231995
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2kg3l")
-script = ExtResource("7_e7c62")
+script = SubResource("GDScript_tq46f")
 
 [node name="Background_2" type="Panel" parent="Head/Camera3D/InventoryLayer"]
 modulate = Color(0, 0, 0, 1)
@@ -123,7 +149,7 @@ offset_bottom = 0.303955
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xa5l0")
-script = ExtResource("7_e7c62")
+script = SubResource("GDScript_tq46f")
 
 [node name="Background_3" type="Panel" parent="Head/Camera3D/InventoryLayer"]
 anchors_preset = -1
@@ -138,7 +164,7 @@ offset_bottom = 0.0399933
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7tmhy")
-script = ExtResource("7_e7c62")
+script = SubResource("GDScript_tq46f")
 
 [node name="Overlay" type="Panel" parent="Head/Camera3D/InventoryLayer"]
 anchors_preset = 15
@@ -146,7 +172,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("8_qhbaq")
+script = SubResource("GDScript_dc442")
 
 [node name="Title" type="Label" parent="Head/Camera3D/InventoryLayer"]
 anchors_preset = -1
