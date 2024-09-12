@@ -1,6 +1,5 @@
 # Expland by Noe Co.
 ---
-test
 ### Current version: v0.1.7
 ---
 ## 📜 About Expland
