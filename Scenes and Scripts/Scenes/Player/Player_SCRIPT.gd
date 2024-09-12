@@ -169,54 +169,56 @@ func _unhandled_input(event):
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 func _physics_process(delta):
-	# Always apply gravity regardless of the game state
-	if not is_on_floor():
-		velocity.y -= gravity * delta
+	
+	if !GAME_STATE == "DEAD":
+		# Always apply gravity regardless of the game state
+		if not is_on_floor():
+			velocity.y -= gravity * delta
 
-	# Handle movement restrictions when the inventory is open
-	if GAME_STATE == "INVENTORY":
+		# Handle movement restrictions when the inventory is open
+		if GAME_STATE == "INVENTORY":
+			if is_on_floor():
+				velocity.x = 0
+				velocity.z = 0
+				inventory_opened_in_air = false  # Reset the flag once player lands
+			move_and_slide()  # Apply gravity and handle movement
+			return
+
+		# Jumping
+		if Input.is_action_just_pressed("Jump") and is_on_floor():
+			velocity.y = JUMP_VELOCITY
+
+		# Sprinting
+		speed = SPRINT_SPEED if Input.is_action_pressed("Sprint") else WALK_SPEED
+
+		# Movement
+		var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+		var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+
 		if is_on_floor():
-			velocity.x = 0
-			velocity.z = 0
-			inventory_opened_in_air = false  # Reset the flag once player lands
-		move_and_slide()  # Apply gravity and handle movement
-		return
-
-	# Jumping
-	if Input.is_action_just_pressed("Jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Sprinting
-	speed = SPRINT_SPEED if Input.is_action_pressed("Sprint") else WALK_SPEED
-
-	# Movement
-	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
-	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-
-	if is_on_floor():
-		if direction != Vector3.ZERO:
-			velocity.x = direction.x * speed
-			velocity.z = direction.z * speed
+			if direction != Vector3.ZERO:
+				velocity.x = direction.x * speed
+				velocity.z = direction.z * speed
+			else:
+				velocity.x = lerp(velocity.x, 0.0, delta * 10.0)
+				velocity.z = lerp(velocity.z, 0.0, delta * 10.0)
 		else:
-			velocity.x = lerp(velocity.x, 0.0, delta * 10.0)
-			velocity.z = lerp(velocity.z, 0.0, delta * 10.0)
-	else:
-		velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
-		velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
+			velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
+			velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
 
-	move_and_slide()
+		move_and_slide()
 
-	# Check if the player is moving and on the floor
-	var is_moving = velocity.length() > 0.1 and is_on_floor()
+		# Check if the player is moving and on the floor
+		var is_moving = velocity.length() > 0.1 and is_on_floor()
 
-	# Apply view bobbing only if the player is moving
-	if is_moving:
-		Wave_Length += delta * velocity.length()
-		camera.transform.origin = _headbob(Wave_Length)
-	else:
-		# Smoothly return to original position when not moving
-		var target_pos = Vector3(camera.transform.origin.x, 0, camera.transform.origin.z)
-		camera.transform.origin = camera.transform.origin.lerp(target_pos, delta * BOB_SMOOTHING_SPEED)
+		# Apply view bobbing only if the player is moving
+		if is_moving:
+			Wave_Length += delta * velocity.length()
+			camera.transform.origin = _headbob(Wave_Length)
+		else:
+			# Smoothly return to original position when not moving
+			var target_pos = Vector3(camera.transform.origin.x, 0, camera.transform.origin.z)
+			camera.transform.origin = camera.transform.origin.lerp(target_pos, delta * BOB_SMOOTHING_SPEED)
 
 # The headbob function remains the same
 func _headbob(time) -> Vector3:
@@ -320,7 +322,7 @@ func RespawnFromDeath():
 	PlayerData.Health = Health
 	var tween = get_tree().create_tween()
 	tween.connect("finished", _on_respawn, 1)
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay, "self_modulate", Color(0, 0, 0, 0), 3)	
+	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay, "self_modulate", Color(0, 0, 0, 0), 3)
 func _on_death_screen_finished():
 	RespawnFromDeath()
 func DeathScreen():
@@ -340,7 +342,24 @@ func DeathScreen():
 		"Stop kidding yourself. This isn't a game.",
 		"What did you do?",
 		"You did everything to deserve this.",
-		]
+		"Your story ends here.",
+		"Not even time can save you now.",
+		"Everything you know has crumbled.",
+		"The end is inevitable.",
+		"No one will remember you.",
+		"All your efforts were in vain.",
+		"This world doesn't need you anymore.",
+		"The void welcomes you.",
+		"Was it worth it?",
+		"Death is just the beginning.",
+		"Your journey ends in silence.",
+		"Only shadows remain.",
+		"Hope fades into the darkness.",
+		"Your struggle was meaningless.",
+		"Nothing can undo what you've done.",
+		"How could you let this happen?"
+	]
+
 	randomize()  # Seed the random number generator
 	var random_index = randi() % randomtext.size()
 	$Head/Camera3D/DeathScreen/BlackOverlay/RandomText.text = randomtext[random_index]
