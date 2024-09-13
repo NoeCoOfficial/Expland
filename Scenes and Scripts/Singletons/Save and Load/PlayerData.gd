@@ -9,7 +9,7 @@ func _ready():
 	printerr("PlayerData autoload ready")
 
 func SaveData() -> void:
-	var player = get_node("/root/World/Player")  # Adjust this path to match your player node's path
+	var player = get_node("/root/World/Player")
 	if player:
 		var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 		var data = {
