@@ -1,7 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://cetvclasnjxfb"]
+[gd_scene load_steps=24 format=3 uid="uid://cetvclasnjxfb"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Tests/WorldShowcase.gd" id="1_bpwub"]
-[ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/LightbulbIcon_SCRIPT.gd" id="2_0qytw"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/WorldpageIcon_SCRIPT.gd" id="3_vgx61"]
 [ext_resource type="Material" uid="uid://b8rwx3qifw3mf" path="res://Shaders/Low Poly Water/LowPolyWater_MATERIAL.tres" id="4_pars6"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/RiverIcon_SCRIPT.gd" id="5_m4y1i"]
@@ -26,11 +25,21 @@ ground_horizon_color = Color(0.607257, 0.626982, 0.737137, 1)
 [sub_resource type="Sky" id="Sky_wcbmd"]
 sky_material = SubResource("ProceduralSkyMaterial_3idn0")
 
-[sub_resource type="Environment" id="Environment_erbq8"]
+[sub_resource type="Environment" id="Environment_0koja"]
 background_mode = 2
 sky = SubResource("Sky_wcbmd")
 tonemap_mode = 2
+ssao_enabled = true
 glow_enabled = true
+glow_map_strength = 0.59
+fog_light_color = Color(0.656159, 0.534284, 0.210902, 1)
+fog_light_energy = 1.84
+volumetric_fog_density = 0.0816
+volumetric_fog_albedo = Color(1, 1, 0, 1)
+volumetric_fog_emission_energy = 248.92
+volumetric_fog_gi_inject = 2.33
+volumetric_fog_detail_spread = 6.0
+volumetric_fog_sky_affect = 0.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_jjwy4"]
 material = ExtResource("4_pars6")
@@ -51,6 +60,12 @@ albedo_color = Color(1, 1, 0.27451, 1)
 [node name="World" type="Node3D"]
 script = ExtResource("1_bpwub")
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.996637, -0.0359194, 0.0736458, 0, 0.898794, 0.438371, -0.0819384, 0.436897, -0.895772, 0, 0, 0)
+light_color = Color(1, 0.733333, 0, 1)
+light_energy = 3.75
+shadow_enabled = true
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_00hp2")
 autoplay = true
@@ -69,18 +84,8 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.802817, -0.596225, -2.60618e-08, 0, -4.37114e-08, 1, -0.596225, 0.802817, 3.50923e-08, 0, 0, 0)
-light_energy = 3.424
-shadow_enabled = true
-directional_shadow_split_3 = 0.348
-directional_shadow_blend_splits = true
-directional_shadow_fade_start = 0.618
-directional_shadow_max_distance = 154.5
-script = ExtResource("2_0qytw")
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_erbq8")
+environment = SubResource("Environment_0koja")
 script = ExtResource("3_vgx61")
 
 [node name="LowPolyWater2" type="MeshInstance3D" parent="."]

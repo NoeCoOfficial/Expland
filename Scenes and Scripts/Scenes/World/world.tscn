@@ -43,6 +43,11 @@ sky_material = SubResource("ProceduralSkyMaterial_3idn0")
 background_mode = 2
 sky = SubResource("Sky_wcbmd")
 tonemap_mode = 2
+ssao_enabled = true
+ssao_radius = 8.41
+ssao_intensity = 3.18
+ssao_power = 0.989632
+ssao_light_affect = 0.37
 glow_enabled = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_jjwy4"]
