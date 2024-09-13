@@ -188,6 +188,46 @@ transform = Transform3D(1.46112, 0.00535532, 0.499638, -0.00569869, 1.55481, 0, 
 visible = false
 use_collision = true
 
+[node name="CollisionSphere5" type="CSGSphere3D" parent="Rock1"]
+transform = Transform3D(1.46112, 0.00535532, 0.499638, -0.0056987, 1.55481, 0, -0.531543, -0.00194822, 1.37342, 1.26982, -0.297731, -4.6792)
+visible = false
+use_collision = true
+
+[node name="CollisionSphere6" type="CSGSphere3D" parent="Rock1"]
+transform = Transform3D(1.58762, 0.00670575, 0.543197, -0.00619207, 1.94689, 0, -0.577562, -0.0024395, 1.49316, 2.11783, -0.297731, -4.6745)
+visible = false
+use_collision = true
+
+[node name="CollisionSphere7" type="CSGSphere3D" parent="Rock1"]
+transform = Transform3D(1.58762, 0.00670575, 0.543197, -0.00619207, 1.94689, 0, -0.577562, -0.0024395, 1.49316, 4.421, -0.297731, 1.65651)
+visible = false
+use_collision = true
+
+[node name="CollisionSphere8" type="CSGSphere3D" parent="Rock1"]
+transform = Transform3D(1.58762, 0.00670576, 0.543197, -0.00619208, 1.94689, 0, -0.577562, -0.0024395, 1.49316, 3.50074, -0.495047, 1.67773)
+visible = false
+use_collision = true
+
+[node name="CollisionSphere9" type="CSGSphere3D" parent="Rock1"]
+transform = Transform3D(1.58762, 0.00670577, 0.543197, -0.00619209, 1.94689, 0, -0.577563, -0.0024395, 1.49316, 4.22198, -0.467729, 4.76955)
+visible = false
+use_collision = true
+
+[node name="CollisionSphere10" type="CSGSphere3D" parent="Rock1"]
+transform = Transform3D(1.58621, 0.00833725, 0.543197, -0.00618657, 2.42056, 0, -0.577049, -0.00303302, 1.49316, 4.09217, -0.467729, 5.44705)
+visible = false
+use_collision = true
+
+[node name="CollisionSphere11" type="CSGSphere3D" parent="Rock1"]
+transform = Transform3D(1.58621, 0.00833726, 0.543197, -0.00618658, 2.42057, 0, -0.577049, -0.00303303, 1.49316, 3.52561, -0.45956, 5.4318)
+visible = false
+use_collision = true
+
+[node name="CollisionSphere12" type="CSGSphere3D" parent="Rock1"]
+transform = Transform3D(1.58621, 0.00833726, 0.543197, -0.00618659, 2.42057, 0, -0.577049, -0.00303303, 1.49316, 2.61037, -0.971848, 5.08034)
+visible = false
+use_collision = true
+
 [node name="CollisionSphere4" type="CSGSphere3D" parent="Rock1"]
 transform = Transform3D(1.60275, 0.0058744, 0.635303, -0.00625106, 1.70551, 0, -0.583065, -0.00213705, 1.74634, 0.0658188, 0.133953, -0.00904465)
 visible = false
