@@ -71,7 +71,7 @@ stream = ExtResource("17_00hp2")
 autoplay = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.29132, 0.116583, 0.949495, -7.52997e-09, 0.992546, -0.121869, -0.956626, -0.035503, -0.289149, -29.586, 24.865, 27.8518)
+transform = Transform3D(1, 0, 0, 0, 0.992546, -0.121869, 0, 0.121869, 0.992546, -29.586, 24.865, 27.8518)
 fov = 56.4
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera3D"]
