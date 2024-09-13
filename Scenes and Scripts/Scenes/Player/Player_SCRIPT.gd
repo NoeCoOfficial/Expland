@@ -249,7 +249,7 @@ func _process(_delta):
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 
 func _ready():
-	NODE_INIT()
+	NodeSetup()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # lock mouse
 
 	PlayerSettingsData.LoadSettings() # Load settings from player settings data
@@ -283,7 +283,7 @@ func _ready():
 		PlayerData.LoadData()
 	else:
 		printerr("PlayerData autoload not found")
-func NODE_INIT():
+func NodeSetup():
 	$Head/Camera3D/DeathScreen/BlackOverlay/GetUp.set_self_modulate(Color(0, 0, 0, 0))
 	$Head/Camera3D/DeathScreen/BlackOverlay/RandomText.set_self_modulate(Color(0, 0, 0, 0))
 	$Head/Camera3D/DeathScreen/BlackOverlay.set_self_modulate(Color(0, 0, 0, 0))
