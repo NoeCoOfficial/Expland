@@ -120,7 +120,7 @@ use_collision = true
 mesh = SubResource("BoxMesh_nfaly")
 
 [node name="Rock1" parent="." instance=ExtResource("18_qc11x")]
-transform = Transform3D(1.47781, 0, -0.537614, 0, 1.57256, 0, 0.537614, 0, 1.47781, -38.3469, 24, 30.3969)
+transform = Transform3D(1.33739, -0.669042, -0.486532, 0.628731, 1.42314, -0.228727, 0.537614, 0, 1.47781, -38.3469, 23.3354, 30.3969)
 
 [node name="CollisionSphere" type="CSGSphere3D" parent="Rock1"]
 transform = Transform3D(1.46112, 0.00535532, 0.499638, -0.00569869, 1.55481, 0, -0.531543, -0.00194822, 1.37342, -0.296623, 0.156033, -0.89567)
@@ -225,7 +225,7 @@ transform = Transform3D(0.342101, 0, 0, 0, 0.342101, 0, 0, 0, 0.342101, -31.2699
 transform = Transform3D(0.281264, 0, 0, 0, 0.281264, 0, 0, 0, 0.281264, -38.3974, 23.5633, 31.946)
 
 [node name="Rock3_Brown" parent="." instance=ExtResource("23_wmjwk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.478, 23.8502, 36.5406)
+transform = Transform3D(1, 0, 0, 0, 0.971238, -0.23811, 0, 0.23811, 0.971238, -38.478, 23.8502, 36.5406)
 
 [node name="Rock3_Brown2" parent="." instance=ExtResource("23_wmjwk")]
 transform = Transform3D(2.26151, 0, 0, 0, 2.26151, 0, 0, 0, 2.26151, -50.8212, 33.0261, 36.5406)
