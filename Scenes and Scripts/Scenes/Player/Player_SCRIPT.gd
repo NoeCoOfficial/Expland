@@ -134,8 +134,10 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		if GAME_STATE == "NORMAL" or "INVENTORY":
 			if ResetPOS == Vector3(999, 999, 999):
 				self.position = StartPOS
+				velocity.y = 0.0
 			else:
 				self.position = ResetPOS
+				velocity.y = 0.0
 		
 	if Input.is_action_just_pressed("Inventory"):
 		if GAME_STATE == "NORMAL":
