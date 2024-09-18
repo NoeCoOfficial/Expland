@@ -1,4 +1,41 @@
+# ============================================================= #
+# Player_SCRIPT.gd
+# ============================================================= #
+#                       COPYRIGHT NOTICE                        #
+#                           Noe Co.                             #
+#                   2024 - All Rights Reserved                  #
+#                                                               #
+#                         MIT License                           #
+#                                                               #
+# Permission is hereby granted, free of charge, to any          #
+# person obtaining a copy of this software and associated       #
+# documentation files (the "Software"), to deal in the          #
+# Software without restriction, including without limitation    #
+# the rights to use, copy, modify, merge, publish, distribute,  #
+# sublicense, and/or sell copies of the Software, and to        #
+# permit persons to whom the Software is furnished to do so,    #
+# subject to the following conditions:                          #
+#                                                               #
+# 1. The above copyright notice and this permission notice      #
+#    shall be included in all copies or substantial portions    #
+#    of the Software.                                           #
+#                                                               #
+# 2. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF      #
+#    ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED    #
+#    TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A        #
+#    PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL  #
+#    THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,  #
+#    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF        #
+#    CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN    #
+#    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER           #
+#    DEALINGS IN THE SOFTWARE.                                  #
+#                                                               #
+#                   For inquiries, contact:                     #
+#                  noeco.official@gmail.com                     #
+# ============================================================= #
+
 @icon("res://Textures/Icons/Script Icons/32x32/character_edit.png") # Give the node an icon (so it looks cool)
+
 extends CharacterBody3D # Inheritance
 
 # Utility variables
@@ -105,13 +142,16 @@ func format_number(n: int) -> String: # A function for formatting numbers easily
 
 		# ran otherwise
 		return str(n)
+
 func _get_mouse_pos(): # get the position of the cursor.
 	return get_viewport().get_mouse_position()
+
 func center_mouse_cursor(): # center the mouse cursor (relative to the viewport size)
 	var viewport = get_viewport()
 	var viewport_size = viewport.get_visible_rect().size
 	var center_position = viewport_size / 2
 	viewport.warp_mouse(center_position)
+
 func wait(seconds: float) -> void: # wait until the next line of code is executed. Similar to time.sleep() in python.
 	await get_tree().create_timer(seconds).timeout
 
@@ -119,7 +159,7 @@ func wait(seconds: float) -> void: # wait until the next line of code is execute
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 
-# Body parts variables
+# Body parts variables. Used for reference when working with physics.
 @onready var head = $Head # reference to the head of the player scene. (used for mouse movement and looking around)
 @onready var camera = $Head/Camera3D # reference to the camera of the player (used for mouse movement and looking around)
 
