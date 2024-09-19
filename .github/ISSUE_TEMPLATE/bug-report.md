@@ -1,7 +1,7 @@
 ---
 name: Bug report
 about: Help us improve Expland!
-title: What went wrong?
+title: 
 labels: ''
 assignees: ''
 
