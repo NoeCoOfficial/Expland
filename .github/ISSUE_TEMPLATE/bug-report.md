@@ -2,7 +2,7 @@
 name: Bug report
 about: Help us improve Expland!
 title: 
-labels: ''
+labels: 'bug'
 assignees: ''
 
 ---
