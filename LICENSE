@@ -1,6 +1,4 @@
 # ============================================================= #
-# RiverIcon_SCRIPT.gd
-# ============================================================= #
 #                       COPYRIGHT NOTICE                        #
 #                           Noe Co.                             #
 #                   2024 - All Rights Reserved                  #
@@ -33,6 +31,3 @@
 #                   For inquiries, contact:                     #
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
-
-@icon("res://Textures/Icons/Script Icons/32x32/terrain.png")
-extends Node
