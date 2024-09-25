@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=22 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -7,8 +7,10 @@
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/CrosshairCanvas/HealthLBL_SCRIPT.gd" id="4_56i84"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/CrosshairCanvas/Crosshair_SCRIPT.gd" id="5_56a8a"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/OverlayLayer/RedOverlay_SCRIPT.gd" id="7_gnu1v"]
+[ext_resource type="PackedScene" uid="uid://dhhjltxmoydio" path="res://Tests/Inventory/Slot.tscn" id="8_0k14b"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/OverlayLayer/Overlay_SCRIPT.gd" id="8_uxqns"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/BlackOverlay_SCRIPT.gd" id="9_g6nwl"]
+[ext_resource type="PackedScene" uid="uid://bah2p5efhcjtx" path="res://Tests/Inventory/object.tscn" id="9_hyxgg"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/IgnoreMouseFilter.gd" id="9_svfxy"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/RandomText_SCRIPT.gd" id="10_6w37c"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/GetUp_SCRIPT.gd" id="11_0enap"]
@@ -191,6 +193,21 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("9_svfxy")
 metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="Head/Camera3D/InventoryLayer"]
+layout_mode = 3
+anchor_left = 0.354167
+anchor_top = 0.33179
+anchor_right = 0.626736
+anchor_bottom = 0.844136
+script = ExtResource("9_svfxy")
+metadata/_edit_use_anchors_ = true
+
+[node name="Slot" parent="Head/Camera3D/InventoryLayer/Control" instance=ExtResource("8_0k14b")]
+position = Vector2(80, 40)
+
+[node name="object" parent="Head/Camera3D/InventoryLayer/Control" instance=ExtResource("9_hyxgg")]
+position = Vector2(241, 201)
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
 
