@@ -197,9 +197,9 @@ metadata/_edit_use_anchors_ = true
 [node name="Control" type="Control" parent="Head/Camera3D/InventoryLayer"]
 layout_mode = 3
 anchor_left = 0.354167
-anchor_top = 0.33179
-anchor_right = 0.626736
-anchor_bottom = 0.844136
+anchor_top = 0.407407
+anchor_right = 0.62066
+anchor_bottom = 0.805556
 script = ExtResource("9_svfxy")
 metadata/_edit_use_anchors_ = true
 
