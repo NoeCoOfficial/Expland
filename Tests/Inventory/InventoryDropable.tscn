@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Tests/Inventory/InventoryDropable_SCRIPT.gd" id="1_opaah"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mgv10"]
-size = Vector2(101, 96.75)
+size = Vector2(100, 100)
 
 [node name="Dropable" type="Node2D"]
 script = ExtResource("1_opaah")

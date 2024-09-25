@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhhjltxmoydio"]
+[gd_scene load_steps=4 format=3 uid="uid://dhhjltxmoydio"]
 
 [ext_resource type="Script" path="res://Tests/Inventory/InventorySlot_SCRIPT.gd" id="1_bxl3d"]
+[ext_resource type="Texture2D" uid="uid://dhnn7my6ghg0d" path="res://Textures/Inventory/Slot/InventorySlotTexture.png" id="2_2mtlq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5yu5"]
-size = Vector2(76, 77)
+size = Vector2(75, 75)
 
 [node name="Slot" type="StaticBody2D" groups=["dropable"]]
 script = ExtResource("1_bxl3d")
@@ -11,15 +12,17 @@ script = ExtResource("1_bxl3d")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_q5yu5")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="TextureRect" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -64.0
-offset_right = 64.0
-offset_bottom = 64.0
+offset_left = -70.0
+offset_top = -70.0
+offset_right = 70.0
+offset_bottom = 70.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_2mtlq")
+expand_mode = 1

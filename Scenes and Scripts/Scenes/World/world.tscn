@@ -414,3 +414,4 @@ transform = Transform3D(-0.49159, 0, -4.29762e-08, 0, 0.49159, 0, 4.29762e-08, 0
 [connection signal="body_entered" from="EditTrigger/Area3D" to="." method="_on_area_3d_body_entered"]
 
 [editable path="Player"]
+[editable path="Player/Head/Camera3D/InventoryLayer/Dropable"]
