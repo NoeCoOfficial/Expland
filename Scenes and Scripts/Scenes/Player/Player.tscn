@@ -7,11 +7,11 @@
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/CrosshairCanvas/HealthLBL_SCRIPT.gd" id="4_56i84"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/CrosshairCanvas/Crosshair_SCRIPT.gd" id="5_56a8a"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/OverlayLayer/RedOverlay_SCRIPT.gd" id="7_gnu1v"]
-[ext_resource type="PackedScene" uid="uid://dhhjltxmoydio" path="res://Tests/Inventory/Slot.tscn" id="8_0k14b"]
+[ext_resource type="PackedScene" uid="uid://dhhjltxmoydio" path="res://Tests/Inventory/InventorySlot.tscn" id="8_ads4s"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/OverlayLayer/Overlay_SCRIPT.gd" id="8_uxqns"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/BlackOverlay_SCRIPT.gd" id="9_g6nwl"]
-[ext_resource type="PackedScene" uid="uid://bah2p5efhcjtx" path="res://Tests/Inventory/object.tscn" id="9_hyxgg"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/IgnoreMouseFilter.gd" id="9_svfxy"]
+[ext_resource type="PackedScene" uid="uid://bah2p5efhcjtx" path="res://Tests/Inventory/InventoryDropable.tscn" id="9_w7on1"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/RandomText_SCRIPT.gd" id="10_6w37c"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/GetUp_SCRIPT.gd" id="11_0enap"]
 
@@ -194,35 +194,35 @@ vertical_alignment = 1
 script = ExtResource("9_svfxy")
 metadata/_edit_use_anchors_ = true
 
-[node name="Slot" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("8_0k14b")]
+[node name="Slot" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("8_ads4s")]
 position = Vector2(778, 399)
 
-[node name="Slot2" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("8_0k14b")]
+[node name="Slot2" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("8_ads4s")]
 position = Vector2(962, 399)
 
-[node name="Slot3" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("8_0k14b")]
+[node name="Slot3" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("8_ads4s")]
 position = Vector2(1146, 399)
 
-[node name="Slot4" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("8_0k14b")]
+[node name="Slot4" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("8_ads4s")]
 position = Vector2(778, 583)
 
-[node name="Slot5" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("8_0k14b")]
+[node name="Slot5" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("8_ads4s")]
 position = Vector2(962, 583)
 
-[node name="Slot6" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("8_0k14b")]
+[node name="Slot6" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("8_ads4s")]
 position = Vector2(1146, 583)
 
-[node name="Slot7" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("8_0k14b")]
+[node name="Slot7" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("8_ads4s")]
 position = Vector2(778, 767)
 
-[node name="Slot8" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("8_0k14b")]
+[node name="Slot8" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("8_ads4s")]
 position = Vector2(962, 767)
 
-[node name="Slot9" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("8_0k14b")]
+[node name="Slot9" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("8_ads4s")]
 position = Vector2(1146, 767)
 
-[node name="Draggable" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("9_hyxgg")]
-position = Vector2(241, 201)
+[node name="Dropable" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("9_w7on1")]
+position = Vector2(779, 399)
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
 visible = false

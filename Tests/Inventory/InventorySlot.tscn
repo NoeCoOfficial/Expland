@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://dhhjltxmoydio"]
 
-[ext_resource type="Script" path="res://Tests/Inventory/Slot.gd" id="1_4dv7k"]
+[ext_resource type="Script" path="res://Tests/Inventory/InventorySlot_SCRIPT.gd" id="1_bxl3d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5yu5"]
 size = Vector2(76, 77)
 
 [node name="Slot" type="StaticBody2D" groups=["dropable"]]
-script = ExtResource("1_4dv7k")
+script = ExtResource("1_bxl3d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_q5yu5")
