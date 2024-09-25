@@ -194,19 +194,19 @@ vertical_alignment = 1
 script = ExtResource("9_svfxy")
 metadata/_edit_use_anchors_ = true
 
-[node name="Control" type="Control" parent="Head/Camera3D/InventoryLayer"]
-layout_mode = 3
-anchor_left = 0.354167
-anchor_top = 0.407407
-anchor_right = 0.62066
-anchor_bottom = 0.805556
-script = ExtResource("9_svfxy")
-metadata/_edit_use_anchors_ = true
+[node name="Slot" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("8_0k14b")]
+position = Vector2(83, 385)
 
-[node name="Slot" parent="Head/Camera3D/InventoryLayer/Control" instance=ExtResource("8_0k14b")]
-position = Vector2(80, 40)
+[node name="Slot2" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("8_0k14b")]
+position = Vector2(267, 385)
 
-[node name="object" parent="Head/Camera3D/InventoryLayer/Control" instance=ExtResource("9_hyxgg")]
+[node name="Slot3" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("8_0k14b")]
+position = Vector2(83, 569)
+
+[node name="Slot4" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("8_0k14b")]
+position = Vector2(267, 569)
+
+[node name="object" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("9_hyxgg")]
 position = Vector2(241, 201)
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
