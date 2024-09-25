@@ -1,15 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://bah2p5efhcjtx"]
+[gd_scene load_steps=4 format=3 uid="uid://bah2p5efhcjtx"]
 
-[ext_resource type="Texture2D" uid="uid://ckn730v2wn1y8" path="res://Textures/Icons/Expland-icon.png" id="1_o44kx"]
+[ext_resource type="Script" path="res://Tests/Inventory/object.gd" id="1_3pp4n"]
+[ext_resource type="Texture2D" uid="uid://ckn730v2wn1y8" path="res://Textures/Icons/Expland-icon.png" id="2_538fe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mgv10"]
 size = Vector2(101, 96.75)
 
 [node name="object" type="Node2D"]
+script = ExtResource("1_3pp4n")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.13, 0.13)
-texture = ExtResource("1_o44kx")
+texture = ExtResource("2_538fe")
 
 [node name="Area2D" type="Area2D" parent="."]
 
