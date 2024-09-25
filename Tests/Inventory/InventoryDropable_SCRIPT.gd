@@ -36,14 +36,22 @@ func _process(_delta):
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("dropable"):
 		is_inside_dropable = true
-		body.modulate = Color(1, 1, 1, 1)
+		
+		# body.modulate = Color(1, 1, 1, 1)
+		
+		var tween = get_tree().create_tween()
+		tween.tween_property(body, "modulate", Color(1, 1, 1, 1), 0.2)
 		body_ref = body
 
 
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("dropable"):
 		is_inside_dropable = false
-		body.modulate = Color(1, 1, 1, 0.2)
+		
+		# body.modulate = Color(1, 1, 1, 0.2)
+		
+		var tween = get_tree().create_tween()
+		tween.tween_property(body, "modulate", Color(1, 1, 1, 0.2), 0.2)
 
 
 
