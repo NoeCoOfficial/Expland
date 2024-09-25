@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bah2p5efhcjtx"]
+
+[ext_resource type="Texture2D" uid="uid://ckn730v2wn1y8" path="res://Textures/Icons/Expland-icon.png" id="1_o44kx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mgv10"]
+size = Vector2(101, 96.75)
+
+[node name="object" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("1_o44kx")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_mgv10")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
