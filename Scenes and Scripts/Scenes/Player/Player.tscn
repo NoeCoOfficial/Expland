@@ -91,7 +91,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 script = ExtResource("2_37tst")
 
 [node name="CrosshairCanvas" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="HealthLBL" type="Label" parent="Head/Camera3D/CrosshairCanvas"]
 anchors_preset = -1
@@ -121,6 +120,7 @@ script = ExtResource("5_56a8a")
 metadata/_edit_use_anchors_ = true
 
 [node name="InventoryLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="Background" type="Panel" parent="Head/Camera3D/InventoryLayer"]
 anchors_preset = -1
@@ -225,7 +225,6 @@ position = Vector2(1146, 767)
 position = Vector2(779, 399)
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/DeathScreen"]
 anchors_preset = 15
@@ -277,7 +276,6 @@ vertical_alignment = 1
 script = ExtResource("11_0enap")
 
 [node name="OverlayLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="RedOverlay" type="ColorRect" parent="Head/Camera3D/OverlayLayer"]
 process_priority = 10
