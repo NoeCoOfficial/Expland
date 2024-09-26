@@ -394,9 +394,6 @@ transform = Transform3D(-0.0117893, 0.0476899, 0.998793, 0.0561799, 0.997316, -0
 [node name="NewGrass13" parent="." instance=ExtResource("28_7a5an")]
 transform = Transform3D(-0.0117893, 0.0476899, 0.998793, 0.0561799, 0.997316, -0.0469563, -0.998351, 0.0555585, -0.014437, -31.1726, 23.5022, 32.2998)
 
-[node name="NewGrass4" parent="." instance=ExtResource("28_7a5an")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08356, 0.286148, 1.37202)
-
 [node name="EditTrigger" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.4782, 23.6642, 44.2923)
 material_override = SubResource("StandardMaterial3D_7s3q6")
