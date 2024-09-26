@@ -1,15 +1,18 @@
-# Expland by Noe Co.
+<h1 align="center">Expland by Noe Co.</h1>
+<p align="center">
+	<img align="center" src="/Textures/Icons/Expland-icon.png" width="200" height="200"/>
+ 
+</p>
+
 ---
-### Current version: v0.1.8 (pre-release)
+<h3 align="center">Current version: v0.1.8 (pre-release)</h3>
+<h5 align="center">Any questions? See the FAQ below, or contact us via email at <i>noeco.official@gmail.com.</i></h5>
+  
 ---
+
 ## 📜 About Expland
-- Name : **Expland**
-- Description : **Face adversity and discover a second chance in a mysterious world.**
-- Game mode : **Single player**
-- Gameplay mechanics : **Simple smooth camera movements. You will be able to jump, and the mouse and WASD will be player movement, and there will be a white dot as a crosshair.**
-- Compatibility : **PC (Windows, Linux and MacOS) and Website only (we might make it mobile compatible later)**
-- Style : **Low Poly 3D.**
-- Target audience : **Gamers who enjoy single-player experiences with simple and smooth gameplay mechanics. The game's low poly 3D style may also appeal to fans of similar titles like Gang Beasts and Human Fall Flat.**
+**Expland** is an upcoming 3D single-player adventure-horror game by **Noe Co**, that invites you to face adversity and explore a mysterious world.
+This is the official GitHub repository for the game, where all changes and commits are made. You may open a pull request or issue if you want to contribute to the game.
 
 ## 👥 Authors
 
