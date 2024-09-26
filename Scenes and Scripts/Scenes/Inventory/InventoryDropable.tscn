@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bah2p5efhcjtx"]
 
-[ext_resource type="Script" path="res://Tests/Inventory/InventoryDropable_SCRIPT.gd" id="1_opaah"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Inventory/InventoryDropable_SCRIPT.gd" id="1_opaah"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mgv10"]
 size = Vector2(100, 100)
