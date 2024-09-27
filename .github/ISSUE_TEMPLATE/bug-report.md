@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Help us improve Expland!
+about: Report unexpected hiccups in the game's code.
 title: 
 labels: 'bug'
 assignees: ''
