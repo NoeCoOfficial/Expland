@@ -48,13 +48,13 @@ var offset:Vector2
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if draggable:
-		if Input.is_action_just_pressed("click"):
+		if Input.is_action_just_pressed("inventory_click"):
 			initialPos = global_position
 			offset = get_global_mouse_position() - global_position
 			Global.is_dragging = true
-		if Input.is_action_pressed("click"):
+		if Input.is_action_pressed("inventory_click"):
 			global_position = get_global_mouse_position() - offset
-		elif Input.is_action_just_released("click"):
+		elif Input.is_action_just_released("inventory_click"):
 			Global.is_dragging = false
 			var tween = get_tree().create_tween()
 			if is_inside_dropable:
