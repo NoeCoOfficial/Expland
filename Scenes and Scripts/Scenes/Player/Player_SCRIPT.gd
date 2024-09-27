@@ -216,7 +216,6 @@ func _physics_process(delta):
 		# Always apply gravity regardless of the game state
 		if not is_on_floor():
 			velocity.y -= gravity * delta
-
 		# Handle movement restrictions when the inventory is open
 		if GAME_STATE == "INVENTORY":
 			if is_on_floor():
@@ -238,6 +237,12 @@ func _physics_process(delta):
 		var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
 		if is_on_floor():
+			
+			if Input.is_action_pressed("Crouch"):
+				self.scale.y = 0.5
+			if Input.is_action_just_released("Crouch"):
+				self.scale.y = 1.0
+			
 			if direction != Vector3.ZERO:
 				velocity.x = direction.x * speed
 				velocity.z = direction.z * speed

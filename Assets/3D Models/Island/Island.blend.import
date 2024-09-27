@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dkn074uhkjti1"
-path="res://.godot/imported/Island.blend-fa9eede11811d16b6d5b80caaffbba6c.scn"
+path="res://.godot/imported/Island.blend-b11d9fff9d8904405e41afa663fae29d.scn"
 
 [deps]
 
-source_file="res://Assets/3D Models/Island.blend"
-dest_files=["res://.godot/imported/Island.blend-fa9eede11811d16b6d5b80caaffbba6c.scn"]
+source_file="res://Assets/3D Models/Island/Island.blend"
+dest_files=["res://.godot/imported/Island.blend-b11d9fff9d8904405e41afa663fae29d.scn"]
 
 [params]
 
