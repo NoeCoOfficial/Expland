@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cd24ed5mdweah"]
+[gd_scene load_steps=41 format=3 uid="uid://cd24ed5mdweah"]
 
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/WorldpageIcon_SCRIPT.gd" id="1_1gnsl"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/World/world_SCRIPT.gd" id="1_j3awn"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://b5d0ah73v2doj" path="res://Assets/3D Models/Rocks/Rock5_Mossy.blend" id="24_8xtuu"]
 [ext_resource type="PackedScene" uid="uid://exmlfia43n4n" path="res://Assets/3D Models/Experiments/NewGrass.blend" id="28_7a5an"]
 [ext_resource type="PackedScene" uid="uid://bx3h2cove34la" path="res://Assets/3D Models/Experiments/PressPlatformText.blend" id="29_j2rcw"]
+[ext_resource type="PackedScene" uid="uid://b2kjv6ey53w70" path="res://Assets/3D Models/Island/Island.blend" id="30_807yh"]
 [ext_resource type="PackedScene" uid="uid://bogx2vkhic3aw" path="res://Assets/3D Models/Flowers/Flower_Red.blend" id="30_pwsh8"]
 [ext_resource type="PackedScene" uid="uid://dcuujnbg7wkb" path="res://Assets/3D Models/Rocks/SingleRock.blend" id="31_1te4p"]
 [ext_resource type="PackedScene" uid="uid://ckffu3csgvey0" path="res://Assets/3D Models/Flowers/Flower_Pink.blend" id="32_ox0fp"]
@@ -406,6 +407,9 @@ shape = SubResource("BoxShape3D_s8gm3")
 
 [node name="PressPlatformText" parent="." instance=ExtResource("29_j2rcw")]
 transform = Transform3D(-0.49159, 0, -4.29762e-08, 0, 0.49159, 0, 4.29762e-08, 0, -0.49159, -23.9472, 23.8925, 44.3152)
+
+[node name="Island" parent="." instance=ExtResource("30_807yh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.0047, 27.1613, 870.044)
 
 [connection signal="TakeDamage" from="Spike" to="Player" method="_on_spike_take_damage"]
 [connection signal="body_entered" from="EditTrigger/Area3D" to="." method="_on_area_3d_body_entered"]
