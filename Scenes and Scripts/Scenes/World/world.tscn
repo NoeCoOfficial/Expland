@@ -89,7 +89,7 @@ directional_shadow_max_distance = 154.5
 script = ExtResource("2_ox5mt")
 
 [node name="LowPolyWater2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5896, 23.0217, -1.96767)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5896, 21.2731, -1.96767)
 mesh = SubResource("PlaneMesh_jjwy4")
 script = ExtResource("5_uiuqr")
 

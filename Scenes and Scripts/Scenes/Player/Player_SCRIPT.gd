@@ -39,9 +39,9 @@
 extends CharacterBody3D # Inheritance
 
 # Utility variables
-var inventory_opened_in_air := false # checks if the inventory UI is opened in the air (so the same velocity can be kept, used in _physics_process()
+var inventory_opened_in_air := false ## checks if the inventory UI is opened in the air (so the same velocity can be kept, used in _physics_process()
 
-var GAME_STATE := "NORMAL" # The local game state. (saved game state variable is in PlayerData.gd)
+var GAME_STATE := "NORMAL" ## The local game state. (saved game state variable is in PlayerData.gd)
 
 """
 
@@ -50,60 +50,62 @@ The keyword @export means that they can be accessed in the inspector panel (righ
 
 """
 
-@export_group("Gameplay") # A group for gameplay variables
+@export_group("Gameplay") ## A group for gameplay variables
 
-@export_subgroup("Health") # Health varibales subgroup
-@export var UseHealth := true # Checks if health should be used. If false no health label/bar will be displayed and the player won't be able to die/take damage)
-@export var MaxHealth := 100 # After death or when the game is first opened, the Health variable is set to this.
-@export var Health := 100 # The player's health.
+@export_subgroup("Health") ## Health varibales subgroup
+@export var UseHealth := true ## Checks if health should be used. If false no health label/bar will be displayed and the player won't be able to die/take damage)
+@export var MaxHealth := 100 ## After death or when the game is first opened, the Health variable is set to this.
+@export var Health := 100 ## The player's health.
 
 @export_subgroup("Other") 
-@export var Position := Vector3(0, 0, 0) # What the live position for the player is. This no longer does anything if changed in the inspector panel.
+@export var Position := Vector3(0, 0, 0) ## What the live position for the player is. This no longer does anything if changed in the inspector panel.
 
 
-@export_group("Spawn") # A group for spawn variables
+@export_group("Spawn") ## A group for spawn variables
 
-@export var StartPOS := Vector3(0, 0, 0) # This no longer does anything if changed because this is always set to the value from the save file.
-@export var ResetPOS := Vector3(0, 0, 0) # Where the player goes if the Reset input is pressed. 999, 999, 999 for same as StartPOS.
+@export var StartPOS := Vector3(0, 0, 0) ## This no longer does anything if changed because this is always set to the value from the save file.
+@export var ResetPOS := Vector3(0, 0, 0) ## Where the player goes if the Reset input is pressed. 999, 999, 999 for same as StartPOS.
 
-@export_subgroup("Fade_In") # A subgroup for the fade-in variables (on spawn)
-@export var Fade_In := false # Whether to use the fade-in or not.
-@export var Fade_In_Time := 1.000 # The time it takes for the overlay to reach Color(1, 1, 1, 0) (Invisible).
+@export_subgroup("Fade_In") ## A subgroup for the fade-in variables (on spawn)
+@export var Fade_In := false ## Whether to use the fade-in or not.
+@export var Fade_In_Time := 1.000 ## The time it takes for the overlay to reach Color(1, 1, 1, 0) (Invisible).
 
-@export_group("Input") # A group relating to inputs (keys on your keyboard)
-@export var Reset := true # Whether or not the player can use the Reset input to reset the player's position (will be off for final game.)
-@export var Quit := true # Whether or not the player can use the Quit input to quit the game (will be off for final game.)
-
-
-@export_group("Visual") # A group for visual/camera variables
-
-@export_subgroup("Camera") # Camera variables subgroup.
-@export var FOV := 116 # the Field Of Vision of the camera on the player. Set to 9999 to get the saved FOV value (settings.dat)
-
-@export_subgroup("Crosshair") # A subgroup for crosshair variables.
-@export var crosshair_size = Vector2(12, 12) # The size of the crosshair.
-
-@export_group("View Bobbing") # a group for view bobbing variables.
+@export_group("Input") ## A group relating to inputs (keys on your keyboard)
+@export var Reset := true ## Whether or not the player can use the Reset input to reset the player's position (will be off for final game.)
+@export var Quit := true ## Whether or not the player can use the Quit input to quit the game (will be off for final game.)
 
 
-@export var BOB_FREQ := 3.0 # The frequency of the waves (how often it occurs)
-@export var BOB_AMP = 0.08 # The amplitude of the waves (how much you actually go up and down)
-@export var BOB_SMOOTHING_SPEED := 3.0  # Speed to smooth the return to the original position. The lower it get's, the smoother it is.
+@export_group("Visual") ## A group for visual/camera variables
 
-@export_subgroup("Other") # a subgroup for other view bobbing variables.
-@export var Wave_Length = 0.0 # The wavelength of the bobbing
+@export_subgroup("Camera") ## Camera variables subgroup.
+@export var FOV := 116 ## the Field Of Vision of the camera on the player. Set to 9999 to get the saved FOV value (settings.dat)
 
-@export_group("Mouse") # a group for mouse variables.
-@export var SENSITIVITY = 0.001 # The sensitivity of the mouse when it is locked in the center (during gameplay)
+@export_subgroup("Crosshair") ## A subgroup for crosshair variables.
+@export var crosshair_size = Vector2(12, 12) ## The size of the crosshair.
 
-@export_group("Physics") # A group for physics variables.
+@export_group("View Bobbing") ## a group for view bobbing variables.
 
 
-var speed # determines whether the player is pressing shift or not and whether to use the sprint speed or normal speed (code in physics process)
-@export var WALK_SPEED = 5.0 # The speed of the player when the user isn't pressing/holding the Sprint input.
-@export var SPRINT_SPEED = 8.0 # The speed of the player when the user is pressing/holding the Sprint input.
-@export var JUMP_VELOCITY = 4.5 # Basically how high you can jump.
-@export var gravity = 12.0 # Was originally 9.8 but I felt it to be too unrealistic. We all know what gravity is... right?
+@export var BOB_FREQ := 3.0 ## The frequency of the waves (how often it occurs)
+@export var BOB_AMP = 0.08 ## The amplitude of the waves (how much you actually go up and down)
+@export var BOB_SMOOTHING_SPEED := 3.0  ## Speed to smooth the return to the original position. The lower it get's, the smoother it is.
+
+@export_subgroup("Other") ## a subgroup for other view bobbing variables.
+@export var Wave_Length = 0.0 ## The wavelength of the bobbing
+
+@export_group("Mouse") ## a group for mouse variables.
+@export var SENSITIVITY = 0.001 ## The sensitivity of the mouse when it is locked in the center (during gameplay)
+
+@export_group("Physics") ## A group for physics variables.
+
+
+var speed ## determines whether the player is pressing shift or not and whether to use the sprint speed or normal speed (code in physics process)
+@export var WALK_SPEED = 5.0 ## The speed of the player when the user isn't pressing/holding the Sprint input.
+@export var SPRINT_SPEED = 8.0 ## The speed of the player when the user is pressing/holding the Sprint input.
+@export var JUMP_VELOCITY = 4.5 ## Basically how high you can jump.
+@export var gravity = 12.0 ## Was originally 9.8 but I felt it to be too unrealistic. We all know what gravity is... right?
+@export var crouch_speed := 5.0  ## How fast to interpolate the crouch, or how long it takes to go from crouch to normal
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
@@ -212,6 +214,17 @@ func _unhandled_input(event):
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 func _physics_process(delta):
 	
+	# Crouching
+	if GAME_STATE != "INVENTORY" and GAME_STATE != "DEAD" and is_on_floor():
+		if Input.is_action_pressed("Crouch"):
+			self.scale.y = lerp(self.scale.y, 0.5, crouch_speed * delta)
+		else:
+			self.scale.y = lerp(self.scale.y, 1.0, crouch_speed * delta)
+
+	else:
+		self.scale.y = lerp(self.scale.y, 1.0, crouch_speed * delta)
+	
+	
 	if !GAME_STATE == "DEAD":
 		# Always apply gravity regardless of the game state
 		if not is_on_floor():
@@ -237,12 +250,6 @@ func _physics_process(delta):
 		var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
 		if is_on_floor():
-			
-			if Input.is_action_pressed("Crouch"):
-				self.scale.y = 0.5
-			if Input.is_action_just_released("Crouch"):
-				self.scale.y = 1.0
-			
 			if direction != Vector3.ZERO:
 				velocity.x = direction.x * speed
 				velocity.z = direction.z * speed
