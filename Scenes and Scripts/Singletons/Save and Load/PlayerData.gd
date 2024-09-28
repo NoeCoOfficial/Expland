@@ -75,24 +75,25 @@ func LoadData() -> void:
 	if file and not file.eof_reached():
 		var current_line = JSON.parse_string(file.get_line())
 		if current_line:
-			Health = current_line["Health"]
-			GAME_STATE = current_line["GAME_STATE"]
 				
 			var player = get_node("/root/World/Player")
 			var playerHead = get_node("/root/World/Player/Head")
 			var playerCamera = get_node("/root/World/Player/Head/Camera3D")
 				
 			if player:
-				# Restore player position
-				player.position = dict_to_vector3(current_line["Position"])
 				
-				# Restore head rotation (only Y-axis)
-				playerHead.rotation_degrees.y = current_line["HeadRotationY"]
+				player.Health = current_line["Health"]
 				
-				# Restore camera rotation (only X-axis)
-				playerCamera.rotation_degrees.x = current_line["CameraRotationX"]
+				player.GAME_STATE = current_line["GAME_STATE"]
 				
-				# Rich text display for loaded data
+				player.position = dict_to_vector3(current_line["Position"]) ## Player Position
+				
+				playerHead.rotation_degrees.y = current_line["HeadRotationY"] ## Restore head rotation (only Y-axis)
+				
+				playerCamera.rotation_degrees.x = current_line["CameraRotationX"] ## Restore camera rotation (only X-axis)
+				
+				
+				
 				print_rich("[center][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf][font_size=30]--PLAYER DATA HAS BEEN LOADED--[/font_size][/font][/center]")
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Health: " + str(Health) + "[/font][/font_size][/center]")
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Game State: " + GAME_STATE + "[/font][/font_size][/center]")
@@ -100,7 +101,11 @@ func LoadData() -> void:
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Head Y-Axis Rotation: " + str(playerHead.rotation_degrees.y) + "[/font][/font_size][/center]")
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Camera X-Axis Rotation: " + str(playerCamera.rotation_degrees.x) + "[/font][/font_size][/center]")
 			else:
-				print("Player node not found. LoadData failed.")
+				printerr("Player node not found. LoadData failed. 
+				THIS MAY BE DUE TO YOUR PLAYER SCENE NOT BEING INSTANTIATED PROPERLY! 
+				THE LOCAL DIRECTORY USED FOR RETRIEVING THE PLAYER NODE IS IN /root/World/Player. 
+				THIS MEANS THAT YOUR SCENE NEEDS A ROOT NODE CALLED 'World' 
+				AND THE PLAYER NEEDS TO BE A CHILD OF THAT ROOT NODE AND CALLED 'Player'.")
 		file.close()
 
 
