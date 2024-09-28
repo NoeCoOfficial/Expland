@@ -64,11 +64,11 @@ The keyword @export means that they can be accessed in the inspector panel (righ
 @export_group("Spawn") ## A group for spawn variables
 
 @export var StartPOS := Vector3(0, 0, 0) ## This no longer does anything if changed because this is always set to the value from the save file.
-@export var ResetPOS := Vector3(0, 0, 0) ## Where the player goes if the Reset input is pressed. 999, 999, 999 for same as StartPOS.
+@export var ResetPOS := Vector3(0, 0, 0) ## Where the player goes if the Reset input is pressed. 999, 999, 999 for same as StartPOS. 
 
 @export_subgroup("Fade_In") ## A subgroup for the fade-in variables (on spawn)
-@export var Fade_In := false ## Whether to use the fade-in or not.
-@export var Fade_In_Time := 1.000 ## The time it takes for the overlay to reach Color(0, 0, 0, 0) (Invisible).
+@export var Fade_In := false ## Whether to use the fade-in on startup or not. Reccomended to keep this on because it looks cool. 
+@export var Fade_In_Time := 1.000 ## The time it takes for the overlay to reach Color(0, 0, 0, 0) in seconds. 
 
 @export_group("Input") ## A group relating to inputs (keys on your keyboard)
 @export var Reset := true ## Whether or not the player can use the Reset input to reset the player's position (Normally Ctrl+R) (will be off for final game.)
@@ -78,7 +78,7 @@ The keyword @export means that they can be accessed in the inspector panel (righ
 @export_group("Visual") ## A group for visual/camera variables
 
 @export_subgroup("Camera") ## Camera variables subgroup.
-@export var FOV := 116 ## the Field Of Vision of the camera on the player. Set to 9999 to get the saved FOV value (settings.dat)
+@export var FOV := 116 ## the Field Of Vision of the camera on the player. Set to 9999 to get the saved FOV value (Saved to the path in PlayerSettingsData.gd) when the game starts.
 
 @export_subgroup("Crosshair") ## A subgroup for crosshair variables.
 @export var crosshair_size = Vector2(12, 12) ## The size of the crosshair.
