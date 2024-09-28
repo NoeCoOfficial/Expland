@@ -220,7 +220,6 @@ func _physics_process(delta):
 			self.scale.y = lerp(self.scale.y, 0.5, crouch_speed * delta)
 		else:
 			self.scale.y = lerp(self.scale.y, 1.0, crouch_speed * delta)
-
 	else:
 		self.scale.y = lerp(self.scale.y, 1.0, crouch_speed * delta)
 	
