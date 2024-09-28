@@ -72,7 +72,8 @@ func _process(_delta):
 script = ExtResource("1_5mhs1")
 Fade_In = true
 FOV = 9999
-CROUCH_SPEED = 3.0
+CROUCH_SPEED = 2.0
+CROUCH_INTERPOLATION = 8.0
 
 [node name="AutoSaveTimer" type="Timer" parent="."]
 wait_time = 0.3
