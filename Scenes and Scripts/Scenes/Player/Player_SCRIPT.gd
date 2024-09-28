@@ -61,7 +61,6 @@ The keyword @export means that they can be accessed in the inspector panel (righ
 @export_subgroup("Other") 
 @export var Position := Vector3(0, 0, 0) ## What the live position for the player is. This no longer does anything if changed in the inspector panel.
 
-
 @export_group("Spawn") ## A group for spawn variables
 
 @export var StartPOS := Vector3(0, 0, 0) ## This no longer does anything if changed because this is always set to the value from the save file.
@@ -94,20 +93,20 @@ The keyword @export means that they can be accessed in the inspector panel (righ
 @export_subgroup("Other") ## a subgroup for other view bobbing variables.
 @export var Wave_Length = 0.0 ## The wavelength of the bobbing
 
-@export_group("Mouse") ## a group for mouse variables.
+@export_group("Mouse") ## A group for mouse variables.
 @export var SENSITIVITY = 0.001 ## The sensitivity of the mouse when it is locked in the center (during gameplay)
 
 @export_group("Physics") ## A group for physics variables.
 
-@export_subgroup("Movement")
+@export_subgroup("Movement") ## A subgroup for movement variables.
 @export var WALK_SPEED = 5.0 ## The normal speed at which the player moves.
 @export var SPRINT_SPEED = 8.0 ## The speed of the player when the user is pressing/holding the Sprint input.
 @export var JUMP_VELOCITY = 4.5 ## How much velocity the player has when jumping. The more this value is, the higher the player can jump.
-@export_subgroup("Crouching")
+@export_subgroup("Crouching") ## A subgroup for crouching variables.
 @export var CROUCH_JUMP_VELOCITY = 4.5 ## How much velocity the player has when jumping. The more this value is, the higher the player can jump.
 @export var CROUCH_SPEED := 5.0 ## The speed of the player when the user is pressing/holding the Crouch input.
 @export var CROUCH_INTERPOLATION := 6.0 ## How long it takes to go to the crouching stance or return to normal stance.
-@export_subgroup("Gravity")
+@export_subgroup("Gravity") ## A subgroup for gravity variables.
 @export var gravity = 12.0 ## Was originally 9.8 but I felt it to be too unrealistic. We all know what gravity is... right?
 
 
