@@ -71,8 +71,8 @@ The keyword @export means that they can be accessed in the inspector panel (righ
 @export var Fade_In_Time := 1.000 ## The time it takes for the overlay to reach Color(0, 0, 0, 0) (Invisible).
 
 @export_group("Input") ## A group relating to inputs (keys on your keyboard)
-@export var Reset := true ## Whether or not the player can use the Reset input to reset the player's position (will be off for final game.)
-@export var Quit := true ## Whether or not the player can use the Quit input to quit the game (will be off for final game.)
+@export var Reset := true ## Whether or not the player can use the Reset input to reset the player's position (Normally Ctrl+R) (will be off for final game.)
+@export var Quit := true ## Whether or not the player can use the Quit input to quit the game (Normally Ctrl+Shift+Q) (will be off for final game.)
 
 
 @export_group("Visual") ## A group for visual/camera variables
