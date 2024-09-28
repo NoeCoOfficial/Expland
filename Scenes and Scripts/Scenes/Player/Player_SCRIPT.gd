@@ -172,7 +172,8 @@ func wait(seconds: float) -> void: # wait until the next line of code is execute
 func _input(_event): # A built-in function that listens for input using the input map
 	if Input.is_action_just_pressed("Quit") and Quit == true: # if the Quit input is pressed and the Quit variable is true
 		if GAME_STATE == "NORMAL" or "INVENTORY": # if the game state is normal or inventory
-			get_tree().quit() # quit the game
+			if !GAME_STATE == "DEAD":
+				get_tree().quit() # quit the game
 	if Input.is_action_just_pressed("Reset") and Reset == true: # if the Reset input is pressed and the Reset variable is true
 		if GAME_STATE == "NORMAL" or "INVENTORY": # if the game state is normal or inventory
 			if ResetPOS == Vector3(999, 999, 999): # if the Reset position is set to 999, 999, 999
@@ -209,7 +210,6 @@ func _unhandled_input(event): # A built-in function that listens for input
 			head.rotate_y(-event.relative.x * SENSITIVITY) # rotate the head on the y-axis
 			camera.rotate_x(-event.relative.y * SENSITIVITY) # rotate the camera on the x-axis
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90)) # clamp the camera rotation on the x-axis
-
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
