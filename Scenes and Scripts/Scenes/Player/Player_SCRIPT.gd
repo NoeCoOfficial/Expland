@@ -69,7 +69,7 @@ The keyword @export means that they can be accessed in the inspector panel (righ
 
 @export_subgroup("Fade_In") ## A subgroup for the fade-in variables (on spawn)
 @export var Fade_In := false ## Whether to use the fade-in or not.
-@export var Fade_In_Time := 1.000 ## The time it takes for the overlay to reach Color(1, 1, 1, 0) (Invisible).
+@export var Fade_In_Time := 1.000 ## The time it takes for the overlay to reach Color(0, 0, 0, 0) (Invisible).
 
 @export_group("Input") ## A group relating to inputs (keys on your keyboard)
 @export var Reset := true ## Whether or not the player can use the Reset input to reset the player's position (will be off for final game.)
