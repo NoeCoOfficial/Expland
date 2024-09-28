@@ -100,11 +100,11 @@ The keyword @export means that they can be accessed in the inspector panel (righ
 
 
 var speed ## determines whether the player is pressing shift or not and whether to use the sprint speed or normal speed (code in physics process)
-@export var WALK_SPEED = 5.0 ## The speed of the player when the user isn't pressing/holding the Sprint input.
+@export var WALK_SPEED = 5.0 ## The normal speed at which the player moves.
 @export var SPRINT_SPEED = 8.0 ## The speed of the player when the user is pressing/holding the Sprint input.
-@export var JUMP_VELOCITY = 4.5 ## Basically how high you can jump.
+@export var CROUCH_SPEED := 5.0 ## The speed of the player when the user is pressing/holding the Crouch input.
+@export var JUMP_VELOCITY = 4.5 ## How much velocity the player has when jumping. The more this value is, the higher the player can jump.
 @export var gravity = 12.0 ## Was originally 9.8 but I felt it to be too unrealistic. We all know what gravity is... right?
-@export var crouch_speed := 5.0  ## How fast to interpolate the crouch, or how long it takes to go from crouch to normal
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
@@ -217,11 +217,11 @@ func _physics_process(delta):
 	# Crouching
 	if GAME_STATE != "INVENTORY" and GAME_STATE != "DEAD" and is_on_floor():
 		if Input.is_action_pressed("Crouch"):
-			self.scale.y = lerp(self.scale.y, 0.5, crouch_speed * delta)
+			self.scale.y = lerp(self.scale.y, 0.5, 6 * delta)
 		else:
-			self.scale.y = lerp(self.scale.y, 1.0, crouch_speed * delta)
+			self.scale.y = lerp(self.scale.y, 1.0, 6 * delta)
 	else:
-		self.scale.y = lerp(self.scale.y, 1.0, crouch_speed * delta)
+		self.scale.y = lerp(self.scale.y, 1.0, 6 * delta)
 	
 	
 	if !GAME_STATE == "DEAD":
@@ -241,8 +241,15 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("Jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
 
-		# Sprinting
-		speed = SPRINT_SPEED if Input.is_action_pressed("Sprint") else WALK_SPEED
+		# Handle Speed
+		if Input.is_action_pressed("Sprint"):
+			speed = SPRINT_SPEED 
+		elif Input.is_action_pressed("Crouch"):
+			speed = CROUCH_SPEED
+		else:
+			speed = WALK_SPEED
+		
+
 
 		# Movement
 		var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
