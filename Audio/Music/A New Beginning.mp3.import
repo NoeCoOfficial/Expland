@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://uws1k05ns22p"
+path="res://.godot/imported/A New Beginning.mp3-13f67d36b3144ea645680c1f6d124a37.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/A New Beginning.mp3"
+dest_files=["res://.godot/imported/A New Beginning.mp3-13f67d36b3144ea645680c1f6d124a37.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

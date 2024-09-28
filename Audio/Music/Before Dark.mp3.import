@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cmd88fjo2p2de"
+path="res://.godot/imported/Before Dark.mp3-6ffac94635b99ebba910f03d7de6223e.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/Before Dark.mp3"
+dest_files=["res://.godot/imported/Before Dark.mp3-6ffac94635b99ebba910f03d7de6223e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
