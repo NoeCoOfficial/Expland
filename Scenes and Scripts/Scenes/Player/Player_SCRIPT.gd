@@ -339,8 +339,6 @@ func _ready():
 		$Head/Camera3D/OverlayLayer/Overlay.hide()
 	# Ensure the player starts at the correct position
 	self.position = StartPOS
-	push_warning("Initial position: ", self.position)
-	print(str($Head/Camera3D.rotation))
 	
 
 	# Load player data again to ensure position is set correctly
