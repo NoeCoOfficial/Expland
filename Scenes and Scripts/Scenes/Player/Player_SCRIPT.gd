@@ -106,7 +106,7 @@ The keyword @export means that they can be accessed in the inspector panel (righ
 @export_subgroup("Crouching")
 @export var CROUCH_JUMP_VELOCITY = 4.5 ## How much velocity the player has when jumping. The more this value is, the higher the player can jump.
 @export var CROUCH_SPEED := 5.0 ## The speed of the player when the user is pressing/holding the Crouch input.
-@export var CROUCH_INTERPOLATION := 6.0 ## How long it take to go to the crouching stance or return to normal stance.
+@export var CROUCH_INTERPOLATION := 6.0 ## How long it takes to go to the crouching stance or return to normal stance.
 @export_subgroup("Gravity")
 @export var gravity = 12.0 ## Was originally 9.8 but I felt it to be too unrealistic. We all know what gravity is... right?
 
