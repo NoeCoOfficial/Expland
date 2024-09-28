@@ -317,7 +317,7 @@ func _ready():
 
 	PlayerSettingsData.LoadSettings() # Load settings from player settings data
 	
-	if PlayerData: # check if player data exists (it may not be initialized correctly
+	if PlayerData: # check if player data exists (it may not be initialized correctly)
 		PlayerData.LoadData() # loads player data
 	else:
 		printerr("PlayerData autoload not found")
@@ -337,15 +337,7 @@ func _ready():
 		tween.tween_property($Head/Camera3D/OverlayLayer/Overlay, "visible", false, 0)
 	else:
 		$Head/Camera3D/OverlayLayer/Overlay.hide()
-	# Ensure the player starts at the correct position
-	self.position = StartPOS
 	
-
-	# Load player data again to ensure position is set correctly
-	if PlayerData:
-		PlayerData.LoadData()
-	else:
-		printerr("PlayerData autoload not found")
 func NodeSetup():
 	$Head/Camera3D/DeathScreen/BlackOverlay/GetUp.set_self_modulate(Color(0, 0, 0, 0))
 	$Head/Camera3D/DeathScreen/BlackOverlay/RandomText.set_self_modulate(Color(0, 0, 0, 0))
