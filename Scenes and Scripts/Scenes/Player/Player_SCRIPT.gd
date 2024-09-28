@@ -39,9 +39,10 @@
 extends CharacterBody3D # Inheritance
 
 # Utility variables
-var inventory_opened_in_air := false ## checks if the inventory UI is opened in the air (so the same velocity can be kept, used in _physics_process()
-
-var GAME_STATE := "NORMAL" ## The local game state. (saved game state variable is in PlayerData.gd)
+@export_group("Utility") ## A group for gameplay variables
+@export var inventory_opened_in_air := false ## Checks if the inventory UI is opened in the air (so the same velocity can be kept, used in _physics_process()
+@export var speed:float ## The speed of the player. Used in **_physics_process**, this variable changes to SPRINT_SPEED or CROUCH_SPEED depending on what input is pressed.
+@export var GAME_STATE := "NORMAL" ## The local game state. (Global variable is in PlayerData.gd and saved to a file)
 
 """
 
@@ -98,13 +99,15 @@ The keyword @export means that they can be accessed in the inspector panel (righ
 
 @export_group("Physics") ## A group for physics variables.
 
-
-var speed ## determines whether the player is pressing shift or not and whether to use the sprint speed or normal speed (code in physics process)
+@export_subgroup("Movement")
 @export var WALK_SPEED = 5.0 ## The normal speed at which the player moves.
 @export var SPRINT_SPEED = 8.0 ## The speed of the player when the user is pressing/holding the Sprint input.
+@export var JUMP_VELOCITY = 4.5 ## How much velocity the player has when jumping. The more this value is, the higher the player can jump.
+@export_subgroup("Crouching")
+@export var CROUCH_JUMP_VELOCITY = 4.5 ## How much velocity the player has when jumping. The more this value is, the higher the player can jump.
 @export var CROUCH_SPEED := 5.0 ## The speed of the player when the user is pressing/holding the Crouch input.
 @export var CROUCH_INTERPOLATION := 6.0 ## How long it take to go to the crouching stance or return to normal stance.
-@export var JUMP_VELOCITY = 4.5 ## How much velocity the player has when jumping. The more this value is, the higher the player can jump.
+@export_subgroup("Gravity")
 @export var gravity = 12.0 ## Was originally 9.8 but I felt it to be too unrealistic. We all know what gravity is... right?
 
 
