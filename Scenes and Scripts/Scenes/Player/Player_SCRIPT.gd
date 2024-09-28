@@ -41,7 +41,7 @@ extends CharacterBody3D # Inheritance
 # Utility variables
 @export_group("Utility") ## A group for gameplay variables
 @export var inventory_opened_in_air := false ## Checks if the inventory UI is opened in the air (so the same velocity can be kept, used in _physics_process()
-@export var speed:float ## The speed of the player. Used in **_physics_process**, this variable changes to SPRINT_SPEED or CROUCH_SPEED depending on what input is pressed.
+@export var speed:float ## The speed of the player. Used in _physics_process, this variable changes to SPRINT_SPEED, CROUCH_SPEED or WALK_SPEED depending on what input is pressed.
 @export var GAME_STATE := "NORMAL" ## The local game state. (Global variable is in PlayerData.gd and saved to a file)
 
 """
@@ -242,7 +242,7 @@ func _physics_process(delta):
 			return
 
 		# Jumping
-		if Input.is_action_just_pressed("Jump") and is_on_floor():
+		if Input.is_action_just_pressed("Jump") and is_on_floor() and !Input.is_action_pressed("Crouch"):
 			velocity.y = JUMP_VELOCITY
 
 		# Handle Speed
