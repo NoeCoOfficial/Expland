@@ -75,16 +75,16 @@ func LoadData() -> void:
 	if file and not file.eof_reached():
 		var current_line = JSON.parse_string(file.get_line())
 		if current_line:
-				
+			
+			Health = current_line["Health"]
+			GAME_STATE = current_line["GAME_STATE"]
+			
 			var player = get_node("/root/World/Player")
 			var playerHead = get_node("/root/World/Player/Head")
 			var playerCamera = get_node("/root/World/Player/Head/Camera3D")
 				
 			if player:
 				
-				player.Health = current_line["Health"]
-				
-				player.GAME_STATE = current_line["GAME_STATE"]
 				
 				player.position = dict_to_vector3(current_line["Position"]) ## Player Position
 				

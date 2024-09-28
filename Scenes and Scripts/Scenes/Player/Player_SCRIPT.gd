@@ -321,7 +321,9 @@ func _ready():
 		PlayerData.LoadData() # loads player data
 	else:
 		printerr("PlayerData autoload not found")
-
+	
+	Health = PlayerData.Health
+	GAME_STATE = PlayerData.GAME_STATE
 
 	if GAME_STATE == "DEAD":
 		$Head/Camera3D/DeathScreen/BlackOverlay.set_self_modulate(Color(0, 0, 0, 1))
