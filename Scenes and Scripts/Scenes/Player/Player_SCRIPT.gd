@@ -103,6 +103,7 @@ var speed ## determines whether the player is pressing shift or not and whether 
 @export var WALK_SPEED = 5.0 ## The normal speed at which the player moves.
 @export var SPRINT_SPEED = 8.0 ## The speed of the player when the user is pressing/holding the Sprint input.
 @export var CROUCH_SPEED := 5.0 ## The speed of the player when the user is pressing/holding the Crouch input.
+@export var CROUCH_INTERPOLATION := 6.0 ## How long it take to crouch or return to normal stance.
 @export var JUMP_VELOCITY = 4.5 ## How much velocity the player has when jumping. The more this value is, the higher the player can jump.
 @export var gravity = 12.0 ## Was originally 9.8 but I felt it to be too unrealistic. We all know what gravity is... right?
 
