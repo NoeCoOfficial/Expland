@@ -6,7 +6,7 @@
 
 ---
 <h3 align="center">Current version: v0.1.8 (pre-release)</h3>
-<h5 align="center">Any questions? See the FAQ below, or contact us via email at <i>noeco.officia@gmail.com.</i></h5>
+<h5 align="center">Any questions? See the FAQ below, or contact us via email at <i>noeco.official@gmail.com.</i></h5>
   
 ---
 
