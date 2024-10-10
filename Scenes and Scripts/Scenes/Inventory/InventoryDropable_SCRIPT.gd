@@ -58,11 +58,11 @@ func _process(_delta):
 			Global.is_dragging = false
 			var tween = get_tree().create_tween()
 			if is_inside_dropable:
-				tween.tween_property(self, "position", body_ref.position, 0)
+				tween.tween_property(self, "position", body_ref.position, 0.1)
 			else:
-				tween.tween_property(self, "global_position", initialPos, 0)
+				tween.tween_property(self, "global_position", initialPos, 0.1)
 				
-			
+
 
 
 
