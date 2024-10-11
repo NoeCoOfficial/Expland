@@ -42,6 +42,11 @@ var is_inside_dropable = false
 var body_ref
 var initialPos:Vector2
 var offset:Vector2
+@export var ITEM_TYPE:String
+
+func _ready():
+	var OBJ_TEXTURE : Texture2D = load("res://Textures/Inventory/"+ ITEM_TYPE + ".png")
+	$Sprite2D.texture = OBJ_TEXTURE
 
 
 

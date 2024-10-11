@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://btr0xpw7yybtn"]
+[gd_scene load_steps=2 format=3 uid="uid://btr0xpw7yybtn"]
 
-[node name="Node3D" type="Node3D"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Inventory/ItemPickupObject_SCRIPT.gd" id="1_mp1to"]
+
+[node name="ItemPickupObject" type="Node3D"]
+script = ExtResource("1_mp1to")
