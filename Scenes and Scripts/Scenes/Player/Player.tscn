@@ -76,7 +76,7 @@ CROUCH_SPEED = 2.0
 CROUCH_INTERPOLATION = 8.0
 
 [node name="AutoSaveTimer" type="Timer" parent="."]
-wait_time = 0.747
+wait_time = 0.3
 autostart = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
