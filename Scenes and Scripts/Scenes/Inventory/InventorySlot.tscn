@@ -26,3 +26,4 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_2mtlq")
 expand_mode = 1
+metadata/_edit_use_anchors_ = true

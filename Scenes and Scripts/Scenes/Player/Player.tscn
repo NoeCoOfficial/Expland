@@ -197,31 +197,47 @@ vertical_alignment = 1
 script = ExtResource("9_svfxy")
 metadata/_edit_use_anchors_ = true
 
-[node name="Slot" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("8_ads4s")]
+[node name="Title2" type="Label" parent="Head/Camera3D/InventoryLayer"]
+anchors_preset = -1
+anchor_left = 0.700087
+anchor_top = 0.141203
+anchor_right = 0.924913
+anchor_bottom = 0.232253
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_yecwp")
+theme_override_font_sizes/font_size = 50
+text = "INVENTORY"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("9_svfxy")
+metadata/_edit_use_anchors_ = true
+
+[node name="Slot1" parent="Head/Camera3D/InventoryLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
 position = Vector2(778, 399)
 
-[node name="Slot2" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("8_ads4s")]
+[node name="Slot2" parent="Head/Camera3D/InventoryLayer" groups=["Slot2"] instance=ExtResource("8_ads4s")]
 position = Vector2(962, 399)
 
-[node name="Slot3" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("8_ads4s")]
+[node name="Slot3" parent="Head/Camera3D/InventoryLayer" groups=["Slot3"] instance=ExtResource("8_ads4s")]
 position = Vector2(1146, 399)
 
-[node name="Slot4" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("8_ads4s")]
+[node name="Slot4" parent="Head/Camera3D/InventoryLayer" groups=["Slot4"] instance=ExtResource("8_ads4s")]
 position = Vector2(778, 583)
 
-[node name="Slot5" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("8_ads4s")]
+[node name="Slot5" parent="Head/Camera3D/InventoryLayer" groups=["Slot5"] instance=ExtResource("8_ads4s")]
 position = Vector2(962, 583)
 
-[node name="Slot6" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("8_ads4s")]
+[node name="Slot6" parent="Head/Camera3D/InventoryLayer" groups=["Slot6"] instance=ExtResource("8_ads4s")]
 position = Vector2(1146, 583)
 
-[node name="Slot7" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("8_ads4s")]
+[node name="Slot7" parent="Head/Camera3D/InventoryLayer" groups=["Slot7"] instance=ExtResource("8_ads4s")]
 position = Vector2(778, 767)
 
-[node name="Slot8" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("8_ads4s")]
+[node name="Slot8" parent="Head/Camera3D/InventoryLayer" groups=["Slot8"] instance=ExtResource("8_ads4s")]
 position = Vector2(962, 767)
 
-[node name="Slot9" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("8_ads4s")]
+[node name="Slot9" parent="Head/Camera3D/InventoryLayer" groups=["Slot9"] instance=ExtResource("8_ads4s")]
 position = Vector2(1146, 767)
 
 [node name="Dropable" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("9_w7on1")]
