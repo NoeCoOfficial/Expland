@@ -7,9 +7,10 @@ size = Vector2(100, 100)
 
 [node name="Dropable" type="Node2D"]
 script = ExtResource("1_opaah")
+ITEM_TYPE = "EMPTY"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.12, 0.12)
+scale = Vector2(0.26, 0.26)
 
 [node name="Area2D" type="Area2D" parent="."]
 
