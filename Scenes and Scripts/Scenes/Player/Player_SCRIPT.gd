@@ -182,7 +182,8 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			else:
 				self.position = ResetPOS # set the player's position to the Reset position 
 				velocity.y = 0.0 # set the player's velocity to 0 
-		
+	if Input.is_action_just_pressed("SaveGame"):
+		SaveManager.SaveAllData()
 	if Input.is_action_just_pressed("Inventory"): # if the Inventory input is pressed
 		if GAME_STATE == "NORMAL": # Check if the game state is normal. If it is, open the inventory
 			$Head/Camera3D/InventoryLayer.show() # show the inventory UI
@@ -453,5 +454,5 @@ func _on_spike_take_damage(DamageTaken): # A function to take damage from the sp
 
 ######################################
 func _on_auto_save_timer_timeout(): # A function to save the player data every 0.3 seconds
-	PlayerData.SaveData() # call the save data function 
-	PlayerSettingsData.SaveSettings() # call the save settings function
+	SaveManager.SaveAllData() # Saves everything
+

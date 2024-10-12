@@ -1,5 +1,5 @@
 # ============================================================= #
-# InventoryDropable_SCRIPT.gd
+# SaveManager.gd [AUTOLOAD]
 # ============================================================= #
 #                       COPYRIGHT NOTICE                        #
 #                           Noe Co.                             #
@@ -34,76 +34,9 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-extends Node2D
+extends Node
 
 
-var draggable = false
-var is_inside_dropable = false
-var body_ref
-var initialPos:Vector2
-var offset:Vector2
-var slot
-@export var ITEM_TYPE:String ## The type of the item that the Sprite2D is holding.
-@export var SNAP_TIME:float ## The time it takes for the dropable to snap into a slot (in seconds).
-
-func _ready():
-	var OBJ_TEXTURE : Texture2D = load("res://Textures/Inventory/"+ ITEM_TYPE + ".png")
-	$Sprite2D.texture = OBJ_TEXTURE
-
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	if draggable:
-		if Input.is_action_just_pressed("inventory_click"):
-			initialPos = global_position
-			offset = get_global_mouse_position() - global_position
-			InventoryManager.is_dragging = true
-		if Input.is_action_pressed("inventory_click"):
-			global_position = get_global_mouse_position() - offset
-		elif Input.is_action_just_released("inventory_click"):
-			InventoryManager.is_dragging = false
-			# debugging
-			var slotNumber = slot[4]
-			var debug_slot_number_label = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/debug_slot_info")
-			debug_slot_number_label.text = "You just released on slot number: " + slotNumber
-			
-			var tween = get_tree().create_tween()
-			if is_inside_dropable:
-				tween.tween_property(self, "position", body_ref.position, SNAP_TIME)
-			else:
-				tween.tween_property(self, "global_position", initialPos, SNAP_TIME)
-				
-
-func _on_area_2d_body_entered(body):
-	if body.is_in_group("dropable"):
-		
-		# Get the name of the node and convert it to a String
-		slot = body.get_name() as String
-		
-		
-		is_inside_dropable = true
-		
-
-		var tween = get_tree().create_tween()
-		tween.tween_property(body, "modulate", Color(1, 1, 1, 1), 0.2)
-		body_ref = body
-
-func _on_area_2d_body_exited(body):
-	if body.is_in_group("dropable"):
-		is_inside_dropable = false
-		
-		
-		var tween = get_tree().create_tween()
-		tween.tween_property(body, "modulate", Color(1, 1, 1, 0.2), 0.2)
-
-func _on_area_2d_mouse_entered():
-	if not InventoryManager.is_dragging:
-		draggable = true
-		scale = Vector2(1.05, 1.05)
-
-
-func _on_area_2d_mouse_exited():
-	if not InventoryManager.is_dragging:
-		draggable = false
-		scale = Vector2(1.0, 1.0)
+func SaveAllData():
+	PlayerData.SaveData()
+	PlayerSettingsData.SaveSettings()

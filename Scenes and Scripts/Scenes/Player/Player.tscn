@@ -76,7 +76,7 @@ CROUCH_SPEED = 2.0
 CROUCH_INTERPOLATION = 8.0
 
 [node name="AutoSaveTimer" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 60.0
 autostart = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -243,6 +243,7 @@ position = Vector2(1146, 767)
 [node name="Dropable" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("9_w7on1")]
 position = Vector2(779, 399)
 ITEM_TYPE = "ROCK"
+SNAP_TIME = 0.05
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
 visible = false
