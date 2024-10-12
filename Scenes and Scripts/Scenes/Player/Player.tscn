@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=23 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
 [ext_resource type="Texture2D" uid="uid://tmqrfb1atg1j" path="res://Textures/Crosshairs/Expland_Crosshair.png" id="2_606ex"]
+[ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/ClockIcon_SCRIPT.gd" id="2_t6toi"]
 [ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="3_yecwp"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/CrosshairCanvas/HealthLBL_SCRIPT.gd" id="4_56i84"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/CrosshairCanvas/Crosshair_SCRIPT.gd" id="5_56a8a"]
@@ -78,6 +79,7 @@ CROUCH_INTERPOLATION = 8.0
 [node name="AutoSaveTimer" type="Timer" parent="."]
 wait_time = 60.0
 autostart = true
+script = ExtResource("2_t6toi")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -124,6 +126,7 @@ script = ExtResource("5_56a8a")
 metadata/_edit_use_anchors_ = true
 
 [node name="InventoryLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="Background" type="Panel" parent="Head/Camera3D/InventoryLayer"]
 anchors_preset = -1
@@ -323,6 +326,16 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("8_uxqns")
+
+[node name="PauseLayer" type="CanvasLayer" parent="Head/Camera3D"]
+
+[node name="ColorRect" type="ColorRect" parent="Head/Camera3D/PauseLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.643137)
 
 [connection signal="timeout" from="AutoSaveTimer" to="." method="_on_auto_save_timer_timeout"]
 
