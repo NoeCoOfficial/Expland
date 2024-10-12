@@ -37,19 +37,18 @@
 @icon("res://Textures/Icons/Script Icons/32x32/character_edit.png") # Give the node an icon (so it looks cool)
 
 extends CharacterBody3D # Inheritance
-
-# Utility variables
-@export_group("Utility") ## A group for gameplay variables
-@export var inventory_opened_in_air := false ## Checks if the inventory UI is opened in the air (so the same velocity can be kept, used in _physics_process()
-@export var speed:float ## The speed of the player. Used in _physics_process, this variable changes to SPRINT_SPEED, CROUCH_SPEED or WALK_SPEED depending on what input is pressed.
-@export var GAME_STATE := "NORMAL" ## The local game state. (Global variable is in PlayerData.gd and saved to a file)
-
 """
 
 Below are the player scene's export variables. These are useful for flexibility between maps/levels.
 The keyword @export means that they can be accessed in the inspector panel (right side)
 
 """
+
+# Utility variables
+@export_group("Utility") ## A group for gameplay variables
+@export var inventory_opened_in_air := false ## Checks if the inventory UI is opened in the air (so the same velocity can be kept, used in _physics_process()
+@export var speed:float ## The speed of the player. Used in _physics_process, this variable changes to SPRINT_SPEED, CROUCH_SPEED or WALK_SPEED depending on what input is pressed.
+@export var GAME_STATE := "NORMAL" ## The local game state. (Global variable is in PlayerData.gd and saved to a file)
 
 @export_group("Gameplay") ## A group for gameplay variables
 
@@ -71,8 +70,9 @@ The keyword @export means that they can be accessed in the inspector panel (righ
 @export var Fade_In_Time := 1.000 ## The time it takes for the overlay to reach Color(0, 0, 0, 0) in seconds. 
 
 @export_group("Input") ## A group relating to inputs (keys on your keyboard)
-@export var Reset := true ## Whether or not the player can use the Reset input to reset the player's position (Normally Ctrl+R) (will be off for final game.)
-@export var Quit := true ## Whether or not the player can use the Quit input to quit the game (Normally Ctrl+Shift+Q) (will be off for final game.)
+@export var Pause := true  ## Whether or not the player can use the Pause input to pause the game. (Normally Esc) (will be ON for final game.)
+@export var Reset := true ## Whether or not the player can use the Reset input to reset the player's position (Normally Ctrl+R) (will be OFF for final game.)
+@export var Quit := true ## Whether or not the player can use the Quit input to quit the game (Normally Ctrl+Shift+Q) (will be OFF for final game.)
 
 
 @export_group("Visual") ## A group for visual/camera variables
@@ -113,55 +113,6 @@ The keyword @export means that they can be accessed in the inspector panel (righ
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 
-"""
-Below are some utility functions. These are very useful when trying to preform actions that need to be custom made with code. 
-"""
-func format_number(n: int) -> String: # A function for formatting numbers easily. Must be an integer!
-	if n >= 1_000: # if the number is greater than or equal to 1,000
-
-		var i:float = snapped(float(n)/1_000, .01) # snap the number to the nearest 0.01
-		return str(i).replace(",", ".") + "k" # return the number as a string with a "k" at the end
-
-	elif n >= 1_000_000: # if the number is greater than or equal to 1,000,000
-
-		var i:float = snapped(float(n)/1_000_000, .01) # snap the number to the nearest 0.01
-		return str(i).replace(",", ".") + "M" # return the number as a string with a "M" at the end
-
-	elif n >= 1_000_000_000: # if the number is greater than or equal to 1,000,000,000
-
-		var i:float = snapped(float(n)/1_000_000_000, .01) # snap the number to the nearest 0.01
-		return str(i).replace(",", ".") + "B" # return the number as a string with a "B" at the end
-
-	elif n >= 1_000_000_000_000: # if the number is greater than or equal to 1,000,000,000,000
-
-		var i:float = snapped(float(n)/1_000_000_000_000, .01) # snap the number to the nearest 0.01
-		return str(i).replace(",", ".") + "T" # return the number as a string with a "T" at the end
-
-	elif n >= 1_000_000_000_000_000: # if the number is greater than or equal to 1,000,000,000,000,000
-
-		var i:float = snapped(float(n)/1_000_000_000_000_000, .01) # snap the number to the nearest 0.01
-		return str(i).replace(",", ".") + "aa" # return the number as a string with a "aa" at the end
-
-	else: 
-
-		return str(n) # return the number as a string if it doesn't meet any of the above conditions
-
-func _get_mouse_pos(): # get the position of the cursor.
-	return get_viewport().get_mouse_position() # return the position of the cursor
-
-func center_mouse_cursor(): # center the mouse cursor (relative to the viewport size)
-	var viewport = get_viewport() # get the viewport
-	var viewport_size = viewport.get_visible_rect().size # get the size of the viewport
-	var center_position = viewport_size / 2 # get the center position of the viewport
-	viewport.warp_mouse(center_position) # warp the mouse to the center position
-
-func wait(seconds: float) -> void: # wait until the next line of code is executed. Similar to time.sleep() in python.
-	await get_tree().create_timer(seconds).timeout # wait until the timer is finished
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-
 # Body parts variables. Used for reference when working with physics.
 @onready var head = $Head # reference to the head of the player scene. (used for mouse movement and looking around)
 @onready var camera = $Head/Camera3D # reference to the camera of the player (used for mouse movement and looking around)
@@ -187,7 +138,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 	if Input.is_action_just_pressed("Inventory"): # if the Inventory input is pressed
 		if GAME_STATE == "NORMAL": # Check if the game state is normal. If it is, open the inventory
 			$Head/Camera3D/InventoryLayer.show() # show the inventory UI
-			center_mouse_cursor() # center the mouse cursor
+			Utils.center_mouse_cursor() # center the mouse cursor
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # set the mouse mode to visible
 			GAME_STATE = "INVENTORY" # set the game state to inventory (so the player can't move. This won't save to the file)
 
@@ -197,7 +148,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		elif GAME_STATE == "INVENTORY": # Check if the game state is inventory. If it is, close the inventory
 			$Head/Camera3D/InventoryLayer.hide() # hide the inventory UI
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor
-			center_mouse_cursor() # center the mouse cursor
+			Utils.center_mouse_cursor() # center the mouse cursor
 			GAME_STATE = "NORMAL" # set the game state to normal (so the player can move. This won't save to the file)
 			inventory_opened_in_air = false  # Reset the flag when inventory is closed
 
