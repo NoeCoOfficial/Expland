@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Tests/WorldShowcase.gd" id="1_bpwub"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/WorldpageIcon_SCRIPT.gd" id="3_vgx61"]
-[ext_resource type="Material" uid="uid://b8rwx3qifw3mf" path="res://Shaders/Low Poly Water/LowPolyWater_MATERIAL.tres" id="4_pars6"]
+[ext_resource type="Material" uid="uid://b8rwx3qifw3mf" path="res://Resources/Shaders/Low Poly Water/LowPolyWater_MATERIAL.tres" id="4_pars6"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/RiverIcon_SCRIPT.gd" id="5_m4y1i"]
 [ext_resource type="AudioStream" uid="uid://c8vkvfphwrr8w" path="res://Audio/Tests/snowfall.mp3" id="17_00hp2"]
 [ext_resource type="PackedScene" uid="uid://b6ijgxw1ym8h0" path="res://Assets/3D Models/Rocks/Rock1.blend" id="18_qc11x"]

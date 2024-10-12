@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=24 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bah2p5efhcjtx" path="res://Scenes and Scripts/Scenes/Inventory/InventoryDropable.tscn" id="9_w7on1"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/RandomText_SCRIPT.gd" id="10_6w37c"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/GetUp_SCRIPT.gd" id="11_0enap"]
+[ext_resource type="LabelSettings" uid="uid://d2v4iyrpmq48t" path="res://Resources/Label Settings/LABEL_TitleText.tres" id="16_niykc"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_e8ep2"]
 
@@ -336,6 +337,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.643137)
+
+[node name="Label" type="Label" parent="Head/Camera3D/PauseLayer"]
+anchors_preset = -1
+anchor_left = 0.395833
+anchor_right = 0.604167
+anchor_bottom = 0.103395
+grow_horizontal = 2
+text = "GAME PAUSED"
+label_settings = ExtResource("16_niykc")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [connection signal="timeout" from="AutoSaveTimer" to="." method="_on_auto_save_timer_timeout"]
 

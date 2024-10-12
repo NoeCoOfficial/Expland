@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b8rwx3qifw3mf"]
 
-[ext_resource type="Shader" path="res://Shaders/Low Poly Water/LowPolyWater.gdshader" id="1_0qrhx"]
+[ext_resource type="Shader" path="res://Resources/Shaders/Low Poly Water/LowPolyWater.gdshader" id="1_0qrhx"]
 
 [resource]
 render_priority = 0

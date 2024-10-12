@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/LightbulbIcon_SCRIPT.gd" id="2_ox5mt"]
 [ext_resource type="PackedScene" uid="uid://cdbylnsm71dkk" path="res://Assets/3D Models/Trees/Normal/Tree3.blend" id="3_6jryj"]
 [ext_resource type="PackedScene" uid="uid://cjm5lrxicdgsf" path="res://Scenes and Scripts/Scenes/Player/Player.tscn" id="3_6yh0b"]
-[ext_resource type="Material" uid="uid://b8rwx3qifw3mf" path="res://Shaders/Low Poly Water/LowPolyWater_MATERIAL.tres" id="4_515m5"]
+[ext_resource type="Material" uid="uid://b8rwx3qifw3mf" path="res://Resources/Shaders/Low Poly Water/LowPolyWater_MATERIAL.tres" id="4_515m5"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/TreeIcon_SCRIPT.gd" id="4_esxor"]
 [ext_resource type="PackedScene" uid="uid://c83ij1khevxpc" path="res://Assets/3D Models/Trees/Normal/Tree4.blend" id="4_f67wn"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/RiverIcon_SCRIPT.gd" id="5_uiuqr"]
