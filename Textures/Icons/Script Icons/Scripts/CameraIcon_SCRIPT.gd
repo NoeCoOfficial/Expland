@@ -1,5 +1,5 @@
 # ============================================================= #
-# ClockIcon_SCRIPT.gd
+# CameraIcon_SCRIPT.gd
 # ============================================================= #
 #                       COPYRIGHT NOTICE                        #
 #                           Noe Co.                             #
@@ -34,5 +34,5 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-@icon("res://Textures/Icons/Script Icons/32x32/clock.png")
+@icon("res://Textures/Icons/Script Icons/32x32/camera.png")
 extends Node
