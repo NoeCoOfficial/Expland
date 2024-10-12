@@ -1,3 +1,7 @@
-[gd_resource type="LabelSettings" format=3 uid="uid://d2v4iyrpmq48t"]
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://d2v4iyrpmq48t"]
+
+[ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="1_q2uhp"]
 
 [resource]
+font = ExtResource("1_q2uhp")
+font_size = 60
