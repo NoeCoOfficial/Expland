@@ -42,6 +42,7 @@ var is_inside_dropable = false
 var body_ref
 var initialPos:Vector2
 var offset:Vector2
+var slot
 @export var ITEM_TYPE:String
 
 func _ready():
@@ -61,6 +62,8 @@ func _process(_delta):
 			global_position = get_global_mouse_position() - offset
 		elif Input.is_action_just_released("inventory_click"):
 			InventoryManager.is_dragging = false
+			var slotNumber = slot[4]
+			print(slotNumber)
 			var tween = get_tree().create_tween()
 			if is_inside_dropable:
 				tween.tween_property(self, "position", body_ref.position, 0.1)
@@ -73,16 +76,20 @@ func _process(_delta):
 
 
 
-
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("dropable"):
+		
+		# Get the name of the node and convert it to a String
+		slot = body.get_name() as String
+		
+		
 		is_inside_dropable = true
 		
-		# body.modulate = Color(1, 1, 1, 1)
-		
+		# Start the tween
 		var tween = get_tree().create_tween()
 		tween.tween_property(body, "modulate", Color(1, 1, 1, 1), 0.2)
 		body_ref = body
+
 
 
 func _on_area_2d_body_exited(body):
