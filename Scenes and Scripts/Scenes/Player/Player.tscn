@@ -199,15 +199,15 @@ metadata/_edit_use_anchors_ = true
 
 [node name="debug_slot_info" type="Label" parent="Head/Camera3D/InventoryLayer"]
 anchors_preset = -1
-anchor_left = 0.700087
-anchor_top = 0.141203
-anchor_right = 0.924913
-anchor_bottom = 0.232253
+anchor_left = 0.174479
+anchor_top = 0.0601852
+anchor_right = 0.826389
+anchor_bottom = 0.151235
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_yecwp")
-theme_override_font_sizes/font_size = 50
-text = "INVENTORY"
+theme_override_font_sizes/font_size = 30
+text = "You have not released on a slot yet"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("9_svfxy")

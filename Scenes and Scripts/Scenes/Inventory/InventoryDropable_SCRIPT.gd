@@ -62,8 +62,11 @@ func _process(_delta):
 			global_position = get_global_mouse_position() - offset
 		elif Input.is_action_just_released("inventory_click"):
 			InventoryManager.is_dragging = false
+			# debugging
 			var slotNumber = slot[4]
-			print(slotNumber)
+			var debug_slot_number_label = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/debug_slot_info")
+			debug_slot_number_label.text = "You just released on slot number: " + slotNumber
+			
 			var tween = get_tree().create_tween()
 			if is_inside_dropable:
 				tween.tween_property(self, "position", body_ref.position, 0.1)
