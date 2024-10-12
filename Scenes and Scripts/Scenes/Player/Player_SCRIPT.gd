@@ -121,13 +121,19 @@ The keyword @export means that they can be accessed in the inspector panel (righ
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 func _input(_event): # A built-in function that listens for input using the input map
+	if Input.is_action_just_pressed("Pause") and Pause == true:
+		if $Head/Camera3D/PauseLayer.is_visible() == true:
+			ResumeGame()
+		else:
+			PauseGame()
 	if Input.is_action_just_pressed("Quit") and Quit == true: # if the Quit input is pressed and the Quit variable is true
 		if GAME_STATE == "NORMAL" or "INVENTORY": # if the game state is normal or inventory
 			if !GAME_STATE == "DEAD":
+				SaveManager.SaveAllData()
 				get_tree().quit() # quit the game
-	if Input.is_action_just_pressed("Reset") and Reset == true: # if the Reset input is pressed and the Reset variable is true
-		if GAME_STATE == "NORMAL" or "INVENTORY": # if the game state is normal or inventory
-			if ResetPOS == Vector3(999, 999, 999): # if the Reset position is set to 999, 999, 999
+	if Input.is_action_just_pressed("Reset") and Reset == true and !PauseManager.is_paused:
+		if GAME_STATE == "NORMAL" or "INVENTORY":
+			if ResetPOS == Vector3(999, 999, 999):
 				self.position = StartPOS # set the player's position to the Start position
 				velocity.y = 0.0 # set the player's velocity to 0
 			else:
@@ -135,7 +141,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 				velocity.y = 0.0 # set the player's velocity to 0 
 	if Input.is_action_just_pressed("SaveGame"):
 		SaveManager.SaveAllData()
-	if Input.is_action_just_pressed("Inventory"): # if the Inventory input is pressed
+	if Input.is_action_just_pressed("Inventory") and !PauseManager.is_paused: # if the Inventory input is pressed
 		if GAME_STATE == "NORMAL": # Check if the game state is normal. If it is, open the inventory
 			$Head/Camera3D/InventoryLayer.show() # show the inventory UI
 			Utils.center_mouse_cursor() # center the mouse cursor
@@ -154,7 +160,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 
 func _unhandled_input(event): # A built-in function that listens for input
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
-		if GAME_STATE == "INVENTORY": # Check if the game state is inventory
+		if GAME_STATE == "INVENTORY" or PauseManager.is_paused: # Check if the game state is inventory
 			head.rotate_y(-event.relative.x * SENSITIVITY/20) # rotate the head on the y-axis
 			camera.rotate_x(-event.relative.y * SENSITIVITY/20) # rotate the camera on the x-axis
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90)) # clamp the camera rotation on the x-axis
@@ -168,7 +174,7 @@ func _unhandled_input(event): # A built-in function that listens for input
 func _physics_process(delta): # This is a special function that is called every frame. It is used for physics calculations. For example, if I run the game on a computer that has a higher/lower frame rate, the physics will still be consistent.
 	
 	# Crouching
-	if GAME_STATE != "INVENTORY" and GAME_STATE != "DEAD" and is_on_floor(): # Check if the game state is not inventory or dead and if the player is on the floor
+	if GAME_STATE != "INVENTORY" and GAME_STATE != "DEAD" and is_on_floor() and !PauseManager.is_paused: # Check if the game state is not inventory or dead and if the player is on the floor
 		if Input.is_action_pressed("Crouch"): # Check if the Crouch input is pressed
 			self.scale.y = lerp(self.scale.y, 0.5, CROUCH_INTERPOLATION * delta) # linearly interpolate the scale of the player on the y-axis to 0.5
 		else: 
@@ -191,13 +197,13 @@ func _physics_process(delta): # This is a special function that is called every 
 			return 
 
 		# Jumping
-		if Input.is_action_just_pressed("Jump") and is_on_floor() and !Input.is_action_pressed("Crouch"): # Check if the Jump input is pressed, the player is on the floor and the Crouch input is not pressed
+		if Input.is_action_just_pressed("Jump") and is_on_floor() and !Input.is_action_pressed("Crouch") and !PauseManager.is_paused: # Check if the Jump input is pressed, the player is on the floor and the Crouch input is not pressed
 			velocity.y = JUMP_VELOCITY # set the player's velocity to the jump velocity
 
 		# Handle Speed
-		if Input.is_action_pressed("Sprint") and !Input.is_action_pressed("Crouch"): # Check if the Sprint input is pressed and the Crouch input is not pressed
+		if Input.is_action_pressed("Sprint") and !Input.is_action_pressed("Crouch") and !PauseManager.is_paused: # Check if the Sprint input is pressed and the Crouch input is not pressed
 			speed = SPRINT_SPEED # set the speed to the sprint speed
-		elif Input.is_action_pressed("Crouch"): # Check if the Crouch input is pressed
+		elif Input.is_action_pressed("Crouch") and !PauseManager.is_paused: # Check if the Crouch input is pressed
 			speed = CROUCH_SPEED # set the speed to the crouch speed
 		else: 
 			speed = WALK_SPEED # set the speed to the walk speed
@@ -208,7 +214,7 @@ func _physics_process(delta): # This is a special function that is called every 
 		var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized() # get the direction of the player
 
 		if is_on_floor(): # Check if the player is on the floor
-			if direction != Vector3.ZERO: # Check if the direction is not zero
+			if direction != Vector3.ZERO and !PauseManager.is_paused: # Check if the direction is not zero
 				velocity.x = direction.x * speed # set the player's velocity on the x-axis to the direction times the speed
 				velocity.z = direction.z * speed # set the player's velocity on the z-axis to the direction times the speed
 			else:
@@ -218,6 +224,7 @@ func _physics_process(delta): # This is a special function that is called every 
 			velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0) # linearly interpolate the player's velocity on the x-axis to the direction times the speed
 			velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0) # linearly interpolate the player's velocity on the z-axis to the direction times the speed
 
+		
 		move_and_slide() # Apply gravity and handle movement
 
 		# Check if the player is moving and on the floor
@@ -407,3 +414,25 @@ func _on_spike_take_damage(DamageTaken): # A function to take damage from the sp
 func _on_auto_save_timer_timeout(): # A function to save the player data every 0.3 seconds
 	SaveManager.SaveAllData() # Saves everything
 
+func PauseGame():
+	$Head/Camera3D/PauseLayer.show()
+	PauseManager.is_paused = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # set the mouse mode to visible
+func ResumeGame():
+	$Head/Camera3D/PauseLayer.hide()
+	PauseManager.is_paused = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor
+
+
+func _on_resume_btn_pressed():
+	ResumeGame()
+
+func _on_settings_btn_pressed():
+	pass # Replace with function body.
+
+func _on_save_and_quit_btn_pressed():
+	SaveManager.SaveAllData()
+	get_tree().quit()
+
+func _on_quit_without_saving_btn_pressed():
+	get_tree().quit()
