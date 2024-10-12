@@ -174,7 +174,7 @@ func _unhandled_input(event): # A built-in function that listens for input
 func _physics_process(delta): # This is a special function that is called every frame. It is used for physics calculations. For example, if I run the game on a computer that has a higher/lower frame rate, the physics will still be consistent.
 	
 	# Crouching
-	if GAME_STATE != "INVENTORY" and GAME_STATE != "DEAD" and is_on_floor() and !PauseManager.is_paused: # Check if the game state is not inventory or dead and if the player is on the floor
+	if GAME_STATE != "INVENTORY" and GAME_STATE != "DEAD" and is_on_floor() and !PauseManager.is_paused and GAME_STATE != "INVENTORY": # Check if the game state is not inventory or dead and if the player is on the floor
 		if Input.is_action_pressed("Crouch"): # Check if the Crouch input is pressed
 			self.scale.y = lerp(self.scale.y, 0.5, CROUCH_INTERPOLATION * delta) # linearly interpolate the scale of the player on the y-axis to 0.5
 		else: 
@@ -184,26 +184,19 @@ func _physics_process(delta): # This is a special function that is called every 
 	
 	
 	if !GAME_STATE == "DEAD":
-		# Always apply gravity regardless of the game state
+		# Always apply gravity unless game state is DEAD
 		if not is_on_floor(): # Check if the player is not on the floor
 			velocity.y -= gravity * delta # apply gravity to the player
-		# Handle movement restrictions when the inventory is open
-		if GAME_STATE == "INVENTORY": # Check if the game state is inventory
-			if is_on_floor(): # Check if the player is on the floor
-				velocity.x = 0 # Stop the player from moving
-				velocity.z = 0 # Stop the player from moving
-				inventory_opened_in_air = false  # Reset the flag once player lands
-			move_and_slide()  # Apply gravity and handle movement
-			return 
+
 
 		# Jumping
-		if Input.is_action_just_pressed("Jump") and is_on_floor() and !Input.is_action_pressed("Crouch") and !PauseManager.is_paused: # Check if the Jump input is pressed, the player is on the floor and the Crouch input is not pressed
+		if Input.is_action_just_pressed("Jump") and is_on_floor() and !Input.is_action_pressed("Crouch") and !PauseManager.is_paused and GAME_STATE != "INVENTORY": # Check if the Jump input is pressed, the player is on the floor and the Crouch input is not pressed
 			velocity.y = JUMP_VELOCITY # set the player's velocity to the jump velocity
 
 		# Handle Speed
-		if Input.is_action_pressed("Sprint") and !Input.is_action_pressed("Crouch") and !PauseManager.is_paused: # Check if the Sprint input is pressed and the Crouch input is not pressed
+		if Input.is_action_pressed("Sprint") and !Input.is_action_pressed("Crouch") and !PauseManager.is_paused and GAME_STATE != "INVENTORY": # Check if the Sprint input is pressed and the Crouch input is not pressed
 			speed = SPRINT_SPEED # set the speed to the sprint speed
-		elif Input.is_action_pressed("Crouch") and !PauseManager.is_paused: # Check if the Crouch input is pressed
+		elif Input.is_action_pressed("Crouch") and !PauseManager.is_paused and GAME_STATE != "INVENTORY": # Check if the Crouch input is pressed
 			speed = CROUCH_SPEED # set the speed to the crouch speed
 		else: 
 			speed = WALK_SPEED # set the speed to the walk speed
@@ -214,7 +207,7 @@ func _physics_process(delta): # This is a special function that is called every 
 		var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized() # get the direction of the player
 
 		if is_on_floor(): # Check if the player is on the floor
-			if direction != Vector3.ZERO and !PauseManager.is_paused: # Check if the direction is not zero
+			if direction != Vector3.ZERO and !PauseManager.is_paused and GAME_STATE != "INVENTORY": # Check if the direction is not zero
 				velocity.x = direction.x * speed # set the player's velocity on the x-axis to the direction times the speed
 				velocity.z = direction.z * speed # set the player's velocity on the z-axis to the direction times the speed
 			else:
