@@ -140,8 +140,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 				self.position = ResetPOS # set the player's position to the Reset position 
 				velocity.y = 0.0 # set the player's velocity to 0 
 	if Input.is_action_just_pressed("SaveGame"):
-		SaveManager.SaveAllData()
-		
+		SaveAllDataWithAnimation()
 	if Input.is_action_just_pressed("Inventory") and !PauseManager.is_paused: # if the Inventory input is pressed
 		if GAME_STATE == "NORMAL": # Check if the game state is normal. If it is, open the inventory
 			$Head/Camera3D/InventoryLayer.show() # show the inventory UI
@@ -417,7 +416,7 @@ func ResumeGame():
 	PauseManager.is_paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor
 
-
+# Handle pause buttons
 func _on_resume_btn_pressed():
 	ResumeGame()
 
@@ -430,3 +429,32 @@ func _on_save_and_quit_btn_pressed():
 
 func _on_quit_without_saving_btn_pressed():
 	get_tree().quit()
+
+func SaveAllDataWithAnimation():
+	if $ManualSaveCooldown.time_left == 0.0:
+		$ManualSaveCooldown.wait_time = 5.0
+		$ManualSaveCooldown.start()
+		SaveManager.SaveAllData()
+		ShowLighterBG_SAVEOVERLAY()
+		await get_tree().create_timer(0.2).timeout
+		ShowDarkerBG_SAVEOVERLAY()
+		await get_tree().create_timer(3.0).timeout
+		HideDarkerBG_SAVEOVERLAY()
+		await get_tree().create_timer(0.2).timeout
+		HideLighterBG_SAVEOVERLAY()
+
+func ShowLighterBG_SAVEOVERLAY():
+	var tween = get_tree().create_tween()
+	tween.tween_property($Head/Camera3D/SaveOverlay/LighterBG, "position:x", 1500.0, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+
+func ShowDarkerBG_SAVEOVERLAY():
+	var tween = get_tree().create_tween()
+	tween.tween_property($Head/Camera3D/SaveOverlay/DarkerBG, "position:x", 1510.0, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+
+func HideLighterBG_SAVEOVERLAY():
+	var tween = get_tree().create_tween()
+	tween.tween_property($Head/Camera3D/SaveOverlay/LighterBG, "position:x", 1920, 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
+
+func HideDarkerBG_SAVEOVERLAY():
+	var tween = get_tree().create_tween()
+	tween.tween_property($Head/Camera3D/SaveOverlay/DarkerBG, "position:x", 1920, 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)

@@ -15,9 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://bah2p5efhcjtx" path="res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDropable.tscn" id="9_w7on1"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/RandomText_SCRIPT.gd" id="10_6w37c"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/GetUp_SCRIPT.gd" id="11_0enap"]
-[ext_resource type="LabelSettings" uid="uid://d2v4iyrpmq48t" path="res://Resources/Label Settings/LABEL_TitleText.tres" id="16_niykc"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="16_wg7d4"]
 [ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="17_fk422"]
+[ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="17_rhxkt"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_e8ep2"]
 
@@ -84,6 +84,12 @@ wait_time = 60.0
 autostart = true
 script = ExtResource("2_t6toi")
 
+[node name="ManualSaveCooldown" type="Timer" parent="."]
+wait_time = 0.001
+one_shot = true
+autostart = true
+script = ExtResource("2_t6toi")
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_e8ep2")
@@ -99,6 +105,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 script = ExtResource("2_37tst")
 
 [node name="CrosshairCanvas" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="HealthLBL" type="Label" parent="Head/Camera3D/CrosshairCanvas"]
 anchors_preset = -1
@@ -251,6 +258,7 @@ ITEM_TYPE = "ROCK"
 SNAP_TIME = 0.05
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/DeathScreen"]
 anchors_preset = 15
@@ -302,6 +310,7 @@ vertical_alignment = 1
 script = ExtResource("11_0enap")
 
 [node name="OverlayLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="RedOverlay" type="ColorRect" parent="Head/Camera3D/OverlayLayer"]
 process_priority = 10
@@ -328,9 +337,9 @@ color = Color(0, 0, 0, 1)
 script = ExtResource("8_uxqns")
 
 [node name="PauseLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="GreyLayer" type="ColorRect" parent="Head/Camera3D/PauseLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -348,8 +357,9 @@ anchor_bottom = 0.138889
 offset_top = -8.0
 offset_bottom = -8.00001
 grow_horizontal = 2
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 71
 text = "GAME PAUSED"
-label_settings = ExtResource("16_niykc")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("16_wg7d4")
@@ -368,7 +378,7 @@ offset_bottom = -70.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
-theme_override_fonts/font = ExtResource("17_fk422")
+theme = ExtResource("17_rhxkt")
 theme_override_font_sizes/font_size = 60
 text = "RESUME"
 script = ExtResource("16_wg7d4")
@@ -386,6 +396,7 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
+theme = ExtResource("17_rhxkt")
 theme_override_fonts/font = ExtResource("17_fk422")
 theme_override_font_sizes/font_size = 60
 text = "SETTINGS"
@@ -404,6 +415,7 @@ offset_bottom = 175.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
+theme = ExtResource("17_rhxkt")
 theme_override_fonts/font = ExtResource("17_fk422")
 theme_override_font_sizes/font_size = 35
 script = ExtResource("16_wg7d4")
@@ -440,6 +452,7 @@ offset_bottom = 175.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
+theme = ExtResource("17_rhxkt")
 theme_override_fonts/font = ExtResource("17_fk422")
 theme_override_font_sizes/font_size = 35
 script = ExtResource("16_wg7d4")
@@ -464,6 +477,47 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="SaveOverlay" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
+
+[node name="LighterBG" type="ColorRect" parent="Head/Camera3D/SaveOverlay"]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.0277778
+anchor_right = 1.25608
+anchor_bottom = 0.123457
+offset_right = 0.00134277
+color = Color(0.255659, 0.255659, 0.255659, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="DarkerBG" type="ColorRect" parent="Head/Camera3D/SaveOverlay"]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.0277778
+anchor_right = 1.25608
+anchor_bottom = 0.123457
+color = Color(0.140447, 0.140447, 0.140447, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Info" type="Label" parent="Head/Camera3D/SaveOverlay/DarkerBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.20678
+anchor_right = 1.04407
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_yecwp")
+theme_override_font_sizes/font_size = 30
+text = "Progress saved successfully"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 814.935
+offset_top = 249.791
+offset_right = 854.935
+offset_bottom = 272.791
 
 [connection signal="timeout" from="AutoSaveTimer" to="." method="_on_auto_save_timer_timeout"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/Resume_Btn" to="." method="_on_resume_btn_pressed"]

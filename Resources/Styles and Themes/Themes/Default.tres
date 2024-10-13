@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://ceasxu5q233w7"]
+
+[ext_resource type="StyleBox" uid="uid://dk6yg5shsrlga" path="res://Resources/Styles and Themes/Styles/Default/Button/Default_Hover.tres" id="1_y4myn"]
+[ext_resource type="StyleBox" uid="uid://dysjxkdohprwn" path="res://Resources/Styles and Themes/Styles/Default/Button/Default_Normal.tres" id="2_13x8t"]
+[ext_resource type="StyleBox" uid="uid://4bki1vu11lcb" path="res://Resources/Styles and Themes/Styles/Default/Button/Default_Pressed.tres" id="3_xk7fx"]
+[ext_resource type="StyleBox" uid="uid://com3tix0pshhk" path="res://Resources/Styles and Themes/Styles/Default/Label/Default_Label.tres" id="4_fhnag"]
+[ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="5_wmy76"]
+
+[resource]
+default_font = ExtResource("5_wmy76")
+Button/styles/hover = ExtResource("1_y4myn")
+Button/styles/normal = ExtResource("2_13x8t")
+Button/styles/pressed = ExtResource("3_xk7fx")
+Label/styles/normal = ExtResource("4_fhnag")
