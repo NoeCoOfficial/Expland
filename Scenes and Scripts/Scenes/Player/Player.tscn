@@ -105,7 +105,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 script = ExtResource("2_37tst")
 
 [node name="CrosshairCanvas" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="HealthLBL" type="Label" parent="Head/Camera3D/CrosshairCanvas"]
 anchors_preset = -1
@@ -258,7 +257,6 @@ ITEM_TYPE = "ROCK"
 SNAP_TIME = 0.05
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/DeathScreen"]
 anchors_preset = 15
@@ -310,7 +308,6 @@ vertical_alignment = 1
 script = ExtResource("11_0enap")
 
 [node name="OverlayLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="RedOverlay" type="ColorRect" parent="Head/Camera3D/OverlayLayer"]
 process_priority = 10
@@ -337,9 +334,9 @@ color = Color(0, 0, 0, 1)
 script = ExtResource("8_uxqns")
 
 [node name="PauseLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="GreyLayer" type="ColorRect" parent="Head/Camera3D/PauseLayer"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -371,15 +368,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -134.5
-offset_top = -170.0
-offset_right = 134.5
-offset_bottom = -70.0
+offset_left = -168.5
+offset_top = -201.0
+offset_right = 168.5
+offset_bottom = -71.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
 theme = ExtResource("17_rhxkt")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 80
 text = "RESUME"
 script = ExtResource("16_wg7d4")
 
@@ -389,15 +386,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -134.5
-offset_top = -50.0
-offset_right = 134.5
-offset_bottom = 50.0
+offset_left = -168.5
+offset_top = -65.0
+offset_right = 168.5
+offset_bottom = 65.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
 theme = ExtResource("17_rhxkt")
-theme_override_font_sizes/font_size = 58
+theme_override_font_sizes/font_size = 70
 text = "SETTINGS"
 script = ExtResource("16_wg7d4")
 
@@ -407,16 +404,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -135.0
+offset_left = -168.0
 offset_top = 70.0
-offset_right = -10.0
-offset_bottom = 175.0
+offset_right = -1.0
+offset_bottom = 216.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
 theme = ExtResource("17_rhxkt")
 theme_override_fonts/font = ExtResource("17_fk422")
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 25
 script = ExtResource("16_wg7d4")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Head/Camera3D/PauseLayer/SaveAndQuit_Btn"]
@@ -424,10 +421,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 16.0
-offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
 
 [node name="Label" type="Label" parent="Head/Camera3D/PauseLayer/SaveAndQuit_Btn/VBoxContainer"]
 layout_mode = 2
@@ -443,10 +439,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 12.0
+offset_left = 1.0
 offset_top = 70.0
-offset_right = 137.0
-offset_bottom = 175.0
+offset_right = 168.0
+offset_bottom = 216.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
@@ -455,17 +451,16 @@ theme_override_fonts/font = ExtResource("17_fk422")
 theme_override_font_sizes/font_size = 35
 script = ExtResource("16_wg7d4")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Head/Camera3D/PauseLayer/QuitWithoutSaving_Btn"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Head/Camera3D/PauseLayer/QuitWithoutSaving_Btn"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 16.0
-offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
 
-[node name="Label" type="Label" parent="Head/Camera3D/PauseLayer/QuitWithoutSaving_Btn/VBoxContainer2"]
+[node name="Label" type="Label" parent="Head/Camera3D/PauseLayer/QuitWithoutSaving_Btn/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "QUIT WITHOUT SAVING"
@@ -474,7 +469,6 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="SaveOverlay" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="LighterBG" type="ColorRect" parent="Head/Camera3D/SaveOverlay"]
 anchors_preset = -1
