@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://0uyecq8yw6t"
-path="res://.godot/imported/itempickupsizetest.blend-81bb537a6936e65c671d230061844be1.scn"
+path="res://.godot/imported/ROCK.blend-ffc72142e82a5f447f64da75ab6cc2da.scn"
 
 [deps]
 
-source_file="res://Assets/3D Models/Tests/itempickupsizetest.blend"
-dest_files=["res://.godot/imported/itempickupsizetest.blend-81bb537a6936e65c671d230061844be1.scn"]
+source_file="res://Assets/3D Models/Inventory Pickup Items/ROCK.blend"
+dest_files=["res://.godot/imported/ROCK.blend-ffc72142e82a5f447f64da75ab6cc2da.scn"]
 
 [params]
 
