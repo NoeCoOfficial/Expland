@@ -397,8 +397,7 @@ grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
 theme = ExtResource("17_rhxkt")
-theme_override_fonts/font = ExtResource("17_fk422")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 58
 text = "SETTINGS"
 script = ExtResource("16_wg7d4")
 
@@ -432,7 +431,6 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="Head/Camera3D/PauseLayer/SaveAndQuit_Btn/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("17_fk422")
 theme_override_font_sizes/font_size = 28
 text = "SAVE AND QUIT"
 horizontal_alignment = 1
@@ -469,7 +467,6 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="Head/Camera3D/PauseLayer/QuitWithoutSaving_Btn/VBoxContainer2"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("17_fk422")
 theme_override_font_sizes/font_size = 28
 text = "QUIT WITHOUT SAVING"
 horizontal_alignment = 1
@@ -512,12 +509,6 @@ text = "Progress saved successfully"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="."]
-offset_left = 814.935
-offset_top = 249.791
-offset_right = 854.935
-offset_bottom = 272.791
 
 [connection signal="timeout" from="AutoSaveTimer" to="." method="_on_auto_save_timer_timeout"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/Resume_Btn" to="." method="_on_resume_btn_pressed"]
