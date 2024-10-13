@@ -141,6 +141,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 				velocity.y = 0.0 # set the player's velocity to 0 
 	if Input.is_action_just_pressed("SaveGame"):
 		SaveManager.SaveAllData()
+		
 	if Input.is_action_just_pressed("Inventory") and !PauseManager.is_paused: # if the Inventory input is pressed
 		if GAME_STATE == "NORMAL": # Check if the game state is normal. If it is, open the inventory
 			$Head/Camera3D/InventoryLayer.show() # show the inventory UI

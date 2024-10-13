@@ -76,7 +76,7 @@ func _on_spinning_anim_finished():
 func PlayBobbingAnimation():
 	var tween = get_tree().create_tween()
 	var default_y = self.position.y
-	var final_y_top = default_y + 0.3
+	var final_y_top = default_y + 0.2
 	var time = 1.3
 	tween.tween_property(self, "position:y", final_y_top, time).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 	tween.tween_property(self, "position:y", default_y, time).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
