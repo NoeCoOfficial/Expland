@@ -445,14 +445,14 @@ func OpenSettings():
 
 	var tween = get_tree().create_tween().set_parallel()
 	tween.tween_property($Head/Camera3D/SettingsLayer/GreyLayer, "self_modulate", Color(0, 0, 0, 0.8), 0.3)
-	tween.tween_property($Head/Camera3D/SettingsLayer/MainLayer, "scale", Vector2(1.0, 1.0), 0.7).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property($Head/Camera3D/SettingsLayer/MainLayer, "scale", Vector2(1.0, 1.0), 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func CloseSettings():
 	PlayerSettingsData.SaveSettings()
 	PauseManager.is_inside_settings = false
 	var tween = get_tree().create_tween().set_parallel(true)
 	tween.tween_property($Head/Camera3D/SettingsLayer/GreyLayer, "self_modulate", Color(0, 0, 0, 0), 0.3)
-	tween.tween_property($Head/Camera3D/SettingsLayer/MainLayer, "scale", Vector2(0.0, 0.0), 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property($Head/Camera3D/SettingsLayer/MainLayer, "scale", Vector2(0.0, 0.0), 0.3).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	tween.set_parallel(false)
 	tween.tween_property($Head/Camera3D/SettingsLayer/GreyLayer, "visible", false, 0)
 	tween.tween_property($Head/Camera3D/SettingsLayer, "visible", false, 0)

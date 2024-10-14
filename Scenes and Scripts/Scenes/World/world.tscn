@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://cd24ed5mdweah"]
+[gd_scene load_steps=47 format=3 uid="uid://cd24ed5mdweah"]
 
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/WorldpageIcon_SCRIPT.gd" id="1_1gnsl"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/World/world_SCRIPT.gd" id="1_j3awn"]
@@ -31,12 +31,15 @@
 [ext_resource type="PackedScene" uid="uid://dcuujnbg7wkb" path="res://Assets/3D Models/Rocks/SingleRock.blend" id="31_1te4p"]
 [ext_resource type="AudioStream" uid="uid://cgcnbamgom8tx" path="res://Audio/Music/Lunch.mp3" id="31_dpvhv"]
 [ext_resource type="PackedScene" uid="uid://ckffu3csgvey0" path="res://Assets/3D Models/Flowers/Flower_Pink.blend" id="32_ox0fp"]
+[ext_resource type="AudioStream" uid="uid://8fh8m8tkgy76" path="res://Audio/SFX/RAIN_SFX.mp3" id="32_x6pbb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3idn0"]
-sky_top_color = Color(0.429029, 0.50793, 0.948547, 1)
-sky_horizon_color = Color(0.607257, 0.626982, 0.737137, 1)
+sky_horizon_color = Color(0.486275, 0.486275, 0.486275, 1)
+sky_curve = 0.184673
 ground_bottom_color = Color(0, 0, 0, 1)
-ground_horizon_color = Color(0.607257, 0.626982, 0.737137, 1)
+ground_horizon_color = Color(0.485703, 0.485704, 0.485703, 1)
+ground_curve = 0.0107178
+sun_curve = 0.0803833
 
 [sub_resource type="Sky" id="Sky_wcbmd"]
 sky_material = SubResource("ProceduralSkyMaterial_3idn0")
@@ -46,10 +49,8 @@ background_mode = 2
 sky = SubResource("Sky_wcbmd")
 tonemap_mode = 2
 ssao_enabled = true
-ssao_radius = 8.41
-ssao_intensity = 3.18
-ssao_power = 0.989632
-ssao_light_affect = 0.37
+ssao_radius = 6.14
+ssao_intensity = 2.04
 glow_enabled = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_jjwy4"]
@@ -80,6 +81,21 @@ stream_0/weight = 1.0
 stream_1/stream = ExtResource("31_dpvhv")
 stream_1/weight = 1.0
 
+[sub_resource type="Curve" id="Curve_tq56d"]
+max_value = 0.1
+_data = [Vector2(0, 0), 0.0, 0.333367, 0, 0, Vector2(0.433526, 0.0316176), 0.185509, 0.185509, 0, 0, Vector2(0.791908, 0.0220588), -0.0267802, -0.0267802, 0, 0, Vector2(1, 0.0132353), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rvn2t"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_liv1f"]
+material = SubResource("StandardMaterial3D_rvn2t")
+curve = SubResource("Curve_tq56d")
+
 [node name="World" type="Node3D"]
 script = ExtResource("1_j3awn")
 
@@ -88,8 +104,9 @@ environment = SubResource("Environment_erbq8")
 script = ExtResource("1_1gnsl")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.802817, -0.596225, -2.60618e-08, 0, -4.37114e-08, 1, -0.596225, 0.802817, 3.50923e-08, 0, 0, 0)
-light_energy = 3.424
+transform = Transform3D(1, 0, 0, 0, 0.216082, 0.976375, 0, -0.976375, 0.216082, 0, 28.1558, 0)
+light_color = Color(0.807843, 1, 1, 1)
+light_energy = 2.055
 shadow_enabled = true
 directional_shadow_split_3 = 0.348
 directional_shadow_blend_splits = true
@@ -291,6 +308,8 @@ material_override = SubResource("StandardMaterial3D_nklhj")
 use_collision = true
 mesh = SubResource("BoxMesh_jnrf1")
 
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="GrassBlock"]
+
 [node name="sandblock" type="CSGMesh3D" parent="."]
 transform = Transform3D(32.8348, 0, 0, 0, 1.26399, 0.769507, 0, -0.267977, 3.62959, -37.419, 22.5103, 14.2345)
 material_override = SubResource("StandardMaterial3D_ga8or")
@@ -418,8 +437,26 @@ transform = Transform3D(-0.49159, 0, -4.29762e-08, 0, 0.49159, 0, 4.29762e-08, 0
 
 [node name="DAY_AUDIO" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_dyywc")
-volume_db = -13.244
+volume_db = -18.094
 autoplay = true
+
+[node name="RAIN_SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("32_x6pbb")
+autoplay = true
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.622, 82.9591, 28.7265)
+amount = 500
+lifetime = 0.84
+preprocess = 2.52
+mesh = SubResource("RibbonTrailMesh_liv1f")
+emission_shape = 3
+emission_box_extents = Vector3(20, 0.5, 20)
+direction = Vector3(0, -1, 0)
+spread = 5.0
+gravity = Vector3(0, -60, 0)
+initial_velocity_min = 47.09
+initial_velocity_max = 47.09
 
 [connection signal="TakeDamage" from="Spike" to="Player" method="_on_spike_take_damage"]
 [connection signal="body_entered" from="EditTrigger/Area3D" to="." method="_on_area_3d_body_entered"]
