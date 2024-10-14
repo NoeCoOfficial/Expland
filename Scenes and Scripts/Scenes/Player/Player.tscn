@@ -115,6 +115,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 script = ExtResource("2_37tst")
 
 [node name="CrosshairCanvas" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="HealthLBL" type="Label" parent="Head/Camera3D/CrosshairCanvas"]
 anchors_preset = -1
@@ -144,7 +145,6 @@ script = ExtResource("5_56a8a")
 metadata/_edit_use_anchors_ = true
 
 [node name="InventoryLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="Background" type="Panel" parent="Head/Camera3D/InventoryLayer"]
 anchors_preset = -1
@@ -234,6 +234,12 @@ vertical_alignment = 1
 script = ExtResource("9_svfxy")
 metadata/_edit_use_anchors_ = true
 
+[node name="Control" type="Control" parent="Head/Camera3D/InventoryLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="Slot1" parent="Head/Camera3D/InventoryLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
 position = Vector2(778, 399)
 
@@ -267,6 +273,7 @@ ITEM_TYPE = "ROCK"
 SNAP_TIME = 0.05
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/DeathScreen"]
 anchors_preset = 15
@@ -318,6 +325,7 @@ vertical_alignment = 1
 script = ExtResource("11_0enap")
 
 [node name="OverlayLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="RedOverlay" type="ColorRect" parent="Head/Camera3D/OverlayLayer"]
 process_priority = 10
@@ -614,6 +622,7 @@ script = ExtResource("16_wg7d4")
 metadata/_edit_use_anchors_ = true
 
 [node name="SaveOverlay" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="LighterBG" type="ColorRect" parent="Head/Camera3D/SaveOverlay"]
 anchors_preset = -1
