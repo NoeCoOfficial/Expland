@@ -77,9 +77,6 @@ The keyword @export means that they can be accessed in the inspector panel (righ
 
 @export_group("Visual") ## A group for visual/camera variables
 
-@export_subgroup("Camera") ## Camera variables subgroup.
-@export var FOV := 116 ## the Field Of Vision of the camera on the player. Set to 9999 to get the saved FOV value (Saved to the path in PlayerSettingsData.gd) when the game starts.
-
 @export_subgroup("Crosshair") ## A subgroup for crosshair variables.
 @export var crosshair_size = Vector2(12, 12) ## The size of the crosshair.
 
@@ -240,7 +237,12 @@ func _headbob(time) -> Vector3:
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP # set the y position to the sine of the time times the bob frequency times the bob amplitude
 	return pos # return the position
 func _process(_delta):
-
+	
+	
+	$Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Video/FOVValue.text = str(PlayerSettingsData.FOV)
+	
+	
+	
 	if UseHealth == false: # Check if the UseHealth variable is false
 		$Head/Camera3D/CrosshairCanvas/HealthLBL.hide() # hide the health label
 	else: 
@@ -248,10 +250,7 @@ func _process(_delta):
 	
 	$Head/Camera3D/CrosshairCanvas/HealthLBL.text = "Health: " + str(Health) # set the health label text to "Health: " + the health variable as a string	
 	
-	if FOV == 9999: # check if the FOV is set to 9999 (to get the saved FOV value)
-		$Head/Camera3D.fov = PlayerSettingsData.FOV # set the camera's field of vision to the saved FOV value
-	else:
-		$Head/Camera3D.fov = FOV # set the camera's field of vision to the FOV value
+	camera.fov = PlayerSettingsData.FOV
 	
 	$Head/Camera3D/CrosshairCanvas/Crosshair.size = crosshair_size # set the crosshair size to the crosshair size variable
 
@@ -265,6 +264,8 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # lock mouse
 
 	PlayerSettingsData.LoadSettings() # Load settings from player settings data
+	
+	$Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Video/FOVSlider.value = PlayerSettingsData.FOV
 	
 	if PlayerData: # check if player data exists (it may not be initialized correctly)
 		PlayerData.LoadData() # loads player data
@@ -289,13 +290,14 @@ func _ready():
 	
 func NodeSetup(): # A function to setup the nodes. Called in the _ready function
 	
+	
+	
+	
 	$Head/Camera3D/SettingsLayer/GreyLayer.set_self_modulate(Color(0, 0, 0, 0))
 	$Head/Camera3D/SettingsLayer/GreyLayer.set_visible(false)
 	Utils.set_center_offset($Head/Camera3D/SettingsLayer/MainLayer)
 	$Head/Camera3D/SettingsLayer/MainLayer.set_visible(false)
 	$Head/Camera3D/SettingsLayer/MainLayer.set_scale(Vector2(0.0, 0.0))
-	
-	
 	
 	$Head/Camera3D/DeathScreen/BlackOverlay/GetUp.set_self_modulate(Color(0, 0, 0, 0)) # set the get up self modulate to black
 	$Head/Camera3D/DeathScreen/BlackOverlay/RandomText.set_self_modulate(Color(0, 0, 0, 0)) # set the random text self modulate to black
@@ -446,10 +448,11 @@ func OpenSettings():
 	tween.tween_property($Head/Camera3D/SettingsLayer/MainLayer, "scale", Vector2(1.0, 1.0), 0.7).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func CloseSettings():
+	PlayerSettingsData.SaveSettings()
 	PauseManager.is_inside_settings = false
 	var tween = get_tree().create_tween().set_parallel(true)
 	tween.tween_property($Head/Camera3D/SettingsLayer/GreyLayer, "self_modulate", Color(0, 0, 0, 0), 0.3)
-	tween.tween_property($Head/Camera3D/SettingsLayer/MainLayer, "scale", Vector2(0.0, 0.0), 0.7).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property($Head/Camera3D/SettingsLayer/MainLayer, "scale", Vector2(0.0, 0.0), 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	tween.set_parallel(false)
 	tween.tween_property($Head/Camera3D/SettingsLayer/GreyLayer, "visible", false, 0)
 	tween.tween_property($Head/Camera3D/SettingsLayer, "visible", false, 0)
@@ -494,3 +497,7 @@ func HideLighterBG_SAVEOVERLAY():
 func HideDarkerBG_SAVEOVERLAY():
 	var tween = get_tree().create_tween()
 	tween.tween_property($Head/Camera3D/SaveOverlay/DarkerBG, "position:x", 1920, 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
+
+
+func _on_fov_slider_value_changed(value):
+	PlayerSettingsData.FOV = value

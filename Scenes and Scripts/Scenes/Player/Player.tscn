@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=29 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -72,10 +72,19 @@ func _process(_delta):
 	pass
 "
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_lsdpx"]
+thickness = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nxwsg"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_5mhs1")
 Fade_In = true
-FOV = 9999
 CROUCH_JUMP_VELOCITY = 2.0
 CROUCH_SPEED = 2.0
 CROUCH_INTERPOLATION = 8.0
@@ -516,9 +525,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("17_fk422")
 theme_override_font_sizes/font_size = 36
+current_tab = 2
 script = ExtResource("16_wg7d4")
 
 [node name="General" type="TabBar" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer"]
+visible = false
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("16_wg7d4")
@@ -530,10 +541,60 @@ focus_mode = 0
 script = ExtResource("16_wg7d4")
 
 [node name="Video" type="TabBar" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer"]
-visible = false
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("16_wg7d4")
+
+[node name="FOVSlider" type="HSlider" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Video"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0413321
+anchor_top = 0.0861188
+anchor_right = 0.484
+anchor_bottom = 0.132391
+offset_right = 1.52588e-05
+focus_mode = 0
+theme_override_constants/center_grabber = -1
+theme_override_styles/slider = SubResource("StyleBoxLine_lsdpx")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_nxwsg")
+min_value = 60.0
+max_value = 140.0
+value = 60.0
+rounded = true
+metadata/_edit_use_anchors_ = true
+
+[node name="FOVTTL" type="Label" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Video"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0346681
+anchor_top = 0.0244223
+anchor_right = 0.573334
+anchor_bottom = 0.104114
+offset_right = -1.52588e-05
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 26
+text = "Field of Vision (FOV)"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="FOVValue" type="Label" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Video"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.513333
+anchor_top = 0.0706947
+anchor_right = 0.628
+anchor_bottom = 0.150386
+offset_right = -1.52588e-05
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 26
+text = "00"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="ExitSettingsButton" type="Button" parent="Head/Camera3D/SettingsLayer/MainLayer"]
 layout_mode = 1
@@ -593,6 +654,7 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/Settings_Btn" to="." method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/SaveAndQuit_Btn" to="." method="_on_save_and_quit_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/QuitWithoutSaving_Btn" to="." method="_on_quit_without_saving_btn_pressed"]
+[connection signal="value_changed" from="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Video/FOVSlider" to="." method="_on_fov_slider_value_changed"]
 [connection signal="pressed" from="Head/Camera3D/SettingsLayer/MainLayer/ExitSettingsButton" to="." method="_on_exit_settings_button_pressed"]
 
 [editable path="Head/Camera3D/InventoryLayer/Dropable"]
