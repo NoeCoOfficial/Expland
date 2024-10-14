@@ -121,11 +121,13 @@ The keyword @export means that they can be accessed in the inspector panel (righ
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 func _input(_event): # A built-in function that listens for input using the input map
-	if Input.is_action_just_pressed("Pause") and Pause == true:
+	if Input.is_action_just_pressed("Exit") and Pause == true and !PauseManager.is_inside_settings:
 		if $Head/Camera3D/PauseLayer.is_visible() == true:
 			ResumeGame()
 		else:
 			PauseGame()
+	elif Input.is_action_just_pressed("Exit") and PauseManager.is_inside_settings:
+		CloseSettings()
 	if Input.is_action_just_pressed("Quit") and Quit == true: # if the Quit input is pressed and the Quit variable is true
 		if GAME_STATE == "NORMAL" or "INVENTORY": # if the game state is normal or inventory
 			if !GAME_STATE == "DEAD":
@@ -286,6 +288,15 @@ func _ready():
 		$Head/Camera3D/OverlayLayer/Overlay.hide() # hide the overlay
 	
 func NodeSetup(): # A function to setup the nodes. Called in the _ready function
+	
+	$Head/Camera3D/SettingsLayer/GreyLayer.set_self_modulate(Color(0, 0, 0, 0))
+	$Head/Camera3D/SettingsLayer/GreyLayer.set_visible(false)
+	Utils.set_center_offset($Head/Camera3D/SettingsLayer/MainLayer)
+	$Head/Camera3D/SettingsLayer/MainLayer.set_visible(false)
+	$Head/Camera3D/SettingsLayer/MainLayer.set_scale(Vector2(0.0, 0.0))
+	
+	
+	
 	$Head/Camera3D/DeathScreen/BlackOverlay/GetUp.set_self_modulate(Color(0, 0, 0, 0)) # set the get up self modulate to black
 	$Head/Camera3D/DeathScreen/BlackOverlay/RandomText.set_self_modulate(Color(0, 0, 0, 0)) # set the random text self modulate to black
 	$Head/Camera3D/DeathScreen/BlackOverlay.set_self_modulate(Color(0, 0, 0, 0)) # set the black overlay self modulate to black
@@ -411,6 +422,7 @@ func PauseGame():
 	$Head/Camera3D/PauseLayer.show()
 	PauseManager.is_paused = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # set the mouse mode to visible
+
 func ResumeGame():
 	$Head/Camera3D/PauseLayer.hide()
 	PauseManager.is_paused = false
@@ -421,7 +433,31 @@ func _on_resume_btn_pressed():
 	ResumeGame()
 
 func _on_settings_btn_pressed():
-	pass # Replace with function body.
+	OpenSettings()
+
+func OpenSettings():
+	PauseManager.is_inside_settings = true
+	$Head/Camera3D/SettingsLayer.set_visible(true)
+	$Head/Camera3D/SettingsLayer/GreyLayer.set_visible(true)
+	$Head/Camera3D/SettingsLayer/MainLayer.set_visible(true)
+
+	var tween = get_tree().create_tween().set_parallel()
+	tween.tween_property($Head/Camera3D/SettingsLayer/GreyLayer, "self_modulate", Color(0, 0, 0, 0.8), 0.3)
+	tween.tween_property($Head/Camera3D/SettingsLayer/MainLayer, "scale", Vector2(1.0, 1.0), 0.7).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+
+func CloseSettings():
+	PauseManager.is_inside_settings = false
+	var tween = get_tree().create_tween().set_parallel(true)
+	tween.tween_property($Head/Camera3D/SettingsLayer/GreyLayer, "self_modulate", Color(0, 0, 0, 0), 0.3)
+	tween.tween_property($Head/Camera3D/SettingsLayer/MainLayer, "scale", Vector2(0.0, 0.0), 0.7).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.set_parallel(false)
+	tween.tween_property($Head/Camera3D/SettingsLayer/GreyLayer, "visible", false, 0)
+	tween.tween_property($Head/Camera3D/SettingsLayer, "visible", false, 0)
+	tween.tween_property($Head/Camera3D/SettingsLayer/MainLayer, "visible", false, 0)
+	
+func _on_exit_settings_button_pressed():
+	CloseSettings()
+
 
 func _on_save_and_quit_btn_pressed():
 	SaveManager.SaveAllData()

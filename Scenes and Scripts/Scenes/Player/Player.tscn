@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=27 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="16_wg7d4"]
 [ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="17_fk422"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="17_rhxkt"]
+[ext_resource type="StyleBox" uid="uid://3txnt8ebd3yh" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/BlackBGwithWhiteBorder.tres" id="19_b2wvi"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_e8ep2"]
 
@@ -471,6 +472,86 @@ autowrap_mode = 2
 [node name="SettingsLayer" type="CanvasLayer" parent="Head/Camera3D"]
 visible = false
 
+[node name="GreyLayer" type="ColorRect" parent="Head/Camera3D/SettingsLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.643137)
+script = ExtResource("16_wg7d4")
+
+[node name="MainLayer" type="Control" parent="Head/Camera3D/SettingsLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("16_wg7d4")
+
+[node name="BG" type="Button" parent="Head/Camera3D/SettingsLayer/MainLayer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.327257
+anchor_top = 0.150463
+anchor_right = 0.672743
+anchor_bottom = 0.849537
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_styles/normal = ExtResource("19_b2wvi")
+theme_override_styles/hover = ExtResource("19_b2wvi")
+theme_override_styles/pressed = ExtResource("19_b2wvi")
+script = ExtResource("16_wg7d4")
+
+[node name="SettingsTabContainer" type="TabContainer" parent="Head/Camera3D/SettingsLayer/MainLayer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33724
+anchor_top = 0.161265
+anchor_right = 0.66276
+anchor_bottom = 0.838735
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("17_fk422")
+theme_override_font_sizes/font_size = 36
+script = ExtResource("16_wg7d4")
+
+[node name="General" type="TabBar" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer"]
+layout_mode = 2
+focus_mode = 0
+script = ExtResource("16_wg7d4")
+
+[node name="Sound" type="TabBar" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer"]
+visible = false
+layout_mode = 2
+focus_mode = 0
+script = ExtResource("16_wg7d4")
+
+[node name="Video" type="TabBar" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer"]
+visible = false
+layout_mode = 2
+focus_mode = 0
+script = ExtResource("16_wg7d4")
+
+[node name="ExitSettingsButton" type="Button" parent="Head/Camera3D/SettingsLayer/MainLayer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.449219
+anchor_top = 0.740741
+anchor_right = 0.550781
+anchor_bottom = 0.82716
+offset_bottom = 3.05176e-05
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 70
+text = "EXIT"
+script = ExtResource("16_wg7d4")
+metadata/_edit_use_anchors_ = true
+
 [node name="SaveOverlay" type="CanvasLayer" parent="Head/Camera3D"]
 
 [node name="LighterBG" type="ColorRect" parent="Head/Camera3D/SaveOverlay"]
@@ -512,5 +593,6 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/Settings_Btn" to="." method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/SaveAndQuit_Btn" to="." method="_on_save_and_quit_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/QuitWithoutSaving_Btn" to="." method="_on_quit_without_saving_btn_pressed"]
+[connection signal="pressed" from="Head/Camera3D/SettingsLayer/MainLayer/ExitSettingsButton" to="." method="_on_exit_settings_button_pressed"]
 
 [editable path="Head/Camera3D/InventoryLayer/Dropable"]

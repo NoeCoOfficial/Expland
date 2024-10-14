@@ -42,3 +42,7 @@ func center_mouse_cursor(): # center the mouse cursor (relative to the viewport 
 
 func wait(seconds: float) -> void: # wait until the next line of code is executed. Similar to time.sleep() in python.
 	await get_tree().create_timer(seconds).timeout # wait until the timer is finished
+
+func set_center_offset(node : Node): # set the offset of a control node to the center of it
+	var node_size = node.get_size()
+	node.set_pivot_offset(Vector2(node_size/2))

@@ -37,3 +37,4 @@
 extends Node
 
 var is_paused = false
+var is_inside_settings = false
