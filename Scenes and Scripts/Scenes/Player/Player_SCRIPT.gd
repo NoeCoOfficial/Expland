@@ -118,7 +118,13 @@ The keyword @export means that they can be accessed in the inspector panel (righ
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 func _input(_event): # A built-in function that listens for input using the input map
-	if Input.is_action_just_pressed("Exit") and Pause == true and !PauseManager.is_inside_settings:
+	if Input.is_action_just_pressed("Exit") and GAME_STATE == "INVENTORY":
+		$Head/Camera3D/InventoryLayer.hide() # hide the inventory UI
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor
+		Utils.center_mouse_cursor() # center the mouse cursor
+		GAME_STATE = "NORMAL" # set the game state to normal (so the player can move. This won't save to the file)
+		inventory_opened_in_air = false  # Reset the flag when inventory is closed
+	elif Input.is_action_just_pressed("Exit") and Pause == true and !PauseManager.is_inside_settings:
 		if $Head/Camera3D/PauseLayer.is_visible() == true:
 			ResumeGame()
 		else:
@@ -466,9 +472,6 @@ func _on_save_and_quit_btn_pressed():
 	SaveManager.SaveAllData()
 	get_tree().quit()
 
-func _on_quit_without_saving_btn_pressed():
-	get_tree().quit()
-
 func SaveAllDataWithAnimation():
 	if $ManualSaveCooldown.time_left == 0.0:
 		$ManualSaveCooldown.wait_time = 5.0
@@ -484,19 +487,19 @@ func SaveAllDataWithAnimation():
 
 func ShowLighterBG_SAVEOVERLAY():
 	var tween = get_tree().create_tween()
-	tween.tween_property($Head/Camera3D/SaveOverlay/LighterBG, "position:x", 1500.0, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property($Head/Camera3D/SaveOverlay/LighterBG, "position:x", 850.0, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func ShowDarkerBG_SAVEOVERLAY():
 	var tween = get_tree().create_tween()
-	tween.tween_property($Head/Camera3D/SaveOverlay/DarkerBG, "position:x", 1510.0, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property($Head/Camera3D/SaveOverlay/DarkerBG, "position:x", 858.0, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func HideLighterBG_SAVEOVERLAY():
 	var tween = get_tree().create_tween()
-	tween.tween_property($Head/Camera3D/SaveOverlay/LighterBG, "position:x", 1920, 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property($Head/Camera3D/SaveOverlay/LighterBG, "position:x", 1700.0, 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
 
 func HideDarkerBG_SAVEOVERLAY():
 	var tween = get_tree().create_tween()
-	tween.tween_property($Head/Camera3D/SaveOverlay/DarkerBG, "position:x", 1920, 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property($Head/Camera3D/SaveOverlay/DarkerBG, "position:x", 1796.0, 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
 
 
 func _on_fov_slider_value_changed(value):

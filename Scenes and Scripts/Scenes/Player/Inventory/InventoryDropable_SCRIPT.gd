@@ -44,7 +44,7 @@ var initialPos:Vector2
 var offset:Vector2
 var slot
 @export var ITEM_TYPE:String ## The type of the item that the Sprite2D is holding.
-@export var SNAP_TIME:float ## The time it takes for the dropable to snap into a slot (in seconds).
+var SNAP_TIME = 0.0
 
 func _ready():
 	var OBJ_TEXTURE : Texture2D = load("res://Textures/Inventory/"+ ITEM_TYPE + ".png")
@@ -57,10 +57,9 @@ func _process(_delta):
 	if draggable:
 		if Input.is_action_just_pressed("inventory_click"):
 			initialPos = global_position
-			offset = get_global_mouse_position() - global_position
 			InventoryManager.is_dragging = true
 		if Input.is_action_pressed("inventory_click"):
-			global_position = get_global_mouse_position() - offset
+			global_position = get_global_mouse_position()
 		elif Input.is_action_just_released("inventory_click"):
 			InventoryManager.is_dragging = false
 			# debugging

@@ -3,13 +3,13 @@
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDropable_SCRIPT.gd" id="1_opaah"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mgv10"]
-size = Vector2(100, 100)
+size = Vector2(60, 60)
 
 [node name="Dropable" type="Node2D"]
 script = ExtResource("1_opaah")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.26, 0.26)
+scale = Vector2(0.19, 0.19)
 
 [node name="Area2D" type="Area2D" parent="."]
 

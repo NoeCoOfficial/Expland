@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dhnn7my6ghg0d" path="res://Textures/Inventory/Slot/InventorySlotTexture.png" id="2_2mtlq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5yu5"]
-size = Vector2(75, 75)
+size = Vector2(25, 25)
 
 [node name="Slot" type="StaticBody2D" groups=["dropable"]]
 script = ExtResource("1_bxl3d")
@@ -18,12 +18,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -70.0
-offset_top = -70.0
-offset_right = 70.0
-offset_bottom = 70.0
+offset_left = -45.0
+offset_top = -45.0
+offset_right = 45.0
+offset_bottom = 45.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_2mtlq")
 expand_mode = 1
-metadata/_edit_use_anchors_ = true

@@ -1,9 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://cetvclasnjxfb"]
+[gd_scene load_steps=21 format=3 uid="uid://cetvclasnjxfb"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Tests/WorldShowcase.gd" id="1_bpwub"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/WorldpageIcon_SCRIPT.gd" id="3_vgx61"]
-[ext_resource type="Material" uid="uid://b8rwx3qifw3mf" path="res://Resources/Shaders/Low Poly Water/LowPolyWater_MATERIAL.tres" id="4_pars6"]
-[ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/RiverIcon_SCRIPT.gd" id="5_m4y1i"]
 [ext_resource type="AudioStream" uid="uid://c8vkvfphwrr8w" path="res://Audio/Tests/snowfall.mp3" id="17_00hp2"]
 [ext_resource type="PackedScene" uid="uid://b6ijgxw1ym8h0" path="res://Assets/3D Models/Rocks/Rock1.blend" id="18_qc11x"]
 [ext_resource type="PackedScene" uid="uid://b0j1gyp7i41i7" path="res://Assets/3D Models/Trees/Normal/Hitbox/Tree1Hitbox.tscn" id="20_6cv23"]
@@ -40,12 +38,6 @@ volumetric_fog_emission_energy = 248.92
 volumetric_fog_gi_inject = 2.33
 volumetric_fog_detail_spread = 6.0
 volumetric_fog_sky_affect = 0.0
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_jjwy4"]
-material = ExtResource("4_pars6")
-size = Vector2(100, 100)
-subdivide_width = 30
-subdivide_depth = 30
 
 [sub_resource type="BoxMesh" id="BoxMesh_nfaly"]
 
@@ -87,11 +79,6 @@ color = Color(0, 0, 0, 1)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0koja")
 script = ExtResource("3_vgx61")
-
-[node name="LowPolyWater2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5896, 23.0217, -1.96767)
-mesh = SubResource("PlaneMesh_jjwy4")
-script = ExtResource("5_m4y1i")
 
 [node name="Walls" type="Node" parent="."]
 

@@ -34,6 +34,7 @@ Utils="*res://Scenes and Scripts/Utility Scripts/Utils.gd"
 [display]
 
 window/size/mode=4
+window/stretch/mode="canvas_items"
 
 [input]
 
@@ -106,3 +107,4 @@ SaveGame={
 [rendering]
 
 textures/vram_compression/import_s3tc_bptc=true
+environment/volumetric_fog/volume_size=256

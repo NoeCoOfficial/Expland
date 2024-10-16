@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=33 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/ClockIcon_SCRIPT.gd" id="2_t6toi"]
 [ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="3_yecwp"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/CrosshairCanvas/HealthLBL_SCRIPT.gd" id="4_56i84"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/CrosshairCanvas/Crosshair_SCRIPT.gd" id="5_56a8a"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/OverlayLayer/RedOverlay_SCRIPT.gd" id="7_gnu1v"]
 [ext_resource type="PackedScene" uid="uid://dhhjltxmoydio" path="res://Scenes and Scripts/Scenes/Player/Inventory/InventorySlot.tscn" id="8_ads4s"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/OverlayLayer/Overlay_SCRIPT.gd" id="8_uxqns"]
@@ -19,6 +18,7 @@
 [ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="17_fk422"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="17_rhxkt"]
 [ext_resource type="StyleBox" uid="uid://3txnt8ebd3yh" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/BlackBGwithWhiteBorder.tres" id="19_b2wvi"]
+[ext_resource type="StyleBox" uid="uid://com3tix0pshhk" path="res://Resources/Styles and Themes/Styles/Default/Label/Default_Label.tres" id="19_nviyp"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_e8ep2"]
 
@@ -82,6 +82,40 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5tcjk"]
+bg_color = Color(0.125911, 0.125911, 0.125911, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_top = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mjkpl"]
+bg_color = Color(0.125911, 0.125911, 0.125911, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_top = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gyrcn"]
+bg_color = Color(0.255659, 0.255659, 0.255659, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_kcv34"]
+default_font = ExtResource("3_yecwp")
+Button/styles/hover = SubResource("StyleBoxFlat_5tcjk")
+Button/styles/normal = SubResource("StyleBoxFlat_mjkpl")
+Button/styles/pressed = SubResource("StyleBoxFlat_gyrcn")
+Label/styles/normal = ExtResource("19_nviyp")
+
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_5mhs1")
 Fade_In = true
@@ -115,47 +149,49 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 script = ExtResource("2_37tst")
 
 [node name="CrosshairCanvas" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="HealthLBL" type="Label" parent="Head/Camera3D/CrosshairCanvas"]
 anchors_preset = -1
 anchor_left = 0.00260417
 anchor_top = 0.00462963
-anchor_right = 0.137153
-anchor_bottom = 0.114198
+anchor_right = 0.0789931
+anchor_bottom = 0.0354938
 offset_right = -1.52588e-05
 theme_override_fonts/font = ExtResource("3_yecwp")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 17
 text = "Health : 100"
 script = ExtResource("4_56i84")
 metadata/_edit_use_anchors_ = true
 
 [node name="Crosshair" type="TextureRect" parent="Head/Camera3D/CrosshairCanvas"]
-anchors_preset = -1
-anchor_left = 0.493924
-anchor_top = 0.489198
-anchor_right = 0.506076
-anchor_bottom = 0.510802
-offset_bottom = -3.05176e-05
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 37.0
+offset_bottom = 37.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_606ex")
 expand_mode = 1
-script = ExtResource("5_56a8a")
-metadata/_edit_use_anchors_ = true
 
 [node name="InventoryLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="Background" type="Panel" parent="Head/Camera3D/InventoryLayer"]
-anchors_preset = -1
-anchor_left = 0.34
-anchor_top = 0.184
-anchor_right = 0.66
-anchor_bottom = 0.816
-offset_left = -0.179993
-offset_top = -0.23201
-offset_right = 0.179993
-offset_bottom = 0.231995
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.5
+offset_top = -194.0
+offset_right = 173.5
+offset_bottom = 194.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2kg3l")
@@ -164,33 +200,27 @@ script = SubResource("GDScript_tq46f")
 [node name="Background_2" type="Panel" parent="Head/Camera3D/InventoryLayer"]
 modulate = Color(0, 0, 0, 1)
 anchors_preset = -1
-anchor_left = 0.348
-anchor_top = 0.194
-anchor_right = 0.654
-anchor_bottom = 0.802
-offset_left = 0.103973
-offset_top = 0.287994
-offset_right = -0.408081
-offset_bottom = 0.303955
+anchor_left = 0.356771
+anchor_top = 0.212963
+anchor_right = 0.643229
+anchor_bottom = 0.787037
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xa5l0")
 script = SubResource("GDScript_tq46f")
+metadata/_edit_use_anchors_ = true
 
 [node name="Background_3" type="Panel" parent="Head/Camera3D/InventoryLayer"]
 anchors_preset = -1
-anchor_left = 0.348
-anchor_top = 0.194
-anchor_right = 0.654
-anchor_bottom = 0.27
-offset_left = 0.103973
-offset_top = 0.287994
-offset_right = -0.408081
-offset_bottom = 0.0399933
+anchor_left = 0.356771
+anchor_top = 0.212963
+anchor_right = 0.643229
+anchor_bottom = 0.279321
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7tmhy")
 script = SubResource("GDScript_tq46f")
+metadata/_edit_use_anchors_ = true
 
 [node name="Overlay" type="Panel" parent="Head/Camera3D/InventoryLayer"]
 anchors_preset = 15
@@ -202,16 +232,14 @@ script = SubResource("GDScript_dc442")
 
 [node name="Title" type="Label" parent="Head/Camera3D/InventoryLayer"]
 anchors_preset = -1
-anchor_left = 0.387587
-anchor_top = 0.190586
-anchor_right = 0.612413
-anchor_bottom = 0.281636
-offset_left = 3.05176e-05
-offset_right = -6.10352e-05
+anchor_left = 0.388021
+anchor_top = 0.205247
+anchor_right = 0.612847
+anchor_bottom = 0.296296
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_yecwp")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 35
 text = "INVENTORY"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -227,53 +255,45 @@ anchor_bottom = 0.151235
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_yecwp")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 20
 text = "You have not released on a slot yet"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("9_svfxy")
 metadata/_edit_use_anchors_ = true
 
-[node name="Control" type="Control" parent="Head/Camera3D/InventoryLayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="Slot1" parent="Head/Camera3D/InventoryLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
-position = Vector2(778, 399)
+position = Vector2(470, 237)
 
 [node name="Slot2" parent="Head/Camera3D/InventoryLayer" groups=["Slot2"] instance=ExtResource("8_ads4s")]
-position = Vector2(962, 399)
+position = Vector2(576, 237)
 
 [node name="Slot3" parent="Head/Camera3D/InventoryLayer" groups=["Slot3"] instance=ExtResource("8_ads4s")]
-position = Vector2(1146, 399)
+position = Vector2(683, 237)
 
 [node name="Slot4" parent="Head/Camera3D/InventoryLayer" groups=["Slot4"] instance=ExtResource("8_ads4s")]
-position = Vector2(778, 583)
+position = Vector2(469, 345)
 
 [node name="Slot5" parent="Head/Camera3D/InventoryLayer" groups=["Slot5"] instance=ExtResource("8_ads4s")]
-position = Vector2(962, 583)
+position = Vector2(575, 345)
 
 [node name="Slot6" parent="Head/Camera3D/InventoryLayer" groups=["Slot6"] instance=ExtResource("8_ads4s")]
-position = Vector2(1146, 583)
+position = Vector2(682, 345)
 
 [node name="Slot7" parent="Head/Camera3D/InventoryLayer" groups=["Slot7"] instance=ExtResource("8_ads4s")]
-position = Vector2(778, 767)
+position = Vector2(469, 452)
 
 [node name="Slot8" parent="Head/Camera3D/InventoryLayer" groups=["Slot8"] instance=ExtResource("8_ads4s")]
-position = Vector2(962, 767)
+position = Vector2(575, 452)
 
 [node name="Slot9" parent="Head/Camera3D/InventoryLayer" groups=["Slot9"] instance=ExtResource("8_ads4s")]
-position = Vector2(1146, 767)
+position = Vector2(682, 452)
 
 [node name="Dropable" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("9_w7on1")]
-position = Vector2(779, 399)
+position = Vector2(1041, 85)
 ITEM_TYPE = "ROCK"
-SNAP_TIME = 0.05
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/DeathScreen"]
 anchors_preset = 15
@@ -298,7 +318,7 @@ offset_bottom = 29.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_yecwp")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "What have you done?"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -318,14 +338,13 @@ offset_bottom = 29.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_yecwp")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "Get Up."
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("11_0enap")
 
 [node name="OverlayLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="RedOverlay" type="ColorRect" parent="Head/Camera3D/OverlayLayer"]
 process_priority = 10
@@ -364,127 +383,69 @@ color = Color(0, 0, 0, 0.643137)
 script = ExtResource("16_wg7d4")
 
 [node name="Title" type="Label" parent="Head/Camera3D/PauseLayer"]
-anchors_preset = -1
-anchor_left = 0.297743
-anchor_top = 0.0123457
-anchor_right = 0.702257
-anchor_bottom = 0.138889
-offset_top = -8.0
-offset_bottom = -8.00001
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -166.5
+offset_top = 24.0
+offset_right = 166.5
+offset_bottom = 83.0
 grow_horizontal = 2
 theme = ExtResource("17_rhxkt")
-theme_override_font_sizes/font_size = 71
+theme_override_font_sizes/font_size = 50
 text = "GAME PAUSED"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("16_wg7d4")
-metadata/_edit_use_anchors_ = true
 
 [node name="Resume_Btn" type="Button" parent="Head/Camera3D/PauseLayer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -168.5
-offset_top = -201.0
-offset_right = 168.5
-offset_bottom = -71.0
+anchors_preset = -1
+anchor_left = 0.413194
+anchor_top = 0.267747
+anchor_right = 0.586806
+anchor_bottom = 0.386574
+offset_top = 40.0
+offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
 theme = ExtResource("17_rhxkt")
-theme_override_font_sizes/font_size = 80
+theme_override_font_sizes/font_size = 42
 text = "RESUME"
 script = ExtResource("16_wg7d4")
+metadata/_edit_use_anchors_ = true
 
 [node name="Settings_Btn" type="Button" parent="Head/Camera3D/PauseLayer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -168.5
-offset_top = -65.0
-offset_right = 168.5
-offset_bottom = 65.0
+anchors_preset = -1
+anchor_left = 0.413194
+anchor_top = 0.392747
+anchor_right = 0.586806
+anchor_bottom = 0.511574
+offset_top = 40.0
+offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
 theme = ExtResource("17_rhxkt")
-theme_override_font_sizes/font_size = 70
+theme_override_font_sizes/font_size = 38
 text = "SETTINGS"
 script = ExtResource("16_wg7d4")
+metadata/_edit_use_anchors_ = true
 
 [node name="SaveAndQuit_Btn" type="Button" parent="Head/Camera3D/PauseLayer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -168.0
-offset_top = 70.0
-offset_right = -1.0
-offset_bottom = 216.0
+anchors_preset = -1
+anchor_left = 0.413194
+anchor_top = 0.581018
+anchor_right = 0.586806
+anchor_bottom = 0.699845
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
 theme = ExtResource("17_rhxkt")
-theme_override_fonts/font = ExtResource("17_fk422")
-theme_override_font_sizes/font_size = 25
-script = ExtResource("16_wg7d4")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Head/Camera3D/PauseLayer/SaveAndQuit_Btn"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="Head/Camera3D/PauseLayer/SaveAndQuit_Btn/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 27
 text = "SAVE AND QUIT"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="QuitWithoutSaving_Btn" type="Button" parent="Head/Camera3D/PauseLayer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 1.0
-offset_top = 70.0
-offset_right = 168.0
-offset_bottom = 216.0
-grow_horizontal = 2
-grow_vertical = 2
-focus_mode = 0
-theme = ExtResource("17_rhxkt")
-theme_override_fonts/font = ExtResource("17_fk422")
-theme_override_font_sizes/font_size = 35
 script = ExtResource("16_wg7d4")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Head/Camera3D/PauseLayer/QuitWithoutSaving_Btn"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="Head/Camera3D/PauseLayer/QuitWithoutSaving_Btn/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "QUIT WITHOUT SAVING"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="SettingsLayer" type="CanvasLayer" parent="Head/Camera3D"]
 visible = false
@@ -532,7 +493,7 @@ anchor_bottom = 0.838735
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("17_fk422")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 21
 current_tab = 2
 script = ExtResource("16_wg7d4")
 
@@ -574,15 +535,15 @@ metadata/_edit_use_anchors_ = true
 [node name="FOVTTL" type="Label" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Video"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.0346681
+anchor_left = -0.0266681
 anchor_top = 0.0244223
-anchor_right = 0.573334
+anchor_right = 0.581334
 anchor_bottom = 0.104114
 offset_right = -1.52588e-05
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("17_rhxkt")
-theme_override_font_sizes/font_size = 26
+theme_override_font_sizes/font_size = 17
 text = "Field of Vision (FOV)"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -592,37 +553,39 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.513333
-anchor_top = 0.0706947
+anchor_top = 0.071
 anchor_right = 0.628
 anchor_bottom = 0.150386
+offset_top = -0.123953
 offset_right = -1.52588e-05
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("17_rhxkt")
-theme_override_font_sizes/font_size = 26
+theme_override_font_sizes/font_size = 18
 text = "00"
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="ExitSettingsButton" type="Button" parent="Head/Camera3D/SettingsLayer/MainLayer"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.449219
-anchor_top = 0.740741
-anchor_right = 0.550781
-anchor_bottom = 0.82716
-offset_bottom = 3.05176e-05
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = 166.5
+offset_right = 54.0
+offset_bottom = 217.5
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
-theme = ExtResource("17_rhxkt")
-theme_override_font_sizes/font_size = 70
+theme = SubResource("Theme_kcv34")
+theme_override_font_sizes/font_size = 40
 text = "EXIT"
 script = ExtResource("16_wg7d4")
-metadata/_edit_use_anchors_ = true
 
 [node name="SaveOverlay" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="LighterBG" type="ColorRect" parent="Head/Camera3D/SaveOverlay"]
 anchors_preset = -1
@@ -646,13 +609,14 @@ metadata/_edit_use_anchors_ = true
 [node name="Info" type="Label" parent="Head/Camera3D/SaveOverlay/DarkerBG"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.20678
-anchor_right = 1.04407
-anchor_bottom = 1.0
+anchor_left = 0.0237285
+anchor_top = 0.16129
+anchor_right = 0.983037
+anchor_bottom = 0.822579
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_yecwp")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 23
 text = "Progress saved successfully"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -662,7 +626,6 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/Resume_Btn" to="." method="_on_resume_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/Settings_Btn" to="." method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/SaveAndQuit_Btn" to="." method="_on_save_and_quit_btn_pressed"]
-[connection signal="pressed" from="Head/Camera3D/PauseLayer/QuitWithoutSaving_Btn" to="." method="_on_quit_without_saving_btn_pressed"]
 [connection signal="value_changed" from="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Video/FOVSlider" to="." method="_on_fov_slider_value_changed"]
 [connection signal="pressed" from="Head/Camera3D/SettingsLayer/MainLayer/ExitSettingsButton" to="." method="_on_exit_settings_button_pressed"]
 
