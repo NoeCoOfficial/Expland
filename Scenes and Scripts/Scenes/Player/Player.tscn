@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=34 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -19,6 +19,7 @@
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="17_rhxkt"]
 [ext_resource type="StyleBox" uid="uid://3txnt8ebd3yh" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/BlackBGwithWhiteBorder.tres" id="19_b2wvi"]
 [ext_resource type="StyleBox" uid="uid://com3tix0pshhk" path="res://Resources/Styles and Themes/Styles/Default/Label/Default_Label.tres" id="19_nviyp"]
+[ext_resource type="PackedScene" uid="uid://dfmk6gn8abl0f" path="res://Scenes and Scripts/Scenes/Player/Settings/VolumeSlider.tscn" id="19_wnskr"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_e8ep2"]
 
@@ -169,10 +170,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 37.0
-offset_bottom = 37.0
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 9.0
+offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.7, 0.7)
@@ -294,6 +295,7 @@ position = Vector2(1041, 85)
 ITEM_TYPE = "ROCK"
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/DeathScreen"]
 anchors_preset = 15
@@ -345,6 +347,7 @@ vertical_alignment = 1
 script = ExtResource("11_0enap")
 
 [node name="OverlayLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="RedOverlay" type="ColorRect" parent="Head/Camera3D/OverlayLayer"]
 process_priority = 10
@@ -494,7 +497,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("17_fk422")
 theme_override_font_sizes/font_size = 21
-current_tab = 2
+current_tab = 1
 script = ExtResource("16_wg7d4")
 
 [node name="General" type="TabBar" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer"]
@@ -504,12 +507,24 @@ focus_mode = 0
 script = ExtResource("16_wg7d4")
 
 [node name="Sound" type="TabBar" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer"]
-visible = false
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("16_wg7d4")
 
+[node name="VolumeSlider" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound" instance=ExtResource("19_wnskr")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00933206
+anchor_top = 0.0578824
+anchor_right = 0.481333
+anchor_bottom = 0.0972912
+offset_right = 0.0
+offset_bottom = 0.0
+bus_name = "music"
+metadata/_edit_use_anchors_ = true
+
 [node name="Video" type="TabBar" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer"]
+visible = false
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("16_wg7d4")

@@ -444,10 +444,12 @@ transform = Transform3D(-0.49159, 0, -4.29762e-08, 0, 0.49159, 0, 4.29762e-08, 0
 stream = SubResource("AudioStreamRandomizer_dyywc")
 volume_db = -18.094
 autoplay = true
+bus = &"music"
 
 [node name="RAIN_SFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("32_x6pbb")
 autoplay = true
+bus = &"sfx"
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.622, 82.9591, 28.7265)

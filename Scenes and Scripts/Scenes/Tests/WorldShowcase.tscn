@@ -28,16 +28,19 @@ background_mode = 2
 sky = SubResource("Sky_wcbmd")
 tonemap_mode = 2
 ssao_enabled = true
+sdfgi_read_sky_light = false
+sdfgi_bounce_feedback = 0.02
 glow_enabled = true
 glow_map_strength = 0.59
 fog_light_color = Color(0.656159, 0.534284, 0.210902, 1)
 fog_light_energy = 1.84
+volumetric_fog_enabled = true
 volumetric_fog_density = 0.0816
-volumetric_fog_albedo = Color(1, 1, 0, 1)
-volumetric_fog_emission_energy = 248.92
-volumetric_fog_gi_inject = 2.33
-volumetric_fog_detail_spread = 6.0
-volumetric_fog_sky_affect = 0.0
+volumetric_fog_albedo = Color(1, 1, 0.882353, 1)
+volumetric_fog_anisotropy = 0.5
+volumetric_fog_length = 8.0
+volumetric_fog_detail_spread = 0.5
+volumetric_fog_sky_affect = 0.118
 
 [sub_resource type="BoxMesh" id="BoxMesh_nfaly"]
 
@@ -55,8 +58,10 @@ script = ExtResource("1_bpwub")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.996637, -0.0359194, 0.0736458, 0, 0.898794, 0.438371, -0.0819384, 0.436897, -0.895772, 0, 0, 0)
 light_color = Color(1, 0.733333, 0, 1)
-light_energy = 3.75
+light_energy = 3.319
+light_volumetric_fog_energy = 1.73
 shadow_enabled = true
+shadow_bias = 0.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_00hp2")
@@ -205,11 +210,32 @@ mesh = SubResource("BoxMesh_jnrf1")
 [node name="Tree1Hitbox" parent="." instance=ExtResource("20_6cv23")]
 transform = Transform3D(0.360451, 0, 0, 0, 0.360451, 0, 0, 0, 0.360451, -35.6168, 23.693, 38.8061)
 
+[node name="Tree1Hitbox3" parent="." instance=ExtResource("20_6cv23")]
+transform = Transform3D(0.360451, 0, 0, 0, 0.360451, 0, 0, 0, 0.360451, -27.0978, 23.693, 27.9793)
+
+[node name="Tree1Hitbox2" parent="." instance=ExtResource("20_6cv23")]
+transform = Transform3D(0.360451, 0, 0, 0, 0.360451, 0, 0, 0, 0.360451, -35.6168, 23.7252, 20.4865)
+
+[node name="Tree1Hitbox6" parent="." instance=ExtResource("20_6cv23")]
+transform = Transform3D(0.731782, 0, 0, 0, 0.731782, 0, 0, 0, 0.731782, -19.9525, 23.577, 20.97)
+
+[node name="Tree1Hitbox4" parent="." instance=ExtResource("20_6cv23")]
+transform = Transform3D(0.706383, 0, 0, 0, 0.706383, 0, 0, 0, 0.706383, -39.1794, 23.7252, 16.5436)
+
+[node name="Tree1Hitbox5" parent="." instance=ExtResource("20_6cv23")]
+transform = Transform3D(0.214388, 0, -0.673064, 0, 0.706383, 0, 0.673064, 0, 0.214388, -27.3403, 23.7252, 16.5436)
+
 [node name="Tree2Hitbox" parent="." instance=ExtResource("21_v7pgv")]
 transform = Transform3D(0.342101, 0, 0, 0, 0.342101, 0, 0, 0, 0.342101, -31.2699, 23.5886, 35)
 
+[node name="Tree2Hitbox2" parent="." instance=ExtResource("21_v7pgv")]
+transform = Transform3D(0.342101, 0, 0, 0, 0.342101, 0, 0, 0, 0.342101, -26.7624, 23.5886, 24.3712)
+
 [node name="Tree3Hitbox" parent="." instance=ExtResource("22_4urfi")]
 transform = Transform3D(0.281264, 0, 0, 0, 0.281264, 0, 0, 0, 0.281264, -38.3974, 23.5633, 31.946)
+
+[node name="Tree3Hitbox2" parent="." instance=ExtResource("22_4urfi")]
+transform = Transform3D(0.281264, 0, 0, 0, 0.281264, 0, 0, 0, 0.281264, -42.9891, 23.5633, 21.5317)
 
 [node name="Rock3_Brown" parent="." instance=ExtResource("23_wmjwk")]
 transform = Transform3D(1, 0, 0, 0, 0.971238, -0.23811, 0, 0.23811, 0.971238, -38.478, 23.8502, 36.5406)
