@@ -40,6 +40,15 @@ Utils="*res://Scenes and Scripts/Utility Scripts/Utils.gd"
 window/size/mode=4
 window/stretch/mode="canvas_items"
 
+[file_customization]
+
+folder_colors={
+"res://Assets/3D Models/": "purple",
+"res://Resources/": "green",
+"res://Scenes and Scripts/Scenes/Player/": "red",
+"res://Scenes and Scripts/Singletons/": "orange"
+}
+
 [input]
 
 Jump={

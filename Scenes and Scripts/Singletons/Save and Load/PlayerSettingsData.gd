@@ -66,7 +66,12 @@ func LoadSettings() -> void:
 		if not file.eof_reached():
 			var current_line = JSON.parse_string(file.get_line())
 			if current_line:
+				
 				FOV = current_line["FOV"]
+				Master_Volume = current_line["Master_Volume"]
+				music_Volume = current_line["music_Volume"]
+				sfx_Volume = current_line["sfx_Volume"]
+				
 				print_rich("[center][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf][font_size=30]--PLAYER SETTINGS HAVE BEEN LOADED--[/font_size][/font][/center]")
 				
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]FOV: "+str(FOV)+"[/font][/font_size][/center]")

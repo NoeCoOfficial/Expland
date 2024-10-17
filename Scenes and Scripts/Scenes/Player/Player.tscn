@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=34 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="16_wg7d4"]
 [ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="17_fk422"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="17_rhxkt"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Settings/MasterSlider_SCRIPT.gd" id="19_2u46j"]
 [ext_resource type="StyleBox" uid="uid://3txnt8ebd3yh" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/BlackBGwithWhiteBorder.tres" id="19_b2wvi"]
 [ext_resource type="StyleBox" uid="uid://com3tix0pshhk" path="res://Resources/Styles and Themes/Styles/Default/Label/Default_Label.tres" id="19_nviyp"]
 
@@ -518,6 +519,9 @@ anchor_top = 0.107143
 anchor_right = 0.315999
 anchor_bottom = 0.698276
 offset_right = -2.0
+max_value = 1.0
+step = 0.001
+script = ExtResource("19_2u46j")
 metadata/_edit_use_anchors_ = true
 
 [node name="MusicSlider" type="VSlider" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound"]
@@ -551,7 +555,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="MasterValue2" type="Label" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound"]
+[node name="MusicValue" type="Label" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.442668
@@ -565,20 +569,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="MasterValue3" type="Label" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound"]
-layout_mode = 0
-anchor_left = 0.229334
-anchor_top = 0.0394088
-anchor_right = 0.338668
-anchor_bottom = 0.1133
-theme = ExtResource("17_rhxkt")
-theme_override_font_sizes/font_size = 25
-text = "100"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="MasterValue4" type="Label" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound"]
+[node name="SFXValue" type="Label" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.656002

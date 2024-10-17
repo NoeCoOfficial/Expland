@@ -269,14 +269,8 @@ func _ready():
 	NodeSetup() # Call the NodeSetup function to setup the nodes
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # lock mouse
 
-	PlayerSettingsData.LoadSettings() # Load settings from player settings data
 	
 	$Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Video/FOVSlider.value = PlayerSettingsData.FOV
-	
-	if PlayerData: # check if player data exists (it may not be initialized correctly)
-		PlayerData.LoadData() # loads player data
-	else:
-		printerr("PlayerData autoload not found") 
 	
 	Health = PlayerData.Health # set the health variable to the player data's health variable
 	GAME_STATE = PlayerData.GAME_STATE # set the game state to the player data's game state
