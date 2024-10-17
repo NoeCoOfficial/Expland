@@ -41,9 +41,6 @@ const SAVE_PATH = "res://player.dat"
 var GAME_STATE = "NORMAL"
 var Health := 100
 
-func _ready():
-	printerr("PlayerData autoload ready")
-
 func SaveData() -> void:
 	var player = get_node("/root/World/Player")
 	var playerHead = get_node("/root/World/Player/Head")

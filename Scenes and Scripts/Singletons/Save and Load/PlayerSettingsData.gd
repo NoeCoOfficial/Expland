@@ -39,21 +39,16 @@ extends Node
 const SAVE_PATH = "res://settings.dat"
 
 var FOV = 100
-
-
-
-
-
-var SaveData = {
-	# SETTINGS #
-	"FOV" : FOV,
-	
-}
+var music_Volume = 1
+var sfx_Volume = 1
+var Master_Volume = 1
 
 func SaveSettings() -> void:
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	var data = {
-		
+		"sfx_Volume" : sfx_Volume,
+		"music_Volume" : music_Volume,
+		"Master_Volume" :Master_Volume,
 		"FOV" : FOV,
 	}
 	var jstr = JSON.stringify(data)
@@ -75,6 +70,9 @@ func LoadSettings() -> void:
 				print_rich("[center][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf][font_size=30]--PLAYER SETTINGS HAVE BEEN LOADED--[/font_size][/font][/center]")
 				
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]FOV: "+str(FOV)+"[/font][/font_size][/center]")
+				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Master Volume: "+str(Master_Volume)+"[/font][/font_size][/center]")
+				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Music Volume: "+str(music_Volume)+"[/font][/font_size][/center]")
+				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]SFX Volume: "+str(sfx_Volume)+"[/font][/font_size][/center]")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
