@@ -21,6 +21,10 @@ boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
 config/icon="res://Textures/Icons/Expland-icon.png"
 
+[audio]
+
+buses/default_bus_layout="res://Resources/Audio Bus/default_bus_layout.tres"
+
 [autoload]
 
 PlayerSettingsData="*res://Scenes and Scripts/Singletons/Save and Load/PlayerSettingsData.gd"

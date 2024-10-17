@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bkveiq446qi6e"]
-
-[ext_resource type="PackedScene" uid="uid://bpwddqj5ue46" path="res://Assets/3D Models/island.blend" id="1_8oyqy"]
-
-[node name="TestWorld" type="Node3D"]
-
-[node name="island" parent="." instance=ExtResource("1_8oyqy")]

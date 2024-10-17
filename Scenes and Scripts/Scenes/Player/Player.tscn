@@ -510,31 +510,86 @@ layout_mode = 2
 focus_mode = 0
 script = ExtResource("16_wg7d4")
 
-[node name="VSlider" type="VSlider" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound"]
-layout_mode = 0
-anchor_left = 0.0786656
+[node name="MasterSlider" type="VSlider" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.257333
 anchor_top = 0.107143
-anchor_right = 0.137332
+anchor_right = 0.315999
 anchor_bottom = 0.698276
 offset_right = -2.0
 metadata/_edit_use_anchors_ = true
 
-[node name="VSlider2" type="VSlider" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound"]
+[node name="MusicSlider" type="VSlider" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.249333
+anchor_left = 0.470667
 anchor_top = 0.107143
-anchor_right = 0.307999
+anchor_right = 0.529333
 anchor_bottom = 0.698276
 metadata/_edit_use_anchors_ = true
 
-[node name="VSlider3" type="VSlider" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound"]
+[node name="SFXSlider" type="VSlider" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.42
+anchor_left = 0.684001
 anchor_top = 0.107143
-anchor_right = 0.478667
+anchor_right = 0.742668
 anchor_bottom = 0.698276
+metadata/_edit_use_anchors_ = true
+
+[node name="MasterValue" type="Label" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound"]
+layout_mode = 0
+anchor_left = 0.229334
+anchor_top = 0.0394088
+anchor_right = 0.338668
+anchor_bottom = 0.1133
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 25
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MasterValue2" type="Label" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.442668
+anchor_top = 0.0394088
+anchor_right = 0.552001
+anchor_bottom = 0.1133
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 25
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MasterValue3" type="Label" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound"]
+layout_mode = 0
+anchor_left = 0.229334
+anchor_top = 0.0394088
+anchor_right = 0.338668
+anchor_bottom = 0.1133
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 25
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MasterValue4" type="Label" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.656002
+anchor_top = 0.0394088
+anchor_right = 0.765335
+anchor_bottom = 0.1133
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 25
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Video" type="TabBar" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer"]
