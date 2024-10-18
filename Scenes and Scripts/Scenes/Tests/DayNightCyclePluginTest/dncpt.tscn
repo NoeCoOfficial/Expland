@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpj5s6r5sgvqt"]
+
+[ext_resource type="Script" path="res://addons/dynamic_day_night_cycles/custom_eot.gd" id="1_nyues"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CustomEOT" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_nyues")

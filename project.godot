@@ -40,6 +40,10 @@ Utils="*res://Scenes and Scripts/Utility Scripts/Utils.gd"
 window/size/mode=4
 window/stretch/mode="canvas_items"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dynamic_day_night_cycles/plugin.cfg")
+
 [file_customization]
 
 folder_colors={
