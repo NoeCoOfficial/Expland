@@ -36,6 +36,8 @@
 
 extends Node2D
 
+signal slot_clicked(item_type)
+
 
 var draggable = false
 var is_inside_dropable = false
@@ -61,19 +63,24 @@ func _process(_delta):
 		if Input.is_action_pressed("inventory_click"):
 			global_position = get_global_mouse_position()
 		elif Input.is_action_just_released("inventory_click"):
-			
-			InventoryManager.is_dragging = false
-			# debugging
-			var slotNumber = slot[4]
-			var debug_slot_number_label = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/debug_slot_info")
-			debug_slot_number_label.text = "You just released on slot number: " + slotNumber
-			
-			var tween = get_tree().create_tween()
-			if is_inside_dropable:
-				tween.tween_property(self, "position", body_ref.position, SNAP_TIME)
+			if InventoryManager.is_inside_boundary:
+				InventoryManager.is_dragging = false
+				InventoryManager.item_ref = ITEM_TYPE
+				var PARENT = self.get_parent()
+				PARENT.remove_child(self)
 			else:
-				tween.tween_property(self, "global_position", initialPos, SNAP_TIME)
+				InventoryManager.is_dragging = false
+				# debugging
+				var slotNumber = slot[4]
+				var debug_slot_number_label = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/debug_slot_info")
+				debug_slot_number_label.text = "You just released on slot number: " + slotNumber
 				
+				var tween = get_tree().create_tween()
+				if is_inside_dropable:
+					tween.tween_property(self, "position", body_ref.position, SNAP_TIME)
+				else:
+					tween.tween_property(self, "global_position", initialPos, SNAP_TIME)
+					
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("dropable"):
@@ -81,10 +88,8 @@ func _on_area_2d_body_entered(body):
 		# Get the name of the node and convert it to a String
 		slot = body.get_name() as String
 		
-		
 		is_inside_dropable = true
 		
-
 		var tween = get_tree().create_tween()
 		tween.tween_property(body, "modulate", Color(1, 1, 1, 1), 0.2)
 		body_ref = body

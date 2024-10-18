@@ -309,7 +309,6 @@ position = Vector2(470, 237)
 ITEM_TYPE = "ROCK"
 
 [node name="Boundary" type="Area2D" parent="Head/Camera3D/InventoryLayer" groups=["boundary"]]
-visible = false
 priority = 12
 
 [node name="Boundary1" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Boundary"]
@@ -782,6 +781,7 @@ metadata/_edit_use_anchors_ = true
 
 [connection signal="timeout" from="AutoSaveTimer" to="." method="_on_auto_save_timer_timeout"]
 [connection signal="area_entered" from="Head/Camera3D/InventoryLayer/Boundary" to="." method="_on_boundary_area_entered"]
+[connection signal="area_exited" from="Head/Camera3D/InventoryLayer/Boundary" to="." method="_on_boundary_area_exited"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/Resume_Btn" to="." method="_on_resume_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/Settings_Btn" to="." method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/SaveAndQuit_Btn" to="." method="_on_save_and_quit_btn_pressed"]

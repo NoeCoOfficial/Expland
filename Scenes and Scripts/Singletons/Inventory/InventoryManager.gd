@@ -37,3 +37,9 @@
 extends Node
 
 var is_dragging = false
+var is_inside_boundary = false
+
+var item_ref:String = ""
+
+func _ready():
+	pass

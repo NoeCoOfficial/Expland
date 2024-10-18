@@ -149,21 +149,9 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		SaveAllDataWithAnimation()
 	if Input.is_action_just_pressed("Inventory") and !PauseManager.is_paused: # if the Inventory input is pressed
 		if GAME_STATE == "NORMAL": # Check if the game state is normal. If it is, open the inventory
-			$Head/Camera3D/InventoryLayer.show() # show the inventory UI
-			Utils.center_mouse_cursor() # center the mouse cursor
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # set the mouse mode to visible
-			GAME_STATE = "INVENTORY" # set the game state to inventory (so the player can't move. This won't save to the file)
-
-			# Check if the player is in the air when inventory is opened
-			inventory_opened_in_air = not is_on_floor() # Set the flag when inventory is opened in the air
-
+			OpenInventory()
 		elif GAME_STATE == "INVENTORY": # Check if the game state is inventory. If it is, close the inventory
-			$Head/Camera3D/InventoryLayer.hide() # hide the inventory UI
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor
-			Utils.center_mouse_cursor() # center the mouse cursor
-			GAME_STATE = "NORMAL" # set the game state to normal (so the player can move. This won't save to the file)
-			inventory_opened_in_air = false  # Reset the flag when inventory is closed
-
+			CloseInventory()
 func _unhandled_input(event): # A built-in function that listens for input
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
 		if GAME_STATE == "INVENTORY" or PauseManager.is_paused: # Check if the game state is inventory
@@ -422,9 +410,22 @@ func _on_spike_take_damage(DamageTaken): # A function to take damage from the sp
 ######################################
 
 ######################################
-func _on_auto_save_timer_timeout(): # A function to save the player data every 0.3 seconds
-	SaveManager.SaveAllData() # Saves everything
+func CloseInventory():
+	$Head/Camera3D/InventoryLayer.hide() # hide the inventory UI
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor
+	Utils.center_mouse_cursor() # center the mouse cursor
+	GAME_STATE = "NORMAL" # set the game state to normal (so the player can move. This won't save to the file)
+	inventory_opened_in_air = false  # Reset the flag when inventory is closed
 
+func OpenInventory():
+	$Head/Camera3D/InventoryLayer.show() # show the inventory UI
+	Utils.center_mouse_cursor() # center the mouse cursor
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # set the mouse mode to visible
+	GAME_STATE = "INVENTORY" # set the game state to inventory (so the player can't move. This won't save to the file)
+	inventory_opened_in_air = not is_on_floor() # Set the flag when inventory is opened in the air
+######################################
+
+######################################
 func PauseGame():
 	$Head/Camera3D/PauseLayer.show()
 	PauseManager.is_paused = true
@@ -441,7 +442,9 @@ func _on_resume_btn_pressed():
 
 func _on_settings_btn_pressed():
 	OpenSettings()
+######################################
 
+######################################
 func OpenSettings():
 	PauseManager.is_inside_settings = true
 	$Head/Camera3D/SettingsLayer.set_visible(true)
@@ -465,8 +468,9 @@ func CloseSettings():
 	
 func _on_exit_settings_button_pressed():
 	CloseSettings()
+######################################
 
-
+######################################
 func _on_save_and_quit_btn_pressed():
 	SaveManager.SaveAllData()
 	get_tree().quit()
@@ -483,7 +487,9 @@ func SaveAllDataWithAnimation():
 		HideDarkerBG_SAVEOVERLAY()
 		await get_tree().create_timer(0.2).timeout
 		HideLighterBG_SAVEOVERLAY()
+######################################
 
+######################################
 func ShowLighterBG_SAVEOVERLAY():
 	var tween = get_tree().create_tween()
 	tween.tween_property($Head/Camera3D/SaveOverlay/LighterBG, "position:x", 850.0, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
@@ -503,3 +509,4 @@ func HideDarkerBG_SAVEOVERLAY():
 
 func _on_fov_slider_value_changed(value):
 	PlayerSettingsData.FOV = value
+
