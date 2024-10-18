@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://cd24ed5mdweah"]
+[gd_scene load_steps=51 format=3 uid="uid://cd24ed5mdweah"]
 
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/WorldpageIcon_SCRIPT.gd" id="1_1gnsl"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/World/world_SCRIPT.gd" id="1_j3awn"]
@@ -32,7 +32,6 @@
 [ext_resource type="AudioStream" uid="uid://cgcnbamgom8tx" path="res://Audio/Music/Lunch.mp3" id="31_dpvhv"]
 [ext_resource type="PackedScene" uid="uid://ckffu3csgvey0" path="res://Assets/3D Models/Flowers/Flower_Pink.blend" id="32_ox0fp"]
 [ext_resource type="AudioStream" uid="uid://8fh8m8tkgy76" path="res://Audio/SFX/RAIN_SFX.mp3" id="32_x6pbb"]
-[ext_resource type="PackedScene" uid="uid://btr0xpw7yybtn" path="res://Scenes and Scripts/Scenes/Player/Inventory/ItemPickupObject.tscn" id="33_3q2el"]
 [ext_resource type="PackedScene" uid="uid://cqmhw30yk6thd" path="res://Assets/3D Models/Clouds/Cloud1.blend" id="34_a5e05"]
 [ext_resource type="PackedScene" uid="uid://c7r4vwrd1hf11" path="res://Assets/3D Models/Clouds/Cloud2.blend" id="35_d46cg"]
 [ext_resource type="PackedScene" uid="uid://pkk7vc37vpqd" path="res://Assets/3D Models/Clouds/Cloud3.blend" id="36_j8eco"]
@@ -451,7 +450,7 @@ stream = ExtResource("32_x6pbb")
 autoplay = true
 bus = &"sfx"
 
-[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+[node name="Rain" type="CPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.622, 82.9591, 28.7265)
 amount = 500
 lifetime = 0.84
@@ -464,10 +463,6 @@ spread = 5.0
 gravity = Vector3(0, -60, 0)
 initial_velocity_min = 47.09
 initial_velocity_max = 47.09
-
-[node name="ItemPickupObject" parent="." instance=ExtResource("33_3q2el")]
-transform = Transform3D(0.205, 0, 0, 0, 0.205, 0, 0, 0, 0.205, -28.3793, 23.9269, 27.0215)
-ITEM_TYPE = "ROCK"
 
 [node name="Cloud1" parent="." instance=ExtResource("34_a5e05")]
 transform = Transform3D(5.51, 0, 0, 0, 5.51, 0, 0, 0, 5.51, -49.6465, 124.254, 3.95238)

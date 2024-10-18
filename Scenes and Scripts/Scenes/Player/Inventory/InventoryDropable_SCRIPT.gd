@@ -61,6 +61,7 @@ func _process(_delta):
 		if Input.is_action_pressed("inventory_click"):
 			global_position = get_global_mouse_position()
 		elif Input.is_action_just_released("inventory_click"):
+			
 			InventoryManager.is_dragging = false
 			# debugging
 			var slotNumber = slot[4]

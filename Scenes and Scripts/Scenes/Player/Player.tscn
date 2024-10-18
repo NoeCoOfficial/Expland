@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=40 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -74,6 +74,18 @@ func _ready():
 func _process(_delta):
 	pass
 "
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cs88l"]
+size = Vector2(385, 930)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sl537"]
+size = Vector2(1101.5, 236)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4c0ao"]
+size = Vector2(1101.5, 236)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_47l1q"]
+size = Vector2(417.75, 819)
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_lsdpx"]
 thickness = 10
@@ -152,6 +164,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 script = ExtResource("2_37tst")
 
 [node name="CrosshairCanvas" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="HealthLBL" type="Label" parent="Head/Camera3D/CrosshairCanvas"]
 anchors_preset = -1
@@ -183,7 +196,6 @@ texture = ExtResource("2_606ex")
 expand_mode = 1
 
 [node name="InventoryLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="Background" type="Panel" parent="Head/Camera3D/InventoryLayer"]
 anchors_preset = 8
@@ -293,10 +305,31 @@ position = Vector2(575, 452)
 position = Vector2(682, 452)
 
 [node name="Dropable" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("9_w7on1")]
-position = Vector2(1041, 85)
+position = Vector2(470, 237)
 ITEM_TYPE = "ROCK"
 
+[node name="Boundary" type="Area2D" parent="Head/Camera3D/InventoryLayer" groups=["boundary"]]
+visible = false
+priority = 12
+
+[node name="Boundary1" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Boundary"]
+position = Vector2(182.5, 306)
+shape = SubResource("RectangleShape2D_cs88l")
+
+[node name="Boundary2" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Boundary"]
+position = Vector2(619, -13)
+shape = SubResource("RectangleShape2D_sl537")
+
+[node name="Boundary3" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Boundary"]
+position = Vector2(619, 661)
+shape = SubResource("RectangleShape2D_4c0ao")
+
+[node name="Boundary4" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Boundary"]
+position = Vector2(981, 380)
+shape = SubResource("RectangleShape2D_47l1q")
+
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/DeathScreen"]
 anchors_preset = 15
@@ -348,6 +381,7 @@ vertical_alignment = 1
 script = ExtResource("11_0enap")
 
 [node name="OverlayLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="RedOverlay" type="ColorRect" parent="Head/Camera3D/OverlayLayer"]
 process_priority = 10
@@ -709,6 +743,7 @@ text = "EXIT"
 script = ExtResource("16_wg7d4")
 
 [node name="SaveOverlay" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="LighterBG" type="ColorRect" parent="Head/Camera3D/SaveOverlay"]
 anchors_preset = -1
@@ -746,6 +781,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [connection signal="timeout" from="AutoSaveTimer" to="." method="_on_auto_save_timer_timeout"]
+[connection signal="area_entered" from="Head/Camera3D/InventoryLayer/Boundary" to="." method="_on_boundary_area_entered"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/Resume_Btn" to="." method="_on_resume_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/Settings_Btn" to="." method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/SaveAndQuit_Btn" to="." method="_on_save_and_quit_btn_pressed"]

@@ -9,9 +9,9 @@ size = Vector2(60, 60)
 script = ExtResource("1_opaah")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.19, 0.19)
+scale = Vector2(0.17, 0.17)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["draggable"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_mgv10")

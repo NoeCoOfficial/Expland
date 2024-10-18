@@ -5,3 +5,4 @@
 [node name="ItemPickupObject" type="Node3D" groups=["pickup"]]
 transform = Transform3D(0.205, 0, 0, 0, 0.205, 0, 0, 0, 0.205, 0, 0, 0)
 script = ExtResource("1_mp1to")
+metadata/ITEM_TYPE = ""
