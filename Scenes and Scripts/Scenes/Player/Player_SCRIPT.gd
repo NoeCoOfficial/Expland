@@ -33,8 +33,9 @@
 #                   For inquiries, contact:                     #
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
-
 @icon("res://Textures/Icons/Script Icons/32x32/character_edit.png") # Give the node an icon (so it looks cool)
+class_name ExplandPlayer
+
 
 extends CharacterBody3D # Inheritance
 """

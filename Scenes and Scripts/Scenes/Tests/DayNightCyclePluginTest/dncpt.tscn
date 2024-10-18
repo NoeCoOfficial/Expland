@@ -1,9 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://bpj5s6r5sgvqt"]
 
-[ext_resource type="Script" path="res://addons/dynamic_day_night_cycles/custom_eot.gd" id="1_nyues"]
+[ext_resource type="PackedScene" uid="uid://cjm5lrxicdgsf" path="res://Scenes and Scripts/Scenes/Player/Player.tscn" id="2_4gspp"]
 
-[node name="Node3D" type="Node3D"]
+[node name="World" type="Node3D"]
 
-[node name="CustomEOT" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("1_nyues")
+[node name="Player" parent="." instance=ExtResource("2_4gspp")]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.946283, 0)
+use_collision = true
