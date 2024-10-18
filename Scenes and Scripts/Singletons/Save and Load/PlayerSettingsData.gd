@@ -64,9 +64,10 @@ func LoadSettings() -> void:
 		return
 	if FileAccess.file_exists(SAVE_PATH) == true:
 		if not file.eof_reached():
+			
+			
 			var current_line = JSON.parse_string(file.get_line())
 			if current_line:
-				
 				FOV = current_line["FOV"]
 				Master_Volume = current_line["Master_Volume"]
 				music_Volume = current_line["music_Volume"]

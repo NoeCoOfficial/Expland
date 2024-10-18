@@ -246,6 +246,10 @@ func _headbob(time) -> Vector3:
 func _process(_delta):
 	
 	
+	$Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound/SFXValue.text = str($Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound/SFXSlider.value*100)
+	$Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound/MusicValue.text = str($Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound/MusicSlider.value*100)
+	$Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound/MasterValue.text = str($Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound/MasterSlider.value*100)
+	
 	$Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Video/FOVValue.text = str(PlayerSettingsData.FOV)
 	
 	

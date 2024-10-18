@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=36 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -17,9 +17,11 @@
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="16_wg7d4"]
 [ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="17_fk422"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="17_rhxkt"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Settings/MasterSlider_SCRIPT.gd" id="19_2u46j"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Settings/Volume/MasterSlider_SCRIPT.gd" id="19_2u46j"]
 [ext_resource type="StyleBox" uid="uid://3txnt8ebd3yh" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/BlackBGwithWhiteBorder.tres" id="19_b2wvi"]
 [ext_resource type="StyleBox" uid="uid://com3tix0pshhk" path="res://Resources/Styles and Themes/Styles/Default/Label/Default_Label.tres" id="19_nviyp"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Settings/Volume/MusicSlider_SCRIPT.gd" id="20_124b5"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Settings/Volume/SFXSlider_SCRIPT.gd" id="21_fi5yi"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_e8ep2"]
 
@@ -150,7 +152,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 script = ExtResource("2_37tst")
 
 [node name="CrosshairCanvas" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="HealthLBL" type="Label" parent="Head/Camera3D/CrosshairCanvas"]
 anchors_preset = -1
@@ -296,7 +297,6 @@ position = Vector2(1041, 85)
 ITEM_TYPE = "ROCK"
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/DeathScreen"]
 anchors_preset = 15
@@ -348,7 +348,6 @@ vertical_alignment = 1
 script = ExtResource("11_0enap")
 
 [node name="OverlayLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="RedOverlay" type="ColorRect" parent="Head/Camera3D/OverlayLayer"]
 process_priority = 10
@@ -452,6 +451,7 @@ script = ExtResource("16_wg7d4")
 metadata/_edit_use_anchors_ = true
 
 [node name="SettingsLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="GreyLayer" type="ColorRect" parent="Head/Camera3D/SettingsLayer"]
 anchors_preset = 15
@@ -531,6 +531,9 @@ anchor_left = 0.470667
 anchor_top = 0.107143
 anchor_right = 0.529333
 anchor_bottom = 0.698276
+max_value = 1.0
+step = 0.001
+script = ExtResource("20_124b5")
 metadata/_edit_use_anchors_ = true
 
 [node name="SFXSlider" type="VSlider" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound"]
@@ -540,6 +543,9 @@ anchor_left = 0.684001
 anchor_top = 0.107143
 anchor_right = 0.742668
 anchor_bottom = 0.698276
+max_value = 1.0
+step = 0.001
+script = ExtResource("21_fi5yi")
 metadata/_edit_use_anchors_ = true
 
 [node name="MasterValue" type="Label" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound"]
@@ -579,6 +585,48 @@ anchor_bottom = 0.1133
 theme = ExtResource("17_rhxkt")
 theme_override_font_sizes/font_size = 25
 text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Info" type="Label" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.656002
+anchor_top = 0.709359
+anchor_right = 0.765336
+anchor_bottom = 0.78325
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 20
+text = "SFX"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Info2" type="Label" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.426668
+anchor_top = 0.709359
+anchor_right = 0.565335
+anchor_bottom = 0.78325
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 20
+text = "Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Info3" type="Label" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.192001
+anchor_top = 0.706896
+anchor_right = 0.360001
+anchor_bottom = 0.780787
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 20
+text = "Master"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -661,7 +709,6 @@ text = "EXIT"
 script = ExtResource("16_wg7d4")
 
 [node name="SaveOverlay" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="LighterBG" type="ColorRect" parent="Head/Camera3D/SaveOverlay"]
 anchors_preset = -1
