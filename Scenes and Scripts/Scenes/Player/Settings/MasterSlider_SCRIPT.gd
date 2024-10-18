@@ -5,7 +5,6 @@ extends VSlider
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	value = PlayerSettingsData.Master_Volume
-	print(str(PlayerSettingsData.Master_Volume))
 	AudioServer.set_bus_volume_db(index, linear_to_db(PlayerSettingsData.Master_Volume))
 
 

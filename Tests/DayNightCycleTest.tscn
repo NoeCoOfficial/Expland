@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://c803vh81bq0q8"]
+
+[ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/WorldpageIcon_SCRIPT.gd" id="1_8uhfb"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ujkim"]
+sky_top_color = Color(0.0130286, 0.357066, 0.775252, 1)
+sky_horizon_color = Color(0.438099, 0.477156, 0.573587, 1)
+sky_curve = 202.678
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.485703, 0.485704, 0.485703, 1)
+ground_curve = 0.0107178
+sun_curve = 0.0803833
+
+[sub_resource type="Sky" id="Sky_wcbmd"]
+sky_material = SubResource("ProceduralSkyMaterial_ujkim")
+radiance_size = 1
+
+[sub_resource type="Environment" id="Environment_1hfxl"]
+background_energy_multiplier = 2.89
+sky = SubResource("Sky_wcbmd")
+ambient_light_source = 3
+reflected_light_source = 2
+tonemap_mode = 2
+ssao_enabled = true
+ssao_radius = 6.14
+ssao_intensity = 2.04
+ssao_power = 2.04906
+ssil_enabled = true
+ssil_radius = 0.13
+ssil_intensity = 8.49
+ssil_sharpness = 0.3
+glow_enabled = true
+glow_normalized = true
+fog_enabled = true
+fog_light_color = Color(0.289978, 0.534221, 0.961189, 1)
+fog_sun_scatter = 0.4
+fog_density = 0.0
+fog_sky_affect = 0.705
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0.858844, 0.857934, 7.70092e-07, 1)
+volumetric_fog_anisotropy = 0.9
+volumetric_fog_length = 20.0
+volumetric_fog_detail_spread = 1.0
+volumetric_fog_temporal_reprojection_amount = 0.99
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1hfxl")
+script = ExtResource("1_8uhfb")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+
+[node name="Cycle Rotation" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 11.7038, 0)
+
+[node name="Night" type="DirectionalLight3D" parent="Cycle Rotation"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.25807, 0)
+light_color = Color(0, 0, 0, 1)
+
+[node name="Day" type="DirectionalLight3D" parent="Cycle Rotation"]
+transform = Transform3D(1, 0, 0, 0, 1.31134e-07, 1, 0, -1, 1.31134e-07, 0, -0.74193, 0)
+light_energy = 3.242
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Cycle Rotation"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.3, 0)
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="Cycle Rotation"]
+transform = Transform3D(0.892087, 0, 0, 0, 0.892087, 0, 0, 0, 0.892087, 0, -0.7, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.2143, 10.0963)
+fov = 120.0

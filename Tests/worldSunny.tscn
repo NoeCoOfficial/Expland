@@ -43,13 +43,13 @@ ground_horizon_color = Color(0.485703, 0.485704, 0.485703, 1)
 ground_curve = 0.0107178
 sun_curve = 0.0803833
 
-[sub_resource type="Sky" id="Sky_wcbmd"]
+[sub_resource type="Sky" id="Sky_85kga"]
 sky_material = SubResource("ProceduralSkyMaterial_3idn0")
 radiance_size = 1
 
 [sub_resource type="Environment" id="Environment_erbq8"]
 background_energy_multiplier = 2.89
-sky = SubResource("Sky_wcbmd")
+sky = SubResource("Sky_85kga")
 ambient_light_source = 3
 reflected_light_source = 2
 tonemap_mode = 2
@@ -63,7 +63,7 @@ ssil_intensity = 8.49
 ssil_sharpness = 0.3
 glow_enabled = true
 fog_enabled = true
-fog_light_color = Color(1, 0.945874, 0.57786, 1)
+fog_light_color = Color(0.289978, 0.534221, 0.961189, 1)
 fog_sun_scatter = 0.4
 fog_density = 0.0
 fog_sky_affect = 0.705
