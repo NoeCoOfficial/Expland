@@ -233,6 +233,9 @@ func _headbob(time) -> Vector3:
 	return pos # return the position
 func _process(_delta):
 	
+	# debug
+	$Head/Camera3D/DebugLayer/item_ref_LBL.text = "item_ref = "+InventoryManager.item_ref
+	
 	
 	$Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound/SFXValue.text = str($Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound/SFXSlider.value*100)
 	$Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound/MusicValue.text = str($Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound/MusicSlider.value*100)
@@ -510,3 +513,16 @@ func HideDarkerBG_SAVEOVERLAY():
 func _on_fov_slider_value_changed(value):
 	PlayerSettingsData.FOV = value
 
+
+
+func _on_boundary_area_entered(area):
+	if area.is_in_group("draggable"):
+		InventoryManager.is_inside_boundary = true
+
+func _on_boundary_area_exited(area):
+	if area.is_in_group("draggable"):
+		InventoryManager.is_inside_boundary = false
+
+
+func _on_auto_save_timer_timeout(): # A function to save the player data every 60 seconds (or how long the timer goes for)
+	SaveManager.SaveAllData() # Saves everything

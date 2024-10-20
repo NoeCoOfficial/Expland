@@ -36,9 +36,6 @@
 
 extends Node2D
 
-signal slot_clicked(item_type)
-
-
 var draggable = false
 var is_inside_dropable = false
 var body_ref
@@ -60,12 +57,12 @@ func _process(_delta):
 		if Input.is_action_just_pressed("inventory_click"):
 			initialPos = global_position
 			InventoryManager.is_dragging = true
+			InventoryManager.item_ref = ITEM_TYPE
 		if Input.is_action_pressed("inventory_click"):
 			global_position = get_global_mouse_position()
 		elif Input.is_action_just_released("inventory_click"):
 			if InventoryManager.is_inside_boundary:
 				InventoryManager.is_dragging = false
-				InventoryManager.item_ref = ITEM_TYPE
 				var PARENT = self.get_parent()
 				PARENT.remove_child(self)
 			else:

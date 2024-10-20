@@ -779,6 +779,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="DebugLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
+
+[node name="item_ref_LBL" type="Label" parent="Head/Camera3D/DebugLayer"]
+offset_left = 3.0
+offset_top = 345.0
+offset_right = 168.0
+offset_bottom = 388.0
+theme = ExtResource("17_rhxkt")
+
 [connection signal="timeout" from="AutoSaveTimer" to="." method="_on_auto_save_timer_timeout"]
 [connection signal="area_entered" from="Head/Camera3D/InventoryLayer/Boundary" to="." method="_on_boundary_area_entered"]
 [connection signal="area_exited" from="Head/Camera3D/InventoryLayer/Boundary" to="." method="_on_boundary_area_exited"]

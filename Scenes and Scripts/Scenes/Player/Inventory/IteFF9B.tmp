@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://btr0xpw7yybtn"]
+
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Inventory/ItemPickupObject_SCRIPT.gd" id="1_mp1to"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wd6vf"]
+size = Vector3(1.7, 1.7, 1.7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pucte"]
+
+[node name="ItemPickupObject" type="CharacterBody3D"]
+transform = Transform3D(0.205, 0, 0, 0, 0.205, 0, 0, 0, 0.205, 0, 0, 0)
+script = ExtResource("1_mp1to")
+ITEM_TYPE = null
+metadata/ITEM_TYPE = ""
+
+[node name="PickupArea" type="Area3D" parent="." groups=["pickup"]]
+
+[node name="PickupCollisionBox" type="CollisionShape3D" parent="PickupArea"]
+shape = SubResource("BoxShape3D_wd6vf")
+
+[node name="CollisionBody" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="CollisionBody"]
+shape = SubResource("BoxShape3D_pucte")

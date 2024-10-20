@@ -34,7 +34,8 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-extends Node3D
+extends CharacterBody3D
+
 
 @export var ITEM_TYPE: String:
 	set(value):
@@ -47,6 +48,9 @@ var PATH_TO_OBJECT: String
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	self.global_position = get_node("/root/World/Player").global_position
+	self.global_position.y += 1.5
+	ITEM_TYPE = InventoryManager.item_ref
 	PlayBobbingAnimation()
 	PlaySpinningAnimation()
 	var LOADED_OBJECT = load(PATH_TO_OBJECT)
@@ -57,9 +61,6 @@ func _ready():
 		var INSTANTIATED_OBJECT = LOADED_OBJECT.instantiate()
 		self.add_child(INSTANTIATED_OBJECT)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
 
 func PlaySpinningAnimation():
 	var tween = get_tree().create_tween()
