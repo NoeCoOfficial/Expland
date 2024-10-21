@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://di26hq8v5ckx8"]
+[gd_scene load_steps=44 format=3 uid="uid://di26hq8v5ckx8"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/World/world_SCRIPT.gd" id="1_lfnqj"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/WorldpageIcon_SCRIPT.gd" id="2_o31xp"]
@@ -32,7 +32,6 @@
 [ext_resource type="AudioStream" uid="uid://bm2yify34oc5g" path="res://Audio/Music/What Is This Place.mp3" id="30_2gk66"]
 [ext_resource type="AudioStream" uid="uid://cgcnbamgom8tx" path="res://Audio/Music/Lunch.mp3" id="31_n8kf5"]
 [ext_resource type="AudioStream" uid="uid://8fh8m8tkgy76" path="res://Audio/SFX/RAIN_SFX.mp3" id="32_nlx5i"]
-[ext_resource type="PackedScene" uid="uid://btr0xpw7yybtn" path="res://Scenes and Scripts/Scenes/Player/Inventory/ItemPickupObject.tscn" id="33_r3slk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3idn0"]
 sky_top_color = Color(0.32394, 0.386921, 0.474528, 1)
@@ -449,10 +448,6 @@ autoplay = true
 [node name="RAIN_SFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("32_nlx5i")
 autoplay = true
-
-[node name="ItemPickupObject" parent="." instance=ExtResource("33_r3slk")]
-transform = Transform3D(0.205, 0, 0, 0, 0.205, 0, 0, 0, 0.205, -28.3793, 23.9269, 27.0215)
-ITEM_TYPE = "ROCK"
 
 [node name="Tree11" parent="." instance=ExtResource("10_x7yse")]
 transform = Transform3D(0.506019, 0, 0, 0, 0.506019, 0, 0, 0, 0.506019, -31.23, 23.4314, 21.7827)
