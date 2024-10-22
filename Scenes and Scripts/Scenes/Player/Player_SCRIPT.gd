@@ -168,7 +168,7 @@ func _unhandled_input(event): # A built-in function that listens for input
 func _physics_process(delta): # This is a special function that is called every frame. It is used for physics calculations. For example, if I run the game on a computer that has a higher/lower frame rate, the physics will still be consistent.
 	
 	# Crouching
-	if GAME_STATE != "INVENTORY" and GAME_STATE != "DEAD" and is_on_floor() and !PauseManager.is_paused and GAME_STATE != "INVENTORY": # Check if the game state is not inventory or dead and if the player is on the floor
+	if GAME_STATE != "INVENTORY" and GAME_STATE != "DEAD" and is_on_floor() and !PauseManager.is_paused: # Check if the game state is not inventory or dead and if the player is on the floor
 		if Input.is_action_pressed("Crouch"): # Check if the Crouch input is pressed
 			self.scale.y = lerp(self.scale.y, 0.5, CROUCH_INTERPOLATION * delta) # linearly interpolate the scale of the player on the y-axis to 0.5
 		else: 
