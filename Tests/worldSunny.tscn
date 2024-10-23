@@ -167,6 +167,9 @@ ResetPOS = Vector3(999, 999, 999)
 Fade_In_Time = 2.0
 crosshair_size = Vector2(5, 5)
 
+[node name="Character3D" parent="Player" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
 [node name="Walls" type="Node" parent="."]
 
 [node name="Wall" type="CSGMesh3D" parent="Walls"]
