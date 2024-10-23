@@ -196,6 +196,7 @@ texture = ExtResource("2_606ex")
 expand_mode = 1
 
 [node name="InventoryLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="Background" type="Panel" parent="Head/Camera3D/InventoryLayer"]
 anchors_preset = 8
@@ -780,14 +781,30 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="DebugLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="item_ref_LBL" type="Label" parent="Head/Camera3D/DebugLayer"]
-offset_left = 3.0
-offset_top = 345.0
-offset_right = 168.0
-offset_bottom = 388.0
+anchors_preset = -1
+anchor_left = 0.00260417
+anchor_top = 0.532407
+anchor_right = 0.145833
+anchor_bottom = 0.598765
 theme = ExtResource("17_rhxkt")
+text = "item_ref ="
+metadata/_edit_use_anchors_ = true
+
+[node name="current_time" type="Label" parent="Head/Camera3D/DebugLayer"]
+modulate = Color(1, 1, 1, 0.403922)
+anchors_preset = -1
+anchor_left = 0.00694444
+anchor_top = 0.910494
+anchor_right = 0.164063
+anchor_bottom = 0.990741
+grow_vertical = 0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 25
+text = "time"
+vertical_alignment = 2
+metadata/_edit_use_anchors_ = true
 
 [connection signal="timeout" from="AutoSaveTimer" to="." method="_on_auto_save_timer_timeout"]
 [connection signal="area_entered" from="Head/Camera3D/InventoryLayer/Boundary" to="." method="_on_boundary_area_entered"]

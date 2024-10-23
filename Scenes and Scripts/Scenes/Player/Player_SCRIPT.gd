@@ -234,6 +234,16 @@ func _headbob(time) -> Vector3:
 func _process(_delta):
 	
 	# debug
+	var time_now = Time.get_time_dict_from_system()
+	var hours = time_now["hour"]
+	var minutes = time_now["minute"]
+	var seconds = time_now["second"]
+	
+	# Format the time as HH:MM:SS
+	var time_string = str(hours).pad_zeros(2) + ":" + str(minutes).pad_zeros(2) + ":" + str(seconds).pad_zeros(2)
+	
+	# Update the label text
+	$Head/Camera3D/DebugLayer/current_time.text = time_string
 	$Head/Camera3D/DebugLayer/item_ref_LBL.text = "item_ref = "+InventoryManager.item_ref
 	
 	

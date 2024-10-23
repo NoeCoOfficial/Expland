@@ -1,20 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://btr0xpw7yybtn"]
+[gd_scene load_steps=4 format=3 uid="uid://bp7xr2ilbttfv"]
 
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Inventory/ItemPickupObject_SCRIPT.gd" id="1_mp1to"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/BasicGravity.gd" id="1_cg1l6"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Inventory/ItemPickupTest/ItemPickupObjectROCK.gd" id="1_hhaph"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_yjh5s"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_bbaco"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_h0mal"]
+size = Vector3(0.3, 0.472108, 0.3)
 
 [node name="ItemPickupObject" type="CharacterBody3D"]
-transform = Transform3D(0.205, 0, 0, 0, 0.205, 0, 0, 0, 0.205, 0, 0, 0)
-script = ExtResource("1_mp1to")
-metadata/ITEM_TYPE = ""
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_cg1l6")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(0.235, 0, 0, 0, 0.235, 0, 0, 0, 0.235, 0, 0, 0)
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_hhaph")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
-mesh = SubResource("BoxMesh_yjh5s")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-shape = SubResource("BoxShape3D_bbaco")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0860542, 0)
+shape = SubResource("BoxShape3D_h0mal")

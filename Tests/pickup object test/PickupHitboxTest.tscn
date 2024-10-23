@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://2q75kenpobxh"]
+[gd_scene load_steps=7 format=3 uid="uid://2q75kenpobxh"]
 
-[ext_resource type="Script" path="res://Tests/pickup object test/CharacterBody3D.gd" id="1_a64g1"]
+[ext_resource type="PackedScene" uid="uid://bp7xr2ilbttfv" path="res://Scenes and Scripts/Scenes/Player/Inventory/ItemPickupObject.tscn" id="1_u65ss"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_stsek"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -15,11 +15,9 @@ sky = SubResource("Sky_7bpwa")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_en2m8"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_jntpy"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_peaar"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_x5itj"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -32,20 +30,21 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_l2m6x")
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-script = ExtResource("1_a64g1")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-shape = SubResource("BoxShape3D_en2m8")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
-mesh = SubResource("BoxMesh_jntpy")
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.10021, 5.10835)
 
-[node name="RigidBody3D" type="StaticBody3D" parent="."]
+[node name="ItemPickupObject" parent="." instance=ExtResource("1_u65ss")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="Static body" type="StaticBody3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Static body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.74885, 0)
 shape = SubResource("BoxShape3D_peaar")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Static body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.75616, 0)
+mesh = SubResource("BoxMesh_x5itj")
+
+[editable path="ItemPickupObject"]

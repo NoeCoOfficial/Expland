@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://cd24ed5mdweah"]
+[gd_scene load_steps=52 format=3 uid="uid://cd24ed5mdweah"]
 
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/WorldpageIcon_SCRIPT.gd" id="1_1gnsl"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/World/world_SCRIPT.gd" id="1_j3awn"]
@@ -36,6 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://c7r4vwrd1hf11" path="res://Assets/3D Models/Clouds/Cloud2.blend" id="35_d46cg"]
 [ext_resource type="PackedScene" uid="uid://pkk7vc37vpqd" path="res://Assets/3D Models/Clouds/Cloud3.blend" id="36_j8eco"]
 [ext_resource type="PackedScene" uid="uid://dans22utoghhl" path="res://Assets/3D Models/Clouds/Cloud4.blend" id="37_2xvl1"]
+[ext_resource type="PackedScene" uid="uid://bp7xr2ilbttfv" path="res://Scenes and Scripts/Scenes/Player/Inventory/ItemPickupObject.tscn" id="37_rijmo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3idn0"]
 sky_horizon_color = Color(0.486275, 0.486275, 0.486275, 1)
@@ -178,18 +179,24 @@ mesh = SubResource("BoxMesh_nfaly")
 transform = Transform3D(104.93, 0, 0, 0, -5.34578e-08, 9.33575, 0, -1.22297, -4.08079e-07, -5.2763, 23.7827, 53.0704)
 visible = false
 use_collision = true
+collision_layer = 3
+collision_mask = 2
 mesh = SubResource("BoxMesh_nfaly")
 
 [node name="Wall4" type="CSGMesh3D" parent="Walls"]
 transform = Transform3D(-8.49932e-06, -1.25379, -4.18363e-07, 0, -5.4805e-08, 9.57102, -194.442, 5.48051e-08, -1.57159e-14, 40.7053, 23.7827, 16.3525)
 visible = false
 use_collision = true
+collision_layer = 3
+collision_mask = 2
 mesh = SubResource("BoxMesh_nfaly")
 
 [node name="Wall5" type="CSGMesh3D" parent="Walls"]
 transform = Transform3D(-8.38194e-06, -1.25379, -4.18363e-07, 0, -5.4805e-08, 9.57102, -191.756, 5.48051e-08, -1.57159e-14, -55.397, 23.7985, -20.6441)
 visible = false
 use_collision = true
+collision_layer = 3
+collision_mask = 2
 mesh = SubResource("BoxMesh_nfaly")
 
 [node name="Spike" parent="." instance=ExtResource("17_3w3yg")]
@@ -312,7 +319,11 @@ material_override = SubResource("StandardMaterial3D_nklhj")
 use_collision = true
 mesh = SubResource("BoxMesh_jnrf1")
 
-[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="GrassBlock"]
+[node name="GrassBlock4" type="CSGMesh3D" parent="."]
+transform = Transform3D(32.8348, 0, 0, 0, 1, 0, 0, 0, 29.6568, -37.2857, 23.0292, 30.6509)
+material_override = SubResource("StandardMaterial3D_nklhj")
+use_collision = true
+mesh = SubResource("BoxMesh_jnrf1")
 
 [node name="sandblock" type="CSGMesh3D" parent="."]
 transform = Transform3D(32.8348, 0, 0, 0, 1.26399, 0.769507, 0, -0.267977, 3.62959, -37.419, 22.5103, 14.2345)
@@ -475,6 +486,9 @@ transform = Transform3D(3.69422, 0, 2.86533, 0, 4.67519, 0, -2.86533, 0, 3.69422
 
 [node name="Cloud4" parent="." instance=ExtResource("37_2xvl1")]
 transform = Transform3D(11.3391, 0, 0, 0, 11.3391, 0, 0, 0, 11.3391, 22.2195, 134.888, 24.2625)
+
+[node name="ItemPickupObject" parent="." instance=ExtResource("37_rijmo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5363, 24.0019, 9.45132)
 
 [connection signal="TakeDamage" from="Spike" to="Player" method="_on_spike_take_damage"]
 [connection signal="body_entered" from="EditTrigger/Area3D" to="." method="_on_area_3d_body_entered"]
