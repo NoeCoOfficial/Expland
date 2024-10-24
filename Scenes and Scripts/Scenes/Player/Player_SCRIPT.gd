@@ -233,7 +233,7 @@ func _headbob(time) -> Vector3:
 	return pos # return the position
 func _process(_delta):
 	
-	# debug
+	# debugging
 	var time_now = Time.get_time_dict_from_system()
 	var hours = time_now["hour"]
 	var minutes = time_now["minute"]

@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://bp7xr2ilbttfv"]
+[gd_scene load_steps=5 format=3 uid="uid://bp7xr2ilbttfv"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/BasicGravity.gd" id="1_cg1l6"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Inventory/ItemPickupObject_SCRIPT.gd" id="2_y2nv0"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_h0mal"]
-size = Vector3(0.3, 0.472108, 0.3)
+[sub_resource type="BoxShape3D" id="BoxShape3D_if2ca"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w7gmu"]
 
 [node name="ItemPickupObject" type="CharacterBody3D"]
 collision_mask = 3
@@ -16,6 +18,8 @@ collision_layer = 2
 collision_mask = 3
 script = ExtResource("2_y2nv0")
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("BoxShape3D_if2ca")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0860542, 0)
-shape = SubResource("BoxShape3D_h0mal")
+shape = SubResource("BoxShape3D_w7gmu")

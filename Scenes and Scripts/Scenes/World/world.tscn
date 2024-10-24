@@ -491,3 +491,5 @@ transform = Transform3D(11.3391, 0, 0, 0, 11.3391, 0, 0, 0, 11.3391, 22.2195, 13
 
 [editable path="Player"]
 [editable path="Player/Head/Camera3D/InventoryLayer/Dropable"]
+[editable path="Player/Head/Camera3D/InventoryLayer/Dropable2"]
+[editable path="Player/Head/Camera3D/InventoryLayer/Dropable3"]
