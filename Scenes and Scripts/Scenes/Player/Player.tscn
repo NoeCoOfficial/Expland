@@ -522,9 +522,9 @@ anchor_bottom = 0.849537
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
-theme_override_styles/normal = ExtResource("19_b2wvi")
 theme_override_styles/hover = ExtResource("19_b2wvi")
 theme_override_styles/pressed = ExtResource("19_b2wvi")
+theme_override_styles/normal = ExtResource("19_b2wvi")
 script = ExtResource("16_wg7d4")
 
 [node name="SettingsTabContainer" type="TabContainer" parent="Head/Camera3D/SettingsLayer/MainLayer"]
@@ -546,11 +546,13 @@ visible = false
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("16_wg7d4")
+metadata/_tab_index = 0
 
 [node name="Sound" type="TabBar" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer"]
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("16_wg7d4")
+metadata/_tab_index = 1
 
 [node name="MasterSlider" type="VSlider" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound"]
 layout_mode = 1
@@ -677,6 +679,7 @@ visible = false
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("16_wg7d4")
+metadata/_tab_index = 2
 
 [node name="FOVSlider" type="HSlider" parent="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Video"]
 layout_mode = 1
@@ -788,7 +791,6 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="DebugLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="item_ref_LBL" type="Label" parent="Head/Camera3D/DebugLayer"]
 anchors_preset = -1
