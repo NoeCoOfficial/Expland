@@ -37,6 +37,8 @@
 @icon("res://Textures/Icons/Script Icons/32x32/world.png")
 extends Node3D
 
+
+
 func _on_area_3d_body_entered(body):
 	if body.is_in_group("Player"):
 		$Player.position = Vector3(-24.5325679779053, 23.8683662414551, 43.0636215209961)

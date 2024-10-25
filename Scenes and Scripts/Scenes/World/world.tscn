@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://cd24ed5mdweah"]
+[gd_scene load_steps=48 format=3 uid="uid://cd24ed5mdweah"]
 
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/WorldpageIcon_SCRIPT.gd" id="1_1gnsl"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/World/world_SCRIPT.gd" id="1_j3awn"]
@@ -89,11 +89,6 @@ vertex_color_use_as_albedo = true
 [sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_liv1f"]
 material = SubResource("StandardMaterial3D_rvn2t")
 curve = SubResource("Curve_tq56d")
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_ju613"]
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4khk7"]
-points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607, 0.498884, 0.169713, 0.559144, 0.464172, 0.231051, -0.803591, 0.320455, 0.40741, 0.651043, -0.243523, -0.482789, 0.594843, 0.0822132, -0.362868, -0.682312, 0.289697, 0.469044, -0.654529, -0.0662713, -0.127444, 0.842701, -0.338103, -0.393435, -0.683942, -0.244717, 0.438255, 0.623309, 0.200849, 0.0841477, 0.977454, 0.114795, -0.0682023, -0.976458, -0.12927, 0.20055, -0.563129, -0.451454, -0.185527, 0.595453, -0.453475, -0.273363, 0.592268, 0.407754, -0.00693649, -0.476823, 0.49966, 0.375821, -0.588614, 0.316955, 0.111579, 0.563059, -0.481177, -0.41725, 0.527866, -0.270497, -0.484546, -0.596972, -0.0665097, -0.279747, 0.908561, 0.0533361, -0.250197, -0.880712, 0.205319, 0.263647, -0.902771, -0.127394, 0.293368, 0.871526, -0.157196, 0.373412, -0.526319, -0.328246, 0.499663, 0.476641, -0.00688856, 0.0531056, 0.875001, 0.324703, -0.154543, -0.590854, 0.465879, -0.0972799, -0.782358, -0.398188, -0.387649, -0.498171, 0.31565, -0.30068, -0.587995, -0.388901)
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_j3awn")
@@ -475,18 +470,6 @@ transform = Transform3D(3.69422, 0, 2.86533, 0, 4.67519, 0, -2.86533, 0, 3.69422
 
 [node name="Cloud4" parent="." instance=ExtResource("37_2xvl1")]
 transform = Transform3D(11.3391, 0, 0, 0, 11.3391, 0, 0, 0, 11.3391, 22.2195, 134.888, 24.2625)
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.5648, 22.6586, 20.0786)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.40337, 0)
-mesh = SubResource("CapsuleMesh_ju613")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="CharacterBody3D/MeshInstance3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D/MeshInstance3D/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_4khk7")
 
 [connection signal="TakeDamage" from="Spike" to="Player" method="_on_spike_take_damage"]
 [connection signal="body_entered" from="EditTrigger/Area3D" to="." method="_on_area_3d_body_entered"]

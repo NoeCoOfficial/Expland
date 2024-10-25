@@ -37,8 +37,6 @@
 extends Node
 
 
-
-
 var is_dragging = false
 var is_inside_boundary = false
 

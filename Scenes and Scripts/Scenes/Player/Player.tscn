@@ -160,6 +160,9 @@ shape = SubResource("ConvexPolygonShape3D_o1e22")
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 
+[node name="ItemDropPosition" type="Node3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5996)
+
 [node name="Camera3D" type="Camera3D" parent="Head"]
 script = ExtResource("2_37tst")
 
@@ -196,6 +199,7 @@ texture = ExtResource("2_606ex")
 expand_mode = 1
 
 [node name="InventoryLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="Background" type="Panel" parent="Head/Camera3D/InventoryLayer"]
 anchors_preset = 8
@@ -314,7 +318,7 @@ ITEM_TYPE = "ROCK"
 
 [node name="Dropable3" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("9_w7on1")]
 position = Vector2(683, 237)
-ITEM_TYPE = "ROCK"
+ITEM_TYPE = "REDFLOWER"
 
 [node name="Boundary" type="Area2D" parent="Head/Camera3D/InventoryLayer" groups=["boundary"]]
 priority = 12
