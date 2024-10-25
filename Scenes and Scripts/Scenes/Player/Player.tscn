@@ -131,7 +131,7 @@ Button/styles/normal = SubResource("StyleBoxFlat_mjkpl")
 Button/styles/pressed = SubResource("StyleBoxFlat_gyrcn")
 Label/styles/normal = ExtResource("19_nviyp")
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["PlayerBody"]]
 script = ExtResource("1_5mhs1")
 Fade_In = true
 CROUCH_JUMP_VELOCITY = 2.0

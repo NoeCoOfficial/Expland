@@ -53,6 +53,10 @@ folder_colors={
 "res://Scenes and Scripts/Singletons/": "orange"
 }
 
+[global_group]
+
+PlayerBody="The body for the player."
+
 [input]
 
 Jump={
