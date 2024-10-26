@@ -1,39 +1,3 @@
-# ============================================================= #
-# InventoryDropable_SCRIPT.gd
-# ============================================================= #
-#                       COPYRIGHT NOTICE                        #
-#                           Noe Co.                             #
-#                   2024 - All Rights Reserved                  #
-#                                                               #
-#                         MIT License                           #
-#                                                               #
-# Permission is hereby granted, free of charge, to any          #
-# person obtaining a copy of this software and associated       #
-# documentation files (the "Software"), to deal in the          #
-# Software without restriction, including without limitation    #
-# the rights to use, copy, modify, merge, publish, distribute,  #
-# sublicense, and/or sell copies of the Software, and to        #
-# permit persons to whom the Software is furnished to do so,    #
-# subject to the following conditions:                          #
-#                                                               #
-# 1. The above copyright notice and this permission notice      #
-#    shall be included in all copies or substantial portions    #
-#    of the Software.                                           #
-#                                                               #
-# 2. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF      #
-#    ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED    #
-#    TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A        #
-#    PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL  #
-#    THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,  #
-#    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF        #
-#    CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN    #
-#    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER           #
-#    DEALINGS IN THE SOFTWARE.                                  #
-#                                                               #
-#                   For inquiries, contact:                     #
-#                  noeco.official@gmail.com                     #
-# ============================================================= #
-
 extends Node2D
 
 var draggable = false
@@ -47,9 +11,20 @@ var SNAP_TIME = 0.0
 var debounce_timer = 0.2 # Debounce time in seconds
 var can_create_pickup = true
 
+# Reference to the Timer node
+@onready var mouse_over_timer = $MouseOverTimer
+
 func _ready():
 	var OBJ_TEXTURE: Texture2D = load("res://Textures/Inventory/" + ITEM_TYPE + ".png")
-	$Sprite2D.texture = OBJ_TEXTURE
+	if OBJ_TEXTURE == null:
+		print("Failed to load texture: res://Textures/Inventory/" + ITEM_TYPE + ".png")
+	else:
+		$Sprite2D.texture = OBJ_TEXTURE
+	mouse_over_timer.connect("timeout", Callable(self, "_on_mouse_over_timeout"))
+	
+	# Ensure the timer is added to the scene tree
+	if not mouse_over_timer.is_inside_tree():
+		add_child(mouse_over_timer)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -60,10 +35,11 @@ func _process(delta):
 
 	if draggable:
 		if Input.is_action_just_pressed("inventory_click"):
-			initialPos = global_position
-			InventoryManager.is_dragging = true
-			InventoryManager.item_ref = ITEM_TYPE
-		if Input.is_action_pressed("inventory_click"):
+			if mouse_over_timer.time_left == 0:
+				initialPos = global_position
+				InventoryManager.is_dragging = true
+				InventoryManager.item_ref = ITEM_TYPE
+		if Input.is_action_pressed("inventory_click") and InventoryManager.is_dragging:
 			global_position = get_global_mouse_position()
 		elif Input.is_action_just_released("inventory_click"):
 			if InventoryManager.is_inside_boundary and can_create_pickup:
@@ -85,6 +61,8 @@ func _process(delta):
 					tween.tween_property(self, "position", body_ref.position, SNAP_TIME)
 				else:
 					tween.tween_property(self, "global_position", initialPos, SNAP_TIME)
+			if mouse_over_timer.is_inside_tree():
+				mouse_over_timer.start() # Restart the timer when the item is placed down
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("dropable"):
@@ -105,10 +83,16 @@ func _on_area_2d_body_exited(body):
 
 func _on_area_2d_mouse_entered():
 	if not InventoryManager.is_dragging:
-		draggable = true
+		mouse_over_timer.start()
 		scale = Vector2(1.05, 1.05)
 
 func _on_area_2d_mouse_exited():
 	if not InventoryManager.is_dragging:
+		mouse_over_timer.stop()
 		draggable = false
 		scale = Vector2(1.0, 1.0)
+
+func _on_mouse_over_timeout():
+	draggable = true
+	# InventoryManager.item_ref = ITEM_TYPE # Removed this line to prevent setting item_ref on hover
+	# Show other slots or perform other actions here
