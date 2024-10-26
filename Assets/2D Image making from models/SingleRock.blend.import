@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dcuujnbg7wkb"
-path="res://.godot/imported/SingleRock.blend-0c498e77b18924332cf65f05439e23e0.scn"
+uid="uid://iixe3us0s3e2"
+path="res://.godot/imported/SingleRock.blend-7edf832b22dbf196ea0aef3e2ff5ca6c.scn"
 
 [deps]
 
-source_file="res://Assets/3D Models/Rocks/SingleRock.blend"
-dest_files=["res://.godot/imported/SingleRock.blend-0c498e77b18924332cf65f05439e23e0.scn"]
+source_file="res://Assets/2D Image making from models/SingleRock.blend"
+dest_files=["res://.godot/imported/SingleRock.blend-7edf832b22dbf196ea0aef3e2ff5ca6c.scn"]
 
 [params]
 

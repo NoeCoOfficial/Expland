@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0e05shb7vkgu"
-path="res://.godot/imported/ROCK.png-a5f036efc2a0fbd7860c17cdda23e5dd.ctex"
+uid="uid://m8ohdtvo6rfr"
+path="res://.godot/imported/REDFLOWER.png-918a637c7e7b0e221ea462d136070d6e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Inventory/ROCK.png"
-dest_files=["res://.godot/imported/ROCK.png-a5f036efc2a0fbd7860c17cdda23e5dd.ctex"]
+source_file="res://Textures/Inventory/REDFLOWER.png"
+dest_files=["res://.godot/imported/REDFLOWER.png-918a637c7e7b0e221ea462d136070d6e.ctex"]
 
 [params]
 
