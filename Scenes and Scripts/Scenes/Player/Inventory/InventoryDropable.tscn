@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bah2p5efhcjtx"]
+[gd_scene load_steps=3 format=3 uid="uid://bah2p5efhcjtx"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDropable_SCRIPT.gd" id="1_opaah"]
-[ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="2_s0l1d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mgv10"]
 size = Vector2(60, 60)
@@ -15,16 +14,6 @@ one_shot = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.17, 0.17)
-
-[node name="debug_timer" type="Label" parent="."]
-offset_left = -21.0
-offset_top = -50.0
-offset_right = 19.0
-offset_bottom = -27.0
-theme = ExtResource("2_s0l1d")
-text = "0.05"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Area2D" type="Area2D" parent="." groups=["draggable"]]
 
