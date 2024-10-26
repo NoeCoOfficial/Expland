@@ -1,7 +1,6 @@
 extends CharacterBody3D
 
 var gravity = 12.0
-var Item
 
 @export var ITEM_TYPE: String:
 	set(value):

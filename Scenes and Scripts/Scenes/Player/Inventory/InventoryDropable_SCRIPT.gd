@@ -39,20 +39,25 @@ extends Node2D
 var draggable = false
 var is_inside_dropable = false
 var body_ref
-var initialPos:Vector2
-var offset:Vector2
+var initialPos: Vector2
+var offset: Vector2
 var slot
-@export var ITEM_TYPE:String ## The type of the item that the Sprite2D is holding.
+@export var ITEM_TYPE: String ## The type of the item that the Sprite2D is holding.
 var SNAP_TIME = 0.0
+var debounce_timer = 0.2 # Debounce time in seconds
+var can_create_pickup = true
 
 func _ready():
-	var OBJ_TEXTURE : Texture2D = load("res://Textures/Inventory/"+ ITEM_TYPE + ".png")
+	var OBJ_TEXTURE: Texture2D = load("res://Textures/Inventory/" + ITEM_TYPE + ".png")
 	$Sprite2D.texture = OBJ_TEXTURE
 
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+func _process(delta):
+	if debounce_timer > 0:
+		debounce_timer -= delta
+	else:
+		can_create_pickup = true
+
 	if draggable:
 		if Input.is_action_just_pressed("inventory_click"):
 			initialPos = global_position
@@ -61,10 +66,13 @@ func _process(_delta):
 		if Input.is_action_pressed("inventory_click"):
 			global_position = get_global_mouse_position()
 		elif Input.is_action_just_released("inventory_click"):
-			if InventoryManager.is_inside_boundary:
+			if InventoryManager.is_inside_boundary and can_create_pickup:
 				InventoryManager.is_dragging = false
 				var PARENT = self.get_parent()
 				PARENT.remove_child(self)
+				can_create_pickup = false
+				debounce_timer = 0.2 # Reset debounce timer
+				InventoryManager.create_pickup_object()
 			else:
 				InventoryManager.is_dragging = false
 				# debugging
@@ -77,14 +85,11 @@ func _process(_delta):
 					tween.tween_property(self, "position", body_ref.position, SNAP_TIME)
 				else:
 					tween.tween_property(self, "global_position", initialPos, SNAP_TIME)
-					
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("dropable"):
-		
 		# Get the name of the node and convert it to a String
 		slot = body.get_name() as String
-		
 		is_inside_dropable = true
 		
 		var tween = get_tree().create_tween()
@@ -95,7 +100,6 @@ func _on_area_2d_body_exited(body):
 	if body.is_in_group("dropable"):
 		is_inside_dropable = false
 		
-		
 		var tween = get_tree().create_tween()
 		tween.tween_property(body, "modulate", Color(1, 1, 1, 0.2), 0.2)
 
@@ -103,7 +107,6 @@ func _on_area_2d_mouse_entered():
 	if not InventoryManager.is_dragging:
 		draggable = true
 		scale = Vector2(1.05, 1.05)
-
 
 func _on_area_2d_mouse_exited():
 	if not InventoryManager.is_dragging:

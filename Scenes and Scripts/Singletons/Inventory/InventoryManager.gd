@@ -36,20 +36,20 @@
 
 extends Node
 
-
 var is_dragging = false
 var is_inside_boundary = false
-
-var item_ref:String = ""
+var item_ref: String = ""
+var is_creating_pickup = false
 
 func _ready():
 	pass
 
-
-func _input(_event):
-	if Input.is_action_just_released("inventory_click"):
-		if is_inside_boundary:
-			var WORLD = get_node("/root/World")
-			var PICKUP_SCENE = load("res://Scenes and Scripts/Scenes/Player/Inventory/ItemPickupObject.tscn")
-			var PICKUP = PICKUP_SCENE.instantiate()
-			WORLD.add_child(PICKUP)
+func create_pickup_object():
+	if is_creating_pickup:
+		return
+	is_creating_pickup = true
+	var WORLD = get_node("/root/World")
+	var PICKUP_SCENE = load("res://Scenes and Scripts/Scenes/Player/Inventory/ItemPickupObject.tscn")
+	var PICKUP = PICKUP_SCENE.instantiate()
+	WORLD.add_child(PICKUP)
+	is_creating_pickup = false
