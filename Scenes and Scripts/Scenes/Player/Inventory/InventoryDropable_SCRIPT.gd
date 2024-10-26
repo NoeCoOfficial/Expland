@@ -15,6 +15,9 @@ var can_create_pickup = true
 @onready var mouse_over_timer = $MouseOverTimer
 
 func _ready():
+	$ITEM_TYPE.text = ITEM_TYPE.capitalize()
+	if "REDFLOWER" in ITEM_TYPE:
+		$ITEM_TYPE.text = "Red Flower"
 	var OBJ_TEXTURE: Texture2D = load("res://Textures/Inventory/" + ITEM_TYPE + ".png")
 	if OBJ_TEXTURE == null:
 		print("Failed to load texture: res://Textures/Inventory/" + ITEM_TYPE + ".png")

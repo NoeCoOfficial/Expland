@@ -161,13 +161,12 @@ shape = SubResource("ConvexPolygonShape3D_o1e22")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 
 [node name="ItemDropPosition" type="Node3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5996)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.03575)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 script = ExtResource("2_37tst")
 
 [node name="CrosshairCanvas" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="HealthLBL" type="Label" parent="Head/Camera3D/CrosshairCanvas"]
 anchors_preset = -1
@@ -340,7 +339,6 @@ position = Vector2(981, 380)
 shape = SubResource("RectangleShape2D_47l1q")
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/DeathScreen"]
 anchors_preset = 15
@@ -392,7 +390,6 @@ vertical_alignment = 1
 script = ExtResource("11_0enap")
 
 [node name="OverlayLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="RedOverlay" type="ColorRect" parent="Head/Camera3D/OverlayLayer"]
 process_priority = 10
@@ -492,6 +489,21 @@ focus_mode = 0
 theme = ExtResource("17_rhxkt")
 theme_override_font_sizes/font_size = 27
 text = "SAVE AND QUIT"
+script = ExtResource("16_wg7d4")
+metadata/_edit_use_anchors_ = true
+
+[node name="StartDebugging_Btn" type="Button" parent="Head/Camera3D/PauseLayer"]
+anchors_preset = -1
+anchor_left = 0.859375
+anchor_top = 0.910494
+anchor_right = 0.980035
+anchor_bottom = 0.975309
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 15
+text = "START DEBUGGING"
 script = ExtResource("16_wg7d4")
 metadata/_edit_use_anchors_ = true
 
@@ -757,7 +769,6 @@ text = "EXIT"
 script = ExtResource("16_wg7d4")
 
 [node name="SaveOverlay" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="LighterBG" type="ColorRect" parent="Head/Camera3D/SaveOverlay"]
 anchors_preset = -1
@@ -816,9 +827,19 @@ anchor_bottom = 0.990741
 grow_vertical = 0
 theme = ExtResource("17_rhxkt")
 theme_override_font_sizes/font_size = 25
-text = "time"
+text = "00:00:00"
 vertical_alignment = 2
 metadata/_edit_use_anchors_ = true
+
+[node name="current_fps" type="Label" parent="Head/Camera3D/DebugLayer"]
+modulate = Color(1, 1, 1, 0.568627)
+offset_left = 10.0
+offset_top = 592.0
+offset_right = 70.0
+offset_bottom = 615.0
+theme = ExtResource("17_rhxkt")
+text = "FPS: 120"
+vertical_alignment = 1
 
 [connection signal="timeout" from="AutoSaveTimer" to="." method="_on_auto_save_timer_timeout"]
 [connection signal="area_entered" from="Head/Camera3D/InventoryLayer/Boundary" to="." method="_on_boundary_area_entered"]
@@ -826,6 +847,7 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/Resume_Btn" to="." method="_on_resume_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/Settings_Btn" to="." method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/SaveAndQuit_Btn" to="." method="_on_save_and_quit_btn_pressed"]
+[connection signal="pressed" from="Head/Camera3D/PauseLayer/StartDebugging_Btn" to="." method="_on_start_debugging_btn_pressed"]
 [connection signal="value_changed" from="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Video/FOVSlider" to="." method="_on_fov_slider_value_changed"]
 [connection signal="pressed" from="Head/Camera3D/SettingsLayer/MainLayer/ExitSettingsButton" to="." method="_on_exit_settings_button_pressed"]
 

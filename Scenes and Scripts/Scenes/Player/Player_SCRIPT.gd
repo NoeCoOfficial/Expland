@@ -243,6 +243,7 @@ func _process(_delta):
 	# Update the label text
 	$Head/Camera3D/DebugLayer/current_time.text = time_string
 	$Head/Camera3D/DebugLayer/item_ref_LBL.text = "item_ref = "+InventoryManager.item_ref
+	$Head/Camera3D/DebugLayer/current_fps.text = "FPS: %d" % Engine.get_frames_per_second()
 	
 	
 	$Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound/SFXValue.text = str($Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound/SFXSlider.value*100)
@@ -534,3 +535,12 @@ func _on_boundary_area_exited(area):
 
 func _on_auto_save_timer_timeout(): # A function to save the player data every 60 seconds (or how long the timer goes for)
 	SaveManager.SaveAllData() # Saves everything
+
+
+func _on_start_debugging_btn_pressed() -> void:
+	if $Head/Camera3D/DebugLayer.is_visible():
+		$Head/Camera3D/DebugLayer.hide()
+		$Head/Camera3D/PauseLayer/StartDebugging_Btn.text = "START DEBUGGING"
+	else:
+		$Head/Camera3D/DebugLayer.show()
+		$Head/Camera3D/PauseLayer/StartDebugging_Btn.text = "STOP DEBUGGING"
