@@ -31,8 +31,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
-	# debugging
-	$is_inside_checker.text = str(InventoryManager.is_inside_checker)
 	
 	if debounce_timer > 0:
 		debounce_timer -= delta
