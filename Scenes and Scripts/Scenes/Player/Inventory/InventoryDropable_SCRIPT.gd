@@ -11,7 +11,6 @@ var SNAP_TIME = 0.0
 var debounce_timer = 0.2 # Debounce time in seconds
 var can_create_pickup = true
 
-# Reference to the Timer node
 @onready var mouse_over_timer = $MouseOverTimer
 
 func _ready():
@@ -31,6 +30,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
+	# debugging
+	$is_inside_checker.text = str(InventoryManager.is_inside_checker)
+	
 	if debounce_timer > 0:
 		debounce_timer -= delta
 	else:
@@ -60,7 +63,7 @@ func _process(delta):
 				debug_slot_number_label.text = "You just released on slot number: " + slotNumber
 				
 				var tween = get_tree().create_tween()
-				if is_inside_dropable:
+				if is_inside_dropable and !InventoryManager.is_inside_checker:
 					tween.tween_property(self, "position", body_ref.position, SNAP_TIME)
 				else:
 					tween.tween_property(self, "global_position", initialPos, SNAP_TIME)
@@ -68,7 +71,7 @@ func _process(delta):
 				mouse_over_timer.start() # Restart the timer when the item is placed down
 
 func _on_area_2d_body_entered(body):
-	if body.is_in_group("dropable"):
+	if body.is_in_group("dropable") and !InventoryManager.is_inside_checker:
 		# Get the name of the node and convert it to a String
 		slot = body.get_name() as String
 		is_inside_dropable = true
@@ -97,5 +100,12 @@ func _on_area_2d_mouse_exited():
 
 func _on_mouse_over_timeout():
 	draggable = true
-	# InventoryManager.item_ref = ITEM_TYPE # Removed this line to prevent setting item_ref on hover
-	# Show other slots or perform other actions here
+
+func _on_slot_checker_area_entered(area: Area2D) -> void:
+	if area.is_in_group("slotchecker"):
+		InventoryManager.is_inside_checker = true
+
+
+func _on_slot_checker_area_exited(area: Area2D) -> void:
+	if area.is_in_group("slotchecker"):
+		InventoryManager.is_inside_checker = false

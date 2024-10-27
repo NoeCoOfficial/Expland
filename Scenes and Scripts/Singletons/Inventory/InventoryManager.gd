@@ -40,6 +40,7 @@ var is_dragging = false
 var is_inside_boundary = false
 var item_ref: String = ""
 var is_creating_pickup = false
+var is_inside_checker = false
 
 func _ready():
 	pass
