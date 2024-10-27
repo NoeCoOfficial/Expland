@@ -4,10 +4,10 @@
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="2_qromc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5g5bp"]
-size = Vector2(60, 60)
+size = Vector2(80, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mgv10"]
-size = Vector2(60, 60)
+size = Vector2(40, 40)
 
 [node name="Dropable" type="Node2D"]
 script = ExtResource("1_opaah")
@@ -20,12 +20,13 @@ one_shot = true
 scale = Vector2(0.17, 0.17)
 
 [node name="SlotChecker" type="Area2D" parent="." groups=["slotchecker"]]
-collision_priority = 3.0
+collision_priority = 4.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SlotChecker"]
 shape = SubResource("RectangleShape2D_5g5bp")
 
 [node name="Area2D" type="Area2D" parent="." groups=["draggable"]]
+collision_priority = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_mgv10")
@@ -45,6 +46,25 @@ grow_vertical = 2
 theme = ExtResource("2_qromc")
 theme_override_font_sizes/font_size = 10
 text = "ITEM_TYPE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="is_in_checker" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.529412)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = -70.5
+offset_right = 39.0
+offset_bottom = -47.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_qromc")
+theme_override_font_sizes/font_size = 10
+text = "false"
 horizontal_alignment = 1
 vertical_alignment = 1
 
