@@ -27,12 +27,13 @@ buses/default_bus_layout="res://Resources/Audio Bus/default_bus_layout.tres"
 
 [autoload]
 
+Global="*res://Scenes and Scripts/Singletons/Global.gd"
 PlayerSettingsData="*res://Scenes and Scripts/Singletons/Save and Load/PlayerSettingsData.gd"
 PlayerData="*res://Scenes and Scripts/Singletons/Save and Load/PlayerData.gd"
 InventoryManager="*res://Scenes and Scripts/Singletons/Inventory/InventoryManager.gd"
-Global="*res://Scenes and Scripts/Singletons/Global.gd"
 SaveManager="*res://Scenes and Scripts/Singletons/Save and Load/SaveManager.gd"
 PauseManager="*res://Scenes and Scripts/Singletons/Pause/PauseManager.gd"
+InteractionManager="*res://Scenes and Scripts/Singletons/Interaction/InteractionManager.gd"
 Utils="*res://Scenes and Scripts/Utility Scripts/Utils.gd"
 
 [display]

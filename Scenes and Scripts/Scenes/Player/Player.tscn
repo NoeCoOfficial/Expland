@@ -1,9 +1,10 @@
-[gd_scene load_steps=40 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=41 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
 [ext_resource type="Texture2D" uid="uid://tmqrfb1atg1j" path="res://Textures/Crosshairs/Expland_Crosshair.png" id="2_606ex"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/ClockIcon_SCRIPT.gd" id="2_t6toi"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Interaction/RayCast3D_SCRIPT.gd" id="3_2qtqn"]
 [ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="3_yecwp"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/CrosshairCanvas/HealthLBL_SCRIPT.gd" id="4_56i84"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/OverlayLayer/RedOverlay_SCRIPT.gd" id="7_gnu1v"]
@@ -159,6 +160,11 @@ shape = SubResource("ConvexPolygonShape3D_o1e22")
 
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.0158332)
+target_position = Vector3(0, -3, 0)
+script = ExtResource("3_2qtqn")
 
 [node name="ItemDropPosition" type="Node3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.03575)
@@ -318,6 +324,30 @@ ITEM_TYPE = "ROCK"
 [node name="Dropable3" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("9_w7on1")]
 position = Vector2(683, 237)
 ITEM_TYPE = "REDFLOWER"
+
+[node name="Dropable4" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("9_w7on1")]
+position = Vector2(682, 345)
+ITEM_TYPE = "REDFLOWER"
+
+[node name="Dropable5" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("9_w7on1")]
+position = Vector2(682, 452)
+ITEM_TYPE = "REDFLOWER"
+
+[node name="Dropable6" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("9_w7on1")]
+position = Vector2(575, 452)
+ITEM_TYPE = "ROCK"
+
+[node name="Dropable7" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("9_w7on1")]
+position = Vector2(575, 345)
+ITEM_TYPE = "REDFLOWER"
+
+[node name="Dropable8" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("9_w7on1")]
+position = Vector2(469, 345)
+ITEM_TYPE = "ROCK"
+
+[node name="Dropable9" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("9_w7on1")]
+position = Vector2(469, 452)
+ITEM_TYPE = "ROCK"
 
 [node name="Boundary" type="Area2D" parent="Head/Camera3D/InventoryLayer" groups=["boundary"]]
 priority = 12
@@ -855,3 +885,9 @@ vertical_alignment = 1
 [editable path="Head/Camera3D/InventoryLayer/Dropable"]
 [editable path="Head/Camera3D/InventoryLayer/Dropable2"]
 [editable path="Head/Camera3D/InventoryLayer/Dropable3"]
+[editable path="Head/Camera3D/InventoryLayer/Dropable4"]
+[editable path="Head/Camera3D/InventoryLayer/Dropable5"]
+[editable path="Head/Camera3D/InventoryLayer/Dropable6"]
+[editable path="Head/Camera3D/InventoryLayer/Dropable7"]
+[editable path="Head/Camera3D/InventoryLayer/Dropable8"]
+[editable path="Head/Camera3D/InventoryLayer/Dropable9"]

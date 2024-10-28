@@ -71,6 +71,7 @@ func _process(delta):
 				mouse_over_timer.start() # Restart the timer when the item is placed down
 
 func _on_area_2d_body_entered(body):
+		
 	if body.is_in_group("dropable") and !InventoryManager.is_inside_checker:
 		# Get the name of the node and convert it to a String
 		slot = body.get_name() as String
@@ -101,11 +102,12 @@ func _on_area_2d_mouse_exited():
 func _on_mouse_over_timeout():
 	draggable = true
 
-func _on_slot_checker_area_entered(area: Area2D) -> void:
-	if area.is_in_group("slotchecker"):
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("draggable"):
 		InventoryManager.is_inside_checker = true
 
 
-func _on_slot_checker_area_exited(area: Area2D) -> void:
-	if area.is_in_group("slotchecker"):
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	if area.is_in_group("draggable"):
 		InventoryManager.is_inside_checker = false

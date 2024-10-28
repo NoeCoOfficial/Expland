@@ -1,10 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bah2p5efhcjtx"]
+[gd_scene load_steps=4 format=3 uid="uid://bah2p5efhcjtx"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDropable_SCRIPT.gd" id="1_opaah"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="2_qromc"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5g5bp"]
-size = Vector2(80, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mgv10"]
 size = Vector2(40, 40)
@@ -18,12 +15,6 @@ one_shot = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.17, 0.17)
-
-[node name="SlotChecker" type="Area2D" parent="." groups=["slotchecker"]]
-collision_priority = 4.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SlotChecker"]
-shape = SubResource("RectangleShape2D_5g5bp")
 
 [node name="Area2D" type="Area2D" parent="." groups=["draggable"]]
 collision_priority = 3.0
@@ -68,8 +59,8 @@ text = "false"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="area_entered" from="SlotChecker" to="." method="_on_slot_checker_area_entered"]
-[connection signal="area_exited" from="SlotChecker" to="." method="_on_slot_checker_area_exited"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
