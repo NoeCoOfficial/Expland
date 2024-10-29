@@ -5,14 +5,12 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rts1y"]
 bg_color = Color(0.254902, 0.254902, 0.254902, 1)
-corner_radius_bottom_left = 5
 corner_detail = 12
 shadow_offset = Vector2(0, 4.13)
 anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oiqoq"]
 bg_color = Color(0.141176, 0.141176, 0.141176, 1)
-corner_radius_bottom_left = 5
 corner_detail = 12
 shadow_offset = Vector2(0, 4.13)
 anti_aliasing = false
@@ -74,7 +72,7 @@ metadata/_edit_use_anchors_ = true
 [node name="DarkerBG" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.00438596
+anchor_right = 0.0175439
 offset_right = 220.0
 offset_bottom = 60.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_oiqoq")
