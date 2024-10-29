@@ -8,3 +8,4 @@ func spawn_interaction_notification():
 	var NOTIFICATION = load("res://Scenes and Scripts/Scenes/Player/Interaction/InteractionHUD.tscn")
 	var NOTIFICATION_INSTANCE = NOTIFICATION.instantiate()
 	INTERACTION_LAYER.add_child(NOTIFICATION_INSTANCE)
+	NOTIFICATION_INSTANCE.position = Vector2(-228 ,0)
