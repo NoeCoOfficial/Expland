@@ -477,14 +477,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.147, 23.8125, 24.0576)
 
 [connection signal="TakeDamage" from="Spike" to="Player" method="_on_spike_take_damage"]
 [connection signal="body_entered" from="EditTrigger/Area3D" to="." method="_on_area_3d_body_entered"]
-
-[editable path="Player"]
-[editable path="Player/Head/Camera3D/InventoryLayer/Dropable"]
-[editable path="Player/Head/Camera3D/InventoryLayer/Dropable2"]
-[editable path="Player/Head/Camera3D/InventoryLayer/Dropable3"]
-[editable path="Player/Head/Camera3D/InventoryLayer/Dropable4"]
-[editable path="Player/Head/Camera3D/InventoryLayer/Dropable5"]
-[editable path="Player/Head/Camera3D/InventoryLayer/Dropable6"]
-[editable path="Player/Head/Camera3D/InventoryLayer/Dropable7"]
-[editable path="Player/Head/Camera3D/InventoryLayer/Dropable8"]
-[editable path="Player/Head/Camera3D/InventoryLayer/Dropable9"]
