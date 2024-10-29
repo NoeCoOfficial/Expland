@@ -26,7 +26,7 @@ jobs:
         run: |
           mkdir -p ~/.local/share/godot/export_templates
           wget https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}/Godot_v${GODOT_VERSION}-stable_export_templates.tpz
-          tar -xzf Godot_v${GODOT_VERSION}-stable_export_templates.tpz -C ~/.local/share/godot/export_templates
+          tar --strip-components=1 -C ~/.local/share/godot/export_templates -xzf Godot_v${GODOT_VERSION}-stable_export_templates.tpz
 
       - name: Download Godot
         run: |
