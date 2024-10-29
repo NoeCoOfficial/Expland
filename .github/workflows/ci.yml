@@ -1,0 +1,62 @@
+name: "Godot Export CI"
+
+on:
+  push:
+    branches:
+      - main  # Runs on push to the main branch
+  pull_request:
+    branches:
+      - main  # Runs on pull request to the main branch
+
+env:
+  GODOT_VERSION: "4.3"
+  EXPORT_NAME: "Expland"  # Replace with your game's name
+  PROJECT_PATH: "."  # Use "." if `project.godot` is in the root directory
+
+jobs:
+  build:
+    name: Export Game for All Platforms
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Godot export templates
+        run: |
+          mkdir -p ~/.local/share/godot/export_templates
+          wget https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}/Godot_v${GODOT_VERSION}-stable_export_templates.tpz
+          tar -xzf Godot_v${GODOT_VERSION}-stable_export_templates.tpz -C ~/.local/share/godot/export_templates
+
+      - name: Download Godot
+        run: |
+          wget https://downloads.tuxfamily.org/godotengine/${GODOT_VERSION}/Godot_v${GODOT_VERSION}-stable_linux_headless.64 -O godot
+          chmod +x godot
+
+      # Windows Build
+      - name: Export for Windows
+        run: |
+          mkdir -p build/windows
+          ./godot --headless --export-release "Windows Desktop" "build/windows/${EXPORT_NAME}.exe"
+        continue-on-error: true  # Skip errors if export fails
+
+      # Linux Build
+      - name: Export for Linux
+        run: |
+          mkdir -p build/linux
+          ./godot --headless --export-release "Linux/X11" "build/linux/${EXPORT_NAME}.x86_64"
+        continue-on-error: true  # Skip errors if export fails
+
+      # Mac Build
+      - name: Export for macOS
+        run: |
+          mkdir -p build/mac
+          ./godot --headless --export-release "Mac OSX" "build/mac/${EXPORT_NAME}.zip"
+        continue-on-error: true  # Skip errors if export fails
+
+      # Upload all builds
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: Game-Builds
+          path: build/
