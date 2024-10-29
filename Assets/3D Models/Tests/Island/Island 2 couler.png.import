@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bcrrcsdotbgwc"
 path.s3tc="res://.godot/imported/Island 2 couler.png-f28dc040c874d10e875b319d15fded8b.s3tc.ctex"
+path.etc2="res://.godot/imported/Island 2 couler.png-f28dc040c874d10e875b319d15fded8b.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/3D Models/Tests/Island/Island 2 couler.png"
-dest_files=["res://.godot/imported/Island 2 couler.png-f28dc040c874d10e875b319d15fded8b.s3tc.ctex"]
+dest_files=["res://.godot/imported/Island 2 couler.png-f28dc040c874d10e875b319d15fded8b.s3tc.ctex", "res://.godot/imported/Island 2 couler.png-f28dc040c874d10e875b319d15fded8b.etc2.ctex"]
 
 [params]
 
