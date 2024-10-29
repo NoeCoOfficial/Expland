@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=4 uid="uid://cnumc5i62ndco"]
+
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Tests/ray_casting_test.gd" id="1_r8s1u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_373kv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_j076q"]
+material = SubResource("StandardMaterial3D_373kv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eiek8"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_pj1nj"]
+_surfaces = [{
+"aabb": AABB(-0.523094, -0.523094, -0.523094, 1.04619, 1.04619, 1.04619),
+"attribute_data": PackedByteArray("AAAAAAAAAACrqio/AAAAAKuqqj4AAAAAAACAPwAAAAAAAAAAAAAAP6uqKj8AAAA/q6qqPgAAAD8AAIA/AAAAP6uqqj4AAAAAAAAAAAAAAD+rqio/AAAAAKuqqj4AAAA/q6qqPgAAAD8AAAAAAACAP6uqKj8AAAA/q6qqPgAAgD+rqqo+AAAAP6uqKj8AAAA/q6oqPwAAAD8AAIA/AAAAP6uqqj4AAIA/q6oqPwAAgD+rqio/AACAPwAAgD8AAIA/"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAAEAAIAAgAEAAYAAQAFAAMAAwAFAAcACAAMAAoACgAMAA4ACQANAAsACwANAA8AEAAUABIAEgAUABYAEQAVABMAEwAVABcA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("fekFv33pBT996QU/fekFP33pBT996QW/fekFP33pBT996QU/fekFv33pBT996QW/fekFv33pBb996QU/fekFP33pBb996QW/fekFP33pBb996QU/fekFv33pBb996QW/fekFP33pBT996QU/fekFv33pBT996QW/fekFP33pBT996QW/fekFv33pBT996QU/fekFP33pBb996QU/fekFv33pBb996QW/fekFP33pBb996QW/fekFv33pBb996QU/fekFP33pBT996QU/fekFv33pBb996QU/fekFv33pBT996QU/fekFP33pBb996QU/fekFP33pBT996QW/fekFv33pBb996QW/fekFv33pBT996QW/fekFP33pBb996QW//3//f////7//////AAD/v/9//3////+//////wAA/7//f/9/////v/////8AAP+//3//f////7//////AAD/v///AID/////AAAAgP9//7///wCA/////wAAAID/f/+///8AgP////8AAACA/3//v///AID/////AAAAgP9//78AgP//AAD/vwCAAAD///+/AID//wAA/78AgAAA////vwCA//8AAP+/AIAAAP///78AgP//AAD/vwCAAAD///+/")
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hajmw"]
+
+[node name="RayCastingTest" type="StaticBody3D"]
+script = ExtResource("1_r8s1u")
+
+[node name="MainObj" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_j076q")
+
+[node name="Outline" type="MeshInstance3D" parent="MainObj"]
+material_override = SubResource("StandardMaterial3D_eiek8")
+mesh = SubResource("ArrayMesh_pj1nj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_hajmw")

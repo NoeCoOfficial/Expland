@@ -230,7 +230,7 @@ func _headbob(time) -> Vector3:
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP # set the y position to the sine of the time times the bob frequency times the bob amplitude
 	return pos # return the position
 func _process(_delta):
-	
+	$Head/Camera3D/DebugLayer/is_raycast_colliding.text = "RayCast colliding? " + str(InteractionManager.is_colliding)
 	# debugging
 	var time_now = Time.get_time_dict_from_system()
 	var hours = time_now["hour"]
