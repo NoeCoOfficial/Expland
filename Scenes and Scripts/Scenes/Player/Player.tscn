@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=41 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -16,7 +16,6 @@
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/RandomText_SCRIPT.gd" id="10_6w37c"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/GetUp_SCRIPT.gd" id="11_0enap"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="16_wg7d4"]
-[ext_resource type="FontFile" uid="uid://c4h0gd5a2e2qb" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf" id="17_55vl2"]
 [ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="17_fk422"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="17_rhxkt"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Settings/Volume/MasterSlider_SCRIPT.gd" id="19_2u46j"]
@@ -88,53 +87,6 @@ size = Vector2(1101.5, 236)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_47l1q"]
 size = Vector2(417.75, 819)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fuk1t"]
-bg_color = Color(0.800491, 0.800491, 0.800491, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-corner_detail = 12
-shadow_size = 3
-shadow_offset = Vector2(0, 4.13)
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjt7d"]
-bg_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-corner_detail = 12
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gia2y"]
-bg_color = Color(0.187176, 0.187176, 0.187176, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-corner_detail = 12
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ihu2m"]
-bg_color = Color(0.347817, 0.347817, 0.347817, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-corner_detail = 12
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ty8ew"]
-bg_color = Color(0.277528, 0.277528, 0.277528, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-corner_detail = 12
-anti_aliasing = false
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_lsdpx"]
 thickness = 10
@@ -221,7 +173,6 @@ target_position = Vector3(0, -3, 0)
 script = ExtResource("3_2qtqn")
 
 [node name="CrosshairCanvas" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="HealthLBL" type="Label" parent="Head/Camera3D/CrosshairCanvas"]
 anchors_preset = -1
@@ -418,7 +369,6 @@ position = Vector2(981, 380)
 shape = SubResource("RectangleShape2D_47l1q")
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/DeathScreen"]
 anchors_preset = 15
@@ -470,7 +420,6 @@ vertical_alignment = 1
 script = ExtResource("11_0enap")
 
 [node name="OverlayLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="RedOverlay" type="ColorRect" parent="Head/Camera3D/OverlayLayer"]
 process_priority = 10
@@ -497,72 +446,6 @@ color = Color(0, 0, 0, 1)
 script = ExtResource("8_uxqns")
 
 [node name="InteractionLayer" type="CanvasLayer" parent="Head/Camera3D"]
-
-[node name="InteractUIHolder" type="Control" parent="Head/Camera3D/InteractionLayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 345.0
-offset_top = 393.0
-offset_right = 573.0
-offset_bottom = 453.0
-scale = Vector2(0.7, 0.7)
-
-[node name="Background" type="Button" parent="Head/Camera3D/InteractionLayer/InteractUIHolder"]
-offset_right = 228.0
-offset_bottom = 60.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_fuk1t")
-
-[node name="BackgroundKEY" type="Button" parent="Head/Camera3D/InteractionLayer/InteractUIHolder"]
-offset_left = 5.0
-offset_top = 4.0
-offset_right = 57.0
-offset_bottom = 56.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_rjt7d")
-
-[node name="BackgroundKEY2" type="Button" parent="Head/Camera3D/InteractionLayer/InteractUIHolder"]
-offset_left = 7.0
-offset_top = 6.0
-offset_right = 55.0
-offset_bottom = 54.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_gia2y")
-
-[node name="BackgroundKEY3" type="Button" parent="Head/Camera3D/InteractionLayer/InteractUIHolder"]
-offset_left = 11.0
-offset_top = 10.0
-offset_right = 51.0
-offset_bottom = 50.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_ihu2m")
-
-[node name="BackgroundKEY4" type="Button" parent="Head/Camera3D/InteractionLayer/InteractUIHolder"]
-offset_left = 13.0
-offset_top = 12.0
-offset_right = 49.0
-offset_bottom = 48.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_ty8ew")
-
-[node name="KEY" type="Label" parent="Head/Camera3D/InteractionLayer/InteractUIHolder"]
-modulate = Color(0.796243, 0.796243, 0.796243, 1)
-offset_left = 16.0
-offset_top = 14.0
-offset_right = 46.0
-offset_bottom = 49.0
-theme = ExtResource("17_rhxkt")
-theme_override_fonts/font = ExtResource("17_55vl2")
-theme_override_font_sizes/font_size = 30
-text = "F"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label" type="Label" parent="Head/Camera3D/InteractionLayer/InteractUIHolder"]
-modulate = Color(0.169245, 0.169245, 0.169245, 1)
-layout_mode = 0
-offset_left = 84.2857
-offset_top = 12.8572
-offset_right = 191.286
-offset_bottom = 47.8572
-theme = ExtResource("17_rhxkt")
-theme_override_font_sizes/font_size = 30
-text = "Interact"
 
 [node name="PauseLayer" type="CanvasLayer" parent="Head/Camera3D"]
 visible = false
@@ -918,7 +801,6 @@ text = "EXIT"
 script = ExtResource("16_wg7d4")
 
 [node name="SaveOverlay" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="LighterBG" type="ColorRect" parent="Head/Camera3D/SaveOverlay"]
 anchors_preset = -1
