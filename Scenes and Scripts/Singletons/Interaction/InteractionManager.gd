@@ -13,6 +13,8 @@ var notification_lighterBG
 - Instantiate the notification UI already in the player scene.
 - This way we do not have to add it manually in code.
 
+- Make a Control node called 'Contents' and add the DarkerBG and other contents to it.
+
 """
 
 
@@ -25,11 +27,8 @@ var notification_lighterBG
 
 func spawn_interaction_notification(_KEY:String, _MESSAGE:String):
 	if notification_spawned == false:
-		var INTERACTION_LAYER = get_node("/root/World/Player/Head/Camera3D/InteractionLayer")
-		var NOTIFICATION = load("res://Scenes and Scripts/Scenes/Player/Interaction/InteractionHUD.tscn")
-		var NOTIFICATION_INSTANCE = NOTIFICATION.instantiate()
-		INTERACTION_LAYER.add_child(NOTIFICATION_INSTANCE)
-		NOTIFICATION_INSTANCE.position = Vector2(-228 , 30)
+		var NOTIFICATION = get_node("/root/World/Player/Head/Camera3D/InteractionLayer/InteractionHUD")
+		NOTIFICATION.position = Vector2(-228 , 30)
 		notification_spawned = true
 		var tween = get_tree().create_tween()
 
@@ -44,7 +43,7 @@ func ShowLighterBG_NOTIFICATION():
 
 func ShowContents_NOTIFICATION():
 	var tween = get_tree().create_tween()
-	tween.tween_property($Head/Camera3D/SaveOverlay/DarkerBG, "position:x", 0.0, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(notification_contents, "position:x", 0.0, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func HideLighterBG_NOTIFICATION():
 	var tween = get_tree().create_tween()
@@ -52,4 +51,4 @@ func HideLighterBG_NOTIFICATION():
 
 func HideContents_NOTIFICATION():
 	var tween = get_tree().create_tween()
-	tween.tween_property($Head/Camera3D/SaveOverlay/DarkerBG, "position:x", -228, 0.5).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(notification_contents, "position:x", -228, 0.5).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
