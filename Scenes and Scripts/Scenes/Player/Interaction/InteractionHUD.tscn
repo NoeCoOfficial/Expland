@@ -138,7 +138,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="INTERACTION" type="Label" parent="."]
+[node name="MESSAGE" type="Label" parent="."]
 modulate = Color(0.830335, 0.830335, 0.830335, 1)
 layout_mode = 1
 offset_left = 76.0

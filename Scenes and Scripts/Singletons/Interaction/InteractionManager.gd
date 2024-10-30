@@ -17,17 +17,12 @@ var notification_lighterBG
 
 """
 
-
-
-
-
-
-
-
-
 func spawn_interaction_notification(_KEY:String, _MESSAGE:String):
 	if notification_spawned == false:
 		var NOTIFICATION = get_node("/root/World/Player/Head/Camera3D/InteractionLayer/InteractionHUD")
+		var NOTIFICATION_KEY = get_node("/root/World/Player/Head/Camera3D/InteractionLayer/InteractionHUD/KEY")
+		var NOTIFICATION_MESSAGE = get_node("/root/World/Player/Head/Camera3D/InteractionLayer/InteractionHUD/MESSAGE")
+
 		NOTIFICATION.position = Vector2(-228 , 30)
 		notification_spawned = true
 		var tween = get_tree().create_tween()
@@ -36,6 +31,8 @@ func spawn_interaction_notification(_KEY:String, _MESSAGE:String):
 		var notification_lighterBG = get_node("/root/World/Player/Head/Camera3D/InteractionLayer/InteractionHUD/LighterBG")
 		var notification_contents = get_node("/root/World/Player/Head/Camera3D/InteractionLayer/InteractionHUD/Contents")
 		
+
+
 
 func ShowLighterBG_NOTIFICATION():
 	var tween = get_tree().create_tween()
