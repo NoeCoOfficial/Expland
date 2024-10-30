@@ -70,60 +70,60 @@ offset_bottom = 60.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_rts1y")
 metadata/_edit_use_anchors_ = true
 
-[node name="DarkerBG" type="Button" parent="."]
+[node name="Contents" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 224.0
+offset_bottom = 60.0
+
+[node name="DarkerBG" type="Button" parent="Contents"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.0175439
 offset_right = 220.0
 offset_bottom = 60.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_oiqoq")
-metadata/_edit_use_anchors_ = true
 
-[node name="BackgroundKEY" type="Button" parent="."]
+[node name="BackgroundKEY" type="Button" parent="Contents"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0016129
 anchor_top = 0.00224733
 anchor_right = 0.0016129
 anchor_bottom = 0.00224733
-offset_left = 3.5
+offset_left = 3.50645
 offset_top = 3.79999
-offset_right = 55.5
+offset_right = 55.5065
 offset_bottom = 55.8
 theme_override_styles/normal = SubResource("StyleBoxFlat_1mgi3")
-metadata/_edit_use_anchors_ = true
 
-[node name="BackgroundKEY2" type="Button" parent="."]
+[node name="BackgroundKEY2" type="Button" parent="Contents"]
 layout_mode = 0
 offset_left = 5.90002
 offset_top = 6.20001
 offset_right = 53.9
 offset_bottom = 54.2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ljyx7")
-metadata/_edit_use_anchors_ = true
 
-[node name="BackgroundKEY3" type="Button" parent="."]
+[node name="BackgroundKEY3" type="Button" parent="Contents"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.000967703
 anchor_right = 0.000967703
-offset_left = 9.70001
+offset_left = 9.70388
 offset_top = 10.0
-offset_right = 49.7
+offset_right = 49.7039
 offset_bottom = 50.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_2vpfm")
-metadata/_edit_use_anchors_ = true
 
-[node name="BackgroundKEY4" type="Button" parent="."]
+[node name="BackgroundKEY4" type="Button" parent="Contents"]
 layout_mode = 0
 offset_left = 12.1
 offset_top = 12.4
 offset_right = 48.1
 offset_bottom = 48.4
 theme_override_styles/normal = SubResource("StyleBoxFlat_a2k7q")
-metadata/_edit_use_anchors_ = true
 
-[node name="KEY" type="Label" parent="."]
+[node name="KEY" type="Label" parent="Contents"]
 modulate = Color(0.796243, 0.796243, 0.796243, 1)
 layout_mode = 0
 offset_left = 15.2
@@ -136,9 +136,8 @@ theme_override_font_sizes/font_size = 30
 text = "F"
 horizontal_alignment = 1
 vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 
-[node name="MESSAGE" type="Label" parent="."]
+[node name="MESSAGE" type="Label" parent="Contents"]
 modulate = Color(0.830335, 0.830335, 0.830335, 1)
 layout_mode = 1
 offset_left = 76.0
