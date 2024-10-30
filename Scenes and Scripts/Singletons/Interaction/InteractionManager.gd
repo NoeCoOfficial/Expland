@@ -17,11 +17,16 @@ var notification_lighterBG
 
 """
 
-func spawn_interaction_notification(_KEY:String, _MESSAGE:String):
+func spawn_interaction_notification(KEY : String, MESSAGE : String):
 	if notification_spawned == false:
 		var NOTIFICATION = get_node("/root/World/Player/Head/Camera3D/InteractionLayer/InteractionHUD")
 		var NOTIFICATION_KEY = get_node("/root/World/Player/Head/Camera3D/InteractionLayer/InteractionHUD/KEY")
 		var NOTIFICATION_MESSAGE = get_node("/root/World/Player/Head/Camera3D/InteractionLayer/InteractionHUD/MESSAGE")
+
+		NOTIFICATION_KEY.text = KEY
+		NOTIFICATION_MESSAGE.text = MESSAGE
+
+
 
 		NOTIFICATION.position = Vector2(-228 , 30)
 		notification_spawned = true
