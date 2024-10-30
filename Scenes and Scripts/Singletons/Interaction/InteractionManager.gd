@@ -28,7 +28,6 @@ func spawn_interaction_notification(KEY : String, MESSAGE : String):
 
 
 
-		NOTIFICATION.position = Vector2(-228 , 30)
 		notification_spawned = true
 		var tween = get_tree().create_tween()
 
