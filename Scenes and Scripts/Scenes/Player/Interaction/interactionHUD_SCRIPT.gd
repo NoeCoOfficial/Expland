@@ -8,7 +8,7 @@ func ShowNotification(KEY : String, MESSAGE : String):
 
 func ShowLighterBG_NOTIFICATION():
 	var tween = get_tree().create_tween()
-	tween.tween_property($LighterBG, "position", Vector2(0, 30), 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property($LighterBG, "position:x", 200.0, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func ShowContents_NOTIFICATION(KEY : String, MESSAGE : String):
 	var tween = get_tree().create_tween()
