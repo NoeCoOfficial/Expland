@@ -19,7 +19,7 @@ This is the official GitHub repository for the game, where all changes and commi
 **Expland** is brought to you by:
 
 - **Sebastian Suciu** ([@sebashtioon](https://github.com/sebashtioon)): 3D Assets, Code and Game development
-- **Tristan Taylor** ([@GoatsAreTB](https://github.com/GoatsAreTB)): 3D Assets, Music, Storyboarding and Lore
+- **Tristan Taylor** ([@GoatsAreTB](https://github.com/GoatsAreTB)): 3D and 2D Assets, Music, Storyboarding and Lore
 
 ## 🎨 Dedications
 
