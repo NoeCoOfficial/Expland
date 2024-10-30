@@ -449,10 +449,10 @@ script = ExtResource("8_uxqns")
 [node name="InteractionLayer" type="CanvasLayer" parent="Head/Camera3D"]
 
 [node name="InteractionHUD" parent="Head/Camera3D/InteractionLayer" instance=ExtResource("16_8a1wo")]
-offset_left = -183.0
-offset_top = 30.0
-offset_right = -1107.0
-offset_bottom = -558.0
+offset_left = 36.0
+offset_top = 60.0
+offset_right = -888.0
+offset_bottom = -528.0
 
 [node name="PauseLayer" type="CanvasLayer" parent="Head/Camera3D"]
 visible = false

@@ -1,11 +1,19 @@
 extends Control
 
-func ShowLighterBG_NOTIFICATION(KEY : String, MESSAGE : String):
+
+
+
+func ShowNotification(KEY : String, MESSAGE : String):
+	ShowLighterBG_NOTIFICATION()
+
+func ShowLighterBG_NOTIFICATION():
 	var tween = get_tree().create_tween()
 	tween.tween_property($LighterBG, "position", Vector2(0, 30), 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
-func ShowContents_NOTIFICATION():
+func ShowContents_NOTIFICATION(KEY : String, MESSAGE : String):
 	var tween = get_tree().create_tween()
+	$Contents/KEY.text = KEY
+	$Contents/MESSAGE.text = MESSAGE
 	tween.tween_property($Contents, "position", Vector2(0, 30), 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func HideLighterBG_NOTIFICATION():
