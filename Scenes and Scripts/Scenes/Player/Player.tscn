@@ -174,7 +174,6 @@ target_position = Vector3(0, -3, 0)
 script = ExtResource("3_2qtqn")
 
 [node name="CrosshairCanvas" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="HealthLBL" type="Label" parent="Head/Camera3D/CrosshairCanvas"]
 anchors_preset = -1
@@ -371,7 +370,6 @@ position = Vector2(981, 380)
 shape = SubResource("RectangleShape2D_47l1q")
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/DeathScreen"]
 anchors_preset = 15
@@ -423,7 +421,6 @@ vertical_alignment = 1
 script = ExtResource("11_0enap")
 
 [node name="OverlayLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="RedOverlay" type="ColorRect" parent="Head/Camera3D/OverlayLayer"]
 process_priority = 10
@@ -453,7 +450,9 @@ script = ExtResource("8_uxqns")
 
 [node name="InteractionHUD" parent="Head/Camera3D/InteractionLayer" instance=ExtResource("16_8a1wo")]
 offset_left = -183.0
+offset_top = 30.0
 offset_right = -1107.0
+offset_bottom = -558.0
 
 [node name="PauseLayer" type="CanvasLayer" parent="Head/Camera3D"]
 visible = false
@@ -809,7 +808,6 @@ text = "EXIT"
 script = ExtResource("16_wg7d4")
 
 [node name="SaveOverlay" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="LighterBG" type="ColorRect" parent="Head/Camera3D/SaveOverlay"]
 anchors_preset = -1

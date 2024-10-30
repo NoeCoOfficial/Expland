@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bin1awyog56pg"]
+[gd_scene load_steps=10 format=3 uid="uid://bin1awyog56pg"]
 
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="1_d3qmp"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Interaction/interactionHUD_SCRIPT.gd" id="1_jgecn"]
 [ext_resource type="FontFile" uid="uid://c4h0gd5a2e2qb" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf" id="2_6bhwy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rts1y"]
@@ -61,6 +62,7 @@ offset_bottom = -588.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.8, 0.8)
+script = ExtResource("1_jgecn")
 
 [node name="LighterBG" type="Button" parent="."]
 layout_mode = 1
