@@ -20,21 +20,20 @@ var notification_lighterBG
 func spawn_interaction_notification(KEY : String, MESSAGE : String):
 	if notification_spawned == false:
 		var NOTIFICATION = get_node("/root/World/Player/Head/Camera3D/InteractionLayer/InteractionHUD")
+
+		notification_lighterBG = get_node("/root/World/Player/Head/Camera3D/InteractionLayer/InteractionHUD/LighterBG")
+		notification_contents = get_node("/root/World/Player/Head/Camera3D/InteractionLayer/InteractionHUD/Contents")
+		
 		var NOTIFICATION_KEY = get_node("/root/World/Player/Head/Camera3D/InteractionLayer/InteractionHUD/KEY")
 		var NOTIFICATION_MESSAGE = get_node("/root/World/Player/Head/Camera3D/InteractionLayer/InteractionHUD/MESSAGE")
 
 		NOTIFICATION_KEY.text = KEY
 		NOTIFICATION_MESSAGE.text = MESSAGE
 
-
-
 		notification_spawned = true
-		var tween = get_tree().create_tween()
+		ShowLighterBG_NOTIFICATION()
+		ShowContents_NOTIFICATION()
 
-
-		var notification_lighterBG = get_node("/root/World/Player/Head/Camera3D/InteractionLayer/InteractionHUD/LighterBG")
-		var notification_contents = get_node("/root/World/Player/Head/Camera3D/InteractionLayer/InteractionHUD/Contents")
-		
 
 
 
