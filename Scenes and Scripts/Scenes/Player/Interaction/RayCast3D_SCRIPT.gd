@@ -7,7 +7,7 @@ func _physics_process(_delta: float) -> void:
 		InteractionManager.is_colliding = true
 		var collider = get_collider()
 		if collider and collider.has_method("on_raycast_hit"):
-			InteractionManager.spawn_interaction_notification("T", "Test!")
+			InteractionManager.spawn_interaction_notification("F", "Interact")
 			collider.on_raycast_hit()  # Calls the function on the hit body
 		previous_collider = collider
 	else:
