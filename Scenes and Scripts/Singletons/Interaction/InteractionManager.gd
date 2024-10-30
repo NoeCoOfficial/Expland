@@ -10,5 +10,8 @@ func spawn_interaction_notification(_KEY:String, _MESSAGE:String):
 		var NOTIFICATION = load("res://Scenes and Scripts/Scenes/Player/Interaction/InteractionHUD.tscn")
 		var NOTIFICATION_INSTANCE = NOTIFICATION.instantiate()
 		INTERACTION_LAYER.add_child(NOTIFICATION_INSTANCE)
-		NOTIFICATION_INSTANCE.position = Vector2(-228 ,0)
+		NOTIFICATION_INSTANCE.position = Vector2(-228 , 30)
 		notification_spawned = true
+		var tween = get_tree().create_tween()
+		var notification_node = get_node("/root/World/Player/Head/Camera3D/InteractionLayer/InteractionHUD")
+		tween.tween_property(notification_node, "position:x", 0.0, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)

@@ -60,6 +60,7 @@ offset_right = -924.0
 offset_bottom = -588.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.8, 0.8)
 
 [node name="LighterBG" type="Button" parent="."]
 layout_mode = 1
