@@ -9,4 +9,8 @@ func spawn_interaction_notification(KEY : String, MESSAGE : String):
 		var interaction_node = get_node("/root/World/Player/Head/Camera3D/InteractionLayer/InteractionHUD")
 		if interaction_node.has_method("ShowNotification"):
 			interaction_node.ShowNotification(KEY, MESSAGE)
-		is_notification_on_screen = true
+
+func despawn_interaction_notification():
+	var interaction_node = get_node("/root/World/Player/Head/Camera3D/InteractionLayer/InteractionHUD")
+	if interaction_node.has_method("HideNotification"):
+		interaction_node.HideNotification()

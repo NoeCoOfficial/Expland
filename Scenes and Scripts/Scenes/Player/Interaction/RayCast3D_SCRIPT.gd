@@ -14,4 +14,5 @@ func _physics_process(_delta: float) -> void:
 		InteractionManager.is_colliding = false
 		if previous_collider and previous_collider.has_method("on_raycast_exit"):
 			previous_collider.on_raycast_exit()
+			InteractionManager.despawn_interaction_notification()
 		previous_collider = null
