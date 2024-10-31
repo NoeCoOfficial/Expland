@@ -473,7 +473,7 @@ transform = Transform3D(3.69422, 0, 2.86533, 0, 4.67519, 0, -2.86533, 0, 3.69422
 transform = Transform3D(11.3391, 0, 0, 0, 11.3391, 0, 0, 0, 11.3391, 22.2195, 134.888, 24.2625)
 
 [node name="RayCastingTest" parent="." instance=ExtResource("35_l3vqf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.147, 25.0696, 24.0576)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.147, 24.7422, 24.0576)
 
 [connection signal="TakeDamage" from="Spike" to="Player" method="_on_spike_take_damage"]
 [connection signal="body_entered" from="EditTrigger/Area3D" to="." method="_on_area_3d_body_entered"]
