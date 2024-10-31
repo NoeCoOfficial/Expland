@@ -34,7 +34,7 @@ InventoryManager="*res://Scenes and Scripts/Singletons/Inventory/InventoryManage
 SaveManager="*res://Scenes and Scripts/Singletons/Save and Load/SaveManager.gd"
 PauseManager="*res://Scenes and Scripts/Singletons/Pause/PauseManager.gd"
 InteractionManager="*res://Scenes and Scripts/Singletons/Interaction/InteractionManager.gd"
-Utils="*res://Scenes and Scripts/Utility Scripts/Utils.gd"
+Utils="*res://Scenes and Scripts/Singletons/Utils.gd"
 
 [display]
 
