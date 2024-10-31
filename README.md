@@ -26,7 +26,7 @@ This is the official GitHub repository for the game, where all changes and commi
 A special thanks to everyone who has supported us throughout the development of **Expland**. Your encouragement and feedback mean the world to us.
 
 - **Melinda Timpson**, for being the world's greatest school teacher.
-- **Erik Miller**, another founder of Noe Co.
+- **Erik Miller**, another founder of Noe Co., who left to persue other things.
 
 <!--## 🎉 Credits
 
