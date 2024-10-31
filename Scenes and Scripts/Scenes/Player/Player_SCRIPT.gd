@@ -36,6 +36,7 @@
 @icon("res://Textures/Icons/Script Icons/32x32/character_edit.png") # Give the node an icon (so it looks cool)
 
 extends CharacterBody3D # Inheritance
+
 """
 
 Below are the player scene's export variables. These are useful for flexibility between maps/levels.
@@ -43,11 +44,19 @@ The keyword @export means that they can be accessed in the inspector panel (righ
 
 """
 
-# Utility variables
+######################################
+# Utility group
+######################################
+
 @export_group("Utility") ## A group for gameplay variables
+
 @export var inventory_opened_in_air := false ## Checks if the inventory UI is opened in the air (so the same velocity can be kept, used in _physics_process()
 @export var speed:float ## The speed of the player. Used in _physics_process, this variable changes to SPRINT_SPEED, CROUCH_SPEED or WALK_SPEED depending on what input is pressed.
 @export var GAME_STATE := "NORMAL" ## The local game state. (Global variable is in PlayerData.gd and saved to a file)
+
+######################################
+# Gameplay group
+######################################
 
 @export_group("Gameplay") ## A group for gameplay variables
 
@@ -59,6 +68,10 @@ The keyword @export means that they can be accessed in the inspector panel (righ
 @export_subgroup("Other") 
 @export var Position := Vector3(0, 0, 0) ## What the live position for the player is. This no longer does anything if changed in the inspector panel.
 
+######################################
+# Spawn group
+######################################
+
 @export_group("Spawn") ## A group for spawn variables
 
 @export var StartPOS := Vector3(0, 0, 0) ## This no longer does anything if changed because this is always set to the value from the save file.
@@ -68,19 +81,30 @@ The keyword @export means that they can be accessed in the inspector panel (righ
 @export var Fade_In := false ## Whether to use the fade-in on startup or not. Reccomended to keep this on because it looks cool. 
 @export var Fade_In_Time := 1.000 ## The time it takes for the overlay to reach Color(0, 0, 0, 0) in seconds. 
 
+######################################
+# Input group
+######################################
+
 @export_group("Input") ## A group relating to inputs (keys on your keyboard)
+
 @export var Pause := true  ## Whether or not the player can use the Pause input to pause the game. (Normally Esc) (will be ON for final game.)
 @export var Reset := true ## Whether or not the player can use the Reset input to reset the player's position (Normally Ctrl+R) (will be OFF for final game.)
 @export var Quit := true ## Whether or not the player can use the Quit input to quit the game (Normally Ctrl+Shift+Q) (will be OFF for final game.)
 
+######################################
+# Input group
+######################################
 
 @export_group("Visual") ## A group for visual/camera variables
 
 @export_subgroup("Crosshair") ## A subgroup for crosshair variables.
 @export var crosshair_size = Vector2(12, 12) ## The size of the crosshair.
 
-@export_group("View Bobbing") ## a group for view bobbing variables.
+######################################
+# View Bobbing group
+######################################
 
+@export_group("View Bobbing") ## a group for view bobbing variables.
 
 @export var BOB_FREQ := 3.0 ## The frequency of the waves (how often it occurs)
 @export var BOB_AMP = 0.08 ## The amplitude of the waves (how much you actually go up and down)
@@ -89,8 +113,17 @@ The keyword @export means that they can be accessed in the inspector panel (righ
 @export_subgroup("Other") ## a subgroup for other view bobbing variables.
 @export var Wave_Length = 0.0 ## The wavelength of the bobbing
 
+######################################
+# Mouse group
+######################################
+
 @export_group("Mouse") ## A group for mouse variables.
+
 @export var SENSITIVITY = 0.001 ## The sensitivity of the mouse when it is locked in the center (during gameplay)
+
+######################################
+# Physics group
+######################################
 
 @export_group("Physics") ## A group for physics variables.
 
@@ -98,24 +131,26 @@ The keyword @export means that they can be accessed in the inspector panel (righ
 @export var WALK_SPEED = 5.0 ## The normal speed at which the player moves.
 @export var SPRINT_SPEED = 8.0 ## The speed of the player when the user is pressing/holding the Sprint input.
 @export var JUMP_VELOCITY = 4.5 ## How much velocity the player has when jumping. The more this value is, the higher the player can jump.
+
 @export_subgroup("Crouching") ## A subgroup for crouching variables.
 @export var CROUCH_JUMP_VELOCITY = 4.5 ## How much velocity the player has when jumping. The more this value is, the higher the player can jump.
 @export var CROUCH_SPEED := 5.0 ## The speed of the player when the user is pressing/holding the Crouch input.
 @export var CROUCH_INTERPOLATION := 6.0 ## How long it takes to go to the crouching stance or return to normal stance.
+
 @export_subgroup("Gravity") ## A subgroup for gravity variables.
 @export var gravity = 12.0 ## Was originally 9.8 (Earth's gravitational pull) but I felt it to be too unrealistic. This is the gravity of the player. The higher this value is, the faster the player falls.
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+######################################
+# Node references
+######################################
 
-# Body parts variables. Used for reference when working with physics.
-@onready var head = $Head # reference to the head of the player scene. (used for mouse movement and looking around)
-@onready var camera = $Head/Camera3D # reference to the camera of the player (used for mouse movement and looking around)
+@onready var head = $Head # Reference to the head of the player scene. (used for mouse movement and looking around)
+@onready var camera = $Head/Camera3D # Reference to the camera of the player (used for mouse movement and looking around)
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+######################################
+# Input
+######################################
+
 func _input(_event): # A built-in function that listens for input using the input map
 	if Input.is_action_just_pressed("Exit") and GAME_STATE == "INVENTORY":
 		$Head/Camera3D/InventoryLayer.hide() # hide the inventory UI
@@ -160,9 +195,11 @@ func _unhandled_input(event): # A built-in function that listens for input
 			head.rotate_y(-event.relative.x * SENSITIVITY) # rotate the head on the y-axis
 			camera.rotate_x(-event.relative.y * SENSITIVITY) # rotate the camera on the x-axis
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90)) # clamp the camera rotation on the x-axis
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
+######################################
+# Process functions
+######################################
+
 func _physics_process(delta): # This is a special function that is called every frame. It is used for physics calculations. For example, if I run the game on a computer that has a higher/lower frame rate, the physics will still be consistent.
 	
 	# Crouching
@@ -264,10 +301,9 @@ func _process(_delta):
 	
 	$Head/Camera3D/CrosshairCanvas/Crosshair.size = crosshair_size # set the crosshair size to the crosshair size variable
 
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+######################################
+# On startup
+######################################
 
 func _ready():
 	NodeSetup() # Call the NodeSetup function to setup the nodes
@@ -294,9 +330,6 @@ func _ready():
 	
 func NodeSetup(): # A function to setup the nodes. Called in the _ready function
 	
-	
-	
-	
 	$Head/Camera3D/SettingsLayer/GreyLayer.set_self_modulate(Color(0, 0, 0, 0))
 	$Head/Camera3D/SettingsLayer/GreyLayer.set_visible(false)
 	Utils.set_center_offset($Head/Camera3D/SettingsLayer/MainLayer)
@@ -308,9 +341,9 @@ func NodeSetup(): # A function to setup the nodes. Called in the _ready function
 	$Head/Camera3D/DeathScreen/BlackOverlay.set_self_modulate(Color(0, 0, 0, 0)) # set the black overlay self modulate to black
 	$Head/Camera3D/OverlayLayer/RedOverlay.set_self_modulate(Color(1, 0.016, 0, 0)) # set the red overlay self modulate to red
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+######################################
+# Health and dying
+######################################
 
 func TakeDamage(DamageToTake): # A function to take damage from the player 
 	if UseHealth == true: # Check if the UseHealth variable is true
@@ -414,12 +447,7 @@ func DeathScreen(): # A function to show the death screen
 	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay, "color", Color(1, 1, 1, 1), 0) # tween the black overlay's color to white
 	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay, "self_modulate", Color(1, 1, 1, 1), 3) # tween the black overlay's self modulate to white
 ######################################
-
-######################################
-func _on_spike_take_damage(DamageTaken): # A function to take damage from the spikes
-	TakeDamage(DamageTaken) # call the take damage function
-######################################
-
+# Inventory
 ######################################
 func CloseInventory():
 	$Head/Camera3D/InventoryLayer.hide() # hide the inventory UI
@@ -434,8 +462,16 @@ func OpenInventory():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # set the mouse mode to visible
 	GAME_STATE = "INVENTORY" # set the game state to inventory (so the player can't move. This won't save to the file)
 	inventory_opened_in_air = not is_on_floor() # Set the flag when inventory is opened in the air
-######################################
 
+func _on_boundary_area_entered(area):
+	if area.is_in_group("draggable"):
+		InventoryManager.is_inside_boundary = true
+
+func _on_boundary_area_exited(area):
+	if area.is_in_group("draggable"):
+		InventoryManager.is_inside_boundary = false
+######################################
+# Pausing
 ######################################
 func PauseGame():
 	$Head/Camera3D/PauseLayer.show()
@@ -454,7 +490,7 @@ func _on_resume_btn_pressed():
 func _on_settings_btn_pressed():
 	OpenSettings()
 ######################################
-
+# Settings
 ######################################
 func OpenSettings():
 	PauseManager.is_inside_settings = true
@@ -479,8 +515,11 @@ func CloseSettings():
 	
 func _on_exit_settings_button_pressed():
 	CloseSettings()
-######################################
 
+func _on_fov_slider_value_changed(value):
+	PlayerSettingsData.FOV = value
+######################################
+# Saving
 ######################################
 func _on_save_and_quit_btn_pressed():
 	SaveManager.SaveAllData()
@@ -498,8 +537,12 @@ func SaveAllDataWithAnimation():
 		HideDarkerBG_SAVEOVERLAY()
 		await get_tree().create_timer(0.2).timeout
 		HideLighterBG_SAVEOVERLAY()
-######################################
 
+func _on_auto_save_timer_timeout(): # A function to save the player data every 60 seconds (or how long the timer goes for)
+	SaveManager.SaveAllData() # Saves everything
+
+######################################
+# Save overlay animation
 ######################################
 func ShowLighterBG_SAVEOVERLAY():
 	var tween = get_tree().create_tween()
@@ -517,24 +560,12 @@ func HideDarkerBG_SAVEOVERLAY():
 	var tween = get_tree().create_tween()
 	tween.tween_property($Head/Camera3D/SaveOverlay/DarkerBG, "position:x", 1796.0, 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
 
+######################################
+# Debugging
+######################################
 
-func _on_fov_slider_value_changed(value):
-	PlayerSettingsData.FOV = value
-
-
-
-func _on_boundary_area_entered(area):
-	if area.is_in_group("draggable"):
-		InventoryManager.is_inside_boundary = true
-
-func _on_boundary_area_exited(area):
-	if area.is_in_group("draggable"):
-		InventoryManager.is_inside_boundary = false
-
-
-func _on_auto_save_timer_timeout(): # A function to save the player data every 60 seconds (or how long the timer goes for)
-	SaveManager.SaveAllData() # Saves everything
-
+func _on_spike_take_damage(DamageTaken): # A function to take damage from the spike
+	TakeDamage(DamageTaken) # call the take damage function
 
 func _on_start_debugging_btn_pressed() -> void:
 	if $Head/Camera3D/DebugLayer.is_visible():
