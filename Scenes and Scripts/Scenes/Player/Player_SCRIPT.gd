@@ -98,7 +98,7 @@ The keyword @export means that they can be accessed in the inspector panel (righ
 @export_group("Visual") ## A group for visual/camera variables
 
 @export_subgroup("Crosshair") ## A subgroup for crosshair variables.
-@export var crosshair_size = Vector2(12, 12) ## The size of the crosshair.
+@export var crosshair_size = Vector2(5, 5) ## The size of the crosshair.
 
 ######################################
 # View Bobbing group
