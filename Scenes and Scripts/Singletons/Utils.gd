@@ -82,3 +82,9 @@ func wait(seconds: float) -> void: # wait until the next line of code is execute
 func set_center_offset(node : Node): # set the offset of a control node to the center of it
 	var node_size = node.get_size()
 	node.set_pivot_offset(Vector2(node_size/2))
+
+func vector3_to_dict(vec: Vector3) -> Dictionary: # Converts a Vector3 value to a dictionary.
+	return {"x": vec.x, "y": vec.y, "z": vec.z}
+
+func dict_to_vector3(dict: Dictionary) -> Vector3: # Converts a dictionary value to a Vector3 value.
+	return Vector3(dict["x"], dict["y"], dict["z"])

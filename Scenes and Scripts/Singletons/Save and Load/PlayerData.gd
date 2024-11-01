@@ -51,22 +51,22 @@ func SaveData() -> void:
 		var data = {
 			"GAME_STATE": GAME_STATE,
 			"Health": Health,
-			"Position": vector3_to_dict(player.position),
+			"Position": Utils.vector3_to_dict(player.position),
 			"HeadRotationY": playerHead.rotation_degrees.y,  # Save only Y rotation for the head
 			"CameraRotationX": playerCamera.rotation_degrees.x  # Save only X rotation for the camera
 		}
 		var jstr = JSON.stringify(data)
 		file.store_line(jstr)
 		file.close()
-		print("--Saved Player Data--")
+		print("[PlayerData] --Saved Player Data--")
 	else:
-		printerr("Player node not found. SaveData failed.")
+		printerr("[PlayerData] Player node not found. SaveData failed.")
 
 
 func LoadData() -> void:
 	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
 	if not file:
-		push_warning("File doesn't exist (" + SAVE_PATH + ")")
+		push_warning("[PlayerData] File doesn't exist (" + SAVE_PATH + ")")
 		return
 	
 	if file and not file.eof_reached():
@@ -83,7 +83,7 @@ func LoadData() -> void:
 			if player:
 				
 				
-				player.position = dict_to_vector3(current_line["Position"]) ## Player Position
+				player.position = Utils.dict_to_vector3(current_line["Position"]) ## Player Position
 				
 				playerHead.rotation_degrees.y = current_line["HeadRotationY"] ## Restore head rotation (only Y-axis)
 				
@@ -98,18 +98,10 @@ func LoadData() -> void:
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Head Y-Axis Rotation: " + str(playerHead.rotation_degrees.y) + "[/font][/font_size][/center]")
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Camera X-Axis Rotation: " + str(playerCamera.rotation_degrees.x) + "[/font][/font_size][/center]")
 			else:
-				printerr("Player node not found. LoadData failed. 
+				printerr("[PlayerData] Player node not found. LoadData failed. 
 				THIS MAY BE DUE TO YOUR PLAYER SCENE NOT BEING INSTANTIATED PROPERLY! 
 				THE LOCAL DIRECTORY USED FOR RETRIEVING THE PLAYER NODE IS IN /root/World/Player. 
 				THIS MEANS THAT YOUR SCENE NEEDS A ROOT NODE CALLED 'World' 
 				AND THE PLAYER NEEDS TO BE A CHILD OF THAT ROOT NODE AND CALLED 'Player'.")
 		file.close()
 
-
-
-# utils
-func vector3_to_dict(vec: Vector3) -> Dictionary:
-	return {"x": vec.x, "y": vec.y, "z": vec.z}
-
-func dict_to_vector3(dict: Dictionary) -> Vector3:
-	return Vector3(dict["x"], dict["y"], dict["z"])
