@@ -68,7 +68,7 @@ func ChangeSceneWithAnimation(scene, animationOrigin : String, animationTime : f
 
 					animateColorRect(SceneChangeLightGreyOverlay, 0.0, 0.0, animationTime) # Replace with proper pos
 					await get_tree().create_timer(0.3).timeout
-					animateColorRect(SceneChangeDarkGreyOverlay, 0.0., 0.0, animationTime) # Replace with proper pos
+					animateColorRect(SceneChangeDarkGreyOverlay, 0.0, 0.0, animationTime) # Replace with proper pos
 
 				elif animationOrigin == "BOTTOM":
 
@@ -83,7 +83,8 @@ func ChangeSceneWithAnimation(scene, animationOrigin : String, animationTime : f
 					printerr('[TransitionManager] Error getting animationOrigin, please use only "TOP" or "BOTTOM" for the parameter.')
 
 
-		else:		
+		else:
+			pass
 			# create ColorRect from path logic
 	else:
 		printerr("[TransitionManager] Failed loading scene: " + str(scene))
