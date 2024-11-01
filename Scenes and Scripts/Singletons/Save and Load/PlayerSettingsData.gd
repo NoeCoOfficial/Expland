@@ -53,12 +53,12 @@ func SaveSettings() -> void:
 	}
 	var jstr = JSON.stringify(data)
 	file.store_line(jstr)
-	print("--Saved Player Settings--")
+	print("[PlayerSettingsData] --Saved Player Settings--")
 
 func LoadSettings() -> void:
 	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
 	if not file:
-		push_warning("File doesn't exist (" + SAVE_PATH + ")")
+		push_warning("[PlayerSettingsData] File doesn't exist (" + SAVE_PATH + ")")
 		return
 	if file == null:
 		return

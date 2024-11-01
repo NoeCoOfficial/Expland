@@ -46,6 +46,9 @@ func spawn_interaction_notification(KEY : String, MESSAGE : String):
 		if interaction_node.has_method("ShowNotification"):
 			interaction_node.ShowNotification(KEY, MESSAGE)
 			is_notification_on_screen = true
+			print("[InteractionManager] Spawned interaction notification")
+			print("Key: " + KEY)
+			print("Message: " + MESSAGE)
 
 func despawn_interaction_notification():
 	if is_notification_on_screen:
@@ -53,3 +56,4 @@ func despawn_interaction_notification():
 		if interaction_node.has_method("HideNotification"):
 			interaction_node.HideNotification()
 			is_notification_on_screen = false
+			print("[InteractionManager] Despawned interaction notification")
