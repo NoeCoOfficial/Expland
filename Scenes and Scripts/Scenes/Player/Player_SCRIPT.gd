@@ -578,22 +578,3 @@ func _on_start_debugging_btn_pressed() -> void:
 ######################################
 # Playground
 ######################################
-
-func ChangeSceneWithAnimation(animationOrigin : String):
-	var SceneChangeDarkGreyOverlay
-	var SceneChangeLightGreyOverlay
-
-	if Origin == "TOP":
-		var tween = get_tree().create_tween()
-		tween.tween_property(
-		SceneChangeLightGreyOverlay,
-		"position",
-		Vector2(0, 0),
-		1.0) # Also set ease and trans type here
-
-	elif Origin == "BOTTOM":
-		var tween = get_tree().create_tween()
-		tween.tween_property() # Also set ease and trans type here
-	
-	else:
-		printerr('Error getting animationOrigin, please use only "TOP" or "BOTTOM".')
