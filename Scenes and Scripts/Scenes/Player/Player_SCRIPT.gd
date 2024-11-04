@@ -168,7 +168,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 	if Input.is_action_just_pressed("Quit") and Quit == true: # if the Quit input is pressed and the Quit variable is true
 		if GAME_STATE == "NORMAL" or "INVENTORY": # if the game state is normal or inventory
 			if !GAME_STATE == "DEAD":
-				SaveManager.SaveAllData()
+				SaveManager.saveAllData()
 				get_tree().quit() # quit the game
 	if Input.is_action_just_pressed("Reset") and Reset == true and !PauseManager.is_paused:
 		if GAME_STATE == "NORMAL" or "INVENTORY":
@@ -523,14 +523,14 @@ func _on_fov_slider_value_changed(value):
 # Saving
 ######################################
 func _on_save_and_quit_btn_pressed():
-	SaveManager.SaveAllData()
+	SaveManager.saveAllData()
 	get_tree().quit()
 
 func saveAllDataWithAnimation():
 	if $ManualSaveCooldown.time_left == 0.0:
 		$ManualSaveCooldown.wait_time = 5.0
 		$ManualSaveCooldown.start()
-		SaveManager.SaveAllData() # Call the save all data function from SaveManager to write all data to save files.
+		SaveManager.saveAllData() # Call the save all data function from SaveManager to write all data to save files.
 		showLighterBG_SAVEOVERLAY()
 		await get_tree().create_timer(0.2).timeout
 		showDarkerBG_SAVEOVERLAY()
@@ -540,7 +540,7 @@ func saveAllDataWithAnimation():
 		hideLighterBG_SAVEOVERLAY()
 
 func _on_auto_save_timer_timeout(): # A function to save the player data every 60 seconds (or how long the timer goes for)
-	SaveManager.SaveAllData() # Saves everything
+	SaveManager.saveAllData() # Saves everything
 
 ######################################
 # Save overlay animation

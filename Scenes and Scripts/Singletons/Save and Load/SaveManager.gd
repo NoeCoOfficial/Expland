@@ -40,6 +40,6 @@ func _ready():
 	PlayerData.LoadData()
 	PlayerSettingsData.LoadSettings()
 
-func SaveAllData():
+func saveAllData():
 	PlayerData.SaveData()
 	PlayerSettingsData.SaveSettings()
