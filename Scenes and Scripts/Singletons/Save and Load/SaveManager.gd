@@ -42,4 +42,4 @@ func _ready():
 
 func saveAllData():
 	PlayerData.saveData()
-	PlayerSettingsData.SaveSettings()
+	PlayerSettingsData.saveSettings()

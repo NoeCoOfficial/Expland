@@ -504,7 +504,7 @@ func openSettings():
 	tween.tween_property($Head/Camera3D/SettingsLayer/MainLayer, "scale", Vector2(1.0, 1.0), 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func closeSettings():
-	PlayerSettingsData.SaveSettings()
+	PlayerSettingsData.saveSettings()
 	PauseManager.is_inside_settings = false
 	var tween = get_tree().create_tween().set_parallel(true)
 	tween.tween_property($Head/Camera3D/SettingsLayer/GreyLayer, "self_modulate", Color(0, 0, 0, 0), 0.3)
