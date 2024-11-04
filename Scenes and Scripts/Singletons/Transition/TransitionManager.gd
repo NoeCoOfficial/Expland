@@ -61,8 +61,8 @@ func ChangeSceneWithAnimation(sceneToChangeTo, animationOrigin : String, animati
 
 				if animationOrigin == "TOP":
 
-					SceneChangeDarkGreyOverlay.position = Vector2(0, 0) # Replace with proper pos
-					SceneChangeLightGreyOverlay.position = Vector2(0, 0) # Replace with proper pos
+					SceneChangeDarkGreyOverlay.position = Vector2(0, 0)
+					SceneChangeLightGreyOverlay.position = Vector2(0, 0)
 					
 					print("[TransitionManager] Animating from player node from origin: TOP")
 
