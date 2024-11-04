@@ -36,7 +36,7 @@
 
 extends Node
 
-var cameraRef
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -66,9 +66,9 @@ func ChangeSceneWithAnimation(sceneToChangeTo, animationOrigin : String, animati
 					
 					print("[TransitionManager] Animating from player node from origin: TOP")
 
-					animateColorRect(SceneChangeLightGreyOverlay, 0.0, 0.0, animationTime)
+					animateColorRect_IN(SceneChangeLightGreyOverlay, 0.0, 0.0, animationTime, "EXPO")
 					await get_tree().create_timer(0.3).timeout
-					animateColorRect(SceneChangeDarkGreyOverlay, 0.0, 0.0, animationTime)
+					animateColorRect_IN(SceneChangeDarkGreyOverlay, 0.0, 0.0, animationTime, "EXPO")
 
 				elif animationOrigin == "BOTTOM":
 					
@@ -77,9 +77,9 @@ func ChangeSceneWithAnimation(sceneToChangeTo, animationOrigin : String, animati
 					
 					print("[TransitionManager] Animating from player node from origin: BOTTOM")
 					
-					animateColorRect(SceneChangeLightGreyOverlay, 0.0, 0.0, animationTime)
+					animateColorRect_IN(SceneChangeLightGreyOverlay, 0.0, 0.0, animationTime, "EXPO")
 					await get_tree().create_timer(0.3).timeout
-					animateColorRect(SceneChangeDarkGreyOverlay, 0.0, -9.0, animationTime)
+					animateColorRect_IN(SceneChangeDarkGreyOverlay, 0.0, -9.0, animationTime, "EXPO")
 
 				else:
 					printerr('[TransitionManager] Error getting animationOrigin, please use only "TOP" or "BOTTOM" for the parameter.')
@@ -102,6 +102,6 @@ func animateColorRect_IN(colorRectNode, x : float, y : float, animationTime : fl
 		typeOfAnimation = Tween.TRANS_BOUNCE
 	elif animationType == "EXPO":
 		typeOfAnimation = Tween.TRANS_EXPO
-		
+
 	var tween = get_tree().create_tween()
 	tween.tween_property(colorRectNode, "position", Vector2(x, y), animationTime).set_ease(Tween.EASE_OUT).set_trans(typeOfAnimation)
