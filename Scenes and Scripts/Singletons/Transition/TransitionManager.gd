@@ -66,7 +66,6 @@ func ChangeSceneWithAnimation(sceneToChangeTo, animationOrigin : String, animati
 					
 					print("[TransitionManager] Animating from player node from origin: TOP")
 
-
 					animateColorRect(SceneChangeLightGreyOverlay, 0.0, 0.0, animationTime) # Replace with proper pos
 					await get_tree().create_timer(0.3).timeout
 					animateColorRect(SceneChangeDarkGreyOverlay, 0.0, 0.0, animationTime) # Replace with proper pos
@@ -78,8 +77,7 @@ func ChangeSceneWithAnimation(sceneToChangeTo, animationOrigin : String, animati
 					
 					print("[TransitionManager] Animating from player node from origin: BOTTOM")
 
-
-					animateColorRect(SceneChangeDarkGreyOverlay, 0.0, 0.0, animationTime) # Replace with proper pos
+					animateColorRect(SceneChangeDarkGreyOverlay, 0.0, -9.0, animationTime) # Replace with proper pos
 					await get_tree().create_timer(0.3).timeout
 					animateColorRect(SceneChangeLightGreyOverlay, 0.0, 0.0, animationTime) # Replace with proper pos
 
