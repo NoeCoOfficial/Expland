@@ -844,6 +844,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="TransitionLayer" type="CanvasLayer" parent="Head/Camera3D"]
+
 [node name="DebugLayer" type="CanvasLayer" parent="Head/Camera3D"]
 visible = false
 

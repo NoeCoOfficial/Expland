@@ -58,11 +58,12 @@ func ChangeSceneWithAnimation(scene, animationOrigin : String, animationTime : f
 				var SceneChangeDarkGreyOverlay = get_node("/root/World/Player/Head/Camera/TransitionLayer/DarkGreyOverlay")
 				var SceneChangeLightGreyOverlay = get_node("/root/World/Player/Head/Camera/TransitionLayer/LightGreyOverlay")
 				
-				SceneChangeDarkGreyOverlay.position = Vector2(0, 0) # Replace with proper pos
-				SceneChangeLightGreyOverlay.position = Vector2(0, 0) # Replace with proper pos
 
 				if animationOrigin == "TOP":
 
+					SceneChangeDarkGreyOverlay.position = Vector2(0, 0) # Replace with proper pos
+					SceneChangeLightGreyOverlay.position = Vector2(0, 0) # Replace with proper pos
+					
 					print("[TransitionManager] Animating from player node from origin: TOP")
 
 
@@ -71,7 +72,10 @@ func ChangeSceneWithAnimation(scene, animationOrigin : String, animationTime : f
 					animateColorRect(SceneChangeDarkGreyOverlay, 0.0, 0.0, animationTime) # Replace with proper pos
 
 				elif animationOrigin == "BOTTOM":
-
+					
+					SceneChangeDarkGreyOverlay.position = Vector2(0, 0) # Replace with proper pos
+					SceneChangeLightGreyOverlay.position = Vector2(0, 0) # Replace with proper pos
+					
 					print("[TransitionManager] Animating from player node from origin: BOTTOM")
 
 
