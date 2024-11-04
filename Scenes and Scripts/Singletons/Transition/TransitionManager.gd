@@ -51,12 +51,12 @@ func ChangeSceneWithAnimation(sceneToChangeTo, animationOrigin : String, animati
 	if load(sceneToChangeTo) != null:
 		if pathToDarkOverlay == null or pathToLightOverlay == null:
 
-			if get_node("/root/World/Player/Head/Camera/TransitionLayer/DarkGreyOverlay") != null and get_node("/root/World/Player/Head/Camera/TransitionLayer/LightGreyOverlay") != null:
+			if get_node("/root/World/Player/Head/Camera3D/TransitionLayer/DarkGreyOverlay") != null and get_node("/root/World/Player/Head/Camera3D/TransitionLayer/LightGreyOverlay") != null:
 				
 				print("[TransitionManager] Using player transition overlay.")
 
-				var SceneChangeDarkGreyOverlay = get_node("/root/World/Player/Head/Camera/TransitionLayer/DarkGreyOverlay")
-				var SceneChangeLightGreyOverlay = get_node("/root/World/Player/Head/Camera/TransitionLayer/LightGreyOverlay")
+				var SceneChangeDarkGreyOverlay = get_node("/root/World/Player/Head/Camera3D/TransitionLayer/DarkGreyOverlay")
+				var SceneChangeLightGreyOverlay = get_node("/root/World/Player/Head/Camera3D/TransitionLayer/LightGreyOverlay")
 				
 
 				if animationOrigin == "TOP":

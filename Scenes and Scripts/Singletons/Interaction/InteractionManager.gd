@@ -42,7 +42,6 @@ var is_colliding = false
 
 var is_hovering_over_test_obj = false
 
-var ShowcaseScene = preload("res://Scenes and Scripts/Scenes/Tests/WorldShowcase.tscn")
 
 func spawn_interaction_notification(KEY : String, MESSAGE : String):
 	if !is_notification_on_screen:
@@ -64,4 +63,4 @@ func despawn_interaction_notification():
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Interact") and is_hovering_over_test_obj:
-		TransitionManager.ChangeSceneWithAnimation(ShowcaseScene, "BOTTOM", 1.0, null, null)
+		TransitionManager.ChangeSceneWithAnimation("res://Scenes and Scripts/Scenes/Tests/WorldShowcase.tscn", "BOTTOM", 0.5, null, null)
