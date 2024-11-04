@@ -40,6 +40,10 @@ extends Node
 var is_notification_on_screen = false
 var is_colliding = false
 
+var is_hovering_over_test_obj = false
+
+var ShowcaseScene = preload("res://Scenes and Scripts/Scenes/Tests/WorldShowcase.tscn")
+
 func spawn_interaction_notification(KEY : String, MESSAGE : String):
 	if !is_notification_on_screen:
 		var interaction_node = get_node("/root/World/Player/Head/Camera3D/InteractionLayer/InteractionHUD")
@@ -57,3 +61,7 @@ func despawn_interaction_notification():
 			interaction_node.HideNotification()
 			is_notification_on_screen = false
 			print("[InteractionManager] Despawned interaction notification")
+
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("Interact") and is_hovering_over_test_obj:
+		TransitionManager.ChangeSceneWithAnimation(ShowcaseScene, "BOTTOM", 1.0, null, null)
