@@ -174,6 +174,7 @@ target_position = Vector3(0, -3, 0)
 script = ExtResource("3_2qtqn")
 
 [node name="CrosshairCanvas" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="HealthLBL" type="Label" parent="Head/Camera3D/CrosshairCanvas"]
 anchors_preset = -1
@@ -370,6 +371,7 @@ position = Vector2(981, 380)
 shape = SubResource("RectangleShape2D_47l1q")
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/DeathScreen"]
 anchors_preset = 15
@@ -421,6 +423,7 @@ vertical_alignment = 1
 script = ExtResource("11_0enap")
 
 [node name="OverlayLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="RedOverlay" type="ColorRect" parent="Head/Camera3D/OverlayLayer"]
 process_priority = 10
@@ -447,6 +450,7 @@ color = Color(0, 0, 0, 1)
 script = ExtResource("8_uxqns")
 
 [node name="InteractionLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="InteractionHUD" parent="Head/Camera3D/InteractionLayer" instance=ExtResource("16_8a1wo")]
 offset_left = -183.0
@@ -808,6 +812,7 @@ text = "EXIT"
 script = ExtResource("16_wg7d4")
 
 [node name="SaveOverlay" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="LighterBG" type="ColorRect" parent="Head/Camera3D/SaveOverlay"]
 anchors_preset = -1
@@ -845,6 +850,26 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="TransitionLayer" type="CanvasLayer" parent="Head/Camera3D"]
+
+[node name="LightGreyOverlay" type="ColorRect" parent="Head/Camera3D/TransitionLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 648.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.347817, 0.347817, 0.347817, 1)
+
+[node name="DarkGreyOverlay" type="ColorRect" parent="Head/Camera3D/TransitionLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 648.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.136826, 0.136826, 0.136826, 1)
 
 [node name="DebugLayer" type="CanvasLayer" parent="Head/Camera3D"]
 visible = false
