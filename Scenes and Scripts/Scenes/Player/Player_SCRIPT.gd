@@ -160,11 +160,11 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		inventory_opened_in_air = false  # Reset the flag when inventory is closed
 	elif Input.is_action_just_pressed("Exit") and Pause == true and !PauseManager.is_inside_settings:
 		if $Head/Camera3D/PauseLayer.is_visible() == true:
-			ResumeGame()
+			resumeGame()
 		else:
-			PauseGame()
+			pauseGame()
 	elif Input.is_action_just_pressed("Exit") and PauseManager.is_inside_settings:
-		CloseSettings()
+		closeSettings()
 	if Input.is_action_just_pressed("Quit") and Quit == true: # if the Quit input is pressed and the Quit variable is true
 		if GAME_STATE == "NORMAL" or "INVENTORY": # if the game state is normal or inventory
 			if !GAME_STATE == "DEAD":
@@ -179,12 +179,12 @@ func _input(_event): # A built-in function that listens for input using the inpu
 				self.position = ResetPOS # set the player's position to the Reset position 
 				velocity.y = 0.0 # set the player's velocity to 0 
 	if Input.is_action_just_pressed("SaveGame"):
-		SaveAllDataWithAnimation()
+		saveAllDataWithAnimation()
 	if Input.is_action_just_pressed("Inventory") and !PauseManager.is_paused: # if the Inventory input is pressed
 		if GAME_STATE == "NORMAL": # Check if the game state is normal. If it is, open the inventory
-			OpenInventory()
+			openInventory()
 		elif GAME_STATE == "INVENTORY": # Check if the game state is inventory. If it is, close the inventory
-			CloseInventory()
+			closeInventory()
 func _unhandled_input(event): # A built-in function that listens for input
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
 		if GAME_STATE == "INVENTORY" or PauseManager.is_paused: # Check if the game state is inventory
@@ -306,7 +306,7 @@ func _process(_delta):
 ######################################
 
 func _ready():
-	NodeSetup() # Call the NodeSetup function to setup the nodes
+	nodeSetup() # Call the nodeSetup function to setup the nodes
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # lock mouse
 
 	
@@ -328,7 +328,7 @@ func _ready():
 	else:
 		$Head/Camera3D/OverlayLayer/Overlay.hide() # hide the overlay
 	
-func NodeSetup(): # A function to setup the nodes. Called in the _ready function
+func nodeSetup(): # A function to setup the nodes. Called in the _ready function
 	
 	$Head/Camera3D/SettingsLayer/GreyLayer.set_self_modulate(Color(0, 0, 0, 0))
 	$Head/Camera3D/SettingsLayer/GreyLayer.set_visible(false)
@@ -416,6 +416,7 @@ func DeathScreen(): # A function to show the death screen
 	var random_index = randi() % randomtext.size() # get a random index from the random text list
 	$Head/Camera3D/DeathScreen/BlackOverlay/RandomText.text = randomtext[random_index] # set the random text to a random text from the list
 	
+	## Death screen animation is as follows:
 	var tween = get_tree().create_tween() # create a tween
 	tween.connect("finished", _on_death_screen_finished, 1) # connect the finished signal to the death screen finished function
 	
@@ -449,14 +450,14 @@ func DeathScreen(): # A function to show the death screen
 ######################################
 # Inventory
 ######################################
-func CloseInventory():
+func closeInventory():
 	$Head/Camera3D/InventoryLayer.hide() # hide the inventory UI
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor
 	Utils.center_mouse_cursor() # center the mouse cursor
 	GAME_STATE = "NORMAL" # set the game state to normal (so the player can move. This won't save to the file)
 	inventory_opened_in_air = false  # Reset the flag when inventory is closed
 
-func OpenInventory():
+func openInventory():
 	$Head/Camera3D/InventoryLayer.show() # show the inventory UI
 	Utils.center_mouse_cursor() # center the mouse cursor
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # set the mouse mode to visible
@@ -473,26 +474,26 @@ func _on_boundary_area_exited(area):
 ######################################
 # Pausing
 ######################################
-func PauseGame():
+func pauseGame():
 	$Head/Camera3D/PauseLayer.show()
 	PauseManager.is_paused = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # set the mouse mode to visible
 
-func ResumeGame():
+func resumeGame():
 	$Head/Camera3D/PauseLayer.hide()
 	PauseManager.is_paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor
 
 # Handle pause buttons
 func _on_resume_btn_pressed():
-	ResumeGame()
+	resumeGame()
 
 func _on_settings_btn_pressed():
-	OpenSettings()
+	openSettings()
 ######################################
 # Settings
 ######################################
-func OpenSettings():
+func openSettings():
 	PauseManager.is_inside_settings = true
 	$Head/Camera3D/SettingsLayer.set_visible(true)
 	$Head/Camera3D/SettingsLayer/GreyLayer.set_visible(true)
@@ -502,7 +503,7 @@ func OpenSettings():
 	tween.tween_property($Head/Camera3D/SettingsLayer/GreyLayer, "self_modulate", Color(0, 0, 0, 0.8), 0.3)
 	tween.tween_property($Head/Camera3D/SettingsLayer/MainLayer, "scale", Vector2(1.0, 1.0), 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
-func CloseSettings():
+func closeSettings():
 	PlayerSettingsData.SaveSettings()
 	PauseManager.is_inside_settings = false
 	var tween = get_tree().create_tween().set_parallel(true)
@@ -514,7 +515,7 @@ func CloseSettings():
 	tween.tween_property($Head/Camera3D/SettingsLayer/MainLayer, "visible", false, 0)
 	
 func _on_exit_settings_button_pressed():
-	CloseSettings()
+	closeSettings()
 
 func _on_fov_slider_value_changed(value):
 	PlayerSettingsData.FOV = value
@@ -525,7 +526,7 @@ func _on_save_and_quit_btn_pressed():
 	SaveManager.SaveAllData()
 	get_tree().quit()
 
-func SaveAllDataWithAnimation():
+func saveAllDataWithAnimation():
 	if $ManualSaveCooldown.time_left == 0.0:
 		$ManualSaveCooldown.wait_time = 5.0
 		$ManualSaveCooldown.start()
