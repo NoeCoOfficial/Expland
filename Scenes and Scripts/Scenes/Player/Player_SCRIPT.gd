@@ -318,7 +318,7 @@ func _ready():
 	if GAME_STATE == "DEAD": # check if the game state is dead
 		$Head/Camera3D/DeathScreen/BlackOverlay.set_self_modulate(Color(0, 0, 0, 1)) # set the black overlay's self modulate to black
 		$Head/Camera3D/OverlayLayer/Overlay.show() # show the overlay
-		DeathScreen() # call the death screen function
+		showDeathScreen() # call the death screen function
 
 	if Fade_In == true: # check if the fade in variable is true
 		$Head/Camera3D/OverlayLayer/Overlay.show() # show the overlay
@@ -345,7 +345,7 @@ func nodeSetup(): # A function to setup the nodes. Called in the _ready function
 # Health and dying
 ######################################
 
-func TakeDamage(DamageToTake): # A function to take damage from the player 
+func takeDamage(DamageToTake): # A function to take damage from the player 
 	if UseHealth == true: # Check if the UseHealth variable is true
 		Health -= DamageToTake # subtract the damage to take from the health variable
 		PlayerData.Health = Health # set the player data's health to the health variable 
@@ -358,17 +358,17 @@ func TakeDamage(DamageToTake): # A function to take damage from the player
 			PlayerData.GAME_STATE = "DEAD" # set the player data's game state to dead
 			Health = 0 # set the health to 0
 			PlayerData.Health = Health # set the player data's health to 0
-			DeathScreen() # call the death screen function 
+			showDeathScreen() # call the death screen function 
 		else:
-			TakeDamageOverlay() # call the take damage overlay function
-func TakeDamageOverlay(): # Overlay when taking damage 
+			takeDamageOverlay() # call the take damage overlay function
+func takeDamageOverlay(): # Overlay when taking damage 
 	var tween = get_tree().create_tween() # create a tween
 	tween.tween_property($Head/Camera3D/OverlayLayer/RedOverlay, "self_modulate", Color(1, 0.018, 0, 0.808), 0).from(Color(1, 0.016, 0, 0)) # tween the red overlay's self modulate to red
 	tween.tween_property($Head/Camera3D/OverlayLayer/RedOverlay, "self_modulate", Color(1, 0.016, 0, 0), 0.5) # tween the red overlay's self modulate to red
 func _on_respawn(): # A function to respawn the player after death
 	GAME_STATE = "NORMAL" # set the game state to normal
 	PlayerData.GAME_STATE = GAME_STATE # set the player data's game state to the game state
-func RespawnFromDeath(): # A function to respawn the player from death
+func respawnFromDeath(): # A function to respawn the player from death
 	self.position = StartPOS # set the player's position to the start position
 	Health = MaxHealth # set the health to the max health
 	PlayerData.Health = Health # set the player data's health to the health
@@ -376,8 +376,8 @@ func RespawnFromDeath(): # A function to respawn the player from death
 	tween.connect("finished", _on_respawn, 1) # connect the finished signal to the respawn function
 	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay, "self_modulate", Color(0, 0, 0, 0), 3) # tween the black overlay's self modulate to black
 func _on_death_screen_finished(): # A function to call when the death screen is finished 
-	RespawnFromDeath() # call the respawn from death function
-func DeathScreen(): # A function to show the death screen 
+	respawnFromDeath() # call the respawn from death function
+func showDeathScreen(): # A function to show the death screen 
 	var randomtext = [ # a list of random text to display when the player dies
 		"Pull yourself together.", 
 		"Why did you have to die?",
@@ -566,7 +566,7 @@ func hideDarkerBG_SAVEOVERLAY():
 ######################################
 
 func _on_spike_take_damage(DamageTaken): # A function to take damage from the spike
-	TakeDamage(DamageTaken) # call the take damage function
+	takeDamage(DamageTaken) # call the take damage function
 
 func _on_start_debugging_btn_pressed() -> void:
 	if $Head/Camera3D/DebugLayer.is_visible():
