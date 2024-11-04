@@ -531,13 +531,13 @@ func saveAllDataWithAnimation():
 		$ManualSaveCooldown.wait_time = 5.0
 		$ManualSaveCooldown.start()
 		SaveManager.SaveAllData() # Call the save all data function from SaveManager to write all data to save files.
-		ShowLighterBG_SAVEOVERLAY()
+		showLighterBG_SAVEOVERLAY()
 		await get_tree().create_timer(0.2).timeout
-		ShowDarkerBG_SAVEOVERLAY()
+		showDarkerBG_SAVEOVERLAY()
 		await get_tree().create_timer(3.0).timeout
-		HideDarkerBG_SAVEOVERLAY()
+		hideDarkerBG_SAVEOVERLAY()
 		await get_tree().create_timer(0.2).timeout
-		HideLighterBG_SAVEOVERLAY()
+		hideLighterBG_SAVEOVERLAY()
 
 func _on_auto_save_timer_timeout(): # A function to save the player data every 60 seconds (or how long the timer goes for)
 	SaveManager.SaveAllData() # Saves everything
@@ -545,19 +545,19 @@ func _on_auto_save_timer_timeout(): # A function to save the player data every 6
 ######################################
 # Save overlay animation
 ######################################
-func ShowLighterBG_SAVEOVERLAY():
+func showLighterBG_SAVEOVERLAY():
 	var tween = get_tree().create_tween()
 	tween.tween_property($Head/Camera3D/SaveOverlay/LighterBG, "position:x", 850.0, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
-func ShowDarkerBG_SAVEOVERLAY():
+func showDarkerBG_SAVEOVERLAY():
 	var tween = get_tree().create_tween()
 	tween.tween_property($Head/Camera3D/SaveOverlay/DarkerBG, "position:x", 858.0, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
-func HideLighterBG_SAVEOVERLAY():
+func hideLighterBG_SAVEOVERLAY():
 	var tween = get_tree().create_tween()
 	tween.tween_property($Head/Camera3D/SaveOverlay/LighterBG, "position:x", 1700.0, 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
 
-func HideDarkerBG_SAVEOVERLAY():
+func hideDarkerBG_SAVEOVERLAY():
 	var tween = get_tree().create_tween()
 	tween.tween_property($Head/Camera3D/SaveOverlay/DarkerBG, "position:x", 1796.0, 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
 
