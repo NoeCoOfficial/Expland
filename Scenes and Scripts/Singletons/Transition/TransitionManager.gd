@@ -95,6 +95,13 @@ func ChangeSceneWithAnimation(sceneToChangeTo, animationOrigin : String, animati
 
 
 
-func animateColorRect(colorRectNode, x : float, y : float, animationTime : float):
+func animateColorRect_IN(colorRectNode, x : float, y : float, animationTime : float, animationType : String):
+	var typeOfAnimation
+
+	if animationType == "BOUNCE":
+		typeOfAnimation = Tween.TRANS_BOUNCE
+	elif animationType == "EXPO":
+		typeOfAnimation = Tween.TRANS_EXPO
+		
 	var tween = get_tree().create_tween()
-	tween.tween_property(colorRectNode, "position", Vector2(x, y), animationTime)
+	tween.tween_property(colorRectNode, "position", Vector2(x, y), animationTime).set_ease(Tween.EASE_OUT).set_trans(typeOfAnimation)
