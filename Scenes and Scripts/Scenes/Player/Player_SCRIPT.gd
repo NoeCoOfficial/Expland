@@ -530,7 +530,7 @@ func saveAllDataWithAnimation():
 	if $ManualSaveCooldown.time_left == 0.0:
 		$ManualSaveCooldown.wait_time = 5.0
 		$ManualSaveCooldown.start()
-		SaveManager.SaveAllData()
+		SaveManager.SaveAllData() # Call the save all data function from SaveManager to write all data to save files.
 		ShowLighterBG_SAVEOVERLAY()
 		await get_tree().create_timer(0.2).timeout
 		ShowDarkerBG_SAVEOVERLAY()
