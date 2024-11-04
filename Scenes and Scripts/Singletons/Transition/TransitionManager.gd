@@ -46,9 +46,9 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 
-func ChangeSceneWithAnimation(scene, animationOrigin : String, animationTime : float, pathToDarkOverlay, pathToLightOverlay):
+func ChangeSceneWithAnimation(sceneToChangeTo, animationOrigin : String, animationTime : float, pathToDarkOverlay, pathToLightOverlay):
 
-	if load(scene):
+	if load(sceneToChangeTo) != null:
 		if pathToDarkOverlay == null or pathToLightOverlay == null:
 
 			if get_node("/root/World/Player/Head/Camera/TransitionLayer/DarkGreyOverlay") != null and get_node("/root/World/Player/Head/Camera/TransitionLayer/LightGreyOverlay") != null:
@@ -91,7 +91,7 @@ func ChangeSceneWithAnimation(scene, animationOrigin : String, animationTime : f
 			pass
 			# create ColorRect from path logic
 	else:
-		printerr("[TransitionManager] Failed loading scene: " + str(scene))
+		printerr("[TransitionManager] Failed loading scene: " + str(sceneToChangeTo))
 
 
 
