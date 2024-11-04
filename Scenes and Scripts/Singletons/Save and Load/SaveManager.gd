@@ -41,5 +41,5 @@ func _ready():
 	PlayerSettingsData.LoadSettings()
 
 func saveAllData():
-	PlayerData.SaveData()
+	PlayerData.saveData()
 	PlayerSettingsData.SaveSettings()
