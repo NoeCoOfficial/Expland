@@ -41,6 +41,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="z_index" type="Label" parent="."]
+self_modulate = Color(1, 1, 1, 0.529412)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

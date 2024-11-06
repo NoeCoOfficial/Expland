@@ -33,7 +33,7 @@ func _ready():
 func _process(delta):
 	
 	# debugging
-	$z_index.text = str(self.z_index)
+	$z_index.text = "z_index = " + str(self.z_index)
 	
 	
 	if debounce_timer > 0:
