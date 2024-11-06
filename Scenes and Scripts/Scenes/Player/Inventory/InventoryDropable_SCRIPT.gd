@@ -60,9 +60,9 @@ func _process(delta):
 				InventoryManager.create_pickup_object()
 			else:
 				InventoryManager.is_dragging = false
-				# debugging
 				self.z_index = 0
 				var slotNumber = slot[4]
+				# debugging
 				var debug_slot_number_label = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/debug_slot_info")
 				debug_slot_number_label.text = "You just released on slot number: " + slotNumber
 				
