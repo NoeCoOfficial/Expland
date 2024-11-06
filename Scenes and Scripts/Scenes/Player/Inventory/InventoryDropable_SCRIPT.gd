@@ -14,6 +14,7 @@ var can_create_pickup = true
 @onready var mouse_over_timer = $MouseOverTimer
 
 func _ready():
+	self.z_index = 0
 	$ITEM_TYPE.text = ITEM_TYPE.capitalize()
 	if "REDFLOWER" in ITEM_TYPE:
 		$ITEM_TYPE.text = "Red Flower"
@@ -31,6 +32,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
+	# debugging
+	$z_index.text = str(self.z_index)
+	
+	
 	if debounce_timer > 0:
 		debounce_timer -= delta
 	else:
@@ -41,6 +46,7 @@ func _process(delta):
 			if mouse_over_timer.time_left == 0:
 				initialPos = global_position
 				InventoryManager.is_dragging = true
+				self.z_index = 10
 				InventoryManager.item_ref = ITEM_TYPE
 		if Input.is_action_pressed("inventory_click") and InventoryManager.is_dragging:
 			global_position = get_global_mouse_position()
@@ -55,6 +61,7 @@ func _process(delta):
 			else:
 				InventoryManager.is_dragging = false
 				# debugging
+				self.z_index = 0
 				var slotNumber = slot[4]
 				var debug_slot_number_label = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/debug_slot_info")
 				debug_slot_number_label.text = "You just released on slot number: " + slotNumber
