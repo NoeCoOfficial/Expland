@@ -4,7 +4,7 @@
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="2_qromc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mgv10"]
-size = Vector2(75, 75)
+size = Vector2(60, 60)
 
 [node name="Dropable" type="Node2D"]
 script = ExtResource("1_opaah")

@@ -36,9 +36,10 @@
 
 extends StaticBody2D
 
-var populated = false
+@export var populated = false
 
 func _ready():
+	await get_tree().create_timer(0.1).timeout
 	modulate = Color(1, 1, 1, 0.2)
 
 
@@ -47,3 +48,8 @@ func _process(_delta):
 		visible = true
 	else:
 		visible = false
+
+
+func _on_already_populated_detector_area_entered(_area: Area2D) -> void:
+	if !InventoryManager.is_dragging:
+		populated = true
