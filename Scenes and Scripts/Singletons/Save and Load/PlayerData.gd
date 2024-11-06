@@ -41,7 +41,7 @@ const SAVE_PATH = "res://player.dat"
 var GAME_STATE = "NORMAL"
 var Health := 100
 
-func SaveData() -> void:
+func saveData() -> void:
 	var player = get_node("/root/World/Player")
 	var playerHead = get_node("/root/World/Player/Head")
 	var playerCamera = get_node("/root/World/Player/Head/Camera3D")
@@ -63,7 +63,7 @@ func SaveData() -> void:
 		printerr("[PlayerData] Player node not found. SaveData failed.")
 
 
-func LoadData() -> void:
+func loadData() -> void:
 	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
 	if not file:
 		push_warning("[PlayerData] File doesn't exist (" + SAVE_PATH + ")")
@@ -104,4 +104,3 @@ func LoadData() -> void:
 				THIS MEANS THAT YOUR SCENE NEEDS A ROOT NODE CALLED 'World' 
 				AND THE PLAYER NEEDS TO BE A CHILD OF THAT ROOT NODE AND CALLED 'Player'.")
 		file.close()
-

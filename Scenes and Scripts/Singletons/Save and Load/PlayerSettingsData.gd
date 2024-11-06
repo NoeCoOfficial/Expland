@@ -43,7 +43,7 @@ var music_Volume = 1
 var sfx_Volume = 1
 var Master_Volume = 1
 
-func SaveSettings() -> void:
+func saveSettings() -> void:
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	var data = {
 		"sfx_Volume" : sfx_Volume,
@@ -55,7 +55,7 @@ func SaveSettings() -> void:
 	file.store_line(jstr)
 	print("[PlayerSettingsData] --Saved Player Settings--")
 
-func LoadSettings() -> void:
+func loadSettings() -> void:
 	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
 	if not file:
 		push_warning("[PlayerSettingsData] File doesn't exist (" + SAVE_PATH + ")")

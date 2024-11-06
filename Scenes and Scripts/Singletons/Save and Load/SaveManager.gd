@@ -37,8 +37,8 @@
 extends Node
 
 func _ready():
-	PlayerData.LoadData()
-	PlayerSettingsData.LoadSettings()
+	PlayerData.loadData()
+	PlayerSettingsData.loadSettings()
 
 func saveAllData():
 	PlayerData.saveData()
