@@ -205,7 +205,6 @@ texture = ExtResource("2_606ex")
 expand_mode = 1
 
 [node name="InventoryLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="Background" type="Panel" parent="Head/Camera3D/InventoryLayer"]
 anchors_preset = 8
@@ -314,10 +313,6 @@ position = Vector2(575, 452)
 [node name="Slot9" parent="Head/Camera3D/InventoryLayer" groups=["Slot9"] instance=ExtResource("8_ads4s")]
 position = Vector2(682, 452)
 
-[node name="Dropable" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("9_w7on1")]
-position = Vector2(470, 237)
-ITEM_TYPE = "ROCK"
-
 [node name="Dropable2" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("9_w7on1")]
 position = Vector2(576, 237)
 ITEM_TYPE = "ROCK"
@@ -370,6 +365,7 @@ position = Vector2(981, 380)
 shape = SubResource("RectangleShape2D_47l1q")
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/DeathScreen"]
 anchors_preset = 15
@@ -421,6 +417,7 @@ vertical_alignment = 1
 script = ExtResource("11_0enap")
 
 [node name="OverlayLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="RedOverlay" type="ColorRect" parent="Head/Camera3D/OverlayLayer"]
 process_priority = 10
@@ -447,6 +444,7 @@ color = Color(0, 0, 0, 1)
 script = ExtResource("8_uxqns")
 
 [node name="InteractionLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="InteractionHUD" parent="Head/Camera3D/InteractionLayer" instance=ExtResource("16_8a1wo")]
 offset_left = -183.0
@@ -808,6 +806,7 @@ text = "EXIT"
 script = ExtResource("16_wg7d4")
 
 [node name="SaveOverlay" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="LighterBG" type="ColorRect" parent="Head/Camera3D/SaveOverlay"]
 anchors_preset = -1
@@ -845,6 +844,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="TransitionLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="LightGreyOverlay" type="ColorRect" parent="Head/Camera3D/TransitionLayer"]
 anchors_preset = -1
@@ -942,7 +942,6 @@ vertical_alignment = 1
 [connection signal="value_changed" from="Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Video/FOVSlider" to="." method="_on_fov_slider_value_changed"]
 [connection signal="pressed" from="Head/Camera3D/SettingsLayer/MainLayer/ExitSettingsButton" to="." method="_on_exit_settings_button_pressed"]
 
-[editable path="Head/Camera3D/InventoryLayer/Dropable"]
 [editable path="Head/Camera3D/InventoryLayer/Dropable2"]
 [editable path="Head/Camera3D/InventoryLayer/Dropable3"]
 [editable path="Head/Camera3D/InventoryLayer/Dropable4"]

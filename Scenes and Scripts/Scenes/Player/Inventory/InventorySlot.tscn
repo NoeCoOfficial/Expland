@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhhjltxmoydio"]
+[gd_scene load_steps=5 format=3 uid="uid://dhhjltxmoydio"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Inventory/InventorySlot_SCRIPT.gd" id="1_bxl3d"]
 [ext_resource type="Texture2D" uid="uid://dhnn7my6ghg0d" path="res://Textures/Inventory/Slot/InventorySlotTexture.png" id="2_2mtlq"]
@@ -7,16 +7,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5yu5"]
 size = Vector2(25, 25)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjfx2"]
-size = Vector2(25, 25)
-
 [node name="Slot" type="StaticBody2D" groups=["dropable"]]
 script = ExtResource("1_bxl3d")
-
-[node name="AlreadyPopulatedTimer" type="Timer" parent="."]
-wait_time = 0.1
-one_shot = true
-autostart = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_q5yu5")
@@ -36,11 +28,6 @@ grow_vertical = 2
 texture = ExtResource("2_2mtlq")
 expand_mode = 1
 
-[node name="AlreadyPopulatedDetector" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AlreadyPopulatedDetector"]
-shape = SubResource("RectangleShape2D_tjfx2")
-
 [node name="populated?" type="Label" parent="."]
 offset_left = -19.0
 offset_top = 44.0
@@ -50,5 +37,3 @@ theme = ExtResource("3_vjmb3")
 text = "true"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[connection signal="area_entered" from="AlreadyPopulatedDetector" to="." method="_on_already_populated_detector_area_entered"]

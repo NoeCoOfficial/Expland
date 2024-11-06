@@ -49,8 +49,3 @@ func _process(_delta):
 		visible = true
 	else:
 		visible = false
-
-
-func _on_already_populated_detector_area_entered(_area: Area2D) -> void:
-	if !InventoryManager.is_dragging:
-		populated = true
