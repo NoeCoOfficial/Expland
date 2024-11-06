@@ -49,3 +49,6 @@ func _process(_delta):
 		visible = true
 	else:
 		visible = false
+
+
+## TODO: fix goofy ahh not populated detection bug
