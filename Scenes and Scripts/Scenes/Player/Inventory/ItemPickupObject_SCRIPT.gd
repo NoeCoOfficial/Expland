@@ -29,7 +29,7 @@ func _ready():
 	if LOADED_OBJECT == null:
 		print("Failed to load object: ", PATH_TO_OBJECT)
 	else:
-		print("Object loaded successfully!")
+		print("Object loaded successfully! Path: " + PATH_TO_OBJECT)
 		
 		instantiated_object = LOADED_OBJECT.instantiate() # create an instance of the object
 		self.add_child(instantiated_object) # add it to the scene
