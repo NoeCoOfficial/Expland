@@ -40,25 +40,6 @@ text = "ITEM_TYPE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="z_index" type="Label" parent="."]
-self_modulate = Color(1, 1, 1, 0.529412)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -39.0
-offset_top = -69.5
-offset_right = 39.0
-offset_bottom = -46.5
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("2_qromc")
-theme_override_font_sizes/font_size = 10
-text = "z_index = 0"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

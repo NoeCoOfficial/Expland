@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhhjltxmoydio"]
+[gd_scene load_steps=6 format=3 uid="uid://dhhjltxmoydio"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Inventory/InventorySlot_SCRIPT.gd" id="1_bxl3d"]
 [ext_resource type="Texture2D" uid="uid://dhnn7my6ghg0d" path="res://Textures/Inventory/Slot/InventorySlotTexture.png" id="2_2mtlq"]
+[ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="3_vjmb3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5yu5"]
 size = Vector2(25, 25)
@@ -39,5 +40,15 @@ expand_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AlreadyPopulatedDetector"]
 shape = SubResource("RectangleShape2D_tjfx2")
+
+[node name="populated?" type="Label" parent="."]
+offset_left = -19.0
+offset_top = 44.0
+offset_right = 21.0
+offset_bottom = 67.0
+theme = ExtResource("3_vjmb3")
+text = "true"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="area_entered" from="AlreadyPopulatedDetector" to="." method="_on_already_populated_detector_area_entered"]

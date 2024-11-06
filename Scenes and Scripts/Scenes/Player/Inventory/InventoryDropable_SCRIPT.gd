@@ -32,10 +32,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
-	# debugging
-	$z_index.text = "z_index = " + str(self.z_index)
-	
-	
 	if debounce_timer > 0:
 		debounce_timer -= delta
 	else:
