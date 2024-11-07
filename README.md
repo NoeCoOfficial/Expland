@@ -14,19 +14,22 @@
 **Expland** is an upcoming 3D single-player adventure-horror game by **Noe Co**, that invites you to face adversity and explore a mysterious world.
 This is the official GitHub repository for the game, where all changes and commits are made. You may open a pull request or issue if you want to contribute to the game.
 
-## 👥 Authors
+## 👥 Authors and contributors
 
-**Expland** is brought to you by:
+### Authors
 
 - **Sebastian Suciu** ([@sebashtioon](https://github.com/sebashtioon)): 3D Assets, Code and Game development
 - **Tristan Taylor** ([@GoatsAreTB](https://github.com/GoatsAreTB)): 3D and 2D Assets, Music, Storyboarding and Lore
+
+### Contributors
+- **Ingo Wolf** ([@Inglan](https://github.com/Inglan)): [Issue #25](https://github.com/NoeCoOfficial/Expland/issues/25)
 
 ## 🎨 Dedications
 
 A special thanks to everyone who has supported us throughout the development of **Expland**. Your encouragement and feedback mean the world to us.
 
 - **Melinda Timpson**, for being the world's greatest school teacher.
-- **Erik Miller**, another founder of Noe Co., who left to persue other things.
+- **Erik Miller**, another founder of Noe Co., who left to pursue other things.
 
 <!--## 🎉 Credits
 
