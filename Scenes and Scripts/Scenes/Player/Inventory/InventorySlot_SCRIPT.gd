@@ -33,17 +33,21 @@
 #                   For inquiries, contact:                     #
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
+
 extends StaticBody2D
 
 @export var populated = false
 
 func _ready():
+	await get_tree().create_timer(0.1).timeout
 	modulate = Color(1, 1, 1, 0.2)
 
-func set_populated(is_populated : bool):
-	if is_populated != populated:
-		if is_populated:
-			print("Populated!")
-		else:
-			print("Unpopulated!")
-	populated = is_populated
+
+func _process(_delta):
+	if InventoryManager.is_dragging:
+		visible = true
+	else:
+		visible = false
+
+
+## TODO: fix goofy ahh not populated detection bug

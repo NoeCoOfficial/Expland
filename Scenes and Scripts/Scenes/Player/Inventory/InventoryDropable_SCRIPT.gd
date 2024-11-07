@@ -1,3 +1,39 @@
+# ============================================================= #
+# InventoryDropable_SCRIPT.gd
+# ============================================================= #
+#                       COPYRIGHT NOTICE                        #
+#                           Noe Co.                             #
+#                   2024 - All Rights Reserved                  #
+#                                                               #
+#                         MIT License                           #
+#                                                               #
+# Permission is hereby granted, free of charge, to any          #
+# person obtaining a copy of this software and associated       #
+# documentation files (the "Software"), to deal in the          #
+# Software without restriction, including without limitation    #
+# the rights to use, copy, modify, merge, publish, distribute,  #
+# sublicense, and/or sell copies of the Software, and to        #
+# permit persons to whom the Software is furnished to do so,    #
+# subject to the following conditions:                          #
+#                                                               #
+# 1. The above copyright notice and this permission notice      #
+#    shall be included in all copies or substantial portions    #
+#    of the Software.                                           #
+#                                                               #
+# 2. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF      #
+#    ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED    #
+#    TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A        #
+#    PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL  #
+#    THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,  #
+#    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF        #
+#    CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN    #
+#    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER           #
+#    DEALINGS IN THE SOFTWARE.                                  #
+#                                                               #
+#                   For inquiries, contact:                     #
+#                  noeco.official@gmail.com                     #
+# ============================================================= #
+
 extends Node2D
 
 var draggable = false
@@ -31,6 +67,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
 	if debounce_timer > 0:
 		debounce_timer -= delta
 	else:
@@ -56,37 +93,36 @@ func _process(delta):
 			else:
 				InventoryManager.is_dragging = false
 				self.z_index = 0
-				if slot and slot.length() > 4:
-					var slotNumber = slot[4]
-					# debugging
-					var debug_slot_number_label = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/debug_slot_info")
-					debug_slot_number_label.text = "You just released on slot number: " + slotNumber
+				var slotNumber = slot[4]
+				# debugging
+				var debug_slot_number_label = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/debug_slot_info")
+				debug_slot_number_label.text = "You just released on slot number: " + slotNumber
 				
 				var tween = get_tree().create_tween()
 				if is_inside_dropable and !InventoryManager.is_inside_checker:
 					tween.tween_property(self, "position", body_ref.position, SNAP_TIME)
-					if body_ref.has_method("set_populated"):
-						body_ref.set_populated(true)
 				else:
 					tween.tween_property(self, "global_position", initialPos, SNAP_TIME)
-					if body_ref and body_ref.has_method("set_populated"):
-						body_ref.set_populated(false)
-				draggable = false
 			if mouse_over_timer.is_inside_tree():
 				mouse_over_timer.start() # Restart the timer when the item is placed down
 
 func _on_area_2d_body_entered(body):
-	if body.is_in_group("dropable"):
-		is_inside_dropable = true
-		body_ref = body
+		
+	if body.is_in_group("dropable") and !InventoryManager.is_inside_checker:
+		# Get the name of the node and convert it to a String
 		slot = body.get_name() as String
+		is_inside_dropable = true
+		
+		var tween = get_tree().create_tween()
+		tween.tween_property(body, "modulate", Color(1, 1, 1, 1), 0.2)
+		body_ref = body
 
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("dropable"):
 		is_inside_dropable = false
-		if body_ref == body:
-			body_ref = null
-			slot = null
+		
+		var tween = get_tree().create_tween()
+		tween.tween_property(body, "modulate", Color(1, 1, 1, 0.2), 0.2)
 
 func _on_area_2d_mouse_entered():
 	if not InventoryManager.is_dragging:
@@ -102,9 +138,11 @@ func _on_area_2d_mouse_exited():
 func _on_mouse_over_timeout():
 	draggable = true
 
+
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("draggable"):
 		InventoryManager.is_inside_checker = true
+
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area.is_in_group("draggable"):
