@@ -33,7 +33,6 @@
 #                   For inquiries, contact:                     #
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
-
 extends StaticBody2D
 
 @export var populated = false
@@ -41,16 +40,10 @@ extends StaticBody2D
 func _ready():
 	modulate = Color(1, 1, 1, 0.2)
 
-
-func _process(_delta):
-	if InventoryManager.is_dragging:
-		visible = true
-	else:
-		visible = false
-
-
 func set_populated(is_populated : bool):
-	if is_populated:
-		print("Populated!")
-	else:
-		print("Not Populated!")
+	if is_populated != populated:
+		if is_populated:
+			print("Populated!")
+		else:
+			print("Unpopulated!")
+	populated = is_populated

@@ -31,7 +31,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
 	if debounce_timer > 0:
 		debounce_timer -= delta
 	else:
@@ -57,10 +56,11 @@ func _process(delta):
 			else:
 				InventoryManager.is_dragging = false
 				self.z_index = 0
-				var slotNumber = slot[4]
-				# debugging
-				var debug_slot_number_label = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/debug_slot_info")
-				debug_slot_number_label.text = "You just released on slot number: " + slotNumber
+				if slot and slot.length() > 4:
+					var slotNumber = slot[4]
+					# debugging
+					var debug_slot_number_label = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/debug_slot_info")
+					debug_slot_number_label.text = "You just released on slot number: " + slotNumber
 				
 				var tween = get_tree().create_tween()
 				if is_inside_dropable and !InventoryManager.is_inside_checker:
@@ -69,25 +69,24 @@ func _process(delta):
 						body_ref.set_populated(true)
 				else:
 					tween.tween_property(self, "global_position", initialPos, SNAP_TIME)
+					if body_ref and body_ref.has_method("set_populated"):
+						body_ref.set_populated(false)
+				draggable = false
 			if mouse_over_timer.is_inside_tree():
 				mouse_over_timer.start() # Restart the timer when the item is placed down
 
 func _on_area_2d_body_entered(body):
-	if body.is_in_group("dropable") and !InventoryManager.is_inside_checker:
-		# Get the name of the node and convert it to a String
-		slot = body.get_name() as String
+	if body.is_in_group("dropable"):
 		is_inside_dropable = true
-		
-		var tween = get_tree().create_tween()
-		tween.tween_property(body, "modulate", Color(1, 1, 1, 1), 0.2)
 		body_ref = body
+		slot = body.get_name() as String
 
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("dropable"):
 		is_inside_dropable = false
-		
-		var tween = get_tree().create_tween()
-		tween.tween_property(body, "modulate", Color(1, 1, 1, 0.2), 0.2)
+		if body_ref == body:
+			body_ref = null
+			slot = null
 
 func _on_area_2d_mouse_entered():
 	if not InventoryManager.is_dragging:
@@ -103,11 +102,9 @@ func _on_area_2d_mouse_exited():
 func _on_mouse_over_timeout():
 	draggable = true
 
-
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("draggable"):
 		InventoryManager.is_inside_checker = true
-
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area.is_in_group("draggable"):
