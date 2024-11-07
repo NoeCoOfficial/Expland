@@ -267,17 +267,22 @@ func _headbob(time) -> Vector3:
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP # set the y position to the sine of the time times the bob frequency times the bob amplitude
 	return pos # return the position
 func _process(_delta):
-	# debugging
+	
+	
 	var time_now = Time.get_time_dict_from_system()
 	var hours = time_now["hour"]
 	var minutes = time_now["minute"]
 	var seconds = time_now["second"]
-	
 	# Format the time as HH:MM:SS
 	var time_string = str(hours).pad_zeros(2) + ":" + str(minutes).pad_zeros(2) + ":" + str(seconds).pad_zeros(2)
+	
 	# Update the label text
+	$Head/Camera3D/DebugLayer/player_position.text = "Player position: " + str(self.position)
+	$Head/Camera3D/DebugLayer/player_velocity_y.text = "velocity.y = " + str(round(velocity.y))
+	$Head/Camera3D/DebugLayer/player_velocity_y_accurate.text = str(velocity.y)
 	$Head/Camera3D/DebugLayer/current_time.text = time_string
-	$Head/Camera3D/DebugLayer/item_ref_LBL.text = "item_ref = "+InventoryManager.item_ref
+	$Head/Camera3D/DebugLayer/is_on_floor.text = "is_on_floor() = " + str(is_on_floor())
+	$Head/Camera3D/DebugLayer/item_ref_LBL.text = "item_ref = " + InventoryManager.item_ref
 	$Head/Camera3D/DebugLayer/current_fps.text = "FPS: %d" % Engine.get_frames_per_second()
 	$Head/Camera3D/DebugLayer/is_raycast_colliding.text = "RayCast colliding? " + str(InteractionManager.is_colliding)
 	$Head/Camera3D/DebugLayer/showing_interaction_notification.text = "Showing notification? " + str(InteractionManager.is_notification_on_screen)

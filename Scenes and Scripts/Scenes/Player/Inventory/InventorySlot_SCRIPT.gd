@@ -44,7 +44,6 @@ func _ready():
 
 
 func _process(_delta):
-	$"populated?".text = str(populated)
 	if InventoryManager.is_dragging:
 		visible = true
 	else:

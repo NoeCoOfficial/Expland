@@ -13,7 +13,7 @@ config_version=5
 config/name="Expland"
 config/description="Expland
 "
-config/version="0.2.0"
+config/version="0.3.0"
 config/tags=PackedStringArray("3d", "noeco", "official")
 run/main_scene="res://Scenes and Scripts/Scenes/World/world.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")

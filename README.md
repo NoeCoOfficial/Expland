@@ -5,7 +5,7 @@
 </p>
 
 ---
-<h3 align="center">Current version: v0.2.0 (pre-release)</h3>
+<h3 align="center">Current version: v0.3.0 (pre-release)</h3>
 <h5 align="center">Any questions? See the FAQ below, or contact us via email at <i>noeco.official@gmail.com.</i></h5>
   
 ---
@@ -63,6 +63,3 @@ _Note: If you get a popup saying that "Windows protected your PC", simply click 
 
 ### I found an issue/bug. Where can I report it?
 You can open a new issue on GitHub by going to this [link](https://github.com/NoeCoOfficial/Expland/issues/new/choose). We have templates for different issues.
-
-
-
