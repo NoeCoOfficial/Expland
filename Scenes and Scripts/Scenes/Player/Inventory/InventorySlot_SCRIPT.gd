@@ -39,7 +39,6 @@ extends StaticBody2D
 @export var populated = false
 
 func _ready():
-	await get_tree().create_timer(0.1).timeout
 	modulate = Color(1, 1, 1, 0.2)
 
 
@@ -50,4 +49,8 @@ func _process(_delta):
 		visible = false
 
 
-## TODO: fix goofy ahh not populated detection bug
+func set_populated(is_populated : bool):
+	if is_populated:
+		print("Populated!")
+	else:
+		print("Not Populated!")

@@ -65,13 +65,14 @@ func _process(delta):
 				var tween = get_tree().create_tween()
 				if is_inside_dropable and !InventoryManager.is_inside_checker:
 					tween.tween_property(self, "position", body_ref.position, SNAP_TIME)
+					if body_ref.has_method("set_populated"):
+						body_ref.set_populated(true)
 				else:
 					tween.tween_property(self, "global_position", initialPos, SNAP_TIME)
 			if mouse_over_timer.is_inside_tree():
 				mouse_over_timer.start() # Restart the timer when the item is placed down
 
 func _on_area_2d_body_entered(body):
-		
 	if body.is_in_group("dropable") and !InventoryManager.is_inside_checker:
 		# Get the name of the node and convert it to a String
 		slot = body.get_name() as String
