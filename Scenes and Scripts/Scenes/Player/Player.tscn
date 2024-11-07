@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=43 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -24,6 +24,7 @@
 [ext_resource type="StyleBox" uid="uid://com3tix0pshhk" path="res://Resources/Styles and Themes/Styles/Default/Label/Default_Label.tres" id="19_nviyp"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Settings/Volume/MusicSlider_SCRIPT.gd" id="20_124b5"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Settings/Volume/SFXSlider_SCRIPT.gd" id="21_fi5yi"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Debug/inputs_currently_pressing_SCRIPT.gd" id="25_h5s3l"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_w6tro"]
 
@@ -991,6 +992,7 @@ grow_vertical = 0
 theme = ExtResource("17_rhxkt")
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("25_h5s3l")
 
 [connection signal="timeout" from="AutoSaveTimer" to="." method="_on_auto_save_timer_timeout"]
 [connection signal="area_entered" from="Head/Camera3D/InventoryLayer/Boundary" to="." method="_on_boundary_area_entered"]
