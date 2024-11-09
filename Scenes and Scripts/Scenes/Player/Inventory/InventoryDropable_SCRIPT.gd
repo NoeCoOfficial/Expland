@@ -36,12 +36,14 @@
 
 extends Node2D
 
+
 var draggable = false
 var is_inside_dropable = false
 var body_ref
 var initialPos: Vector2
 var offset: Vector2
 var slot
+var slot_inside
 @export var ITEM_TYPE: String ## The type of the item that the Sprite2D is holding.
 var SNAP_TIME = 0.0
 var debounce_timer = 0.2 # Debounce time in seconds
@@ -101,6 +103,10 @@ func _process(delta):
 				var tween = get_tree().create_tween()
 				if is_inside_dropable and !InventoryManager.is_inside_checker:
 					tween.tween_property(self, "position", body_ref.position, SNAP_TIME)
+					if body_ref.has_method("set_populated"):
+						body_ref.set_populated(true)
+					else:
+						print("{LOCAL} [InventoryDropable_SCRIPT.gd] " + body_ref + " does not have method: set_populated()")
 				else:
 					tween.tween_property(self, "global_position", initialPos, SNAP_TIME)
 			if mouse_over_timer.is_inside_tree():

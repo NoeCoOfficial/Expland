@@ -61,6 +61,7 @@ func set_populated(populatedValue : bool):
 		populated = true
 		print("{LOCAL} [InventorySlot_SCRIPT.gd] Populated, Slot: " + str(name))
 	else:
+		print("{LOCAL} [InventorySlot_SCRIPT.gd] Empty, Slot: " + str(name))
 		populated = false
 
 func _on_draggable_detector_area_entered(area: Area2D) -> void:
