@@ -74,7 +74,7 @@ func _process(delta):
 	else:
 		can_create_pickup = true
 
-	if draggable:
+	if draggable:                                                                    
 		if Input.is_action_just_pressed("inventory_click"):
 			if mouse_over_timer.time_left == 0:
 				initialPos = global_position
