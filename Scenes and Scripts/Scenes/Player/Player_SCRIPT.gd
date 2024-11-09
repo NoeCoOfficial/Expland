@@ -185,6 +185,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			openInventory()
 		elif GAME_STATE == "INVENTORY": # Check if the game state is inventory. If it is, close the inventory
 			closeInventory()
+
 func _unhandled_input(event): # A built-in function that listens for input
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
 		if GAME_STATE == "INVENTORY" or PauseManager.is_paused: # Check if the game state is inventory
@@ -266,6 +267,7 @@ func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO # set the position to zero
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP # set the y position to the sine of the time times the bob frequency times the bob amplitude
 	return pos # return the position
+
 func _process(_delta):
 	
 	## DEBUGGING
@@ -335,9 +337,8 @@ func _ready():
 		tween.tween_property($Head/Camera3D/OverlayLayer/Overlay, "visible", false, 0) # tween the overlay's visibility to false
 	else:
 		$Head/Camera3D/OverlayLayer/Overlay.hide() # hide the overlay
-	
+
 func nodeSetup(): # A function to setup the nodes. Called in the _ready function
-	
 	$Head/Camera3D/SettingsLayer/GreyLayer.set_self_modulate(Color(0, 0, 0, 0))
 	$Head/Camera3D/SettingsLayer/GreyLayer.set_visible(false)
 	Utils.set_center_offset($Head/Camera3D/SettingsLayer/MainLayer)
@@ -369,13 +370,16 @@ func takeDamage(DamageToTake): # A function to take damage from the player
 			showDeathScreen() # call the death screen function 
 		else:
 			takeDamageOverlay() # call the take damage overlay function
+
 func takeDamageOverlay(): # Overlay when taking damage 
 	var tween = get_tree().create_tween() # create a tween
 	tween.tween_property($Head/Camera3D/OverlayLayer/RedOverlay, "self_modulate", Color(1, 0.018, 0, 0.808), 0).from(Color(1, 0.016, 0, 0)) # tween the red overlay's self modulate to red
 	tween.tween_property($Head/Camera3D/OverlayLayer/RedOverlay, "self_modulate", Color(1, 0.016, 0, 0), 0.5) # tween the red overlay's self modulate to red
+
 func _on_respawn(): # A function to respawn the player after death
 	GAME_STATE = "NORMAL" # set the game state to normal
 	PlayerData.GAME_STATE = GAME_STATE # set the player data's game state to the game state
+
 func respawnFromDeath(): # A function to respawn the player from death
 	self.position = StartPOS # set the player's position to the start position
 	Health = MaxHealth # set the health to the max health
@@ -383,8 +387,10 @@ func respawnFromDeath(): # A function to respawn the player from death
 	var tween = get_tree().create_tween() # create a tween
 	tween.connect("finished", _on_respawn, 1) # connect the finished signal to the respawn function
 	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay, "self_modulate", Color(0, 0, 0, 0), 3) # tween the black overlay's self modulate to black
+
 func _on_death_screen_finished(): # A function to call when the death screen is finished 
 	respawnFromDeath() # call the respawn from death function
+
 func showDeathScreen(): # A function to show the death screen 
 	var randomtext = [ # a list of random text to display when the player dies
 		"Pull yourself together.", 
@@ -455,9 +461,11 @@ func showDeathScreen(): # A function to show the death screen
 	
 	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay, "color", Color(1, 1, 1, 1), 0) # tween the black overlay's color to white
 	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay, "self_modulate", Color(1, 1, 1, 1), 3) # tween the black overlay's self modulate to white
+
 ######################################
 # Inventory
 ######################################
+
 func closeInventory():
 	$Head/Camera3D/InventoryLayer.hide() # hide the inventory UI
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor
@@ -482,6 +490,7 @@ func _on_boundary_area_exited(area):
 ######################################
 # Pausing
 ######################################
+
 func pauseGame():
 	$Head/Camera3D/PauseLayer.show()
 	PauseManager.is_paused = true
@@ -492,7 +501,6 @@ func resumeGame():
 	PauseManager.is_paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor
 
-# Handle pause buttons
 func _on_resume_btn_pressed():
 	resumeGame()
 
@@ -501,6 +509,7 @@ func _on_settings_btn_pressed():
 ######################################
 # Settings
 ######################################
+
 func openSettings():
 	PauseManager.is_inside_settings = true
 	$Head/Camera3D/SettingsLayer.set_visible(true)
@@ -521,7 +530,7 @@ func closeSettings():
 	tween.tween_property($Head/Camera3D/SettingsLayer/GreyLayer, "visible", false, 0)
 	tween.tween_property($Head/Camera3D/SettingsLayer, "visible", false, 0)
 	tween.tween_property($Head/Camera3D/SettingsLayer/MainLayer, "visible", false, 0)
-	
+
 func _on_exit_settings_button_pressed():
 	closeSettings()
 
@@ -530,6 +539,7 @@ func _on_fov_slider_value_changed(value):
 ######################################
 # Saving
 ######################################
+
 func _on_save_and_quit_btn_pressed():
 	SaveManager.saveAllData()
 	get_tree().quit()
@@ -553,6 +563,7 @@ func _on_auto_save_timer_timeout(): # A function to save the player data every 6
 ######################################
 # Save overlay animation
 ######################################
+
 func showLighterBG_SAVEOVERLAY():
 	var tween = get_tree().create_tween()
 	tween.tween_property($Head/Camera3D/SaveOverlay/LighterBG, "position:x", 850.0, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
