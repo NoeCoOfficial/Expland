@@ -287,14 +287,9 @@ func _process(_delta):
 	$Head/Camera3D/DebugLayer/is_raycast_colliding.text = "RayCast colliding? " + str(InteractionManager.is_colliding)
 	$Head/Camera3D/DebugLayer/showing_interaction_notification.text = "Showing notification? " + str(InteractionManager.is_notification_on_screen)
 	
-	$Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound/SFXValue.text = str($Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound/SFXSlider.value*100)
-	$Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound/MusicValue.text = str($Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound/MusicSlider.value*100)
-	$Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound/MasterValue.text = str($Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound/MasterSlider.value*100)
+	## END DEBUGGING
 	
-	
-	
-	
-	
+	# HUD
 	if UseHealth == false: # Check if the UseHealth variable is false
 		$Head/Camera3D/CrosshairCanvas/HealthLBL.hide() # hide the health label
 	else: 
@@ -302,8 +297,15 @@ func _process(_delta):
 	
 	$Head/Camera3D/CrosshairCanvas/HealthLBL.text = "Health: " + str(Health) # set the health label text to "Health: " + the health variable as a string	
 	
+	## SETTINGS
+	# Music sliders
+	$Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound/SFXValue.text = str($Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound/SFXSlider.value*100)
+	$Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound/MusicValue.text = str($Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound/MusicSlider.value*100)
+	$Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound/MasterValue.text = str($Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound/MasterSlider.value*100)
+	# FOV slider
 	$Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Video/FOVValue.text = str(PlayerSettingsData.FOV)
 	camera.fov = PlayerSettingsData.FOV
+	
 	
 	$Head/Camera3D/CrosshairCanvas/Crosshair.size = crosshair_size # set the crosshair size to the crosshair size variable
 
