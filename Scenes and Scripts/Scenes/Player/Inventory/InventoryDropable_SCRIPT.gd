@@ -101,6 +101,7 @@ func _process(delta):
 						body_ref.set_populated(true)
 						slot_inside = body_ref
 						
+						
 						# TODO: Fix slot populating. Need to track when being unpopulated
 						
 					else:
