@@ -9,6 +9,11 @@ size = Vector2(60, 60)
 [node name="Dropable" type="Node2D"]
 script = ExtResource("1_opaah")
 
+[node name="PopulatedOnStartup" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+autostart = true
+
 [node name="MouseOverTimer" type="Timer" parent="."]
 wait_time = 0.05
 one_shot = true
