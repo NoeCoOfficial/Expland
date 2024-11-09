@@ -118,8 +118,9 @@ func _on_area_2d_body_entered(body):
 			slot_inside = body
 		is_inside_dropable = true 
 		
-		var tween = get_tree().create_tween()
-		tween.tween_property(body, "modulate", Color(1, 1, 1, 1), 0.2)
+		if !body.is_populated():
+			var tween = get_tree().create_tween()
+			tween.tween_property(body, "modulate", Color(1, 1, 1, 1), 0.2)
 		body_ref = body
 
 func _on_area_2d_body_exited(body):
