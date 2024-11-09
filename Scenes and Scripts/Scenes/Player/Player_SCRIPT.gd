@@ -268,15 +268,15 @@ func _headbob(time) -> Vector3:
 	return pos # return the position
 func _process(_delta):
 	
+	## DEBUGGING
 	
+	# Get the time
 	var time_now = Time.get_time_dict_from_system()
 	var hours = time_now["hour"]
 	var minutes = time_now["minute"]
 	var seconds = time_now["second"]
-	# Format the time as HH:MM:SS
 	var time_string = str(hours).pad_zeros(2) + ":" + str(minutes).pad_zeros(2) + ":" + str(seconds).pad_zeros(2)
 	
-	# Update the label text
 	$Head/Camera3D/DebugLayer/player_position.text = "Player position: " + str(self.position)
 	$Head/Camera3D/DebugLayer/player_velocity_y.text = "velocity.y = " + str(round(velocity.y))
 	$Head/Camera3D/DebugLayer/player_velocity_y_accurate.text = str(velocity.y)
@@ -291,7 +291,7 @@ func _process(_delta):
 	$Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound/MusicValue.text = str($Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound/MusicSlider.value*100)
 	$Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound/MasterValue.text = str($Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound/MasterSlider.value*100)
 	
-	$Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Video/FOVValue.text = str(PlayerSettingsData.FOV)
+	
 	
 	
 	
@@ -302,6 +302,7 @@ func _process(_delta):
 	
 	$Head/Camera3D/CrosshairCanvas/HealthLBL.text = "Health: " + str(Health) # set the health label text to "Health: " + the health variable as a string	
 	
+	$Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Video/FOVValue.text = str(PlayerSettingsData.FOV)
 	camera.fov = PlayerSettingsData.FOV
 	
 	$Head/Camera3D/CrosshairCanvas/Crosshair.size = crosshair_size # set the crosshair size to the crosshair size variable
