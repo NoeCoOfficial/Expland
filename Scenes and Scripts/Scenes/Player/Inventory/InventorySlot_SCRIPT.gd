@@ -36,6 +36,7 @@
 
 extends StaticBody2D
 
+@export var is_touching_draggable = false
 @export var populated = false
 
 func _ready():
@@ -61,3 +62,12 @@ func set_populated(populatedValue : bool):
 		populated = true
 	else:
 		populated = false
+
+
+func _on_draggable_detector_area_entered(area: Area2D) -> void:
+	if area.is_in_group("draggable"):
+		is_touching_draggable = true
+
+func _on_draggable_detector_area_exited(area: Area2D) -> void:
+	if area.is_in_group("draggable"):
+		is_touching_draggable = false

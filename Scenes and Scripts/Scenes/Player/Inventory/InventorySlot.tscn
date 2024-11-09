@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhhjltxmoydio"]
+[gd_scene load_steps=5 format=3 uid="uid://dhhjltxmoydio"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Inventory/InventorySlot_SCRIPT.gd" id="1_bxl3d"]
 [ext_resource type="Texture2D" uid="uid://dhnn7my6ghg0d" path="res://Textures/Inventory/Slot/InventorySlotTexture.png" id="2_2mtlq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5hbs3"]
+size = Vector2(25, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5yu5"]
 size = Vector2(25, 25)
@@ -9,7 +12,10 @@ size = Vector2(25, 25)
 [node name="Slot" type="StaticBody2D" groups=["dropable"]]
 script = ExtResource("1_bxl3d")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Draggable Detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable Detector"]
+shape = SubResource("RectangleShape2D_5hbs3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_q5yu5")
@@ -28,3 +34,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_2mtlq")
 expand_mode = 1
+
+[connection signal="area_entered" from="Draggable Detector" to="." method="_on_draggable_detector_area_entered"]
+[connection signal="area_exited" from="Draggable Detector" to="." method="_on_draggable_detector_area_exited"]
