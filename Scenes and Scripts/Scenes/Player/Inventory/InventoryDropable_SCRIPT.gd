@@ -100,7 +100,9 @@ func _process(delta):
 					if body_ref.has_method("set_populated"):
 						body_ref.set_populated(true)
 						slot_inside = body_ref
-						print(str(slot_inside))
+						
+						# TODO: Fix slot populating. Need to track when being unpopulated
+						
 					else:
 						print("{LOCAL} [InventoryDropable_SCRIPT.gd] " + body_ref + " does not have method: set_populated()")
 				else:
