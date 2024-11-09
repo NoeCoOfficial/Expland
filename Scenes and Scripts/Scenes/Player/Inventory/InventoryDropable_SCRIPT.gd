@@ -42,7 +42,6 @@ var is_inside_dropable = false
 var body_ref
 var initialPos: Vector2
 var offset: Vector2
-var slot
 var slot_inside
 @export var ITEM_TYPE: String ## The type of the item that the Sprite2D is holding.
 var SNAP_TIME = 0.0
@@ -95,16 +94,13 @@ func _process(delta):
 			else:
 				InventoryManager.is_dragging = false
 				self.z_index = 0
-				var slotNumber = slot[4]
-				# debugging
-				var debug_slot_number_label = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/debug_slot_info")
-				debug_slot_number_label.text = "You just released on slot number: " + slotNumber
-				
 				var tween = get_tree().create_tween()
 				if is_inside_dropable and !InventoryManager.is_inside_checker:
 					tween.tween_property(self, "position", body_ref.position, SNAP_TIME)
 					if body_ref.has_method("set_populated"):
 						body_ref.set_populated(true)
+						slot_inside = body_ref
+						print("")
 					else:
 						print("{LOCAL} [InventoryDropable_SCRIPT.gd] " + body_ref + " does not have method: set_populated()")
 				else:
@@ -116,7 +112,6 @@ func _on_area_2d_body_entered(body):
 		
 	if body.is_in_group("dropable") and !InventoryManager.is_inside_checker:
 		# Get the name of the node and convert it to a String
-		slot = body.get_name() as String
 		is_inside_dropable = true
 		
 		var tween = get_tree().create_tween()
