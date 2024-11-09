@@ -48,3 +48,10 @@ func _process(_delta):
 		visible = true
 	else:
 		visible = false
+
+
+func set_populated(populatedValue : bool):
+	if populatedValue:
+		populated = true
+	else:
+		populated = false
