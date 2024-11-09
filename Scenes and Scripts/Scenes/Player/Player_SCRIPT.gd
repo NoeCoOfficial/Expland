@@ -246,10 +246,9 @@ func _physics_process(delta): # This is a special function that is called every 
 		else:
 			velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0) # linearly interpolate the player's velocity on the x-axis to the direction times the speed
 			velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0) # linearly interpolate the player's velocity on the z-axis to the direction times the speed
-
 		
 		move_and_slide() # Apply gravity and handle movement
-
+		
 		# Check if the player is moving and on the floor
 		var is_moving = velocity.length() > 0.1 and is_on_floor()
 
