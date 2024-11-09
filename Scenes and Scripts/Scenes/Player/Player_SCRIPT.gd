@@ -316,9 +316,11 @@ func _process(_delta):
 
 func _ready():
 	nodeSetup() # Call the nodeSetup function to setup the nodes
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # lock mouse
-
 	
+	
+	
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Lock mouse
+
 	$Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Video/FOVSlider.value = PlayerSettingsData.FOV
 	
 	Health = PlayerData.Health # set the health variable to the player data's health variable
@@ -336,6 +338,9 @@ func _ready():
 		tween.tween_property($Head/Camera3D/OverlayLayer/Overlay, "visible", false, 0) # tween the overlay's visibility to false
 	else:
 		$Head/Camera3D/OverlayLayer/Overlay.hide() # hide the overlay
+
+func _on_ready() -> void: # Called when the node is considered ready
+	pass # Replace with function body.
 
 func nodeSetup(): # A function to setup the nodes. Called in the _ready function
 	$Head/Camera3D/SettingsLayer/GreyLayer.set_self_modulate(Color(0, 0, 0, 0))

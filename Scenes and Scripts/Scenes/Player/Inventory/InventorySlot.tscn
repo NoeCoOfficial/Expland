@@ -9,6 +9,8 @@ size = Vector2(25, 25)
 [node name="Slot" type="StaticBody2D" groups=["dropable"]]
 script = ExtResource("1_bxl3d")
 
+[node name="Area2D" type="Area2D" parent="."]
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_q5yu5")
 

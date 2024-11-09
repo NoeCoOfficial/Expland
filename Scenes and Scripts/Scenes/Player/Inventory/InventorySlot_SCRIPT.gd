@@ -50,7 +50,6 @@ func _process(_delta):
 		visible = false
 
 
-
 func is_populated():
 	if populated:
 		return true

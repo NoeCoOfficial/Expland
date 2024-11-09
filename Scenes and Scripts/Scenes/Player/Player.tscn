@@ -992,6 +992,7 @@ theme = ExtResource("17_rhxkt")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="timeout" from="AutoSaveTimer" to="." method="_on_auto_save_timer_timeout"]
 [connection signal="area_entered" from="Head/Camera3D/InventoryLayer/Boundary" to="." method="_on_boundary_area_entered"]
 [connection signal="area_exited" from="Head/Camera3D/InventoryLayer/Boundary" to="." method="_on_boundary_area_exited"]
