@@ -50,7 +50,6 @@ func _process(_delta):
 	else:
 		visible = false
 
-
 func is_populated():
 	if populated:
 		return true
@@ -63,13 +62,15 @@ func set_populated(populatedValue : bool):
 	else:
 		populated = false
 
-
 func _on_draggable_detector_area_entered(area: Area2D) -> void:
 	if area.is_in_group("draggable"):
-		is_touching_draggable = true
+		if $AlreadyPopulatedChecker.time_left > 0.0:
+			print("Populated on startup")
+		else:
+			print("Touching Draggable!")
+			is_touching_draggable = true
 
 func _on_draggable_detector_area_exited(area: Area2D) -> void:
 	if area.is_in_group("draggable"):
+		print("Not touching draggable!")
 		is_touching_draggable = false
-
-## 500 Commits. GG!

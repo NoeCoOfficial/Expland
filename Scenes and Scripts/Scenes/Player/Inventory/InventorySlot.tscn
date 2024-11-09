@@ -12,6 +12,11 @@ size = Vector2(25, 25)
 [node name="Slot" type="StaticBody2D" groups=["dropable"]]
 script = ExtResource("1_bxl3d")
 
+[node name="AlreadyPopulatedChecker" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+autostart = true
+
 [node name="Draggable Detector" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable Detector"]
