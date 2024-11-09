@@ -59,13 +59,14 @@ func is_populated():
 func set_populated(populatedValue : bool):
 	if populatedValue:
 		populated = true
+		print("{LOCAL} [InventorySlot_SCRIPT.gd] Populated, Slot: " + str(name))
 	else:
 		populated = false
 
 func _on_draggable_detector_area_entered(area: Area2D) -> void:
 	if area.is_in_group("draggable"):
 		if $AlreadyPopulatedChecker.time_left > 0.0:
-			print("Populated on startup")
+			set_populated(true)
 		else:
 			print("Touching Draggable!")
 			is_touching_draggable = true
