@@ -71,3 +71,5 @@ func _on_draggable_detector_area_entered(area: Area2D) -> void:
 func _on_draggable_detector_area_exited(area: Area2D) -> void:
 	if area.is_in_group("draggable"):
 		is_touching_draggable = false
+
+## 500 Commits. GG!
