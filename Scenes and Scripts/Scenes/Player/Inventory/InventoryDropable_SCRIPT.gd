@@ -101,7 +101,6 @@ func _process(delta):
 						body_ref.set_populated(true)
 						slot_inside = body_ref
 						print(str(slot_inside))
-						print(get_node("/root/World/Player/Head/Camera3D/InventoryLayer/Slot1"))
 					else:
 						print("{LOCAL} [InventoryDropable_SCRIPT.gd] " + body_ref + " does not have method: set_populated()")
 				else:
