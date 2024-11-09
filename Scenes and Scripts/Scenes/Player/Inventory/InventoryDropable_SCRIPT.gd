@@ -42,7 +42,7 @@ var is_inside_dropable = false
 var body_ref
 var initialPos: Vector2
 var offset: Vector2
-var slot_inside
+var slot_inside = null
 @export var ITEM_TYPE: String ## The type of the item that the Sprite2D is holding.
 var SNAP_TIME = 0.0
 var debounce_timer = 0.2 # Debounce time in seconds
@@ -100,7 +100,8 @@ func _process(delta):
 					if body_ref.has_method("set_populated"):
 						body_ref.set_populated(true)
 						slot_inside = body_ref
-						print("")
+						print(str(slot_inside))
+						print(get_node("/root/World/Player/Head/Camera3D/InventoryLayer/Slot1"))
 					else:
 						print("{LOCAL} [InventoryDropable_SCRIPT.gd] " + body_ref + " does not have method: set_populated()")
 				else:
