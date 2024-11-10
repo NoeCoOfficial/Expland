@@ -103,8 +103,6 @@ func _process(delta):
 							if slot_inside.has_method("set_populated"):
 								slot_inside.set_populated(false)
 						slot_inside = body_ref
-						
-						
 					else:
 						print("{LOCAL} [InventoryDropable_SCRIPT.gd] " + body_ref + " does not have method: set_populated()")
 				else:
@@ -118,17 +116,12 @@ func _on_area_2d_body_entered(body):
 			slot_inside = body
 		is_inside_dropable = true 
 		
-		if !body.is_populated():
-			var tween = get_tree().create_tween()
-			tween.tween_property(body, "modulate", Color(1, 1, 1, 1), 0.2)
 		body_ref = body
 
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("dropable"):
 		is_inside_dropable = false
 		
-		var tween = get_tree().create_tween()
-		tween.tween_property(body, "modulate", Color(1, 1, 1, 0.2), 0.2)
 
 func _on_area_2d_mouse_entered():
 	if not InventoryManager.is_dragging:
