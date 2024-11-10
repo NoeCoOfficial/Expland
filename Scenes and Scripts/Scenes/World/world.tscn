@@ -76,20 +76,20 @@ streams_count = 2
 stream_0/stream = ExtResource("30_xo0ob")
 stream_1/stream = ExtResource("31_dpvhv")
 
-[sub_resource type="Curve" id="Curve_tq56d"]
+[sub_resource type="Curve" id="Curve_ixih4"]
 max_value = 0.1
 _data = [Vector2(0, 0), 0.0, 0.333367, 0, 0, Vector2(0.433526, 0.0316176), 0.185509, 0.185509, 0, 0, Vector2(0.791908, 0.0220588), -0.0267802, -0.0267802, 0, 0, Vector2(1, 0.0132353), 0.0, 0.0, 0, 0]
 point_count = 4
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rvn2t"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ojaa"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
 vertex_color_use_as_albedo = true
 
 [sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_liv1f"]
-material = SubResource("StandardMaterial3D_rvn2t")
-curve = SubResource("Curve_tq56d")
+material = SubResource("StandardMaterial3D_8ojaa")
+curve = SubResource("Curve_ixih4")
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_j3awn")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=19 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="PackedScene" uid="uid://jb61th5px5nt" path="res://Assets/3D Models/Tests/Island/Island 2.blend" id="2_0llf6"]
+[ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/LightbulbIcon_SCRIPT.gd" id="2_j6ch4"]
 [ext_resource type="Texture2D" uid="uid://dhp1lqdlclos" path="res://Textures/Icons/Expland_TextWHITE_Icon.png" id="2_numx3"]
 [ext_resource type="PackedScene" uid="uid://d0uinxy2wgtd3" path="res://Assets/3D Models/Trees/Normal/Tree1.blend" id="3_hbjgs"]
 [ext_resource type="PackedScene" uid="uid://cdbylnsm71dkk" path="res://Assets/3D Models/Trees/Normal/Tree3.blend" id="4_drkdx"]
@@ -25,14 +26,40 @@ sky = SubResource("Sky_7v7qm")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="Curve" id="Curve_tq56d"]
+max_value = 0.1
+_data = [Vector2(0, 0), 0.0, 0.333367, 0, 0, Vector2(0.433526, 0.0316176), 0.185509, 0.185509, 0, 0, Vector2(0.791908, 0.0220588), -0.0267802, -0.0267802, 0, 0, Vector2(1, 0.0132353), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rvn2t"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_tsx5c"]
+material = SubResource("StandardMaterial3D_rvn2t")
+curve = SubResource("Curve_tq56d")
+
 [node name="MainMenu" type="Node3D"]
 script = ExtResource("1_8n1c6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.216082, 0.976375, 0, -0.976375, 0.216082, 0, 28.1558, 0)
+light_color = Color(0.2673, 0.33, 0.33, 1)
+light_energy = 2.055
+shadow_enabled = true
+directional_shadow_split_3 = 0.348
+directional_shadow_blend_splits = true
+directional_shadow_fade_start = 0.618
+directional_shadow_max_distance = 154.5
+script = ExtResource("2_j6ch4")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_v4n35")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.781074, 0, -0.624439, 0, 1, 0, 0.624439, 0, 0.781074, -50.5475, 6.66076, 2)
+transform = Transform3D(0.781074, 0, -0.624439, 0, 1, 0, 0.624439, 0, 0.781074, -55.1006, 6.21231, -1.6414)
 
 [node name="MainLayer" type="CanvasLayer" parent="Camera3D"]
 
@@ -85,3 +112,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.1353, -1.39862, -12.7823)
 
 [node name="Tree9" parent="." instance=ExtResource("10_ji46n")]
 transform = Transform3D(1.98326, -0.0362428, 0.0278266, 0.0357732, 1.98318, 0.0333687, -0.0284278, -0.032858, 1.98331, -29.2633, 0.647093, -34.2344)
+
+[node name="Rain" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.622, 51.8233, 28.7265)
+amount = 5000
+lifetime = 0.84
+preprocess = 2.52
+mesh = SubResource("RibbonTrailMesh_tsx5c")
+emission_shape = 3
+emission_box_extents = Vector3(100, 0.5, 100)
+direction = Vector3(0, -1, 0)
+spread = 5.0
+gravity = Vector3(0, -60, 0)
+initial_velocity_min = 47.09
+initial_velocity_max = 47.09
