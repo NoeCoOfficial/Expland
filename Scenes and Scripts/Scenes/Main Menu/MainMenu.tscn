@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=22 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="PackedScene" uid="uid://jb61th5px5nt" path="res://Assets/3D Models/Tests/Island/Island 2.blend" id="2_0llf6"]
@@ -12,6 +12,67 @@
 [ext_resource type="PackedScene" uid="uid://c855wuotwp7n7" path="res://Assets/3D Models/Grass/Grass1.blend" id="8_0bg8c"]
 [ext_resource type="PackedScene" uid="uid://dvk3qu1v8iisg" path="res://Assets/3D Models/Grass/Grass3.blend" id="9_w5mwr"]
 [ext_resource type="PackedScene" uid="uid://0stf8uio7dg2" path="res://Assets/3D Models/Trees/Normal/Tree9.blend" id="10_ji46n"]
+
+[sub_resource type="Animation" id="Animation_kvdnl"]
+resource_name = "camera movement"
+length = 200.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 63.1667, 131.333, 200),
+"transitions": PackedFloat32Array(0.870548, 0.870548, 0.870548, 0.870548, 0.870548),
+"update": 0,
+"values": [Vector3(-62.5013, 6.30089, -14.5163), Vector3(-62.5013, 6.30089, -14.5163), Vector3(-18.7433, 6.30089, 20.6403), Vector3(-21.1692, 9.78124, -50.3417), Vector3(-62.5013, 6.30089, -14.5163)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.266667, 63.1667, 131.333, 200),
+"transitions": PackedFloat32Array(0.870548, 0.870548, 0.870548, 0.870548, 0.870548),
+"update": 0,
+"values": [Vector3(0, -1.53437, 0), Vector3(0, -1.53437, 0), Vector3(0, -0.0801806, 0), Vector3(0, 2.53781, 0), Vector3(0, -1.53437, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6cyol"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-62.5013, 6.30089, -14.5163)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.53437, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mddl5"]
+_data = {
+"RESET": SubResource("Animation_6cyol"),
+"camera movement": SubResource("Animation_kvdnl")
+}
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0rshe"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -44,6 +105,12 @@ curve = SubResource("Curve_tq56d")
 [node name="MainMenu" type="Node3D"]
 script = ExtResource("1_8n1c6")
 
+[node name="CameraAnim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mddl5")
+}
+autoplay = "camera movement"
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.216082, 0.976375, 0, -0.976375, 0.216082, 0, 28.1558, 0)
 light_color = Color(0.2673, 0.33, 0.33, 1)
@@ -59,7 +126,7 @@ script = ExtResource("2_j6ch4")
 environment = SubResource("Environment_v4n35")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.781074, 0, -0.624439, 0, 1, 0, 0.624439, 0, 0.781074, -55.1006, 6.21231, -1.6414)
+transform = Transform3D(0.0364169, 0, -0.999337, 0, 1, 0, 0.999337, 0, 0.0364169, -62.5013, 6.30089, -14.5163)
 
 [node name="MainLayer" type="CanvasLayer" parent="Camera3D"]
 
@@ -78,7 +145,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.961196, 0, -443.656)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.8422, 0, -14.2573)
 
 [node name="Tree3" parent="." instance=ExtResource("4_drkdx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.5838, -0.98911, -21.3538)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.5838, -1.33267, -21.3538)
 
 [node name="Rock2_Broken" parent="." instance=ExtResource("5_mxq5r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48, 0, -16)
@@ -111,7 +178,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.3533, -1.39862, -12.7823)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.1353, -1.39862, -12.7823)
 
 [node name="Tree9" parent="." instance=ExtResource("10_ji46n")]
-transform = Transform3D(1.98326, -0.0362428, 0.0278266, 0.0357732, 1.98318, 0.0333687, -0.0284278, -0.032858, 1.98331, -29.2633, 0.647093, -34.2344)
+transform = Transform3D(1.98326, -0.0362428, 0.0278266, 0.0357732, 1.98318, 0.0333687, -0.0284278, -0.032858, 1.98331, -29.2633, -1.02503, -34.2344)
 
 [node name="Rain" type="CPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.622, 51.8233, 28.7265)
