@@ -58,7 +58,7 @@ func set_populated(populatedValue : bool):
 	if populatedValue:
 		populated = true
 		print("{LOCAL} [InventorySlot_SCRIPT.gd] Populated, Slot: " + str(name))
-		modulate = Color(1, 1, 1, 0.05)
+
 	else:
 		print("{LOCAL} [InventorySlot_SCRIPT.gd] Empty, Slot: " + str(name))
 		populated = false
@@ -67,17 +67,9 @@ func _on_draggable_detector_area_entered(area: Area2D) -> void:
 	if area.is_in_group("draggable"):
 		if $AlreadyPopulatedChecker.time_left > 0.0:
 			set_populated(true)
-			modulate = Color(1, 1, 1, 0.05)
 		else:
-			print("Touching Draggable!")
-			if !is_populated():
-				var tween = get_tree().create_tween()
-				tween.tween_property(self, "modulate", Color(1, 1, 1, 1), 0.2)
 			is_touching_draggable = true
 
 func _on_draggable_detector_area_exited(area: Area2D) -> void:
 	if area.is_in_group("draggable"):
-		print("Not touching draggable!")
-		var tween = get_tree().create_tween()
-		tween.tween_property(self, "modulate", Color(1, 1, 1, 0.05), 0.2)
 		is_touching_draggable = false
