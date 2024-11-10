@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=27 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="PackedScene" uid="uid://jb61th5px5nt" path="res://Assets/3D Models/Tests/Island/Island 2.blend" id="2_0llf6"]
@@ -7,11 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://d0uinxy2wgtd3" path="res://Assets/3D Models/Trees/Normal/Tree1.blend" id="3_hbjgs"]
 [ext_resource type="PackedScene" uid="uid://cdbylnsm71dkk" path="res://Assets/3D Models/Trees/Normal/Tree3.blend" id="4_drkdx"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="4_grlcg"]
-[ext_resource type="FontFile" uid="uid://b2o44xwqnsb5k" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf" id="5_08i20"]
+[ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="5_dfh28"]
 [ext_resource type="PackedScene" uid="uid://ckktuiw4a367o" path="res://Assets/3D Models/Rocks/Rock2_Broken.blend" id="5_mxq5r"]
 [ext_resource type="PackedScene" uid="uid://b5d0ah73v2doj" path="res://Assets/3D Models/Rocks/Rock5_Mossy.blend" id="6_lssvk"]
+[ext_resource type="Texture2D" uid="uid://fih3i4yk6pip" path="res://Textures/Icons/PlayBtn_Icon.png" id="6_ve3ie"]
+[ext_resource type="Texture2D" uid="uid://cfe0w5hyb6fyc" path="res://Textures/Icons/SettingsCog_Icon.png" id="7_7tdx1"]
 [ext_resource type="PackedScene" uid="uid://bq7v171b1atvm" path="res://Assets/3D Models/Rocks/Rock7_Rough.blend" id="7_jmxkd"]
 [ext_resource type="PackedScene" uid="uid://c855wuotwp7n7" path="res://Assets/3D Models/Grass/Grass1.blend" id="8_0bg8c"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/IgnoreMouseFilter.gd" id="8_tu6ba"]
 [ext_resource type="PackedScene" uid="uid://dvk3qu1v8iisg" path="res://Assets/3D Models/Grass/Grass3.blend" id="9_w5mwr"]
 [ext_resource type="PackedScene" uid="uid://0stf8uio7dg2" path="res://Assets/3D Models/Trees/Normal/Tree9.blend" id="10_ji46n"]
 
@@ -133,7 +136,6 @@ transform = Transform3D(0.0364169, 0, -0.999337, 0, 1, 0, 0.999337, 0, 0.0364169
 [node name="MainLayer" type="CanvasLayer" parent="Camera3D"]
 
 [node name="Logo" type="TextureRect" parent="Camera3D/MainLayer"]
-visible = false
 offset_left = -400.0
 offset_top = 24.0
 offset_right = -1.0
@@ -141,20 +143,13 @@ offset_bottom = 151.0
 texture = ExtResource("2_numx3")
 expand_mode = 1
 
-[node name="FadeOut" type="ColorRect" parent="Camera3D/MainLayer"]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
 [node name="PlayButton" type="Control" parent="Camera3D/MainLayer"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 348.0
-offset_bottom = 77.0
+anchor_left = -0.302083
+anchor_top = 0.518519
+anchor_bottom = 0.637346
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="DarkerBG" type="ColorRect" parent="Camera3D/MainLayer/PlayButton"]
 layout_mode = 1
@@ -175,7 +170,37 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.125911, 0.125911, 0.125911, 1)
 
-[node name="ButtonPress" type="Button" parent="Camera3D/MainLayer/PlayButton"]
+[node name="Message" type="Label" parent="Camera3D/MainLayer/PlayButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 3.0
+offset_right = -97.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_grlcg")
+theme_override_fonts/font = ExtResource("5_dfh28")
+theme_override_font_sizes/font_size = 59
+text = "PLAY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="Camera3D/MainLayer/PlayButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.675287
+anchor_top = 0.0454545
+anchor_right = 0.876437
+anchor_bottom = 0.954545
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_ve3ie")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayButtonTrigger" type="Button" parent="Camera3D/MainLayer/PlayButton"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -184,20 +209,83 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Message" type="Label" parent="Camera3D/MainLayer/PlayButton"]
+[node name="SettingsButton" type="Control" parent="Camera3D/MainLayer"]
+layout_mode = 3
+anchor_left = -0.302083
+anchor_top = 0.66358
+anchor_bottom = 0.782407
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="DarkerBG" type="ColorRect" parent="Camera3D/MainLayer/SettingsButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -97.0
+offset_right = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.501406, 0.501407, 0.501406, 1)
+
+[node name="LighterBG" type="ColorRect" parent="Camera3D/MainLayer/SettingsButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -34.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.125911, 0.125911, 0.125911, 1)
+
+[node name="Message" type="Label" parent="Camera3D/MainLayer/SettingsButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0172414
+anchor_top = 0.038961
+anchor_right = 0.704023
+anchor_bottom = 1.03896
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_grlcg")
-theme_override_fonts/font = ExtResource("5_08i20")
-theme_override_font_sizes/font_size = 46
-text = "PLAY"
+theme_override_fonts/font = ExtResource("5_dfh28")
+theme_override_font_sizes/font_size = 45
+text = "SETTINGS"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Icon" type="TextureRect" parent="Camera3D/MainLayer/SettingsButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.675287
+anchor_top = 0.0454545
+anchor_right = 0.876437
+anchor_bottom = 0.954545
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.436332
+pivot_offset = Vector2(34.5, 34.5)
+texture = ExtResource("7_7tdx1")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="SettingsButtonTrigger" type="Button" parent="Camera3D/MainLayer/SettingsButton"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FadeOut" type="ColorRect" parent="Camera3D/MainLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("8_tu6ba")
 
 [node name="Island 2" parent="." instance=ExtResource("2_0llf6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.961196, 0, -443.656)
