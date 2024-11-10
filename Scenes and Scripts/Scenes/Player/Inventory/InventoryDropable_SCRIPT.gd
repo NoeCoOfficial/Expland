@@ -86,6 +86,7 @@ func _process(delta):
 		elif Input.is_action_just_released("inventory_click"):
 			if InventoryManager.is_inside_boundary and can_create_pickup:
 				InventoryManager.is_dragging = false
+				slot_inside.set_populated(false)
 				var PARENT = self.get_parent()
 				PARENT.remove_child(self)
 				can_create_pickup = false
