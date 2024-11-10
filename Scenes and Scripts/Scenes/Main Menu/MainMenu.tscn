@@ -130,13 +130,48 @@ transform = Transform3D(0.0364169, 0, -0.999337, 0, 1, 0, 0.999337, 0, 0.0364169
 
 [node name="MainLayer" type="CanvasLayer" parent="Camera3D"]
 
-[node name="TextureRect" type="TextureRect" parent="Camera3D/MainLayer"]
-offset_left = 8.0
+[node name="Logo" type="TextureRect" parent="Camera3D/MainLayer"]
+visible = false
+offset_left = -400.0
 offset_top = 24.0
-offset_right = 407.0
+offset_right = -1.0
 offset_bottom = 151.0
 texture = ExtResource("2_numx3")
 expand_mode = 1
+
+[node name="FadeOut" type="ColorRect" parent="Camera3D/MainLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="PlayButton" type="Control" parent="Camera3D/MainLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 348.0
+offset_bottom = 77.0
+
+[node name="DarkerBG" type="ColorRect" parent="Camera3D/MainLayer/PlayButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.501406, 0.501407, 0.501406, 1)
+
+[node name="LighterBG" type="ColorRect" parent="Camera3D/MainLayer/PlayButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.125911, 0.125911, 0.125911, 1)
 
 [node name="Island 2" parent="." instance=ExtResource("2_0llf6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.961196, 0, -443.656)
