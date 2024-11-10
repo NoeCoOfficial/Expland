@@ -27,3 +27,23 @@ func onStartup():
 	tween.tween_property($Camera3D/MainLayer/QuitButton, "position", Vector2(0, 383), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.4)
 
 	
+
+
+func _on_play_button_trigger_mouse_entered() -> void:
+	pass # Replace with function body.
+
+
+func _on_play_button_trigger_mouse_exited() -> void:
+	pass # Replace with function body.
+
+
+func _on_play_button_trigger_button_down() -> void:
+	pass # Replace with function body.
+
+
+func _on_play_button_trigger_button_up() -> void:
+	pass # Replace with function body.
+
+
+func _on_play_button_trigger_pressed() -> void:
+	pass # Replace with function body.
