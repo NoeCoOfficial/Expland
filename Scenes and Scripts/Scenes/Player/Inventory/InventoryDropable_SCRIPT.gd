@@ -96,15 +96,19 @@ func _process(delta):
 				self.z_index = 0
 				var tween = get_tree().create_tween()
 				if is_inside_dropable and !InventoryManager.is_inside_checker:
-					tween.tween_property(self, "position", body_ref.position, SNAP_TIME)
-					if body_ref.has_method("set_populated"):
-						body_ref.set_populated(true)
-						if slot_inside != null:
-							if slot_inside.has_method("set_populated"):
-								slot_inside.set_populated(false)
-						slot_inside = body_ref
+					if body_ref == slot_inside:
+						# If the draggable is placed back into its current slot, do nothing
+						tween.tween_property(self, "position", body_ref.position, SNAP_TIME)
 					else:
-						print("{LOCAL} [InventoryDropable_SCRIPT.gd] " + body_ref + " does not have method: set_populated()")
+						tween.tween_property(self, "position", body_ref.position, SNAP_TIME)
+						if body_ref.has_method("set_populated"):
+							body_ref.set_populated(true)
+							if slot_inside != null:
+								if slot_inside.has_method("set_populated"):
+									slot_inside.set_populated(false)
+							slot_inside = body_ref
+						else:
+							print("{LOCAL} [InventoryDropable_SCRIPT.gd] " + body_ref + " does not have method: set_populated()")
 				else:
 					tween.tween_property(self, "global_position", initialPos, SNAP_TIME)
 			if mouse_over_timer.is_inside_tree():                          

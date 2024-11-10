@@ -40,9 +40,7 @@ extends StaticBody2D
 @export var populated = false
 
 func _ready():
-	await get_tree().create_timer(0.1).timeout
-	modulate = Color(1, 1, 1, 0.2)
-
+	pass
 
 func _process(_delta):
 	if InventoryManager.is_dragging:
