@@ -146,8 +146,8 @@ expand_mode = 1
 [node name="PlayButton" type="Control" parent="Camera3D/MainLayer"]
 layout_mode = 3
 anchor_left = -0.302083
-anchor_top = 0.518519
-anchor_bottom = 0.637346
+anchor_top = 0.432099
+anchor_bottom = 0.550926
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
@@ -212,8 +212,8 @@ grow_vertical = 2
 [node name="SettingsButton" type="Control" parent="Camera3D/MainLayer"]
 layout_mode = 3
 anchor_left = -0.302083
-anchor_top = 0.66358
-anchor_bottom = 0.782407
+anchor_top = 0.57716
+anchor_bottom = 0.695988
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
@@ -278,7 +278,79 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="SettingsButton2" type="Control" parent="Camera3D/MainLayer"]
+layout_mode = 3
+anchor_left = -0.302083
+anchor_top = 0.57716
+anchor_bottom = 0.695988
+offset_top = 96.0
+offset_bottom = 96.0
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="DarkerBG" type="ColorRect" parent="Camera3D/MainLayer/SettingsButton2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.501406, 0.501407, 0.501406, 1)
+
+[node name="LighterBG" type="ColorRect" parent="Camera3D/MainLayer/SettingsButton2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -34.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.125911, 0.125911, 0.125911, 1)
+
+[node name="Message" type="Label" parent="Camera3D/MainLayer/SettingsButton2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0172414
+anchor_top = 0.038961
+anchor_right = 0.704023
+anchor_bottom = 1.03896
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_grlcg")
+theme_override_fonts/font = ExtResource("5_dfh28")
+theme_override_font_sizes/font_size = 45
+text = "QUIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Icon" type="TextureRect" parent="Camera3D/MainLayer/SettingsButton2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.675287
+anchor_top = 0.0454545
+anchor_right = 0.876437
+anchor_bottom = 0.954545
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.436332
+pivot_offset = Vector2(34.5, 34.5)
+texture = ExtResource("7_7tdx1")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="SettingsButtonTrigger" type="Button" parent="Camera3D/MainLayer/SettingsButton2"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="FadeOut" type="ColorRect" parent="Camera3D/MainLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
