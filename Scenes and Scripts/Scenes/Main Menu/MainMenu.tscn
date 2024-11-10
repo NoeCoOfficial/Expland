@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=28 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="PackedScene" uid="uid://jb61th5px5nt" path="res://Assets/3D Models/Tests/Island/Island 2.blend" id="2_0llf6"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cfe0w5hyb6fyc" path="res://Textures/Icons/SettingsCog_Icon.png" id="7_7tdx1"]
 [ext_resource type="PackedScene" uid="uid://bq7v171b1atvm" path="res://Assets/3D Models/Rocks/Rock7_Rough.blend" id="7_jmxkd"]
 [ext_resource type="PackedScene" uid="uid://c855wuotwp7n7" path="res://Assets/3D Models/Grass/Grass1.blend" id="8_0bg8c"]
+[ext_resource type="Texture2D" uid="uid://cwskjvl8pplog" path="res://Textures/Icons/Exit_Icon.png" id="8_rn1to"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/IgnoreMouseFilter.gd" id="8_tu6ba"]
 [ext_resource type="PackedScene" uid="uid://dvk3qu1v8iisg" path="res://Assets/3D Models/Grass/Grass3.blend" id="9_w5mwr"]
 [ext_resource type="PackedScene" uid="uid://0stf8uio7dg2" path="res://Assets/3D Models/Trees/Normal/Tree9.blend" id="10_ji46n"]
@@ -151,7 +152,7 @@ anchor_bottom = 0.550926
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="DarkerBG" type="ColorRect" parent="Camera3D/MainLayer/PlayButton"]
+[node name="LighterBG" type="ColorRect" parent="Camera3D/MainLayer/PlayButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -160,7 +161,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.501406, 0.501407, 0.501406, 1)
 
-[node name="LighterBG" type="ColorRect" parent="Camera3D/MainLayer/PlayButton"]
+[node name="DarkerBG" type="ColorRect" parent="Camera3D/MainLayer/PlayButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -175,8 +176,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -47.0
 offset_top = 3.0
-offset_right = -97.0
+offset_right = -144.0
 offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -217,17 +219,17 @@ anchor_bottom = 0.695988
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="DarkerBG" type="ColorRect" parent="Camera3D/MainLayer/SettingsButton"]
+[node name="LighterBG" type="ColorRect" parent="Camera3D/MainLayer/SettingsButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -25.0
+offset_right = -9.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.501406, 0.501407, 0.501406, 1)
 
-[node name="LighterBG" type="ColorRect" parent="Camera3D/MainLayer/SettingsButton"]
+[node name="DarkerBG" type="ColorRect" parent="Camera3D/MainLayer/SettingsButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -240,10 +242,10 @@ color = Color(0.125911, 0.125911, 0.125911, 1)
 [node name="Message" type="Label" parent="Camera3D/MainLayer/SettingsButton"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.0172414
-anchor_top = 0.038961
-anchor_right = 0.704023
-anchor_bottom = 1.03896
+anchor_left = -0.0574713
+anchor_top = 0.0519481
+anchor_right = 0.663793
+anchor_bottom = 1.05195
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_grlcg")
@@ -257,10 +259,14 @@ metadata/_edit_use_anchors_ = true
 [node name="Icon" type="TextureRect" parent="Camera3D/MainLayer/SettingsButton"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.675287
-anchor_top = 0.0454545
-anchor_right = 0.876437
-anchor_bottom = 0.954545
+anchor_left = 0.573713
+anchor_top = 0.276788
+anchor_right = 0.841026
+anchor_bottom = 0.716506
+offset_left = 11.3479
+offset_top = -17.8127
+offset_right = -11.6769
+offset_bottom = 18.329
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -0.436332
@@ -275,82 +281,87 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -25.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SettingsButton2" type="Control" parent="Camera3D/MainLayer"]
+[node name="QuitButton" type="Control" parent="Camera3D/MainLayer"]
 layout_mode = 3
 anchor_left = -0.302083
-anchor_top = 0.57716
-anchor_bottom = 0.695988
-offset_top = 96.0
-offset_bottom = 96.0
+anchor_top = 0.725309
+anchor_bottom = 0.844136
+offset_top = -8.0
+offset_bottom = -8.0
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="DarkerBG" type="ColorRect" parent="Camera3D/MainLayer/SettingsButton2"]
+[node name="LighterBG" type="ColorRect" parent="Camera3D/MainLayer/QuitButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -25.0
+offset_top = 8.0
+offset_right = -87.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.501406, 0.501407, 0.501406, 1)
 
-[node name="LighterBG" type="ColorRect" parent="Camera3D/MainLayer/SettingsButton2"]
+[node name="DarkerBG" type="ColorRect" parent="Camera3D/MainLayer/QuitButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -34.0
+offset_top = 8.0
+offset_right = -97.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.125911, 0.125911, 0.125911, 1)
 
-[node name="Message" type="Label" parent="Camera3D/MainLayer/SettingsButton2"]
+[node name="Message" type="Label" parent="Camera3D/MainLayer/QuitButton"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.0172414
-anchor_top = 0.038961
-anchor_right = 0.704023
-anchor_bottom = 1.03896
+anchor_left = -0.163793
+anchor_top = 0.0779221
+anchor_right = 0.557471
+anchor_bottom = 1.07792
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_grlcg")
 theme_override_fonts/font = ExtResource("5_dfh28")
-theme_override_font_sizes/font_size = 45
+theme_override_font_sizes/font_size = 55
 text = "QUIT"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Icon" type="TextureRect" parent="Camera3D/MainLayer/SettingsButton2"]
+[node name="Icon" type="TextureRect" parent="Camera3D/MainLayer/QuitButton"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.675287
-anchor_top = 0.0454545
-anchor_right = 0.876437
-anchor_bottom = 0.954545
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = -28.998
+offset_right = 63.0
+offset_bottom = 32.998
 grow_horizontal = 2
 grow_vertical = 2
-rotation = -0.436332
-pivot_offset = Vector2(34.5, 34.5)
-texture = ExtResource("7_7tdx1")
+texture = ExtResource("8_rn1to")
 expand_mode = 1
-metadata/_edit_use_anchors_ = true
 
-[node name="SettingsButtonTrigger" type="Button" parent="Camera3D/MainLayer/SettingsButton2"]
+[node name="QuitButtonTrigger" type="Button" parent="Camera3D/MainLayer/QuitButton"]
 visible = false
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = -1
+anchor_top = 0.103896
+anchor_right = 0.75
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="FadeOut" type="ColorRect" parent="Camera3D/MainLayer"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
