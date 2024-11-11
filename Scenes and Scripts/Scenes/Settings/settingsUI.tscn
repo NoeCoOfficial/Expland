@@ -89,6 +89,21 @@ theme_override_styles/pressed = ExtResource("3_hcsr3")
 theme_override_styles/normal = ExtResource("3_hcsr3")
 script = ExtResource("2_swx28")
 
+[node name="SaveSettings" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.152
+anchor_top = 2.51835
+anchor_right = 3.152
+anchor_bottom = 2.51835
+offset_left = -2608.1
+offset_top = -1615.89
+offset_right = -2496.1
+offset_bottom = -1567.89
+focus_mode = 0
+theme = ExtResource("5_8j0xn")
+text = "Save Settings"
+
 [node name="SettingsTabContainer" type="TabContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -135,6 +150,23 @@ value = 60.0
 rounded = true
 metadata/_edit_use_anchors_ = true
 
+[node name="FOVValue" type="Label" parent="SettingsTabContainer/Video"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.513333
+anchor_top = 0.071
+anchor_right = 0.628
+anchor_bottom = 0.150386
+offset_top = -0.123951
+offset_right = -1.52588e-05
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("5_8j0xn")
+theme_override_font_sizes/font_size = 18
+text = "00"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
 [node name="FOVTTL" type="Label" parent="SettingsTabContainer/Video"]
 layout_mode = 1
 anchors_preset = -1
@@ -149,23 +181,6 @@ theme = ExtResource("5_8j0xn")
 theme_override_font_sizes/font_size = 17
 text = "Field of Vision (FOV)"
 horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="FOVValue" type="Label" parent="SettingsTabContainer/Video"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.513333
-anchor_top = 0.071
-anchor_right = 0.628
-anchor_bottom = 0.150386
-offset_top = -0.123953
-offset_right = -1.52588e-05
-grow_horizontal = 2
-grow_vertical = 0
-theme = ExtResource("5_8j0xn")
-theme_override_font_sizes/font_size = 18
-text = "00"
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
@@ -314,4 +329,6 @@ theme_override_font_sizes/font_size = 40
 text = "EXIT"
 script = ExtResource("2_swx28")
 
+[connection signal="pressed" from="SaveSettings" to="." method="_on_save_settings_pressed"]
+[connection signal="value_changed" from="SettingsTabContainer/Video/FOVSlider" to="." method="_on_fov_slider_value_changed"]
 [connection signal="pressed" from="ExitSettingsButton" to="." method="_on_exit_settings_button_pressed"]
