@@ -33,13 +33,13 @@
 #                   For inquiries, contact:                     #
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
-
+@icon("res://Textures/Icons/Script Icons/32x32/disk_save.png")
 extends Node
-
-func _ready():
-	PlayerData.loadData()
-	PlayerSettingsData.loadSettings()
 
 func saveAllData():
 	PlayerData.saveData()
 	PlayerSettingsData.saveSettings()
+
+func loadAllData():
+	PlayerData.loadData()
+	PlayerSettingsData.loadSettings()

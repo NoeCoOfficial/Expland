@@ -19,6 +19,33 @@
 [ext_resource type="PackedScene" uid="uid://dvk3qu1v8iisg" path="res://Assets/3D Models/Grass/Grass3.blend" id="9_w5mwr"]
 [ext_resource type="PackedScene" uid="uid://0stf8uio7dg2" path="res://Assets/3D Models/Trees/Normal/Tree9.blend" id="10_ji46n"]
 
+[sub_resource type="Animation" id="Animation_6cyol"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-62.5013, 6.30089, -14.5163)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.53437, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_kvdnl"]
 resource_name = "camera movement"
 length = 200.0
@@ -45,33 +72,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(0.870548, 0.870548, 0.870548, 0.870548, 0.870548),
 "update": 0,
 "values": [Vector3(0, -1.53437, 0), Vector3(0, -1.53437, 0), Vector3(0, -0.0801806, 0), Vector3(0, 2.53781, 0), Vector3(0, -1.53437, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_6cyol"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-62.5013, 6.30089, -14.5163)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -1.53437, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mddl5"]
@@ -132,7 +132,7 @@ script = ExtResource("2_j6ch4")
 environment = SubResource("Environment_v4n35")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.0364169, 0, -0.999337, 0, 1, 0, 0.999337, 0, 0.0364169, -62.5013, 6.30089, -14.5163)
+transform = Transform3D(0.0364183, 0, -0.999337, 0, 1, 0, 0.999337, 0, 0.0364183, -62.5013, 6.30089, -14.5163)
 
 [node name="MainLayer" type="CanvasLayer" parent="Camera3D"]
 

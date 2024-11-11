@@ -1,13 +1,16 @@
 @icon("res://Textures/Icons/Script Icons/32x32/main_menu.png")
 extends Node3D
 
-@onready var DefaultXPos_PlayButton = $Camera3D/MainLayer/PlayButton.position.x
+var changing_to_world_scene = false
+@onready var world = preload("res://Scenes and Scripts/Scenes/World/world.tscn")
+@onready var DefaultXPos = $Camera3D/MainLayer/PlayButton.position.x
 
 ######################################
 # Startup
 ######################################
 
 func _ready() -> void:
+	PlayerSettingsData.loadSettings()
 	Utils.set_center_offset($Camera3D/MainLayer/PlayButton)
 	Utils.set_center_offset($Camera3D/MainLayer/PlayButtonTrigger)
 	
@@ -55,12 +58,14 @@ func _on_play_button_trigger_button_down() -> void:
 	tween.tween_property($Camera3D/MainLayer/PlayButton, "scale", Vector2(1.05, 1.05), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func _on_play_button_trigger_button_up() -> void:
-	var tween = get_tree().create_tween().set_parallel()
-	tween.tween_property($Camera3D/MainLayer/PlayButtonTrigger, "scale", Vector2(1.0, 1.0), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-	tween.tween_property($Camera3D/MainLayer/PlayButton, "scale", Vector2(1.0, 1.0), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	if !changing_to_world_scene:
+		var tween = get_tree().create_tween().set_parallel()
+		tween.tween_property($Camera3D/MainLayer/PlayButtonTrigger, "scale", Vector2(1.0, 1.0), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+		tween.tween_property($Camera3D/MainLayer/PlayButton, "scale", Vector2(1.0, 1.0), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func _on_play_button_trigger_pressed() -> void:
-	print("{LOCAL} [MainMenu_SCRIPT.gd] Play button pressed.")
+	changing_to_world_scene = true
+	get_tree().change_scene_to_packed(world)
 
 ######################################
 # SettingsButton animations and functions
@@ -118,4 +123,4 @@ func _on_quit_button_trigger_mouse_exited() -> void:
 
 
 func _on_quit_button_trigger_pressed() -> void:
-	print("{LOCAL} [MainMenu_SCRIPT.gd] Quit button pressed.")
+	get_tree().quit()
