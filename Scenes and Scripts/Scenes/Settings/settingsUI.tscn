@@ -1,7 +1,59 @@
-[gd_scene load_steps=3 format=3 uid="uid://ceabjbnv3nnyr"]
+[gd_scene load_steps=17 format=3 uid="uid://ceabjbnv3nnyr"]
 
 [ext_resource type="StyleBox" uid="uid://3txnt8ebd3yh" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/BlackBGwithWhiteBorder.tres" id="1_3o8wb"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Settings/SettingsUI_SCRIPT.gd" id="1_wslij"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="2_xedjg"]
+[ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="3_a2ohp"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Settings/Volume/MasterSlider_SCRIPT.gd" id="4_rgklw"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Settings/Volume/MusicSlider_SCRIPT.gd" id="5_ef8bu"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Settings/Volume/SFXSlider_SCRIPT.gd" id="6_ek06p"]
+[ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="7_ptfu5"]
+[ext_resource type="StyleBox" uid="uid://com3tix0pshhk" path="res://Resources/Styles and Themes/Styles/Default/Label/Default_Label.tres" id="8_d5j8y"]
+[ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="9_pw57a"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_5ohsc"]
+thickness = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uykce"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1cec2"]
+bg_color = Color(0.125911, 0.125911, 0.125911, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_top = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_318pl"]
+bg_color = Color(0.125911, 0.125911, 0.125911, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_top = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71xan"]
+bg_color = Color(0.255659, 0.255659, 0.255659, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_gyxks"]
+default_font = ExtResource("9_pw57a")
+Button/styles/hover = SubResource("StyleBoxFlat_1cec2")
+Button/styles/normal = SubResource("StyleBoxFlat_318pl")
+Button/styles/pressed = SubResource("StyleBoxFlat_71xan")
+Label/styles/normal = ExtResource("8_d5j8y")
 
 [node name="SettingsUI" type="Control"]
 layout_mode = 3
@@ -10,6 +62,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_wslij")
+
+[node name="GreyLayer" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.643137)
+script = ExtResource("2_xedjg")
 
 [node name="BG" type="Button" parent="."]
 layout_mode = 1
@@ -26,8 +89,229 @@ theme_override_styles/pressed = ExtResource("1_3o8wb")
 theme_override_styles/normal = ExtResource("1_3o8wb")
 script = ExtResource("2_xedjg")
 
-[node name="General" type="TabBar" parent="."]
+[node name="SettingsTabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33724
+anchor_top = 0.161265
+anchor_right = 0.66276
+anchor_bottom = 0.838735
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_a2ohp")
+theme_override_font_sizes/font_size = 21
+current_tab = 2
+script = ExtResource("2_xedjg")
+
+[node name="General" type="TabBar" parent="SettingsTabContainer"]
 visible = false
+layout_mode = 2
 focus_mode = 0
 script = ExtResource("2_xedjg")
 metadata/_tab_index = 0
+
+[node name="Video" type="TabBar" parent="SettingsTabContainer"]
+visible = false
+layout_mode = 2
+focus_mode = 0
+script = ExtResource("2_xedjg")
+metadata/_tab_index = 1
+
+[node name="FOVSlider" type="HSlider" parent="SettingsTabContainer/Video"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0413321
+anchor_top = 0.0861188
+anchor_right = 0.484
+anchor_bottom = 0.132391
+offset_right = 1.52588e-05
+focus_mode = 0
+theme_override_constants/center_grabber = -1
+theme_override_styles/slider = SubResource("StyleBoxLine_5ohsc")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_uykce")
+min_value = 60.0
+max_value = 140.0
+value = 60.0
+rounded = true
+metadata/_edit_use_anchors_ = true
+
+[node name="FOVTTL" type="Label" parent="SettingsTabContainer/Video"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0266681
+anchor_top = 0.0244223
+anchor_right = 0.581334
+anchor_bottom = 0.104114
+offset_right = -1.52588e-05
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("7_ptfu5")
+theme_override_font_sizes/font_size = 17
+text = "Field of Vision (FOV)"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="FOVValue" type="Label" parent="SettingsTabContainer/Video"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.513333
+anchor_top = 0.071
+anchor_right = 0.628
+anchor_bottom = 0.150386
+offset_top = -0.123953
+offset_right = -1.52588e-05
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("7_ptfu5")
+theme_override_font_sizes/font_size = 18
+text = "00"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Sound" type="TabBar" parent="SettingsTabContainer"]
+layout_mode = 2
+focus_mode = 0
+script = ExtResource("2_xedjg")
+metadata/_tab_index = 2
+
+[node name="MasterSlider" type="VSlider" parent="SettingsTabContainer/Sound"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.257333
+anchor_top = 0.107143
+anchor_right = 0.315999
+anchor_bottom = 0.698276
+offset_right = -2.0
+max_value = 1.0
+step = 0.001
+script = ExtResource("4_rgklw")
+metadata/_edit_use_anchors_ = true
+
+[node name="MusicSlider" type="VSlider" parent="SettingsTabContainer/Sound"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.470667
+anchor_top = 0.107143
+anchor_right = 0.529333
+anchor_bottom = 0.698276
+max_value = 1.0
+step = 0.001
+script = ExtResource("5_ef8bu")
+metadata/_edit_use_anchors_ = true
+
+[node name="SFXSlider" type="VSlider" parent="SettingsTabContainer/Sound"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.684001
+anchor_top = 0.107143
+anchor_right = 0.742668
+anchor_bottom = 0.698276
+max_value = 1.0
+step = 0.001
+script = ExtResource("6_ek06p")
+metadata/_edit_use_anchors_ = true
+
+[node name="MasterValue" type="Label" parent="SettingsTabContainer/Sound"]
+layout_mode = 0
+anchor_left = 0.229334
+anchor_top = 0.0394088
+anchor_right = 0.338668
+anchor_bottom = 0.1133
+theme = ExtResource("7_ptfu5")
+theme_override_font_sizes/font_size = 25
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MusicValue" type="Label" parent="SettingsTabContainer/Sound"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.442668
+anchor_top = 0.0394088
+anchor_right = 0.552001
+anchor_bottom = 0.1133
+theme = ExtResource("7_ptfu5")
+theme_override_font_sizes/font_size = 25
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="SFXValue" type="Label" parent="SettingsTabContainer/Sound"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.656002
+anchor_top = 0.0394088
+anchor_right = 0.765335
+anchor_bottom = 0.1133
+theme = ExtResource("7_ptfu5")
+theme_override_font_sizes/font_size = 25
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Info" type="Label" parent="SettingsTabContainer/Sound"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.656002
+anchor_top = 0.709359
+anchor_right = 0.765336
+anchor_bottom = 0.78325
+theme = ExtResource("7_ptfu5")
+theme_override_font_sizes/font_size = 20
+text = "SFX"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Info2" type="Label" parent="SettingsTabContainer/Sound"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.426668
+anchor_top = 0.709359
+anchor_right = 0.565335
+anchor_bottom = 0.78325
+theme = ExtResource("7_ptfu5")
+theme_override_font_sizes/font_size = 20
+text = "Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Info3" type="Label" parent="SettingsTabContainer/Sound"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.192001
+anchor_top = 0.706896
+anchor_right = 0.360001
+anchor_bottom = 0.780787
+theme = ExtResource("7_ptfu5")
+theme_override_font_sizes/font_size = 20
+text = "Master"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ExitSettingsButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = 166.5
+offset_right = 54.0
+offset_bottom = 217.5
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme = SubResource("Theme_gyxks")
+theme_override_font_sizes/font_size = 40
+text = "EXIT"
+script = ExtResource("2_xedjg")
+
+[connection signal="pressed" from="ExitSettingsButton" to="." method="_on_exit_settings_button_pressed"]
