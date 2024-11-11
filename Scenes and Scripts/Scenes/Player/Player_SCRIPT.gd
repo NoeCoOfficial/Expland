@@ -298,15 +298,6 @@ func _process(_delta):
 	
 	$Head/Camera3D/CrosshairCanvas/HealthLBL.text = "Health: " + str(Health) # set the health label text to "Health: " + the health variable as a string	
 	
-	## SETTINGS
-	# Music sliders
-	$Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound/SFXValue.text = str($Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound/SFXSlider.value*100)
-	$Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound/MusicValue.text = str($Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound/MusicSlider.value*100)
-	$Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound/MasterValue.text = str($Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Sound/MasterSlider.value*100)
-	# FOV slider
-	$Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Video/FOVValue.text = str(PlayerSettingsData.FOV)
-	camera.fov = PlayerSettingsData.FOV
-	
 	
 	$Head/Camera3D/CrosshairCanvas/Crosshair.size = crosshair_size # set the crosshair size to the crosshair size variable
 
@@ -317,11 +308,7 @@ func _process(_delta):
 func _ready():
 	nodeSetup() # Call the nodeSetup function to setup the nodes
 	
-	
-	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Lock mouse
-
-	$Head/Camera3D/SettingsLayer/MainLayer/SettingsTabContainer/Video/FOVSlider.value = PlayerSettingsData.FOV
 	
 	Health = PlayerData.Health # set the health variable to the player data's health variable
 	GAME_STATE = PlayerData.GAME_STATE # set the game state to the player data's game state
@@ -343,11 +330,6 @@ func _on_ready() -> void: # Called when the node is considered ready
 	pass # Replace with function body.
 
 func nodeSetup(): # A function to setup the nodes. Called in the _ready function
-	$Head/Camera3D/SettingsLayer/GreyLayer.set_self_modulate(Color(0, 0, 0, 0))
-	$Head/Camera3D/SettingsLayer/GreyLayer.set_visible(false)
-	Utils.set_center_offset($Head/Camera3D/SettingsLayer/MainLayer)
-	$Head/Camera3D/SettingsLayer/MainLayer.set_visible(false)
-	$Head/Camera3D/SettingsLayer/MainLayer.set_scale(Vector2(0.0, 0.0))
 	
 	$Head/Camera3D/DeathScreen/BlackOverlay/GetUp.set_self_modulate(Color(0, 0, 0, 0)) # set the get up self modulate to black
 	$Head/Camera3D/DeathScreen/BlackOverlay/RandomText.set_self_modulate(Color(0, 0, 0, 0)) # set the random text self modulate to black
@@ -516,31 +498,11 @@ func _on_settings_btn_pressed():
 ######################################
 
 func openSettings():
-	PauseManager.is_inside_settings = true
-	$Head/Camera3D/SettingsLayer.set_visible(true)
-	$Head/Camera3D/SettingsLayer/GreyLayer.set_visible(true)
-	$Head/Camera3D/SettingsLayer/MainLayer.set_visible(true)
-
-	var tween = get_tree().create_tween().set_parallel()
-	tween.tween_property($Head/Camera3D/SettingsLayer/GreyLayer, "self_modulate", Color(0, 0, 0, 0.8), 0.3)
-	tween.tween_property($Head/Camera3D/SettingsLayer/MainLayer, "scale", Vector2(1.0, 1.0), 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	pass
 
 func closeSettings():
-	PlayerSettingsData.saveSettings()
-	PauseManager.is_inside_settings = false
-	var tween = get_tree().create_tween().set_parallel(true)
-	tween.tween_property($Head/Camera3D/SettingsLayer/GreyLayer, "self_modulate", Color(0, 0, 0, 0), 0.3)
-	tween.tween_property($Head/Camera3D/SettingsLayer/MainLayer, "scale", Vector2(0.0, 0.0), 0.3).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-	tween.set_parallel(false)
-	tween.tween_property($Head/Camera3D/SettingsLayer/GreyLayer, "visible", false, 0)
-	tween.tween_property($Head/Camera3D/SettingsLayer, "visible", false, 0)
-	tween.tween_property($Head/Camera3D/SettingsLayer/MainLayer, "visible", false, 0)
+	pass
 
-func _on_exit_settings_button_pressed():
-	closeSettings()
-
-func _on_fov_slider_value_changed(value):
-	PlayerSettingsData.FOV = value
 ######################################
 # Saving
 ######################################
