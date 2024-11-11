@@ -1,7 +1,5 @@
 extends Control
 
-@export var is_being_opened_by_a_button : bool
-
 
 func nodeSetup():
 	$SettingsTabContainer/Video/FOVSlider.value = PlayerSettingsData.FOV
@@ -11,6 +9,9 @@ func nodeSetup():
 
 func _ready() -> void:
 	Utils.set_center_offset(self)
+	self.scale = Vector2(0.0, 0.0)
+	self.visible = false
+	
 	$GreyLayer.self_modulate = Color(1, 1, 1, 0)
 	
 	
@@ -28,7 +29,7 @@ func _on_exit_settings_button_pressed() -> void:
 	pass
 
 func openSettings():
-	pass
+	PlayerSettingsData.loadSettings()
 
 func closeSettings():
 	pass
