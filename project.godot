@@ -36,6 +36,7 @@ SaveManager="*res://Scenes and Scripts/Singletons/Save and Load/SaveManager.gd"
 PauseManager="*res://Scenes and Scripts/Singletons/Pause/PauseManager.gd"
 InteractionManager="*res://Scenes and Scripts/Singletons/Interaction/InteractionManager.gd"
 Utils="*res://Scenes and Scripts/Singletons/Utils.gd"
+SmoothMovements="*res://Scenes and Scripts/Singletons/SmoothMovements.gd"
 
 [display]
 
