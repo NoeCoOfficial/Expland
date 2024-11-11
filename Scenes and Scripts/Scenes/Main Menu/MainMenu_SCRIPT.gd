@@ -3,8 +3,10 @@ extends Node3D
 
 @onready var DefaultXPos_PlayButton = $Camera3D/MainLayer/PlayButton.position.x
 
+######################################
+# Startup
+######################################
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Utils.set_center_offset($Camera3D/MainLayer/PlayButton)
 	Utils.set_center_offset($Camera3D/MainLayer/PlayButtonTrigger)
@@ -30,7 +32,9 @@ func onStartup():
 	tween.tween_property($Camera3D/MainLayer/SettingsButton, "position", Vector2(0, 297), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.2)
 	tween.tween_property($Camera3D/MainLayer/QuitButton, "position", Vector2(0, 383), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.4)
 
-
+######################################
+# PlayButton animations and functions
+######################################
 
 func _on_play_button_trigger_mouse_entered() -> void:
 	var tween = get_tree().create_tween().set_parallel()
@@ -55,3 +59,41 @@ func _on_play_button_trigger_button_up() -> void:
 
 func _on_play_button_trigger_pressed() -> void:
 	print("{LOCAL} [MainMenu_SCRIPT.gd] Play button pressed.")
+
+######################################
+# SettingsButton animations and functions
+######################################
+
+func _on_settings_button_trigger_mouse_entered() -> void:
+	pass # Replace with function body.
+
+func _on_settings_button_trigger_mouse_exited() -> void:
+	pass # Replace with function body.
+
+func _on_settings_button_trigger_button_up() -> void:
+	pass # Replace with function body.
+
+func _on_settings_button_trigger_button_down() -> void:
+	pass # Replace with function body.
+
+func _on_settings_button_trigger_pressed() -> void:
+	pass # Replace with function body.
+
+######################################
+# QuitButton animations and functions
+######################################
+
+func _on_quit_button_trigger_button_up() -> void:
+	pass # Replace with function body.
+
+func _on_quit_button_trigger_button_down() -> void:
+	pass # Replace with function body.
+
+func _on_quit_button_trigger_mouse_entered() -> void:
+	pass # Replace with function body.
+
+func _on_quit_button_trigger_mouse_exited() -> void:
+	pass # Replace with function body.
+
+func _on_quit_button_trigger_pressed() -> void:
+	pass # Replace with function body.
