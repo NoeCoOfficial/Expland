@@ -204,19 +204,6 @@ texture = ExtResource("6_ve3ie")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="PlayButtonTrigger" type="Button" parent="Camera3D/MainLayer"]
-self_modulate = Color(1, 1, 1, 0)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -348.0
-offset_top = 280.0
-offset_right = -1152.0
-offset_bottom = -291.0
-grow_horizontal = 2
-grow_vertical = 2
-focus_mode = 0
-
 [node name="SettingsButton" type="Control" parent="Camera3D/MainLayer"]
 layout_mode = 3
 anchor_left = -0.302083
@@ -281,16 +268,6 @@ pivot_offset = Vector2(34.5, 34.5)
 texture = ExtResource("7_7tdx1")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
-
-[node name="SettingsButtonTrigger" type="Button" parent="Camera3D/MainLayer/SettingsButton"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -25.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="QuitButton" type="Control" parent="Camera3D/MainLayer"]
 layout_mode = 3
@@ -358,13 +335,37 @@ grow_vertical = 2
 texture = ExtResource("8_rn1to")
 expand_mode = 1
 
-[node name="QuitButtonTrigger" type="Button" parent="Camera3D/MainLayer/QuitButton"]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.103896
-anchor_right = 0.75
+[node name="PlayButtonTrigger" type="Button" parent="Camera3D/MainLayer"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -348.0
+offset_top = 280.0
+offset_right = -1152.0
+offset_bottom = -291.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+
+[node name="SettingsButtonTrigger" type="Button" parent="Camera3D/MainLayer"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = -1
+anchor_left = -0.302083
+anchor_top = 0.57716
+anchor_right = -0.0303819
+anchor_bottom = 0.695988
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="QuitButtonTrigger" type="Button" parent="Camera3D/MainLayer"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = -1
+anchor_left = -0.302083
+anchor_top = 0.725309
+anchor_right = -0.0763889
+anchor_bottom = 0.83179
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
@@ -439,13 +440,13 @@ initial_velocity_max = 47.09
 [connection signal="mouse_entered" from="Camera3D/MainLayer/PlayButtonTrigger" to="." method="_on_play_button_trigger_mouse_entered"]
 [connection signal="mouse_exited" from="Camera3D/MainLayer/PlayButtonTrigger" to="." method="_on_play_button_trigger_mouse_exited"]
 [connection signal="pressed" from="Camera3D/MainLayer/PlayButtonTrigger" to="." method="_on_play_button_trigger_pressed"]
-[connection signal="button_down" from="Camera3D/MainLayer/SettingsButton/SettingsButtonTrigger" to="." method="_on_settings_button_trigger_button_down"]
-[connection signal="button_up" from="Camera3D/MainLayer/SettingsButton/SettingsButtonTrigger" to="." method="_on_settings_button_trigger_button_up"]
-[connection signal="mouse_entered" from="Camera3D/MainLayer/SettingsButton/SettingsButtonTrigger" to="." method="_on_settings_button_trigger_mouse_entered"]
-[connection signal="mouse_exited" from="Camera3D/MainLayer/SettingsButton/SettingsButtonTrigger" to="." method="_on_settings_button_trigger_mouse_exited"]
-[connection signal="pressed" from="Camera3D/MainLayer/SettingsButton/SettingsButtonTrigger" to="." method="_on_settings_button_trigger_pressed"]
-[connection signal="button_down" from="Camera3D/MainLayer/QuitButton/QuitButtonTrigger" to="." method="_on_quit_button_trigger_button_down"]
-[connection signal="button_up" from="Camera3D/MainLayer/QuitButton/QuitButtonTrigger" to="." method="_on_quit_button_trigger_button_up"]
-[connection signal="mouse_entered" from="Camera3D/MainLayer/QuitButton/QuitButtonTrigger" to="." method="_on_quit_button_trigger_mouse_entered"]
-[connection signal="mouse_exited" from="Camera3D/MainLayer/QuitButton/QuitButtonTrigger" to="." method="_on_quit_button_trigger_mouse_exited"]
-[connection signal="pressed" from="Camera3D/MainLayer/QuitButton/QuitButtonTrigger" to="." method="_on_quit_button_trigger_pressed"]
+[connection signal="button_down" from="Camera3D/MainLayer/SettingsButtonTrigger" to="." method="_on_settings_button_trigger_button_down"]
+[connection signal="button_up" from="Camera3D/MainLayer/SettingsButtonTrigger" to="." method="_on_settings_button_trigger_button_up"]
+[connection signal="mouse_entered" from="Camera3D/MainLayer/SettingsButtonTrigger" to="." method="_on_settings_button_trigger_mouse_entered"]
+[connection signal="mouse_exited" from="Camera3D/MainLayer/SettingsButtonTrigger" to="." method="_on_settings_button_trigger_mouse_exited"]
+[connection signal="pressed" from="Camera3D/MainLayer/SettingsButtonTrigger" to="." method="_on_settings_button_trigger_pressed"]
+[connection signal="button_down" from="Camera3D/MainLayer/QuitButtonTrigger" to="." method="_on_quit_button_trigger_button_down"]
+[connection signal="button_up" from="Camera3D/MainLayer/QuitButtonTrigger" to="." method="_on_quit_button_trigger_button_up"]
+[connection signal="mouse_entered" from="Camera3D/MainLayer/QuitButtonTrigger" to="." method="_on_quit_button_trigger_mouse_entered"]
+[connection signal="mouse_exited" from="Camera3D/MainLayer/QuitButtonTrigger" to="." method="_on_quit_button_trigger_mouse_exited"]
+[connection signal="pressed" from="Camera3D/MainLayer/QuitButtonTrigger" to="." method="_on_quit_button_trigger_pressed"]
