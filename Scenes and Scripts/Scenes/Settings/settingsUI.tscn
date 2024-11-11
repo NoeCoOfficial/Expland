@@ -1,15 +1,15 @@
 [gd_scene load_steps=17 format=3 uid="uid://ceabjbnv3nnyr"]
 
-[ext_resource type="StyleBox" uid="uid://3txnt8ebd3yh" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/BlackBGwithWhiteBorder.tres" id="1_3o8wb"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Settings/SettingsUI_SCRIPT.gd" id="1_wslij"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="2_xedjg"]
-[ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="3_a2ohp"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Settings/Volume/MasterSlider_SCRIPT.gd" id="4_rgklw"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Settings/Volume/MusicSlider_SCRIPT.gd" id="5_ef8bu"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Settings/Volume/SFXSlider_SCRIPT.gd" id="6_ek06p"]
-[ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="7_ptfu5"]
-[ext_resource type="StyleBox" uid="uid://com3tix0pshhk" path="res://Resources/Styles and Themes/Styles/Default/Label/Default_Label.tres" id="8_d5j8y"]
-[ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="9_pw57a"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Settings/SettingsUI_SCRIPT.gd" id="1_tjyjk"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="2_swx28"]
+[ext_resource type="StyleBox" uid="uid://3txnt8ebd3yh" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/BlackBGwithWhiteBorder.tres" id="3_hcsr3"]
+[ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="4_0ocir"]
+[ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="5_8j0xn"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Settings/Volume/MasterSlider_SCRIPT.gd" id="6_adeke"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Settings/Volume/MusicSlider_SCRIPT.gd" id="7_87v8e"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Settings/Volume/SFXSlider_SCRIPT.gd" id="8_mttek"]
+[ext_resource type="StyleBox" uid="uid://com3tix0pshhk" path="res://Resources/Styles and Themes/Styles/Default/Label/Default_Label.tres" id="9_recjx"]
+[ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="10_3arkg"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_5ohsc"]
 thickness = 10
@@ -49,11 +49,11 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="Theme" id="Theme_gyxks"]
-default_font = ExtResource("9_pw57a")
+default_font = ExtResource("10_3arkg")
 Button/styles/hover = SubResource("StyleBoxFlat_1cec2")
 Button/styles/normal = SubResource("StyleBoxFlat_318pl")
 Button/styles/pressed = SubResource("StyleBoxFlat_71xan")
-Label/styles/normal = ExtResource("8_d5j8y")
+Label/styles/normal = ExtResource("9_recjx")
 
 [node name="SettingsUI" type="Control"]
 layout_mode = 3
@@ -62,7 +62,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_wslij")
+script = ExtResource("1_tjyjk")
 
 [node name="GreyLayer" type="ColorRect" parent="."]
 layout_mode = 1
@@ -72,7 +72,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.643137)
-script = ExtResource("2_xedjg")
+script = ExtResource("2_swx28")
 
 [node name="BG" type="Button" parent="."]
 layout_mode = 1
@@ -84,10 +84,10 @@ anchor_bottom = 0.849537
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
-theme_override_styles/hover = ExtResource("1_3o8wb")
-theme_override_styles/pressed = ExtResource("1_3o8wb")
-theme_override_styles/normal = ExtResource("1_3o8wb")
-script = ExtResource("2_xedjg")
+theme_override_styles/hover = ExtResource("3_hcsr3")
+theme_override_styles/pressed = ExtResource("3_hcsr3")
+theme_override_styles/normal = ExtResource("3_hcsr3")
+script = ExtResource("2_swx28")
 
 [node name="SettingsTabContainer" type="TabContainer" parent="."]
 layout_mode = 1
@@ -98,23 +98,23 @@ anchor_right = 0.66276
 anchor_bottom = 0.838735
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_a2ohp")
+theme_override_fonts/font = ExtResource("4_0ocir")
 theme_override_font_sizes/font_size = 21
 current_tab = 2
-script = ExtResource("2_xedjg")
+script = ExtResource("2_swx28")
 
 [node name="General" type="TabBar" parent="SettingsTabContainer"]
 visible = false
 layout_mode = 2
 focus_mode = 0
-script = ExtResource("2_xedjg")
+script = ExtResource("2_swx28")
 metadata/_tab_index = 0
 
 [node name="Video" type="TabBar" parent="SettingsTabContainer"]
 visible = false
 layout_mode = 2
 focus_mode = 0
-script = ExtResource("2_xedjg")
+script = ExtResource("2_swx28")
 metadata/_tab_index = 1
 
 [node name="FOVSlider" type="HSlider" parent="SettingsTabContainer/Video"]
@@ -145,7 +145,7 @@ anchor_bottom = 0.104114
 offset_right = -1.52588e-05
 grow_horizontal = 2
 grow_vertical = 0
-theme = ExtResource("7_ptfu5")
+theme = ExtResource("5_8j0xn")
 theme_override_font_sizes/font_size = 17
 text = "Field of Vision (FOV)"
 horizontal_alignment = 1
@@ -163,7 +163,7 @@ offset_top = -0.123953
 offset_right = -1.52588e-05
 grow_horizontal = 2
 grow_vertical = 0
-theme = ExtResource("7_ptfu5")
+theme = ExtResource("5_8j0xn")
 theme_override_font_sizes/font_size = 18
 text = "00"
 vertical_alignment = 1
@@ -172,7 +172,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Sound" type="TabBar" parent="SettingsTabContainer"]
 layout_mode = 2
 focus_mode = 0
-script = ExtResource("2_xedjg")
+script = ExtResource("2_swx28")
 metadata/_tab_index = 2
 
 [node name="MasterSlider" type="VSlider" parent="SettingsTabContainer/Sound"]
@@ -185,7 +185,7 @@ anchor_bottom = 0.698276
 offset_right = -2.0
 max_value = 1.0
 step = 0.001
-script = ExtResource("4_rgklw")
+script = ExtResource("6_adeke")
 metadata/_edit_use_anchors_ = true
 
 [node name="MusicSlider" type="VSlider" parent="SettingsTabContainer/Sound"]
@@ -197,7 +197,7 @@ anchor_right = 0.529333
 anchor_bottom = 0.698276
 max_value = 1.0
 step = 0.001
-script = ExtResource("5_ef8bu")
+script = ExtResource("7_87v8e")
 metadata/_edit_use_anchors_ = true
 
 [node name="SFXSlider" type="VSlider" parent="SettingsTabContainer/Sound"]
@@ -209,7 +209,7 @@ anchor_right = 0.742668
 anchor_bottom = 0.698276
 max_value = 1.0
 step = 0.001
-script = ExtResource("6_ek06p")
+script = ExtResource("8_mttek")
 metadata/_edit_use_anchors_ = true
 
 [node name="MasterValue" type="Label" parent="SettingsTabContainer/Sound"]
@@ -218,7 +218,7 @@ anchor_left = 0.229334
 anchor_top = 0.0394088
 anchor_right = 0.338668
 anchor_bottom = 0.1133
-theme = ExtResource("7_ptfu5")
+theme = ExtResource("5_8j0xn")
 theme_override_font_sizes/font_size = 25
 text = "100"
 horizontal_alignment = 1
@@ -232,7 +232,7 @@ anchor_left = 0.442668
 anchor_top = 0.0394088
 anchor_right = 0.552001
 anchor_bottom = 0.1133
-theme = ExtResource("7_ptfu5")
+theme = ExtResource("5_8j0xn")
 theme_override_font_sizes/font_size = 25
 text = "100"
 horizontal_alignment = 1
@@ -246,7 +246,7 @@ anchor_left = 0.656002
 anchor_top = 0.0394088
 anchor_right = 0.765335
 anchor_bottom = 0.1133
-theme = ExtResource("7_ptfu5")
+theme = ExtResource("5_8j0xn")
 theme_override_font_sizes/font_size = 25
 text = "100"
 horizontal_alignment = 1
@@ -260,7 +260,7 @@ anchor_left = 0.656002
 anchor_top = 0.709359
 anchor_right = 0.765336
 anchor_bottom = 0.78325
-theme = ExtResource("7_ptfu5")
+theme = ExtResource("5_8j0xn")
 theme_override_font_sizes/font_size = 20
 text = "SFX"
 horizontal_alignment = 1
@@ -274,7 +274,7 @@ anchor_left = 0.426668
 anchor_top = 0.709359
 anchor_right = 0.565335
 anchor_bottom = 0.78325
-theme = ExtResource("7_ptfu5")
+theme = ExtResource("5_8j0xn")
 theme_override_font_sizes/font_size = 20
 text = "Music"
 horizontal_alignment = 1
@@ -288,7 +288,7 @@ anchor_left = 0.192001
 anchor_top = 0.706896
 anchor_right = 0.360001
 anchor_bottom = 0.780787
-theme = ExtResource("7_ptfu5")
+theme = ExtResource("5_8j0xn")
 theme_override_font_sizes/font_size = 20
 text = "Master"
 horizontal_alignment = 1
@@ -312,6 +312,6 @@ focus_mode = 0
 theme = SubResource("Theme_gyxks")
 theme_override_font_sizes/font_size = 40
 text = "EXIT"
-script = ExtResource("2_xedjg")
+script = ExtResource("2_swx28")
 
 [connection signal="pressed" from="ExitSettingsButton" to="." method="_on_exit_settings_button_pressed"]
