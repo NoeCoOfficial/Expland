@@ -1,9 +1,17 @@
 @icon("res://Textures/Icons/Script Icons/32x32/main_menu.png")
 extends Node3D
 
+@onready var DefaultXPos_PlayButton = $Camera3D/MainLayer/PlayButton.position.x
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Utils.set_center_offset($Camera3D/MainLayer/PlayButton)
+	Utils.set_center_offset($Camera3D/MainLayer/PlayButtonTrigger)
+	
+	Utils.set_center_offset($Camera3D/MainLayer/SettingsButton)
+	Utils.set_center_offset($Camera3D/MainLayer/QuitButton)
+
 	await get_tree().create_timer(1).timeout
 	onStartup()
 
@@ -20,29 +28,36 @@ func fadeOut():
 func onStartup():
 	fadeOut()
 	var tween = get_tree().create_tween().set_parallel()
-	tween.tween_property($Camera3D/MainLayer/Logo, "position", Vector2(16, 24), 1.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.5)
+	tween.tween_property($Camera3D/MainLayer/Logo, "position:x", -15, 1.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.5)
 	
 	tween.tween_property($Camera3D/MainLayer/PlayButton, "position", Vector2(0, 203), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.0)
+	tween.tween_property($Camera3D/MainLayer/PlayButtonTrigger, "position", Vector2(0, 203), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.0)
+
 	tween.tween_property($Camera3D/MainLayer/SettingsButton, "position", Vector2(0, 297), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.2)
 	tween.tween_property($Camera3D/MainLayer/QuitButton, "position", Vector2(0, 383), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.4)
 
-	
-
 
 func _on_play_button_trigger_mouse_entered() -> void:
-	pass # Replace with function body.
+	var tween = get_tree().create_tween().set_parallel()
+	tween.tween_property($Camera3D/MainLayer/PlayButtonTrigger, "position:x", 20.0, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property($Camera3D/MainLayer/PlayButton, "position:x", 20.0, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 
 func _on_play_button_trigger_mouse_exited() -> void:
-	pass # Replace with function body.
+	var tween = get_tree().create_tween().set_parallel()
+	tween.tween_property($Camera3D/MainLayer/PlayButtonTrigger, "position:x", 0.0, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property($Camera3D/MainLayer/PlayButton, "position:x", 0.0, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 
 func _on_play_button_trigger_button_down() -> void:
-	pass # Replace with function body.
-
+	var tween = get_tree().create_tween().set_parallel()
+	tween.tween_property($Camera3D/MainLayer/PlayButtonTrigger, "scale", Vector2(1.05, 1.05), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property($Camera3D/MainLayer/PlayButton, "scale", Vector2(1.05, 1.05), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func _on_play_button_trigger_button_up() -> void:
-	pass # Replace with function body.
+	var tween = get_tree().create_tween().set_parallel()
+	tween.tween_property($Camera3D/MainLayer/PlayButtonTrigger, "scale", Vector2(1.0, 1.0), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property($Camera3D/MainLayer/PlayButton, "scale", Vector2(1.0, 1.0), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 
 func _on_play_button_trigger_pressed() -> void:
