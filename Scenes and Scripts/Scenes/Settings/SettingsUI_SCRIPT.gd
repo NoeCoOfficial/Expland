@@ -10,6 +10,10 @@ func nodeSetup():
 	$SettingsTabContainer/Sound/SFXSlider.value = PlayerSettingsData.sfx_Volume
 
 func _ready() -> void:
+	Utils.set_center_offset(self)
+	$GreyLayer.self_modulate = Color(1, 1, 1, 0)
+	
+	
 	PlayerSettingsData.loadSettings()
 	nodeSetup()
 
