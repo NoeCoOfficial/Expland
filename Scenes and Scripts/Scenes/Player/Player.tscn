@@ -99,7 +99,7 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1cec2"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d73il"]
 bg_color = Color(0.125911, 0.125911, 0.125911, 1)
 border_width_left = 2
 border_width_top = 2
@@ -111,7 +111,7 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 expand_margin_top = 5.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_318pl"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qvyw"]
 bg_color = Color(0.125911, 0.125911, 0.125911, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
@@ -119,7 +119,7 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 expand_margin_top = 5.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71xan"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ncmi"]
 bg_color = Color(0.255659, 0.255659, 0.255659, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
@@ -128,9 +128,9 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="Theme" id="Theme_kcv34"]
 default_font = ExtResource("3_yecwp")
-Button/styles/hover = SubResource("StyleBoxFlat_1cec2")
-Button/styles/normal = SubResource("StyleBoxFlat_318pl")
-Button/styles/pressed = SubResource("StyleBoxFlat_71xan")
+Button/styles/hover = SubResource("StyleBoxFlat_d73il")
+Button/styles/normal = SubResource("StyleBoxFlat_7qvyw")
+Button/styles/pressed = SubResource("StyleBoxFlat_4ncmi")
 Label/styles/normal = ExtResource("19_nviyp")
 
 [node name="Player" type="CharacterBody3D" groups=["PlayerBody"]]
