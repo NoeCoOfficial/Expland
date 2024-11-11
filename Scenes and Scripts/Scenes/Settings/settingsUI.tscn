@@ -25,3 +25,9 @@ theme_override_styles/hover = ExtResource("1_3o8wb")
 theme_override_styles/pressed = ExtResource("1_3o8wb")
 theme_override_styles/normal = ExtResource("1_3o8wb")
 script = ExtResource("2_xedjg")
+
+[node name="General" type="TabBar" parent="."]
+visible = false
+focus_mode = 0
+script = ExtResource("2_xedjg")
+metadata/_tab_index = 0
