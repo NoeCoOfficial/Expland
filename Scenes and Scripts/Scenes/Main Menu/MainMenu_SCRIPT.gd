@@ -77,7 +77,7 @@ func _on_settings_button_trigger_button_down() -> void:
 	pass # Replace with function body.
 
 func _on_settings_button_trigger_pressed() -> void:
-	pass # Replace with function body.
+	print("{LOCAL} [MainMenu_SCRIPT.gd] Settings button pressed.")
 
 ######################################
 # QuitButton animations and functions
@@ -96,4 +96,4 @@ func _on_quit_button_trigger_mouse_exited() -> void:
 	pass # Replace with function body.
 
 func _on_quit_button_trigger_pressed() -> void:
-	pass # Replace with function body.
+	print("{LOCAL} [MainMenu_SCRIPT.gd] Quit button pressed.")
