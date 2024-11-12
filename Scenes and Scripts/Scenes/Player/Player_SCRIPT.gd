@@ -271,6 +271,7 @@ func _process(_delta):
 	
 	## DEBUGGING
 	
+	$Head/Camera3D.fov = PlayerSettingsData.FOV
 	# Get the time
 	var time_now = Time.get_time_dict_from_system()
 	var hours = time_now["hour"]
@@ -326,6 +327,9 @@ func _ready():
 		tween.tween_property($Head/Camera3D/OverlayLayer/Overlay, "visible", false, 0) # tween the overlay's visibility to false
 	else:
 		$Head/Camera3D/OverlayLayer/Overlay.hide() # hide the overlay
+		
+	if !OS.has_feature("debug"):
+		$Head/Camera3D/PauseLayer/StartDebugging_Btn.hide()
 
 func _on_ready() -> void: # Called when the node is considered ready
 	pass # Replace with function body.
