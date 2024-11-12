@@ -61,12 +61,14 @@ func _process(_delta: float) -> void:
 
 func openSettings():
 	PlayerSettingsData.loadSettings()
+	PauseManager.is_inside_settings = true
 	showOverlay(true, 0.2)
 	self.visible = true
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "scale", Vector2(1.0, 1.0), 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func closeSettings():
+	PauseManager.is_inside_settings = true
 	hideOverlay(true, 0.2)
 	PlayerSettingsData.saveSettings()
 	var tween = get_tree().create_tween()
