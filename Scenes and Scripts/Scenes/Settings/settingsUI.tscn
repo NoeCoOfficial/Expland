@@ -64,16 +64,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tjyjk")
 
-[node name="GreyLayer" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.643137)
-script = ExtResource("2_swx28")
-
 [node name="BG" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -328,6 +318,11 @@ theme = SubResource("Theme_gyxks")
 theme_override_font_sizes/font_size = 40
 text = "EXIT"
 script = ExtResource("2_swx28")
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="pressed" from="SaveSettings" to="." method="_on_save_settings_pressed"]
 [connection signal="value_changed" from="SettingsTabContainer/Video/FOVSlider" to="." method="_on_fov_slider_value_changed"]

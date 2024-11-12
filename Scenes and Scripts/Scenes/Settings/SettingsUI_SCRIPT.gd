@@ -1,6 +1,6 @@
 extends Control
 
-@onready var greyOverlay = $GreyLayer
+@export var greyOverlay : ColorRect
 
 func nodeSetup():
 	$SettingsTabContainer/Video/FOVSlider.value = PlayerSettingsData.FOV
@@ -13,12 +13,8 @@ func _ready() -> void:
 	self.scale = Vector2(0.0, 0.0)
 	self.visible = false
 	
-	$GreyLayer.self_modulate = Color(1, 1, 1, 0)
-	
-	
 	PlayerSettingsData.loadSettings()
 	nodeSetup()
-
 
 func _process(_delta: float) -> void:
 	$SettingsTabContainer/Video/FOVValue.text = str(PlayerSettingsData.FOV)
@@ -29,12 +25,15 @@ func _process(_delta: float) -> void:
 func openSettings():
 	PlayerSettingsData.loadSettings()
 	self.visible = true
-	showOverlay(true, 0.3)
-	## TODO: show layer with zoom effect
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "scale", Vector2(1.0, 1.0), 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func closeSettings():
 	PlayerSettingsData.saveSettings()
-	hideOverlay(true, 0.3)
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "scale", Vector2(1.0, 1.0), 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(self, "visible", false, 0.0)
+
 
 func showOverlay(withFade : bool, fadeTime : float):
 	if withFade:
@@ -59,7 +58,6 @@ func _on_exit_settings_button_pressed() -> void:
 
 func _on_fov_slider_value_changed(value: float) -> void:
 	PlayerSettingsData.FOV = value
-
 
 func _on_master_slider_value_changed(value: float) -> void:
 	PlayerSettingsData.Master_Volume = value
