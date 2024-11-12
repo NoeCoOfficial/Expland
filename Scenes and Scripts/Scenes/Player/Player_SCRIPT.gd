@@ -492,13 +492,15 @@ func _on_resume_btn_pressed():
 	resumeGame()
 
 func _on_settings_btn_pressed():
+	
 	openSettings()
 ######################################
 # Settings
 ######################################
 
 func openSettings():
-	pass
+	$Head/Camera3D/SettingsLayer.visible = true
+	$Head/Camera3D/SettingsLayer/SettingsUI.openSettings()
 
 func closeSettings():
 	pass

@@ -45,6 +45,7 @@ func nodeSetup():
 	$SettingsTabContainer/Sound/SFXSlider.value = PlayerSettingsData.sfx_Volume
 
 func _ready() -> void:
+	greyOverlay.visible = false
 	Utils.set_center_offset(self)
 	self.scale = Vector2(0.0, 0.0)
 	self.visible = false
@@ -60,20 +61,23 @@ func _process(_delta: float) -> void:
 
 func openSettings():
 	PlayerSettingsData.loadSettings()
+	showOverlay(true, 0.2)
 	self.visible = true
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "scale", Vector2(1.0, 1.0), 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func closeSettings():
+	hideOverlay(true, 0.2)
 	PlayerSettingsData.saveSettings()
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "scale", Vector2(1.0, 1.0), 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(self, "scale", Vector2(0.0, 0.0), 0.3).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	tween.tween_property(self, "visible", false, 0.0)
 
 
 func showOverlay(withFade : bool, fadeTime : float):
 	if withFade:
 		greyOverlay.visible = true
+		greyOverlay.self_modulate = Color(1, 1, 1, 0)
 		var tween = get_tree().create_tween()
 		tween.tween_property(greyOverlay, "self_modulate", Color(1, 1, 1, 1), fadeTime)
 	else:

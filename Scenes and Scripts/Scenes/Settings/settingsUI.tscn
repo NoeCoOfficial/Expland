@@ -319,11 +319,6 @@ theme_override_font_sizes/font_size = 40
 text = "EXIT"
 script = ExtResource("2_swx28")
 
-[node name="Control" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [connection signal="pressed" from="SaveSettings" to="." method="_on_save_settings_pressed"]
 [connection signal="value_changed" from="SettingsTabContainer/Video/FOVSlider" to="." method="_on_fov_slider_value_changed"]
 [connection signal="value_changed" from="SettingsTabContainer/Sound/MasterSlider" to="." method="_on_master_slider_value_changed"]
