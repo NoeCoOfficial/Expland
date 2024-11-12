@@ -164,7 +164,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		else:
 			pauseGame()
 	elif Input.is_action_just_pressed("Exit") and PauseManager.is_inside_settings:
-		closeSettings()
+		$Head/Camera3D/SettingsLayer/SettingsUI.closeSettings()
 	if Input.is_action_just_pressed("Quit") and Quit == true: # if the Quit input is pressed and the Quit variable is true
 		if GAME_STATE == "NORMAL" or "INVENTORY": # if the game state is normal or inventory
 			if !GAME_STATE == "DEAD":
@@ -278,6 +278,7 @@ func _process(_delta):
 	var seconds = time_now["second"]
 	var time_string = str(hours).pad_zeros(2) + ":" + str(minutes).pad_zeros(2) + ":" + str(seconds).pad_zeros(2)
 	
+	
 	$Head/Camera3D/DebugLayer/player_position.text = "Player position: " + str(self.position)
 	$Head/Camera3D/DebugLayer/player_velocity_y.text = "velocity.y = " + str(round(velocity.y))
 	$Head/Camera3D/DebugLayer/player_velocity_y_accurate.text = str(velocity.y)
@@ -287,7 +288,7 @@ func _process(_delta):
 	$Head/Camera3D/DebugLayer/current_fps.text = "FPS: %d" % Engine.get_frames_per_second()
 	$Head/Camera3D/DebugLayer/is_raycast_colliding.text = "RayCast colliding? " + str(InteractionManager.is_colliding)
 	$Head/Camera3D/DebugLayer/showing_interaction_notification.text = "Showing notification? " + str(InteractionManager.is_notification_on_screen)
-	
+	$Head/Camera3D/DebugLayer/is_inside_settings.text = "is_inside_settings = " + str(PauseManager.is_inside_settings)
 	## END DEBUGGING
 	
 	# HUD
