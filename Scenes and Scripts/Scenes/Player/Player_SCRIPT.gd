@@ -170,12 +170,12 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			pauseGame()
 	elif Input.is_action_just_pressed("Exit") and PauseManager.is_inside_settings:
 		$Head/Camera3D/SettingsLayer/SettingsUI.closeSettings()
-	if Input.is_action_just_pressed("Quit") and Quit == true: # if the Quit input is pressed and the Quit variable is true
+	if Input.is_action_just_pressed("Quit") and Quit == true and OS.has_feature("debug"): # if the Quit input is pressed and the Quit variable is true
 		if GAME_STATE == "NORMAL" or "INVENTORY": # if the game state is normal or inventory
 			if !GAME_STATE == "DEAD":
 				SaveManager.saveAllData()
 				get_tree().quit() # quit the game
-	if Input.is_action_just_pressed("Reset") and Reset == true and !PauseManager.is_paused:
+	if Input.is_action_just_pressed("Reset") and Reset == true and !PauseManager.is_paused and OS.has_feature("debug"):
 		if GAME_STATE == "NORMAL" or "INVENTORY":
 			if ResetPOS == Vector3(999, 999, 999):
 				self.position = StartPOS # set the player's position to the Start position

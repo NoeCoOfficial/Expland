@@ -90,7 +90,3 @@ func _ready():
 	camera_anim1()
 	var tween = get_tree().create_tween().set_parallel()
 	tween.tween_property($Camera3D/CanvasLayer/ColorRect, "self_modulate", Color(0, 0, 0, 0), 2)
-
-func _input(_event):
-	if Input.is_action_just_pressed("Quit"):
-		get_tree().quit()
