@@ -132,6 +132,11 @@ The keyword @export means that they can be accessed in the inspector panel (righ
 @export var SPRINT_SPEED = 8.0 ## The speed of the player when the user is pressing/holding the Sprint input.
 @export var JUMP_VELOCITY = 4.5 ## How much velocity the player has when jumping. The more this value is, the higher the player can jump.
 
+@export var grass_walk_sounds: Array = []  ## Array for grass walking sound effects
+@export var stone_walk_sounds: Array = []  ## Array for stone walking sound effects
+@export var sand_walk_sounds: Array = []  ## Array for sand walking sound effects
+
+
 @export_subgroup("Crouching") ## A subgroup for crouching variables.
 @export var CROUCH_JUMP_VELOCITY = 4.5 ## How much velocity the player has when jumping. The more this value is, the higher the player can jump.
 @export var CROUCH_SPEED := 5.0 ## The speed of the player when the user is pressing/holding the Crouch input.
