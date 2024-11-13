@@ -505,6 +505,7 @@ func _on_resume_btn_pressed():
 func _on_settings_btn_pressed():
 	
 	openSettings()
+
 ######################################
 # Settings
 ######################################
