@@ -30,12 +30,13 @@ buses/default_bus_layout="res://Resources/Audio Bus/default_bus_layout.tres"
 Global="*res://Scenes and Scripts/Singletons/Global.gd"
 PlayerSettingsData="*res://Scenes and Scripts/Singletons/Save and Load/PlayerSettingsData.gd"
 PlayerData="*res://Scenes and Scripts/Singletons/Save and Load/PlayerData.gd"
+SaveManager="*res://Scenes and Scripts/Singletons/Save and Load/SaveManager.gd"
+PauseManager="*res://Scenes and Scripts/Singletons/Pause/PauseManager.gd"
 TransitionManager="*res://Scenes and Scripts/Singletons/Transition/TransitionManager.gd"
 InventoryManager="*res://Scenes and Scripts/Singletons/Inventory/InventoryManager.gd"
 InputManager="*res://Scenes and Scripts/Singletons/Input/InputManager.gd"
-SaveManager="*res://Scenes and Scripts/Singletons/Save and Load/SaveManager.gd"
-PauseManager="*res://Scenes and Scripts/Singletons/Pause/PauseManager.gd"
 InteractionManager="*res://Scenes and Scripts/Singletons/Interaction/InteractionManager.gd"
+TerrainManager="*res://Scenes and Scripts/Singletons/Terrain/TerrainManager.gd"
 Utils="*res://Scenes and Scripts/Singletons/Utils.gd"
 SmoothMovements="*res://Scenes and Scripts/Singletons/SmoothMovements.gd"
 
@@ -49,10 +50,6 @@ window/stretch/mode="canvas_items"
 movie_writer/mjpeg_quality=1.0
 movie_writer/movie_file="C:/Users/sebas/Godot Projects/Expland/Movies/NewMovie.avi"
 movie_writer/fps=120
-
-[editor_plugins]
-
-enabled=PackedStringArray()
 
 [file_customization]
 
