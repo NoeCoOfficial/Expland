@@ -232,10 +232,13 @@ func _physics_process(delta): # This is a special function that is called every 
 		# Handle Speed
 		if Input.is_action_pressed("Sprint") and !Input.is_action_pressed("Crouch") and !PauseManager.is_paused and GAME_STATE != "INVENTORY": # Check if the Sprint input is pressed and the Crouch input is not pressed
 			speed = SPRINT_SPEED # set the speed to the sprint speed
+			step_interval = 0.3 # set the step interval for sprinting
 		elif Input.is_action_pressed("Crouch") and !PauseManager.is_paused and GAME_STATE != "INVENTORY": # Check if the Crouch input is pressed
 			speed = CROUCH_SPEED # set the speed to the crouch speed
+			step_interval = 0.7 # set the step interval for crouching
 		else: 
 			speed = WALK_SPEED # set the speed to the walk speed
+			step_interval = 0.5 # set the step interval for walking
 		
 
 		# Movement
@@ -246,6 +249,12 @@ func _physics_process(delta): # This is a special function that is called every 
 			if direction != Vector3.ZERO and !PauseManager.is_paused and GAME_STATE != "INVENTORY": # Check if the direction is not zero
 				velocity.x = direction.x * speed # set the player's velocity on the x-axis to the direction times the speed
 				velocity.z = direction.z * speed # set the player's velocity on the z-axis to the direction times the speed
+
+				# Increment time since last step
+				time_since_last_step += delta
+				if time_since_last_step >= step_interval:
+					play_random_walk_sound(TerrainManager.on_terrain)
+					time_since_last_step = 0.0
 			else:
 				velocity.x = lerp(velocity.x, 0.0, delta * 10.0) # linearly interpolate the player's velocity on the x-axis to 0
 				velocity.z = lerp(velocity.z, 0.0, delta * 10.0) # linearly interpolate the player's velocity on the z-axis to 0
@@ -267,7 +276,6 @@ func _physics_process(delta): # This is a special function that is called every 
 			var target_pos = Vector3(camera.transform.origin.x, 0, camera.transform.origin.z) # get the target position
 			camera.transform.origin = camera.transform.origin.lerp(target_pos, delta * BOB_SMOOTHING_SPEED) # linearly interpolate the camera's origin to the target position
 
-# The headbob function remains the same
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO # set the position to zero
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP # set the y position to the sine of the time times the bob frequency times the bob amplitude
@@ -296,6 +304,7 @@ func _process(_delta):
 	$Head/Camera3D/DebugLayer/is_raycast_colliding.text = "RayCast colliding? " + str(InteractionManager.is_colliding)
 	$Head/Camera3D/DebugLayer/showing_interaction_notification.text = "Showing notification? " + str(InteractionManager.is_notification_on_screen)
 	$Head/Camera3D/DebugLayer/is_inside_settings.text = "is_inside_settings = " + str(PauseManager.is_inside_settings)
+	
 	## END DEBUGGING
 	
 	# HUD
