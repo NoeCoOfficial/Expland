@@ -132,12 +132,6 @@ The keyword @export means that they can be accessed in the inspector panel (righ
 @export var SPRINT_SPEED = 8.0 ## The speed of the player when the user is pressing/holding the Sprint input.
 @export var JUMP_VELOCITY = 4.5 ## How much velocity the player has when jumping. The more this value is, the higher the player can jump.
 
-@export var grass_walk_sounds: Array = []  ## Array for grass walking sound effects
-@export var stone_walk_sounds: Array = []  ## Array for stone walking sound effects
-@export var sand_walk_sounds: Array = []  ## Array for sand walking sound effects 
-@export var step_interval: float = 0.5  ## Default step interval for walking sounds
-var time_since_last_step: float = 0.0  ## Time since the last step
-
 @export_subgroup("Crouching") ## A subgroup for crouching variables.
 @export var CROUCH_JUMP_VELOCITY = 4.5 ## How much velocity the player has when jumping. The more this value is, the higher the player can jump.
 @export var CROUCH_SPEED := 5.0 ## The speed of the player when the user is pressing/holding the Crouch input.
@@ -207,28 +201,6 @@ func _unhandled_input(event): # A built-in function that listens for input
 # Process functions
 ######################################
 
-func play_random_walk_sound(terrain_type):
-	var sound_player = $Head/Camera3D/WalkSoundPlayer # Ensure you have an AudioStreamPlayer node at this path
-	var sound_path = ""
-
-	match terrain_type:
-		"grass":
-			sound_path = "res://Sounds/Walk/grass_walk.mp3"
-		"stone":
-			sound_path = "res://Sounds/Walk/stone_walk.mp3"
-		# Add more terrain types and their corresponding sounds here
-
-	if sound_path != "":
-		var audio_stream = load(sound_path)
-		if audio_stream:
-			sound_player.stream = audio_stream
-			sound_player.play()
-			print("Playing sound:", sound_path)
-		else:
-			print("Failed to load sound:", sound_path)
-	else:
-		print("No sound path for terrain type:", terrain_type)
-
 func _physics_process(delta): # This is a special function that is called every frame. It is used for physics calculations. For example, if I run the game on a computer that has a higher/lower frame rate, the physics will still be consistent.
 	
 	# Crouching
@@ -254,13 +226,10 @@ func _physics_process(delta): # This is a special function that is called every 
 		# Handle Speed
 		if Input.is_action_pressed("Sprint") and !Input.is_action_pressed("Crouch") and !PauseManager.is_paused and GAME_STATE != "INVENTORY": # Check if the Sprint input is pressed and the Crouch input is not pressed
 			speed = SPRINT_SPEED # set the speed to the sprint speed
-			step_interval = 0.3 # set the step interval for sprinting
 		elif Input.is_action_pressed("Crouch") and !PauseManager.is_paused and GAME_STATE != "INVENTORY": # Check if the Crouch input is pressed
 			speed = CROUCH_SPEED # set the speed to the crouch speed
-			step_interval = 0.7 # set the step interval for crouching
 		else: 
 			speed = WALK_SPEED # set the speed to the walk speed
-			step_interval = 0.5 # set the step interval for walking
 		
 
 		# Movement
@@ -272,11 +241,6 @@ func _physics_process(delta): # This is a special function that is called every 
 				velocity.x = direction.x * speed # set the player's velocity on the x-axis to the direction times the speed
 				velocity.z = direction.z * speed # set the player's velocity on the z-axis to the direction times the speed
 
-				# Increment time since last step
-				time_since_last_step += delta
-				if time_since_last_step >= step_interval:
-					play_random_walk_sound(TerrainManager.on_terrain)
-					time_since_last_step = 0.0
 			else:
 				velocity.x = lerp(velocity.x, 0.0, delta * 10.0) # linearly interpolate the player's velocity on the x-axis to 0
 				velocity.z = lerp(velocity.z, 0.0, delta * 10.0) # linearly interpolate the player's velocity on the z-axis to 0
