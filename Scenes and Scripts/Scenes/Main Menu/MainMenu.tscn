@@ -372,6 +372,20 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
+[node name="Version" type="Label" parent="Camera3D/MainLayer"]
+modulate = Color(1, 1, 1, 0.259)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -83.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 39.0
+grow_horizontal = 0
+theme = ExtResource("4_grlcg")
+theme_override_font_sizes/font_size = 26
+text = "v0.4.0"
+
 [node name="FadeOut" type="ColorRect" parent="Camera3D/MainLayer"]
 anchors_preset = 15
 anchor_right = 1.0
