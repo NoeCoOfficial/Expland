@@ -88,12 +88,3 @@ func vector3_to_dict(vec: Vector3) -> Dictionary: # Converts a Vector3 value to 
 
 func dict_to_vector3(dict: Dictionary) -> Vector3: # Converts a dictionary value to a Vector3 value.
 	return Vector3(dict["x"], dict["y"], dict["z"])
-
-func get_project_version() -> String:
-	var config = ConfigFile.new()
-	var err = config.load("res://project.godot")
-	if err != OK:
-		print("Failed to load project.godot")
-		return "Unknown"
-	var version = config.get_value("application", "config/version", "Unknown")
-	return version

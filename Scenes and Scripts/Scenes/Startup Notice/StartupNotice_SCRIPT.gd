@@ -4,8 +4,6 @@ extends Control
 func _ready() -> void:
 	if !OS.has_feature("debug"):
 		$Notice/DebugNotice.hide()
-	$Notice.text = "This is a pre-release version of Expland! 
-	You are currently playing v" + Utils.get_project_version() + "."
 	
 	$Notice/DebugNotice.self_modulate = Color(1, 1, 1, 0)
 	$Notice.self_modulate = Color(1, 1, 1, 0)
