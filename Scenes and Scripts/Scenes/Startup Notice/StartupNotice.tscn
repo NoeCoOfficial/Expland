@@ -41,3 +41,22 @@ text = "This is a pre-release version of Expland!
 You are currently playing v1.0.0."
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="DebugNotice" type="Label" parent="Notice"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -301.0
+offset_top = 21.5
+offset_right = 301.0
+offset_bottom = 106.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_og75x")
+theme_override_font_sizes/font_size = 20
+text = "(debug)"
+horizontal_alignment = 1
+vertical_alignment = 1
