@@ -2,6 +2,7 @@
 extends Node3D
 
 var changing_to_world_scene = false
+@onready var StartupNotice = preload("res://Scenes and Scripts/Scenes/Startup Notice/StartupNotice.tscn")
 @onready var world = preload("res://Scenes and Scripts/Scenes/World/world.tscn")
 @onready var DefaultXPos = $Camera3D/MainLayer/PlayButton.position.x
 
@@ -10,6 +11,9 @@ var changing_to_world_scene = false
 ######################################
 
 func _ready() -> void:
+	if Global.is_first_time_opening:
+		Global.is_first_time_opening = false
+		get_tree().change_scene_to_packed(StartupNotice)
 	PlayerSettingsData.loadSettings()
 	Utils.set_center_offset($Camera3D/MainLayer/PlayButton)
 	Utils.set_center_offset($Camera3D/MainLayer/PlayButtonTrigger)
