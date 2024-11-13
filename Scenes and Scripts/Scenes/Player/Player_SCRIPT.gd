@@ -207,6 +207,28 @@ func _unhandled_input(event): # A built-in function that listens for input
 # Process functions
 ######################################
 
+func play_random_walk_sound(terrain_type):
+	var sound_player = $Head/Camera3D/WalkSoundPlayer # Ensure you have an AudioStreamPlayer node at this path
+	var sound_path = ""
+
+	match terrain_type:
+		"grass":
+			sound_path = "res://Sounds/Walk/grass_walk.mp3"
+		"stone":
+			sound_path = "res://Sounds/Walk/stone_walk.mp3"
+		# Add more terrain types and their corresponding sounds here
+
+	if sound_path != "":
+		var audio_stream = load(sound_path)
+		if audio_stream:
+			sound_player.stream = audio_stream
+			sound_player.play()
+			print("Playing sound:", sound_path)
+		else:
+			print("Failed to load sound:", sound_path)
+	else:
+		print("No sound path for terrain type:", terrain_type)
+
 func _physics_process(delta): # This is a special function that is called every frame. It is used for physics calculations. For example, if I run the game on a computer that has a higher/lower frame rate, the physics will still be consistent.
 	
 	# Crouching
@@ -318,20 +340,6 @@ func _process(_delta):
 	
 	$Head/Camera3D/CrosshairCanvas/Crosshair.size = crosshair_size # set the crosshair size to the crosshair size variable
 
-func play_random_walk_sound(surface_type):
-	var sounds = []
-	match surface_type:
-		"GRASS":
-			sounds = grass_walk_sounds
-		"STONE":
-			sounds = stone_walk_sounds
-		"SAND":
-			sounds = sand_walk_sounds
-
-	if sounds.size() > 0:
-		var random_index = randi() % sounds.size()
-		var sound = sounds[random_index]
-		sound.play()
 ######################################
 # On startup
 ######################################

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=32 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="16_wg7d4"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="17_rhxkt"]
 [ext_resource type="PackedScene" uid="uid://ceabjbnv3nnyr" path="res://Scenes and Scripts/Scenes/Settings/SettingsUI.tscn" id="19_kj00b"]
+[ext_resource type="AudioStream" uid="uid://by4a5gmblo0ne" path="res://Audio/SFX/Pop.mp3" id="20_tfmh1"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_w6tro"]
 
@@ -692,6 +693,9 @@ grow_vertical = 0
 theme = ExtResource("17_rhxkt")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Pop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_tfmh1")
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="timeout" from="AutoSaveTimer" to="." method="_on_auto_save_timer_timeout"]

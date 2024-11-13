@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://cd24ed5mdweah"]
+[gd_scene load_steps=49 format=3 uid="uid://cd24ed5mdweah"]
 
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/WorldpageIcon_SCRIPT.gd" id="1_1gnsl"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/World/world_SCRIPT.gd" id="1_j3awn"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bcnphmmp32ftb" path="res://Assets/3D Models/Trees/Normal/Tree5.blend" id="6_ctw76"]
 [ext_resource type="PackedScene" uid="uid://cwyukuqyf0pxb" path="res://Assets/3D Models/Trees/Normal/Tree6.blend" id="13_gl4d7"]
 [ext_resource type="PackedScene" uid="uid://daxauomaprtus" path="res://Assets/3D Models/Trees/Normal/Tree7.blend" id="14_mkpsf"]
+[ext_resource type="AudioStream" uid="uid://by4a5gmblo0ne" path="res://Audio/SFX/Pop.mp3" id="15_qp2qf"]
 [ext_resource type="PackedScene" uid="uid://c2vb563dpgipc" path="res://Assets/3D Models/Trees/Normal/Tree8.blend" id="15_txoru"]
 [ext_resource type="PackedScene" uid="uid://0stf8uio7dg2" path="res://Assets/3D Models/Trees/Normal/Tree9.blend" id="16_mxrey"]
 [ext_resource type="PackedScene" uid="uid://dd8nwfbgsd7ld" path="res://Scenes and Scripts/Scenes/Tests/Spike.tscn" id="17_3w3yg"]
@@ -149,6 +150,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.35405, 24.7629, -47.0385)
 StartPOS = Vector3(-5.354, 24.763, -47.038)
 ResetPOS = Vector3(999, 999, 999)
 Fade_In_Time = 2.0
+grass_walk_sounds = [ExtResource("15_qp2qf")]
 
 [node name="Walls" type="Node" parent="."]
 
