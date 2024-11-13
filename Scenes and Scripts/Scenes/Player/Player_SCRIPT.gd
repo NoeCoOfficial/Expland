@@ -309,6 +309,20 @@ func _process(_delta):
 	
 	$Head/Camera3D/CrosshairCanvas/Crosshair.size = crosshair_size # set the crosshair size to the crosshair size variable
 
+func play_random_walk_sound(surface_type):
+	var sounds = []
+	match surface_type:
+		"GRASS":
+			sounds = grass_walk_sounds
+		"STONE":
+			sounds = stone_walk_sounds
+		"SAND":
+			sounds = sand_walk_sounds
+
+	if sounds.size() > 0:
+		var random_index = randi() % sounds.size()
+		var sound = sounds[random_index]
+		sound.play()
 ######################################
 # On startup
 ######################################
