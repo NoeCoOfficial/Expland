@@ -485,7 +485,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.643137)
+color = Color(0, 0, 0, 0.343)
 script = ExtResource("16_wg7d4")
 
 [node name="SettingsUI" parent="Head/Camera3D/SettingsLayer" node_paths=PackedStringArray("greyOverlay") instance=ExtResource("19_kj00b")]

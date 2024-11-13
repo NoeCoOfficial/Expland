@@ -39,6 +39,14 @@ func onStartup():
 	tween.tween_property($Camera3D/MainLayer/QuitButtonTrigger, "position", Vector2(0, 383), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.4)
 
 ######################################
+# Input
+######################################
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("Exit"):
+		$Camera3D/MainLayer/SettingsUI.closeSettings()
+
+######################################
 # PlayButton animations and functions
 ######################################
 
@@ -92,7 +100,7 @@ func _on_settings_button_trigger_button_down() -> void:
 	tween.tween_property($Camera3D/MainLayer/SettingsButton, "scale", Vector2(1.05, 1.05), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func _on_settings_button_trigger_pressed() -> void:
-	print("{LOCAL} [MainMenu_SCRIPT.gd] Settings button pressed.")
+	$Camera3D/MainLayer/SettingsUI.openSettings()
 
 ######################################
 # QuitButton animations and functions
