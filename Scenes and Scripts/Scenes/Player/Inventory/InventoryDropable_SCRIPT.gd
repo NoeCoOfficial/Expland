@@ -36,7 +36,6 @@
 
 extends Node2D
 
-
 var draggable = false
 var is_inside_dropable = false
 var body_ref
@@ -68,13 +67,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
 	if debounce_timer > 0:
 		debounce_timer -= delta
 	else:
 		can_create_pickup = true
 
-	if draggable:                                                                    
+	if draggable:
 		if Input.is_action_just_pressed("inventory_click"):
 			if mouse_over_timer.time_left == 0:
 				initialPos = global_position
@@ -86,7 +84,8 @@ func _process(delta):
 		elif Input.is_action_just_released("inventory_click"):
 			if InventoryManager.is_inside_boundary and can_create_pickup:
 				InventoryManager.is_dragging = false
-				slot_inside.set_populated(false)
+				if slot_inside and slot_inside.has_method("set_populated"):
+					slot_inside.set_populated(false)
 				var PARENT = self.get_parent()
 				PARENT.remove_child(self)
 				can_create_pickup = false
@@ -101,15 +100,19 @@ func _process(delta):
 						# If the draggable is placed back into its current slot, do nothing
 						tween.tween_property(self, "position", body_ref.position, SNAP_TIME)
 					else:
-						tween.tween_property(self, "position", body_ref.position, SNAP_TIME)
-						if body_ref.has_method("set_populated"):
-							body_ref.set_populated(true)
-							if slot_inside != null:
-								if slot_inside.has_method("set_populated"):
-									slot_inside.set_populated(false)
-							slot_inside = body_ref
+						if body_ref.has_method("is_populated") and body_ref.is_populated():
+							# If the slot is already populated, snap back to the original position
+							tween.tween_property(self, "global_position", initialPos, SNAP_TIME)
 						else:
-							print("{LOCAL} [InventoryDropable_SCRIPT.gd] " + body_ref + " does not have method: set_populated()")
+							tween.tween_property(self, "position", body_ref.position, SNAP_TIME)
+							if body_ref.has_method("set_populated"):
+								body_ref.set_populated(true)
+								if slot_inside != null:
+									if slot_inside.has_method("set_populated"):
+										slot_inside.set_populated(false)
+								slot_inside = body_ref
+							else:
+								print("{LOCAL} [InventoryDropable_SCRIPT.gd] " + body_ref + " does not have method: set_populated()")
 				else:
 					tween.tween_property(self, "global_position", initialPos, SNAP_TIME)
 			if mouse_over_timer.is_inside_tree():                          
