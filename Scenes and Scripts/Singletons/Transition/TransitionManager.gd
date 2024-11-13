@@ -61,47 +61,35 @@ func ChangeSceneWithAnimation(sceneToChangeTo, animationOrigin : String, animati
 
 				if animationOrigin == "TOP":
 
-					SceneChangeDarkGreyOverlay.position = Vector2(0, 0)
-					SceneChangeLightGreyOverlay.position = Vector2(0, 0)
+					SceneChangeDarkGreyOverlay.position = Vector2(0, -1500)
+					SceneChangeLightGreyOverlay.position = Vector2(0, -1500)
 					
 					print("[TransitionManager] Animating from player node from origin: TOP")
 
-					animateColorRect_IN(SceneChangeLightGreyOverlay, 0.0, 0.0, animationTime, "EXPO")
-					await get_tree().create_timer(0.3).timeout
-					animateColorRect_IN(SceneChangeDarkGreyOverlay, 0.0, 0.0, animationTime, "EXPO")
+					var tween = get_tree().create_tween().set_parallel()
+					tween.tween_property(SceneChangeLightGreyOverlay, "position", Vector2(0.0, 0.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+					tween.tween_property(SceneChangeDarkGreyOverlay, "position", Vector2(0.0, -9.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.3)
 
 				elif animationOrigin == "BOTTOM":
 					
-					SceneChangeDarkGreyOverlay.position = Vector2(0, 648)
-					SceneChangeLightGreyOverlay.position = Vector2(0, 648)
+					SceneChangeDarkGreyOverlay.position = Vector2(0, 1500)
+					SceneChangeLightGreyOverlay.position = Vector2(0, 1500)
 					
 					print("[TransitionManager] Animating from player node from origin: BOTTOM")
 					
-					animateColorRect_IN(SceneChangeLightGreyOverlay, 0.0, 0.0, animationTime, "EXPO")
-					await get_tree().create_timer(0.3).timeout
-					animateColorRect_IN(SceneChangeDarkGreyOverlay, 0.0, -9.0, animationTime, "EXPO")
+					## animateColorRect_IN(SceneChangeLightGreyOverlay, 0.0, 0.0, animationTime, "EXPO")
+					## animateColorRect_IN(SceneChangeDarkGreyOverlay, 0.0, -9.0, animationTime, "EXPO")
+					
+					var tween = get_tree().create_tween().set_parallel()
+					tween.tween_property(SceneChangeLightGreyOverlay, "position", Vector2(0.0, 0.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+					tween.tween_property(SceneChangeDarkGreyOverlay, "position", Vector2(0.0, -9.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.3)
 
+					
 				else:
 					printerr('[TransitionManager] Error getting animationOrigin, please use only "TOP" or "BOTTOM" for the parameter.')
-
 
 		else:
 			pass
 			# create ColorRect from path logic
 	else:
 		printerr("[TransitionManager] Failed loading scene: " + str(sceneToChangeTo))
-
-
-
-
-
-func animateColorRect_IN(colorRectNode, x : float, y : float, animationTime : float, animationType : String):
-	var typeOfAnimation
-
-	if animationType == "BOUNCE":
-		typeOfAnimation = Tween.TRANS_BOUNCE
-	elif animationType == "EXPO":
-		typeOfAnimation = Tween.TRANS_EXPO
-
-	var tween = get_tree().create_tween()
-	tween.tween_property(colorRectNode, "position", Vector2(x, y), animationTime).set_ease(Tween.EASE_OUT).set_trans(typeOfAnimation)

@@ -44,6 +44,12 @@ SmoothMovements="*res://Scenes and Scripts/Singletons/SmoothMovements.gd"
 window/size/mode=4
 window/stretch/mode="canvas_items"
 
+[editor]
+
+movie_writer/mjpeg_quality=1.0
+movie_writer/movie_file="C:/Users/sebas/Godot Projects/Expland/Movies/NewMovie.avi"
+movie_writer/fps=120
+
 [editor_plugins]
 
 enabled=PackedStringArray()
