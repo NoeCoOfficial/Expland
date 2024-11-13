@@ -142,7 +142,6 @@ func _on_area_2d_mouse_exited():
 func _on_mouse_over_timeout():
 	draggable = true
 
-
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("draggable"):
 		InventoryManager.is_inside_checker = true

@@ -58,7 +58,6 @@ func set_populated(populatedValue : bool):
 	if populatedValue:
 		populated = true
 		print("{LOCAL} [InventorySlot_SCRIPT.gd] Populated, Slot: " + str(name))
-
 	else:
 		print("{LOCAL} [InventorySlot_SCRIPT.gd] Empty, Slot: " + str(name))
 		populated = false
