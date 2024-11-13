@@ -13,7 +13,7 @@ var changing_to_world_scene = false
 func _ready() -> void:
 	if Global.is_first_time_opening:
 		Global.is_first_time_opening = false
-		get_tree().change_scene_to_packed(StartupNotice)
+		call_deferred("change_to_startup_notice")
 	PlayerSettingsData.loadSettings()
 	Utils.set_center_offset($Camera3D/MainLayer/PlayButton)
 	Utils.set_center_offset($Camera3D/MainLayer/PlayButtonTrigger)
@@ -23,6 +23,9 @@ func _ready() -> void:
 
 	await get_tree().create_timer(1).timeout
 	onStartup()
+
+func change_to_startup_notice() -> void:
+	get_tree().change_scene_to_packed(StartupNotice)
 
 func fadeOut():
 	var tween = get_tree().create_tween()
@@ -46,7 +49,7 @@ func onStartup():
 # Input
 ######################################
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Exit"):
 		$Camera3D/MainLayer/SettingsUI.closeSettings()
 

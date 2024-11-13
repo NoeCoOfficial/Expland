@@ -32,6 +32,7 @@ PlayerSettingsData="*res://Scenes and Scripts/Singletons/Save and Load/PlayerSet
 PlayerData="*res://Scenes and Scripts/Singletons/Save and Load/PlayerData.gd"
 TransitionManager="*res://Scenes and Scripts/Singletons/Transition/TransitionManager.gd"
 InventoryManager="*res://Scenes and Scripts/Singletons/Inventory/InventoryManager.gd"
+InputManager="*res://Scenes and Scripts/Singletons/Input/InputManager.gd"
 SaveManager="*res://Scenes and Scripts/Singletons/Save and Load/SaveManager.gd"
 PauseManager="*res://Scenes and Scripts/Singletons/Pause/PauseManager.gd"
 InteractionManager="*res://Scenes and Scripts/Singletons/Interaction/InteractionManager.gd"
