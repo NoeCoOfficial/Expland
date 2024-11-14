@@ -36,10 +36,8 @@
 @icon("res://Textures/Icons/Script Icons/32x32/world.png")
 extends Node3D
 
-
 func _ready() -> void:
 	SaveManager.loadAllData()
-
 
 func _on_area_3d_body_entered(body):
 	if body.is_in_group("Player"):
