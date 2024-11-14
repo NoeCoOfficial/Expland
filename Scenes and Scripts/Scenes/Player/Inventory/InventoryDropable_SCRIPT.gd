@@ -34,6 +34,7 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
+@icon("res://Textures/Icons/Script Icons/32x32/inventory.png")
 extends Node2D
 
 var draggable = false
