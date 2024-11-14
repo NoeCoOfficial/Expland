@@ -624,4 +624,7 @@ func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 	if area.is_in_group("pickup_player_detector"):
 		var PickupObject = area.get_parent()
 		var PickupItemType = PickupObject.get_ITEM_TYPE()
-		print("{LOCAL} [Player_SCRIPT.gd] Collided with pickup player detector! Item: " + PickupItemType)
+		var PlayerPos = $PickupAttractionPos.global_position
+		print("{LOCAL} [Player_SCRIPT.gd] Collided ewith pickup player detector! Item: " + PickupItemType)
+		var tween = get_tree().create_tween()
+		tween.tween_property(PickupObject, "position", PlayerPos, 0.3).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)

@@ -120,6 +120,9 @@ one_shot = true
 autostart = true
 script = ExtResource("2_t6toi")
 
+[node name="PickupAttractionPos" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.892387, 0)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_w6tro")
