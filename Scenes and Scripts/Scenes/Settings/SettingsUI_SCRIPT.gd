@@ -34,6 +34,7 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
+@icon("res://Textures/Icons/Script Icons/32x32/settings_gear.png")
 extends Control
 
 @export var greyOverlay : ColorRect

@@ -33,6 +33,7 @@
 #                   For inquiries, contact:                     #
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
+
 @icon("res://Textures/Icons/Script Icons/32x32/character.png") # Give the node an icon (so it looks cool)
 
 extends CharacterBody3D # Inheritance

@@ -33,6 +33,7 @@
 #                   For inquiries, contact:                     #
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
+
 @icon("res://Textures/Icons/Script Icons/32x32/item_drop.png")
 extends CharacterBody3D
 

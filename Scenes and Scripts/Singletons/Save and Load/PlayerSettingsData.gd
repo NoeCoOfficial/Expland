@@ -34,6 +34,7 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
+@icon("res://Textures/Icons/Script Icons/32x32/settings_save.png")
 extends Node
 
 const SAVE_PATH = "res://settings.dat"
