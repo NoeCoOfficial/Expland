@@ -364,13 +364,16 @@ func nodeSetup(): # A function to setup the nodes. Called in the _ready function
 ######################################
 
 func _on_walking_speed_sounds_timeout() -> void:
-	pass # Replace with function body.
+	if is_walking:
+		print("Play walking sound")
 
 func _on_sprinting_speed_sounds_timeout() -> void:
-	pass # Replace with function body.
+	if is_sprinting:
+		print("Play sprinting sound")
 
 func _on_crouching_speed_sounds_timeout() -> void:
-	pass # Replace with function body.
+	if is_crouching:
+		print("Play crouching sound")
 
 ######################################
 # Health and dying
