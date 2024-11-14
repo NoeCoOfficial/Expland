@@ -761,6 +761,7 @@ vertical_alignment = 1
 
 [node name="Pop" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_tfmh1")
+bus = &"sfx"
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="timeout" from="WalkingSpeedSounds" to="." method="_on_walking_speed_sounds_timeout"]
