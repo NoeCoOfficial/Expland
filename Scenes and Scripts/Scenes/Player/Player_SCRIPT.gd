@@ -206,10 +206,6 @@ func _unhandled_input(event): # A built-in function that listens for input
 ######################################
 
 func _physics_process(delta):
-	# Initialize movement state variables
-	is_walking = false
-	is_sprinting = false
-	is_crouching = false
 	
 	# Crouching
 	if GAME_STATE != "INVENTORY" and GAME_STATE != "DEAD" and is_on_floor() and !PauseManager.is_paused:
