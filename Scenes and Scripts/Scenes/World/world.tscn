@@ -306,6 +306,8 @@ mesh = SubResource("BoxMesh_jnrf1")
 transform = Transform3D(32.8348, 0, 0, 0, 1, 0, 0, 0, 29.6568, -37.2857, 23.0292, 30.6509)
 material_override = SubResource("StandardMaterial3D_nklhj")
 use_collision = true
+collision_layer = 2
+collision_mask = 3
 mesh = SubResource("BoxMesh_jnrf1")
 
 [node name="sandblock" type="CSGMesh3D" parent="."]

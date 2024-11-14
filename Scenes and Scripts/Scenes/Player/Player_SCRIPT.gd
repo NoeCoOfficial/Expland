@@ -49,7 +49,7 @@ The keyword @export means that they can be accessed in the inspector panel (righ
 # Utility group
 ######################################
 
-@export_group("Utility") ## A group for gameplay variables
+@export_group("Utility") ## A group for utility variables
 
 @export var inventory_opened_in_air := false ## Checks if the inventory UI is opened in the air (so the same velocity can be kept, used in _physics_process()
 @export var speed:float ## The speed of the player. Used in _physics_process, this variable changes to SPRINT_SPEED, CROUCH_SPEED or WALK_SPEED depending on what input is pressed.
