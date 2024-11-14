@@ -608,3 +608,10 @@ func _on_start_debugging_btn_pressed() -> void:
 ######################################
 # Playground
 ######################################
+
+
+func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
+	if area.is_in_group("pickup_player_detector"):
+		var PickupObject = area.get_parent()
+		var PickupItemType = PickupObject.get_ITEM_TYPE()
+		print("Collided with pickup player detector! Item: " + PickupItemType)

@@ -38,7 +38,7 @@
 extends CharacterBody3D
 
 var gravity = 12.0
-var Item
+
 
 @export var ITEM_TYPE: String:
 	set(value):
@@ -96,3 +96,6 @@ func PlayBobbingAnimation():
 
 func _on_bobbing_anim_finished():
 	PlayBobbingAnimation()
+
+func get_ITEM_TYPE():
+	return ITEM_TYPE
