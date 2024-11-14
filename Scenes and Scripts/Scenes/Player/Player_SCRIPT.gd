@@ -132,6 +132,9 @@ The keyword @export means that they can be accessed in the inspector panel (righ
 @export var SPRINT_SPEED = 8.0 ## The speed of the player when the user is pressing/holding the Sprint input.
 @export var JUMP_VELOCITY = 4.5 ## How much velocity the player has when jumping. The more this value is, the higher the player can jump.
 var is_moving = false
+var is_walking = false
+var is_sprinting = false
+var is_crouching = false
 
 @export_subgroup("Crouching") ## A subgroup for crouching variables.
 @export var CROUCH_JUMP_VELOCITY = 4.5 ## How much velocity the player has when jumping. The more this value is, the higher the player can jump.
@@ -202,66 +205,75 @@ func _unhandled_input(event): # A built-in function that listens for input
 # Process functions
 ######################################
 
-func _physics_process(delta): # This is a special function that is called every frame. It is used for physics calculations. For example, if I run the game on a computer that has a higher/lower frame rate, the physics will still be consistent.
+func _physics_process(delta):
+	# Initialize movement state variables
+	is_walking = false
+	is_sprinting = false
+	is_crouching = false
 	
 	# Crouching
-	if GAME_STATE != "INVENTORY" and GAME_STATE != "DEAD" and is_on_floor() and !PauseManager.is_paused: # Check if the game state is not inventory or dead and if the player is on the floor
-		if Input.is_action_pressed("Crouch"): # Check if the Crouch input is pressed
-			self.scale.y = lerp(self.scale.y, 0.5, CROUCH_INTERPOLATION * delta) # linearly interpolate the scale of the player on the y-axis to 0.5
-		else: 
-			self.scale.y = lerp(self.scale.y, 1.0, CROUCH_INTERPOLATION * delta) # linearly interpolate the scale of the player on the y-axis to 1.0
+	if GAME_STATE != "INVENTORY" and GAME_STATE != "DEAD" and is_on_floor() and !PauseManager.is_paused:
+		if Input.is_action_pressed("Crouch"):
+			self.scale.y = lerp(self.scale.y, 0.5, CROUCH_INTERPOLATION * delta)
+		else:
+			self.scale.y = lerp(self.scale.y, 1.0, CROUCH_INTERPOLATION * delta)
 	else:
-		self.scale.y = lerp(self.scale.y, 1.0, CROUCH_INTERPOLATION * delta) # linearly interpolate the scale of the player on the y-axis to 1.0
+		self.scale.y = lerp(self.scale.y, 1.0, CROUCH_INTERPOLATION * delta)
 	
-	
-	if !GAME_STATE == "DEAD":
+	if GAME_STATE != "DEAD":
 		# Always apply gravity unless game state is DEAD
-		if not is_on_floor(): # Check if the player is not on the floor
-			velocity.y -= gravity * delta # apply gravity to the player
-
+		if not is_on_floor():
+			velocity.y -= gravity * delta
 
 		# Jumping
-		if Input.is_action_just_pressed("Jump") and is_on_floor() and !Input.is_action_pressed("Crouch") and !PauseManager.is_paused and GAME_STATE != "INVENTORY": # Check if the Jump input is pressed, the player is on the floor and the Crouch input is not pressed
-			velocity.y = JUMP_VELOCITY # set the player's velocity to the jump velocity
+		if Input.is_action_just_pressed("Jump") and is_on_floor() and !Input.is_action_pressed("Crouch") and !PauseManager.is_paused and GAME_STATE != "INVENTORY":
+			velocity.y = JUMP_VELOCITY
 
 		# Handle Speed
-		if Input.is_action_pressed("Sprint") and !Input.is_action_pressed("Crouch") and !PauseManager.is_paused and GAME_STATE != "INVENTORY": # Check if the Sprint input is pressed and the Crouch input is not pressed
-			speed = SPRINT_SPEED # set the speed to the sprint speed
-		elif Input.is_action_pressed("Crouch") and !PauseManager.is_paused and GAME_STATE != "INVENTORY": # Check if the Crouch input is pressed
-			speed = CROUCH_SPEED # set the speed to the crouch speed
-		else: 
-			speed = WALK_SPEED # set the speed to the walk speed
-		
+		if Input.is_action_pressed("Sprint") and !Input.is_action_pressed("Crouch") and !PauseManager.is_paused and GAME_STATE != "INVENTORY":
+			speed = SPRINT_SPEED
+		elif Input.is_action_pressed("Crouch") and !PauseManager.is_paused and GAME_STATE != "INVENTORY":
+			speed = CROUCH_SPEED
+		else:
+			speed = WALK_SPEED
 
 		# Movement
-		var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward") # get the input direction
-		var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized() # get the direction of the player
+		var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+		var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
-		if is_on_floor(): # Check if the player is on the floor
-			if direction != Vector3.ZERO and !PauseManager.is_paused and GAME_STATE != "INVENTORY": # Check if the direction is not zero
-				velocity.x = direction.x * speed # set the player's velocity on the x-axis to the direction times the speed
-				velocity.z = direction.z * speed # set the player's velocity on the z-axis to the direction times the speed
-
+		if is_on_floor():
+			if direction != Vector3.ZERO and !PauseManager.is_paused and GAME_STATE != "INVENTORY":
+				velocity.x = direction.x * speed
+				velocity.z = direction.z * speed
 			else:
-				velocity.x = lerp(velocity.x, 0.0, delta * 10.0) # linearly interpolate the player's velocity on the x-axis to 0
-				velocity.z = lerp(velocity.z, 0.0, delta * 10.0) # linearly interpolate the player's velocity on the z-axis to 0
+				velocity.x = lerp(velocity.x, 0.0, delta * 10.0)
+				velocity.z = lerp(velocity.z, 0.0, delta * 10.0)
 		else:
-			velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0) # linearly interpolate the player's velocity on the x-axis to the direction times the speed
-			velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0) # linearly interpolate the player's velocity on the z-axis to the direction times the speed
+			velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
+			velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
 		
-		move_and_slide() # Apply gravity and handle movement
-		
+		move_and_slide()
+
 		# Check if the player is moving and on the floor
 		is_moving = velocity.length() > 0.1 and is_on_floor()
 
+		# Update movement state variables based on the player's movement and state
+		if is_moving:
+			if Input.is_action_pressed("Sprint"):
+				is_sprinting = true
+			elif Input.is_action_pressed("Crouch"):
+				is_crouching = true
+			else:
+				is_walking = true
+
 		# Apply view bobbing only if the player is moving
 		if is_moving:
-			Wave_Length += delta * velocity.length() # Increase the wave length based on the player's velocity
-			camera.transform.origin = _headbob(Wave_Length) # Apply the headbob function to the camera's origin
+			Wave_Length += delta * velocity.length()
+			camera.transform.origin = _headbob(Wave_Length)
 		else:
 			# Smoothly return to original position when not moving
-			var target_pos = Vector3(camera.transform.origin.x, 0, camera.transform.origin.z) # get the target position
-			camera.transform.origin = camera.transform.origin.lerp(target_pos, delta * BOB_SMOOTHING_SPEED) # linearly interpolate the camera's origin to the target position
+			var target_pos = Vector3(camera.transform.origin.x, 0, camera.transform.origin.z)
+			camera.transform.origin = camera.transform.origin.lerp(target_pos, delta * BOB_SMOOTHING_SPEED)
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO # set the position to zero
@@ -292,6 +304,10 @@ func _process(_delta):
 	$Head/Camera3D/DebugLayer/showing_interaction_notification.text = "Showing notification? " + str(InteractionManager.is_notification_on_screen)
 	$Head/Camera3D/DebugLayer/is_inside_settings.text = "is_inside_settings = " + str(PauseManager.is_inside_settings)
 	$Head/Camera3D/DebugLayer/is_moving.text = "is_moving = " + str(is_moving)
+	$Head/Camera3D/DebugLayer/is_walking.text = "is_walking = " + str(is_walking)
+	$Head/Camera3D/DebugLayer/is_sprinting.text = "is_sprinting = " + str(is_sprinting)
+	$Head/Camera3D/DebugLayer/is_crouching.text = "is_crouching = " + str(is_crouching)
+
 	## END DEBUGGING
 	
 	# HUD

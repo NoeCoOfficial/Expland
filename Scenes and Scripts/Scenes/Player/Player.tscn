@@ -618,6 +618,45 @@ theme = ExtResource("17_rhxkt")
 text = "is_moving = false"
 metadata/_edit_use_anchors_ = true
 
+[node name="is_walking" type="Label" parent="Head/Camera3D/DebugLayer"]
+self_modulate = Color(1, 1, 1, 0.196078)
+anchors_preset = -1
+anchor_left = 0.00260417
+anchor_top = 0.151234
+anchor_right = 0.146701
+anchor_bottom = 0.217592
+offset_top = 53.0
+offset_bottom = 53.0
+theme = ExtResource("17_rhxkt")
+text = "is_walking = false"
+metadata/_edit_use_anchors_ = true
+
+[node name="is_sprinting" type="Label" parent="Head/Camera3D/DebugLayer"]
+self_modulate = Color(1, 1, 1, 0.196078)
+anchors_preset = -1
+anchor_left = 0.00260417
+anchor_top = 0.151234
+anchor_right = 0.146701
+anchor_bottom = 0.217592
+offset_top = 69.0
+offset_bottom = 69.0
+theme = ExtResource("17_rhxkt")
+text = "is_sprinting = false"
+metadata/_edit_use_anchors_ = true
+
+[node name="is_crouching" type="Label" parent="Head/Camera3D/DebugLayer"]
+self_modulate = Color(1, 1, 1, 0.196078)
+anchors_preset = -1
+anchor_left = 0.00260417
+anchor_top = 0.151234
+anchor_right = 0.146701
+anchor_bottom = 0.217592
+offset_top = 85.0
+offset_bottom = 85.0
+theme = ExtResource("17_rhxkt")
+text = "is_crouching = false"
+metadata/_edit_use_anchors_ = true
+
 [node name="showing_interaction_notification" type="Label" parent="Head/Camera3D/DebugLayer"]
 self_modulate = Color(1, 1, 1, 0.196078)
 anchors_preset = -1
