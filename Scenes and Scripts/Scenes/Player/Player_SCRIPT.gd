@@ -206,6 +206,10 @@ func _unhandled_input(event): # A built-in function that listens for input
 ######################################
 
 func _physics_process(delta):
+	# Initialize movement state variables
+	is_walking = false
+	is_sprinting = false
+	is_crouching = false
 	
 	# Crouching
 	if GAME_STATE != "INVENTORY" and GAME_STATE != "DEAD" and is_on_floor() and !PauseManager.is_paused:
@@ -354,6 +358,19 @@ func nodeSetup(): # A function to setup the nodes. Called in the _ready function
 	$Head/Camera3D/DeathScreen/BlackOverlay/RandomText.set_self_modulate(Color(0, 0, 0, 0)) # set the random text self modulate to black
 	$Head/Camera3D/DeathScreen/BlackOverlay.set_self_modulate(Color(0, 0, 0, 0)) # set the black overlay self modulate to black
 	$Head/Camera3D/OverlayLayer/RedOverlay.set_self_modulate(Color(1, 0.016, 0, 0)) # set the red overlay self modulate to red
+
+######################################
+# Walking, sprinting and crouching sounds
+######################################
+
+func _on_walking_speed_sounds_timeout() -> void:
+	pass # Replace with function body.
+
+func _on_sprinting_speed_sounds_timeout() -> void:
+	pass # Replace with function body.
+
+func _on_crouching_speed_sounds_timeout() -> void:
+	pass # Replace with function body.
 
 ######################################
 # Health and dying
