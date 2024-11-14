@@ -3,39 +3,49 @@
 # ============================================================= #
 #                       COPYRIGHT NOTICE                        #
 #                           Noe Co.                             #
-#                   2024 - All Rights Reserved                  #
+#            (2024 - Present) - All Rights Reserved             #
 #                                                               #
-#                         MIT License                           #
+#                     Noe Co. Game License                      #
 #                                                               #
-# Permission is hereby granted, free of charge, to any          #
-# person obtaining a copy of this software and associated       #
-# documentation files (the "Software"), to deal in the          #
-# Software without restriction, including without limitation    #
-# the rights to use, copy, modify, merge, publish, distribute,  #
-# sublicense, and/or sell copies of the Software, and to        #
-# permit persons to whom the Software is furnished to do so,    #
-# subject to the following conditions:                          #
+# Permission is hereby granted to any person to view, fork,     #
+# and make personal modifications to this software (the         #
+# "Software"), solely for private, non-commercial use.          #
 #                                                               #
-# 1. The above copyright notice and this permission notice      #
-#    shall be included in all copies or substantial portions    #
-#    of the Software.                                           #
+# Restrictions:                                                 #
+# 1. You may NOT distribute, publish, or make publicly          #
+#    available any part of the original or modified Software.   #
+# 2. You may NOT share, host, or release modified versions,     #
+#    including derivative works, in any public or commercial    #
+#    form.                                                      #
+# 3. You may NOT use the Software for commercial purposes       #
+#    without prior written permission from Noe Co.              #
 #                                                               #
-# 2. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF      #
-#    ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED    #
-#    TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A        #
-#    PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL  #
-#    THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,  #
-#    DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF        #
-#    CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN    #
-#    CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER           #
-#    DEALINGS IN THE SOFTWARE.                                  #
+# Ownership:                                                    #
+# Noe Co. retains all rights, title, and interest in and to     #
+# the Software and associated intellectual property. This       #
+# license does not grant ownership of the Software.             #
+#                                                               #
+# Termination:                                                  #
+# This license is effective as of your initial access and       #
+# remains until terminated. Breach of any term results in       #
+# automatic termination, requiring destruction of all copies.   #
+#                                                               #
+# Disclaimer of Warranty:                                       #
+# THE SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY      #
+# KIND. NOE CO. DISCLAIMS ALL WARRANTIES, WHETHER EXPRESS,      #
+# IMPLIED, OR STATUTORY, INCLUDING WARRANTIES OF                #
+# MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.          #
+#                                                               #
+# Limitation of Liability:                                      #
+# NOE CO. SHALL NOT BE LIABLE FOR ANY DAMAGES ARISING FROM      #
+# USE OR INABILITY TO USE THE SOFTWARE, INCLUDING INDIRECT,     #
+# INCIDENTAL, OR CONSEQUENTIAL DAMAGES.                         #
 #                                                               #
 #                   For inquiries, contact:                     #
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
 extends Node
-
 
 func format_number(n: int) -> String: # A function for formatting numbers easily. Must be an integer!
 	if n >= 1_000: # if the number is greater than or equal to 1,000
