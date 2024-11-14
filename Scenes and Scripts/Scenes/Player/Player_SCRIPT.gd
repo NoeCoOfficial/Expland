@@ -366,15 +366,15 @@ func nodeSetup(): # A function to setup the nodes. Called in the _ready function
 
 func _on_walking_speed_sounds_timeout() -> void:
 	if is_walking:
-		print("Play walking sound")
+		print("{LOCAL} [Player_SCRIPT.gd] Play walking sound")
 
 func _on_sprinting_speed_sounds_timeout() -> void:
 	if is_sprinting:
-		print("Play sprinting sound")
+		print("{LOCAL} [Player_SCRIPT.gd] Play sprinting sound")
 
 func _on_crouching_speed_sounds_timeout() -> void:
 	if is_crouching:
-		print("Play crouching sound")
+		print("{LOCAL} [Player_SCRIPT.gd] Play crouching sound")
 
 ######################################
 # Health and dying
@@ -614,4 +614,4 @@ func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 	if area.is_in_group("pickup_player_detector"):
 		var PickupObject = area.get_parent()
 		var PickupItemType = PickupObject.get_ITEM_TYPE()
-		print("Collided with pickup player detector! Item: " + PickupItemType)
+		print("{LOCAL} [Player_SCRIPT.gd] Collided with pickup player detector! Item: " + PickupItemType)
