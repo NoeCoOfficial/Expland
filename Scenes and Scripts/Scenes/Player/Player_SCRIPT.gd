@@ -131,6 +131,7 @@ The keyword @export means that they can be accessed in the inspector panel (righ
 @export var WALK_SPEED = 5.0 ## The normal speed at which the player moves.
 @export var SPRINT_SPEED = 8.0 ## The speed of the player when the user is pressing/holding the Sprint input.
 @export var JUMP_VELOCITY = 4.5 ## How much velocity the player has when jumping. The more this value is, the higher the player can jump.
+var is_moving = false
 
 @export_subgroup("Crouching") ## A subgroup for crouching variables.
 @export var CROUCH_JUMP_VELOCITY = 4.5 ## How much velocity the player has when jumping. The more this value is, the higher the player can jump.
@@ -251,7 +252,7 @@ func _physics_process(delta): # This is a special function that is called every 
 		move_and_slide() # Apply gravity and handle movement
 		
 		# Check if the player is moving and on the floor
-		var is_moving = velocity.length() > 0.1 and is_on_floor()
+		is_moving = velocity.length() > 0.1 and is_on_floor()
 
 		# Apply view bobbing only if the player is moving
 		if is_moving:
@@ -290,7 +291,7 @@ func _process(_delta):
 	$Head/Camera3D/DebugLayer/is_raycast_colliding.text = "RayCast colliding? " + str(InteractionManager.is_colliding)
 	$Head/Camera3D/DebugLayer/showing_interaction_notification.text = "Showing notification? " + str(InteractionManager.is_notification_on_screen)
 	$Head/Camera3D/DebugLayer/is_inside_settings.text = "is_inside_settings = " + str(PauseManager.is_inside_settings)
-	
+	$Head/Camera3D/DebugLayer/is_moving.text = "is_moving = " + str(is_moving)
 	## END DEBUGGING
 	
 	# HUD
