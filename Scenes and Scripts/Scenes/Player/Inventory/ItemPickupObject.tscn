@@ -5,7 +5,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_0xbt0"]
 size = Vector3(1.5, 1.86285, 1.5)
 
-[node name="CharacterBody3D" type="CharacterBody3D"]
+[node name="ItemPickupObject" type="CharacterBody3D"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 collision_layer = 2
 script = ExtResource("2_y2nv0")

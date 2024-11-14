@@ -9,7 +9,7 @@ size = Vector2(25, 25)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5yu5"]
 size = Vector2(25, 25)
 
-[node name="Slot" type="StaticBody2D" groups=["dropable"]]
+[node name="InventorySlot" type="StaticBody2D" groups=["dropable"]]
 script = ExtResource("1_bxl3d")
 
 [node name="AlreadyPopulatedChecker" type="Timer" parent="."]
