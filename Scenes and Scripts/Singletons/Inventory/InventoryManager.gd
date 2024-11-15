@@ -64,4 +64,5 @@ func create_pickup_object():
 	var PICKUP_SCENE = load("res://Scenes and Scripts/Scenes/Player/Inventory/ItemPickupObject.tscn")
 	var PICKUP = PICKUP_SCENE.instantiate()
 	WORLD.add_child(PICKUP)
+	
 	is_creating_pickup = false

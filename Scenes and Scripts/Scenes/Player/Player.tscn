@@ -89,6 +89,7 @@ size = Vector2(1101.5, 236)
 size = Vector2(417.75, 819)
 
 [node name="Player" type="CharacterBody3D" groups=["PlayerBody"]]
+collision_mask = 3
 script = ExtResource("1_5mhs1")
 Fade_In = true
 CROUCH_JUMP_VELOCITY = 2.0

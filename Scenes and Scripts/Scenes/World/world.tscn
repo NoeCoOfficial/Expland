@@ -324,12 +324,16 @@ mesh = SubResource("BoxMesh_jnrf1")
 transform = Transform3D(32.8348, 0, 0, 0, 0.281889, 28.4541, 0, -0.959447, 8.35994, -37.2857, 27.8323, 46.5177)
 material_override = SubResource("StandardMaterial3D_nklhj")
 use_collision = true
+collision_layer = 2
+collision_mask = 3
 mesh = SubResource("BoxMesh_jnrf1")
 
 [node name="GrassBlock3" type="CSGMesh3D" parent="."]
 transform = Transform3D(1.20632e-06, 0.959447, -8.35994, 2.98902e-07, 0.281889, 28.4541, 41.5332, -1.49012e-08, 2.38419e-07, -49.5546, 28.9949, 36.6824)
 material_override = SubResource("StandardMaterial3D_nklhj")
 use_collision = true
+collision_layer = 2
+collision_mask = 3
 mesh = SubResource("BoxMesh_jnrf1")
 
 [node name="Tree10" parent="." instance=ExtResource("19_fnxy5")]

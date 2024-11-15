@@ -619,12 +619,42 @@ func _on_start_debugging_btn_pressed() -> void:
 # Playground
 ######################################
 
-
 func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 	if area.is_in_group("pickup_player_detector"):
-		var PickupObject = area.get_parent()
-		var PickupItemType = PickupObject.get_ITEM_TYPE()
-		var PlayerPos = $PickupAttractionPos.global_position
-		print("{LOCAL} [Player_SCRIPT.gd] Collided ewith pickup player detector! Item: " + PickupItemType)
-		var tween = get_tree().create_tween()
-		tween.tween_property(PickupObject, "position", PlayerPos, 0.3).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+		var slots = [
+			$Head/Camera3D/InventoryLayer/Slot1,
+			$Head/Camera3D/InventoryLayer/Slot2,
+			$Head/Camera3D/InventoryLayer/Slot3,
+			$Head/Camera3D/InventoryLayer/Slot4,
+			$Head/Camera3D/InventoryLayer/Slot5,
+			$Head/Camera3D/InventoryLayer/Slot6,
+			$Head/Camera3D/InventoryLayer/Slot7,
+			$Head/Camera3D/InventoryLayer/Slot8,
+			$Head/Camera3D/InventoryLayer/Slot9
+		]
+
+		var free_slot = null
+
+		for i in range(slots.size()):
+			if not slots[i].is_populated():
+				free_slot = slots[i]
+				break
+
+		if free_slot != null:
+			# Use the free_slot variable as needed
+			print("Free slot found: " + free_slot.name)
+			
+			var PickupObject = area.get_parent()
+			var PickupItemType = PickupObject.get_ITEM_TYPE()
+			var PlayerPos = $PickupAttractionPos.global_position
+			print("{LOCAL} [Player_SCRIPT.gd] Collided with pickup player detector! Item: " + PickupItemType)
+			
+			var tween = get_tree().create_tween()
+			tween.tween_property(PickupObject, "position", PlayerPos, 0.3).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+			tween.connect("finished", Callable(self, "on_pickup_anim_finished"))
+
+		else:
+			print("No free slot available")
+
+func on_pickup_anim_finished():
+	pass
