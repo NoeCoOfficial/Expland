@@ -161,6 +161,7 @@ var is_crouching = false
 
 @onready var head = $Head # Reference to the head of the player scene. (used for mouse movement and looking around)
 @onready var camera = $Head/Camera3D # Reference to the camera of the player (used for mouse movement and looking around)
+var pickup_slot_ref
 
 ######################################
 # Input
@@ -642,19 +643,28 @@ func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 
 		if free_slot != null:
 			# Use the free_slot variable as needed
-			print("Free slot found: " + free_slot.name)
+			print("{LOCAL} [Player_SCRIPT.gd] Free slot found: " + free_slot.name)
+			
+			
 			
 			var PickupObject = area.get_parent()
 			var PickupItemType = PickupObject.get_ITEM_TYPE()
 			var PlayerPos = $PickupAttractionPos.global_position
+			
 			print("{LOCAL} [Player_SCRIPT.gd] Collided with pickup player detector! Item: " + PickupItemType)
 			
 			var tween = get_tree().create_tween()
+			
 			tween.tween_property(PickupObject, "position", PlayerPos, 0.3).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
-			tween.connect("finished", Callable(self, "on_pickup_anim_finished"))
-
+			tween.tween_property(PickupObject, "position", Vector3(10000, 10000, 10000), 0) # send it to the shadow realm
+			tween.tween_interval(2)
+			
+			await get_tree().create_timer(2.3).timeout
+			delete_pickup_object(PickupObject)
 		else:
-			print("No free slot available")
+			print("{LOCAL} [Player_SCRIPT.gd] No free slot available")
 
-func on_pickup_anim_finished():
-	pass
+
+
+func delete_pickup_object(pickupobj):
+	pickupobj.queue_free()
