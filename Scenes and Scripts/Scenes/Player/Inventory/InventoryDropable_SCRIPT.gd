@@ -48,13 +48,14 @@
 @icon("res://Textures/Icons/Script Icons/32x32/inventory.png")
 extends Node2D
 
+@export var ITEM_TYPE: String ## The type of the item that the Sprite2D is holding.
+
 var draggable = false
 var is_inside_dropable = false
 var body_ref
 var initialPos: Vector2
 var offset: Vector2
 var slot_inside = null
-@export var ITEM_TYPE: String ## The type of the item that the Sprite2D is holding.
 var SNAP_TIME = 0.0
 var debounce_timer = 0.2 # Debounce time in seconds
 var can_create_pickup = true
