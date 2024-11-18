@@ -658,7 +658,6 @@ func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 			tween.tween_property(PickupObject, "position", PlayerPos, 0.2).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 			
 			await get_tree().create_timer(0.2).timeout
-			
 			delete_pickup_object(PickupObject)
 			
 		else:
