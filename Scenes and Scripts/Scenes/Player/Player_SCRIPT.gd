@@ -590,6 +590,7 @@ func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 			
 			await get_tree().create_timer(0.2).timeout
 			delete_pickup_object(PickupObject)
+			InventoryManager.spawn_inventory_dropable()
 			
 		else:
 			print("{LOCAL} [Player_SCRIPT.gd] No free slot available")

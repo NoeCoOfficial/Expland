@@ -68,4 +68,6 @@ func create_pickup_object():
 	is_creating_pickup = false
 
 func spawn_inventory_dropable():
-	pass
+	if get_node("/root/World/Player/Head/Camera3D/InventoryLayer") != null:
+		var InventoryLayer = get_node("/root/World/Player/Head/Camera3D/InventoryLayer")
+		print("nice")

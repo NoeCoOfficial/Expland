@@ -28,8 +28,8 @@ buses/default_bus_layout="res://Resources/Audio Bus/default_bus_layout.tres"
 [autoload]
 
 Global="*res://Scenes and Scripts/Singletons/Global.gd"
-PlayerSettingsData="*res://Scenes and Scripts/Singletons/Save and Load/PlayerSettingsData.gd"
 PlayerData="*res://Scenes and Scripts/Singletons/Save and Load/PlayerData.gd"
+PlayerSettingsData="*res://Scenes and Scripts/Singletons/Save and Load/PlayerSettingsData.gd"
 SaveManager="*res://Scenes and Scripts/Singletons/Save and Load/SaveManager.gd"
 PauseManager="*res://Scenes and Scripts/Singletons/Pause/PauseManager.gd"
 TransitionManager="*res://Scenes and Scripts/Singletons/Transition/TransitionManager.gd"
@@ -42,7 +42,6 @@ SmoothMovements="*res://Scenes and Scripts/Singletons/SmoothMovements.gd"
 
 [display]
 
-window/size/mode=4
 window/stretch/mode="canvas_items"
 
 [editor]
