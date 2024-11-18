@@ -653,14 +653,14 @@ func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 			
 			print("{LOCAL} [Player_SCRIPT.gd] Collided with pickup player detector! Item: " + PickupItemType)
 			
-			var tween = get_tree().create_tween()
+			var tween = get_tree().create_tween().set_parallel()
 			
-			tween.tween_property(PickupObject, "position", PlayerPos, 0.3).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
-			tween.tween_property(PickupObject, "position", Vector3(10000, 10000, 10000), 0) # send it to the shadow realm
-			tween.tween_interval(2)
+			tween.tween_property(PickupObject, "position", PlayerPos, 0.2).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 			
-			await get_tree().create_timer(2.3).timeout
+			await get_tree().create_timer(0.2).timeout
+			
 			delete_pickup_object(PickupObject)
+			
 		else:
 			print("{LOCAL} [Player_SCRIPT.gd] No free slot available")
 
