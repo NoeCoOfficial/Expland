@@ -19,7 +19,7 @@
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="16_wg7d4"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="17_rhxkt"]
 [ext_resource type="PackedScene" uid="uid://ceabjbnv3nnyr" path="res://Scenes and Scripts/Scenes/Settings/SettingsUI.tscn" id="19_kj00b"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Inputs_currently_pressing_label_SCRIPT.gd" id="20_bmbkh"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Debug/Inputs_currently_pressing_label_SCRIPT.gd" id="20_bmbkh"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_w6tro"]
 
