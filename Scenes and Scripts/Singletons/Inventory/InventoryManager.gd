@@ -66,3 +66,6 @@ func create_pickup_object():
 	WORLD.add_child(PICKUP)
 	
 	is_creating_pickup = false
+
+func spawn_inventory_dropable():
+	pass
