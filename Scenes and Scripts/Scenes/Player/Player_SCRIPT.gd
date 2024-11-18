@@ -330,21 +330,21 @@ func _process(_delta):
 	var seconds = time_now["second"]
 	var time_string = str(hours).pad_zeros(2) + ":" + str(minutes).pad_zeros(2) + ":" + str(seconds).pad_zeros(2)
 	
+	Inventory_Item_Ref_Label.text = "item_ref = " + InventoryManager.item_ref
+	Is_Raycast_Colliding_Label.text = "RayCast colliding? " + str(InteractionManager.is_colliding)
+	Is_Inside_Settings_Label.text = "is_inside_settings = " + str(PauseManager.is_inside_settings)
+	Is_Moving_Label.text = "is_moving = " + str(is_moving)
+	Is_Walking_Label.text = "is_walking = " + str(is_walking)
+	Is_Sprinting_Label.text = "is_sprinting = " + str(is_sprinting)
+	Is_Crouching_Label.text = "is_crouching = " + str(is_crouching)
+	Showing_Interaction_Notification_Label.text = "Showing notification? " + str(InteractionManager.is_notification_on_screen)
+	Current_Time_Label.text = time_string
+	Current_FPS_Label.text = "FPS: %d" % Engine.get_frames_per_second()
+	Player_Position_Label.text = "Player position: " + str(self.position)
+	Player_VelocityY_Label.text = "velocity.y = " + str(round(velocity.y))
+	Player_VelocityY_Accurate_Label.text = str(velocity.y)
+	Is_On_Floor_Label.text = "is_on_floor() = " + str(is_on_floor())
 	
-	$Head/Camera3D/DebugLayer/player_position.text = "Player position: " + str(self.position)
-	$Head/Camera3D/DebugLayer/player_velocity_y.text = "velocity.y = " + str(round(velocity.y))
-	$Head/Camera3D/DebugLayer/player_velocity_y_accurate.text = str(velocity.y)
-	$Head/Camera3D/DebugLayer/current_time.text = time_string
-	$Head/Camera3D/DebugLayer/is_on_floor.text = "is_on_floor() = " + str(is_on_floor())
-	$Head/Camera3D/DebugLayer/item_ref_LBL.text = "item_ref = " + InventoryManager.item_ref
-	$Head/Camera3D/DebugLayer/current_fps.text = "FPS: %d" % Engine.get_frames_per_second()
-	$Head/Camera3D/DebugLayer/is_raycast_colliding.text = "RayCast colliding? " + str(InteractionManager.is_colliding)
-	$Head/Camera3D/DebugLayer/showing_interaction_notification.text = "Showing notification? " + str(InteractionManager.is_notification_on_screen)
-	$Head/Camera3D/DebugLayer/is_inside_settings.text = "is_inside_settings = " + str(PauseManager.is_inside_settings)
-	$Head/Camera3D/DebugLayer/is_moving.text = "is_moving = " + str(is_moving)
-	$Head/Camera3D/DebugLayer/is_walking.text = "is_walking = " + str(is_walking)
-	$Head/Camera3D/DebugLayer/is_sprinting.text = "is_sprinting = " + str(is_sprinting)
-	$Head/Camera3D/DebugLayer/is_crouching.text = "is_crouching = " + str(is_crouching)
 
 	## END DEBUGGING
 	
