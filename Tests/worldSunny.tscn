@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/World/world_SCRIPT.gd" id="1_lfnqj"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/WorldpageIcon_SCRIPT.gd" id="2_o31xp"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/LightbulbIcon_SCRIPT.gd" id="3_wrylm"]
-[ext_resource type="Material" uid="uid://b8rwx3qifw3mf" path="res://Resources/Shaders/Low Poly Water/LowPolyWater_MATERIAL.tres" id="4_1e0x3"]
+[ext_resource type="Material" path="res://Resources/Shaders/Low Poly Water/LowPolyWater_MATERIAL.tres" id="4_1e0x3"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/RiverIcon_SCRIPT.gd" id="5_avpbp"]
 [ext_resource type="PackedScene" uid="uid://d0uinxy2wgtd3" path="res://Assets/3D Models/Trees/Normal/Tree1.blend" id="6_tf048"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/TreeIcon_SCRIPT.gd" id="7_5kexw"]
@@ -31,7 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://bx3h2cove34la" path="res://Assets/3D Models/Experiments/PressPlatformText.blend" id="29_xgqau"]
 [ext_resource type="AudioStream" uid="uid://bm2yify34oc5g" path="res://Audio/Music/What Is This Place.mp3" id="30_2gk66"]
 [ext_resource type="AudioStream" uid="uid://cgcnbamgom8tx" path="res://Audio/Music/Lunch.mp3" id="31_n8kf5"]
-[ext_resource type="AudioStream" uid="uid://8fh8m8tkgy76" path="res://Audio/SFX/RAIN_SFX.mp3" id="32_nlx5i"]
+[ext_resource type="AudioStream" uid="uid://8fh8m8tkgy76" path="res://Audio/SFX/rainLoop.mp3" id="32_nlx5i"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3idn0"]
 sky_top_color = Color(0.32394, 0.386921, 0.474528, 1)

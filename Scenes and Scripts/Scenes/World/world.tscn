@@ -28,7 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://dcuujnbg7wkb" path="res://Assets/3D Models/Rocks/SingleRock.blend" id="31_1te4p"]
 [ext_resource type="AudioStream" uid="uid://cgcnbamgom8tx" path="res://Audio/Music/Lunch.mp3" id="31_dpvhv"]
 [ext_resource type="PackedScene" uid="uid://ckffu3csgvey0" path="res://Assets/3D Models/Flowers/Flower_Pink.blend" id="32_ox0fp"]
-[ext_resource type="AudioStream" uid="uid://8fh8m8tkgy76" path="res://Audio/SFX/RAIN_SFX.mp3" id="32_x6pbb"]
+[ext_resource type="AudioStream" uid="uid://8fh8m8tkgy76" path="res://Audio/SFX/rainLoop.mp3" id="32_x6pbb"]
 [ext_resource type="PackedScene" uid="uid://cqmhw30yk6thd" path="res://Assets/3D Models/Clouds/Cloud1.blend" id="34_a5e05"]
 [ext_resource type="PackedScene" uid="uid://c7r4vwrd1hf11" path="res://Assets/3D Models/Clouds/Cloud2.blend" id="35_d46cg"]
 [ext_resource type="PackedScene" uid="uid://cnumc5i62ndco" path="res://Scenes and Scripts/Scenes/Tests/RayCastingTest.tscn" id="35_l3vqf"]
