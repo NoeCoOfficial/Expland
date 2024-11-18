@@ -54,6 +54,12 @@ Below are the player scene's export variables. These are useful for flexibility 
 The keyword @export means that they can be accessed in the inspector panel (right side)
 
 """
+######################################
+######################################
+# Properties
+@export_category("Properties")
+######################################
+######################################
 
 ######################################
 # Utility group
@@ -156,12 +162,32 @@ var is_crouching = false
 @export var gravity = 12.0 ## Was originally 9.8 (Earth's gravitational pull) but I felt it to be too unrealistic. This is the gravity of the player. The higher this value is, the faster the player falls.
 
 ######################################
+######################################
 # Node references
+@export_category("Node references")
+######################################
 ######################################
 
-@onready var head = $Head # Reference to the head of the player scene. (used for mouse movement and looking around)
-@onready var camera = $Head/Camera3D # Reference to the camera of the player (used for mouse movement and looking around)
-var pickup_slot_ref
+@export_subgroup("Body parts")
+@export var head : Node3D # Reference to the head of the player scene. (used for mouse movement and looking around)
+@export var camera : Camera3D # Reference to the camera of the player (used for mouse movement and looking around)
+
+@export_subgroup("Debug")
+@export var Inventory_Item_Ref_Label : Label
+@export var Is_Raycast_Colliding_Label : Label
+@export var Is_Inside_Settings_Label : Label
+@export var Is_Moving_Label : Label
+@export var Is_Walking_Label : Label
+@export var Is_Sprinting_Label : Label
+@export var Is_Crouching_Label : Label
+@export var Showing_Interaction_Notification_Label : Label
+@export var Current_Time_Label : Label
+@export var Current_FPS_Label : Label
+@export var Player_Position_Label : Label
+@export var Player_VelocityY_Label : Label
+@export var Player_VelocityY_Accurate_Label : Label
+@export var Is_On_Floor_Label : Label
+@export var Inputs_Currently_Pressing_Label : Label
 
 ######################################
 # Input

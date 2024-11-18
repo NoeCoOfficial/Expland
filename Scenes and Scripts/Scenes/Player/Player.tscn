@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=32 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -19,7 +19,6 @@
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="16_wg7d4"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="17_rhxkt"]
 [ext_resource type="PackedScene" uid="uid://ceabjbnv3nnyr" path="res://Scenes and Scripts/Scenes/Settings/SettingsUI.tscn" id="19_kj00b"]
-[ext_resource type="AudioStream" uid="uid://by4a5gmblo0ne" path="res://Audio/SFX/Pop.mp3" id="20_tfmh1"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_w6tro"]
 
@@ -88,13 +87,30 @@ size = Vector2(1101.5, 236)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_47l1q"]
 size = Vector2(417.75, 819)
 
-[node name="Player" type="CharacterBody3D" groups=["PlayerBody"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "Inventory_Item_Ref_Label", "Is_Raycast_Colliding_Label", "Is_Inside_Settings_Label", "Is_Moving_Label", "Is_Walking_Label", "Is_Sprinting_Label", "Is_Crouching_Label", "Showing_Interaction_Notification_Label", "Current_Time_Label", "Current_FPS_Label", "Player_Position_Label", "Player_VelocityY_Label", "Player_VelocityY_Accurate_Label", "Is_On_Floor_Label", "Inputs_Currently_Pressing_Label") groups=["PlayerBody"]]
 collision_mask = 3
 script = ExtResource("1_5mhs1")
 Fade_In = true
 CROUCH_JUMP_VELOCITY = 2.0
 CROUCH_SPEED = 2.0
 CROUCH_INTERPOLATION = 8.0
+head = NodePath("Head")
+camera = NodePath("Head/Camera3D")
+Inventory_Item_Ref_Label = NodePath("Head/Camera3D/DebugLayer/item_ref_LBL")
+Is_Raycast_Colliding_Label = NodePath("Head/Camera3D/DebugLayer/is_raycast_colliding")
+Is_Inside_Settings_Label = NodePath("Head/Camera3D/DebugLayer/is_inside_settings")
+Is_Moving_Label = NodePath("Head/Camera3D/DebugLayer/is_moving")
+Is_Walking_Label = NodePath("Head/Camera3D/DebugLayer/is_walking")
+Is_Sprinting_Label = NodePath("Head/Camera3D/DebugLayer/is_sprinting")
+Is_Crouching_Label = NodePath("Head/Camera3D/DebugLayer/is_crouching")
+Showing_Interaction_Notification_Label = NodePath("Head/Camera3D/DebugLayer/showing_interaction_notification")
+Current_Time_Label = NodePath("Head/Camera3D/DebugLayer/current_time")
+Current_FPS_Label = NodePath("Head/Camera3D/DebugLayer/current_fps")
+Player_Position_Label = NodePath("Head/Camera3D/DebugLayer/player_position")
+Player_VelocityY_Label = NodePath("Head/Camera3D/DebugLayer/player_velocity_y")
+Player_VelocityY_Accurate_Label = NodePath("Head/Camera3D/DebugLayer/player_velocity_y_accurate")
+Is_On_Floor_Label = NodePath("Head/Camera3D/DebugLayer/is_on_floor")
+Inputs_Currently_Pressing_Label = NodePath("Head/Camera3D/DebugLayer/inputs_currently_pressing")
 
 [node name="WalkingSpeedSounds" type="Timer" parent="."]
 wait_time = 0.5
@@ -771,10 +787,6 @@ grow_vertical = 0
 theme = ExtResource("17_rhxkt")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Pop" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("20_tfmh1")
-bus = &"sfx"
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="timeout" from="WalkingSpeedSounds" to="." method="_on_walking_speed_sounds_timeout"]
