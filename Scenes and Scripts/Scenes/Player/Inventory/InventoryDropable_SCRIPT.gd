@@ -64,14 +64,19 @@ var can_create_pickup = true
 
 func _ready():
 	self.z_index = 0
+	
 	$ITEM_TYPE.text = ITEM_TYPE.capitalize()
+	
 	if "REDFLOWER" in ITEM_TYPE:
 		$ITEM_TYPE.text = "Red Flower"
-	var OBJ_TEXTURE: Texture2D = load("res://Textures/Inventory/" + ITEM_TYPE + ".png")
-	if OBJ_TEXTURE == null:
-		print("Failed to load texture: res://Textures/Inventory/" + ITEM_TYPE + ".png")
-	else:
-		$Sprite2D.texture = OBJ_TEXTURE
+	
+	if ITEM_TYPE != "":
+		var OBJ_TEXTURE: Texture2D = load("res://Textures/Inventory/" + ITEM_TYPE + ".png")
+		if OBJ_TEXTURE == null:
+			print("Failed to load texture: res://Textures/Inventory/" + ITEM_TYPE + ".png")
+		else:
+			$Sprite2D.texture = OBJ_TEXTURE
+	
 	mouse_over_timer.connect("timeout", Callable(self, "_on_mouse_over_timeout"))
 	
 	# Ensure the timer is added to the scene tree
@@ -166,3 +171,13 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area.is_in_group("draggable"):
 		InventoryManager.is_inside_checker = false
+
+func set_ITEM_TYPE(ITEM_TYPE_TEMP : String):
+	ITEM_TYPE = ITEM_TYPE_TEMP
+	$ITEM_TYPE.text = ITEM_TYPE.capitalize()
+	
+	var OBJ_TEXTURE: Texture2D = load("res://Textures/Inventory/" + ITEM_TYPE + ".png")
+	if OBJ_TEXTURE == null:
+		print("Failed to load texture: res://Textures/Inventory/" + ITEM_TYPE + ".png")
+	else:
+		$Sprite2D.texture = OBJ_TEXTURE

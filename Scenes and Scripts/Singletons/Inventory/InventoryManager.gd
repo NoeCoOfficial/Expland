@@ -67,7 +67,13 @@ func create_pickup_object():
 	
 	is_creating_pickup = false
 
-func spawn_inventory_dropable():
+func spawn_inventory_dropable(atPos : Vector2, ITEM_TYPE, slotToPopulate):
 	if get_node("/root/World/Player/Head/Camera3D/InventoryLayer") != null:
 		var InventoryLayer = get_node("/root/World/Player/Head/Camera3D/InventoryLayer")
-		print("nice")
+		var NewDropable = load("res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDropable.tscn")
+		var DropableInstance = NewDropable.instantiate()
+		DropableInstance.set_ITEM_TYPE(ITEM_TYPE)
+		
+		InventoryLayer.add_child(DropableInstance)
+		DropableInstance.position = atPos
+		slotToPopulate.set_populated(true)
