@@ -47,4 +47,4 @@
 
 extends Node
 
-var is_first_time_opening = true
+var is_first_time_in_menu = true
