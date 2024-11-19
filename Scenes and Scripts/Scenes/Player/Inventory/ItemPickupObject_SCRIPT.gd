@@ -50,7 +50,7 @@
 extends CharacterBody3D
 
 var gravity = 12.0
-
+var is_picked_up = false  # Flag to indicate if the item has been picked up
 
 @export var ITEM_TYPE: String:
 	set(value):
@@ -111,3 +111,6 @@ func _on_bobbing_anim_finished():
 
 func get_ITEM_TYPE():
 	return ITEM_TYPE
+
+func mark_as_picked_up():
+	is_picked_up = true

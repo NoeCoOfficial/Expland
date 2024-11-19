@@ -1,5 +1,5 @@
 # ============================================================= #
-# InvetoryManager.gd [AUTOLOAD]
+# InventoryManager.gd [AUTOLOAD]
 # ============================================================= #
 #                       COPYRIGHT NOTICE                        #
 #                           Noe Co.                             #
