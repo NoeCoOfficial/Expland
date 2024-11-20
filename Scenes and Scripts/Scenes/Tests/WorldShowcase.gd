@@ -50,7 +50,7 @@ extends Node3D
 
 
 func edit_finished():
-	get_tree().change_scene_to_file("res://Scenes and Scripts/Scenes/World/world.tscn")
+	get_tree().change_scene_to_file("res://Scenes and Scripts/Scenes/The Island/TheIsland.tscn")
 
 
 func camera_anim4():
