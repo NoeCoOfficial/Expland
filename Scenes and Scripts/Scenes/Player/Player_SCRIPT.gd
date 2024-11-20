@@ -172,6 +172,17 @@ var is_crouching = false
 @export var head : Node3D # Reference to the head of the player scene. (used for mouse movement and looking around)
 @export var camera : Camera3D # Reference to the camera of the player (used for mouse movement and looking around)
 
+@export_subgroup("Inventory")
+@export var Slot1_Ref : StaticBody2D
+@export var Slot2_Ref : StaticBody2D
+@export var Slot3_Ref : StaticBody2D
+@export var Slot4_Ref : StaticBody2D
+@export var Slot5_Ref : StaticBody2D
+@export var Slot6_Ref : StaticBody2D
+@export var Slot7_Ref : StaticBody2D
+@export var Slot8_Ref : StaticBody2D
+@export var Slot9_Ref : StaticBody2D
+
 @export_subgroup("Debug")
 @export var Inventory_Item_Ref_Label : Label
 @export var Is_Raycast_Colliding_Label : Label
@@ -554,29 +565,29 @@ func _on_boundary_area_exited(area):
 func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 	if area.is_in_group("pickup_player_detector"):
 		var slots = [
-			$Head/Camera3D/InventoryLayer/Slot1,
-			$Head/Camera3D/InventoryLayer/Slot2,
-			$Head/Camera3D/InventoryLayer/Slot3,
-			$Head/Camera3D/InventoryLayer/Slot4,
-			$Head/Camera3D/InventoryLayer/Slot5,
-			$Head/Camera3D/InventoryLayer/Slot6,
-			$Head/Camera3D/InventoryLayer/Slot7,
-			$Head/Camera3D/InventoryLayer/Slot8,
-			$Head/Camera3D/InventoryLayer/Slot9
+			Slot1_Ref,
+			Slot2_Ref,
+			Slot3_Ref,
+			Slot4_Ref,
+			Slot5_Ref,
+			Slot6_Ref,
+			Slot7_Ref,
+			Slot8_Ref,
+			Slot9_Ref,
 		]
 
 		var free_slot = null
-
+		
+		# Get the free slot
 		for i in range(slots.size()):
 			if not slots[i].is_populated():
 				free_slot = slots[i]
 				break
-
+		
+		
 		if free_slot != null:
-			# Use the free_slot variable as needed
+			
 			print("{LOCAL} [Player_SCRIPT.gd] Free slot found: " + free_slot.name)
-			
-			
 			
 			var PickupObject = area.get_parent()
 			var PickupItemType = PickupObject.get_ITEM_TYPE()
@@ -584,11 +595,12 @@ func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 			
 			print("{LOCAL} [Player_SCRIPT.gd] Collided with pickup player detector! Item: " + PickupItemType)
 			
-			var tween = get_tree().create_tween().set_parallel()
-			
+			var tween = get_tree().create_tween()
 			tween.tween_property(PickupObject, "position", PlayerPos, 0.2).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 			
 			await get_tree().create_timer(0.2).timeout
+			tween.stop()
+			tween.kill()
 			delete_pickup_object(PickupObject)
 			InventoryManager.spawn_inventory_dropable(free_slot.position, PickupItemType, free_slot)
 			

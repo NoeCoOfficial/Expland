@@ -50,6 +50,7 @@ extends StaticBody2D
 
 @export var is_touching_draggable = false
 @export var populated = false
+@export var reserved_for_populating = false
 
 func _ready():
 	modulate = Color(1, 1, 1, 0.05)
@@ -73,6 +74,21 @@ func set_populated(populatedValue : bool):
 	else:
 		print("{LOCAL} [InventorySlot_SCRIPT.gd] Empty, Slot: " + str(name))
 		populated = false
+
+func is_reserved_for_populating():
+	if reserved_for_populating:
+		return true
+	else:
+		return false
+
+func set_reserved_for_populating(value : bool):
+	if value:
+		reserved_for_populating = true
+		print("{LOCAL} [InventorySlot_SCRIPT.gd] Reserved for populating, Slot: " + str(name))
+	else:
+		print("{LOCAL} [InventorySlot_SCRIPT.gd] Cleared reservation for populating, Slot: " + str(name))
+		reserved_for_populating = false
+
 
 func _on_draggable_detector_area_entered(area: Area2D) -> void:
 	if area.is_in_group("draggable"):
