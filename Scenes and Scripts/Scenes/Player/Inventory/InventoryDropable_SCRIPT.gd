@@ -89,7 +89,7 @@ func _process(delta):
 		debounce_timer -= delta
 	else:
 		can_create_pickup = true
-
+		
 	if draggable:
 		if Input.is_action_just_pressed("inventory_click"):
 			if mouse_over_timer.time_left == 0:
@@ -99,11 +99,15 @@ func _process(delta):
 				InventoryManager.item_ref = ITEM_TYPE
 		if Input.is_action_pressed("inventory_click") and InventoryManager.is_dragging:
 			global_position = get_global_mouse_position()
+		
 		elif Input.is_action_just_released("inventory_click"):
+			
 			if InventoryManager.is_inside_boundary and can_create_pickup:
 				InventoryManager.is_dragging = false
+				
 				if slot_inside and slot_inside.has_method("set_populated"):
 					slot_inside.set_populated(false)
+				
 				var PARENT = self.get_parent()
 				PARENT.remove_child(self)
 				can_create_pickup = false

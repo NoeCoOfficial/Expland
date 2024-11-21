@@ -187,6 +187,7 @@ var is_crouching = false
 @export var Inventory_Item_Ref_Label : Label
 @export var Is_Raycast_Colliding_Label : Label
 @export var Is_Inside_Settings_Label : Label
+@export var Is_Inventory_Open_Label : Label
 @export var Is_Moving_Label : Label
 @export var Is_Walking_Label : Label
 @export var Is_Sprinting_Label : Label
@@ -344,6 +345,7 @@ func _process(_delta):
 	Inventory_Item_Ref_Label.text = "item_ref = " + InventoryManager.item_ref
 	Is_Raycast_Colliding_Label.text = "RayCast colliding? " + str(InteractionManager.is_colliding)
 	Is_Inside_Settings_Label.text = "is_inside_settings = " + str(PauseManager.is_inside_settings)
+	Is_Inventory_Open_Label.text = "inventory_open? " + str(InventoryManager.inventory_open)
 	Is_Moving_Label.text = "is_moving = " + str(is_moving)
 	Is_Walking_Label.text = "is_walking = " + str(is_walking)
 	Is_Sprinting_Label.text = "is_sprinting = " + str(is_sprinting)
@@ -544,6 +546,7 @@ func closeInventory():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor
 	Utils.center_mouse_cursor() # center the mouse cursor
 	GAME_STATE = "NORMAL" # set the game state to normal (so the player can move. This won't save to the file)
+	InventoryManager.inventory_open = false
 	inventory_opened_in_air = false  # Reset the flag when inventory is closed
 
 func openInventory():
@@ -551,6 +554,7 @@ func openInventory():
 	Utils.center_mouse_cursor() # center the mouse cursor
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # set the mouse mode to visible
 	GAME_STATE = "INVENTORY" # set the game state to inventory (so the player can't move. This won't save to the file)
+	InventoryManager.inventory_open = true
 	inventory_opened_in_air = not is_on_floor() # Set the flag when inventory is opened in the air
 
 func _on_boundary_area_entered(area):
@@ -597,9 +601,9 @@ func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 			print("{LOCAL} [Player_SCRIPT.gd] Collided with pickup player detector! Item: " + PickupItemType)
 			
 			var tween = get_tree().create_tween()
-			tween.tween_property(PickupObject, "position", PlayerPos, 0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+			tween.tween_property(PickupObject, "position", PlayerPos, 0.1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 			
-			await get_tree().create_timer(0).timeout
+			await get_tree().create_timer(0.1).timeout
 			tween.stop()
 			tween.kill()
 			delete_pickup_object(PickupObject)

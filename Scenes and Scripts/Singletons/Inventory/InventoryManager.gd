@@ -47,6 +47,7 @@
 
 extends Node
 
+var inventory_open = false
 var is_dragging = false
 var is_inside_boundary = false
 var item_ref: String = ""

@@ -6,7 +6,7 @@
 size = Vector3(1.5, 1.86285, 1.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uq88d"]
-size = Vector3(2, 2, 2)
+size = Vector3(4, 4, 4)
 
 [node name="ItemPickupObject" type="CharacterBody3D" groups=["item_pickup_object"]]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
