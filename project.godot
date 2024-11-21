@@ -51,6 +51,10 @@ movie_writer/mjpeg_quality=1.0
 movie_writer/movie_file="C:/Users/sebas/Godot Projects/Expland/Movies/NewMovie.avi"
 movie_writer/fps=120
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/SphynxMotionBlurToolkit/plugin.cfg")
+
 [file_customization]
 
 folder_colors={
