@@ -589,7 +589,6 @@ func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 			free_slot.set_reserved_for_populating(true)
 			
 			print("{LOCAL} [Player_SCRIPT.gd] Free slot found: " + free_slot.name)
-			print("{LOCAL} [Player_SCRIPT.gd] Reserving slot for populating: " + free_slot.name)
 			
 			var PickupObject = area.get_parent()
 			var PickupItemType = PickupObject.get_ITEM_TYPE()
@@ -605,9 +604,10 @@ func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 			tween.kill()
 			delete_pickup_object(PickupObject)
 			InventoryManager.spawn_inventory_dropable(free_slot.position, PickupItemType, free_slot)
+			free_slot.set_reserved_for_populating(false)
 			
 		else:
-			print("{LOCAL} [Player_SCRIPT.gd] No free slot available")
+			print("{LOCAL} [Player_SCRIPT.gd] No free slot available.")
 
 func delete_pickup_object(pickupobj):
 	if pickupobj != null:
