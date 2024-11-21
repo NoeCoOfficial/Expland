@@ -607,7 +607,8 @@ func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 			print("{LOCAL} [Player_SCRIPT.gd] No free slot available")
 
 func delete_pickup_object(pickupobj):
-	pickupobj.queue_free()
+	if pickupobj != null:
+		pickupobj.queue_free()
 
 ######################################
 # Pausing
