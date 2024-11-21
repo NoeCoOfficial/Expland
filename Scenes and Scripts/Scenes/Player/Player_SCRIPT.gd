@@ -169,8 +169,8 @@ var is_crouching = false
 ######################################
 
 @export_subgroup("Body parts")
-@export var head : Node3D # Reference to the head of the player scene. (used for mouse movement and looking around)
-@export var camera : Camera3D # Reference to the camera of the player (used for mouse movement and looking around)
+@export var head : Node3D
+@export var camera : Camera3D
 
 @export_subgroup("Inventory")
 @export var Slot1_Ref : StaticBody2D
