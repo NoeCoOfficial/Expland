@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://dhnn7my6ghg0d" path="res://Textures/Inventory/Slot/InventorySlotTexture.png" id="2_2mtlq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5hbs3"]
-size = Vector2(25, 25)
+size = Vector2(40, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5yu5"]
-size = Vector2(25, 25)
+size = Vector2(40, 40)
 
 [node name="InventorySlot" type="StaticBody2D" groups=["dropable"]]
 script = ExtResource("1_bxl3d")
