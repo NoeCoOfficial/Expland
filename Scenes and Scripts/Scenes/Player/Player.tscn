@@ -77,16 +77,16 @@ func _process(_delta):
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cs88l"]
-size = Vector2(391, 930)
+size = Vector2(404, 930)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sl537"]
-size = Vector2(1101.5, 236)
+size = Vector2(1101.5, 260)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4c0ao"]
 size = Vector2(1101.5, 236)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_47l1q"]
-size = Vector2(417.75, 819)
+size = Vector2(432.875, 819)
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "Slot1_Ref", "Slot2_Ref", "Slot3_Ref", "Slot4_Ref", "Slot5_Ref", "Slot6_Ref", "Slot7_Ref", "Slot8_Ref", "Slot9_Ref", "Inventory_Item_Ref_Label", "Is_Raycast_Colliding_Label", "Is_Inside_Settings_Label", "Is_Moving_Label", "Is_Walking_Label", "Is_Sprinting_Label", "Is_Crouching_Label", "Showing_Interaction_Notification_Label", "Current_Time_Label", "Current_FPS_Label", "Player_Position_Label", "Player_VelocityY_Label", "Player_VelocityY_Accurate_Label", "Is_On_Floor_Label", "Inputs_Currently_Pressing_Label") groups=["PlayerBody"]]
 collision_mask = 3
@@ -339,12 +339,12 @@ ITEM_TYPE = "ROCK"
 priority = 12
 
 [node name="Boundary1" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Boundary"]
-position = Vector2(185.5, 306)
+position = Vector2(192, 306)
 shape = SubResource("RectangleShape2D_cs88l")
 debug_color = Color(0.998937, 0, 0.128371, 0.42)
 
 [node name="Boundary2" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Boundary"]
-position = Vector2(619, -13)
+position = Vector2(619, -1)
 shape = SubResource("RectangleShape2D_sl537")
 debug_color = Color(0.998937, 0, 0.128371, 0.42)
 
@@ -354,7 +354,7 @@ shape = SubResource("RectangleShape2D_4c0ao")
 debug_color = Color(0.998937, 0, 0.128371, 0.42)
 
 [node name="Boundary4" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Boundary"]
-position = Vector2(981, 380)
+position = Vector2(973.438, 380)
 shape = SubResource("RectangleShape2D_47l1q")
 debug_color = Color(0.998937, 0, 0.128371, 0.42)
 
@@ -536,7 +536,6 @@ script = ExtResource("16_wg7d4")
 metadata/_edit_use_anchors_ = true
 
 [node name="SettingsLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="GreyLayer" type="ColorRect" parent="Head/Camera3D/SettingsLayer"]
 anchors_preset = 15
