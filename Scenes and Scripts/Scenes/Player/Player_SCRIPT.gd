@@ -169,8 +169,8 @@ var is_crouching = false
 ######################################
 
 @export_subgroup("Body parts")
-@export var head : Node3D # Reference to the head of the player scene. (used for mouse movement and looking around)
-@export var camera : Camera3D # Reference to the camera of the player (used for mouse movement and looking around)
+@export var head : Node3D
+@export var camera : Camera3D
 
 @export_subgroup("Inventory")
 @export var Slot1_Ref : StaticBody2D
@@ -450,17 +450,16 @@ func takeDamageOverlay(): # Overlay when taking damage
 	tween.tween_property($Head/Camera3D/OverlayLayer/RedOverlay, "self_modulate", Color(1, 0.018, 0, 0.808), 0).from(Color(1, 0.016, 0, 0)) # tween the red overlay's self modulate to red
 	tween.tween_property($Head/Camera3D/OverlayLayer/RedOverlay, "self_modulate", Color(1, 0.016, 0, 0), 0.5) # tween the red overlay's self modulate to red
 
-func _on_respawn(): # A function to respawn the player after death
-	GAME_STATE = "NORMAL" # set the game state to normal
-	PlayerData.GAME_STATE = GAME_STATE # set the player data's game state to the game state
-
 func respawnFromDeath(): # A function to respawn the player from death
 	self.position = StartPOS # set the player's position to the start position
 	Health = MaxHealth # set the health to the max health
 	PlayerData.Health = Health # set the player data's health to the health
 	var tween = get_tree().create_tween() # create a tween
-	tween.connect("finished", _on_respawn, 1) # connect the finished signal to the respawn function
+
 	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay, "self_modulate", Color(0, 0, 0, 0), 3) # tween the black overlay's self modulate to black
+	
+	GAME_STATE = "NORMAL" # set the game state to normal
+	PlayerData.GAME_STATE = GAME_STATE # set the player data's game state to the game state
 
 func _on_death_screen_finished(): # A function to call when the death screen is finished 
 	respawnFromDeath() # call the respawn from death function
