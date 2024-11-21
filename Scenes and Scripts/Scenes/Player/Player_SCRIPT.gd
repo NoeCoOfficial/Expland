@@ -584,9 +584,12 @@ func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 				break
 		
 		
-		if free_slot != null:
+		if free_slot != null and !free_slot.is_reserved_for_populating():
+			
+			free_slot.set_reserved_for_populating(true)
 			
 			print("{LOCAL} [Player_SCRIPT.gd] Free slot found: " + free_slot.name)
+			print("{LOCAL} [Player_SCRIPT.gd] Reserving slot for populating: " + free_slot.name)
 			
 			var PickupObject = area.get_parent()
 			var PickupItemType = PickupObject.get_ITEM_TYPE()
