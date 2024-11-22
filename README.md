@@ -52,8 +52,7 @@ Thank you for your interest in this game. We can’t wait to share more with you
 ## ❓ FAQ
 
 ### How can I download the game?
-You can download the game at the [releases page](https://github.com/sebashtioon/Expland/releases/). The top release is the latest version. Under **Assets**, you will find the file types for your OS (Operating System). Download the `.exe` file if you're on Windows 10/11, the `.x86_64` if you're on Linux or the `.zip` folder if you're on MacOS.<br>
-
+You can download the game at the [releases page](https://github.com/sebashtioon/Expland/releases/). The top release is the latest version. Under **Assets**, you will find the file types for your OS (Operating System). Download the `.exe` file if you're on Windows 10/11, the `.x86_64` if you're on Linux or the `.zip` folder if you're on MacOS.
 
 ### I found an issue/bug. Where can I report it?
 You can open a new issue on GitHub by going to this [link](https://github.com/NoeCoOfficial/Expland/issues/new/choose). We have templates for different issues.
