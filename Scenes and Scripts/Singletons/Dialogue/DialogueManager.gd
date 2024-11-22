@@ -1,5 +1,5 @@
 # ============================================================= #
-# DialogueInterface_SCRIPT.gd
+# DialogueManager.gd [AUTOLOAD]
 # ============================================================= #
 #                       COPYRIGHT NOTICE                        #
 #                           Noe Co.                             #
@@ -45,10 +45,14 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-extends Control
+extends Node
 
+
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
-func _process(delta: float) -> void:
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
 	pass
