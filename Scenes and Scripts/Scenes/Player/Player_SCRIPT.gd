@@ -242,7 +242,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 
 func _unhandled_input(event): # A built-in function that listens for input
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
-		if GAME_STATE == "INVENTORY" or PauseManager.is_paused: # Check if the game state is inventory
+		if GAME_STATE == "INVENTORY" or PauseManager.is_paused or DialogueManager.is_in_interface: # Check if the game state is inventory, or paused, or viewing dialogue.
 			head.rotate_y(-event.relative.x * SENSITIVITY/20) # rotate the head on the y-axis
 			camera.rotate_x(-event.relative.y * SENSITIVITY/20) # rotate the camera on the x-axis
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90)) # clamp the camera rotation on the x-axis
@@ -262,7 +262,7 @@ func _physics_process(delta):
 	is_crouching = false
 	
 	# Crouching
-	if GAME_STATE != "INVENTORY" and GAME_STATE != "DEAD" and is_on_floor() and !PauseManager.is_paused:
+	if GAME_STATE != "INVENTORY" and GAME_STATE != "DEAD" and is_on_floor() and !PauseManager.is_paused and !DialogueManager.is_in_interface:
 		if Input.is_action_pressed("Crouch"):
 			self.scale.y = lerp(self.scale.y, 0.5, CROUCH_INTERPOLATION * delta)
 		else:
@@ -276,13 +276,13 @@ func _physics_process(delta):
 			velocity.y -= gravity * delta
 
 		# Jumping
-		if Input.is_action_just_pressed("Jump") and is_on_floor() and !Input.is_action_pressed("Crouch") and !PauseManager.is_paused and GAME_STATE != "INVENTORY":
+		if Input.is_action_just_pressed("Jump") and is_on_floor() and !Input.is_action_pressed("Crouch") and !PauseManager.is_paused and GAME_STATE != "INVENTORY" and !DialogueManager.is_in_interface:
 			velocity.y = JUMP_VELOCITY
 
 		# Handle Speed
-		if Input.is_action_pressed("Sprint") and !Input.is_action_pressed("Crouch") and !PauseManager.is_paused and GAME_STATE != "INVENTORY":
+		if Input.is_action_pressed("Sprint") and !Input.is_action_pressed("Crouch") and !PauseManager.is_paused and GAME_STATE != "INVENTORY" and !DialogueManager.is_in_interface:
 			speed = SPRINT_SPEED
-		elif Input.is_action_pressed("Crouch") and !PauseManager.is_paused and GAME_STATE != "INVENTORY":
+		elif Input.is_action_pressed("Crouch") and !PauseManager.is_paused and GAME_STATE != "INVENTORY" and !DialogueManager.is_in_interface:
 			speed = CROUCH_SPEED
 		else:
 			speed = WALK_SPEED
@@ -292,7 +292,7 @@ func _physics_process(delta):
 		var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
 		if is_on_floor():
-			if direction != Vector3.ZERO and !PauseManager.is_paused and GAME_STATE != "INVENTORY":
+			if direction != Vector3.ZERO and !PauseManager.is_paused and GAME_STATE != "INVENTORY" and !DialogueManager.is_in_interface:
 				velocity.x = direction.x * speed
 				velocity.z = direction.z * speed
 			else:
@@ -711,3 +711,7 @@ func _on_start_debugging_btn_pressed() -> void:
 ######################################
 # Playground
 ######################################
+
+func _on_pickup_object_detector_body_entered(body: Node3D) -> void:
+	if body.is_in_group("dialogue_test"):
+		$Head/Camera3D/DialogueLayer/DialogueInterface.spawnInterfaceWithText("You", "Woah! That's some pretty text.", 3)
