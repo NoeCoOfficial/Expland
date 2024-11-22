@@ -600,14 +600,12 @@ func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 			
 			print("{LOCAL} [Player_SCRIPT.gd] Collided with pickup player detector! Item: " + PickupItemType)
 			
-			var tween = get_tree().create_tween().set_parallel()
-			tween.tween_property(PickupObject, "position", PlayerPos, 0.1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
-			tween.tween_property(PickupObject, "scale", Vector3(0, 0, 0), 0.1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
-			
+			var tween1 = get_tree().create_tween().set_parallel()
+			tween1.tween_property(PickupObject, "position", PlayerPos, 0.1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+			tween1.tween_property(PickupObject, "scale", Vector3(0.00001, 0.00001, 0.00001), 0.1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 			
 			await get_tree().create_timer(0.1).timeout
-			tween.stop()
-			tween.kill()
+			
 			delete_pickup_object(PickupObject)
 			InventoryManager.spawn_inventory_dropable(free_slot.position, PickupItemType, free_slot)
 			free_slot.set_reserved_for_populating(false)
