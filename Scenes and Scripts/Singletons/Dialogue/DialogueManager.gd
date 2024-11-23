@@ -57,9 +57,10 @@ func _ready():
 	DialogueInterface = get_node("/root/World/Player/Head/Camera3D/DialogueLayer/DialogueInterface")
 
 func startDialogue(messages: Array) -> void:
-	dialogue_messages = messages
-	current_dialogue_index = 0
-	showNextMessage()
+	if !PauseManager.is_inside_settings and !PauseManager.is_paused and !InventoryManager.inventory_open:
+		dialogue_messages = messages
+		current_dialogue_index = 0
+		showNextMessage()
 
 func showNextMessage() -> void:
 	if current_dialogue_index < dialogue_messages.size():
