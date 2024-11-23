@@ -729,12 +729,12 @@ func _on_pickup_object_detector_body_entered(body: Node3D) -> void:
 			"message": "Woah! Wassup?",
 			"duration": 0.5},
 			
-			{"author": "Author 2", 
-			"message": "I'm good, thanks! How about you?",
+			{"author": "Imaginary Friend", 
+			"message": "Not much... there really isn't anything to do here.",
 			"duration": 1},
 			
-			{"author": "Author 3", 
-			"message": "I'm doing well, thank you.",
+			{"author": "You", 
+			"message": "Yeah yeah, I know. But it will all come soon, I promise.",
 			"duration": 1}
 		]
 
