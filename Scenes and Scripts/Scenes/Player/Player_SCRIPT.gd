@@ -207,24 +207,29 @@ var is_crouching = false
 ######################################
 
 func _input(_event): # A built-in function that listens for input using the input map
+	
 	if Input.is_action_just_pressed("Exit") and GAME_STATE == "INVENTORY":
 		$Head/Camera3D/InventoryLayer.hide() # hide the inventory UI
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor
 		Utils.center_mouse_cursor() # center the mouse cursor
 		GAME_STATE = "NORMAL" # set the game state to normal (so the player can move. This won't save to the file)
 		inventory_opened_in_air = false  # Reset the flag when inventory is closed
-	elif Input.is_action_just_pressed("Exit") and Pause == true and !PauseManager.is_inside_settings:
+		
+	elif Input.is_action_just_pressed("Exit") and Pause == true and !PauseManager.is_inside_settings and !DialogueManager.is_in_absolute_interface:
 		if $Head/Camera3D/PauseLayer.is_visible() == true:
 			resumeGame()
 		else:
 			pauseGame()
+	
 	elif Input.is_action_just_pressed("Exit") and PauseManager.is_inside_settings:
 		$Head/Camera3D/SettingsLayer/SettingsUI.closeSettings()
+	
 	if Input.is_action_just_pressed("Quit") and Quit == true and OS.has_feature("debug"): # if the Quit input is pressed and the Quit variable is true
 		if GAME_STATE == "NORMAL" or "INVENTORY": # if the game state is normal or inventory
 			if !GAME_STATE == "DEAD":
 				SaveManager.saveAllData()
 				get_tree().quit() # quit the game
+	
 	if Input.is_action_just_pressed("Reset") and Reset == true and !PauseManager.is_paused and OS.has_feature("debug"):
 		if GAME_STATE == "NORMAL" or "INVENTORY":
 			if ResetPOS == Vector3(999, 999, 999):
@@ -233,9 +238,11 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			else:
 				self.position = ResetPOS # set the player's position to the Reset position 
 				velocity.y = 0.0 # set the player's velocity to 0 
+	
 	if Input.is_action_just_pressed("SaveGame"):
 		saveAllDataWithAnimation()
-	if Input.is_action_just_pressed("Inventory") and !PauseManager.is_paused: # if the Inventory input is pressed
+	
+	if Input.is_action_just_pressed("Inventory") and !PauseManager.is_paused and !DialogueManager.is_in_absolute_interface: # if the Inventory input is pressed and game isn't paused or in dialogue
 		if GAME_STATE == "NORMAL": # Check if the game state is normal. If it is, open the inventory
 			openInventory()
 		elif GAME_STATE == "INVENTORY": # Check if the game state is inventory. If it is, close the inventory
@@ -720,7 +727,7 @@ func _on_pickup_object_detector_body_entered(body: Node3D) -> void:
 		var messages = [
 			{"author": "You", 
 			"message": "Woah! Wassup?",
-			"duration": 1},
+			"duration": 0.5},
 			
 			{"author": "Author 2", 
 			"message": "I'm good, thanks! How about you?",

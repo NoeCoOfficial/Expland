@@ -100,7 +100,7 @@ func hideGreyOverlay(Duration : float):
 ######################################
 
 func tweenBox(ONorOFF : String, Duration : float):
-	
+		
 	var tween = get_tree().create_tween()
 	
 	if ONorOFF == "ON":
@@ -135,11 +135,13 @@ func on_tween_on_finished():
 
 func spawnDialogue(Person : String, Message : String, Duration : float):
 	
+	DialogueManager.is_in_absolute_interface = true
+	
 	self.visible = true
 	
 	PersonLabel.text = Person
-	MessageLabel.text = Message
 	
+	MessageLabel.text = Message
 	MessageLabel.visible_ratio = 0.0
 	
 	tweenBox("ON", 0.5)
@@ -151,6 +153,9 @@ func spawnDialogue(Person : String, Message : String, Duration : float):
 	spawnTween.tween_property(MessageLabel, "visible_ratio", 1.0, Duration).from(0.0)
 
 func despawnDialogue():
+	
+	DialogueManager.is_in_absolute_interface = false
 	DialogueManager.is_in_interface = false
+	
 	tweenBox("OFF", 0.5)
 	hideGreyOverlay(0.5)
