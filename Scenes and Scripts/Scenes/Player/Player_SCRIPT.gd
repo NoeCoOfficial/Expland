@@ -270,7 +270,7 @@ func _physics_process(delta):
 	is_crouching = false
 	
 	# Crouching
-	if GAME_STATE != "INVENTORY" and GAME_STATE != "DEAD" and is_on_floor() and !PauseManager.is_paused and !DialogueManager.is_in_interface:
+	if GAME_STATE != "INVENTORY" and GAME_STATE != "DEAD" and is_on_floor() and !PauseManager.is_paused and !DialogueManager.is_in_absolute_interface:
 		if Input.is_action_pressed("Crouch"):
 			self.scale.y = lerp(self.scale.y, 0.5, CROUCH_INTERPOLATION * delta)
 		else:
@@ -284,13 +284,13 @@ func _physics_process(delta):
 			velocity.y -= gravity * delta
 
 		# Jumping
-		if Input.is_action_just_pressed("Jump") and is_on_floor() and !Input.is_action_pressed("Crouch") and !PauseManager.is_paused and GAME_STATE != "INVENTORY" and !DialogueManager.is_in_interface:
+		if Input.is_action_just_pressed("Jump") and is_on_floor() and !Input.is_action_pressed("Crouch") and !PauseManager.is_paused and GAME_STATE != "INVENTORY" and !DialogueManager.is_in_absolute_interface:
 			velocity.y = JUMP_VELOCITY
 
 		# Handle Speed
-		if Input.is_action_pressed("Sprint") and !Input.is_action_pressed("Crouch") and !PauseManager.is_paused and GAME_STATE != "INVENTORY" and !DialogueManager.is_in_interface:
+		if Input.is_action_pressed("Sprint") and !Input.is_action_pressed("Crouch") and !PauseManager.is_paused and GAME_STATE != "INVENTORY" and !DialogueManager.is_in_absolute_interface:
 			speed = SPRINT_SPEED
-		elif Input.is_action_pressed("Crouch") and !PauseManager.is_paused and GAME_STATE != "INVENTORY" and !DialogueManager.is_in_interface:
+		elif Input.is_action_pressed("Crouch") and !PauseManager.is_paused and GAME_STATE != "INVENTORY" and !DialogueManager.is_in_absolute_interface:
 			speed = CROUCH_SPEED
 		else:
 			speed = WALK_SPEED
@@ -300,7 +300,7 @@ func _physics_process(delta):
 		var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
 		if is_on_floor():
-			if direction != Vector3.ZERO and !PauseManager.is_paused and GAME_STATE != "INVENTORY" and !DialogueManager.is_in_interface:
+			if direction != Vector3.ZERO and !PauseManager.is_paused and GAME_STATE != "INVENTORY" and !DialogueManager.is_in_absolute_interface:
 				velocity.x = direction.x * speed
 				velocity.z = direction.z * speed
 			else:

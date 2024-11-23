@@ -1,14 +1,16 @@
-[gd_scene load_steps=7 format=4 uid="uid://cnumc5i62ndco"]
+[gd_scene load_steps=8 format=4 uid="uid://cnumc5i62ndco"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Tests/ray_casting_test.gd" id="1_r8s1u"]
+[ext_resource type="Texture2D" uid="uid://vdb8b8u4kphm" path="res://Textures/Dev Textures/PNG/Purple/texture_04.png" id="2_babsl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_373kv"]
+albedo_texture = ExtResource("2_babsl")
+uv1_triplanar = true
 
 [sub_resource type="BoxMesh" id="BoxMesh_j076q"]
 material = SubResource("StandardMaterial3D_373kv")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eiek8"]
-albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_pj1nj"]
 _surfaces = [{
