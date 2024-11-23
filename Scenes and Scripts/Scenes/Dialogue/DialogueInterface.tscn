@@ -7,7 +7,7 @@
 [ext_resource type="FontFile" uid="uid://btimp4hwg4jis" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Regular.otf" id="5_0d6dj"]
 [ext_resource type="FontFile" uid="uid://b2o44xwqnsb5k" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf" id="6_b65nx"]
 
-[node name="DialogueInterface" type="Control" node_paths=PackedStringArray("GreyLayer")]
+[node name="DialogueInterface" type="Control" node_paths=PackedStringArray("GreyLayer", "DialogueBoxButton", "PersonLabel", "MessageLabel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,6 +16,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_s44uc")
 GreyLayer = NodePath("GreyLayer")
+DialogueBoxButton = NodePath("DialogueBox")
+PersonLabel = NodePath("DialogueBox/Person")
+MessageLabel = NodePath("DialogueBox/Message")
 
 [node name="GreyLayer" type="ColorRect" parent="."]
 layout_mode = 1

@@ -54,6 +54,10 @@ var is_animating_text = false
 var spawnTween
 
 @export var GreyLayer : ColorRect
+@export var DialogueBoxButton : Button
+@export var PersonLabel : Label
+@export var MessageLabel : Label
+
 
 func _ready() -> void:
 	self.visible = false
@@ -63,6 +67,10 @@ func _ready() -> void:
 	
 	self.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
+
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("LeftClick"):
+		pass
 
 func showGreyOverlay(Duration : float):
 	GreyLayer.visible = true
@@ -80,7 +88,7 @@ func tweenBox(ONorOFF : String, Duration : float):
 		is_animating = true
 		
 		tween.tween_property(
-			$DialogueBox, 
+			DialogueBoxButton, 
 			"position", 
 			Vector2(282, 433), 
 			Duration).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
@@ -92,7 +100,7 @@ func tweenBox(ONorOFF : String, Duration : float):
 		DialogueManager.is_in_interface = false
 		
 		tween.tween_property(
-			$DialogueBox, 
+			DialogueBoxButton, 
 			"position", 
 			Vector2(282, 657), 
 			Duration).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
@@ -107,10 +115,10 @@ func spawnDialogue(Person : String, Message : String, Duration : float):
 	
 	self.visible = true
 	
-	$DialogueBox/Person.text = Person
-	$DialogueBox/Message.text = Message
+	PersonLabel.text = Person
+	MessageLabel.text = Message
 	
-	$DialogueBox/Message.visible_ratio = 0.0
+	MessageLabel.visible_ratio = 0.0
 	
 	tweenBox("ON", 0.5)
 	showGreyOverlay(0.5)
@@ -119,7 +127,7 @@ func spawnDialogue(Person : String, Message : String, Duration : float):
 	
 	
 	spawnTween.tween_interval(0.5)
-	spawnTween.tween_property($DialogueBox/Message, "visible_ratio", 1.0, Duration).from(0.0)
+	spawnTween.tween_property(MessageLabel, "visible_ratio", 1.0, Duration).from(0.0)
 	
 	
 	
