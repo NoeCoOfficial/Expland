@@ -58,6 +58,10 @@ var is_animating = false
 var is_animating_text = false
 var spawnTween
 
+######################################
+# On startup
+######################################
+
 func _ready() -> void:
 	self.visible = false
 	
@@ -65,10 +69,20 @@ func _ready() -> void:
 	GreyLayer.modulate = Color(1, 1, 1, 0)
 	
 	self.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	
+######################################
+# Input
+######################################
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("LeftClick") and DialogueManager.is_in_interface and MessageLabel.visible_ratio == 1:
 		despawnDialogue()
+	if Input.is_action_just_pressed("LeftClick") and DialogueManager.is_in_interface and MessageLabel.visible_ratio < 1:
+		print("yo")
+
+######################################
+# Show/Hide Grey overlay
+######################################
 
 func showGreyOverlay(Duration : float):
 	GreyLayer.visible = true
@@ -81,6 +95,10 @@ func hideGreyOverlay(Duration : float):
 	var tween = get_tree().create_tween()
 	tween.tween_property(GreyLayer, "modulate", Color(1, 1, 1, 0), Duration)
 	tween.tween_property(GreyLayer, "visible", false, 0.0)
+
+######################################
+# Tweening dialogue box
+######################################
 
 func tweenBox(ONorOFF : String, Duration : float):
 	
@@ -107,12 +125,14 @@ func tweenBox(ONorOFF : String, Duration : float):
 			"position", 
 			Vector2(282, 657), 
 			Duration).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-		
 
 func on_tween_on_finished():
 	is_animating = false
 	DialogueManager.is_in_interface = true
 
+######################################
+# Spawn and despawn dialogue
+######################################
 
 func spawnDialogue(Person : String, Message : String, Duration : float):
 	
