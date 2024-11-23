@@ -48,8 +48,5 @@
 @icon("res://Textures/Icons/Script Icons/32x32/world_page.png")
 extends Node
 
-func _process(_delta: float) -> void:
-	pass
-
 func _ready() -> void:
 	SaveManager.loadAllData()
