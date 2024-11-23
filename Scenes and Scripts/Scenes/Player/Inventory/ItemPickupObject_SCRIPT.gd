@@ -68,7 +68,6 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	self.global_position = get_node("/root/World/Player/Head/ItemDropPosition").global_position
 	ITEM_TYPE = InventoryManager.item_ref

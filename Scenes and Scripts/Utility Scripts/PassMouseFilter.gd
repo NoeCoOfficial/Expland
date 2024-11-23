@@ -49,6 +49,3 @@ extends Node
 
 func _ready():
 	self.mouse_filter = Control.MOUSE_FILTER_PASS
-
-func _process(_delta):
-	pass

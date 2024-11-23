@@ -54,9 +54,6 @@ var item_ref: String = ""
 var is_creating_pickup = false
 var is_inside_checker = false
 
-func _ready():
-	pass
-
 func create_pickup_object():
 	if is_creating_pickup:
 		return

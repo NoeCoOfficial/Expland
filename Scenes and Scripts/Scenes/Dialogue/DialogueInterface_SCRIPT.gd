@@ -48,16 +48,15 @@
 @icon("res://Textures/Icons/Script Icons/32x32/dialogue.png")
 extends Control
 
-var finished_displaying_text = false
-var is_animating = false
-var is_animating_text = false
-var spawnTween
-
 @export var GreyLayer : ColorRect
 @export var DialogueBoxButton : Button
 @export var PersonLabel : Label
 @export var MessageLabel : Label
 
+var finished_displaying_text = false
+var is_animating = false
+var is_animating_text = false
+var spawnTween
 
 func _ready() -> void:
 	self.visible = false
@@ -67,9 +66,8 @@ func _ready() -> void:
 	
 	self.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
-
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("LeftClick"):
+	if Input.is_action_just_pressed("LeftClick") and visible:
 		pass
 
 func showGreyOverlay(Duration : float):
@@ -77,7 +75,6 @@ func showGreyOverlay(Duration : float):
 	
 	var tween = get_tree().create_tween()
 	tween.tween_property(GreyLayer, "modulate", Color(1, 1, 1, 1), Duration)
-
 
 func tweenBox(ONorOFF : String, Duration : float):
 	
