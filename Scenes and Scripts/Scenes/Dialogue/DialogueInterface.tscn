@@ -7,7 +7,7 @@
 [ext_resource type="FontFile" uid="uid://btimp4hwg4jis" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Regular.otf" id="5_0d6dj"]
 [ext_resource type="FontFile" uid="uid://b2o44xwqnsb5k" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf" id="6_b65nx"]
 
-[node name="DialogueInterface" type="Control"]
+[node name="DialogueInterface" type="Control" node_paths=PackedStringArray("GreyLayer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,6 +15,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_s44uc")
+GreyLayer = NodePath("GreyLayer")
 
 [node name="GreyLayer" type="ColorRect" parent="."]
 layout_mode = 1
@@ -33,8 +34,10 @@ anchor_left = 0.244792
 anchor_top = 1.01543
 anchor_right = 0.755208
 anchor_bottom = 1.30864
-offset_right = -0.00012207
-offset_bottom = 6.10352e-05
+offset_left = -0.000396729
+offset_top = -0.998596
+offset_right = -0.000488281
+offset_bottom = -0.998535
 grow_horizontal = 2
 grow_vertical = 0
 focus_mode = 0

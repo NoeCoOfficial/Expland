@@ -47,3 +47,79 @@
 
 @icon("res://Textures/Icons/Script Icons/32x32/dialogue.png")
 extends Control
+
+var finished_displaying_text = false
+var is_animating = false
+var is_animating_text = false
+var spawnTween
+
+@export var GreyLayer : ColorRect
+
+func _ready() -> void:
+	self.visible = false
+	
+	GreyLayer.visible = false
+	GreyLayer.modulate = Color(1, 1, 1, 0)
+	
+	self.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+
+func showGreyOverlay(Duration : float):
+	GreyLayer.visible = true
+	
+	var tween = get_tree().create_tween()
+	tween.tween_property(GreyLayer, "modulate", Color(1, 1, 1, 1), Duration)
+
+
+func tweenBox(ONorOFF : String, Duration : float):
+	
+	var tween = get_tree().create_tween()
+	
+	if ONorOFF == "ON":
+		
+		is_animating = true
+		
+		tween.tween_property(
+			$DialogueBox, 
+			"position", 
+			Vector2(282, 433), 
+			Duration).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+		
+		tween.connect("finished", Callable(self, "on_tween_on_finished"))
+		
+	elif ONorOFF == "OFF":
+		
+		DialogueManager.is_in_interface = false
+		
+		tween.tween_property(
+			$DialogueBox, 
+			"position", 
+			Vector2(282, 657), 
+			Duration).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+		
+
+func _on_tween_on_finished():
+	is_animating = false
+	DialogueManager.is_in_interface = true
+
+
+func spawnDialogue(Person : String, Message : String, Duration : float):
+	
+	self.visible = true
+	
+	$DialogueBox/Person.text = Person
+	$DialogueBox/Message.text = Message
+	
+	$DialogueBox/Message.visible_ratio = 0.0
+	
+	tweenBox("ON", 0.5)
+	showGreyOverlay(0.5)
+	
+	spawnTween = get_tree().create_tween().set_parallel()
+	
+	
+	spawnTween.tween_interval(0.5)
+	spawnTween.tween_property($DialogueBox/Message, "visible_ratio", 1.0, Duration).from(0.0)
+	
+	
+	

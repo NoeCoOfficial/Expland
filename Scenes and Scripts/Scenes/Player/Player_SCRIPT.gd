@@ -192,6 +192,7 @@ var is_crouching = false
 @export var Is_Walking_Label : Label
 @export var Is_Sprinting_Label : Label
 @export var Is_Crouching_Label : Label
+@export var Is_In_Dialogue_Interface_Label : Label
 @export var Showing_Interaction_Notification_Label : Label
 @export var Current_Time_Label : Label
 @export var Current_FPS_Label : Label
@@ -350,6 +351,7 @@ func _process(_delta):
 	Is_Walking_Label.text = "is_walking = " + str(is_walking)
 	Is_Sprinting_Label.text = "is_sprinting = " + str(is_sprinting)
 	Is_Crouching_Label.text = "is_crouching = " + str(is_crouching)
+	Is_In_Dialogue_Interface_Label.text = "In dialogue interface? " + str(DialogueManager.is_in_interface)
 	Showing_Interaction_Notification_Label.text = "Showing notification? " + str(InteractionManager.is_notification_on_screen)
 	Current_Time_Label.text = time_string
 	Current_FPS_Label.text = "FPS: %d" % Engine.get_frames_per_second()
@@ -416,15 +418,15 @@ func nodeSetup(): # A function to setup the nodes. Called in the _ready function
 
 func _on_walking_speed_sounds_timeout() -> void:
 	if is_walking:
-		print("{LOCAL} [Player_SCRIPT.gd] Play walking sound")
+		pass
 
 func _on_sprinting_speed_sounds_timeout() -> void:
 	if is_sprinting:
-		print("{LOCAL} [Player_SCRIPT.gd] Play sprinting sound")
+		pass
 
 func _on_crouching_speed_sounds_timeout() -> void:
 	if is_crouching:
-		print("{LOCAL} [Player_SCRIPT.gd] Play crouching sound")
+		pass
 
 ######################################
 # Health and dying
@@ -714,4 +716,4 @@ func _on_start_debugging_btn_pressed() -> void:
 
 func _on_pickup_object_detector_body_entered(body: Node3D) -> void:
 	if body.is_in_group("dialogue_test"):
-		$Head/Camera3D/DialogueLayer/DialogueInterface.spawnInterfaceWithText("You", "Woah! That's some pretty text.", 3)
+		$Head/Camera3D/DialogueLayer/DialogueInterface.spawnDialogue("You", "Woah! That is quite some awesome text you got there! Absolutely fascinating.", 3)

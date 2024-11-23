@@ -47,5 +47,4 @@
 
 extends Node
 
-var finished_displaying_text = false
 var is_in_interface = false
