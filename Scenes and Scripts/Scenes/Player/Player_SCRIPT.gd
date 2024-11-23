@@ -248,7 +248,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		elif GAME_STATE == "INVENTORY": # Check if the game state is inventory. If it is, close the inventory
 			closeInventory()
 
-func _unhandled_input(event): # A built-in function that listens for input
+func _unhandled_input(event): # A built-in function that listens for input all the time
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
 		if GAME_STATE == "INVENTORY" or PauseManager.is_paused or DialogueManager.is_in_interface: # Check if the game state is inventory, or paused, or viewing dialogue.
 			head.rotate_y(-event.relative.x * SENSITIVITY/20) # rotate the head on the y-axis
