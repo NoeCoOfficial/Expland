@@ -67,14 +67,20 @@ func _ready() -> void:
 	self.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("LeftClick") and visible:
-		pass
+	if Input.is_action_just_pressed("LeftClick") and DialogueManager.is_in_interface and MessageLabel.visible_ratio == 1:
+		despawnDialogue()
 
 func showGreyOverlay(Duration : float):
 	GreyLayer.visible = true
 	
 	var tween = get_tree().create_tween()
 	tween.tween_property(GreyLayer, "modulate", Color(1, 1, 1, 1), Duration)
+
+func hideGreyOverlay(Duration : float):
+	
+	var tween = get_tree().create_tween()
+	tween.tween_property(GreyLayer, "modulate", Color(1, 1, 1, 0), Duration)
+	tween.tween_property(GreyLayer, "visible", false, 0.0)
 
 func tweenBox(ONorOFF : String, Duration : float):
 	
@@ -125,6 +131,8 @@ func spawnDialogue(Person : String, Message : String, Duration : float):
 	
 	spawnTween.tween_interval(0.5)
 	spawnTween.tween_property(MessageLabel, "visible_ratio", 1.0, Duration).from(0.0)
-	
-	
-	
+
+func despawnDialogue():
+	DialogueManager.is_in_interface = false
+	tweenBox("OFF", 0.5)
+	hideGreyOverlay(0.5)
