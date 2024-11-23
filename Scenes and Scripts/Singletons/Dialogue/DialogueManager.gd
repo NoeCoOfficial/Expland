@@ -48,3 +48,22 @@
 extends Node
 
 var is_in_interface = false
+var current_dialogue_index = 0
+var dialogue_messages = []
+var DialogueInterface
+
+func _ready():
+	DialogueInterface = get_node("/root/World/Player/Head/Camera3D/DialogueLayer/DialogueInterface")
+
+func startDialogue(messages: Array) -> void:
+	dialogue_messages = messages
+	current_dialogue_index = 0
+	showNextMessage()
+
+func showNextMessage() -> void:
+	if current_dialogue_index < dialogue_messages.size():
+		var message_data = dialogue_messages[current_dialogue_index]
+		DialogueInterface.spawnDialogue(message_data["author"], message_data["message"], message_data["duration"])
+		current_dialogue_index += 1
+	else:
+		DialogueInterface.despawnDialogue()

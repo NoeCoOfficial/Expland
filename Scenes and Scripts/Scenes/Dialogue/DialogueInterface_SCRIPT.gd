@@ -74,7 +74,7 @@ func _ready() -> void:
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("LeftClick") and DialogueManager.is_in_interface and MessageLabel.visible_ratio == 1:
-		despawnDialogue()
+		DialogueManager.showNextMessage()
 	if Input.is_action_just_pressed("LeftClick") and DialogueManager.is_in_interface and MessageLabel.visible_ratio < 1 and MessageLabel.visible_ratio > 0:
 		spawnTween.stop()
 		MessageLabel.visible_ratio = 1
@@ -123,7 +123,7 @@ func tweenBox(ONorOFF : String, Duration : float):
 			DialogueBoxButton, 
 			"position", 
 			Vector2(282, 657), 
-			Duration).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+			Duration).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO)
 
 func on_tween_on_finished():
 	is_animating = false

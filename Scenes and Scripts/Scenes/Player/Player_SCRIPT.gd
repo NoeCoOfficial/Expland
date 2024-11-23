@@ -716,4 +716,19 @@ func _on_start_debugging_btn_pressed() -> void:
 
 func _on_pickup_object_detector_body_entered(body: Node3D) -> void:
 	if body.is_in_group("dialogue_test"):
-		$Head/Camera3D/DialogueLayer/DialogueInterface.spawnDialogue("You", "Woah! That is quite some awesome text you got there! Absolutely fascinating.", 3)
+		
+		var messages = [
+			{"author": "You", 
+			"message": "Woah! Wassup?",
+			"duration": 1},
+			
+			{"author": "Author 2", 
+			"message": "I'm good, thanks! How about you?",
+			"duration": 1},
+			
+			{"author": "Author 3", 
+			"message": "I'm doing well, thank you.",
+			"duration": 1}
+		]
+
+		DialogueManager.startDialogue(messages)
