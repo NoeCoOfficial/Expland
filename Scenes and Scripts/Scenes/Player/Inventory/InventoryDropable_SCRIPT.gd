@@ -91,16 +91,16 @@ func _process(delta):
 		can_create_pickup = true
 		
 	if draggable:
-		if Input.is_action_just_pressed("inventory_click"):
+		if Input.is_action_just_pressed("LeftClick"):
 			if mouse_over_timer.time_left == 0:
 				initialPos = global_position
 				InventoryManager.is_dragging = true
 				self.z_index = 10
 				InventoryManager.item_ref = ITEM_TYPE
-		if Input.is_action_pressed("inventory_click") and InventoryManager.is_dragging:
+		if Input.is_action_pressed("LeftClick") and InventoryManager.is_dragging:
 			global_position = get_global_mouse_position()
 		
-		elif Input.is_action_just_released("inventory_click"):
+		elif Input.is_action_just_released("LeftClick"):
 			
 			if InventoryManager.is_inside_boundary and can_create_pickup:
 				InventoryManager.is_dragging = false

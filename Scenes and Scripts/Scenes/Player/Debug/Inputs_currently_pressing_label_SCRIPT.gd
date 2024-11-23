@@ -62,7 +62,7 @@ func _process(_delta):
 		{"name": "Reset", "action": "Reset"},
 		{"name": "Exit", "action": "Exit"},
 		{"name": "Inventory", "action": "Inventory"},
-		{"name": "Inventory Click", "action": "inventory_click"},
+		{"name": "Inventory Click", "action": "LeftClick"},
 		{"name": "Crouch", "action": "Crouch"},
 		{"name": "Save Game", "action": "SaveGame"},
 		{"name": "Interact", "action": "Interact"}
