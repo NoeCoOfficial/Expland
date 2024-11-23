@@ -98,7 +98,7 @@ func tweenBox(ONorOFF : String, Duration : float):
 			Duration).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 		
 
-func _on_tween_on_finished():
+func on_tween_on_finished():
 	is_animating = false
 	DialogueManager.is_in_interface = true
 
