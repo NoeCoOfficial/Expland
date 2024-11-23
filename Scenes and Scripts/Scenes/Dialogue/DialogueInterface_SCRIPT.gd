@@ -53,9 +53,7 @@ extends Control
 @export var PersonLabel : Label
 @export var MessageLabel : Label
 
-var finished_displaying_text = false
 var is_animating = false
-var is_animating_text = false
 var spawnTween
 
 ######################################
@@ -147,10 +145,9 @@ func spawnDialogue(Person : String, Message : String, Duration : float):
 	tweenBox("ON", 0.5)
 	showGreyOverlay(0.5)
 	
+	
+	await get_tree().create_timer(0.5).timeout
 	spawnTween = get_tree().create_tween().set_parallel()
-	
-	
-	spawnTween.tween_interval(0.5)
 	spawnTween.tween_property(MessageLabel, "visible_ratio", 1.0, Duration).from(0.0)
 
 func despawnDialogue():
