@@ -22,7 +22,9 @@ This is the official GitHub repository for the game, where all changes and commi
 - **Tristan Taylor** ([@GoatsAreTB](https://github.com/GoatsAreTB)): 3D and 2D Assets, Music, Storyboarding and Lore
 
 ### Contributors
-- **Ingo Wolf** ([@Inglan](https://github.com/Inglan)): [Issue #25](https://github.com/NoeCoOfficial/Expland/issues/25)
+<a href="https://github.com/NoeCoOfficial/Expland/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=NoeCoOfficial/Expland" />
+</a>
 
 ## 🎨 Dedications
 
