@@ -775,7 +775,7 @@ func _on_pickup_object_detector_body_entered(body: Node3D) -> void:
 			Best wishes,
 			
 			Seb and Tristan",
-			"duration": 3},
+			"duration": 4},
 		]
 		
 		DialogueManager.startDialogue(messages)

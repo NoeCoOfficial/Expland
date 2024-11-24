@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://du1ak3ldg8x4e"]
+[gd_scene load_steps=12 format=3 uid="uid://du1ak3ldg8x4e"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Dialogue/DialogueInterface_SCRIPT.gd" id="1_s44uc"]
 [ext_resource type="StyleBox" uid="uid://3txnt8ebd3yh" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/BlackBGwithWhiteBorder.tres" id="2_mxch6"]
@@ -7,6 +7,42 @@
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="4_ucycy"]
 [ext_resource type="FontFile" uid="uid://btimp4hwg4jis" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Regular.otf" id="5_0d6dj"]
 [ext_resource type="FontFile" uid="uid://b2o44xwqnsb5k" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf" id="6_b65nx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_63xh2"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 12
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ag00v"]
+bg_color = Color(0.187176, 0.187176, 0.187176, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 12
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s7ip0"]
+bg_color = Color(0.347817, 0.347817, 0.347817, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 12
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sugfa"]
+bg_color = Color(0.277528, 0.277528, 0.277528, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 12
+anti_aliasing = false
 
 [node name="DialogueInterface" type="Control" node_paths=PackedStringArray("GreyLayer", "DialogueBoxButton", "PersonLabel", "MessageLabel")]
 layout_mode = 3
@@ -40,8 +76,8 @@ anchor_right = 0.755208
 anchor_bottom = 1.30864
 offset_left = -0.000396729
 offset_top = -0.998596
-offset_right = -0.000488281
-offset_bottom = -0.998535
+offset_right = 46.0004
+offset_bottom = 9.00128
 grow_horizontal = 2
 grow_vertical = 0
 focus_mode = 0
@@ -52,10 +88,10 @@ script = ExtResource("3_d38jh")
 
 [node name="MessageOutline" type="Button" parent="DialogueBox"]
 layout_mode = 0
-offset_left = 9.0
-offset_top = 40.0
-offset_right = 579.0
-offset_bottom = 182.0
+offset_left = 15.0
+offset_top = 44.0
+offset_right = 616.0
+offset_bottom = 186.0
 focus_mode = 0
 theme_override_styles/hover = ExtResource("4_tox4x")
 theme_override_styles/pressed = ExtResource("4_tox4x")
@@ -68,10 +104,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -276.0
-offset_top = -180.0
-offset_right = 283.0
-offset_bottom = -146.0
+offset_left = -291.0
+offset_top = -186.0
+offset_right = 268.0
+offset_bottom = -152.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("4_ucycy")
@@ -86,10 +122,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -277.0
-offset_top = -142.0
-offset_right = 276.0
-offset_bottom = -9.00018
+offset_left = -291.0
+offset_top = -150.0
+offset_right = 295.0
+offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("4_ucycy")
@@ -97,3 +133,65 @@ theme_override_fonts/font = ExtResource("5_0d6dj")
 theme_override_font_sizes/font_size = 23
 text = "Wow this is totally awesome text!"
 autowrap_mode = 3
+
+[node name="Notice" type="Label" parent="DialogueBox"]
+layout_mode = 0
+offset_left = 505.0
+offset_top = 9.0
+offset_right = 614.0
+offset_bottom = 27.0
+theme = ExtResource("4_ucycy")
+theme_override_font_sizes/font_size = 10
+text = "Press             to navigate "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Notice2" type="Label" parent="DialogueBox"]
+layout_mode = 0
+offset_left = 505.0
+offset_top = 26.0
+offset_right = 614.0
+offset_bottom = 44.0
+theme = ExtResource("4_ucycy")
+theme_override_font_sizes/font_size = 10
+text = "through dialogue"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackgroundKEY" type="Button" parent="DialogueBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0016129
+anchor_top = 0.00224733
+anchor_right = 0.0016129
+anchor_bottom = 0.00224733
+offset_left = 533.977
+offset_top = 5.55053
+offset_right = 557.977
+offset_bottom = 29.5505
+theme_override_styles/normal = SubResource("StyleBoxFlat_63xh2")
+
+[node name="BackgroundKEY2" type="Button" parent="DialogueBox"]
+offset_left = 536.0
+offset_top = 7.0
+offset_right = 558.0
+offset_bottom = 29.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ag00v")
+
+[node name="BackgroundKEY3" type="Button" parent="DialogueBox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.000967703
+anchor_right = 0.000967703
+offset_left = 537.386
+offset_top = 9.0
+offset_right = 555.386
+offset_bottom = 27.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_s7ip0")
+
+[node name="BackgroundKEY4" type="Button" parent="DialogueBox"]
+offset_left = 539.0
+offset_top = 10.0
+offset_right = 555.0
+offset_bottom = 26.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_sugfa")
