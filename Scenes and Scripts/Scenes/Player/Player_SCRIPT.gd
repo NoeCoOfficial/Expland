@@ -725,7 +725,8 @@ func _on_pickup_object_detector_body_entered(body: Node3D) -> void:
 	if body.is_in_group("dialogue_test"):
 		
 		var messages = [
-			{"author": "sebashtioon (Noe Co. dev)", 
+			
+			{"author": "sebashtioon (Noe Co. dev, also called Seb)", 
 			"message": "Woah! Wassup?",
 			"duration": 0.5},
 			
@@ -748,6 +749,33 @@ func _on_pickup_object_detector_body_entered(body: Node3D) -> void:
 			{"author": "sebashtioon", 
 			"message": "I hope you're enjoying the test area that I set up though?",
 			"duration": 1.5},
+			
+			{"author": "You", 
+			"message": "Yeah... it's fine.",
+			"duration": 1},
+			
+			{"author": "sebashtioon", 
+			"message": "By the way, you can press E to open the inventory. and ESC to pause the game. Please report any bugs, remember!",
+			"duration": 2.5},
+			
+			{"author": "You", 
+			"message": "Alright! I'll be playing this game alot when it comes out.",
+			"duration": 2},
+			
+			{"author": "sebashtioon", 
+			"message": "Wow, thank you! You're support means the world to me and Tristan, the team at Noe Co.. Isn't that right, Tristan?",
+			"duration": 3},
+			
+			{"author": "GoatsAreTB (Noe Co. dev, also called Tristan)", 
+			"message": "It truly does! Goats are the best.",
+			"duration": 1.5},
+			
+			{"author": "sebashtioon", 
+			"message": "Alright then, i'll leave you to it. Go explore.
+			Best wishes,
+			
+			Seb and Tristan",
+			"duration": 3},
 		]
 		
 		DialogueManager.startDialogue(messages)
