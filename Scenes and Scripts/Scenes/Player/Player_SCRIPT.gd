@@ -388,6 +388,9 @@ func _process(_delta):
 func _ready():
 	nodeSetup() # Call the nodeSetup function to setup the nodes
 	
+	DialogueManager.DialogueInterface = $Head/Camera3D/DialogueLayer/DialogueInterface
+	
+	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Lock mouse
 	
 	Health = PlayerData.Health # set the health variable to the player data's health variable
@@ -726,7 +729,7 @@ func _on_pickup_object_detector_body_entered(body: Node3D) -> void:
 		
 		var messages = [
 			
-			{"author": "sebashtioon (Noe Co. dev, also called Seb)", 
+			{"author": "sebashtioon (Noe Co. dev)", 
 			"message": "Woah! Wassup?",
 			"duration": 0.5},
 			
@@ -766,7 +769,7 @@ func _on_pickup_object_detector_body_entered(body: Node3D) -> void:
 			"message": "Wow, thank you! You're support means the world to me and Tristan, the team at Noe Co.. Isn't that right, Tristan?",
 			"duration": 3},
 			
-			{"author": "GoatsAreTB (Noe Co. dev, also called Tristan)", 
+			{"author": "GoatsAreTB (Noe Co. dev)", 
 			"message": "It truly does! Goats are the best.",
 			"duration": 1.5},
 			

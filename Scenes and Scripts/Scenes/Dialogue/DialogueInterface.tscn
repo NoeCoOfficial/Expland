@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://du1ak3ldg8x4e"]
+[gd_scene load_steps=13 format=3 uid="uid://du1ak3ldg8x4e"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Dialogue/DialogueInterface_SCRIPT.gd" id="1_s44uc"]
 [ext_resource type="StyleBox" uid="uid://3txnt8ebd3yh" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/BlackBGwithWhiteBorder.tres" id="2_mxch6"]
@@ -7,6 +7,7 @@
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="4_ucycy"]
 [ext_resource type="FontFile" uid="uid://btimp4hwg4jis" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Regular.otf" id="5_0d6dj"]
 [ext_resource type="FontFile" uid="uid://b2o44xwqnsb5k" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf" id="6_b65nx"]
+[ext_resource type="Texture2D" uid="uid://dgt5qdmjgbdsv" path="res://Textures/Icons/UpArrow_Icon.png" id="8_b7eak"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_63xh2"]
 bg_color = Color(0, 0, 0, 1)
@@ -69,15 +70,15 @@ script = ExtResource("3_d38jh")
 
 [node name="DialogueBox" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.244792
-anchor_top = 1.01543
-anchor_right = 0.755208
-anchor_bottom = 1.30864
-offset_left = -0.000396729
-offset_top = -0.998596
-offset_right = 46.0004
-offset_bottom = 9.00128
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -316.88
+offset_top = 8.0
+offset_right = 316.88
+offset_bottom = 208.0
 grow_horizontal = 2
 grow_vertical = 0
 focus_mode = 0
@@ -172,6 +173,7 @@ offset_bottom = 29.5505
 theme_override_styles/normal = SubResource("StyleBoxFlat_63xh2")
 
 [node name="BackgroundKEY2" type="Button" parent="DialogueBox"]
+layout_mode = 0
 offset_left = 536.0
 offset_top = 7.0
 offset_right = 558.0
@@ -190,8 +192,18 @@ offset_bottom = 27.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_s7ip0")
 
 [node name="BackgroundKEY4" type="Button" parent="DialogueBox"]
+layout_mode = 0
 offset_left = 539.0
 offset_top = 10.0
 offset_right = 555.0
 offset_bottom = 26.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_sugfa")
+
+[node name="UpArrow_Icon" type="TextureRect" parent="DialogueBox"]
+layout_mode = 0
+offset_left = 537.0
+offset_top = 8.0
+offset_right = 557.0
+offset_bottom = 28.0
+texture = ExtResource("8_b7eak")
+expand_mode = 1

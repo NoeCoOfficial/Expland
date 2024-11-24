@@ -54,7 +54,7 @@ var dialogue_messages = []
 var DialogueInterface
 
 func _ready():
-	DialogueInterface = get_node("/root/World/Player/Head/Camera3D/DialogueLayer/DialogueInterface")
+	pass
 
 func startDialogue(messages: Array) -> void:
 	if !PauseManager.is_inside_settings and !PauseManager.is_paused and !InventoryManager.inventory_open:

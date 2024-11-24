@@ -110,7 +110,7 @@ func tweenBox(ONorOFF : String, Duration : float):
 		tween.tween_property(
 			DialogueBoxButton, 
 			"position", 
-			Vector2(282, 433), 
+			Vector2(259.12, 433), 
 			Duration).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 		
 		tween.connect("finished", Callable(self, "on_tween_on_finished"))
@@ -122,7 +122,7 @@ func tweenBox(ONorOFF : String, Duration : float):
 		tween.tween_property(
 			DialogueBoxButton, 
 			"position", 
-			Vector2(282, 657), 
+			Vector2(259.12, 656), 
 			Duration).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO)
 
 func on_tween_on_finished():
