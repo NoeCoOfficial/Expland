@@ -52,10 +52,10 @@ extends StaticBody3D
 func _ready():
 	mesh_instance.visible = false
 
-func on_raycast_hit():
+func on_raycast_hit_test_obj():
 	InteractionManager.is_hovering_over_test_obj = true
 	mesh_instance.visible = true
 
-func on_raycast_exit():
+func on_raycast_exit_test_obj():
 	mesh_instance.visible = false
 	InteractionManager.is_hovering_over_test_obj = false

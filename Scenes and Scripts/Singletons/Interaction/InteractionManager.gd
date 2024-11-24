@@ -50,6 +50,8 @@ extends Node
 var is_notification_on_screen = false
 var is_colliding = false
 
+var is_hovering_over_email_noeco = false
+var is_hovering_over_feedback_github = false
 var is_hovering_over_test_obj = false
 
 

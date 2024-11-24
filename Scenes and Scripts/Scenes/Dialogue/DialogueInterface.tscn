@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://du1ak3ldg8x4e"]
+[gd_scene load_steps=8 format=3 uid="uid://du1ak3ldg8x4e"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Dialogue/DialogueInterface_SCRIPT.gd" id="1_s44uc"]
 [ext_resource type="StyleBox" uid="uid://3txnt8ebd3yh" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/BlackBGwithWhiteBorder.tres" id="2_mxch6"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="3_d38jh"]
+[ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="4_tox4x"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="4_ucycy"]
 [ext_resource type="FontFile" uid="uid://btimp4hwg4jis" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Regular.otf" id="5_0d6dj"]
 [ext_resource type="FontFile" uid="uid://b2o44xwqnsb5k" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf" id="6_b65nx"]
@@ -49,6 +50,17 @@ theme_override_styles/pressed = ExtResource("2_mxch6")
 theme_override_styles/normal = ExtResource("2_mxch6")
 script = ExtResource("3_d38jh")
 
+[node name="MessageOutline" type="Button" parent="DialogueBox"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 40.0
+offset_right = 579.0
+offset_bottom = 182.0
+focus_mode = 0
+theme_override_styles/hover = ExtResource("4_tox4x")
+theme_override_styles/pressed = ExtResource("4_tox4x")
+theme_override_styles/normal = ExtResource("4_tox4x")
+
 [node name="Person" type="Label" parent="DialogueBox"]
 layout_mode = 1
 anchors_preset = 7
@@ -56,10 +68,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -277.0
-offset_top = -172.0
-offset_right = 208.0
-offset_bottom = -138.0
+offset_left = -279.0
+offset_top = -180.0
+offset_right = 206.0
+offset_bottom = -146.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("4_ucycy")
@@ -75,13 +87,13 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -277.0
-offset_top = -138.0
-offset_right = 208.0
-offset_bottom = -9.00012
+offset_top = -142.0
+offset_right = 276.0
+offset_bottom = -9.00018
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("4_ucycy")
 theme_override_fonts/font = ExtResource("5_0d6dj")
-theme_override_font_sizes/font_size = 25
-text = "wow this is totally awesome text!"
+theme_override_font_sizes/font_size = 23
+text = "Wow this is totally awesome text!"
 autowrap_mode = 3

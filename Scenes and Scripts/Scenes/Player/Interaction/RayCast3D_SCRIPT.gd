@@ -53,16 +53,36 @@ func _physics_process(_delta: float) -> void:
 	if is_colliding():
 		var collider = get_collider()
 		if collider != previous_collider:
-			if previous_collider and previous_collider.has_method("on_raycast_exit"):
-				previous_collider.on_raycast_exit()
+			
+			
+			if previous_collider and previous_collider.has_method("on_raycast_exit_test_obj"):
+				previous_collider.on_raycast_exit_test_obj()
 				InteractionManager.despawn_interaction_notification()
-			if collider and collider.has_method("on_raycast_hit"):
+			
+			elif previous_collider and previous_collider.has_method("on_raycast_hit_email_noeco"):
+				previous_collider.on_raycast_hit_email_noeco()
+				InteractionManager.despawn_interaction_notification()
+			
+			
+			if collider and collider.has_method("on_raycast_hit_test_obj"):
 				InteractionManager.spawn_interaction_notification("F", "Interact")
-				collider.on_raycast_hit()  # Calls the function on the hit body
+				collider.on_raycast_hit_test_obj()
+			
+			elif collider and collider.has_method("on_raycast_hit_email_noeco"):
+				InteractionManager.spawn_interaction_notification("F", "Email")
+				collider.on_raycast_hit_email_noeco()
+			
+			
 			previous_collider = collider
 	else:
-		if previous_collider and previous_collider.has_method("on_raycast_exit"):
-			previous_collider.on_raycast_exit()
+		
+		if previous_collider and previous_collider.has_method("on_raycast_exit_test_obj"):
+			previous_collider.on_raycast_exit_test_obj()
 			InteractionManager.despawn_interaction_notification()
+		
+		elif previous_collider and previous_collider.has_method("on_raycast_hit_email_noeco"):
+			previous_collider.on_raycast_hit_email_noeco()
+			InteractionManager.despawn_interaction_notification()
+		
 		previous_collider = null
 		InteractionManager.is_colliding = false
