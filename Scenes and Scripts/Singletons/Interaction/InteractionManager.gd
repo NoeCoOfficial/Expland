@@ -76,6 +76,9 @@ func despawn_interaction_notification():
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Interact") and is_hovering_over_test_obj:
 		pass
-	
+
 	if Input.is_action_just_pressed("Interact") and is_hovering_over_email_noeco:
 		OS.shell_open("https://mail.google.com/mail/?view=cm&fs=1&to=noeco.official@gmail.com")
+
+	if Input.is_action_just_pressed("Interact") and is_hovering_over_feedback_github:
+		OS.shell_open("https://github.com/NoeCoOfficial/Expland/issues/new?assignees=&labels=&projects=&template=feedback.md")

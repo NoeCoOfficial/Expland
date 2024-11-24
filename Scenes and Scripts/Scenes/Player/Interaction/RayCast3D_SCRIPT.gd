@@ -63,6 +63,11 @@ func _physics_process(_delta: float) -> void:
 				previous_collider.on_raycast_hit_email_noeco()
 				InteractionManager.despawn_interaction_notification()
 			
+			elif previous_collider and previous_collider.has_method("on_raycast_hit_feedback_github"):
+				previous_collider.on_raycast_hit_feedback_github()
+				InteractionManager.despawn_interaction_notification()
+			
+			
 			
 			if collider and collider.has_method("on_raycast_hit_test_obj"):
 				InteractionManager.spawn_interaction_notification("F", "Interact")
@@ -72,6 +77,9 @@ func _physics_process(_delta: float) -> void:
 				InteractionManager.spawn_interaction_notification("F", "Email")
 				collider.on_raycast_hit_email_noeco()
 			
+			elif collider and collider.has_method("on_raycast_hit_feedback_github"):
+				InteractionManager.spawn_interaction_notification("F", "Open")
+				collider.on_raycast_hit_feedback_github()
 			
 			previous_collider = collider
 	else:
@@ -80,8 +88,12 @@ func _physics_process(_delta: float) -> void:
 			previous_collider.on_raycast_exit_test_obj()
 			InteractionManager.despawn_interaction_notification()
 		
-		elif previous_collider and previous_collider.has_method("on_raycast_hit_email_noeco"):
-			previous_collider.on_raycast_hit_email_noeco()
+		elif previous_collider and previous_collider.has_method("on_raycast_exit_email_noeco"):
+			previous_collider.on_raycast_exit_email_noeco()
+			InteractionManager.despawn_interaction_notification()
+		
+		elif previous_collider and previous_collider.has_method("on_raycast_exit_feedback_github"):
+			previous_collider.on_raycast_exit_feedback_github()
 			InteractionManager.despawn_interaction_notification()
 		
 		previous_collider = null

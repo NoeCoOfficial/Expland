@@ -47,8 +47,8 @@
 
 extends StaticBody3D
 
-func _ready() -> void:
-	pass # Replace with function body.
+func on_raycast_hit_feedback_github():
+	InteractionManager.is_hovering_over_feedback_github = true
 
-func _process(delta: float) -> void:
-	pass
+func on_raycast_exit_feedback_github():
+	InteractionManager.is_hovering_over_feedback_github = false
