@@ -73,9 +73,9 @@ func _ready() -> void:
 ######################################
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("LeftClick") and DialogueManager.is_in_interface and MessageLabel.visible_ratio == 1:
+	if Input.is_action_just_pressed("Dialogue") and DialogueManager.is_in_interface and MessageLabel.visible_ratio == 1:
 		DialogueManager.showNextMessage()
-	if Input.is_action_just_pressed("LeftClick") and DialogueManager.is_in_interface and MessageLabel.visible_ratio < 1 and MessageLabel.visible_ratio > 0:
+	if Input.is_action_just_pressed("Dialogue") and DialogueManager.is_in_interface and MessageLabel.visible_ratio < 1 and MessageLabel.visible_ratio > 0:
 		spawnTween.stop()
 		MessageLabel.visible_ratio = 1
 
