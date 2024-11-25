@@ -115,8 +115,8 @@ func hideGreyOverlay(Duration : float):
 
 func tweenSideArrow():
 	var tween = get_tree().create_tween()
-	tween.tween_property(SideArrowIcon, "position", Vector2(580, 140), 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
-	tween.tween_property(SideArrowIcon, "position", Vector2(580, 153), 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(SideArrowIcon, "position", Vector2(580, 145), 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(SideArrowIcon, "position", Vector2(580, 153), 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 	tween.connect("finished", Callable(self, "onSideArrowAnimFinished"))
 
 func onSideArrowAnimFinished():
