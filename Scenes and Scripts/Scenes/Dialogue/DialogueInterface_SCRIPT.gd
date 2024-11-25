@@ -52,6 +52,7 @@ extends Control
 @export var DialogueBoxButton : Button
 @export var PersonLabel : Label
 @export var MessageLabel : Label
+@export var SideArrowIcon : TextureRect
 
 var is_animating = false
 var spawnTween
@@ -67,7 +68,17 @@ func _ready() -> void:
 	GreyLayer.modulate = Color(1, 1, 1, 0)
 	
 	self.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	
+
+######################################
+# Process
+######################################
+
+func _process(_delta: float) -> void:
+	if MessageLabel.visible_ratio != 1:
+		SideArrowIcon.visible = false
+	else:
+		SideArrowIcon.visible = true
+
 ######################################
 # Input
 ######################################
