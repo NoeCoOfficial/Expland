@@ -62,7 +62,10 @@ var spawnTween
 ######################################
 
 func _ready() -> void:
+	
 	self.visible = false
+	
+	tweenSideArrow()
 	
 	GreyLayer.visible = false
 	GreyLayer.modulate = Color(1, 1, 1, 0)
@@ -109,6 +112,15 @@ func hideGreyOverlay(Duration : float):
 ######################################
 # Tweening dialogue box
 ######################################
+
+func tweenSideArrow():
+	var tween = get_tree().create_tween()
+	tween.tween_property(SideArrowIcon, "position", Vector2(580, 140), 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(SideArrowIcon, "position", Vector2(580, 153), 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.connect("finished", Callable(self, "onSideArrowAnimFinished"))
+
+func onSideArrowAnimFinished():
+	tweenSideArrow()
 
 func tweenBox(ONorOFF : String, Duration : float):
 		

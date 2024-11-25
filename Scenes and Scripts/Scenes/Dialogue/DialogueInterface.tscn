@@ -213,8 +213,8 @@ expand_mode = 1
 [node name="SideArrow_Icon" type="TextureRect" parent="DialogueBox"]
 layout_mode = 0
 offset_left = 580.0
-offset_top = 154.0
+offset_top = 153.0
 offset_right = 604.0
-offset_bottom = 178.0
+offset_bottom = 177.0
 texture = ExtResource("9_3nwjr")
 expand_mode = 1
