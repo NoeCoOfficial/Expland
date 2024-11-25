@@ -69,7 +69,11 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _ready():
+	self.scale = Vector3(0.0001, 0.0001, 0.0001)
 	self.global_position = get_node("/root/World/Player/Head/ItemDropPosition").global_position
+	
+	var tween = get_tree().create_tween()
+	
 	ITEM_TYPE = InventoryManager.item_ref
 	var LOADED_OBJECT = load(PATH_TO_OBJECT)
 	# null checks
@@ -78,10 +82,12 @@ func _ready():
 	else:
 		print("{LOCAL} [ItemPickupObject_SCRIPT.gd] Object loaded successfully! Path: " + PATH_TO_OBJECT)
 		
-		instantiated_object = LOADED_OBJECT.instantiate() # create an instance of the object
-		self.add_child(instantiated_object) # add it to the scene
+		instantiated_object = LOADED_OBJECT.instantiate() # Create an instance of the object
+		self.add_child(instantiated_object) # Add it to the scene
 		PlayBobbingAnimation()
 		PlaySpinningAnimation()
+		
+		tween.tween_property(self, "scale", Vector3(0.2, 0.2, 0.2), 0.2).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 
 func PlaySpinningAnimation():
 	var tween = get_tree().create_tween()
