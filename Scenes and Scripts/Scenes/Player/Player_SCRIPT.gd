@@ -80,7 +80,6 @@ The keyword @export means that they can be accessed in the inspector panel (righ
 @export_subgroup("Health") ## Health varibales subgroup 
 @export var UseHealth := true ## Checks if health should be used. If false no health label/bar will be displayed and the player won't be able to die/take damage)
 @export var MaxHealth := 100 ## After death or when the game is first opened, the Health variable is set to this. 
-@export var Health := 100 ## The player's health. If this reaches 0, the player dies.
 
 @export_subgroup("Other") 
 @export var Position := Vector3(0, 0, 0) ## What the live position for the player is. This no longer does anything if changed in the inspector panel.
@@ -376,7 +375,7 @@ func _process(_delta):
 	else: 
 		$Head/Camera3D/CrosshairCanvas/HealthLBL.show() # show the health label
 	
-	$Head/Camera3D/CrosshairCanvas/HealthLBL.text = "Health: " + str(Health) # set the health label text to "Health: " + the health variable as a string	
+	$Head/Camera3D/CrosshairCanvas/HealthLBL.text = "Health: " + str(PlayerData.Health) # set the health label text to "Health: " + the health variable as a string	
 	
 	
 	$Head/Camera3D/CrosshairCanvas/Crosshair.size = crosshair_size # set the crosshair size to the crosshair size variable
@@ -393,7 +392,6 @@ func _ready():
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Lock mouse
 	
-	Health = PlayerData.Health # set the health variable to the player data's health variable
 	GAME_STATE = PlayerData.GAME_STATE # set the game state to the player data's game state
 
 	if GAME_STATE == "DEAD": # check if the game state is dead
@@ -444,9 +442,8 @@ func _on_crouching_speed_sounds_timeout() -> void:
 
 func takeDamage(DamageToTake): # A function to take damage from the player 
 	if UseHealth == true: # Check if the UseHealth variable is true
-		Health -= DamageToTake # subtract the damage to take from the health variable
-		PlayerData.Health = Health # set the player data's health to the health variable 
-		if Health <= 0: # check if health = 0 or below
+		PlayerData.Health -= DamageToTake # subtract the damage to take from the health variable
+		if PlayerData.Health <= 0: # check if health = 0 or below
 			
 			resumeGame()
 			closeInventory()
@@ -454,8 +451,7 @@ func takeDamage(DamageToTake): # A function to take damage from the player
 			
 			GAME_STATE = "DEAD" # set the game state to dead
 			PlayerData.GAME_STATE = "DEAD" # set the player data's game state to dead
-			Health = 0 # set the health to 0
-			PlayerData.Health = Health # set the player data's health to 0
+			PlayerData.Health = 0 # set the health to 0
 			showDeathScreen() # call the death screen function 
 		else:
 			takeDamageOverlay() # call the take damage overlay function
@@ -467,8 +463,8 @@ func takeDamageOverlay(): # Overlay when taking damage
 
 func respawnFromDeath(): # A function to respawn the player from death
 	self.position = StartPOS # set the player's position to the start position
-	Health = MaxHealth # set the health to the max health
-	PlayerData.Health = Health # set the player data's health to the health
+	PlayerData.Health = MaxHealth # set the health to the max health
+	
 	var tween = get_tree().create_tween() # create a tween
 
 	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay, "self_modulate", Color(0, 0, 0, 0), 3) # tween the black overlay's self modulate to black
