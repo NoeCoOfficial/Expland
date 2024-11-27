@@ -134,7 +134,6 @@ func _on_save_settings_pressed() -> void:
 
 
 
-
 func _on_motion_blur_switch_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		PlayerSettingsData.set_motion_blur(true)

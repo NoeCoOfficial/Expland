@@ -448,7 +448,8 @@ func takeDamage(DamageToTake): # A function to take damage from the player
 		PlayerData.Health = Health # set the player data's health to the health variable 
 		if Health <= 0: # check if health = 0 or below
 			
-			$Head/Camera3D/InventoryLayer.hide() # hide inventory
+			resumeGame()
+			closeInventory()
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # lock mouse
 			
 			GAME_STATE = "DEAD" # set the game state to dead
