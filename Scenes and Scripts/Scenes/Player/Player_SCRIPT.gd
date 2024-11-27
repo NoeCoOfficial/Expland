@@ -270,6 +270,8 @@ func _physics_process(delta):
 	
 	# Crouching
 	if GAME_STATE != "INVENTORY" and GAME_STATE != "DEAD" and is_on_floor() and !PauseManager.is_paused and !DialogueManager.is_in_absolute_interface:
+		
+		
 		if Input.is_action_pressed("Crouch"):
 			self.scale.y = lerp(self.scale.y, 0.5, CROUCH_INTERPOLATION * delta)
 		else:
@@ -283,7 +285,7 @@ func _physics_process(delta):
 			velocity.y -= gravity * delta
 
 		# Jumping
-		if Input.is_action_just_pressed("Jump") and is_on_floor() and !Input.is_action_pressed("Crouch") and !PauseManager.is_paused and GAME_STATE != "INVENTORY" and !DialogueManager.is_in_absolute_interface:
+		if Input.is_action_just_pressed("Jump") and !Input.is_action_pressed("Crouch") and is_on_floor() and !PauseManager.is_paused and GAME_STATE != "INVENTORY" and !DialogueManager.is_in_absolute_interface:
 			velocity.y = JUMP_VELOCITY
 
 		# Handle Speed
