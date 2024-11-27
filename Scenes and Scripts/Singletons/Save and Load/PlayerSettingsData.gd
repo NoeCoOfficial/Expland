@@ -48,7 +48,7 @@
 @icon("res://Textures/Icons/Script Icons/32x32/settings_save.png")
 extends Node
 
-const SAVE_PATH = "res://settings.dat"
+const SAVE_PATH = "res://settings.expland"
 
 ######################################
 # General
@@ -61,12 +61,13 @@ const SAVE_PATH = "res://settings.dat"
 ######################################
 
 var MotionBlur = true
+var DOFBlur = true
 
 ######################################
 # Video
-
 ######################################
-var FOV = 100
+
+var FOV = 110
 
 ######################################
 # Audio
@@ -83,11 +84,21 @@ var Master_Volume = 1
 func saveSettings() -> void:
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	var data = {
+		
+		# General
+		
+		# Graphics
 		"motion_blur" : MotionBlur,
+		"dof_blur" : DOFBlur,
+		
+		# Video
+		"FOV" : FOV,
+		
+		# Audio
 		"sfx_Volume" : sfx_Volume,
 		"music_Volume" : music_Volume,
 		"Master_Volume" :Master_Volume,
-		"FOV" : FOV,
+		
 	}
 	var jstr = JSON.stringify(data)
 	file.store_line(jstr)
@@ -106,7 +117,10 @@ func loadSettings() -> void:
 			
 			var current_line = JSON.parse_string(file.get_line())
 			if current_line:
+				
 				MotionBlur = current_line["motion_blur"]
+				DOFBlur = current_line["dof_blur"]
+
 				FOV = current_line["FOV"]
 				Master_Volume = current_line["Master_Volume"]
 				music_Volume = current_line["music_Volume"]
@@ -119,6 +133,11 @@ func loadSettings() -> void:
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Music Volume: "+str(music_Volume)+"[/font][/font_size][/center]")
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]SFX Volume: "+str(sfx_Volume)+"[/font][/font_size][/center]")
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Motion Blur: "+str(MotionBlur)+"[/font][/font_size][/center]")
+				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]DOF Blur: "+str(DOFBlur)+"[/font][/font_size][/center]")
+
+######################################
+# Setting values
+######################################
 
 func set_motion_blur(value : bool) -> void:
 	if value:
@@ -137,3 +156,21 @@ func set_motion_blur(value : bool) -> void:
 			world.set_motion_blur(value)
 		else:
 			printerr("[PlayerSettingsData] Could not find set_motion_blur() method in world node.")
+
+func set_dof_blur(value : bool) -> void:
+	if value:
+		DOFBlur = true
+		var world = get_node("/root/World")
+		
+		if world.has_method("set_dof_blur"):
+			world.set_dof_blur(value)
+		else:
+			printerr("[PlayerSettingsData] Could not find set_dof_blur() method in world node.")
+	else:
+		DOFBlur = false
+		var world = get_node("/root/World")
+		
+		if world.has_method("set_dof_blur"):
+			world.set_dof_blur(value)
+		else:
+			printerr("[PlayerSettingsData] Could not find set_dof_blur() method in world node.")

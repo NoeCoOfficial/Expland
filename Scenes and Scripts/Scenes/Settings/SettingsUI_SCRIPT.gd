@@ -52,6 +52,8 @@ extends Control
 
 func nodeSetup():
 	$SettingsTabContainer/Graphics/MotionBlurSwitch.button_pressed = PlayerSettingsData.MotionBlur
+	$SettingsTabContainer/Graphics/DOFBlurSwitch.button_pressed = PlayerSettingsData.DOFBlur
+
 	$SettingsTabContainer/Video/FOVSlider.value = PlayerSettingsData.FOV
 	$SettingsTabContainer/Sound/MasterSlider.value = PlayerSettingsData.Master_Volume
 	$SettingsTabContainer/Sound/MusicSlider.value = PlayerSettingsData.music_Volume
@@ -128,8 +130,19 @@ func _on_sfx_slider_value_changed(value: float) -> void:
 func _on_save_settings_pressed() -> void:
 	PlayerSettingsData.saveSettings()
 
+
+
+
+
+
 func _on_motion_blur_switch_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		PlayerSettingsData.set_motion_blur(true)
 	else:
 		PlayerSettingsData.set_motion_blur(false)
+
+func _on_dof_blur_switch_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		PlayerSettingsData.set_dof_blur(true)
+	else:
+		PlayerSettingsData.set_dof_blur(false)

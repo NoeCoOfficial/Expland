@@ -380,6 +380,7 @@ script = ExtResource("2_swx28")
 
 [connection signal="pressed" from="SaveSettings" to="." method="_on_save_settings_pressed"]
 [connection signal="toggled" from="SettingsTabContainer/Graphics/MotionBlurSwitch" to="." method="_on_motion_blur_switch_toggled"]
+[connection signal="toggled" from="SettingsTabContainer/Graphics/DOFBlurSwitch" to="." method="_on_dof_blur_switch_toggled"]
 [connection signal="value_changed" from="SettingsTabContainer/Video/FOVSlider" to="." method="_on_fov_slider_value_changed"]
 [connection signal="value_changed" from="SettingsTabContainer/Sound/MasterSlider" to="." method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="SettingsTabContainer/Sound/MusicSlider" to="." method="_on_music_slider_value_changed"]
