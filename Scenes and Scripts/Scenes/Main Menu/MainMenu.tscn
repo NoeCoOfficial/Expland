@@ -508,7 +508,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="ExitSettingsButton" type="Button" parent="Camera3D/MainLayer/GameModeLayer/BG_StoryMode"]
+[node name="PlayStoryModeButton" type="Button" parent="Camera3D/MainLayer/GameModeLayer/BG_StoryMode"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -525,7 +525,6 @@ focus_mode = 0
 theme = SubResource("Theme_u5css")
 theme_override_font_sizes/font_size = 40
 text = "PLAY"
-script = ExtResource("10_y68f7")
 
 [node name="BG_FreeMode" type="Button" parent="Camera3D/MainLayer/GameModeLayer"]
 layout_mode = 1
@@ -580,6 +579,24 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
+[node name="PlayFreeModeButton" type="Button" parent="Camera3D/MainLayer/GameModeLayer/BG_FreeMode"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -54.0
+offset_top = -67.0
+offset_right = 54.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme = SubResource("Theme_u5css")
+theme_override_font_sizes/font_size = 40
+text = "PLAY"
+
 [node name="BG_ParkourMode" type="Button" parent="Camera3D/MainLayer/GameModeLayer"]
 layout_mode = 1
 anchors_preset = -1
@@ -631,6 +648,24 @@ text = "Jump and climb your way through some parkour levels."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="PlayParkourModeButton" type="Button" parent="Camera3D/MainLayer/GameModeLayer/BG_ParkourMode"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -54.0
+offset_top = -67.0
+offset_right = 54.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme = SubResource("Theme_u5css")
+theme_override_font_sizes/font_size = 40
+text = "PLAY"
 
 [node name="ProtectiveLayer" type="Control" parent="Camera3D/MainLayer"]
 layout_mode = 3
