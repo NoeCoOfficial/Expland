@@ -151,10 +151,10 @@ layout_mode = 3
 anchor_left = -0.302083
 anchor_top = 0.432099
 anchor_bottom = 0.550926
-offset_left = 348.0
-offset_top = -77.0002
-offset_right = 348.0
-offset_bottom = -77.0002
+offset_left = -0.000396729
+offset_top = -0.000152588
+offset_right = -0.000396729
+offset_bottom = -0.00012207
 grow_vertical = 2
 script = ExtResource("8_tu6ba")
 metadata/_edit_use_anchors_ = true
@@ -343,15 +343,18 @@ expand_mode = 1
 
 [node name="PlayButtonTrigger" type="Button" parent="Camera3D/MainLayer"]
 self_modulate = Color(1, 1, 1, 0)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 203.0
-offset_right = -804.0
-offset_bottom = -368.0
+anchors_preset = -1
+anchor_top = 0.313272
+anchor_right = 0.302083
+anchor_bottom = 0.432099
+offset_left = -348.0
+offset_top = 77.0
+offset_right = -348.0
+offset_bottom = 77.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="SettingsButtonTrigger" type="Button" parent="Camera3D/MainLayer"]
 self_modulate = Color(1, 1, 1, 0)
