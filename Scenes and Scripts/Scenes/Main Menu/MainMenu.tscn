@@ -148,9 +148,15 @@ expand_mode = 1
 
 [node name="PlayButton" type="Control" parent="Camera3D/MainLayer"]
 layout_mode = 3
+<<<<<<< HEAD
 anchor_top = 0.313272
 anchor_right = 0.302083
 anchor_bottom = 0.432099
+=======
+anchor_left = -0.302083
+anchor_top = 0.432099
+anchor_bottom = 0.550926
+>>>>>>> parent of af5588a (Update Main Menu layout and visibility settings for FadeOut and GreyLayer)
 grow_vertical = 2
 script = ExtResource("8_tu6ba")
 metadata/_edit_use_anchors_ = true
@@ -337,10 +343,20 @@ expand_mode = 1
 
 [node name="PlayButtonTrigger" type="Button" parent="Camera3D/MainLayer"]
 self_modulate = Color(1, 1, 1, 0)
+<<<<<<< HEAD
 anchors_preset = -1
 anchor_top = 0.313272
 anchor_right = 0.302083
 anchor_bottom = 0.432099
+=======
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -348.0
+offset_top = 280.0
+offset_right = -1152.0
+offset_bottom = -291.0
+>>>>>>> parent of af5588a (Update Main Menu layout and visibility settings for FadeOut and GreyLayer)
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
@@ -382,7 +398,6 @@ theme_override_font_sizes/font_size = 26
 text = "v0.4.7"
 
 [node name="FadeOut" type="ColorRect" parent="Camera3D/MainLayer"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -392,7 +407,6 @@ color = Color(0, 0, 0, 1)
 script = ExtResource("8_tu6ba")
 
 [node name="GreyLayer" type="ColorRect" parent="Camera3D/MainLayer"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
