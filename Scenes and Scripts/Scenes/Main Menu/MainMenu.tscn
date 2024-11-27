@@ -151,6 +151,10 @@ layout_mode = 3
 anchor_left = -0.302083
 anchor_top = 0.432099
 anchor_bottom = 0.550926
+offset_left = 348.0
+offset_top = -77.0002
+offset_right = 348.0
+offset_bottom = -77.0002
 grow_vertical = 2
 script = ExtResource("8_tu6ba")
 metadata/_edit_use_anchors_ = true
@@ -342,10 +346,9 @@ self_modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -348.0
-offset_top = 280.0
-offset_right = -1152.0
-offset_bottom = -291.0
+offset_top = 203.0
+offset_right = -804.0
+offset_bottom = -368.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
@@ -387,6 +390,7 @@ theme_override_font_sizes/font_size = 26
 text = "v0.4.7"
 
 [node name="FadeOut" type="ColorRect" parent="Camera3D/MainLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -396,6 +400,7 @@ color = Color(0, 0, 0, 1)
 script = ExtResource("8_tu6ba")
 
 [node name="GreyLayer" type="ColorRect" parent="Camera3D/MainLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

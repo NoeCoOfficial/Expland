@@ -71,6 +71,9 @@ func _ready() -> void:
 	Utils.set_center_offset($Camera3D/MainLayer/SettingsButton)
 	Utils.set_center_offset($Camera3D/MainLayer/QuitButton)
 	
+	$Camera3D/MainLayer/FadeOut.visible = true
+	$Camera3D/MainLayer/GreyLayer.visible = true
+	
 	$Camera3D/MainLayer/PlayButton.position = Vector2(-348, 280)
 	$Camera3D/MainLayer/SettingsButton.position = Vector2(-348, 374)
 	$Camera3D/MainLayer/QuitButton.position = Vector2(-348, 470)
