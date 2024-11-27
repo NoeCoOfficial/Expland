@@ -70,7 +70,15 @@ func _ready() -> void:
 	
 	Utils.set_center_offset($Camera3D/MainLayer/SettingsButton)
 	Utils.set_center_offset($Camera3D/MainLayer/QuitButton)
-
+	
+	$Camera3D/MainLayer/PlayButton.position = Vector2(-348, 280)
+	$Camera3D/MainLayer/SettingsButton.position = Vector2(-348, 374)
+	$Camera3D/MainLayer/QuitButton.position = Vector2(-348, 470)
+	
+	$Camera3D/MainLayer/PlayButtonTrigger.position = Vector2(-348, 280)
+	$Camera3D/MainLayer/SettingsButtonTrigger.position = Vector2(-348, 374)
+	$Camera3D/MainLayer/QuitButtonTrigger.position = Vector2(-348, 470)
+	
 	await get_tree().create_timer(1).timeout
 	onStartup()
 
