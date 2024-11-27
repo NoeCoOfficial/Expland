@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=31 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="PackedScene" uid="uid://jb61th5px5nt" path="res://Assets/3D Models/Tests/Island/Island 2.blend" id="2_0llf6"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://ceabjbnv3nnyr" path="res://Scenes and Scripts/Scenes/Settings/SettingsUI.tscn" id="10_i36v3"]
 [ext_resource type="PackedScene" uid="uid://0stf8uio7dg2" path="res://Assets/3D Models/Trees/Normal/Tree9.blend" id="10_ji46n"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="10_y68f7"]
+[ext_resource type="StyleBox" uid="uid://3txnt8ebd3yh" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/BlackBGwithWhiteBorder.tres" id="11_613mu"]
 
 [sub_resource type="Animation" id="Animation_6cyol"]
 length = 0.001
@@ -405,6 +406,56 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.643)
 script = ExtResource("10_y68f7")
+
+[node name="BG_StoryMode" type="Button" parent="Camera3D/MainLayer"]
+anchors_preset = -1
+anchor_left = 0.208333
+anchor_top = 1.776
+anchor_right = 0.208333
+anchor_bottom = 1.77623
+offset_top = -452.848
+offset_right = 174.0
+grow_vertical = 2
+focus_mode = 0
+theme_override_styles/hover = ExtResource("11_613mu")
+theme_override_styles/pressed = ExtResource("11_613mu")
+theme_override_styles/normal = ExtResource("11_613mu")
+script = ExtResource("10_y68f7")
+metadata/_edit_use_anchors_ = true
+
+[node name="BG_FreeMode" type="Button" parent="Camera3D/MainLayer"]
+anchors_preset = -1
+anchor_left = 0.208333
+anchor_top = 1.776
+anchor_right = 0.208333
+anchor_bottom = 1.77623
+offset_left = 224.0
+offset_top = -452.848
+offset_right = 398.0
+grow_vertical = 2
+focus_mode = 0
+theme_override_styles/hover = ExtResource("11_613mu")
+theme_override_styles/pressed = ExtResource("11_613mu")
+theme_override_styles/normal = ExtResource("11_613mu")
+script = ExtResource("10_y68f7")
+metadata/_edit_use_anchors_ = true
+
+[node name="BG_ParkourMode" type="Button" parent="Camera3D/MainLayer"]
+anchors_preset = -1
+anchor_left = 0.208333
+anchor_top = 1.776
+anchor_right = 0.208333
+anchor_bottom = 1.77623
+offset_left = 451.0
+offset_top = -452.848
+offset_right = 625.0
+grow_vertical = 2
+focus_mode = 0
+theme_override_styles/hover = ExtResource("11_613mu")
+theme_override_styles/pressed = ExtResource("11_613mu")
+theme_override_styles/normal = ExtResource("11_613mu")
+script = ExtResource("10_y68f7")
+metadata/_edit_use_anchors_ = true
 
 [node name="SettingsUI" parent="Camera3D/MainLayer" node_paths=PackedStringArray("greyOverlay") instance=ExtResource("10_i36v3")]
 visible = false

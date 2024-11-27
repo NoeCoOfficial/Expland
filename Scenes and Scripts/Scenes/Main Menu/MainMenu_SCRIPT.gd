@@ -129,8 +129,11 @@ func _on_play_button_trigger_button_up() -> void:
 		tween.tween_property($Camera3D/MainLayer/PlayButton, "scale", Vector2(1.0, 1.0), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func _on_play_button_trigger_pressed() -> void:
-	changing_to_world_scene = true
-	get_tree().change_scene_to_packed(world)
+	spawnGameModeMenu()
+
+
+func spawnGameModeMenu():
+	pass
 
 ######################################
 # SettingsButton animations and functions

@@ -45,6 +45,7 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
+@icon("res://Textures/Icons/Script Icons/32x32/window_dialogue.png")
 extends Control
 
 func ShowNotification(KEY : String, MESSAGE : String):
