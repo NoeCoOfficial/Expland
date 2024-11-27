@@ -145,7 +145,33 @@ theme_override_font_sizes/font_size = 17
 text = "Motion Blur"
 horizontal_alignment = 1
 vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
+
+[node name="DOFBlurSwitch" type="CheckButton" parent="SettingsTabContainer/Graphics"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 43.0
+offset_right = 137.0
+offset_bottom = 67.0
+focus_mode = 0
+button_pressed = true
+
+[node name="DOFBlurTTL" type="Label" parent="SettingsTabContainer/Graphics"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0346668
+anchor_top = 0.0172414
+anchor_right = 0.306668
+anchor_bottom = 0.096059
+offset_top = 32.0
+offset_right = -1.52588e-05
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("5_8j0xn")
+theme_override_font_sizes/font_size = 17
+text = "DOF Blur"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Video" type="TabBar" parent="SettingsTabContainer"]
 visible = false
