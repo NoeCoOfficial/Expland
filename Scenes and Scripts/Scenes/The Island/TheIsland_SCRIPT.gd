@@ -48,17 +48,27 @@
 @icon("res://Textures/Icons/Script Icons/32x32/world_page.png")
 extends Node
 
+
 @onready var motionBlurCompositor = preload("res://Resources/Environment/TheIsland_MotionBlurCompositor.tres")
 @onready var noMotionBlurCompositor = preload("res://Resources/Environment/TheIsland_NoMotionBlurCompositor.tres")
+
+@onready var cameraAttributesResource = preload("res://Resources/Environment/Default_CameraAttributes.tres")
 
 
 
 func _ready() -> void:
 	SaveManager.loadAllData()
 	set_motion_blur(PlayerSettingsData.MotionBlur)
+	set_dof_blur(PlayerSettingsData.DOFBlur)
 
 func set_motion_blur(value : bool) -> void:
 	if value:
 		$WorldEnvironment.set_compositor(motionBlurCompositor)
 	else:
 		$WorldEnvironment.set_compositor(noMotionBlurCompositor)
+
+func set_dof_blur(value : bool) -> void:
+	if value:
+		cameraAttributesResource.dof_blur_far_enabled = true
+	else:
+		cameraAttributesResource.dof_blur_far_enabled = false

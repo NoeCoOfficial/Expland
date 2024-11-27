@@ -48,7 +48,7 @@
 @icon("res://Textures/Icons/Script Icons/32x32/disk_save.png")
 extends Node
 
-const SAVE_PATH = "res://player.dat"
+const SAVE_PATH = "res://player.expland"
 
 var GAME_STATE = "NORMAL"
 var Health := 100
