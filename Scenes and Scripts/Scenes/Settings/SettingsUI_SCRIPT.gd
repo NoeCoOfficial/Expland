@@ -51,6 +51,7 @@ extends Control
 @export var greyOverlay : ColorRect
 
 func nodeSetup():
+	$SettingsTabContainer/Graphics/MotionBlurSwitch.button_pressed = PlayerSettingsData.MotionBlur
 	$SettingsTabContainer/Video/FOVSlider.value = PlayerSettingsData.FOV
 	$SettingsTabContainer/Sound/MasterSlider.value = PlayerSettingsData.Master_Volume
 	$SettingsTabContainer/Sound/MusicSlider.value = PlayerSettingsData.music_Volume
@@ -124,25 +125,9 @@ func _on_music_slider_value_changed(value: float) -> void:
 func _on_sfx_slider_value_changed(value: float) -> void:
 	PlayerSettingsData.sfx_Volume = value
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 func _on_save_settings_pressed() -> void:
 	PlayerSettingsData.saveSettings()
+
+
+func _on_motion_blur_switch_toggled(toggled_on: bool) -> void:
+	print(toggled_on)
