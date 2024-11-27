@@ -448,6 +448,7 @@ visible = false
 greyOverlay = NodePath("../GreyLayer")
 
 [node name="GreyLayerGamemodeLayer" type="ColorRect" parent="Camera3D/MainLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -653,7 +654,7 @@ grow_horizontal = 2
 theme = ExtResource("4_grlcg")
 theme_override_fonts/font = ExtResource("14_8r23i")
 theme_override_font_sizes/font_size = 13
-text = "Free to roam The Island"
+text = "Freedom to visit The Island as you please. Just explore."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3

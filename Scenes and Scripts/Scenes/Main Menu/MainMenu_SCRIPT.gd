@@ -144,16 +144,18 @@ func _on_play_button_trigger_pressed() -> void:
 	spawnGameModeMenu()
 
 func spawnGameModeMenu():
-	$Camera3D/MainLayer/ProtectiveLayer.visible = true
+	
 	$Camera3D/MainLayer/PlayButtonTrigger.visible = false
+	$Camera3D/MainLayer/GreyLayerGamemodeLayer.show()
+	
 	
 	var tween = get_tree().create_tween().set_parallel()
-
+	
+	tween.tween_property($Camera3D/MainLayer/GreyLayerGamemodeLayer, "modulate", Color(1, 1, 1, 1), 0.5)
+	
 	tween.tween_property($Camera3D/MainLayer/GameModeLayer/BG_StoryMode, "position:y", -580, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	tween.tween_property($Camera3D/MainLayer/GameModeLayer/BG_FreeMode, "position:y", -580, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.1)
 	tween.tween_property($Camera3D/MainLayer/GameModeLayer/BG_ParkourMode, "position:y", -580, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.2)
-
-	tween.tween_property($Camera3D/MainLayer/ProtectiveLayer, "visible", false, 0).set_delay(2)
 
 ######################################
 # SettingsButton animations and functions
