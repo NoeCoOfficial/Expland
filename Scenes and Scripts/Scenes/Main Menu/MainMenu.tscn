@@ -422,9 +422,9 @@ metadata/_edit_use_anchors_ = true
 [node name="BG_StoryMode" type="Button" parent="Camera3D/MainLayer/GameModeLayer"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.25
+anchor_left = 0.232639
 anchor_top = 1.776
-anchor_right = 0.25
+anchor_right = 0.232639
 anchor_bottom = 1.77623
 offset_top = -1100.85
 offset_right = 174.0
@@ -440,9 +440,9 @@ metadata/_edit_use_anchors_ = true
 [node name="BG_FreeMode" type="Button" parent="Camera3D/MainLayer/GameModeLayer"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.25
+anchor_left = 0.232639
 anchor_top = 1.776
-anchor_right = 0.25
+anchor_right = 0.232639
 anchor_bottom = 1.77623
 offset_left = 224.0
 offset_top = -1100.85
@@ -459,9 +459,9 @@ metadata/_edit_use_anchors_ = true
 [node name="BG_ParkourMode" type="Button" parent="Camera3D/MainLayer/GameModeLayer"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.25
+anchor_left = 0.232639
 anchor_top = 1.776
-anchor_right = 0.25
+anchor_right = 0.232639
 anchor_bottom = 1.77623
 offset_left = 451.0
 offset_top = -1100.85
