@@ -49,6 +49,7 @@
 extends Node3D
 
 var changing_to_world_scene = false
+
 @onready var StartupNotice = preload("res://Scenes and Scripts/Scenes/Startup Notice/StartupNotice.tscn")
 @onready var world = preload("res://Scenes and Scripts/Scenes/The Island/TheIsland.tscn")
 @onready var DefaultXPos = $Camera3D/MainLayer/PlayButton.position.x
@@ -63,6 +64,10 @@ func _ready() -> void:
 		
 		if PlayerSettingsData.showStartupScreen == true:
 			call_deferred("change_to_startup_notice")
+	
+	$Camera3D/MainLayer/GreyLayerGamemodeLayer.hide()
+	$Camera3D/MainLayer/GreyLayerGamemodeLayer.modulate = Color(1, 1, 1, 0)
+	
 	
 	PlayerSettingsData.loadSettings()
 	Utils.set_center_offset($Camera3D/MainLayer/PlayButton)
@@ -81,12 +86,14 @@ func _ready() -> void:
 func change_to_startup_notice() -> void:
 	get_tree().change_scene_to_packed(StartupNotice)
 
-func fadeOut():
+func fadeOut(node):
 	var tween = get_tree().create_tween()
-	tween.tween_property($Camera3D/MainLayer/FadeOut, "modulate", Color(0, 0, 0, 0), 5)
+	tween.tween_property(node, "modulate", Color(0, 0, 0, 0), 5)
 
 func onStartup():
-	fadeOut()
+	fadeOut($Camera3D/MainLayer/FadeOut)
+	
+	
 	var tween = get_tree().create_tween().set_parallel()
 
 	tween.tween_property($Camera3D/MainLayer/Logo, "position:x", -15, 1.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.5)
@@ -140,30 +147,11 @@ func spawnGameModeMenu():
 	$Camera3D/MainLayer/ProtectiveLayer.visible = true
 	$Camera3D/MainLayer/PlayButtonTrigger.visible = false
 	
-	var originalExitGameButtonPosY = $Camera3D/MainLayer/ExitGamemodeLayerButton.position.y
-	var originalExitGameButtonTriggerPosY = $Camera3D/MainLayer/ExitGamemodeLayerButtonTrigger.position.y
-
-	
 	var tween = get_tree().create_tween().set_parallel()
-	
-	tween.tween_property($Camera3D/MainLayer/Logo, "position:x", -494, 1.5).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)
-	
-	tween.tween_property($Camera3D/MainLayer/QuitButton, "position", Vector2(-348, 462), 1).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE).set_delay(0.1)
-	tween.tween_property($Camera3D/MainLayer/QuitButtonTrigger, "position", Vector2(-348, 462), 1).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE).set_delay(0.1)
-	
-	tween.tween_property($Camera3D/MainLayer/SettingsButton, "position", Vector2(-348, 374), 1).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE).set_delay(0.2)
-	tween.tween_property($Camera3D/MainLayer/SettingsButtonTrigger, "position", Vector2(-348, 374), 1).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE).set_delay(0.2)
-	
-	tween.tween_property($Camera3D/MainLayer/PlayButton, "position", Vector2(-348, 280), 1).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE).set_delay(0.3)
-	tween.tween_property($Camera3D/MainLayer/PlayButtonTrigger, "position", Vector2(-348, 280), 1).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE).set_delay(0.3)
-	
-	
-	tween.tween_property($Camera3D/MainLayer/ExitGamemodeLayerButton, "position:y", originalExitGameButtonPosY + 60, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.7)
-	tween.tween_property($Camera3D/MainLayer/ExitGamemodeLayerButton, "position:y", originalExitGameButtonTriggerPosY + 60, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.7)
 
-	tween.tween_property($Camera3D/MainLayer/GameModeLayer/BG_StoryMode, "position:y", -580, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.8)
-	tween.tween_property($Camera3D/MainLayer/GameModeLayer/BG_FreeMode, "position:y", -580, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.9)
-	tween.tween_property($Camera3D/MainLayer/GameModeLayer/BG_ParkourMode, "position:y", -580, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.0)
+	tween.tween_property($Camera3D/MainLayer/GameModeLayer/BG_StoryMode, "position:y", -580, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property($Camera3D/MainLayer/GameModeLayer/BG_FreeMode, "position:y", -580, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.1)
+	tween.tween_property($Camera3D/MainLayer/GameModeLayer/BG_ParkourMode, "position:y", -580, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.2)
 
 	tween.tween_property($Camera3D/MainLayer/ProtectiveLayer, "visible", false, 0).set_delay(2)
 

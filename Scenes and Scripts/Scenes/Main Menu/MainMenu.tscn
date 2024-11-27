@@ -447,6 +447,14 @@ script = ExtResource("10_y68f7")
 visible = false
 greyOverlay = NodePath("../GreyLayer")
 
+[node name="GreyLayerGamemodeLayer" type="ColorRect" parent="Camera3D/MainLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.643)
+
 [node name="ExitGamemodeLayerButton" type="Control" parent="Camera3D/MainLayer"]
 layout_mode = 3
 anchor_left = -0.0668403
