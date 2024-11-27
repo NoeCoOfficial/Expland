@@ -139,9 +139,9 @@ func _on_play_button_trigger_pressed() -> void:
 func spawnGameModeMenu():
 	$Camera3D/MainLayer/ProtectiveLayer.visible = true
 	$Camera3D/MainLayer/PlayButtonTrigger.visible = false
-
+	
 	var tween = get_tree().create_tween().set_parallel()
-
+	
 	tween.tween_property($Camera3D/MainLayer/Logo, "position:x", -494, 1.5).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)
 	
 	tween.tween_property($Camera3D/MainLayer/QuitButton, "position", Vector2(-348, 462), 1).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE).set_delay(0.1)
@@ -153,7 +153,7 @@ func spawnGameModeMenu():
 	tween.tween_property($Camera3D/MainLayer/PlayButton, "position", Vector2(-348, 280), 1).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE).set_delay(0.3)
 	tween.tween_property($Camera3D/MainLayer/PlayButtonTrigger, "position", Vector2(-348, 280), 1).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE).set_delay(0.3)
 	
-
+	
 	tween.tween_property($Camera3D/MainLayer/ExitGamemodeLayerButton, "position", Vector2(-77, -17), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.7).from(Vector2(-77, -108))
 	tween.tween_property($Camera3D/MainLayer/ExitGamemodeLayerButton, "position", Vector2(19, -9), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.7).from(Vector2(19, -100))
 
