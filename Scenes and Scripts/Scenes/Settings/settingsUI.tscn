@@ -105,17 +105,41 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_0ocir")
 theme_override_font_sizes/font_size = 21
-current_tab = 1
+current_tab = 0
 script = ExtResource("2_swx28")
 
 [node name="General" type="TabBar" parent="SettingsTabContainer"]
-visible = false
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("2_swx28")
 metadata/_tab_index = 0
 
+[node name="SSCSwitch" type="CheckButton" parent="SettingsTabContainer/General"]
+offset_left = 161.0
+offset_top = 11.0
+offset_right = 205.0
+offset_bottom = 35.0
+focus_mode = 0
+button_pressed = true
+
+[node name="SSCTTL" type="Label" parent="SettingsTabContainer/General"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0346668
+anchor_top = 0.0172414
+anchor_right = 0.306668
+anchor_bottom = 0.096059
+offset_left = 19.0001
+offset_right = 46.9999
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("5_8j0xn")
+theme_override_font_sizes/font_size = 17
+text = "Show startup screen"
+vertical_alignment = 1
+
 [node name="Graphics" type="TabBar" parent="SettingsTabContainer"]
+visible = false
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("2_swx28")
@@ -133,18 +157,17 @@ button_pressed = true
 [node name="MotionBlurTTL" type="Label" parent="SettingsTabContainer/Graphics"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.0346668
+anchor_left = 0.016
 anchor_top = 0.0172414
-anchor_right = 0.306668
+anchor_right = 0.264001
 anchor_bottom = 0.096059
-offset_right = -1.52588e-05
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("5_8j0xn")
 theme_override_font_sizes/font_size = 17
 text = "Motion Blur"
-horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="DOFBlurSwitch" type="CheckButton" parent="SettingsTabContainer/Graphics"]
 layout_mode = 0
@@ -158,20 +181,17 @@ button_pressed = true
 [node name="DOFBlurTTL" type="Label" parent="SettingsTabContainer/Graphics"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.0346668
-anchor_top = 0.0172414
-anchor_right = 0.306668
-anchor_bottom = 0.096059
-offset_top = 32.0
-offset_right = -1.52588e-05
-offset_bottom = 32.0
+anchor_left = 0.0133333
+anchor_top = 0.096059
+anchor_right = 0.208
+anchor_bottom = 0.167488
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("5_8j0xn")
 theme_override_font_sizes/font_size = 17
 text = "DOF Blur"
-horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Video" type="TabBar" parent="SettingsTabContainer"]
 visible = false
@@ -379,6 +399,7 @@ text = "EXIT"
 script = ExtResource("2_swx28")
 
 [connection signal="pressed" from="SaveSettings" to="." method="_on_save_settings_pressed"]
+[connection signal="toggled" from="SettingsTabContainer/General/SSCSwitch" to="." method="_on_ssc_switch_toggled"]
 [connection signal="toggled" from="SettingsTabContainer/Graphics/MotionBlurSwitch" to="." method="_on_motion_blur_switch_toggled"]
 [connection signal="toggled" from="SettingsTabContainer/Graphics/DOFBlurSwitch" to="." method="_on_dof_blur_switch_toggled"]
 [connection signal="value_changed" from="SettingsTabContainer/Video/FOVSlider" to="." method="_on_fov_slider_value_changed"]

@@ -60,7 +60,10 @@ var changing_to_world_scene = false
 func _ready() -> void:
 	if Global.is_first_time_in_menu:
 		Global.is_first_time_in_menu = false
-		call_deferred("change_to_startup_notice")
+		
+		if PlayerSettingsData.showStartupScreen == true:
+			call_deferred("change_to_startup_notice")
+	
 	PlayerSettingsData.loadSettings()
 	Utils.set_center_offset($Camera3D/MainLayer/PlayButton)
 	Utils.set_center_offset($Camera3D/MainLayer/PlayButtonTrigger)

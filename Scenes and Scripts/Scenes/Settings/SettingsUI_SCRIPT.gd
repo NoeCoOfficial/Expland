@@ -51,6 +51,8 @@ extends Control
 @export var greyOverlay : ColorRect
 
 func nodeSetup():
+	$SettingsTabContainer/General/SSCSwitch.button_pressed = PlayerSettingsData.showStartupScreen
+	
 	$SettingsTabContainer/Graphics/MotionBlurSwitch.button_pressed = PlayerSettingsData.MotionBlur
 	$SettingsTabContainer/Graphics/DOFBlurSwitch.button_pressed = PlayerSettingsData.DOFBlur
 
@@ -132,8 +134,6 @@ func _on_save_settings_pressed() -> void:
 
 
 
-
-
 func _on_motion_blur_switch_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		PlayerSettingsData.set_motion_blur(true)
@@ -145,3 +145,11 @@ func _on_dof_blur_switch_toggled(toggled_on: bool) -> void:
 		PlayerSettingsData.set_dof_blur(true)
 	else:
 		PlayerSettingsData.set_dof_blur(false)
+
+
+
+func _on_ssc_switch_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		PlayerSettingsData.showStartupScreen = true
+	else:
+		PlayerSettingsData.showStartupScreen = false
