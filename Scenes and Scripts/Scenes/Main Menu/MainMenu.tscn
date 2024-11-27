@@ -148,13 +148,9 @@ expand_mode = 1
 
 [node name="PlayButton" type="Control" parent="Camera3D/MainLayer"]
 layout_mode = 3
-anchor_left = -0.302083
-anchor_top = 0.432099
-anchor_bottom = 0.550926
-offset_left = 348.0
-offset_top = -77.0002
-offset_right = 348.0
-offset_bottom = -77.0002
+anchor_top = 0.313272
+anchor_right = 0.302083
+anchor_bottom = 0.432099
 grow_vertical = 2
 script = ExtResource("8_tu6ba")
 metadata/_edit_use_anchors_ = true
@@ -212,13 +208,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="SettingsButton" type="Control" parent="Camera3D/MainLayer"]
 layout_mode = 3
-anchor_left = -0.302083
-anchor_top = 0.57716
-anchor_bottom = 0.695988
-offset_left = 348.0
-offset_top = -76.9997
-offset_right = 348.0
-offset_bottom = -76.9997
+anchor_top = 0.458333
+anchor_right = 0.302083
+anchor_bottom = 0.577161
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
@@ -281,13 +273,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="QuitButton" type="Control" parent="Camera3D/MainLayer"]
 layout_mode = 3
-anchor_left = -0.302083
-anchor_top = 0.725309
-anchor_bottom = 0.844136
-offset_left = 348.0
-offset_top = -87.0002
-offset_right = 348.0
-offset_bottom = -87.0002
+anchor_top = 0.591049
+anchor_right = 0.302083
+anchor_bottom = 0.709876
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
@@ -349,27 +337,21 @@ expand_mode = 1
 
 [node name="PlayButtonTrigger" type="Button" parent="Camera3D/MainLayer"]
 self_modulate = Color(1, 1, 1, 0)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 203.0
-offset_right = -804.0
-offset_bottom = -368.0
+anchors_preset = -1
+anchor_top = 0.313272
+anchor_right = 0.302083
+anchor_bottom = 0.432099
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="SettingsButtonTrigger" type="Button" parent="Camera3D/MainLayer"]
 self_modulate = Color(1, 1, 1, 0)
 anchors_preset = -1
-anchor_left = -0.302083
-anchor_top = 0.57716
-anchor_right = -0.0303819
-anchor_bottom = 0.695988
-offset_left = 348.0
-offset_top = -76.9997
-offset_right = 348.0
-offset_bottom = -76.9997
+anchor_top = 0.458333
+anchor_right = 0.271701
+anchor_bottom = 0.577161
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
@@ -377,14 +359,10 @@ metadata/_edit_use_anchors_ = true
 [node name="QuitButtonTrigger" type="Button" parent="Camera3D/MainLayer"]
 self_modulate = Color(1, 1, 1, 0)
 anchors_preset = -1
-anchor_left = -0.302083
-anchor_top = 0.725309
-anchor_right = -0.0763889
-anchor_bottom = 0.83179
-offset_left = 348.0
-offset_top = -87.0002
-offset_right = 348.0
-offset_bottom = -87.0002
+anchor_top = 0.591049
+anchor_right = 0.225694
+anchor_bottom = 0.69753
+offset_bottom = 3.05176e-05
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
