@@ -71,9 +71,6 @@ func _ready() -> void:
 	Utils.set_center_offset($Camera3D/MainLayer/SettingsButton)
 	Utils.set_center_offset($Camera3D/MainLayer/QuitButton)
 	
-	$Camera3D/MainLayer/FadeOut.visible = true
-	$Camera3D/MainLayer/GreyLayer.visible = true
-	
 	await get_tree().create_timer(1).timeout
 	onStartup()
 
