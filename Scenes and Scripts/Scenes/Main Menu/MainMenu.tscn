@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=38 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="PackedScene" uid="uid://jb61th5px5nt" path="res://Assets/3D Models/Tests/Island/Island 2.blend" id="2_0llf6"]
@@ -21,6 +21,9 @@
 [ext_resource type="PackedScene" uid="uid://0stf8uio7dg2" path="res://Assets/3D Models/Trees/Normal/Tree9.blend" id="10_ji46n"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="10_y68f7"]
 [ext_resource type="StyleBox" uid="uid://3txnt8ebd3yh" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/BlackBGwithWhiteBorder.tres" id="11_613mu"]
+[ext_resource type="StyleBox" uid="uid://c1a26qv61p5kw" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkgreyBGwithWhiteBorder.tres" id="13_tj56a"]
+[ext_resource type="FontFile" uid="uid://btimp4hwg4jis" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Regular.otf" id="14_8r23i"]
+[ext_resource type="StyleBox" uid="uid://com3tix0pshhk" path="res://Resources/Styles and Themes/Styles/Default/Label/Default_Label.tres" id="15_8lpeu"]
 
 [sub_resource type="Animation" id="Animation_6cyol"]
 length = 0.001
@@ -95,6 +98,40 @@ background_mode = 2
 sky = SubResource("Sky_7v7qm")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1cec2"]
+bg_color = Color(0.125911, 0.125911, 0.125911, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_top = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_318pl"]
+bg_color = Color(0.125911, 0.125911, 0.125911, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_top = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71xan"]
+bg_color = Color(0.255659, 0.255659, 0.255659, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_u5css"]
+default_font = ExtResource("5_dfh28")
+Button/styles/hover = SubResource("StyleBoxFlat_1cec2")
+Button/styles/normal = SubResource("StyleBoxFlat_318pl")
+Button/styles/pressed = SubResource("StyleBoxFlat_71xan")
+Label/styles/normal = ExtResource("15_8lpeu")
 
 [sub_resource type="Curve" id="Curve_tq56d"]
 max_value = 0.1
@@ -423,57 +460,177 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.232639
-anchor_top = 1.776
+anchor_top = 0.776
 anchor_right = 0.232639
-anchor_bottom = 1.77623
-offset_top = -1100.85
+anchor_bottom = 0.776235
+offset_top = -404.848
 offset_right = 174.0
-offset_bottom = -648.0
+offset_bottom = 48.0
+grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
 theme_override_styles/hover = ExtResource("11_613mu")
-theme_override_styles/pressed = ExtResource("11_613mu")
-theme_override_styles/normal = ExtResource("11_613mu")
+theme_override_styles/pressed = ExtResource("13_tj56a")
+theme_override_styles/normal = ExtResource("13_tj56a")
 script = ExtResource("10_y68f7")
-metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Label" parent="Camera3D/MainLayer/GameModeLayer/BG_StoryMode"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -55.5
+offset_top = 16.0
+offset_right = 55.5
+offset_bottom = 62.0
+grow_horizontal = 2
+theme = ExtResource("4_grlcg")
+theme_override_font_sizes/font_size = 30
+text = "Story Mode"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="Camera3D/MainLayer/GameModeLayer/BG_StoryMode"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -77.0
+offset_top = 49.0
+offset_right = 77.0
+offset_bottom = 109.0
+grow_horizontal = 2
+theme = ExtResource("4_grlcg")
+theme_override_fonts/font = ExtResource("14_8r23i")
+theme_override_font_sizes/font_size = 12
+text = "Uncover mysteries and explore a mysterious world."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ExitSettingsButton" type="Button" parent="Camera3D/MainLayer/GameModeLayer/BG_StoryMode"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -54.0
+offset_top = -67.0
+offset_right = 54.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme = SubResource("Theme_u5css")
+theme_override_font_sizes/font_size = 40
+text = "PLAY"
+script = ExtResource("10_y68f7")
 
 [node name="BG_FreeMode" type="Button" parent="Camera3D/MainLayer/GameModeLayer"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.232639
-anchor_top = 1.776
-anchor_right = 0.232639
-anchor_bottom = 1.77623
-offset_left = 224.0
-offset_top = -1100.85
-offset_right = 398.0
-offset_bottom = -648.0
+anchor_left = 0.427
+anchor_top = 0.776
+anchor_right = 0.427
+anchor_bottom = 0.776
+offset_left = 0.0959778
+offset_top = -404.848
+offset_right = 174.096
+offset_bottom = 48.152
+grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
 theme_override_styles/hover = ExtResource("11_613mu")
-theme_override_styles/pressed = ExtResource("11_613mu")
-theme_override_styles/normal = ExtResource("11_613mu")
+theme_override_styles/pressed = ExtResource("13_tj56a")
+theme_override_styles/normal = ExtResource("13_tj56a")
 script = ExtResource("10_y68f7")
-metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Label" parent="Camera3D/MainLayer/GameModeLayer/BG_FreeMode"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -77.0
+offset_top = 16.0
+offset_right = 77.0
+offset_bottom = 62.0
+grow_horizontal = 2
+theme = ExtResource("4_grlcg")
+theme_override_font_sizes/font_size = 30
+text = "Free Mode"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="Camera3D/MainLayer/GameModeLayer/BG_FreeMode"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -77.0
+offset_top = 49.0
+offset_right = 77.0
+offset_bottom = 109.0
+grow_horizontal = 2
+theme = ExtResource("4_grlcg")
+theme_override_fonts/font = ExtResource("14_8r23i")
+theme_override_font_sizes/font_size = 12
+text = "Free to roam The Island"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="BG_ParkourMode" type="Button" parent="Camera3D/MainLayer/GameModeLayer"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.232639
-anchor_top = 1.776
-anchor_right = 0.232639
-anchor_bottom = 1.77623
-offset_left = 451.0
-offset_top = -1100.85
-offset_right = 625.0
-offset_bottom = -648.0
+anchor_left = 0.624132
+anchor_top = 0.776
+anchor_right = 0.624132
+anchor_bottom = 0.776235
+offset_top = -404.848
+offset_right = 174.0
+offset_bottom = 48.0
+grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
 theme_override_styles/hover = ExtResource("11_613mu")
-theme_override_styles/pressed = ExtResource("11_613mu")
-theme_override_styles/normal = ExtResource("11_613mu")
+theme_override_styles/pressed = ExtResource("13_tj56a")
+theme_override_styles/normal = ExtResource("13_tj56a")
 script = ExtResource("10_y68f7")
-metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Label" parent="Camera3D/MainLayer/GameModeLayer/BG_ParkourMode"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -77.0
+offset_top = 16.0
+offset_right = 77.0
+offset_bottom = 62.0
+grow_horizontal = 2
+theme = ExtResource("4_grlcg")
+theme_override_font_sizes/font_size = 25
+text = "Parkour Mode"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="Camera3D/MainLayer/GameModeLayer/BG_ParkourMode"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -77.0
+offset_top = 49.0
+offset_right = 77.0
+offset_bottom = 109.0
+grow_horizontal = 2
+theme = ExtResource("4_grlcg")
+theme_override_fonts/font = ExtResource("14_8r23i")
+theme_override_font_sizes/font_size = 12
+text = "Jump and climb your way through some parkour levels."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="ProtectiveLayer" type="Control" parent="Camera3D/MainLayer"]
 layout_mode = 3
