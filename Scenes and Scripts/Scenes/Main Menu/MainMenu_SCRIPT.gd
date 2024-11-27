@@ -83,6 +83,7 @@ func _ready() -> void:
 	$Camera3D/MainLayer/QuitButtonTrigger.position = Vector2(-348, 470)
 	
 	await get_tree().create_timer(1).timeout
+	
 	onStartup()
 
 func change_to_startup_notice() -> void:
