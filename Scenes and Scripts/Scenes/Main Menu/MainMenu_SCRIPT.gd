@@ -161,9 +161,11 @@ func spawnGameModeMenu():
 	tween.tween_property($Camera3D/MainLayer/ExitGamemodeLayerButton, "position:y", originalExitGameButtonPosY + 60, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.7)
 	tween.tween_property($Camera3D/MainLayer/ExitGamemodeLayerButton, "position:y", originalExitGameButtonTriggerPosY + 60, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.7)
 
-	tween.tween_property($Camera3D/MainLayer/GameModeLayer/BG_StoryMode, "position:y", -549, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.8)
-	tween.tween_property($Camera3D/MainLayer/GameModeLayer/BG_FreeMode, "position:y", -549, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.9)
-	tween.tween_property($Camera3D/MainLayer/GameModeLayer/BG_ParkourMode, "position:y", -549, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.0)
+	tween.tween_property($Camera3D/MainLayer/GameModeLayer/BG_StoryMode, "position:y", -580, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.8)
+	tween.tween_property($Camera3D/MainLayer/GameModeLayer/BG_FreeMode, "position:y", -580, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.9)
+	tween.tween_property($Camera3D/MainLayer/GameModeLayer/BG_ParkourMode, "position:y", -580, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.0)
+
+	tween.tween_property($Camera3D/MainLayer/ProtectiveLayer, "visible", false, 0).set_delay(2)
 
 ######################################
 # SettingsButton animations and functions
