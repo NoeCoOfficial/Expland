@@ -3,8 +3,8 @@
 
 # Save files
 .dat/
-player.expland
-settings.expland
+player.save
+settings.save
 
 # Icon
 desktop.ini
