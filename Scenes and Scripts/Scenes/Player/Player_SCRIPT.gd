@@ -452,7 +452,11 @@ func takeDamage(DamageToTake): # A function to take damage from the player
 			GAME_STATE = "DEAD" # set the game state to dead
 			PlayerData.GAME_STATE = "DEAD" # set the player data's game state to dead
 			PlayerData.Health = 0 # set the health to 0
+			
 			showDeathScreen() # call the death screen function 
+			
+			SaveManager.saveAllData()
+			
 		else:
 			takeDamageOverlay() # call the take damage overlay function
 
