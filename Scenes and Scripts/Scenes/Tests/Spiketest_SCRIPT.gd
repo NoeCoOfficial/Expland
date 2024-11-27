@@ -45,6 +45,7 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
+@icon("res://Textures/Icons/Script Icons/32x32/exclamation.png")
 extends Area3D
 
 func _on_body_entered(body):
