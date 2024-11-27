@@ -449,14 +449,16 @@ greyOverlay = NodePath("../GreyLayer")
 
 [node name="ExitGamemodeLayerButton" type="Control" parent="Camera3D/MainLayer"]
 layout_mode = 3
-anchor_left = -0.302083
-anchor_top = 0.725309
-anchor_bottom = 0.844136
-offset_left = 271.0
-offset_top = -578.0
-offset_right = 271.0
-offset_bottom = -578.0
+anchor_left = -0.0668403
+anchor_top = -0.166667
+anchor_right = 0.235243
+anchor_bottom = -0.0478397
+offset_left = 24.0
+offset_top = 30.0
+offset_right = 24.0
+offset_bottom = 30.0
 grow_vertical = 2
+scale = Vector2(0.709192, 0.709192)
 metadata/_edit_use_anchors_ = true
 
 [node name="LighterBG" type="ColorRect" parent="Camera3D/MainLayer/ExitGamemodeLayerButton"]
@@ -509,14 +511,14 @@ expand_mode = 1
 [node name="ExitGamemodeLayerButtonTrigger" type="Button" parent="Camera3D/MainLayer"]
 self_modulate = Color(1, 1, 1, 0)
 anchors_preset = -1
-anchor_left = -0.243055
-anchor_top = 0.677469
-anchor_right = -0.175347
-anchor_bottom = 0.824074
-offset_left = 299.0
-offset_top = -539.0
-offset_right = 299.0
-offset_bottom = -539.0
+anchor_left = -0.0078125
+anchor_top = -0.157407
+anchor_right = 0.0407986
+anchor_bottom = -0.0540123
+offset_left = 24.0
+offset_top = 30.0
+offset_right = 24.0
+offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
@@ -533,13 +535,10 @@ metadata/_edit_use_anchors_ = true
 [node name="BG_StoryMode" type="Button" parent="Camera3D/MainLayer/GameModeLayer"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.232639
-anchor_top = 0.776
-anchor_right = 0.232639
-anchor_bottom = 0.776235
-offset_top = -404.848
-offset_right = 174.0
-offset_bottom = 48.0
+anchor_left = 0.225694
+anchor_top = 0.0432099
+anchor_right = 0.400174
+anchor_bottom = 0.850309
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
@@ -547,6 +546,7 @@ theme_override_styles/hover = ExtResource("11_613mu")
 theme_override_styles/pressed = ExtResource("13_tj56a")
 theme_override_styles/normal = ExtResource("13_tj56a")
 script = ExtResource("10_y68f7")
+metadata/_edit_use_anchors_ = true
 
 [node name="Title" type="Label" parent="Camera3D/MainLayer/GameModeLayer/BG_StoryMode"]
 layout_mode = 1
@@ -559,7 +559,7 @@ offset_right = 55.5
 offset_bottom = 62.0
 grow_horizontal = 2
 theme = ExtResource("4_grlcg")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 35
 text = "Story Mode"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -576,7 +576,7 @@ offset_bottom = 109.0
 grow_horizontal = 2
 theme = ExtResource("4_grlcg")
 theme_override_fonts/font = ExtResource("14_8r23i")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 13
 text = "Uncover mysteries and explore a mysterious world."
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -603,14 +603,10 @@ text = "PLAY"
 [node name="BG_FreeMode" type="Button" parent="Camera3D/MainLayer/GameModeLayer"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.427
-anchor_top = 0.776
-anchor_right = 0.427
-anchor_bottom = 0.776
-offset_left = 0.0959778
-offset_top = -404.848
-offset_right = 174.096
-offset_bottom = 48.152
+anchor_left = 0.420139
+anchor_top = 0.0432099
+anchor_right = 0.594618
+anchor_bottom = 0.850309
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
@@ -618,6 +614,7 @@ theme_override_styles/hover = ExtResource("11_613mu")
 theme_override_styles/pressed = ExtResource("13_tj56a")
 theme_override_styles/normal = ExtResource("13_tj56a")
 script = ExtResource("10_y68f7")
+metadata/_edit_use_anchors_ = true
 
 [node name="Title" type="Label" parent="Camera3D/MainLayer/GameModeLayer/BG_FreeMode"]
 layout_mode = 1
@@ -630,7 +627,7 @@ offset_right = 77.0
 offset_bottom = 62.0
 grow_horizontal = 2
 theme = ExtResource("4_grlcg")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 35
 text = "Free Mode"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -647,7 +644,7 @@ offset_bottom = 109.0
 grow_horizontal = 2
 theme = ExtResource("4_grlcg")
 theme_override_fonts/font = ExtResource("14_8r23i")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 13
 text = "Free to roam The Island"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -674,13 +671,10 @@ text = "PLAY"
 [node name="BG_ParkourMode" type="Button" parent="Camera3D/MainLayer/GameModeLayer"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.624132
-anchor_top = 0.776
-anchor_right = 0.624132
-anchor_bottom = 0.776235
-offset_top = -404.848
-offset_right = 174.0
-offset_bottom = 48.0
+anchor_left = 0.617188
+anchor_top = 0.0432099
+anchor_right = 0.791667
+anchor_bottom = 0.850309
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
@@ -688,6 +682,7 @@ theme_override_styles/hover = ExtResource("11_613mu")
 theme_override_styles/pressed = ExtResource("13_tj56a")
 theme_override_styles/normal = ExtResource("13_tj56a")
 script = ExtResource("10_y68f7")
+metadata/_edit_use_anchors_ = true
 
 [node name="Title" type="Label" parent="Camera3D/MainLayer/GameModeLayer/BG_ParkourMode"]
 layout_mode = 1
@@ -700,7 +695,7 @@ offset_right = 77.0
 offset_bottom = 62.0
 grow_horizontal = 2
 theme = ExtResource("4_grlcg")
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 30
 text = "Parkour Mode"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -711,13 +706,13 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -77.0
-offset_top = 49.0
+offset_top = 51.0
 offset_right = 77.0
-offset_bottom = 109.0
+offset_bottom = 111.0
 grow_horizontal = 2
 theme = ExtResource("4_grlcg")
 theme_override_fonts/font = ExtResource("14_8r23i")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 13
 text = "Jump and climb your way through some parkour levels."
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -821,8 +816,3 @@ initial_velocity_max = 47.09
 [connection signal="mouse_entered" from="Camera3D/MainLayer/QuitButtonTrigger" to="." method="_on_quit_button_trigger_mouse_entered"]
 [connection signal="mouse_exited" from="Camera3D/MainLayer/QuitButtonTrigger" to="." method="_on_quit_button_trigger_mouse_exited"]
 [connection signal="pressed" from="Camera3D/MainLayer/QuitButtonTrigger" to="." method="_on_quit_button_trigger_pressed"]
-[connection signal="button_down" from="Camera3D/MainLayer/ExitGamemodeLayerButtonTrigger" to="." method="_on_quit_button_trigger_button_down"]
-[connection signal="button_up" from="Camera3D/MainLayer/ExitGamemodeLayerButtonTrigger" to="." method="_on_quit_button_trigger_button_up"]
-[connection signal="mouse_entered" from="Camera3D/MainLayer/ExitGamemodeLayerButtonTrigger" to="." method="_on_quit_button_trigger_mouse_entered"]
-[connection signal="mouse_exited" from="Camera3D/MainLayer/ExitGamemodeLayerButtonTrigger" to="." method="_on_quit_button_trigger_mouse_exited"]
-[connection signal="pressed" from="Camera3D/MainLayer/ExitGamemodeLayerButtonTrigger" to="." method="_on_quit_button_trigger_pressed"]
