@@ -128,6 +128,8 @@ func _on_sfx_slider_value_changed(value: float) -> void:
 func _on_save_settings_pressed() -> void:
 	PlayerSettingsData.saveSettings()
 
-
 func _on_motion_blur_switch_toggled(toggled_on: bool) -> void:
-	print(toggled_on)
+	if toggled_on:
+		PlayerSettingsData.set_motion_blur(true)
+	else:
+		PlayerSettingsData.set_motion_blur(false)

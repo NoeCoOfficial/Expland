@@ -119,3 +119,21 @@ func loadSettings() -> void:
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Music Volume: "+str(music_Volume)+"[/font][/font_size][/center]")
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]SFX Volume: "+str(sfx_Volume)+"[/font][/font_size][/center]")
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Motion Blur: "+str(MotionBlur)+"[/font][/font_size][/center]")
+
+func set_motion_blur(value : bool) -> void:
+	if value:
+		MotionBlur = true
+		var world = get_node("/root/World")
+		
+		if world.has_method("set_motion_blur"):
+			world.set_motion_blur(value)
+		else:
+			printerr("[PlayerSettingsData] Could not find set_motion_blur() method in world node.")
+	else:
+		MotionBlur = false
+		var world = get_node("/root/World")
+		
+		if world.has_method("set_motion_blur"):
+			world.set_motion_blur(value)
+		else:
+			printerr("[PlayerSettingsData] Could not find set_motion_blur() method in world node.")

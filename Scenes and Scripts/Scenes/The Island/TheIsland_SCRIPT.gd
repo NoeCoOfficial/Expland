@@ -48,5 +48,17 @@
 @icon("res://Textures/Icons/Script Icons/32x32/world_page.png")
 extends Node
 
+@onready var motionBlurCompositor = preload("res://Resources/Environment/TheIsland_MotionBlurCompositor.tres")
+@onready var noMotionBlurCompositor = preload("res://Resources/Environment/TheIsland_NoMotionBlurCompositor.tres")
+
+
+
 func _ready() -> void:
 	SaveManager.loadAllData()
+	set_motion_blur(PlayerSettingsData.MotionBlur)
+
+func set_motion_blur(value : bool) -> void:
+	if value:
+		$WorldEnvironment.set_compositor(motionBlurCompositor)
+	else:
+		$WorldEnvironment.set_compositor(noMotionBlurCompositor)
