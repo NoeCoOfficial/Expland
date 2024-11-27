@@ -50,14 +50,40 @@ extends Node
 
 const SAVE_PATH = "res://settings.dat"
 
+######################################
+# General
+######################################
+
+
+
+######################################
+# Graphics
+######################################
+
+var MotionBlur = true
+
+######################################
+# Video
+
+######################################
 var FOV = 100
+
+######################################
+# Audio
+######################################
+
 var music_Volume = 1
 var sfx_Volume = 1
 var Master_Volume = 1
 
+######################################
+# Data persistence
+######################################
+
 func saveSettings() -> void:
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	var data = {
+		"motion_blur" : MotionBlur,
 		"sfx_Volume" : sfx_Volume,
 		"music_Volume" : music_Volume,
 		"Master_Volume" :Master_Volume,
@@ -80,6 +106,7 @@ func loadSettings() -> void:
 			
 			var current_line = JSON.parse_string(file.get_line())
 			if current_line:
+				MotionBlur = current_line["motion_blur"]
 				FOV = current_line["FOV"]
 				Master_Volume = current_line["Master_Volume"]
 				music_Volume = current_line["music_Volume"]
@@ -91,3 +118,4 @@ func loadSettings() -> void:
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Master Volume: "+str(Master_Volume)+"[/font][/font_size][/center]")
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Music Volume: "+str(music_Volume)+"[/font][/font_size][/center]")
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]SFX Volume: "+str(sfx_Volume)+"[/font][/font_size][/center]")
+				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Motion Blur: "+str(MotionBlur)+"[/font][/font_size][/center]")

@@ -105,7 +105,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_0ocir")
 theme_override_font_sizes/font_size = 21
-current_tab = 2
+current_tab = 1
 script = ExtResource("2_swx28")
 
 [node name="General" type="TabBar" parent="SettingsTabContainer"]
@@ -115,12 +115,44 @@ focus_mode = 0
 script = ExtResource("2_swx28")
 metadata/_tab_index = 0
 
+[node name="Graphics" type="TabBar" parent="SettingsTabContainer"]
+layout_mode = 2
+focus_mode = 0
+script = ExtResource("2_swx28")
+metadata/_tab_index = 1
+
+[node name="MotionBlurSwitch" type="CheckButton" parent="SettingsTabContainer/Graphics"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 11.0
+offset_right = 137.0
+offset_bottom = 35.0
+focus_mode = 0
+button_pressed = true
+
+[node name="MotionBlurTTL" type="Label" parent="SettingsTabContainer/Graphics"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0346668
+anchor_top = 0.0172414
+anchor_right = 0.306668
+anchor_bottom = 0.096059
+offset_right = -1.52588e-05
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("5_8j0xn")
+theme_override_font_sizes/font_size = 17
+text = "Motion Blur"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
 [node name="Video" type="TabBar" parent="SettingsTabContainer"]
 visible = false
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("2_swx28")
-metadata/_tab_index = 1
+metadata/_tab_index = 2
 
 [node name="FOVSlider" type="HSlider" parent="SettingsTabContainer/Video"]
 layout_mode = 1
@@ -175,10 +207,11 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Sound" type="TabBar" parent="SettingsTabContainer"]
+visible = false
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("2_swx28")
-metadata/_tab_index = 2
+metadata/_tab_index = 3
 
 [node name="MasterSlider" type="VSlider" parent="SettingsTabContainer/Sound"]
 layout_mode = 1
