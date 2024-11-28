@@ -452,18 +452,16 @@ offset_bottom = -532.0
 [node name="DialogueInterface" parent="Head/Camera3D/DialogueLayer" instance=ExtResource("17_pkmg7")]
 
 [node name="PauseLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="GreyLayer" type="ColorRect" parent="Head/Camera3D/PauseLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 1.0
-offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.643137)
 script = ExtResource("16_wg7d4")
+metadata/_edit_use_anchors_ = true
 
 [node name="Title" type="Label" parent="Head/Camera3D/PauseLayer"]
 anchors_preset = 5
