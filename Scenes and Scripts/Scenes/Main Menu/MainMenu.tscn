@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=39 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="PackedScene" uid="uid://jb61th5px5nt" path="res://Assets/3D Models/Tests/Island/Island 2.blend" id="2_0llf6"]
@@ -21,9 +21,11 @@
 [ext_resource type="PackedScene" uid="uid://0stf8uio7dg2" path="res://Assets/3D Models/Trees/Normal/Tree9.blend" id="10_ji46n"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="10_y68f7"]
 [ext_resource type="StyleBox" uid="uid://3txnt8ebd3yh" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/BlackBGwithWhiteBorder.tres" id="11_613mu"]
+[ext_resource type="StyleBox" uid="uid://b13po6off8nno" path="res://Resources/Styles and Themes/Styles/Default/Button/WithMarginDefaultDarkGrey.tres" id="12_3uklh"]
 [ext_resource type="StyleBox" uid="uid://c1a26qv61p5kw" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkgreyBGwithWhiteBorder.tres" id="13_tj56a"]
 [ext_resource type="FontFile" uid="uid://btimp4hwg4jis" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Regular.otf" id="14_8r23i"]
 [ext_resource type="StyleBox" uid="uid://com3tix0pshhk" path="res://Resources/Styles and Themes/Styles/Default/Label/Default_Label.tres" id="15_8lpeu"]
+[ext_resource type="Texture2D" uid="uid://ddboyvj4u3hwq" path="res://Textures/Icons/PadlockWhite_Icon.png" id="16_3n0bi"]
 
 [sub_resource type="Animation" id="Animation_6cyol"]
 length = 0.001
@@ -111,14 +113,6 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 expand_margin_top = 5.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_318pl"]
-bg_color = Color(0.125911, 0.125911, 0.125911, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-expand_margin_top = 5.0
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71xan"]
 bg_color = Color(0.255659, 0.255659, 0.255659, 1)
 corner_radius_top_left = 10
@@ -129,7 +123,7 @@ corner_radius_bottom_left = 10
 [sub_resource type="Theme" id="Theme_u5css"]
 default_font = ExtResource("5_dfh28")
 Button/styles/hover = SubResource("StyleBoxFlat_1cec2")
-Button/styles/normal = SubResource("StyleBoxFlat_318pl")
+Button/styles/normal = ExtResource("12_3uklh")
 Button/styles/pressed = SubResource("StyleBoxFlat_71xan")
 Label/styles/normal = ExtResource("15_8lpeu")
 
@@ -548,7 +542,13 @@ grow_vertical = 0
 focus_mode = 0
 theme = SubResource("Theme_u5css")
 theme_override_font_sizes/font_size = 40
-text = "PLAY"
+theme_override_styles/disabled = ExtResource("12_3uklh")
+disabled = true
+
+[node name="PadlockIcon" type="Sprite2D" parent="Camera3D/MainLayer/GameModeLayer/BG_StoryMode"]
+position = Vector2(98, 479)
+scale = Vector2(0.0927734, 0.0927734)
+texture = ExtResource("16_3n0bi")
 
 [node name="BG_FreeMode" type="Button" parent="Camera3D/MainLayer/GameModeLayer"]
 layout_mode = 1
@@ -684,7 +684,13 @@ grow_vertical = 0
 focus_mode = 0
 theme = SubResource("Theme_u5css")
 theme_override_font_sizes/font_size = 40
-text = "PLAY"
+theme_override_styles/disabled = ExtResource("12_3uklh")
+disabled = true
+
+[node name="PadlockIcon" type="Sprite2D" parent="Camera3D/MainLayer/GameModeLayer/BG_ParkourMode"]
+position = Vector2(98, 479)
+scale = Vector2(0.0927734, 0.0927734)
+texture = ExtResource("16_3n0bi")
 
 [node name="ProtectiveLayer" type="Control" parent="Camera3D/MainLayer"]
 layout_mode = 3

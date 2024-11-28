@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://wwmhhbjm7hn4"
-path="res://.godot/imported/Padlock_Icon.png-7427be61f659c2eee94a175405ba868a.ctex"
+path="res://.godot/imported/PadlockBlack_Icon.png-8ad4f011e65f5017fbbda7a64e99cdc0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Icons/Padlock_Icon.png"
-dest_files=["res://.godot/imported/Padlock_Icon.png-7427be61f659c2eee94a175405ba868a.ctex"]
+source_file="res://Textures/Icons/PadlockBlack_Icon.png"
+dest_files=["res://.godot/imported/PadlockBlack_Icon.png-8ad4f011e65f5017fbbda7a64e99cdc0.ctex"]
 
 [params]
 
