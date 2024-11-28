@@ -444,7 +444,8 @@ func _on_crouching_speed_sounds_timeout() -> void:
 # Health and dying
 ######################################
 
-func takeDamage(DamageToTake): # A function to take damage from the player 
+func takeDamage(DamageToTake): # A function to take damage from the player
+	print("hello") 
 	if UseHealth == true: # Check if the UseHealth variable is true
 		PlayerData.Health -= DamageToTake # subtract the damage to take from the health variable
 		if PlayerData.Health <= 0: # check if health = 0 or below
@@ -728,9 +729,6 @@ func hideDarkerBG_SAVEOVERLAY():
 ######################################
 # Debugging
 ######################################
-
-func _on_spike_take_damage(DamageTaken): # A function to take damage from the spike
-	takeDamage(DamageTaken) # call the take damage function
 
 func _on_start_debugging_btn_pressed() -> void:
 	if $Head/Camera3D/DebugLayer.is_visible():
