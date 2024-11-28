@@ -60,6 +60,7 @@ var is_in_gamemode_select = false
 ######################################
 
 func _ready() -> void:
+	PauseManager.is_paused = false
 	if Global.is_first_time_in_menu:
 		Global.is_first_time_in_menu = false
 		

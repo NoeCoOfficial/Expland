@@ -71,6 +71,7 @@ The keyword @export means that they can be accessed in the inspector panel (righ
 @export var inventory_opened_in_air := false ## Checks if the inventory UI is opened in the air (so the same velocity can be kept, used in _physics_process()
 @export var speed:float ## The speed of the player. Used in _physics_process, this variable changes to SPRINT_SPEED, CROUCH_SPEED or WALK_SPEED depending on what input is pressed.
 @export var GAME_STATE := "NORMAL" ## The local game state. (Global variable is in PlayerData.gd and saved to a file)
+var transitioning_to_menu = false
 
 ######################################
 # Gameplay group
@@ -221,7 +222,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		else:
 			pauseGame()
 	
-	elif Input.is_action_just_pressed("Exit") and PauseManager.is_inside_settings:
+	elif Input.is_action_just_pressed("Exit") and PauseManager.is_inside_settings and !transitioning_to_menu:
 		$Head/Camera3D/SettingsLayer/SettingsUI.closeSettings()
 	
 	if Input.is_action_just_pressed("Quit") and Quit == true and OS.has_feature("debug"): # if the Quit input is pressed and the Quit variable is true
@@ -660,6 +661,7 @@ func _on_settings_btn_pressed():
 func openSettings():
 	$Head/Camera3D/SettingsLayer.visible = true
 	$Head/Camera3D/SettingsLayer/SettingsUI.openSettings()
+
 ######################################
 # Saving
 ######################################
