@@ -670,8 +670,6 @@ func _on_save_and_quit_btn_pressed():
 
 func _on_save_and_quit_to_menu_pressed() -> void:
 	
-	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
-	
 	$Head/Camera3D/TopLayer/BlackOverlay.modulate = Color(1, 1, 1, 0)
 	$Head/Camera3D/TopLayer/BlackOverlay.visible = true
 	

@@ -875,7 +875,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
-script = ExtResource("9_svfxy")
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="timeout" from="WalkingSpeedSounds" to="." method="_on_walking_speed_sounds_timeout"]
