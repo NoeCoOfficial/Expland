@@ -671,6 +671,7 @@ func _on_save_and_quit_btn_pressed():
 	get_tree().quit()
 
 func _on_save_and_quit_to_menu_pressed() -> void:
+	transitioning_to_menu = true
 	
 	$Head/Camera3D/TopLayer/BlackOverlay.modulate = Color(1, 1, 1, 0)
 	$Head/Camera3D/TopLayer/BlackOverlay.visible = true
