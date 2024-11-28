@@ -445,7 +445,6 @@ func _on_crouching_speed_sounds_timeout() -> void:
 ######################################
 
 func takeDamage(DamageToTake): # A function to take damage from the player
-	print("hello") 
 	if UseHealth == true: # Check if the UseHealth variable is true
 		PlayerData.Health -= DamageToTake # subtract the damage to take from the health variable
 		if PlayerData.Health <= 0: # check if health = 0 or below
