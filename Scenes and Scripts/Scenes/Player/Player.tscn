@@ -183,6 +183,7 @@ target_position = Vector3(0, -3, 0)
 script = ExtResource("3_2qtqn")
 
 [node name="CrosshairCanvas" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="HealthLBL" type="Label" parent="Head/Camera3D/CrosshairCanvas"]
 anchors_preset = -1
@@ -363,6 +364,7 @@ shape = SubResource("RectangleShape2D_47l1q")
 debug_color = Color(0.998937, 0, 0.128371, 0.42)
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/DeathScreen"]
 anchors_preset = 15
@@ -414,6 +416,7 @@ vertical_alignment = 1
 script = ExtResource("11_0enap")
 
 [node name="OverlayLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="RedOverlay" type="ColorRect" parent="Head/Camera3D/OverlayLayer"]
 process_priority = 10
@@ -440,6 +443,7 @@ color = Color(0, 0, 0, 1)
 script = ExtResource("8_uxqns")
 
 [node name="InteractionLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="InteractionHUD" parent="Head/Camera3D/InteractionLayer" instance=ExtResource("16_8a1wo")]
 offset_left = -183.0
@@ -448,16 +452,18 @@ offset_right = -1107.0
 offset_bottom = -532.0
 
 [node name="DialogueLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="DialogueInterface" parent="Head/Camera3D/DialogueLayer" instance=ExtResource("17_pkmg7")]
 
 [node name="PauseLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="GreyLayer" type="ColorRect" parent="Head/Camera3D/PauseLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.643137)
@@ -485,8 +491,7 @@ anchor_left = 0.413194
 anchor_top = 0.267747
 anchor_right = 0.586806
 anchor_bottom = 0.386574
-offset_top = 40.0
-offset_bottom = 40.0
+offset_bottom = -1.52588e-05
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
@@ -502,8 +507,6 @@ anchor_left = 0.413194
 anchor_top = 0.392747
 anchor_right = 0.586806
 anchor_bottom = 0.511574
-offset_top = 40.0
-offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
@@ -516,9 +519,11 @@ metadata/_edit_use_anchors_ = true
 [node name="SaveAndQuit_Btn" type="Button" parent="Head/Camera3D/PauseLayer"]
 anchors_preset = -1
 anchor_left = 0.413194
-anchor_top = 0.581018
+anchor_top = 0.641203
 anchor_right = 0.586806
-anchor_bottom = 0.699845
+anchor_bottom = 0.76003
+offset_top = 1.99997
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
@@ -527,6 +532,40 @@ theme_override_font_sizes/font_size = 27
 text = "SAVE AND QUIT"
 script = ExtResource("16_wg7d4")
 metadata/_edit_use_anchors_ = true
+
+[node name="SaveAndQuitToMenu" type="Button" parent="Head/Camera3D/PauseLayer"]
+anchors_preset = -1
+anchor_left = 0.413194
+anchor_top = 0.51929
+anchor_right = 0.586806
+anchor_bottom = 0.638117
+offset_bottom = 3.05176e-05
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 27
+script = ExtResource("16_wg7d4")
+metadata/_edit_use_anchors_ = true
+
+[node name="Text" type="Label" parent="Head/Camera3D/PauseLayer/SaveAndQuitToMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.5
+offset_top = -38.5
+offset_right = 92.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 22
+text = "SAVE AND QUIT TO MAIN MENU"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="StartDebugging_Btn" type="Button" parent="Head/Camera3D/PauseLayer"]
 anchors_preset = -1
@@ -544,6 +583,7 @@ script = ExtResource("16_wg7d4")
 metadata/_edit_use_anchors_ = true
 
 [node name="SettingsLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="GreyLayer" type="ColorRect" parent="Head/Camera3D/SettingsLayer"]
 anchors_preset = 15
@@ -558,6 +598,7 @@ script = ExtResource("16_wg7d4")
 greyOverlay = NodePath("../GreyLayer")
 
 [node name="SaveOverlay" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="LighterBG" type="ColorRect" parent="Head/Camera3D/SaveOverlay"]
 anchors_preset = -1
@@ -595,6 +636,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="TransitionLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="LightGreyOverlay" type="ColorRect" parent="Head/Camera3D/TransitionLayer"]
 anchors_preset = -1
@@ -837,6 +879,7 @@ script = ExtResource("20_bmbkh")
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/Resume_Btn" to="." method="_on_resume_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/Settings_Btn" to="." method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/SaveAndQuit_Btn" to="." method="_on_save_and_quit_btn_pressed"]
+[connection signal="pressed" from="Head/Camera3D/PauseLayer/SaveAndQuitToMenu" to="." method="_on_save_and_quit_to_menu_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/StartDebugging_Btn" to="." method="_on_start_debugging_btn_pressed"]
 
 [editable path="Head/Camera3D/InventoryLayer/Dropable2"]

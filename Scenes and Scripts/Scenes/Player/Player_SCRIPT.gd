@@ -650,7 +650,6 @@ func _on_resume_btn_pressed():
 	resumeGame()
 
 func _on_settings_btn_pressed():
-	
 	openSettings()
 
 ######################################
@@ -660,10 +659,6 @@ func _on_settings_btn_pressed():
 func openSettings():
 	$Head/Camera3D/SettingsLayer.visible = true
 	$Head/Camera3D/SettingsLayer/SettingsUI.openSettings()
-
-func closeSettings():
-	pass
-
 ######################################
 # Saving
 ######################################
@@ -671,6 +666,9 @@ func closeSettings():
 func _on_save_and_quit_btn_pressed():
 	SaveManager.saveAllData()
 	get_tree().quit()
+
+func _on_save_and_quit_to_menu_pressed() -> void:
+	pass # Replace with function body.
 
 func saveAllDataWithAnimation():
 	if $ManualSaveCooldown.time_left == 0.0:
