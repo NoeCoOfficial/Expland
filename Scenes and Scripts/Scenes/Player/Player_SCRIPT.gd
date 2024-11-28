@@ -583,6 +583,10 @@ func _on_boundary_area_exited(area):
 		InventoryManager.is_inside_boundary = false
 
 func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
+	
+	area.set_deferred("monitorable", false)
+	area.set_deferred("monitoring", false)
+	
 	if area.is_in_group("pickup_player_detector"):
 		var slots = [
 			Slot1_Ref,
@@ -605,9 +609,9 @@ func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 				break
 		
 		
-		if free_slot != null and !free_slot.is_reserved_for_populating():
+		if free_slot != null and !free_slot.is_populated():
 			
-			free_slot.set_reserved_for_populating(true)
+			free_slot.set_populated(true)
 			
 			print("{LOCAL} [Player_SCRIPT.gd] Free slot found: " + free_slot.name)
 			
@@ -625,7 +629,6 @@ func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 			
 			delete_pickup_object(PickupObject)
 			InventoryManager.spawn_inventory_dropable(free_slot.position, PickupItemType, free_slot)
-			free_slot.set_reserved_for_populating(false)
 			
 		else:
 			print("{LOCAL} [Player_SCRIPT.gd] No free slot available.")
