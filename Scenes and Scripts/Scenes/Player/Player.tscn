@@ -452,6 +452,7 @@ offset_bottom = -532.0
 [node name="DialogueInterface" parent="Head/Camera3D/DialogueLayer" instance=ExtResource("17_pkmg7")]
 
 [node name="PauseLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="GreyLayer" type="ColorRect" parent="Head/Camera3D/PauseLayer"]
 anchors_preset = 15
@@ -863,6 +864,18 @@ theme = ExtResource("17_rhxkt")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("20_bmbkh")
+
+[node name="TopLayer" type="CanvasLayer" parent="Head/Camera3D"]
+
+[node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/TopLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("9_svfxy")
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="timeout" from="WalkingSpeedSounds" to="." method="_on_walking_speed_sounds_timeout"]

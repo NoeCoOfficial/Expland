@@ -57,6 +57,7 @@ The keyword @export means that they can be accessed in the inspector panel (righ
 ######################################
 ######################################
 # Properties
+
 @export_category("Properties")
 ######################################
 ######################################
@@ -668,7 +669,21 @@ func _on_save_and_quit_btn_pressed():
 	get_tree().quit()
 
 func _on_save_and_quit_to_menu_pressed() -> void:
-	pass # Replace with function body.
+	
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	$Head/Camera3D/TopLayer/BlackOverlay.modulate = Color(1, 1, 1, 0)
+	$Head/Camera3D/TopLayer/BlackOverlay.visible = true
+	
+	var tween = get_tree().create_tween()
+	tween.connect("finished", Callable(self, "on_save_and_quit_to_menu_fade_finished"))
+	
+	tween.tween_property($Head/Camera3D/TopLayer/BlackOverlay, "modulate", Color(1, 1, 1, 1), 1)
+	tween.tween_interval(1)
+
+func on_save_and_quit_to_menu_fade_finished():
+	var mainMenuScene = load("res://Scenes and Scripts/Scenes/Main Menu/MainMenu.tscn")
+	get_tree().change_scene_to_packed(mainMenuScene)
 
 func saveAllDataWithAnimation():
 	if $ManualSaveCooldown.time_left == 0.0:

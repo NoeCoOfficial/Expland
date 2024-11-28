@@ -69,6 +69,8 @@ func _ready() -> void:
 	$Camera3D/MainLayer/GreyLayerGamemodeLayer.hide()
 	$Camera3D/MainLayer/GreyLayerGamemodeLayer.modulate = Color(1, 1, 1, 0)
 	
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
 	PlayerSettingsData.loadSettings()
 	
 	Utils.set_center_offset($Camera3D/MainLayer/PlayButton)
@@ -86,7 +88,6 @@ func _ready() -> void:
 
 	await get_tree().create_timer(2).timeout
 	$Camera3D/MainLayer/ProtectiveLayer.visible = false
-
 
 func change_to_startup_notice() -> void:
 	get_tree().change_scene_to_packed(StartupNotice)
@@ -269,6 +270,8 @@ func _on_play_free_mode_button_pressed() -> void:
 
 func on_free_mode_fade_finished():
 	get_tree().change_scene_to_packed(world)
+
+
 
 func _on_play_parkour_mode_button_pressed() -> void:
 	pass
