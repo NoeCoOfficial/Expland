@@ -49,6 +49,7 @@
 extends Node3D
 
 var changing_to_world_scene = false
+var is_in_gamemode_select = false
 
 @onready var StartupNotice = preload("res://Scenes and Scripts/Scenes/Startup Notice/StartupNotice.tscn")
 @onready var world = preload("res://Scenes and Scripts/Scenes/The Island/TheIsland.tscn")
@@ -68,13 +69,17 @@ func _ready() -> void:
 	$Camera3D/MainLayer/GreyLayerGamemodeLayer.hide()
 	$Camera3D/MainLayer/GreyLayerGamemodeLayer.modulate = Color(1, 1, 1, 0)
 	
-	
 	PlayerSettingsData.loadSettings()
+	
 	Utils.set_center_offset($Camera3D/MainLayer/PlayButton)
 	Utils.set_center_offset($Camera3D/MainLayer/PlayButtonTrigger)
 	
 	Utils.set_center_offset($Camera3D/MainLayer/SettingsButton)
+	Utils.set_center_offset($Camera3D/MainLayer/SettingsButtonTrigger)
+	
 	Utils.set_center_offset($Camera3D/MainLayer/QuitButton)
+	Utils.set_center_offset($Camera3D/MainLayer/QuitButtonTrigger)
+
 	
 	await get_tree().create_timer(1).timeout
 	onStartup()
@@ -113,7 +118,10 @@ func onStartup():
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Exit"):
-		$Camera3D/MainLayer/SettingsUI.closeSettings()
+		if is_in_gamemode_select:
+			deSpawnGameModeMenu()
+		else:
+			$Camera3D/MainLayer/SettingsUI.closeSettings()
 
 ######################################
 # PlayButton animations and functions
@@ -148,14 +156,36 @@ func spawnGameModeMenu():
 	$Camera3D/MainLayer/PlayButtonTrigger.visible = false
 	$Camera3D/MainLayer/GreyLayerGamemodeLayer.show()
 	
-	
 	var tween = get_tree().create_tween().set_parallel()
+	tween.connect("finished", Callable(self, "on_spawn_game_mode_menu_tween_finished"))
 	
 	tween.tween_property($Camera3D/MainLayer/GreyLayerGamemodeLayer, "modulate", Color(1, 1, 1, 1), 0.5)
 	
+	tween.tween_property($Camera3D/MainLayer/ExitGamemodeLayerButton, "position", Vector2(15, 11), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+
 	tween.tween_property($Camera3D/MainLayer/GameModeLayer/BG_StoryMode, "position:y", -580, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	tween.tween_property($Camera3D/MainLayer/GameModeLayer/BG_FreeMode, "position:y", -580, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.1)
 	tween.tween_property($Camera3D/MainLayer/GameModeLayer/BG_ParkourMode, "position:y", -580, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.2)
+
+func on_spawn_game_mode_menu_tween_finished():
+	is_in_gamemode_select = true
+
+
+func deSpawnGameModeMenu():
+	is_in_gamemode_select = false
+	
+	$Camera3D/MainLayer/PlayButtonTrigger.visible = true
+	
+	var tween = get_tree().create_tween().set_parallel()
+	
+	tween.tween_property($Camera3D/MainLayer/GreyLayerGamemodeLayer, "modulate", Color(1, 1, 1, 0), 1)
+	tween.tween_property($Camera3D/MainLayer/GreyLayerGamemodeLayer, "visible", false, 0).set_delay(1)
+	
+	tween.tween_property($Camera3D/MainLayer/ExitGamemodeLayerButton, "position", Vector2(15, -54), 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
+	
+	tween.tween_property($Camera3D/MainLayer/GameModeLayer/BG_StoryMode, "position:y", 28, 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property($Camera3D/MainLayer/GameModeLayer/BG_FreeMode, "position:y", 28, 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.1)
+	tween.tween_property($Camera3D/MainLayer/GameModeLayer/BG_ParkourMode, "position:y", 28, 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.2)
 
 ######################################
 # SettingsButton animations and functions
@@ -210,3 +240,21 @@ func _on_quit_button_trigger_mouse_exited() -> void:
 
 func _on_quit_button_trigger_pressed() -> void:
 	get_tree().quit()
+
+######################################
+# Exit gamemode layer button functions
+######################################
+
+func _on_exit_gamemode_layer_button_pressed() -> void:
+	if is_in_gamemode_select:
+		deSpawnGameModeMenu()
+
+func _on_play_story_mode_button_pressed() -> void:
+	pass
+
+func _on_play_free_mode_button_pressed() -> void:
+	changing_to_world_scene = true
+	get_tree().change_scene_to_packed(world) # TODO: Use transition manager to change the scene
+
+func _on_play_parkour_mode_button_pressed() -> void:
+	pass

@@ -456,81 +456,22 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.643)
 
-[node name="ExitGamemodeLayerButton" type="Control" parent="Camera3D/MainLayer"]
-layout_mode = 3
-anchor_left = -0.0668403
-anchor_top = -0.166667
-anchor_right = 0.235243
-anchor_bottom = -0.0478397
-offset_left = 24.0
-offset_top = 30.0
-offset_right = 24.0
-offset_bottom = 30.0
-grow_vertical = 2
-scale = Vector2(0.709192, 0.709192)
-metadata/_edit_use_anchors_ = true
-
-[node name="LighterBG" type="ColorRect" parent="Camera3D/MainLayer/ExitGamemodeLayerButton"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 174.0
-offset_top = 8.0
-offset_right = -78.9996
-offset_bottom = 9.00012
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 1.57079
-color = Color(0.501406, 0.501407, 0.501406, 1)
-
-[node name="DarkerBG" type="ColorRect" parent="Camera3D/MainLayer/ExitGamemodeLayerButton"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.0574713
-anchor_top = 0.103896
-anchor_right = 0.721264
-anchor_bottom = 1.0
-offset_left = 194.0
-offset_top = 2.0504e-05
-offset_right = 14.0004
-offset_bottom = 9.00012
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 1.57079
-color = Color(0.125911, 0.125911, 0.125911, 1)
-
-[node name="Icon" type="TextureRect" parent="Camera3D/MainLayer/ExitGamemodeLayerButton"]
-layout_mode = 1
-anchors_preset = 8
+[node name="ExitGamemodeLayerButton" type="Button" parent="Camera3D/MainLayer"]
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -7.99998
-offset_top = -6.998
-offset_right = 54.0
-offset_bottom = 54.998
+anchor_bottom = 1.0
+offset_left = -561.0
+offset_top = -702.0
+offset_right = -453.0
+offset_bottom = -651.0
 grow_horizontal = 2
-grow_vertical = 2
-rotation = 1.57079
-texture = ExtResource("8_rn1to")
-expand_mode = 1
-
-[node name="ExitGamemodeLayerButtonTrigger" type="Button" parent="Camera3D/MainLayer"]
-self_modulate = Color(1, 1, 1, 0)
-anchors_preset = -1
-anchor_left = -0.0078125
-anchor_top = -0.157407
-anchor_right = 0.0407986
-anchor_bottom = -0.0540123
-offset_left = 24.0
-offset_top = 30.0
-offset_right = 24.0
-offset_bottom = 30.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
+grow_vertical = 0
+focus_mode = 0
+theme = SubResource("Theme_u5css")
+theme_override_font_sizes/font_size = 40
+text = "EXIT"
 
 [node name="GameModeLayer" type="Control" parent="Camera3D/MainLayer"]
 layout_mode = 3
@@ -825,3 +766,7 @@ initial_velocity_max = 47.09
 [connection signal="mouse_entered" from="Camera3D/MainLayer/QuitButtonTrigger" to="." method="_on_quit_button_trigger_mouse_entered"]
 [connection signal="mouse_exited" from="Camera3D/MainLayer/QuitButtonTrigger" to="." method="_on_quit_button_trigger_mouse_exited"]
 [connection signal="pressed" from="Camera3D/MainLayer/QuitButtonTrigger" to="." method="_on_quit_button_trigger_pressed"]
+[connection signal="pressed" from="Camera3D/MainLayer/ExitGamemodeLayerButton" to="." method="_on_exit_gamemode_layer_button_pressed"]
+[connection signal="pressed" from="Camera3D/MainLayer/GameModeLayer/BG_StoryMode/PlayStoryModeButton" to="." method="_on_play_story_mode_button_pressed"]
+[connection signal="pressed" from="Camera3D/MainLayer/GameModeLayer/BG_FreeMode/PlayFreeModeButton" to="." method="_on_play_free_mode_button_pressed"]
+[connection signal="pressed" from="Camera3D/MainLayer/GameModeLayer/BG_ParkourMode/PlayParkourModeButton" to="." method="_on_play_parkour_mode_button_pressed"]
