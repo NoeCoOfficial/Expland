@@ -93,6 +93,7 @@ size = Vector2(432.875, 819)
 collision_mask = 3
 script = ExtResource("1_5mhs1")
 Fade_In = true
+Fade_In_Time = 2.0
 CROUCH_JUMP_VELOCITY = 2.0
 CROUCH_SPEED = 2.0
 CROUCH_INTERPOLATION = 8.0
