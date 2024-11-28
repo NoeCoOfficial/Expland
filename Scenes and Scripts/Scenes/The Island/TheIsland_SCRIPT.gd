@@ -48,13 +48,10 @@
 @icon("res://Textures/Icons/Script Icons/32x32/world_page.png")
 extends Node
 
-
 @onready var motionBlurCompositor = preload("res://Resources/Environment/TheIsland_MotionBlurCompositor.tres")
 @onready var noMotionBlurCompositor = preload("res://Resources/Environment/TheIsland_NoMotionBlurCompositor.tres")
 
 @onready var cameraAttributesResource = preload("res://Resources/Environment/Default_CameraAttributes.tres")
-
-
 
 func _ready() -> void:
 	SaveManager.loadAllData()
