@@ -231,7 +231,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 				SaveManager.saveAllData()
 				get_tree().quit() # quit the game
 	
-	if Input.is_action_just_pressed("Reset") and Reset == true and !PauseManager.is_paused and OS.has_feature("debug"):
+	if Input.is_action_just_pressed("Reset") and Reset == true and !PauseManager.is_paused and !PauseManager.is_inside_alert and OS.has_feature("debug"):
 		if GAME_STATE == "NORMAL" or "INVENTORY":
 			if ResetPOS == Vector3(999, 999, 999):
 				self.position = StartPOS # set the player's position to the Start position
@@ -243,7 +243,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 	if Input.is_action_just_pressed("SaveGame") and OS.has_feature("debug"):
 		saveAllDataWithAnimation()
 	
-	if Input.is_action_just_pressed("Inventory") and !PauseManager.is_paused and !DialogueManager.is_in_absolute_interface: # if the Inventory input is pressed and game isn't paused or in dialogue
+	if Input.is_action_just_pressed("Inventory") and !PauseManager.is_paused and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface: # if the Inventory input is pressed and game isn't paused or in dialogue
 		if GAME_STATE == "NORMAL": # Check if the game state is normal. If it is, open the inventory
 			openInventory()
 		elif GAME_STATE == "INVENTORY": # Check if the game state is inventory. If it is, close the inventory
@@ -251,7 +251,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 
 func _unhandled_input(event): # A built-in function that listens for input all the time
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
-		if GAME_STATE == "INVENTORY" or PauseManager.is_paused or DialogueManager.is_in_interface: # Check if the game state is inventory, or paused, or viewing dialogue.
+		if GAME_STATE == "INVENTORY" or PauseManager.is_paused or PauseManager.is_inside_alert or DialogueManager.is_in_interface: # Check if the game state is inventory, or paused, or viewing dialogue.
 			head.rotate_y(-event.relative.x * SENSITIVITY/20) # rotate the head on the y-axis
 			camera.rotate_x(-event.relative.y * SENSITIVITY/20) # rotate the camera on the x-axis
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90)) # clamp the camera rotation on the x-axis
@@ -271,7 +271,7 @@ func _physics_process(delta):
 	is_crouching = false
 	
 	# Crouching
-	if GAME_STATE != "INVENTORY" and GAME_STATE != "DEAD" and is_on_floor() and !PauseManager.is_paused and !DialogueManager.is_in_absolute_interface:
+	if GAME_STATE != "INVENTORY" and GAME_STATE != "DEAD" and is_on_floor() and !PauseManager.is_paused and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface:
 		
 		
 		if Input.is_action_pressed("Crouch"):
@@ -287,7 +287,7 @@ func _physics_process(delta):
 			velocity.y -= gravity * delta
 
 		# Jumping
-		if Input.is_action_just_pressed("Jump") and !Input.is_action_pressed("Crouch") and is_on_floor() and !PauseManager.is_paused and GAME_STATE != "INVENTORY" and !DialogueManager.is_in_absolute_interface:
+		if Input.is_action_just_pressed("Jump") and !Input.is_action_pressed("Crouch") and is_on_floor() and !PauseManager.is_paused and !PauseManager.is_inside_alert and GAME_STATE != "INVENTORY" and !DialogueManager.is_in_absolute_interface:
 			velocity.y = JUMP_VELOCITY
 
 		# Handle Speed
@@ -303,7 +303,7 @@ func _physics_process(delta):
 		var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
 		if is_on_floor():
-			if direction != Vector3.ZERO and !PauseManager.is_paused and GAME_STATE != "INVENTORY" and !DialogueManager.is_in_absolute_interface:
+			if direction != Vector3.ZERO and !PauseManager.is_paused and !PauseManager.is_inside_alert and GAME_STATE != "INVENTORY" and !DialogueManager.is_in_absolute_interface:
 				velocity.x = direction.x * speed
 				velocity.z = direction.z * speed
 			else:
