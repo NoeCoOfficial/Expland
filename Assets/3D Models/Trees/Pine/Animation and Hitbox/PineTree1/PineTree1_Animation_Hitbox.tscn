@@ -148,7 +148,7 @@ transform = Transform3D(3.69481, -0.0293551, 0, 0.0322441, 3.36376, 0, 0, 0, 3.2
 shape = SubResource("ConcavePolygonShape3D_daxi8")
 
 [node name="Circle_001" parent="." index="2"]
-transform = Transform3D(-1.14918, 7.93574e-08, 2.48196, 0.0333375, 3.87288, 0.0121213, -2.8006, 0.0461016, -1.01829, 0.00232995, 3.70586, -0.0228727)
+transform = Transform3D(-1.14918, 7.93574e-08, 2.48196, 0.0333375, 3.87288, 0.0121214, -2.8006, 0.0461016, -1.01829, 0.00232995, 3.70586, -0.0228727)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Circle_001" index="0"]
 
@@ -156,7 +156,7 @@ transform = Transform3D(-1.14918, 7.93574e-08, 2.48196, 0.0333375, 3.87288, 0.01
 shape = SubResource("ConcavePolygonShape3D_bqm87")
 
 [node name="Circle_002" parent="." index="3"]
-transform = Transform3D(-0.865653, 0.265105, -2.2055, -0.00967367, 2.39686, 0.275949, 2.50579, 0.100836, -0.760849, -0.208852, 5.53089, -0.00858164)
+transform = Transform3D(-0.865652, 0.265105, -2.2055, -0.00967366, 2.39686, 0.275948, 2.50579, 0.100836, -0.760848, -0.208852, 5.53089, -0.00858164)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Circle_002" index="0"]
 
@@ -172,7 +172,7 @@ transform = Transform3D(2.13817, -0.0100821, 0, 0.00788055, 2.7355, 0, 0, 0, 1.8
 shape = SubResource("ConcavePolygonShape3D_sk28d")
 
 [node name="Circle_004" parent="." index="5"]
-transform = Transform3D(-0.529542, -0.000970274, 1.14385, 0.0139281, 1.78486, 0.00578987, -1.29072, 0.0196585, -0.469225, -0.0333171, 8.25276, 0.0119055)
+transform = Transform3D(-0.529542, -0.000970305, 1.14385, 0.0139281, 1.78486, 0.00578986, -1.29072, 0.0196584, -0.469224, -0.0333171, 8.25276, 0.0119055)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Circle_004" index="0"]
 
