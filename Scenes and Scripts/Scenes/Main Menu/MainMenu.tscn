@@ -231,9 +231,9 @@ vertical_alignment = 1
 [node name="Icon" type="TextureRect" parent="Camera3D/MainLayer/PlayButton"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.675287
+anchor_left = 0.701149
 anchor_top = 0.0454545
-anchor_right = 0.876437
+anchor_right = 0.902299
 anchor_bottom = 0.954545
 grow_horizontal = 2
 grow_vertical = 2
@@ -290,11 +290,11 @@ metadata/_edit_use_anchors_ = true
 [node name="Icon" type="TextureRect" parent="Camera3D/MainLayer/SettingsButton"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.573713
+anchor_left = 0.625437
 anchor_top = 0.276788
-anchor_right = 0.841026
+anchor_right = 0.892751
 anchor_bottom = 0.716506
-offset_left = 11.3479
+offset_left = 11.348
 offset_top = -17.8127
 offset_right = -11.6769
 offset_bottom = 18.329
@@ -363,14 +363,48 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 1.0
+offset_left = 5.0
 offset_top = -28.998
-offset_right = 63.0
+offset_right = 67.0
 offset_bottom = 32.998
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_rn1to")
 expand_mode = 1
+
+[node name="AchievementsButton" type="Button" parent="Camera3D/MainLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 563.0
+offset_top = -103.0
+offset_right = 765.0
+offset_bottom = -65.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme = SubResource("Theme_u5css")
+theme_override_font_sizes/font_size = 27
+text = "ACHIEVEMENTS"
+
+[node name="CreditsButton" type="Button" parent="Camera3D/MainLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 633.0
+offset_top = -56.0
+offset_right = 764.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme = SubResource("Theme_u5css")
+theme_override_font_sizes/font_size = 27
+text = "CREDITS"
 
 [node name="PlayButtonTrigger" type="Button" parent="Camera3D/MainLayer"]
 self_modulate = Color(1, 1, 1, 0)
