@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=40 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="PackedScene" uid="uid://jb61th5px5nt" path="res://Assets/3D Models/Tests/Island/Island 2.blend" id="2_0llf6"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://ceabjbnv3nnyr" path="res://Scenes and Scripts/Scenes/Settings/SettingsUI.tscn" id="10_i36v3"]
 [ext_resource type="PackedScene" uid="uid://0stf8uio7dg2" path="res://Assets/3D Models/Trees/Normal/Models/Tree9.blend" id="10_ji46n"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="10_y68f7"]
+[ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="11_1cstc"]
 [ext_resource type="StyleBox" uid="uid://3txnt8ebd3yh" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/BlackBGwithWhiteBorder.tres" id="11_613mu"]
 [ext_resource type="StyleBox" uid="uid://b13po6off8nno" path="res://Resources/Styles and Themes/Styles/Default/Button/WithMarginDefaultDarkGrey.tres" id="12_3uklh"]
 [ext_resource type="StyleBox" uid="uid://c1a26qv61p5kw" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkgreyBGwithWhiteBorder.tres" id="13_tj56a"]
@@ -372,40 +373,6 @@ grow_vertical = 2
 texture = ExtResource("8_rn1to")
 expand_mode = 1
 
-[node name="AchievementsButton" type="Button" parent="Camera3D/MainLayer"]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 563.0
-offset_top = -103.0
-offset_right = 765.0
-offset_bottom = -65.0
-grow_horizontal = 2
-grow_vertical = 0
-focus_mode = 0
-theme = SubResource("Theme_u5css")
-theme_override_font_sizes/font_size = 27
-text = "ACHIEVEMENTS"
-
-[node name="CreditsButton" type="Button" parent="Camera3D/MainLayer"]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 633.0
-offset_top = -56.0
-offset_right = 764.0
-offset_bottom = -18.0
-grow_horizontal = 2
-grow_vertical = 0
-focus_mode = 0
-theme = SubResource("Theme_u5css")
-theme_override_font_sizes/font_size = 27
-text = "CREDITS"
-
 [node name="PlayButtonTrigger" type="Button" parent="Camera3D/MainLayer"]
 self_modulate = Color(1, 1, 1, 0)
 anchors_preset = -1
@@ -435,9 +402,46 @@ anchor_left = -0.302083
 anchor_top = 0.725309
 anchor_right = -0.0763889
 anchor_bottom = 0.83179
+offset_right = -1.52588e-05
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
+
+[node name="AchievementsButton" type="Button" parent="Camera3D/MainLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 371.0
+offset_top = -90.0
+offset_right = 573.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme = SubResource("Theme_u5css")
+theme_override_fonts/font = ExtResource("11_1cstc")
+theme_override_font_sizes/font_size = 27
+text = "ACHIEVEMENTS"
+
+[node name="CreditsButton" type="Button" parent="Camera3D/MainLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 442.0
+offset_top = -43.0
+offset_right = 573.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme = SubResource("Theme_u5css")
+theme_override_fonts/font = ExtResource("11_1cstc")
+theme_override_font_sizes/font_size = 27
+text = "CREDITS"
 
 [node name="Version_LBL" type="Label" parent="Camera3D/MainLayer"]
 modulate = Color(1, 1, 1, 0.259)
@@ -454,6 +458,7 @@ theme_override_font_sizes/font_size = 26
 text = "v0.4.7"
 
 [node name="FadeOut" type="ColorRect" parent="Camera3D/MainLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -463,6 +468,7 @@ color = Color(0, 0, 0, 1)
 script = ExtResource("8_tu6ba")
 
 [node name="GreyLayer" type="ColorRect" parent="Camera3D/MainLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
