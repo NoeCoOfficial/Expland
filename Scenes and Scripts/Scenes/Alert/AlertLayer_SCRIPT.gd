@@ -49,20 +49,30 @@
 extends Control
 
 func _ready() -> void:
-	self.scale = Vector2(0.0, 0.0)
+	Utils.set_center_offset($MainLayer)
+	$MainLayer.scale = Vector2(0.0, 0.0)
 	self.visible = false
 	$GreyLayer.modulate = Color(1, 1, 1, 0)
 
 func spawnAlert(title : String, text : String, textFontSize : int, animationTime : float):
-	$Title.text = title
-	$ScrollContainer/VBoxContainer/Text.text = text
-	$ScrollContainer/VBoxContainer/Text.font_size = textFontSize
+	$MainLayer/Title.text = title
+	$MainLayer/ScrollContainer/VBoxContainer/Text.text = text
+	$MainLayer/ScrollContainer/VBoxContainer/Text.add_theme_font_size_override("font_size", textFontSize)
 	
 	self.visible = true
 	
 	var tween = get_tree().create_tween().set_parallel()
-	tween.tween_property(self, "scale", Vector2(1.0, 1.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-	tween.tween_property($GreyLayer, "modulate", Color(1, 1, 1, 1), 0.5)
+	tween.tween_property($MainLayer, "scale", Vector2(1.0, 1.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property($GreyLayer, "modulate", Color(1, 1, 1, 1), 0.3)
+
+func despawnAlert(animationTime : float):
+	var tween = get_tree().create_tween().set_parallel()
+	tween.tween_property($MainLayer, "scale", Vector2(0.0, 0.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property($GreyLayer, "modulate", Color(1, 1, 1, 0), 0.3)
+	
+	await get_tree().create_timer(0.3).timeout
+	
+	self.visible = false
 
 
 
@@ -79,4 +89,4 @@ func _on_close_button_mouse_entered() -> void:
 	pass # Replace with function body.
 
 func _on_close_button_pressed() -> void:
-	pass # Replace with function body.
+	despawnAlert(0.5)
