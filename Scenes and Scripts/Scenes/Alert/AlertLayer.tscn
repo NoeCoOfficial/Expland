@@ -87,7 +87,7 @@ grow_horizontal = 2
 theme = ExtResource("5_qn44q")
 theme_override_fonts/font = ExtResource("6_nuxxi")
 theme_override_font_sizes/font_size = 35
-text = "Title"
+text = "Text"
 horizontal_alignment = 1
 vertical_alignment = 1
 
