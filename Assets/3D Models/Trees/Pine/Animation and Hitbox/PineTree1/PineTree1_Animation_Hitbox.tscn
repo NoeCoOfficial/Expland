@@ -172,7 +172,7 @@ transform = Transform3D(2.13817, -0.0100821, 0, 0.00788055, 2.7355, 0, 0, 0, 1.8
 shape = SubResource("ConcavePolygonShape3D_sk28d")
 
 [node name="Circle_004" parent="." index="5"]
-transform = Transform3D(-0.529542, -0.000970305, 1.14385, 0.0139281, 1.78486, 0.00578986, -1.29072, 0.0196584, -0.469224, -0.0333171, 8.25276, 0.0119055)
+transform = Transform3D(-0.529542, -0.000970296, 1.14385, 0.0139281, 1.78486, 0.00578985, -1.29072, 0.0196584, -0.469223, -0.0333171, 8.25276, 0.0119055)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Circle_004" index="0"]
 
