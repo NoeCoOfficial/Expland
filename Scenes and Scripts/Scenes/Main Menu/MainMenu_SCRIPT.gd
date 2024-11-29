@@ -126,7 +126,7 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Exit"):
 		if is_in_gamemode_select:
 			deSpawnGameModeMenu()
-		else:
+		if PauseManager.is_inside_settings:
 			$Camera3D/MainLayer/SettingsUI.closeSettings()
 
 ######################################

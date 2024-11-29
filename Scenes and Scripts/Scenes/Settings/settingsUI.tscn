@@ -115,6 +115,7 @@ script = ExtResource("2_swx28")
 metadata/_tab_index = 0
 
 [node name="SSCSwitch" type="CheckButton" parent="SettingsTabContainer/General"]
+layout_mode = 0
 offset_left = 161.0
 offset_top = 11.0
 offset_right = 205.0
