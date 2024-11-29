@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ynckscwc0643"]
+[gd_scene load_steps=8 format=3 uid="uid://ynckscwc0643"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/AlertLayer_SCRIPT.gd" id="1_c8m4c"]
 [ext_resource type="StyleBox" uid="uid://3txnt8ebd3yh" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/BlackBGwithWhiteBorder.tres" id="1_o8u0p"]
@@ -6,6 +6,7 @@
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="4_cg1v1"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="5_qn44q"]
 [ext_resource type="FontFile" uid="uid://b2o44xwqnsb5k" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf" id="6_nuxxi"]
+[ext_resource type="Texture2D" uid="uid://cwskjvl8pplog" path="res://Textures/Icons/Exit_Icon.png" id="7_uo5nn"]
 
 [node name="AlertLayer" type="Control"]
 layout_mode = 3
@@ -78,10 +79,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -37.5
-offset_top = 104.0
-offset_right = 35.5
-offset_bottom = 145.0
+offset_left = -127.5
+offset_top = 101.0
+offset_right = 127.5
+offset_bottom = 142.0
 grow_horizontal = 2
 theme = ExtResource("5_qn44q")
 theme_override_fonts/font = ExtResource("6_nuxxi")
@@ -89,3 +90,14 @@ theme_override_font_sizes/font_size = 35
 text = "Title"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CloseButton" type="TextureButton" parent="."]
+layout_mode = 0
+anchor_left = 0.348958
+anchor_top = 0.157407
+anchor_right = 0.381076
+anchor_bottom = 0.214506
+texture_normal = ExtResource("7_uo5nn")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
