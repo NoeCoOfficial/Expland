@@ -57,3 +57,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func spawnAlert(title : String, text : String, useScroll : bool, animationTime : float):
+	pass
