@@ -219,7 +219,8 @@ func _on_settings_button_trigger_button_down() -> void:
 	tween.tween_property($Camera3D/MainLayer/SettingsButton, "scale", Vector2(1.05, 1.05), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func _on_settings_button_trigger_pressed() -> void:
-	$Camera3D/MainLayer/SettingsUI.openSettings()
+	if !PauseManager.is_inside_settings:
+		$Camera3D/MainLayer/SettingsUI.openSettings()
 
 ######################################
 # QuitButton animations and functions
