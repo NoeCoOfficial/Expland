@@ -48,15 +48,35 @@
 @icon("res://Textures/Icons/Script Icons/32x32/window_dialogue.png")
 extends Control
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	self.scale = Vector2(0.0, 0.0)
+	self.visible = false
+	$GreyLayer.modulate = Color(1, 1, 1, 0)
+
+func spawnAlert(title : String, text : String, textFontSize : int, animationTime : float):
+	$Title.text = title
+	$ScrollContainer/VBoxContainer/Text.text = text
+	$ScrollContainer/VBoxContainer/Text.font_size = textFontSize
+	
+	self.visible = true
+	
+	var tween = get_tree().create_tween().set_parallel()
+	tween.tween_property(self, "scale", Vector2(1.0, 1.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property($GreyLayer, "modulate", Color(1, 1, 1, 1), 0.5)
+
+
+
+func _on_close_button_button_down() -> void:
 	pass # Replace with function body.
 
+func _on_close_button_button_up() -> void:
+	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_close_button_mouse_exited() -> void:
+	pass # Replace with function body.
 
-func spawnAlert(title : String, text : String, useScroll : bool, animationTime : float):
-	pass
+func _on_close_button_mouse_entered() -> void:
+	pass # Replace with function body.
+
+func _on_close_button_pressed() -> void:
+	pass # Replace with function body.

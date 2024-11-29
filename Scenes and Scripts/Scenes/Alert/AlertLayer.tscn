@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://ynckscwc0643"]
 
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/AlertLayer_SCRIPT.gd" id="1_c8m4c"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Alert/AlertLayer_SCRIPT.gd" id="1_c8m4c"]
 [ext_resource type="StyleBox" uid="uid://3txnt8ebd3yh" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/BlackBGwithWhiteBorder.tres" id="1_o8u0p"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="2_lgopv"]
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="4_cg1v1"]
@@ -80,6 +80,7 @@ alignment = 1
 custom_minimum_size = Vector2(300, 340)
 layout_mode = 2
 theme = ExtResource("5_qn44q")
+theme_override_font_sizes/font_size = 18
 text = "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
 horizontal_alignment = 1
 autowrap_mode = 3
@@ -111,3 +112,9 @@ texture_normal = ExtResource("7_uo5nn")
 ignore_texture_size = true
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
+
+[connection signal="button_down" from="CloseButton" to="." method="_on_close_button_button_down"]
+[connection signal="button_up" from="CloseButton" to="." method="_on_close_button_button_up"]
+[connection signal="mouse_entered" from="CloseButton" to="." method="_on_close_button_mouse_entered"]
+[connection signal="mouse_exited" from="CloseButton" to="." method="_on_close_button_mouse_exited"]
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
