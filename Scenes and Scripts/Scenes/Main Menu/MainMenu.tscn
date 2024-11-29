@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=41 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="PackedScene" uid="uid://jb61th5px5nt" path="res://Assets/3D Models/Tests/Island/Island 2.blend" id="2_0llf6"]
@@ -27,6 +27,7 @@
 [ext_resource type="FontFile" uid="uid://btimp4hwg4jis" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Regular.otf" id="14_8r23i"]
 [ext_resource type="StyleBox" uid="uid://com3tix0pshhk" path="res://Resources/Styles and Themes/Styles/Default/Label/Default_Label.tres" id="15_8lpeu"]
 [ext_resource type="Texture2D" uid="uid://ddboyvj4u3hwq" path="res://Textures/Icons/PadlockWhite_Icon.png" id="16_3n0bi"]
+[ext_resource type="PackedScene" uid="uid://ynckscwc0643" path="res://Scenes and Scripts/Scenes/Alert/AlertLayer.tscn" id="19_bpbmi"]
 
 [sub_resource type="Animation" id="Animation_6cyol"]
 length = 0.001
@@ -730,6 +731,9 @@ position = Vector2(98, 479)
 scale = Vector2(0.0927734, 0.0927734)
 texture = ExtResource("16_3n0bi")
 
+[node name="AlertLayer" parent="Camera3D/MainLayer" instance=ExtResource("19_bpbmi")]
+visible = false
+
 [node name="TransitionFadeOut" type="ColorRect" parent="Camera3D/MainLayer"]
 visible = false
 anchors_preset = 15
@@ -820,6 +824,8 @@ initial_velocity_max = 47.09
 [connection signal="mouse_entered" from="Camera3D/MainLayer/QuitButtonTrigger" to="." method="_on_quit_button_trigger_mouse_entered"]
 [connection signal="mouse_exited" from="Camera3D/MainLayer/QuitButtonTrigger" to="." method="_on_quit_button_trigger_mouse_exited"]
 [connection signal="pressed" from="Camera3D/MainLayer/QuitButtonTrigger" to="." method="_on_quit_button_trigger_pressed"]
+[connection signal="pressed" from="Camera3D/MainLayer/AchievementsButton" to="." method="_on_achievements_button_pressed"]
+[connection signal="pressed" from="Camera3D/MainLayer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="Camera3D/MainLayer/ExitGamemodeLayerButton" to="." method="_on_exit_gamemode_layer_button_pressed"]
 [connection signal="pressed" from="Camera3D/MainLayer/GameModeLayer/BG_StoryMode/PlayStoryModeButton" to="." method="_on_play_story_mode_button_pressed"]
 [connection signal="pressed" from="Camera3D/MainLayer/GameModeLayer/BG_FreeMode/PlayFreeModeButton" to="." method="_on_play_free_mode_button_pressed"]
