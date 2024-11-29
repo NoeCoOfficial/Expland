@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://ynckscwc0643"]
+[gd_scene load_steps=4 format=3 uid="uid://ynckscwc0643"]
 
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/AlertLayer_SCRIPT.gd" id="1_c8m4c"]
 [ext_resource type="StyleBox" uid="uid://3txnt8ebd3yh" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/BlackBGwithWhiteBorder.tres" id="1_o8u0p"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="2_lgopv"]
 
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_c8m4c")
 
 [node name="BG" type="Button" parent="."]
 layout_mode = 1
