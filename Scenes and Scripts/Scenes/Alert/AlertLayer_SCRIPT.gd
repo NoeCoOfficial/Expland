@@ -82,20 +82,13 @@ func despawnAlert(animationTime : float):
 	
 	self.visible = false
 
-
-func _on_close_button_button_down() -> void:
-	pass # Replace with function body.
-
-func _on_close_button_button_up() -> void:
-	pass # Replace with function body.
-
 func _on_close_button_mouse_exited() -> void:
 	var tween = get_tree().create_tween()
-	tween.tween_property($MainLayer/CloseButton, "rotation_degrees", 0.0, 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property($MainLayer/CloseButton, "scale", Vector2(1.0, 1.0), 0.3).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func _on_close_button_mouse_entered() -> void:
 	var tween = get_tree().create_tween()
-	tween.tween_property($MainLayer/CloseButton, "rotation_degrees", 3.0, 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property($MainLayer/CloseButton, "scale", Vector2(1.1, 1.1), 0.3).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func _on_close_button_pressed() -> void:
 	despawnAlert(0.5)
