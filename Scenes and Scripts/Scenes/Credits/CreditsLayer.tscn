@@ -1,12 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://djenc4llne53s"]
+[gd_scene load_steps=11 format=3 uid="uid://djenc4llne53s"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Alert/AlertLayer_SCRIPT.gd" id="1_yubdq"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="2_anj2t"]
 [ext_resource type="StyleBox" uid="uid://3txnt8ebd3yh" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/BlackBGwithWhiteBorder.tres" id="3_1pdi7"]
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="4_a8p6x"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="5_ome4s"]
+[ext_resource type="FontFile" uid="uid://c4h0gd5a2e2qb" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf" id="6_8b5y6"]
 [ext_resource type="FontFile" uid="uid://b2o44xwqnsb5k" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf" id="6_qtck1"]
 [ext_resource type="Texture2D" uid="uid://cwskjvl8pplog" path="res://Textures/Icons/Exit_Icon.png" id="7_5nk2s"]
+[ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="7_qra30"]
+[ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="8_uiqvs"]
 
 [node name="CreditsLayer" type="Control"]
 layout_mode = 3
@@ -85,11 +88,57 @@ layout_mode = 2
 alignment = 1
 
 [node name="Text" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(300, 340)
+custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_font_sizes/font_size = 18
-text = "Expland is made by Noe Co., a team of two looking to find joy in making games"
+theme_override_fonts/font = ExtResource("6_8b5y6")
+theme_override_font_sizes/font_size = 23
+text = "Expland is made by Noe Co., a team of two looking to find joy in making games."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Text2" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("5_ome4s")
+theme_override_fonts/font = ExtResource("7_qra30")
+theme_override_font_sizes/font_size = 20
+text = "Expland is brought to you by:"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Divider" type="Line2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
+position = Vector2(8, 131)
+points = PackedVector2Array(-2, 0, 297, 0)
+width = 0.7
+default_color = Color(0.233926, 0.233925, 0.233925, 1)
+
+[node name="Space" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("5_ome4s")
+theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_font_sizes/font_size = 2
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Text3" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("5_ome4s")
+theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_font_sizes/font_size = 20
+text = "Sebastian Suciu"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Text4" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("5_ome4s")
+theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_font_sizes/font_size = 14
+text = "Coding, design, 3D modelling, admin."
 horizontal_alignment = 1
 autowrap_mode = 3
 
