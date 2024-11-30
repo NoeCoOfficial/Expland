@@ -37,6 +37,7 @@ A special thanks to everyone who has supported us throughout the development of 
 
 A heartfelt thank you to the tools and communities that have helped us along the way:
 
+- **[Ingo Wolf](https://github.com/Inglan): **For ever so kindly making us a website in the process.
 - **[Godot Engine](https://godotengine.org/):** For providing an amazing open-source game development platform.
 - **[Godot Forums](https://forum.godotengine.org/) and [Stack Overflow](https://stackoverflow.com/):** For giving us answers to literally everything.
 - **[YouTube](https://youtube.com):** For providing a free learning resource and millions of tutorials.
