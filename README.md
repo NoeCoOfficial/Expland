@@ -7,7 +7,7 @@
 ---
 <h3 align="center">Current version: v0.4.7 (pre-release)</h3>
 <h5 align="center">Any questions? See the FAQ below, or contact us via email at <i>noeco.official@gmail.com.</i></h5>
-  
+
 ---
 
 ## 📜 About Expland
@@ -21,26 +21,7 @@ This is the official GitHub repository for the game, where all changes and commi
 - **Sebastian Suciu** ([@sebashtioon](https://github.com/sebashtioon)): 3D Assets, Code and Game development
 - **Tristan Taylor** ([@GoatsAreTB](https://github.com/GoatsAreTB)): 3D and 2D Assets, Music, Storyboarding and Lore
 
-### Contributors
-<a href="https://github.com/NoeCoOfficial/Expland/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=NoeCoOfficial/Expland" />
-</a>
-
-## 🎨 Dedications
-
-A special thanks to everyone who has supported us throughout the development of **Expland**. Your encouragement and feedback mean the world to us.
-
-- **Melinda Timpson**, for being the world's greatest school teacher.
-- **Erik Miller**, another founder of Noe Co., who left to pursue other things.
-
-## 🛠 Special Thanks
-
-A heartfelt thank you to the tools and communities that have helped us along the way:
-
-- **[Ingo Wolf](https://github.com/Inglan): **For ever so kindly making us a website in the process.
-- **[Godot Engine](https://godotengine.org/):** For providing an amazing open-source game development platform.
-- **[Godot Forums](https://forum.godotengine.org/) and [Stack Overflow](https://stackoverflow.com/):** For giving us answers to literally everything.
-- **[YouTube](https://youtube.com):** For providing a free learning resource and millions of tutorials.
+### See a full list of mentions in the [AUTHORS.md file.](https://github.com/NoeCoOfficial/Expland/blob/main/AUTHORS.md)
 
 ## 📢 Stay Updated
 
@@ -49,7 +30,7 @@ Follow our progress and get the latest updates on:
 - **The GitHub Repository:** [Expland GitHub](https://github.com/sebashtioon/Expland)
 - **Our Discord Server:** [Join our Discord server for discussions and updates](https://discord.gg/QNgcKCAJn3)
 ## 📧 Contact Us
-Thank you for being so interested in this game. We can’t wait to share more with you soon! If you have any questions or want to get involved, please contact our email (noeco.official@gmail.com) and we promise we **will** respond.
+Thank you for being so interested in this game. We can’t wait to share more with you soon! If you have any questions or want to get involved, please get in touch with our email (noeco.official@gmail.com) and we promise we **will** respond.
 
 
 ## ❓ FAQ
