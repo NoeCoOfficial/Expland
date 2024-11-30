@@ -285,23 +285,4 @@ func _on_achievements_button_pressed() -> void:
 	pass
 
 func _on_credits_button_pressed() -> void:
-	$Camera3D/MainLayer/AlertLayer.spawnAlert(
-		"Credits", 
-		"Expland is made by Noe Co., a team of three looking to find joy in making games.
-		
-		Expland is brought to you by:
-		
-		Sebastian Suciu - Coding, design, 3D modelling, admin.
-		
-		Tristan Taylor - 3D modelling, music, design, storyboarding.
-		
-		We would like to thank all of the amazing people who helped us along the journey of making this huge project. They are listed below.
-		
-		Ingo Wolf - Who ever so kindly decided to make Noe Co. a website.
-		
-		Melinda Timpson - Being the world's greatest and funniest school teacher and mentor. From the bottom of our hearts, thank you!
-		
-		The team at STEMVGC - For allowing us to submit this project to your competetion.
-		",
-		20,
-		0.5)
+	$Camera3D/MainLayer/CreditsLayer.spawnAlert(0.5)

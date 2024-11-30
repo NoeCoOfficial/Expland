@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://djenc4llne53s"]
+[gd_scene load_steps=12 format=3 uid="uid://djenc4llne53s"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Alert/AlertLayer_SCRIPT.gd" id="1_yubdq"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="2_anj2t"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cwskjvl8pplog" path="res://Textures/Icons/Exit_Icon.png" id="7_5nk2s"]
 [ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="7_qra30"]
 [ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="8_uiqvs"]
+[ext_resource type="FontFile" uid="uid://btimp4hwg4jis" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Regular.otf" id="9_3uiju"]
 
 [node name="CreditsLayer" type="Control"]
 layout_mode = 3
@@ -108,9 +109,15 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="Divider" type="Line2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
-position = Vector2(8, 131)
-points = PackedVector2Array(-2, 0, 297, 0)
-width = 0.7
+position = Vector2(20, 131)
+points = PackedVector2Array(-2, 0, 264, 0)
+width = 1.5
+default_color = Color(0.233926, 0.233925, 0.233925, 1)
+
+[node name="Divider2" type="Line2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
+position = Vector2(20, 336)
+points = PackedVector2Array(-2, 0, 264, 0)
+width = 1.5
 default_color = Color(0.233926, 0.233925, 0.233925, 1)
 
 [node name="Space" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
@@ -136,9 +143,29 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_fonts/font = ExtResource("9_3uiju")
 theme_override_font_sizes/font_size = 14
-text = "Coding, design, 3D modelling, admin."
+text = "Game Designer, Visual Designer, Programmer, 3D modelling, 2D assets, paperwork and GitHub manager."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Text5" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("5_ome4s")
+theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_font_sizes/font_size = 20
+text = "Tristan Taylor"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Text6" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("5_ome4s")
+theme_override_fonts/font = ExtResource("9_3uiju")
+theme_override_font_sizes/font_size = 14
+text = "Game Designer, Visual Designer, Audio Designer, Storyteller, Tester (while developing), 3D modelling, 2D assets, Ideas and brainstorming and Lore."
 horizontal_alignment = 1
 autowrap_mode = 3
 
