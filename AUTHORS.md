@@ -1,8 +1,4 @@
 <h1 align="center">Authors, Contributors, Credits and Shoutouts</h1>
-<p align="center">
-	<img align="center" src="/Textures/Icons/Expland-icon.png" width="200" height="200"/>
- 
-</p>
 
 ---
 <h3 align="center">Current version: v0.5.0 (pre-release)</h3>
