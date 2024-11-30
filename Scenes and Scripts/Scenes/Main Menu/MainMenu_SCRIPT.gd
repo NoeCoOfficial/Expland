@@ -281,8 +281,6 @@ func on_free_mode_fade_finished():
 func _on_play_parkour_mode_button_pressed() -> void:
 	pass
 
-
-
 func _on_achievements_button_pressed() -> void:
 	pass
 
