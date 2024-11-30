@@ -23,6 +23,11 @@ A special thanks to everyone who has supported us throughout the development of 
 
 - **Melinda Timpson**, for being the world's greatest school teacher.
 - **Erik Miller**, another founder of Noe Co., who left to pursue other things.
+- **The team at the STEMVGC**
+
+## 🗣️ Shout-outs
+
+- Shaheer Usman
 
 ## 🛠 Special Thanks
 
