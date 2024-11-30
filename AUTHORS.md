@@ -1,9 +1,8 @@
 <h1 align="center">Authors, Contributors, Credits and Shoutouts</h1>
 
 ---
-<h3 align="center">Current version: v0.5.0 (pre-release)</h3>
-<h5 align="center">Any questions? See the FAQ below, or contact us via email at <i>noeco.official@gmail.com.</i></h5>
-  
+##### Looking for the README.md file? https://github.com/NoeCoOfficial/Expland/blob/main/README.md
+
 ---
 
 ## 📜 About Expland
