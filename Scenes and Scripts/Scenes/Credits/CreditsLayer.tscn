@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://djenc4llne53s"]
+[gd_scene load_steps=18 format=3 uid="uid://djenc4llne53s"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Alert/AlertLayer_SCRIPT.gd" id="1_yubdq"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="2_anj2t"]
@@ -11,6 +11,35 @@
 [ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="7_qra30"]
 [ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="8_uiqvs"]
 [ext_resource type="FontFile" uid="uid://btimp4hwg4jis" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Regular.otf" id="9_3uiju"]
+[ext_resource type="StyleBox" uid="uid://b13po6off8nno" path="res://Resources/Styles and Themes/Styles/Default/Button/WithMarginDefaultDarkGrey.tres" id="10_623a3"]
+[ext_resource type="StyleBox" uid="uid://com3tix0pshhk" path="res://Resources/Styles and Themes/Styles/Default/Label/Default_Label.tres" id="11_p84et"]
+[ext_resource type="Texture2D" uid="uid://dkkcljrkavbjx" path="res://Textures/Icons/OpenExternalLinkWhite_Icon.png" id="12_lbc4b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1cec2"]
+bg_color = Color(0.125911, 0.125911, 0.125911, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_top = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71xan"]
+bg_color = Color(0.255659, 0.255659, 0.255659, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_wxeot"]
+default_font = ExtResource("8_uiqvs")
+Button/styles/hover = SubResource("StyleBoxFlat_1cec2")
+Button/styles/normal = ExtResource("10_623a3")
+Button/styles/pressed = SubResource("StyleBoxFlat_71xan")
+Label/styles/normal = ExtResource("11_p84et")
 
 [node name="CreditsLayer" type="Control"]
 layout_mode = 3
@@ -83,7 +112,7 @@ offset_left = 417.0
 offset_top = 162.0
 offset_right = 735.0
 offset_bottom = 533.0
-scroll_vertical = 371
+scroll_vertical = 410
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainLayer/ScrollContainer"]
 layout_mode = 2
@@ -315,6 +344,18 @@ theme_override_font_sizes/font_size = 14
 text = "You can find a full list of everyone involved by viewing the AUTHORS.md file, which can be accessed below. "
 horizontal_alignment = 1
 autowrap_mode = 3
+
+[node name="Open_AUTHORS_md" type="Button" parent="MainLayer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme = SubResource("Theme_wxeot")
+theme_override_font_sizes/font_size = 30
+text = "OPEN     "
+
+[node name="OpenExternalLinkWhiteIcon" type="Sprite2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
+position = Vector2(191.375, 761.625)
+scale = Vector2(0.103333, 0.103333)
+texture = ExtResource("12_lbc4b")
 
 [node name="Title" type="Label" parent="MainLayer"]
 layout_mode = 1
