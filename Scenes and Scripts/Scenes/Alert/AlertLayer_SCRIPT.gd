@@ -49,7 +49,9 @@
 extends Control
 
 func _ready() -> void:
+	Utils.set_center_offset($MainLayer/CloseButton)
 	Utils.set_center_offset($MainLayer)
+	
 	$MainLayer.scale = Vector2(0.0, 0.0)
 	self.visible = false
 	$GreyLayer.modulate = Color(1, 1, 1, 0)
