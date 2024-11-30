@@ -83,7 +83,7 @@ offset_left = 417.0
 offset_top = 162.0
 offset_right = 735.0
 offset_bottom = 533.0
-scroll_vertical = 164
+scroll_vertical = 371
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainLayer/ScrollContainer"]
 layout_mode = 2
@@ -199,7 +199,7 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="Divider3" type="Line2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
-position = Vector2(20, 439)
+position = Vector2(20, 440)
 points = PackedVector2Array(-2, 0, 264, 0)
 width = 1.5
 default_color = Color(0.233926, 0.233925, 0.233925, 1)
@@ -259,6 +259,60 @@ theme = ExtResource("5_ome4s")
 theme_override_fonts/font = ExtResource("9_3uiju")
 theme_override_font_sizes/font_size = 14
 text = "For being the best school teacher and mentor, getting us through highschool. From the bottom of our hearts, thank you Miss!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Space6" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("5_ome4s")
+theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_font_sizes/font_size = 5
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Text12" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("5_ome4s")
+theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_font_sizes/font_size = 20
+text = "Erik Miller"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Text13" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("5_ome4s")
+theme_override_fonts/font = ExtResource("9_3uiju")
+theme_override_font_sizes/font_size = 14
+text = "Another founder of Noe Co., who left to pursue other things, although still supporting us."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Divider4" type="Line2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
+position = Vector2(20, 676)
+points = PackedVector2Array(-2, 0, 264, 0)
+width = 1.5
+default_color = Color(0.233926, 0.233925, 0.233925, 1)
+
+[node name="Space7" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("5_ome4s")
+theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_font_sizes/font_size = 5
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Text14" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("5_ome4s")
+theme_override_fonts/font = ExtResource("9_3uiju")
+theme_override_font_sizes/font_size = 14
+text = "You can find a full list of everyone involved by viewing the AUTHORS.md file, which can be accessed below. "
 horizontal_alignment = 1
 autowrap_mode = 3
 
