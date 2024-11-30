@@ -89,3 +89,7 @@ func _on_close_button_mouse_entered() -> void:
 
 func _on_close_button_pressed() -> void:
 	despawnAlert(0.5)
+
+
+func _on_open_authors_md_pressed() -> void:
+	OS.shell_open("https://github.com/NoeCoOfficial/Expland/blob/main/AUTHORS.md")
