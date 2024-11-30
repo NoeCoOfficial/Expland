@@ -88,7 +88,7 @@ func _on_close_button_mouse_exited() -> void:
 
 func _on_close_button_mouse_entered() -> void:
 	var tween = get_tree().create_tween()
-	tween.tween_property($MainLayer/CloseButton, "scale", Vector2(1.2, 1.2), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property($MainLayer/CloseButton, "scale", Vector2(1.15, 1.15), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func _on_close_button_pressed() -> void:
 	despawnAlert(0.5)
