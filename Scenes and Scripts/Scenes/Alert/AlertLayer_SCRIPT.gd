@@ -56,6 +56,10 @@ func _ready() -> void:
 	self.visible = false
 	$GreyLayer.modulate = Color(1, 1, 1, 0)
 
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("Exit") and PauseManager.is_inside_alert:
+		despawnAlert(0.5)
+
 func spawnAlert(title : String, text : String, textFontSize : int, animationTime : float):
 	PauseManager.is_inside_alert = true
 	$MainLayer/Title.text = title
@@ -77,7 +81,6 @@ func despawnAlert(animationTime : float):
 	await get_tree().create_timer(0.3).timeout
 	
 	self.visible = false
-
 
 
 func _on_close_button_button_down() -> void:
