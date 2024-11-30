@@ -103,7 +103,7 @@ sky = SubResource("Sky_7v7qm")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1cec2"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_meokx"]
 bg_color = Color(0.125911, 0.125911, 0.125911, 1)
 border_width_left = 2
 border_width_top = 2
@@ -115,7 +115,7 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 expand_margin_top = 5.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_71xan"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8tgxn"]
 bg_color = Color(0.255659, 0.255659, 0.255659, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
@@ -124,9 +124,9 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="Theme" id="Theme_u5css"]
 default_font = ExtResource("5_dfh28")
-Button/styles/hover = SubResource("StyleBoxFlat_1cec2")
+Button/styles/hover = SubResource("StyleBoxFlat_meokx")
 Button/styles/normal = ExtResource("12_3uklh")
-Button/styles/pressed = SubResource("StyleBoxFlat_71xan")
+Button/styles/pressed = SubResource("StyleBoxFlat_8tgxn")
 Label/styles/normal = ExtResource("15_8lpeu")
 
 [sub_resource type="Curve" id="Curve_tq56d"]
