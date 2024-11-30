@@ -1,4 +1,4 @@
-<h1 align="center">Expland by Noe Co.</h1>
+<h1 align="center">Authors, Contributors, Credits and Shoutouts</h1>
 <p align="center">
 	<img align="center" src="/Textures/Icons/Expland-icon.png" width="200" height="200"/>
  

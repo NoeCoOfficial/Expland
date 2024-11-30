@@ -277,9 +277,9 @@ func _on_play_free_mode_button_pressed() -> void:
 func on_free_mode_fade_finished():
 	get_tree().change_scene_to_packed(world)
 
-
 func _on_play_parkour_mode_button_pressed() -> void:
 	pass
+
 
 func _on_achievements_button_pressed() -> void:
 	pass
