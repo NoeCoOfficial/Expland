@@ -83,6 +83,7 @@ offset_left = 417.0
 offset_top = 162.0
 offset_right = 735.0
 offset_bottom = 533.0
+scroll_vertical = 164
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainLayer/ScrollContainer"]
 layout_mode = 2
@@ -115,7 +116,7 @@ width = 1.5
 default_color = Color(0.233926, 0.233925, 0.233925, 1)
 
 [node name="Divider2" type="Line2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
-position = Vector2(20, 336)
+position = Vector2(20, 344)
 points = PackedVector2Array(-2, 0, 264, 0)
 width = 1.5
 default_color = Color(0.233926, 0.233925, 0.233925, 1)
@@ -146,6 +147,15 @@ theme = ExtResource("5_ome4s")
 theme_override_fonts/font = ExtResource("9_3uiju")
 theme_override_font_sizes/font_size = 14
 text = "Game Designer, Visual Designer, Programmer, 3D modelling, 2D assets, paperwork and GitHub manager."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Space5" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("5_ome4s")
+theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_font_sizes/font_size = 5
 horizontal_alignment = 1
 autowrap_mode = 3
 
@@ -189,7 +199,7 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="Divider3" type="Line2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
-position = Vector2(20, 435)
+position = Vector2(20, 439)
 points = PackedVector2Array(-2, 0, 264, 0)
 width = 1.5
 default_color = Color(0.233926, 0.233925, 0.233925, 1)
@@ -220,6 +230,35 @@ theme = ExtResource("5_ome4s")
 theme_override_fonts/font = ExtResource("9_3uiju")
 theme_override_font_sizes/font_size = 14
 text = "For ever so kindly making us a website. Thank you!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Space4" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("5_ome4s")
+theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_font_sizes/font_size = 5
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Text10" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("5_ome4s")
+theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_font_sizes/font_size = 20
+text = "Melinda Timpson"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Text11" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("5_ome4s")
+theme_override_fonts/font = ExtResource("9_3uiju")
+theme_override_font_sizes/font_size = 14
+text = "For being the best school teacher and mentor, getting us through highschool. From the bottom of our hearts, thank you Miss!"
 horizontal_alignment = 1
 autowrap_mode = 3
 
