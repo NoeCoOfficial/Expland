@@ -1,6 +1,7 @@
 <h1 align="center">Authors, Contributors, Credits and Shoutouts</h1>
 
 ---
+
 ##### Looking for the README.md file? https://github.com/NoeCoOfficial/Expland/blob/main/README.md
 
 ---
@@ -28,6 +29,10 @@ A special thanks to everyone who has supported us throughout the development of 
 ## 🗣️ Shout-outs
 
 - Shaheer Usman
+- Xavier Hosking
+- Kai Steele
+- Dylan Wilson
+- Evan Banks
 
 ## 🛠 Special Thanks
 
