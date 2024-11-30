@@ -285,8 +285,4 @@ func _on_achievements_button_pressed() -> void:
 	pass
 
 func _on_credits_button_pressed() -> void:
-	$Camera3D/MainLayer/AlertLayer.spawnAlert(
-		"Credits", 
-		"Made by Sebastian Suciu and Tristan Taylor! Very cool.",
-		40,
-		0.5)
+	pass

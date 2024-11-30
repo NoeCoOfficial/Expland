@@ -45,7 +45,7 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-@icon("res://Textures/Icons/Script Icons/32x32/credits.png")
+@icon("res://Textures/Icons/Script Icons/32x32/window_dialogue.png")
 extends Control
 
 func _ready() -> void:
@@ -57,11 +57,14 @@ func _ready() -> void:
 	$GreyLayer.modulate = Color(1, 1, 1, 0)
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("Exit") and PauseManager.is_inside_credits:
+	if Input.is_action_just_pressed("Exit") and PauseManager.is_inside_alert:
 		despawnAlert(0.5)
 
-func spawnAlert(animationTime : float):
-	PauseManager.is_inside_credits = true
+func spawnAlert(title : String, text : String, textFontSize : int, animationTime : float):
+	PauseManager.is_inside_alert = true
+	$MainLayer/Title.text = title
+	$MainLayer/ScrollContainer/VBoxContainer/Text.text = text
+	$MainLayer/ScrollContainer/VBoxContainer/Text.add_theme_font_size_override("font_size", textFontSize)
 	
 	self.visible = true
 	
@@ -70,7 +73,7 @@ func spawnAlert(animationTime : float):
 	tween.tween_property($GreyLayer, "modulate", Color(1, 1, 1, 1), 0.3)
 
 func despawnAlert(animationTime : float):
-	PauseManager.is_inside_credits = false
+	PauseManager.is_inside_alert = false
 	var tween = get_tree().create_tween().set_parallel()
 	tween.tween_property($MainLayer, "scale", Vector2(0.0, 0.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	tween.tween_property($GreyLayer, "modulate", Color(1, 1, 1, 0), 0.3)
