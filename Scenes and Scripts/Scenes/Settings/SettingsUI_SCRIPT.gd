@@ -84,14 +84,14 @@ func openSettings():
 	showOverlay(true, 0.2)
 	self.visible = true
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "scale", Vector2(1.0, 1.0), 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(self, "scale", Vector2(1.0, 1.0), 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func closeSettings():
 	PauseManager.is_inside_settings = false
 	hideOverlay(true, 0.2)
 	PlayerSettingsData.saveSettings()
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "scale", Vector2(0.0, 0.0), 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+	tween.tween_property(self, "scale", Vector2(0.0, 0.0), 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	tween.tween_property(self, "visible", false, 0.0)
 
 

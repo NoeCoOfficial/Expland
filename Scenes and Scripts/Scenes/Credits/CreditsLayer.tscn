@@ -114,6 +114,7 @@ offset_left = 417.0
 offset_top = 162.0
 offset_right = 735.0
 offset_bottom = 533.0
+scroll_vertical = 570
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainLayer/ScrollContainer"]
 layout_mode = 2
@@ -384,6 +385,21 @@ position = Vector2(189.375, 805.044)
 scale = Vector2(0.0657484, 0.0545605)
 texture = ExtResource("11_m50j2")
 
+[node name="Space11" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("5_ome4s")
+theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_font_sizes/font_size = 5
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Divider5" type="Line2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
+position = Vector2(20, 843)
+points = PackedVector2Array(-2, 0, 264, 0)
+width = 1.5
+default_color = Color(0.233926, 0.233925, 0.233925, 1)
+
 [node name="Text14" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
@@ -391,6 +407,15 @@ theme = ExtResource("5_ome4s")
 theme_override_fonts/font = ExtResource("9_3uiju")
 theme_override_font_sizes/font_size = 14
 text = "You can find a full list of everyone involved by viewing the AUTHORS.md file, which can be accessed below. "
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Space10" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("5_ome4s")
+theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_font_sizes/font_size = 5
 horizontal_alignment = 1
 autowrap_mode = 3
 
@@ -402,7 +427,7 @@ theme_override_font_sizes/font_size = 30
 text = "OPEN     "
 
 [node name="OpenExternalLinkWhiteIcon" type="Sprite2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
-position = Vector2(191.375, 920.625)
+position = Vector2(190.375, 938.625)
 scale = Vector2(0.103333, 0.103333)
 texture = ExtResource("12_lbc4b")
 
