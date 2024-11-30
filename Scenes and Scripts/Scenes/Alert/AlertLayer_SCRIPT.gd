@@ -90,10 +90,12 @@ func _on_close_button_button_up() -> void:
 	pass # Replace with function body.
 
 func _on_close_button_mouse_exited() -> void:
-	pass # Replace with function body.
+	var tween = get_tree().create_tween()
+	tween.tween_property($MainLayer/CloseButton, "rotation_degrees", 0.0, 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func _on_close_button_mouse_entered() -> void:
-	pass # Replace with function body.
+	var tween = get_tree().create_tween()
+	tween.tween_property($MainLayer/CloseButton, "rotation_degrees", 3.0, 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func _on_close_button_pressed() -> void:
 	despawnAlert(0.5)
