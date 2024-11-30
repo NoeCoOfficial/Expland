@@ -114,6 +114,7 @@ func hideOverlay(withFade : bool, fadeTime : float):
 		greyOverlay.visible = false
 		greyOverlay.self_modulate = Color(1, 1, 1, 0)
 
+
 func _on_exit_settings_button_pressed() -> void:
 	closeSettings()
 
@@ -133,7 +134,6 @@ func _on_save_settings_pressed() -> void:
 	PlayerSettingsData.saveSettings()
 
 
-
 func _on_motion_blur_switch_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		PlayerSettingsData.set_motion_blur(true)
@@ -145,8 +145,6 @@ func _on_dof_blur_switch_toggled(toggled_on: bool) -> void:
 		PlayerSettingsData.set_dof_blur(true)
 	else:
 		PlayerSettingsData.set_dof_blur(false)
-
-
 
 func _on_ssc_switch_toggled(toggled_on: bool) -> void:
 	if toggled_on:
