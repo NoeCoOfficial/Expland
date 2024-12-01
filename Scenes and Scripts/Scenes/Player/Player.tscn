@@ -653,6 +653,8 @@ text = "CREDITS"
 [node name="AchievementsUI" parent="Head/Camera3D/AchievementsLayer" instance=ExtResource("20_3vll1")]
 visible = false
 
+[node name="CreditsLayer" type="CanvasLayer" parent="Head/Camera3D"]
+
 [node name="SettingsLayer" type="CanvasLayer" parent="Head/Camera3D"]
 visible = false
 
