@@ -8,7 +8,7 @@
 [ext_resource type="FontFile" uid="uid://b2o44xwqnsb5k" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf" id="6_x5w8t"]
 [ext_resource type="Texture2D" uid="uid://cwskjvl8pplog" path="res://Textures/Icons/Exit_Icon.png" id="7_4a01g"]
 
-[node name="AlertLayer" type="Control"]
+[node name="AchievementsUI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
