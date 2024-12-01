@@ -224,16 +224,19 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			resumeGame()
 		else:
 			pauseGame()
-	
+		
 	elif Input.is_action_just_pressed("Exit") and PauseManager.is_inside_settings and !transitioning_to_menu  and !PauseManager.is_inside_achievements_ui and !PauseManager.is_inside_alert and !PauseManager.is_inside_credits:
 		$Head/Camera3D/SettingsLayer/SettingsUI.closeSettings()
-	
+		
 	elif Input.is_action_just_pressed("Exit") and PauseManager.is_inside_achievements_ui and !PauseManager.is_inside_alert and !PauseManager.is_inside_credits:
 		$Head/Camera3D/AchievementsLayer/AchievementsUI.despawnAchievements(0.5)
-	
+		
+	elif Input.is_action_just_pressed("Exit") and PauseManager.is_inside_credits and !PauseManager.is_inside_achievements_ui and !PauseManager.is_inside_alert:
+		$Head/Camera3D/CreditsLayer/CreditsLayer.despawnCredits(0.5)
+		
 	elif Input.is_action_just_pressed("Exit") and PauseManager.is_inside_alert and !PauseManager.is_inside_achievements_ui and !PauseManager.is_inside_credits:
 		$Head/Camera3D/AlertLayer/AlertLayer.despawnAlert(0.5)
-	
+		
 	if Input.is_action_just_pressed("Quit") and Quit == true and OS.has_feature("debug"): # if the Quit input is pressed and the Quit variable is true
 		if GAME_STATE == "NORMAL" or "INVENTORY": # if the game state is normal or inventory
 			if !GAME_STATE == "DEAD":
