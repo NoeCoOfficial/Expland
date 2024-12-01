@@ -45,7 +45,7 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-@icon("res://Textures/Icons/Script Icons/32x32/window_dialogue.png")
+@icon("res://Textures/Icons/Script Icons/32x32/ui_toolbar.png")
 extends Control
 
 func _ready() -> void:
@@ -58,27 +58,21 @@ func _ready() -> void:
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Exit") and PauseManager.is_inside_alert:
-		despawnAlert(0.5)
+		despawnAchievements(0.5)
 
-func spawnAlert(title : String, text : String, textFontSize : int, animationTime : float):
-	PauseManager.is_inside_alert = true
-	$MainLayer/Title.text = title
-	$MainLayer/ScrollContainer/VBoxContainer/Text.text = text
-	$MainLayer/ScrollContainer/VBoxContainer/Text.add_theme_font_size_override("font_size", textFontSize)
-	
+func spawnAchievements(animationTime : float):
 	self.visible = true
 	
 	var tween = get_tree().create_tween().set_parallel()
 	tween.tween_property($MainLayer, "scale", Vector2(1.0, 1.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-	tween.tween_property($GreyLayer, "modulate", Color(1, 1, 1, 1), 0.3)
+	tween.tween_property($GreyLayer, "modulate", Color(1, 1, 1, 1), animationTime)
 
-func despawnAlert(animationTime : float):
-	PauseManager.is_inside_alert = false
+func despawnAchievements(animationTime : float):
 	var tween = get_tree().create_tween().set_parallel()
 	tween.tween_property($MainLayer, "scale", Vector2(0.0, 0.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-	tween.tween_property($GreyLayer, "modulate", Color(1, 1, 1, 0), 0.3)
+	tween.tween_property($GreyLayer, "modulate", Color(1, 1, 1, 0), animationTime)
 	
-	await get_tree().create_timer(0.3).timeout
+	await get_tree().create_timer(animationTime).timeout
 	
 	self.visible = false
 
@@ -91,4 +85,4 @@ func _on_close_button_mouse_entered() -> void:
 	tween.tween_property($MainLayer/CloseButton, "scale", Vector2(1.15, 1.15), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func _on_close_button_pressed() -> void:
-	despawnAlert(0.5)
+	despawnAchievements(0.5)

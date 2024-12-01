@@ -80,18 +80,8 @@ offset_top = 162.0
 offset_right = 735.0
 offset_bottom = 533.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainLayer/ScrollContainer"]
+[node name="GridContainer" type="GridContainer" parent="MainLayer/ScrollContainer"]
 layout_mode = 2
-alignment = 1
-
-[node name="Text" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(300, 340)
-layout_mode = 2
-theme = ExtResource("5_8ki5k")
-theme_override_font_sizes/font_size = 18
-text = "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
-horizontal_alignment = 1
-autowrap_mode = 3
 
 [node name="Title" type="Label" parent="MainLayer"]
 layout_mode = 1
@@ -106,7 +96,7 @@ grow_horizontal = 2
 theme = ExtResource("5_8ki5k")
 theme_override_fonts/font = ExtResource("6_x5w8t")
 theme_override_font_sizes/font_size = 35
-text = "Text"
+text = "Achievements"
 horizontal_alignment = 1
 vertical_alignment = 1
 
