@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=42 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="PackedScene" uid="uid://jb61th5px5nt" path="res://Assets/3D Models/Tests/Island/Island 2.blend" id="2_0llf6"]
@@ -28,6 +28,7 @@
 [ext_resource type="StyleBox" uid="uid://com3tix0pshhk" path="res://Resources/Styles and Themes/Styles/Default/Label/Default_Label.tres" id="15_8lpeu"]
 [ext_resource type="Texture2D" uid="uid://ddboyvj4u3hwq" path="res://Textures/Icons/PadlockWhite_Icon.png" id="16_3n0bi"]
 [ext_resource type="PackedScene" uid="uid://djenc4llne53s" path="res://Scenes and Scripts/Scenes/Credits/CreditsLayer.tscn" id="19_0ti8x"]
+[ext_resource type="PackedScene" uid="uid://b7la7o37o5gld" path="res://Scenes and Scripts/Scenes/Achievements/AchievementsUI.tscn" id="19_gyuud"]
 
 [sub_resource type="Animation" id="Animation_6cyol"]
 length = 0.001
@@ -730,6 +731,9 @@ disabled = true
 position = Vector2(98, 479)
 scale = Vector2(0.0927734, 0.0927734)
 texture = ExtResource("16_3n0bi")
+
+[node name="AchievementsUI" parent="Camera3D/MainLayer" instance=ExtResource("19_gyuud")]
+visible = false
 
 [node name="CreditsLayer" parent="Camera3D/MainLayer" instance=ExtResource("19_0ti8x")]
 visible = false
