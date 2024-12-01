@@ -128,6 +128,8 @@ func _input(_event: InputEvent) -> void:
 			deSpawnGameModeMenu()
 		if PauseManager.is_inside_settings:
 			$Camera3D/MainLayer/SettingsUI.closeSettings()
+		if PauseManager.is_inside_achievements_ui:
+			$Camera3D/MainLayer/AchievementsUI.despawnAchievements(0.5)
 
 ######################################
 # PlayButton animations and functions
@@ -280,9 +282,8 @@ func on_free_mode_fade_finished():
 func _on_play_parkour_mode_button_pressed() -> void:
 	pass
 
-
 func _on_achievements_button_pressed() -> void:
-	pass
+	$Camera3D/MainLayer/AchievementsUI.spawnAchievements(0.5)
 
 func _on_credits_button_pressed() -> void:
 	$Camera3D/MainLayer/CreditsLayer.spawnAlert(0.5)
