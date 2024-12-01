@@ -455,7 +455,6 @@ offset_bottom = -532.0
 visible = false
 
 [node name="PauseLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="GreyLayer" type="ColorRect" parent="Head/Camera3D/PauseLayer"]
 anchors_preset = 15
@@ -571,9 +570,9 @@ autowrap_mode = 3
 
 [node name="StartDebugging_Btn" type="Button" parent="Head/Camera3D/PauseLayer"]
 anchors_preset = -1
-anchor_left = 0.859375
+anchor_left = 0.0121528
 anchor_top = 0.910494
-anchor_right = 0.980035
+anchor_right = 0.132813
 anchor_bottom = 0.975309
 grow_horizontal = 2
 grow_vertical = 2
