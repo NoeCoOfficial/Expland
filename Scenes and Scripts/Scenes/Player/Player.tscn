@@ -582,6 +582,8 @@ text = "START DEBUGGING"
 script = ExtResource("16_wg7d4")
 metadata/_edit_use_anchors_ = true
 
+[node name="AchievementsLayer" type="CanvasLayer" parent="Head/Camera3D"]
+
 [node name="SettingsLayer" type="CanvasLayer" parent="Head/Camera3D"]
 visible = false
 
