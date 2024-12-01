@@ -42,10 +42,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -192.0
-offset_top = -235.5
-offset_right = 192.0
-offset_bottom = 235.5
+offset_left = -346.0
+offset_top = -247.5
+offset_right = 346.0
+offset_bottom = 247.5
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
@@ -56,15 +56,15 @@ script = ExtResource("2_jb8yw")
 
 [node name="TextBG" type="Button" parent="MainLayer"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.327257
-anchor_top = 0.150463
-anchor_right = 0.672743
-anchor_bottom = 0.849537
-offset_left = 22.9999
-offset_top = 51.5
-offset_right = -23.9999
-offset_bottom = -5.5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -330.0
+offset_top = -186.0
+offset_right = 331.0
+offset_bottom = 234.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
@@ -88,28 +88,39 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -127.5
-offset_top = 101.0
-offset_right = 127.5
-offset_bottom = 142.0
+offset_left = -130.0
+offset_top = 88.0
+offset_right = 130.0
+offset_bottom = 135.0
 grow_horizontal = 2
 theme = ExtResource("5_8ki5k")
 theme_override_fonts/font = ExtResource("6_x5w8t")
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 40
 text = "Achievements"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CloseButton" type="TextureButton" parent="MainLayer"]
-layout_mode = 0
-anchor_left = 0.348958
-anchor_top = 0.157407
-anchor_right = 0.381076
-anchor_bottom = 0.214506
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.210069
+anchor_top = 0.135802
+anchor_right = 0.242187
+anchor_bottom = 0.192901
+offset_right = 8.00003
+offset_bottom = 7.99983
 texture_normal = ExtResource("7_4a01g")
 ignore_texture_size = true
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
+
+[node name="spawnbutton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 39.0
+offset_right = 69.0
+offset_bottom = 102.0
+text = "spawn"
 
 [connection signal="mouse_entered" from="MainLayer/CloseButton" to="." method="_on_close_button_mouse_entered"]
 [connection signal="mouse_exited" from="MainLayer/CloseButton" to="." method="_on_close_button_mouse_exited"]
