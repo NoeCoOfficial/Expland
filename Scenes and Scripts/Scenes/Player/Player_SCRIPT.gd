@@ -219,23 +219,11 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		GAME_STATE = "NORMAL" # set the game state to normal (so the player can move. This won't save to the file)
 		inventory_opened_in_air = false  # Reset the flag when inventory is closed
 		
-	if Input.is_action_just_pressed("Exit") and !PauseManager.is_paused and GAME_STATE == "NORMAL" and !PauseManager.is_inside_alert and !PauseManager.is_inside_achievements_ui and !PauseManager.is_inside_credits and !PauseManager.is_inside_settings:
-		pauseGame()
-	
-	if Input.is_action_just_pressed("Exit") and PauseManager.is_paused and !PauseManager.is_inside_alert and !PauseManager.is_inside_achievements_ui and !PauseManager.is_inside_credits and !PauseManager.is_inside_settings:
-		resumeGame()
 		
-	if Input.is_action_just_pressed("Exit") and PauseManager.is_inside_settings and !transitioning_to_menu:
-		$Head/Camera3D/SettingsLayer/SettingsUI.closeSettings()
 		
-	if Input.is_action_just_pressed("Exit") and PauseManager.is_inside_achievements_ui:
-		$Head/Camera3D/AchievementsLayer/AchievementsUI.despawnAchievements(0.5)
+		# TODO: FIX EXIT INPUT LOGIC
 		
-	if Input.is_action_just_pressed("Exit") and PauseManager.is_inside_credits:
-		$Head/Camera3D/CreditsLayer/CreditsLayer.despawnCredits(0.5)
 		
-	if Input.is_action_just_pressed("Exit") and PauseManager.is_inside_alert:
-		$Head/Camera3D/AlertLayer/AlertLayer.despawnAlert(0.5)
 		
 	if Input.is_action_just_pressed("Quit") and Quit == true and OS.has_feature("debug"): # if the Quit input is pressed and the Quit variable is true
 		if GAME_STATE == "NORMAL" or "INVENTORY": # if the game state is normal or inventory
