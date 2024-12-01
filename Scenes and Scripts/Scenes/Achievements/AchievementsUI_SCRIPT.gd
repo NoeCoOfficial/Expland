@@ -61,6 +61,7 @@ func _input(_event: InputEvent) -> void:
 		despawnAchievements(0.5)
 
 func spawnAchievements(animationTime : float):
+	PauseManager.is_inside_achievements_ui = true
 	self.visible = true
 	
 	var tween = get_tree().create_tween().set_parallel()
@@ -68,6 +69,7 @@ func spawnAchievements(animationTime : float):
 	tween.tween_property($GreyLayer, "modulate", Color(1, 1, 1, 1), animationTime)
 
 func despawnAchievements(animationTime : float):
+	PauseManager.is_inside_achievements_ui = false
 	var tween = get_tree().create_tween().set_parallel()
 	tween.tween_property($MainLayer, "scale", Vector2(0.0, 0.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	tween.tween_property($GreyLayer, "modulate", Color(1, 1, 1, 0), animationTime)
