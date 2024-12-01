@@ -80,7 +80,7 @@ offset_top = 162.0
 offset_right = 735.0
 offset_bottom = 533.0
 
-[node name="GridContainer" type="GridContainer" parent="MainLayer/ScrollContainer"]
+[node name="UI" type="Control" parent="MainLayer/ScrollContainer"]
 layout_mode = 2
 
 [node name="Title" type="Label" parent="MainLayer"]
