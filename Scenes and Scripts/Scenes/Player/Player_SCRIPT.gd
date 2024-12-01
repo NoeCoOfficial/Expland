@@ -212,21 +212,27 @@ var is_crouching = false
 
 func _input(_event): # A built-in function that listens for input using the input map
 	
-	if Input.is_action_just_pressed("Exit") and GAME_STATE == "INVENTORY":
+	if Input.is_action_just_pressed("Exit") and GAME_STATE == "INVENTORY"  and !PauseManager.is_inside_achievements_ui and !PauseManager.is_inside_alert and !PauseManager.is_inside_credits:
 		$Head/Camera3D/InventoryLayer.hide() # hide the inventory UI
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor
 		Utils.center_mouse_cursor() # center the mouse cursor
 		GAME_STATE = "NORMAL" # set the game state to normal (so the player can move. This won't save to the file)
 		inventory_opened_in_air = false  # Reset the flag when inventory is closed
 		
-	elif Input.is_action_just_pressed("Exit") and Pause == true and !PauseManager.is_inside_settings and !DialogueManager.is_in_absolute_interface:
+	elif Input.is_action_just_pressed("Exit") and Pause == true and !PauseManager.is_inside_settings and !DialogueManager.is_in_absolute_interface and !PauseManager.is_inside_achievements_ui and !PauseManager.is_inside_alert and !PauseManager.is_inside_credits:
 		if $Head/Camera3D/PauseLayer.is_visible() == true:
 			resumeGame()
 		else:
 			pauseGame()
 	
-	elif Input.is_action_just_pressed("Exit") and PauseManager.is_inside_settings and !transitioning_to_menu:
+	elif Input.is_action_just_pressed("Exit") and PauseManager.is_inside_settings and !transitioning_to_menu  and !PauseManager.is_inside_achievements_ui and !PauseManager.is_inside_alert and !PauseManager.is_inside_credits:
 		$Head/Camera3D/SettingsLayer/SettingsUI.closeSettings()
+	
+	elif Input.is_action_just_pressed("Exit") and PauseManager.is_inside_achievements_ui and !PauseManager.is_inside_alert and !PauseManager.is_inside_credits:
+		$Head/Camera3D/AchievementsLayer/AchievementsUI.despawnAchievements(0.5)
+	
+	elif Input.is_action_just_pressed("Exit") and PauseManager.is_inside_alert and !PauseManager.is_inside_achievements_ui and !PauseManager.is_inside_credits:
+		$Head/Camera3D/AlertLayer/AlertLayer.despawnAlert(0.5)
 	
 	if Input.is_action_just_pressed("Quit") and Quit == true and OS.has_feature("debug"): # if the Quit input is pressed and the Quit variable is true
 		if GAME_STATE == "NORMAL" or "INVENTORY": # if the game state is normal or inventory
