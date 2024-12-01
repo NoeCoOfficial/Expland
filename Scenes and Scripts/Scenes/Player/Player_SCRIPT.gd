@@ -170,10 +170,12 @@ var is_crouching = false
 ######################################
 
 @export_group("Body parts")
+
 @export var head : Node3D
 @export var camera : Camera3D
 
 @export_group("Inventory")
+
 @export var Slot1_Ref : StaticBody2D
 @export var Slot2_Ref : StaticBody2D
 @export var Slot3_Ref : StaticBody2D
@@ -185,6 +187,7 @@ var is_crouching = false
 @export var Slot9_Ref : StaticBody2D
 
 @export_group("Debug")
+
 @export var Inventory_Item_Ref_Label : Label
 @export var Is_Raycast_Colliding_Label : Label
 @export var Is_Inside_Settings_Label : Label
