@@ -330,7 +330,7 @@ ITEM_TYPE = "ROCK"
 
 [node name="Dropable7" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("9_w7on1")]
 position = Vector2(575, 345)
-ITEM_TYPE = "REDFLOWER"
+ITEM_TYPE = "BLUEFLOWER"
 
 [node name="Dropable8" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("9_w7on1")]
 position = Vector2(469, 345)
