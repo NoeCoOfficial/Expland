@@ -286,4 +286,4 @@ func _on_achievements_button_pressed() -> void:
 	$Camera3D/MainLayer/AchievementsUI.spawnAchievements(0.5)
 
 func _on_credits_button_pressed() -> void:
-	$Camera3D/MainLayer/CreditsLayer.spawnAlert(0.5)
+	$Camera3D/MainLayer/CreditsLayer.spawnCredits(0.5)

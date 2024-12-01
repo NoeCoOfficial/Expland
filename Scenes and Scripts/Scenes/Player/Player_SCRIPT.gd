@@ -661,10 +661,10 @@ func _on_settings_btn_pressed():
 	openSettings()
 
 func _on_achievements_button_pressed() -> void:
-	pass # Replace with function body.
+	$Head/Camera3D/AchievementsLayer/AchievementsUI.spawnAchievements(0.5)
 
 func _on_credits_button_pressed() -> void:
-	pass # Replace with function body.
+	$Head/Camera3D/CreditsLayer/CreditsLayer.spawnCredits(0.5)
 
 ######################################
 # Settings

@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=43 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -26,6 +26,7 @@
 [ext_resource type="StyleBox" uid="uid://com3tix0pshhk" path="res://Resources/Styles and Themes/Styles/Default/Label/Default_Label.tres" id="21_k6ube"]
 [ext_resource type="PackedScene" uid="uid://ynckscwc0643" path="res://Scenes and Scripts/Scenes/Alert/AlertLayer.tscn" id="21_r1ny7"]
 [ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="22_7sfup"]
+[ext_resource type="PackedScene" uid="uid://djenc4llne53s" path="res://Scenes and Scripts/Scenes/Credits/CreditsLayer.tscn" id="24_qhsvo"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_w6tro"]
 
@@ -654,6 +655,9 @@ text = "CREDITS"
 visible = false
 
 [node name="CreditsLayer" type="CanvasLayer" parent="Head/Camera3D"]
+
+[node name="CreditsLayer" parent="Head/Camera3D/CreditsLayer" instance=ExtResource("24_qhsvo")]
+visible = false
 
 [node name="SettingsLayer" type="CanvasLayer" parent="Head/Camera3D"]
 visible = false

@@ -58,9 +58,9 @@ func _ready() -> void:
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Exit") and PauseManager.is_inside_credits:
-		despawnAlert(0.5)
+		despawnCredits(0.5)
 
-func spawnAlert(animationTime : float):
+func spawnCredits(animationTime : float):
 	PauseManager.is_inside_credits = true
 	
 	self.visible = true
@@ -69,7 +69,7 @@ func spawnAlert(animationTime : float):
 	tween.tween_property($MainLayer, "scale", Vector2(1.0, 1.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	tween.tween_property($GreyLayer, "modulate", Color(1, 1, 1, 1), animationTime)
 
-func despawnAlert(animationTime : float):
+func despawnCredits(animationTime : float):
 	PauseManager.is_inside_credits = false
 	var tween = get_tree().create_tween().set_parallel()
 	tween.tween_property($MainLayer, "scale", Vector2(0.0, 0.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
@@ -88,7 +88,7 @@ func _on_close_button_mouse_entered() -> void:
 	tween.tween_property($MainLayer/CloseButton, "scale", Vector2(1.15, 1.15), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func _on_close_button_pressed() -> void:
-	despawnAlert(0.5)
+	despawnCredits(0.5)
 
 
 func _on_open_authors_md_pressed() -> void:
