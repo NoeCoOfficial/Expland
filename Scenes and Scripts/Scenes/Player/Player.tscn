@@ -452,6 +452,7 @@ offset_bottom = -532.0
 [node name="DialogueLayer" type="CanvasLayer" parent="Head/Camera3D"]
 
 [node name="DialogueInterface" parent="Head/Camera3D/DialogueLayer" instance=ExtResource("17_pkmg7")]
+visible = false
 
 [node name="PauseLayer" type="CanvasLayer" parent="Head/Camera3D"]
 visible = false
