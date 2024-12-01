@@ -116,7 +116,7 @@ grow_vertical = 0
 theme = ExtResource("4_ucycy")
 theme_override_fonts/font = ExtResource("6_b65nx")
 theme_override_font_sizes/font_size = 25
-text = "Gavin"
+text = "Person"
 
 [node name="Message" type="Label" parent="DialogueBox"]
 layout_mode = 1
@@ -134,7 +134,7 @@ grow_vertical = 0
 theme = ExtResource("4_ucycy")
 theme_override_fonts/font = ExtResource("5_0d6dj")
 theme_override_font_sizes/font_size = 23
-text = "Wow this is totally awesome text!"
+text = "Message"
 autowrap_mode = 3
 
 [node name="Notice" type="Label" parent="DialogueBox"]
