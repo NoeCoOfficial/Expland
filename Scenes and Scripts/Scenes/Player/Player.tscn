@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=36 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://du1ak3ldg8x4e" path="res://Scenes and Scripts/Scenes/Dialogue/DialogueInterface.tscn" id="17_pkmg7"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="17_rhxkt"]
 [ext_resource type="PackedScene" uid="uid://ceabjbnv3nnyr" path="res://Scenes and Scripts/Scenes/Settings/SettingsUI.tscn" id="19_kj00b"]
+[ext_resource type="PackedScene" uid="uid://b7la7o37o5gld" path="res://Scenes and Scripts/Scenes/Achievements/AchievementsUI.tscn" id="20_3vll1"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Debug/Inputs_currently_pressing_label_SCRIPT.gd" id="20_bmbkh"]
 [ext_resource type="PackedScene" uid="uid://ynckscwc0643" path="res://Scenes and Scripts/Scenes/Alert/AlertLayer.tscn" id="21_r1ny7"]
 
@@ -584,6 +585,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="AchievementsLayer" type="CanvasLayer" parent="Head/Camera3D"]
 
+[node name="AchievementsUI" parent="Head/Camera3D/AchievementsLayer" instance=ExtResource("20_3vll1")]
+visible = false
+
 [node name="SettingsLayer" type="CanvasLayer" parent="Head/Camera3D"]
 visible = false
 
@@ -639,6 +643,7 @@ metadata/_edit_use_anchors_ = true
 [node name="AlertLayer" type="CanvasLayer" parent="Head/Camera3D"]
 
 [node name="AlertLayer" parent="Head/Camera3D/AlertLayer" instance=ExtResource("21_r1ny7")]
+visible = false
 
 [node name="DebugLayer" type="CanvasLayer" parent="Head/Camera3D"]
 visible = false
