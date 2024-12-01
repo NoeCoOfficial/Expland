@@ -641,7 +641,7 @@ func delete_pickup_object(pickupobj):
 		pickupobj.queue_free()
 
 ######################################
-# Pausing
+# Pause functionality and layer
 ######################################
 
 func pauseGame():
@@ -659,6 +659,12 @@ func _on_resume_btn_pressed():
 
 func _on_settings_btn_pressed():
 	openSettings()
+
+func _on_achievements_button_pressed() -> void:
+	pass # Replace with function body.
+
+func _on_credits_button_pressed() -> void:
+	pass # Replace with function body.
 
 ######################################
 # Settings
