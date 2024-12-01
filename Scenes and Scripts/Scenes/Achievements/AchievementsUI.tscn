@@ -125,3 +125,4 @@ text = "spawn"
 [connection signal="mouse_entered" from="MainLayer/CloseButton" to="." method="_on_close_button_mouse_entered"]
 [connection signal="mouse_exited" from="MainLayer/CloseButton" to="." method="_on_close_button_mouse_exited"]
 [connection signal="pressed" from="MainLayer/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="spawnbutton" to="." method="_on_spawnbutton_pressed"]

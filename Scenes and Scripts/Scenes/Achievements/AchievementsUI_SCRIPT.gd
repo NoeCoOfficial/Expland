@@ -86,3 +86,7 @@ func _on_close_button_mouse_entered() -> void:
 
 func _on_close_button_pressed() -> void:
 	despawnAchievements(0.5)
+
+
+func _on_spawnbutton_pressed() -> void:
+	spawnAchievements(0.5)
