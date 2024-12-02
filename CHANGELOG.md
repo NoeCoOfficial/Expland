@@ -1,6 +1,10 @@
 <h1 align="center">Expland Changelog</h1>
 
+# Player
+#### Fixed:
+- Fixed health value not loading (#39)
 # Settings
+
 #### Added:
 - Option to show the startup screen upon opening on or off
 - Option to turn Motion Blur on or off
@@ -15,10 +19,6 @@
 # Environment
 #### Added:
 - Added spike to testing area, which when touched by the player, takes away 14 health
-
-# Player
-#### Fixed:
-- Fixed health value not loading (#39)
 
 # Inventory
 
