@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b66fgii8p0soi"]
+
+[ext_resource type="Texture2D" uid="uid://bd48dxte7wdtr" path="res://Resources/Materials/PicaxeColor.png" id="1_47gfe"]
+
+[resource]
+albedo_texture = ExtResource("1_47gfe")
