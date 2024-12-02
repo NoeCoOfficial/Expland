@@ -48,23 +48,22 @@
 @icon("res://Textures/Icons/Script Icons/32x32/settings_gear.png")
 extends Control
 
-@export var greyOverlay : ColorRect
 
 func nodeSetup():
-	$SettingsTabContainer/General/SSCSwitch.button_pressed = PlayerSettingsData.showStartupScreen
+	$MainLayer/SettingsTabContainer/General/SSCSwitch.button_pressed = PlayerSettingsData.showStartupScreen
 	
-	$SettingsTabContainer/Graphics/MotionBlurSwitch.button_pressed = PlayerSettingsData.MotionBlur
-	$SettingsTabContainer/Graphics/DOFBlurSwitch.button_pressed = PlayerSettingsData.DOFBlur
+	$MainLayer/SettingsTabContainer/Graphics/MotionBlurSwitch.button_pressed = PlayerSettingsData.MotionBlur
+	$MainLayer/SettingsTabContainer/Graphics/DOFBlurSwitch.button_pressed = PlayerSettingsData.DOFBlur
 
-	$SettingsTabContainer/Video/FOVSlider.value = PlayerSettingsData.FOV
-	$SettingsTabContainer/Sound/MasterSlider.value = PlayerSettingsData.Master_Volume
-	$SettingsTabContainer/Sound/MusicSlider.value = PlayerSettingsData.music_Volume
-	$SettingsTabContainer/Sound/SFXSlider.value = PlayerSettingsData.sfx_Volume
+	$MainLayer/SettingsTabContainer/Video/FOVSlider.value = PlayerSettingsData.FOV
+	$MainLayer/SettingsTabContainer/Sound/MasterSlider.value = PlayerSettingsData.Master_Volume
+	$MainLayer/SettingsTabContainer/Sound/MusicSlider.value = PlayerSettingsData.music_Volume
+	$MainLayer/SettingsTabContainer/Sound/SFXSlider.value = PlayerSettingsData.sfx_Volume
 
 func _ready() -> void:
 	if !OS.has_feature("debug"):
 		$SaveSettings.hide()
-	greyOverlay.visible = false
+	
 	Utils.set_center_offset(self)
 	self.scale = Vector2(0.0, 0.0)
 	self.visible = false
@@ -73,25 +72,23 @@ func _ready() -> void:
 	nodeSetup()
 
 func _process(_delta: float) -> void:
-	$SettingsTabContainer/Video/FOVValue.text = str(PlayerSettingsData.FOV)
-	$SettingsTabContainer/Sound/MasterValue.text = str(int(PlayerSettingsData.Master_Volume * 100))
-	$SettingsTabContainer/Sound/MusicValue.text = str(int(PlayerSettingsData.music_Volume * 100))
-	$SettingsTabContainer/Sound/SFXValue.text = str(int(PlayerSettingsData.sfx_Volume * 100))
+	$MainLayer/SettingsTabContainer/Video/FOVValue.text = str(PlayerSettingsData.FOV)
+	$MainLayer/SettingsTabContainer/Sound/MasterValue.text = str(int(PlayerSettingsData.Master_Volume * 100))
+	$MainLayer/SettingsTabContainer/Sound/MusicValue.text = str(int(PlayerSettingsData.music_Volume * 100))
+	$MainLayer/SettingsTabContainer/Sound/SFXValue.text = str(int(PlayerSettingsData.sfx_Volume * 100))
 
 func openSettings(animationTime : float):
 	PlayerSettingsData.loadSettings()
 	PauseManager.is_inside_settings = true
-	showOverlay(true, 0.2)
 	self.visible = true
 	
 	var tween = get_tree().create_tween().set_parallel()
 	
-	tween.tween_property(self, "scale", Vector2(1.0, 1.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property($MainLayer, "scale", Vector2(1.0, 1.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	
 
 func closeSettings(animationTime : float):
 	PauseManager.is_inside_settings = false
-	hideOverlay(true, 0.2)
 	PlayerSettingsData.saveSettings()
 	
 	var tween = get_tree().create_tween().set_parallel()
@@ -102,26 +99,6 @@ func closeSettings(animationTime : float):
 	await get_tree().create_timer(animationTime).timeout
 	
 	self.visible = false
-
-func showOverlay(withFade : bool, fadeTime : float):
-	if withFade:
-		greyOverlay.visible = true
-		greyOverlay.self_modulate = Color(1, 1, 1, 0)
-		var tween = get_tree().create_tween()
-		tween.tween_property(greyOverlay, "self_modulate", Color(1, 1, 1, 1), fadeTime)
-	else:
-		greyOverlay.visible = true
-		greyOverlay.self_modulate = Color(1, 1, 1, 1)
-
-func hideOverlay(withFade : bool, fadeTime : float):
-	if withFade:
-		var tween = get_tree().create_tween()
-		tween.tween_property(greyOverlay, "self_modulate", Color(1, 1, 1, 0), fadeTime)
-		tween.tween_property(greyOverlay, "visible", false, 0)
-	else:
-		greyOverlay.visible = false
-		greyOverlay.self_modulate = Color(1, 1, 1, 0)
-
 
 func _on_exit_settings_button_pressed() -> void:
 	closeSettings(0.5)
