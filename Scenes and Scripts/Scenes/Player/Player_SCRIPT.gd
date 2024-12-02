@@ -220,7 +220,9 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		inventory_opened_in_air = false  # Reset the flag when inventory is closed
 	
 	if Input.is_action_just_pressed("Exit"):
+		
 		if PauseManager.is_paused:
+			
 			if !PauseManager.is_inside_settings and !PauseManager.is_inside_achievements_ui and !PauseManager.is_inside_credits and !PauseManager.is_inside_alert:
 				resumeGame()
 			
@@ -229,8 +231,16 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			
 			if PauseManager.is_inside_achievements_ui:
 				$Head/Camera3D/AchievementsLayer/AchievementsUI.despawnAchievements(0.5)
+			
+			if PauseManager.is_inside_alert:
+				$Head/Camera3D/AlertLayer/AlertLayer.despawnAlert(0.5)
+			
+			if PauseManager.is_inside_credits:
+				$Head/Camera3D/CreditsLayer/CreditsLayer.despawnCredits(0.5)
+			
 		else:
-			pass
+			if !DialogueManager.is_in_absolute_interface and !InventoryManager.inventory_open and !PauseManager.is_inside_alert:
+				pauseGame()
 	
 	
 	# TODO: FIX EXIT INPUT LOGIC

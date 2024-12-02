@@ -477,9 +477,8 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.643)
 script = ExtResource("10_y68f7")
 
-[node name="SettingsUI" parent="Camera3D/MainLayer" node_paths=PackedStringArray("greyOverlay") instance=ExtResource("10_i36v3")]
+[node name="SettingsUI" parent="Camera3D/MainLayer" instance=ExtResource("10_i36v3")]
 visible = false
-greyOverlay = NodePath("../GreyLayer")
 
 [node name="GreyLayerGamemodeLayer" type="ColorRect" parent="Camera3D/MainLayer"]
 visible = false
