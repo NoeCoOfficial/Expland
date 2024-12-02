@@ -664,7 +664,7 @@ func _on_resume_btn_pressed():
 	resumeGame()
 
 func _on_settings_btn_pressed():
-	$Head/Camera3D/SettingsLayer/SettingsUI.openSettings()
+	$Head/Camera3D/SettingsLayer/SettingsUI.openSettings(0.5)
 
 func _on_achievements_button_pressed() -> void:
 	$Head/Camera3D/AchievementsLayer/AchievementsUI.spawnAchievements(0.5)

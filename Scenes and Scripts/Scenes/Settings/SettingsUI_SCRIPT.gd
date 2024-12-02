@@ -78,20 +78,20 @@ func _process(_delta: float) -> void:
 	$SettingsTabContainer/Sound/MusicValue.text = str(int(PlayerSettingsData.music_Volume * 100))
 	$SettingsTabContainer/Sound/SFXValue.text = str(int(PlayerSettingsData.sfx_Volume * 100))
 
-func openSettings():
+func openSettings(animationTime : float):
 	PlayerSettingsData.loadSettings()
 	PauseManager.is_inside_settings = true
 	showOverlay(true, 0.2)
 	self.visible = true
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "scale", Vector2(1.0, 1.0), 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(self, "scale", Vector2(1.0, 1.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
-func closeSettings():
+func closeSettings(animationTime : float):
 	PauseManager.is_inside_settings = false
 	hideOverlay(true, 0.2)
 	PlayerSettingsData.saveSettings()
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "scale", Vector2(0.0, 0.0), 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(self, "scale", Vector2(0.0, 0.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	tween.tween_property(self, "visible", false, 0.0)
 
 
@@ -116,7 +116,7 @@ func hideOverlay(withFade : bool, fadeTime : float):
 
 
 func _on_exit_settings_button_pressed() -> void:
-	closeSettings()
+	closeSettings(0.5)
 
 func _on_fov_slider_value_changed(value: float) -> void:
 	PlayerSettingsData.FOV = value

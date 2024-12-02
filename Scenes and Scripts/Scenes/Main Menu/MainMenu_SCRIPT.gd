@@ -222,7 +222,7 @@ func _on_settings_button_trigger_button_down() -> void:
 
 func _on_settings_button_trigger_pressed() -> void:
 	if !PauseManager.is_inside_settings:
-		$Camera3D/MainLayer/SettingsUI.openSettings()
+		$Camera3D/MainLayer/SettingsUI.openSettings(0.5)
 
 ######################################
 # QuitButton animations and functions
