@@ -82,7 +82,9 @@ func _process(_delta: float) -> void:
 func openSettings(animationTime : float):
 	PlayerSettingsData.loadSettings()
 	PauseManager.is_inside_settings = true
+	
 	self.visible = true
+	
 	
 	var tween = get_tree().create_tween().set_parallel()
 	
@@ -95,7 +97,10 @@ func closeSettings(animationTime : float):
 	PlayerSettingsData.saveSettings()
 	
 	var tween = get_tree().create_tween().set_parallel()
+	
 	tween.tween_property($MainLayer, "scale", Vector2(0.0, 0.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property($GreyLayer, "modulate", Color(1, 1, 1, 0), animationTime)
+
 	
 	await get_tree().create_timer(animationTime).timeout
 	
