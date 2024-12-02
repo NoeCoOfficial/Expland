@@ -64,8 +64,8 @@ func _ready() -> void:
 	if !OS.has_feature("debug"):
 		$SaveSettings.hide()
 	
-	Utils.set_center_offset(self)
-	self.scale = Vector2(0.0, 0.0)
+	Utils.set_center_offset($MainLayer)
+	$MainLayer.scale = Vector2(0.0, 0.0)
 	self.visible = false
 	
 	PlayerSettingsData.loadSettings()
@@ -92,9 +92,7 @@ func closeSettings(animationTime : float):
 	PlayerSettingsData.saveSettings()
 	
 	var tween = get_tree().create_tween().set_parallel()
-	tween.tween_property(self, "scale", Vector2(0.0, 0.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-	
-	
+	tween.tween_property($MainLayer, "scale", Vector2(0.0, 0.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	
 	await get_tree().create_timer(animationTime).timeout
 	
