@@ -1,4 +1,5 @@
 <h1 align="center">Expland Changelog</h1>
+
 # Settings
 #### Added:
 - Option to show the startup screen upon opening on or off
