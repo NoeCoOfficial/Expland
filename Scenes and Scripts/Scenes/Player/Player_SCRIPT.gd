@@ -221,6 +221,12 @@ func _input(_event): # A built-in function that listens for input using the inpu
 	
 	if Input.is_action_just_pressed("Exit"):
 		if PauseManager.is_paused:
+			if !PauseManager.is_inside_settings and !PauseManager.is_inside_achievements_ui and !PauseManager.is_inside_credits and !PauseManager.is_inside_alert:
+				resumeGame()
+			if PauseManager.is_inside_settings:
+				pass
+				
+		else:
 			pass
 	
 	
@@ -658,21 +664,13 @@ func _on_resume_btn_pressed():
 	resumeGame()
 
 func _on_settings_btn_pressed():
-	openSettings()
+	$Head/Camera3D/SettingsLayer/SettingsUI.openSettings()
 
 func _on_achievements_button_pressed() -> void:
 	$Head/Camera3D/AchievementsLayer/AchievementsUI.spawnAchievements(0.5)
 
 func _on_credits_button_pressed() -> void:
 	$Head/Camera3D/CreditsLayer/CreditsLayer.spawnCredits(0.5)
-
-######################################
-# Settings
-######################################
-
-func openSettings():
-	$Head/Camera3D/SettingsLayer.visible = true
-	$Head/Camera3D/SettingsLayer/SettingsUI.openSettings()
 
 ######################################
 # Saving
