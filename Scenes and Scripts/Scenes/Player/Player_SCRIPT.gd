@@ -241,6 +241,8 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		else:
 			if !DialogueManager.is_in_absolute_interface and !InventoryManager.inventory_open and !PauseManager.is_inside_alert:
 				pauseGame()
+			if InventoryManager.inventory_open:
+				closeInventory()
 	
 	
 	# TODO: FIX EXIT INPUT LOGIC
