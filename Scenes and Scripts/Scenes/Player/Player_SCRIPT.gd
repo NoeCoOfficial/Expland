@@ -186,6 +186,12 @@ var is_crouching = false
 @export var Slot8_Ref : StaticBody2D
 @export var Slot9_Ref : StaticBody2D
 
+@export_group("General Nodes")
+@export var SettingsUI : Control
+@export var AchievementsUI : Control
+@export var AlertLayer : Control
+@export var CreditsLayer : Control
+
 @export_group("Debug")
 
 @export var Inventory_Item_Ref_Label : Label
