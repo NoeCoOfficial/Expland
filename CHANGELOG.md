@@ -1,20 +1,21 @@
 <h1 align="center">Expland Changelog</h1>
 
-# v0.5.0
+# v0.5.0 (unreleased)
 
-Released: ❌
+### Player
 
----
-
-## Player
 #### Fixed:
+
 - Fixed health value not loading (#39)
+
+
 ## Settings
 
 #### Added:
 - Option to show the startup screen upon opening on or off
 - Option to turn Motion Blur on or off
 - Option to turn DOF effect on or off
+
 #### Changed:
 - Modified UI
 
