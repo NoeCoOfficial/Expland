@@ -218,13 +218,16 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		Utils.center_mouse_cursor() # center the mouse cursor
 		GAME_STATE = "NORMAL" # set the game state to normal (so the player can move. This won't save to the file)
 		inventory_opened_in_air = false  # Reset the flag when inventory is closed
-		
-		
-		
-		# TODO: FIX EXIT INPUT LOGIC
-		
-		
-		
+	
+	if Input.is_action_just_pressed("Exit"):
+		if PauseManager.is_paused:
+			pass
+	
+	
+	# TODO: FIX EXIT INPUT LOGIC
+	
+	
+	
 	if Input.is_action_just_pressed("Quit") and Quit == true and OS.has_feature("debug"): # if the Quit input is pressed and the Quit variable is true
 		if GAME_STATE == "NORMAL" or "INVENTORY": # if the game state is normal or inventory
 			if !GAME_STATE == "DEAD":
