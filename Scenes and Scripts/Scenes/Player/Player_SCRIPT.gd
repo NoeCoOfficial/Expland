@@ -273,9 +273,6 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		elif GAME_STATE == "INVENTORY": # Check if the game state is inventory. If it is, close the inventory
 			closeInventory()
 	
-	if Input.is_action_pressed("Sprint") and !Input.is_action_pressed("Crouch") and !PauseManager.is_paused and GAME_STATE != "INVENTORY" and !DialogueManager.is_in_absolute_interface:
-		pass
-
 func _unhandled_input(event): # A built-in function that listens for input all the time
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
 		if GAME_STATE == "INVENTORY" or PauseManager.is_paused or PauseManager.is_inside_alert or DialogueManager.is_in_interface: # Check if the game state is inventory, or paused, or viewing dialogue.
