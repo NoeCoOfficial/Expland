@@ -223,9 +223,12 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		if PauseManager.is_paused:
 			if !PauseManager.is_inside_settings and !PauseManager.is_inside_achievements_ui and !PauseManager.is_inside_credits and !PauseManager.is_inside_alert:
 				resumeGame()
+			
 			if PauseManager.is_inside_settings:
-				pass
-				
+				$Head/Camera3D/SettingsLayer/SettingsUI.closeSettings(0.5)
+			
+			if PauseManager.is_inside_achievements_ui:
+				$Head/Camera3D/AchievementsLayer/AchievementsUI.despawnAchievements(0.5)
 		else:
 			pass
 	

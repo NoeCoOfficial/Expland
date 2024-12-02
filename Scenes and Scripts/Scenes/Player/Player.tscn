@@ -663,6 +663,7 @@ visible = false
 [node name="SettingsLayer" type="CanvasLayer" parent="Head/Camera3D"]
 
 [node name="SettingsUI" parent="Head/Camera3D/SettingsLayer" instance=ExtResource("19_kj00b")]
+visible = false
 
 [node name="SaveOverlay" type="CanvasLayer" parent="Head/Camera3D"]
 
