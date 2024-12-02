@@ -50,6 +50,8 @@ extends Control
 
 
 func nodeSetup():
+	$GreyLayer.modulate = Color(1, 1, 1, 0)
+	
 	$MainLayer/SettingsTabContainer/General/SSCSwitch.button_pressed = PlayerSettingsData.showStartupScreen
 	
 	$MainLayer/SettingsTabContainer/Graphics/MotionBlurSwitch.button_pressed = PlayerSettingsData.MotionBlur
@@ -85,7 +87,8 @@ func openSettings(animationTime : float):
 	var tween = get_tree().create_tween().set_parallel()
 	
 	tween.tween_property($MainLayer, "scale", Vector2(1.0, 1.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-	
+	tween.tween_property($GreyLayer, "modulate", Color(1, 1, 1, 1), animationTime)
+
 
 func closeSettings(animationTime : float):
 	PauseManager.is_inside_settings = false
