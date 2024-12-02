@@ -31,22 +31,7 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"materials": {
-"@MATERIAL:1": {
-"use_external/enabled": true,
-"use_external/path": "res://Assets/3D Models/Inventory Pickup Items/PickaxeColor.tres"
-},
-"@MATERIAL:2": {
-"use_external/enabled": true,
-"use_external/path": "res://Assets/3D Models/Inventory Pickup Items/PickaxeColor.tres"
-},
-"Material.001": {
-"use_external/enabled": true,
-"use_external/path": "res://Assets/3D Models/Inventory Pickup Items/PickaxeColor.tres"
-}
-}
-}
+_subresources={}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true
