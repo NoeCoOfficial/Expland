@@ -75,7 +75,16 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.643)
 script = ExtResource("2_swx28")
 
-[node name="BG" type="Button" parent="."]
+[node name="MainLayer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="BG" type="Button" parent="MainLayer"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.327257
@@ -94,14 +103,14 @@ theme_override_styles/pressed = ExtResource("3_hcsr3")
 theme_override_styles/normal = ExtResource("3_hcsr3")
 script = ExtResource("2_swx28")
 
-[node name="Divider" type="Line2D" parent="BG"]
+[node name="Divider" type="Line2D" parent="MainLayer/BG"]
 position = Vector2(-2.10114, 58)
 scale = Vector2(1.42778, 1)
 points = PackedVector2Array(278.124, -1, 3.57278, -1)
 width = 1.0
 default_color = Color(0.176419, 0.176419, 0.176419, 1)
 
-[node name="Label" type="Label" parent="BG"]
+[node name="Label" type="Label" parent="MainLayer/BG"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -118,7 +127,7 @@ text = "SETTINGS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SaveSettings" type="Button" parent="."]
+[node name="SaveSettings" type="Button" parent="MainLayer"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 3.152
@@ -133,7 +142,7 @@ focus_mode = 0
 theme = ExtResource("5_8j0xn")
 text = "Save Settings"
 
-[node name="SettingsTabContainer" type="TabContainer" parent="."]
+[node name="SettingsTabContainer" type="TabContainer" parent="MainLayer"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.33724
@@ -141,7 +150,7 @@ anchor_top = 0.161265
 anchor_right = 0.66276
 anchor_bottom = 0.838735
 offset_top = 31.0
-offset_bottom = 31.0
+offset_bottom = 36.9012
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_0ocir")
@@ -149,13 +158,13 @@ theme_override_font_sizes/font_size = 21
 current_tab = 0
 script = ExtResource("2_swx28")
 
-[node name="General" type="TabBar" parent="SettingsTabContainer"]
+[node name="General" type="TabBar" parent="MainLayer/SettingsTabContainer"]
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("2_swx28")
 metadata/_tab_index = 0
 
-[node name="SSCSwitch" type="CheckButton" parent="SettingsTabContainer/General"]
+[node name="SSCSwitch" type="CheckButton" parent="MainLayer/SettingsTabContainer/General"]
 layout_mode = 0
 offset_left = 161.0
 offset_top = 11.0
@@ -164,7 +173,7 @@ offset_bottom = 35.0
 focus_mode = 0
 button_pressed = true
 
-[node name="SSCTTL" type="Label" parent="SettingsTabContainer/General"]
+[node name="SSCTTL" type="Label" parent="MainLayer/SettingsTabContainer/General"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.0346668
@@ -180,14 +189,14 @@ theme_override_font_sizes/font_size = 17
 text = "Show startup screen"
 vertical_alignment = 1
 
-[node name="Graphics" type="TabBar" parent="SettingsTabContainer"]
+[node name="Graphics" type="TabBar" parent="MainLayer/SettingsTabContainer"]
 visible = false
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("2_swx28")
 metadata/_tab_index = 1
 
-[node name="MotionBlurSwitch" type="CheckButton" parent="SettingsTabContainer/Graphics"]
+[node name="MotionBlurSwitch" type="CheckButton" parent="MainLayer/SettingsTabContainer/Graphics"]
 layout_mode = 0
 offset_left = 93.0
 offset_top = 11.0
@@ -196,7 +205,7 @@ offset_bottom = 35.0
 focus_mode = 0
 button_pressed = true
 
-[node name="MotionBlurTTL" type="Label" parent="SettingsTabContainer/Graphics"]
+[node name="MotionBlurTTL" type="Label" parent="MainLayer/SettingsTabContainer/Graphics"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.016
@@ -211,7 +220,7 @@ text = "Motion Blur"
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="DOFBlurSwitch" type="CheckButton" parent="SettingsTabContainer/Graphics"]
+[node name="DOFBlurSwitch" type="CheckButton" parent="MainLayer/SettingsTabContainer/Graphics"]
 layout_mode = 0
 offset_left = 93.0
 offset_top = 43.0
@@ -220,7 +229,7 @@ offset_bottom = 67.0
 focus_mode = 0
 button_pressed = true
 
-[node name="DOFBlurTTL" type="Label" parent="SettingsTabContainer/Graphics"]
+[node name="DOFBlurTTL" type="Label" parent="MainLayer/SettingsTabContainer/Graphics"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0133333
@@ -235,14 +244,14 @@ text = "DOF Blur"
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Video" type="TabBar" parent="SettingsTabContainer"]
+[node name="Video" type="TabBar" parent="MainLayer/SettingsTabContainer"]
 visible = false
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("2_swx28")
 metadata/_tab_index = 2
 
-[node name="FOVSlider" type="HSlider" parent="SettingsTabContainer/Video"]
+[node name="FOVSlider" type="HSlider" parent="MainLayer/SettingsTabContainer/Video"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0413321
@@ -260,7 +269,7 @@ value = 60.0
 rounded = true
 metadata/_edit_use_anchors_ = true
 
-[node name="FOVValue" type="Label" parent="SettingsTabContainer/Video"]
+[node name="FOVValue" type="Label" parent="MainLayer/SettingsTabContainer/Video"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.513333
@@ -277,7 +286,7 @@ text = "00"
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="FOVTTL" type="Label" parent="SettingsTabContainer/Video"]
+[node name="FOVTTL" type="Label" parent="MainLayer/SettingsTabContainer/Video"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.0266681
@@ -294,14 +303,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Sound" type="TabBar" parent="SettingsTabContainer"]
+[node name="Sound" type="TabBar" parent="MainLayer/SettingsTabContainer"]
 visible = false
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("2_swx28")
 metadata/_tab_index = 3
 
-[node name="MasterSlider" type="VSlider" parent="SettingsTabContainer/Sound"]
+[node name="MasterSlider" type="VSlider" parent="MainLayer/SettingsTabContainer/Sound"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.257333
@@ -314,7 +323,7 @@ step = 0.001
 script = ExtResource("6_adeke")
 metadata/_edit_use_anchors_ = true
 
-[node name="MusicSlider" type="VSlider" parent="SettingsTabContainer/Sound"]
+[node name="MusicSlider" type="VSlider" parent="MainLayer/SettingsTabContainer/Sound"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.470667
@@ -326,7 +335,7 @@ step = 0.001
 script = ExtResource("7_87v8e")
 metadata/_edit_use_anchors_ = true
 
-[node name="SFXSlider" type="VSlider" parent="SettingsTabContainer/Sound"]
+[node name="SFXSlider" type="VSlider" parent="MainLayer/SettingsTabContainer/Sound"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.684001
@@ -338,7 +347,7 @@ step = 0.001
 script = ExtResource("8_mttek")
 metadata/_edit_use_anchors_ = true
 
-[node name="MasterValue" type="Label" parent="SettingsTabContainer/Sound"]
+[node name="MasterValue" type="Label" parent="MainLayer/SettingsTabContainer/Sound"]
 layout_mode = 0
 anchor_left = 0.229334
 anchor_top = 0.0394088
@@ -351,7 +360,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="MusicValue" type="Label" parent="SettingsTabContainer/Sound"]
+[node name="MusicValue" type="Label" parent="MainLayer/SettingsTabContainer/Sound"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.442668
@@ -365,7 +374,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="SFXValue" type="Label" parent="SettingsTabContainer/Sound"]
+[node name="SFXValue" type="Label" parent="MainLayer/SettingsTabContainer/Sound"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.656002
@@ -379,7 +388,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Info" type="Label" parent="SettingsTabContainer/Sound"]
+[node name="Info" type="Label" parent="MainLayer/SettingsTabContainer/Sound"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.656002
@@ -393,7 +402,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Info2" type="Label" parent="SettingsTabContainer/Sound"]
+[node name="Info2" type="Label" parent="MainLayer/SettingsTabContainer/Sound"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.426668
@@ -407,7 +416,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Info3" type="Label" parent="SettingsTabContainer/Sound"]
+[node name="Info3" type="Label" parent="MainLayer/SettingsTabContainer/Sound"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.192001
@@ -421,7 +430,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="ExitSettingsButton" type="Button" parent="."]
+[node name="ExitSettingsButton" type="Button" parent="MainLayer"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -440,12 +449,12 @@ theme_override_font_sizes/font_size = 40
 text = "EXIT"
 script = ExtResource("2_swx28")
 
-[connection signal="pressed" from="SaveSettings" to="." method="_on_save_settings_pressed"]
-[connection signal="toggled" from="SettingsTabContainer/General/SSCSwitch" to="." method="_on_ssc_switch_toggled"]
-[connection signal="toggled" from="SettingsTabContainer/Graphics/MotionBlurSwitch" to="." method="_on_motion_blur_switch_toggled"]
-[connection signal="toggled" from="SettingsTabContainer/Graphics/DOFBlurSwitch" to="." method="_on_dof_blur_switch_toggled"]
-[connection signal="value_changed" from="SettingsTabContainer/Video/FOVSlider" to="." method="_on_fov_slider_value_changed"]
-[connection signal="value_changed" from="SettingsTabContainer/Sound/MasterSlider" to="." method="_on_master_slider_value_changed"]
-[connection signal="value_changed" from="SettingsTabContainer/Sound/MusicSlider" to="." method="_on_music_slider_value_changed"]
-[connection signal="value_changed" from="SettingsTabContainer/Sound/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
-[connection signal="pressed" from="ExitSettingsButton" to="." method="_on_exit_settings_button_pressed"]
+[connection signal="pressed" from="MainLayer/SaveSettings" to="." method="_on_save_settings_pressed"]
+[connection signal="toggled" from="MainLayer/SettingsTabContainer/General/SSCSwitch" to="." method="_on_ssc_switch_toggled"]
+[connection signal="toggled" from="MainLayer/SettingsTabContainer/Graphics/MotionBlurSwitch" to="." method="_on_motion_blur_switch_toggled"]
+[connection signal="toggled" from="MainLayer/SettingsTabContainer/Graphics/DOFBlurSwitch" to="." method="_on_dof_blur_switch_toggled"]
+[connection signal="value_changed" from="MainLayer/SettingsTabContainer/Video/FOVSlider" to="." method="_on_fov_slider_value_changed"]
+[connection signal="value_changed" from="MainLayer/SettingsTabContainer/Sound/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="MainLayer/SettingsTabContainer/Sound/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="MainLayer/SettingsTabContainer/Sound/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="pressed" from="MainLayer/ExitSettingsButton" to="." method="_on_exit_settings_button_pressed"]
