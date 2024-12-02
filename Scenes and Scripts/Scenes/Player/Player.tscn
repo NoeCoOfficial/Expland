@@ -353,7 +353,7 @@ ITEM_TYPE = "REDFLOWER"
 
 [node name="Dropable4" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("9_w7on1")]
 position = Vector2(682, 345)
-ITEM_TYPE = "REDFLOWER"
+ITEM_TYPE = "PICKAXE"
 
 [node name="Dropable5" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("9_w7on1")]
 position = Vector2(682, 452)
