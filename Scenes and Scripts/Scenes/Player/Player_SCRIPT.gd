@@ -226,16 +226,16 @@ func _input(_event): # A built-in function that listens for input using the inpu
 				resumeGame()
 			
 			if PauseManager.is_inside_settings:
-				$Head/Camera3D/SettingsLayer/SettingsUI.closeSettings(0.5)
+				SettingsUI.closeSettings(0.5)
 			
 			if PauseManager.is_inside_achievements_ui:
-				$Head/Camera3D/AchievementsLayer/AchievementsUI.despawnAchievements(0.5)
+				AchievementsUI.despawnAchievements(0.5)
 			
 			if PauseManager.is_inside_alert:
-				$Head/Camera3D/AlertLayer/AlertLayer.despawnAlert(0.5)
+				AlertLayer.despawnAlert(0.5)
 			
 			if PauseManager.is_inside_credits:
-				$Head/Camera3D/CreditsLayer/CreditsLayer.despawnCredits(0.5)
+				CreditsLayer.despawnCredits(0.5)
 			
 		else:
 			
@@ -678,13 +678,13 @@ func _on_resume_btn_pressed():
 	resumeGame()
 
 func _on_settings_btn_pressed():
-	$Head/Camera3D/SettingsLayer/SettingsUI.openSettings(0.5)
+	SettingsUI.openSettings(0.5)
 
 func _on_achievements_button_pressed() -> void:
-	$Head/Camera3D/AchievementsLayer/AchievementsUI.spawnAchievements(0.5)
+	AchievementsUI.spawnAchievements(0.5)
 
 func _on_credits_button_pressed() -> void:
-	$Head/Camera3D/CreditsLayer/CreditsLayer.spawnCredits(0.5)
+	CreditsLayer.spawnCredits(0.5)
 
 ######################################
 # Saving
