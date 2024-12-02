@@ -262,8 +262,10 @@ func _input(_event): # A built-in function that listens for input using the inpu
 				self.position = ResetPOS # set the player's position to the Reset position 
 				velocity.y = 0.0 # set the player's velocity to 0 
 	
+	
 	if Input.is_action_just_pressed("SaveGame") and OS.has_feature("debug"):
 		saveAllDataWithAnimation()
+	
 	
 	if Input.is_action_just_pressed("Inventory") and !PauseManager.is_paused and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface: # if the Inventory input is pressed and game isn't paused or in dialogue
 		if GAME_STATE == "NORMAL": # Check if the game state is normal. If it is, open the inventory
