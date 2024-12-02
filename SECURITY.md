@@ -2,10 +2,27 @@
 
 ## Supported Versions
 
-Only the latest version currently gets security updates, as older versions are not supported.
+We only provide security updates for the latest version of the game. Older versions are not actively supported or patched.
 
 ## Reporting a Vulnerability
 
-If you discover a vulnerability, please let us know immediately by following [Github's Instructions](https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/privately-reporting-a-security-vulnerability#privately-reporting-a-security-vulnerability).
+We take security issues in our game seriously and encourage you to report any vulnerabilities you find.
 
-If the vulnerability is in the Godot engine, report it as per [Godot's policy](https://github.com/godotengine/.github/blob/master/SECURITY.md)
+### How to Report
+
+1. **Contact us**: Email us at **noeco.official@gmail.com** with the subject line **"Game Security Vulnerability Report"**.
+2. **Include details**: Share a clear description of the issue, steps to reproduce it, and any potential impact it may have.
+3. **Keep it private**: Please do not disclose the vulnerability publicly until we have resolved it.
+
+### What Happens Next?
+
+- We will acknowledge your report within **48 hours**.
+- We will investigate and verify the issue promptly.
+- If the vulnerability is valid, we will address it in an upcoming update as quickly as possible.
+- With your consent, we can credit you for discovering the issue.
+
+### External Vulnerabilities
+
+If the vulnerability relates to a third-party tool (e.g., Godot engine), please report it directly to their security team using their [security policy](https://github.com/godotengine/.github/blob/master/SECURITY.md).
+
+Thank you for helping us keep our game safe for everyone!
