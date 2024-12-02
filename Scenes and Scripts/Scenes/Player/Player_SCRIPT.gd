@@ -212,13 +212,6 @@ var is_crouching = false
 
 func _input(_event): # A built-in function that listens for input using the input map
 	
-	if Input.is_action_just_pressed("Exit") and GAME_STATE == "INVENTORY":
-		$Head/Camera3D/InventoryLayer.hide() # hide the inventory UI
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor
-		Utils.center_mouse_cursor() # center the mouse cursor
-		GAME_STATE = "NORMAL" # set the game state to normal (so the player can move. This won't save to the file)
-		inventory_opened_in_air = false  # Reset the flag when inventory is closed
-	
 	if Input.is_action_just_pressed("Exit"):
 		
 		if PauseManager.is_paused:
@@ -239,14 +232,12 @@ func _input(_event): # A built-in function that listens for input using the inpu
 				$Head/Camera3D/CreditsLayer/CreditsLayer.despawnCredits(0.5)
 			
 		else:
+			
 			if !DialogueManager.is_in_absolute_interface and !InventoryManager.inventory_open and !PauseManager.is_inside_alert:
 				pauseGame()
+			
 			if InventoryManager.inventory_open:
 				closeInventory()
-	
-	
-	# TODO: FIX EXIT INPUT LOGIC
-	
 	
 	
 	if Input.is_action_just_pressed("Quit") and Quit == true and OS.has_feature("debug"): # if the Quit input is pressed and the Quit variable is true
@@ -254,6 +245,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			if !GAME_STATE == "DEAD":
 				SaveManager.saveAllData()
 				get_tree().quit() # quit the game
+	
 	
 	if Input.is_action_just_pressed("Reset") and Reset == true and !PauseManager.is_paused and !PauseManager.is_inside_alert and OS.has_feature("debug"):
 		if GAME_STATE == "NORMAL" or "INVENTORY":
