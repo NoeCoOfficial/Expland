@@ -71,6 +71,10 @@ func _ready():
 		$ITEM_TYPE.text = "Red Flower"
 	elif "BLUEFLOWER" in ITEM_TYPE:
 		$ITEM_TYPE.text = "Blue Flower"
+	elif "BLANKFLOWER" in ITEM_TYPE:
+		$ITEM_TYPE.text = "Blank Flower"
+	elif "PINKFLOWER" in ITEM_TYPE:
+		$ITEM_TYPE.text = "Pink Flower"
 	
 	if ITEM_TYPE != "":
 		var OBJ_TEXTURE: Texture2D = load("res://Textures/Inventory/" + ITEM_TYPE + ".png")

@@ -357,11 +357,11 @@ ITEM_TYPE = "REDFLOWER"
 
 [node name="Dropable5" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("9_w7on1")]
 position = Vector2(682, 452)
-ITEM_TYPE = "REDFLOWER"
+ITEM_TYPE = "BLANKFLOWER"
 
 [node name="Dropable6" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("9_w7on1")]
 position = Vector2(575, 452)
-ITEM_TYPE = "ROCK"
+ITEM_TYPE = "PINKFLOWER"
 
 [node name="Dropable7" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("9_w7on1")]
 position = Vector2(575, 345)
