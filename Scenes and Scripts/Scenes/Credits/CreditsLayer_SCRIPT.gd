@@ -56,10 +56,6 @@ func _ready() -> void:
 	self.visible = false
 	$GreyLayer.modulate = Color(1, 1, 1, 0)
 
-func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("Exit") and PauseManager.is_inside_credits:
-		despawnCredits(0.5)
-
 func spawnCredits(animationTime : float):
 	PauseManager.is_inside_credits = true
 	
