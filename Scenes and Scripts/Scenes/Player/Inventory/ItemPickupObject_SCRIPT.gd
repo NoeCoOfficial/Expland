@@ -76,7 +76,11 @@ func _ready():
 	
 	var tween = get_tree().create_tween()
 	
-	ITEM_TYPE = InventoryManager.item_ref
+	if InventoryManager.creatingFromInventory:
+		ITEM_TYPE = InventoryManager.item_ref
+	else:
+		ITEM_TYPE = InventoryManager.item_ref_not_at_inventory
+	
 	var LOADED_OBJECT = load(PATH_TO_OBJECT)
 	
 	# null checks
