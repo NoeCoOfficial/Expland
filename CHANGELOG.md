@@ -1,7 +1,7 @@
 <h1 align="center">Expland Changelog</h1>
 
 # v0.5.0 (unreleased)
-Welcome to this huge release! We are already halfway there to the game's final release. Look at the changelog below to see what was worked on from the last update (v0.4.7)!
+Welcome to this huge release! We are already halfway there to v1.0.0. Look at the changelog below to see what was worked on from the last update (v0.4.7)!
 
 >  ## Player
 ### Fixed:
