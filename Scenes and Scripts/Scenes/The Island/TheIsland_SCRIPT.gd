@@ -51,7 +51,6 @@ extends Node
 @onready var motionBlurCompositor = preload("res://Resources/Environment/TheIsland_MotionBlurCompositor.tres")
 @onready var noMotionBlurCompositor = preload("res://Resources/Environment/TheIsland_NoMotionBlurCompositor.tres")
 
-@onready var cameraAttributesResource = preload("res://Resources/Environment/Default_CameraAttributes.tres")
 
 func _ready() -> void:
 	SaveManager.loadAllData()
@@ -65,6 +64,8 @@ func set_motion_blur(value : bool) -> void:
 		$WorldEnvironment.set_compositor(noMotionBlurCompositor)
 
 func set_dof_blur(value : bool) -> void:
+	var cameraAttributesResource = load("res://Resources/Camera/DefaultCameraAttributes.tres")
+	
 	if value:
 		cameraAttributesResource.dof_blur_far_enabled = true
 	else:
