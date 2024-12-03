@@ -62,6 +62,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_eclyc"]
 resource_name = "wind"
+length = 3.0
 loop_mode = 1
 step = 0.001
 tracks/0/type = "value"
@@ -71,8 +72,8 @@ tracks/0/path = NodePath("Circle:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.477),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 1.888),
+"transitions": PackedFloat32Array(2.46229, 1.7411),
 "update": 0,
 "values": [Vector3(0, 0, 0.00872665), Vector3(0, 0, -0.00872665)]
 }
@@ -83,8 +84,8 @@ tracks/1/path = NodePath("Circle_001:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.652),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 1.255),
+"transitions": PackedFloat32Array(1.31951, 0.574349),
 "update": 0,
 "values": [Vector3(-0.00451826, 1.96013, 0.0110123), Vector3(0.0174533, 1.95826, -0.015708)]
 }
@@ -95,8 +96,8 @@ tracks/2/path = NodePath("Circle_002:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.397),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.001, 1.701),
+"transitions": PackedFloat32Array(1.31951, 1.6245),
 "update": 0,
 "values": [Vector3(-0.117731, -1.90299, -0.00367434), Vector3(-0.0698132, -1.89892, 0.00698132)]
 }
@@ -107,10 +108,10 @@ tracks/3/path = NodePath("Circle_003:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.001, 0.655),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.002, 1.25),
+"transitions": PackedFloat32Array(0.466516, 0.482968),
 "update": 0,
-"values": [Vector3(0, 0, 0.0174533), Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, 0.0174533), Vector3(0.0174533, 0, 0.0174533)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -119,10 +120,10 @@ tracks/4/path = NodePath("Circle_004:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.481),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 1.547),
+"transitions": PackedFloat32Array(2.73208, 1.93187),
 "update": 0,
-"values": [Vector3(-0.00451826, 1.96013, 0.0110123), Vector3(-0.010472, 1.95826, -0.010472)]
+"values": [Vector3(-0.00451826, 1.96013, 0.0110123), Vector3(-0.010472, 1.95826, -0.0349066)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jcqct"]
@@ -164,7 +165,7 @@ transform = Transform3D(-0.865652, 0.265105, -2.2055, -0.00967366, 2.39686, 0.27
 shape = SubResource("ConcavePolygonShape3D_vtb7o")
 
 [node name="Circle_003" parent="." index="4"]
-transform = Transform3D(2.13818, -0.00864802, 0, 0.00675962, 2.73551, 0, 0, 0, 1.89477, 0.0342205, 6.69972, -0.149977)
+transform = Transform3D(2.13786, -0.0477415, 0, 0.0373158, 2.73505, -0.0118007, 0.000232408, 0.0170343, 1.89473, 0.0342205, 6.69972, -0.149977)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Circle_003" index="0"]
 
@@ -172,7 +173,7 @@ transform = Transform3D(2.13818, -0.00864802, 0, 0.00675962, 2.73551, 0, 0, 0, 1
 shape = SubResource("ConcavePolygonShape3D_sk28d")
 
 [node name="Circle_004" parent="." index="5"]
-transform = Transform3D(-0.527297, -0.0217662, 1.14457, -0.0114021, 1.78482, 0.0121593, -1.29166, -0.00686984, -0.467356, -0.0333171, 8.25276, 0.0119055)
+transform = Transform3D(-0.529594, -0.000235878, 1.14383, 0.014995, 1.78484, 0.00562858, -1.29068, 0.0208329, -0.469273, -0.0333171, 8.25276, 0.0119055)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Circle_004" index="0"]
 
