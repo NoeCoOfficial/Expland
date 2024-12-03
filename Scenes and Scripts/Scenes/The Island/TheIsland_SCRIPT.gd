@@ -64,7 +64,7 @@ func set_motion_blur(value : bool) -> void:
 		$WorldEnvironment.set_compositor(noMotionBlurCompositor)
 
 func set_dof_blur(value : bool) -> void:
-	var cameraAttributesResource = load("res://Resources/Camera/DefaultCameraAttributes.tres")
+	var cameraAttributesResource = load("res://Resources/Environment/DefaultCameraAttributes.tres")
 	
 	if value:
 		cameraAttributesResource.dof_blur_far_enabled = true
