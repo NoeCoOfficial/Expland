@@ -70,7 +70,9 @@ func _physics_process(delta):
 
 func _ready():
 	self.scale = Vector3(0.0001, 0.0001, 0.0001)
-	self.global_position = get_node("/root/World/Player/Head/ItemDropPosition").global_position
+	
+	if InventoryManager.creatingFromInventory:
+		self.global_position = get_node("/root/World/Player/Head/ItemDropPosition").global_position
 	
 	var tween = get_tree().create_tween()
 	
