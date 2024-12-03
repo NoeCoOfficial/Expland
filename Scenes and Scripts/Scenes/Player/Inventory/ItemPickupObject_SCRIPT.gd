@@ -76,6 +76,7 @@ func _ready():
 	
 	ITEM_TYPE = InventoryManager.item_ref
 	var LOADED_OBJECT = load(PATH_TO_OBJECT)
+	
 	# null checks
 	if LOADED_OBJECT == null:
 		print("Failed to load object: ", PATH_TO_OBJECT)
