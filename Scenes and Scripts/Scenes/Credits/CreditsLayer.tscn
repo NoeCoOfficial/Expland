@@ -114,7 +114,7 @@ offset_left = 417.0
 offset_top = 162.0
 offset_right = 735.0
 offset_bottom = 533.0
-scroll_vertical = 570
+scroll_vertical = 100
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainLayer/ScrollContainer"]
 layout_mode = 2
@@ -279,7 +279,7 @@ layout_mode = 2
 theme = ExtResource("5_ome4s")
 theme_override_fonts/font = ExtResource("8_uiqvs")
 theme_override_font_sizes/font_size = 20
-text = "Melinda Timpson"
+text = "Mel Timpson"
 horizontal_alignment = 1
 autowrap_mode = 3
 
