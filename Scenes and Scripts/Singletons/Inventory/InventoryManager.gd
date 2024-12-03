@@ -47,6 +47,7 @@
 
 extends Node
 
+var creatingFromInventory = false
 var inventory_open = false
 var is_dragging = false
 var is_inside_boundary = false
@@ -55,6 +56,8 @@ var is_creating_pickup = false
 var is_inside_checker = false
 
 func create_pickup_object_at_pos(position : Vector3, ITEM_TYPE):
+	creatingFromInventory = false
+	
 	item_ref = ITEM_TYPE
 	var WORLD = get_node("/root/World")
 	var PICKUP_SCENE = load("res://Scenes and Scripts/Scenes/Player/Inventory/ItemPickupObject.tscn")
@@ -63,6 +66,8 @@ func create_pickup_object_at_pos(position : Vector3, ITEM_TYPE):
 	PICKUP.global_position = position
 
 func create_pickup_object():
+	creatingFromInventory = true
+	
 	if is_creating_pickup:
 		return
 	is_creating_pickup = true
