@@ -55,10 +55,12 @@ var is_creating_pickup = false
 var is_inside_checker = false
 
 func create_pickup_object_at_pos(position : Vector3, ITEM_TYPE):
+	item_ref = ITEM_TYPE
 	var WORLD = get_node("/root/World")
 	var PICKUP_SCENE = load("res://Scenes and Scripts/Scenes/Player/Inventory/ItemPickupObject.tscn")
 	var PICKUP = PICKUP_SCENE.instantiate()
 	WORLD.add_child(PICKUP)
+	PICKUP.global_position = position
 
 func create_pickup_object():
 	if is_creating_pickup:
