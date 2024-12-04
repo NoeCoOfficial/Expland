@@ -659,7 +659,6 @@ func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 			
 			delete_pickup_object(PickupObject)
 			InventoryManager.spawn_inventory_dropable(free_slot.position, PickupItemType, free_slot)
-			InventoryData.saveInventory($Head/Camera3D/InventoryLayer)
 			
 		else:
 			print("{LOCAL} [Player_SCRIPT.gd] No free slot available.")
