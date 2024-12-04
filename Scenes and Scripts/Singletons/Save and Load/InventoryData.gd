@@ -47,12 +47,47 @@
 
 extends Node
 
+var inventory_data = []
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func collect_dropable_nodes(parent_node: Node):
+	# Iterate through all the children of the parent node
+	for child in parent_node.get_children():
+		# Check if the node's name starts with "Dropable"
+		if child.name.begins_with("Dropable"):
+			# Retrieve position and ITEM_TYPE
+			var position = child.global_position
+			var item_type = child.get_ITEM_TYPE()
+			
+			# Store the data in a dictionary and add it to the array
+			inventory_data.append({
+				"position": position,
+				"ITEM_TYPE": item_type
+			})
+	
+	# Print the collected data after iterating
+	print("Collected inventory data:")
+	for entry in inventory_data:
+		print(entry)
 
+const INVENTORY_SAVE_PATH = "user://inventory.save"
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func save_inventory(parent_node: Node) -> void:
+	var inventory_data = []
+	
+	# Collect data from nodes with names starting with "Dropable"
+	for child in parent_node.get_children():
+		if child.name.begins_with("Dropable"):
+			inventory_data.append({
+				"position": Utils.vector3_to_dict(child.global_position),
+				"ITEM_TYPE": child.get_ITEM_TYPE()
+			})
+	
+	# Write to file as a single JSON string
+	var file = FileAccess.open(INVENTORY_SAVE_PATH, FileAccess.WRITE)
+	if file:
+		var json_data = JSON.stringify(inventory_data)
+		file.store_line(json_data)
+		file.close()
+		print("[InventoryData] --Saved Inventory Data--")
+	else:
+		printerr("[InventoryData] Failed to open inventory save file.")

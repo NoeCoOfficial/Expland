@@ -439,7 +439,7 @@ func _ready():
 		$Head/Camera3D/PauseLayer/StartDebugging_Btn.hide()
 
 func _on_ready() -> void: # Called when the node is considered ready
-	pass # Replace with function body.
+	InventoryData.collect_dropable_nodes($Head/Camera3D/InventoryLayer)
 
 func nodeSetup(): # A function to setup the nodes. Called in the _ready function
 	
