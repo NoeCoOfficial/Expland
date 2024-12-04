@@ -48,8 +48,12 @@
 @icon("res://Textures/Icons/Script Icons/32x32/disk_save.png")
 extends Node
 
+
 func saveAllData():
+	var playerNode = get_node("/root/World/Player")
+	
 	PlayerData.saveData()
+	playerNode.saveInventory()
 	PlayerSettingsData.saveSettings()
 
 func loadAllData():

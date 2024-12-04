@@ -63,6 +63,7 @@ var can_create_pickup = true
 @onready var mouse_over_timer = $MouseOverTimer
 
 func _ready():
+	self.name = "Dropable"
 	self.z_index = 0
 	
 	$ITEM_TYPE.text = ITEM_TYPE.capitalize()
@@ -177,7 +178,6 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("draggable"):
 		InventoryManager.is_inside_checker = true
 
-
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area.is_in_group("draggable"):
 		InventoryManager.is_inside_checker = false
@@ -191,3 +191,9 @@ func set_ITEM_TYPE(ITEM_TYPE_TEMP : String):
 		print("Failed to load texture: res://Textures/Inventory/" + ITEM_TYPE + ".png")
 	else:
 		$Sprite2D.texture = OBJ_TEXTURE
+
+func get_ITEM_TYPE():
+	return ITEM_TYPE
+
+func get_slot_inside():
+	return slot_inside

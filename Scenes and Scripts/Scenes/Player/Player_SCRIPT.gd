@@ -415,6 +415,8 @@ func _process(_delta):
 func _ready():
 	nodeSetup() # Call the nodeSetup function to setup the nodes
 	
+	InventoryData.loadInventory()
+	
 	DialogueManager.DialogueInterface = $Head/Camera3D/DialogueLayer/DialogueInterface
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Lock mouse
@@ -439,7 +441,7 @@ func _ready():
 		$Head/Camera3D/PauseLayer/StartDebugging_Btn.hide()
 
 func _on_ready() -> void: # Called when the node is considered ready
-	pass # Replace with function body.
+	pass
 
 func nodeSetup(): # A function to setup the nodes. Called in the _ready function
 	
@@ -583,6 +585,7 @@ func showDeathScreen(): # A function to show the death screen
 ######################################
 
 func closeInventory():
+	saveInventory()
 	$Head/Camera3D/InventoryLayer.hide() # hide the inventory UI
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor
 	Utils.center_mouse_cursor() # center the mouse cursor
@@ -608,10 +611,12 @@ func _on_boundary_area_exited(area):
 
 func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 	
-	area.set_deferred("monitorable", false)
-	area.set_deferred("monitoring", false)
 	
 	if area.is_in_group("pickup_player_detector"):
+		
+		area.set_deferred("monitorable", false)
+		area.set_deferred("monitoring", false)
+		
 		var slots = [
 			Slot1_Ref,
 			Slot2_Ref,
@@ -692,11 +697,15 @@ func _on_credits_button_pressed() -> void:
 # Saving
 ######################################
 
+func saveInventory():
+	InventoryData.saveInventory($Head/Camera3D/InventoryLayer)
+
 func _on_save_and_quit_btn_pressed():
 	SaveManager.saveAllData()
 	get_tree().quit()
 
 func _on_save_and_quit_to_menu_pressed() -> void:
+	SaveManager.saveAllData()
 	transitioning_to_menu = true
 	
 	$Head/Camera3D/TopLayer/BlackOverlay.modulate = Color(1, 1, 1, 0)

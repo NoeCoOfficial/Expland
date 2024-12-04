@@ -62,6 +62,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_eclyc"]
 resource_name = "wind"
+length = 1.5
 loop_mode = 1
 step = 0.001
 tracks/0/type = "value"
@@ -71,10 +72,10 @@ tracks/0/path = NodePath("Circle:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.205, 0.499, 0.735226),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1.104),
+"transitions": PackedFloat32Array(2.46229, 1.7411),
 "update": 0,
-"values": [Vector3(0, 0, 0.00872665), Vector3(0, 0, -0.0174533), Vector3(0, 0, 0.00872665), Vector3(0, 0, -0.0174533)]
+"values": [Vector3(0, 0, 0.00872665), Vector3(0, 0, -0.00872665)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -83,10 +84,10 @@ tracks/1/path = NodePath("Circle_001:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.246, 0.538, 0.803),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.471),
+"transitions": PackedFloat32Array(1.31951, 0.574349),
 "update": 0,
-"values": [Vector3(-0.00451826, 1.96013, 0.0110123), Vector3(0.0174533, 1.95826, -0.0349066), Vector3(-0.00451826, 1.96013, 0.0110123), Vector3(0.0174533, 1.95826, -0.0349066)]
+"values": [Vector3(-0.00451826, 1.96013, 0.0110123), Vector3(0.0174533, 1.95826, -0.015708)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -95,10 +96,10 @@ tracks/2/path = NodePath("Circle_002:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.261, 0.525, 0.766),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0.001, 0.917),
+"transitions": PackedFloat32Array(1.31951, 1.6245),
 "update": 0,
-"values": [Vector3(-0.117731, -1.90299, -0.00367434), Vector3(-0.0698132, -1.89892, 0.010472), Vector3(-0.117731, -1.90299, -0.00367434), Vector3(-0.0698132, -1.89892, 0.010472)]
+"values": [Vector3(-0.117731, -1.90299, -0.00367434), Vector3(-0.0698132, -1.89892, 0.00698132)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -107,10 +108,10 @@ tracks/3/path = NodePath("Circle_003:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.001, 0.236, 0.522, 0.768),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0.002, 0.466),
+"transitions": PackedFloat32Array(0.466516, 0.482968),
 "update": 0,
-"values": [Vector3(0, 0, 0.0174533), Vector3(0, 0, -0.0174533), Vector3(0, 0, 0.0174533), Vector3(0, 0, -0.0174533)]
+"values": [Vector3(0, 0, 0.0174533), Vector3(0.0174533, 0, 0.0174533)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -119,10 +120,10 @@ tracks/4/path = NodePath("Circle_004:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.223, 0.503, 0.771),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.763),
+"transitions": PackedFloat32Array(2.73208, 1.93187),
 "update": 0,
-"values": [Vector3(-0.00451826, 1.96013, 0.0110123), Vector3(-0.010472, 1.95826, -0.0261799), Vector3(-0.00451826, 1.96013, 0.0110123), Vector3(-0.010472, 1.95826, -0.0261799)]
+"values": [Vector3(-0.00451826, 1.96013, 0.0110123), Vector3(-0.010472, 1.95826, -0.0349066)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jcqct"]
@@ -164,7 +165,7 @@ transform = Transform3D(-0.865652, 0.265105, -2.2055, -0.00967366, 2.39686, 0.27
 shape = SubResource("ConcavePolygonShape3D_vtb7o")
 
 [node name="Circle_003" parent="." index="4"]
-transform = Transform3D(2.13809, -0.0259353, 0, 0.020272, 2.7354, 0, 0, 0, 1.89477, 0.0342205, 6.69972, -0.149977)
+transform = Transform3D(2.13786, -0.0477415, 0, 0.0373165, 2.73511, -0.00173724, 3.4214e-05, 0.00250771, 1.89477, 0.0342205, 6.69972, -0.149977)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Circle_003" index="0"]
 
@@ -172,7 +173,7 @@ transform = Transform3D(2.13809, -0.0259353, 0, 0.020272, 2.7354, 0, 0, 0, 1.894
 shape = SubResource("ConcavePolygonShape3D_sk28d")
 
 [node name="Circle_004" parent="." index="5"]
-transform = Transform3D(-0.529044, -0.00799096, 1.14402, 0.00353276, 1.78493, 0.00726455, -1.29099, 0.00815906, -0.468793, -0.0333171, 8.25276, 0.0119055)
+transform = Transform3D(-0.528061, -0.0223636, 1.14428, -0.0196591, 1.78474, 0.00961036, -1.29125, -0.0180267, -0.468106, -0.0333171, 8.25276, 0.0119055)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Circle_004" index="0"]
 

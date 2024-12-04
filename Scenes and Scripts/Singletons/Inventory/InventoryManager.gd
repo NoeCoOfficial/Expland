@@ -47,23 +47,45 @@
 
 extends Node
 
+var creatingFromInventory = false
 var inventory_open = false
 var is_dragging = false
 var is_inside_boundary = false
 var item_ref: String = ""
+var item_ref_not_at_inventory: String =  ""
 var is_creating_pickup = false
 var is_inside_checker = false
 
+func create_pickup_object_at_pos(position : Vector3, ITEM_TYPE):
+	creatingFromInventory = false
+	
+	item_ref_not_at_inventory = ITEM_TYPE
+	
+	var WORLD = get_node("/root/World")
+	var INVENTORY_LAYER = get_node("/root/World/Player/Head/Camera3D/InventoryLayer")
+	var PICKUP_SCENE = load("res://Scenes and Scripts/Scenes/Player/Inventory/ItemPickupObject.tscn")
+	var PICKUP = PICKUP_SCENE.instantiate()
+	WORLD.add_child(PICKUP)
+	PICKUP.global_position = position
+	
+	InventoryData.saveInventory(INVENTORY_LAYER)
+
+
 func create_pickup_object():
+	creatingFromInventory = true
+	
 	if is_creating_pickup:
 		return
 	is_creating_pickup = true
 	var WORLD = get_node("/root/World")
+	var INVENTORY_LAYER = get_node("/root/World/Player/Head/Camera3D/InventoryLayer")
 	var PICKUP_SCENE = load("res://Scenes and Scripts/Scenes/Player/Inventory/ItemPickupObject.tscn")
 	var PICKUP = PICKUP_SCENE.instantiate()
 	WORLD.add_child(PICKUP)
 	
 	is_creating_pickup = false
+	
+	InventoryData.saveInventory(INVENTORY_LAYER)
 
 func spawn_inventory_dropable(atPos : Vector2, ITEM_TYPE, slotToPopulate):
 	if get_node("/root/World/Player/Head/Camera3D/InventoryLayer") != null:
@@ -75,3 +97,13 @@ func spawn_inventory_dropable(atPos : Vector2, ITEM_TYPE, slotToPopulate):
 		InventoryLayer.add_child(DropableInstance)
 		DropableInstance.position = atPos
 		slotToPopulate.set_populated(true)
+
+func spawn_inventory_dropable_from_load(atPos : Vector2, ITEM_TYPE):
+	if get_node("/root/World/Player/Head/Camera3D/InventoryLayer") != null:
+		var InventoryLayer = get_node("/root/World/Player/Head/Camera3D/InventoryLayer")
+		var NewDropable = load("res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDropable.tscn")
+		var DropableInstance = NewDropable.instantiate()
+		DropableInstance.set_ITEM_TYPE(ITEM_TYPE)
+		
+		InventoryLayer.add_child(DropableInstance)
+		DropableInstance.position = atPos

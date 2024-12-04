@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=42 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -12,7 +12,6 @@
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/OverlayLayer/Overlay_SCRIPT.gd" id="8_uxqns"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/BlackOverlay_SCRIPT.gd" id="9_g6nwl"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/IgnoreMouseFilter.gd" id="9_svfxy"]
-[ext_resource type="PackedScene" uid="uid://bah2p5efhcjtx" path="res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDropable.tscn" id="9_w7on1"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/RandomText_SCRIPT.gd" id="10_6w37c"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/GetUp_SCRIPT.gd" id="11_0enap"]
 [ext_resource type="PackedScene" uid="uid://bin1awyog56pg" path="res://Scenes and Scripts/Scenes/Player/Interaction/InteractionHUD.tscn" id="16_8a1wo"]
@@ -342,38 +341,6 @@ position = Vector2(575, 452)
 
 [node name="Slot9" parent="Head/Camera3D/InventoryLayer" groups=["Slot9"] instance=ExtResource("8_ads4s")]
 position = Vector2(682, 452)
-
-[node name="Dropable2" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("9_w7on1")]
-position = Vector2(576, 237)
-ITEM_TYPE = "ROCK"
-
-[node name="Dropable3" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("9_w7on1")]
-position = Vector2(683, 237)
-ITEM_TYPE = "REDFLOWER"
-
-[node name="Dropable4" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("9_w7on1")]
-position = Vector2(682, 345)
-ITEM_TYPE = "PICKAXE"
-
-[node name="Dropable5" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("9_w7on1")]
-position = Vector2(682, 452)
-ITEM_TYPE = "BLANKFLOWER"
-
-[node name="Dropable6" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("9_w7on1")]
-position = Vector2(575, 452)
-ITEM_TYPE = "PINKFLOWER"
-
-[node name="Dropable7" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("9_w7on1")]
-position = Vector2(575, 345)
-ITEM_TYPE = "BLUEFLOWER"
-
-[node name="Dropable8" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("9_w7on1")]
-position = Vector2(469, 345)
-ITEM_TYPE = "ROCK"
-
-[node name="Dropable9" parent="Head/Camera3D/InventoryLayer" instance=ExtResource("9_w7on1")]
-position = Vector2(469, 452)
-ITEM_TYPE = "ROCK"
 
 [node name="Boundary" type="Area2D" parent="Head/Camera3D/InventoryLayer" groups=["boundary"]]
 priority = 12
@@ -943,12 +910,3 @@ color = Color(0, 0, 0, 1)
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/StartDebugging_Btn" to="." method="_on_start_debugging_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/AchievementsButton" to="." method="_on_achievements_button_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/CreditsButton" to="." method="_on_credits_button_pressed"]
-
-[editable path="Head/Camera3D/InventoryLayer/Dropable2"]
-[editable path="Head/Camera3D/InventoryLayer/Dropable3"]
-[editable path="Head/Camera3D/InventoryLayer/Dropable4"]
-[editable path="Head/Camera3D/InventoryLayer/Dropable5"]
-[editable path="Head/Camera3D/InventoryLayer/Dropable6"]
-[editable path="Head/Camera3D/InventoryLayer/Dropable7"]
-[editable path="Head/Camera3D/InventoryLayer/Dropable8"]
-[editable path="Head/Camera3D/InventoryLayer/Dropable9"]

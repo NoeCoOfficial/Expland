@@ -70,12 +70,19 @@ func _physics_process(delta):
 
 func _ready():
 	self.scale = Vector3(0.0001, 0.0001, 0.0001)
-	self.global_position = get_node("/root/World/Player/Head/ItemDropPosition").global_position
+	
+	if InventoryManager.creatingFromInventory:
+		self.global_position = get_node("/root/World/Player/Head/ItemDropPosition").global_position
 	
 	var tween = get_tree().create_tween()
 	
-	ITEM_TYPE = InventoryManager.item_ref
+	if InventoryManager.creatingFromInventory:
+		ITEM_TYPE = InventoryManager.item_ref
+	else:
+		ITEM_TYPE = InventoryManager.item_ref_not_at_inventory
+	
 	var LOADED_OBJECT = load(PATH_TO_OBJECT)
+	
 	# null checks
 	if LOADED_OBJECT == null:
 		print("Failed to load object: ", PATH_TO_OBJECT)
