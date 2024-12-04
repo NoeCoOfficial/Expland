@@ -23,6 +23,11 @@ Welcome to this huge release! We are already halfway there to v1.0.0. Look at th
 ### Added:
 - Added an extra button that takes you to the main menu
 
+> ## Environment
+
+### Added:
+- Added a red spike to the test area, which when touched by the player, takes away 14 health
+
 > ## Inventory
 
 ### Added:
