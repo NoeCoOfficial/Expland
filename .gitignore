@@ -4,6 +4,7 @@
 # Save files
 .dat/
 player.save
+inventory.save
 settings.save
 
 # Icon
