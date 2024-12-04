@@ -611,10 +611,12 @@ func _on_boundary_area_exited(area):
 
 func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 	
-	area.set_deferred("monitorable", false)
-	area.set_deferred("monitoring", false)
 	
 	if area.is_in_group("pickup_player_detector"):
+		
+		area.set_deferred("monitorable", false)
+		area.set_deferred("monitoring", false)
+		
 		var slots = [
 			Slot1_Ref,
 			Slot2_Ref,
@@ -657,6 +659,7 @@ func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 			
 			delete_pickup_object(PickupObject)
 			InventoryManager.spawn_inventory_dropable(free_slot.position, PickupItemType, free_slot)
+			InventoryData.saveInventory($Head/Camera3D/InventoryLayer)
 			
 		else:
 			print("{LOCAL} [Player_SCRIPT.gd] No free slot available.")
