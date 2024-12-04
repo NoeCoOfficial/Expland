@@ -64,7 +64,6 @@ func saveInventory(parent_node: Node) -> void:
 				"ITEM_TYPE": child.get_ITEM_TYPE()
 			}
 			inventory_data.append(drop_data)
-			print("[InventoryData] Added Dropable: ", drop_data)
 
 	# Debugging: Ensure inventory_data contains all collected items
 	print("[InventoryData] Final inventory_data array: ", inventory_data)
