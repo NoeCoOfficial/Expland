@@ -23,17 +23,14 @@ Welcome to this huge release! We are already halfway there to v1.0.0. Look at th
 ### Added:
 - Added an extra button that takes you to the main menu
 
-> ## Environment
-
-### Added:
-- Added spike to the testing area, which when touched by the player, takes away 14 health
-
 > ## Inventory
 
 ### Added:
+- Data persistence (saving and loading of the inventory) (#38)
 - Blue flower pickup item (#42)
 - Pink flower pickup item (#45)
 - Blank flower pickup item (#48)
+- Pickaxe pick up item
 
 ### Fixed:
 - Fixed inventory pickup items not being able to be picked up in a cluster
