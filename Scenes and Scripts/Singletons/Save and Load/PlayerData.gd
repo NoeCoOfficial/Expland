@@ -62,11 +62,11 @@ func saveData() -> void:
 	if player:
 		var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 		var data = {
-			"GAME_STATE": GAME_STATE,
-			"Health": Health,
-			"Position": Utils.vector3_to_dict(player.position),
-			"HeadRotationY": playerHead.rotation_degrees.y,  # Save only Y rotation for the head
-			"CameraRotationX": playerCamera.rotation_degrees.x  # Save only X rotation for the camera
+			"GAME_STATE" : GAME_STATE,
+			"Health" : Health,
+			"Position" : Utils.vector3_to_dict(player.position),
+			"HeadRotationY" : playerHead.rotation_degrees.y,  # Save only Y rotation for the head
+			"CameraRotationX" : playerCamera.rotation_degrees.x  # Save only X rotation for the camera
 		}
 		var jstr = JSON.stringify(data)
 		file.store_line(jstr)
