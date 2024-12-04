@@ -52,6 +52,9 @@ const INVENTORY_SAVE_PATH = "res://inventory.save"
 var inventory_data = []
 
 func saveInventory(parent_node: Node) -> void:
+	# Clear the inventory_data before saving
+	inventory_data.clear()
+	
 	# Collect data from nodes with names starting with "Dropable"
 	for child in parent_node.get_children():
 		if child.name.begins_with("Dropable"):
@@ -60,7 +63,7 @@ func saveInventory(parent_node: Node) -> void:
 				"ITEM_TYPE": child.get_ITEM_TYPE()
 			})
 	
-	# Write to file as a single JSON string
+	# Write fresh data to the file
 	var file = FileAccess.open(INVENTORY_SAVE_PATH, FileAccess.WRITE)
 	if file:
 		var json_data = JSON.stringify(inventory_data)
@@ -69,3 +72,38 @@ func saveInventory(parent_node: Node) -> void:
 		print("[InventoryData] --Saved Inventory Data--")
 	else:
 		printerr("[InventoryData] Failed to open inventory save file.")
+
+func loadInventory() -> void:
+	var file = FileAccess.open(INVENTORY_SAVE_PATH, FileAccess.READ)
+	if not file:
+		push_warning("[InventoryData] File doesn't exist (" + INVENTORY_SAVE_PATH + ")")
+		return
+
+	if file and not file.eof_reached():
+		var current_line = JSON.parse_string(file.get_line())
+		if not current_line or current_line == []:
+			print("[InventoryData] No inventory data to load.")
+			return
+		
+		inventory_data = current_line  # Update the in-memory inventory data
+		
+		# Spawn inventory items based on loaded data
+		for item in inventory_data:
+			var position = Utils.dict_to_vector2(item["position"])
+			var item_type = item["ITEM_TYPE"]
+			InventoryManager.spawn_inventory_dropable_from_load(position, item_type)
+		
+		# Debugging output
+		print_rich("[center][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf][font_size=30]-- INVENTORY DATA LOADED --[/font_size][/font][/center]")
+		for item in inventory_data:
+			print_rich(
+				"[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Position: " 
+				+ str(Utils.dict_to_vector2(item["position"])) 
+				+ ", ITEM_TYPE: " 
+				+ item["ITEM_TYPE"] 
+				+ "[/font][/font_size][/center]"
+			)
+	else:
+		push_warning("[InventoryData] Failed to parse JSON data from file.")
+	
+	file.close()

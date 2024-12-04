@@ -415,6 +415,8 @@ func _process(_delta):
 func _ready():
 	nodeSetup() # Call the nodeSetup function to setup the nodes
 	
+	InventoryData.loadInventory()
+	
 	DialogueManager.DialogueInterface = $Head/Camera3D/DialogueLayer/DialogueInterface
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Lock mouse
@@ -439,7 +441,7 @@ func _ready():
 		$Head/Camera3D/PauseLayer/StartDebugging_Btn.hide()
 
 func _on_ready() -> void: # Called when the node is considered ready
-	InventoryData.saveInventory($Head/Camera3D/InventoryLayer)
+	pass
 
 func nodeSetup(): # A function to setup the nodes. Called in the _ready function
 	
@@ -583,6 +585,7 @@ func showDeathScreen(): # A function to show the death screen
 ######################################
 
 func closeInventory():
+	saveInventory()
 	$Head/Camera3D/InventoryLayer.hide() # hide the inventory UI
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor
 	Utils.center_mouse_cursor() # center the mouse cursor
