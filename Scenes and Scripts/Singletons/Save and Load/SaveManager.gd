@@ -48,9 +48,12 @@
 @icon("res://Textures/Icons/Script Icons/32x32/disk_save.png")
 extends Node
 
+
 func saveAllData():
-	InventoryData.saveInventory(get_node("/root/World/Player/Head/Camera3D/InventoryLayer"))
+	var playerNode = get_node("/root/World/Player")
+	
 	PlayerData.saveData()
+	playerNode.saveInventory()
 	PlayerSettingsData.saveSettings()
 
 func loadAllData():
