@@ -692,6 +692,9 @@ func _on_credits_button_pressed() -> void:
 # Saving
 ######################################
 
+func saveInventory():
+	InventoryData.saveInventory($Head/Camera3D/InventoryLayer)
+
 func _on_save_and_quit_btn_pressed():
 	SaveManager.saveAllData()
 	get_tree().quit()

@@ -56,7 +56,7 @@ func saveInventory(parent_node: Node) -> void:
 	for child in parent_node.get_children():
 		if child.name.begins_with("Dropable"):
 			inventory_data.append({
-				"position": Utils.vector3_to_dict(child.global_position),
+				"position": Utils.vector2_to_dict(child.global_position),
 				"ITEM_TYPE": child.get_ITEM_TYPE()
 			})
 	

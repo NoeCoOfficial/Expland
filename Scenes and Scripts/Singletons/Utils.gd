@@ -98,3 +98,9 @@ func vector3_to_dict(vec: Vector3) -> Dictionary: # Converts a Vector3 value to 
 
 func dict_to_vector3(dict: Dictionary) -> Vector3: # Converts a dictionary value to a Vector3 value.
 	return Vector3(dict["x"], dict["y"], dict["z"])
+
+func vector2_to_dict(vec: Vector2) -> Dictionary: # Converts a Vector2 value to a dictionary.
+	return {"x": vec.x, "y": vec.y}
+
+func dict_to_vector2(dict: Dictionary) -> Vector2: # Converts a dictionary value to a Vector2 value.
+	return Vector2(dict["x"], dict["y"])

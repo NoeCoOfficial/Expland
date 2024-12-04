@@ -49,6 +49,7 @@
 extends Node
 
 func saveAllData():
+	InventoryData.saveInventory(get_node("/root/World/Player/Head/Camera3D/InventoryLayer"))
 	PlayerData.saveData()
 	PlayerSettingsData.saveSettings()
 
