@@ -75,7 +75,6 @@ func saveData() -> void:
 	else:
 		printerr("[PlayerData] Player node not found. SaveData failed.")
 
-
 func loadData() -> void:
 	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
 	if not file:
