@@ -177,10 +177,10 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("draggable"):
 		InventoryManager.is_inside_checker = true
 
-
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area.is_in_group("draggable"):
 		InventoryManager.is_inside_checker = false
+
 
 func set_ITEM_TYPE(ITEM_TYPE_TEMP : String):
 	ITEM_TYPE = ITEM_TYPE_TEMP
@@ -191,3 +191,6 @@ func set_ITEM_TYPE(ITEM_TYPE_TEMP : String):
 		print("Failed to load texture: res://Textures/Inventory/" + ITEM_TYPE + ".png")
 	else:
 		$Sprite2D.texture = OBJ_TEXTURE
+
+func get_ITEM_TYPE():
+	return ITEM_TYPE
