@@ -2,12 +2,12 @@
 
 # v0.5.0 (unreleased)
 Welcome to this huge release! We are already halfway there to v1.0.0. Look at the changelog below to see what was worked on from the last update (v0.4.7)!
-
+---
 >  ## Player
 ### Fixed:
 
 - Fixed health value not loading (#39)
-
+---
 > ## Settings
 
 ### Added:
@@ -17,17 +17,17 @@ Welcome to this huge release! We are already halfway there to v1.0.0. Look at th
 
 ### Changed:
 - Modified UI
-
+---
 > ## Pause Layer
 
 ### Added:
 - Added an extra button that takes you to the main menu
-
+---
 > ## Environment
 
 ### Added:
 - Added a red spike to the test area, which when touched by the player, takes away 14 health
-
+---
 > ## Inventory
 
 ### Added:
@@ -40,7 +40,7 @@ Welcome to this huge release! We are already halfway there to v1.0.0. Look at th
 ### Fixed:
 - Fixed inventory pickup items not being able to be picked up in a cluster
 - Fixed being able to dupe items when pickup up 3D object
-
+---
 > ## Main Menu
 
 ### Added:
