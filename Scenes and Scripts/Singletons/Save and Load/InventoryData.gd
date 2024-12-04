@@ -54,15 +54,21 @@ var inventory_data = []
 func saveInventory(parent_node: Node) -> void:
 	# Clear the inventory_data before saving
 	inventory_data.clear()
-	
+	print("[InventoryData] Clearing old inventory data.")
+
 	# Collect data from nodes with names starting with "Dropable"
 	for child in parent_node.get_children():
 		if child.name.begins_with("Dropable"):
-			inventory_data.append({
+			var drop_data = {
 				"position": Utils.vector2_to_dict(child.global_position),
 				"ITEM_TYPE": child.get_ITEM_TYPE()
-			})
-	
+			}
+			inventory_data.append(drop_data)
+			print("[InventoryData] Added Dropable: ", drop_data)
+
+	# Debugging: Ensure inventory_data contains all collected items
+	print("[InventoryData] Final inventory_data array: ", inventory_data)
+
 	# Write fresh data to the file
 	var file = FileAccess.open(INVENTORY_SAVE_PATH, FileAccess.WRITE)
 	if file:

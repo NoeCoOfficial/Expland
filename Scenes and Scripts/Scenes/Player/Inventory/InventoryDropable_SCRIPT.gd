@@ -63,6 +63,7 @@ var can_create_pickup = true
 @onready var mouse_over_timer = $MouseOverTimer
 
 func _ready():
+	self.name = "Dropable"
 	self.z_index = 0
 	
 	$ITEM_TYPE.text = ITEM_TYPE.capitalize()
