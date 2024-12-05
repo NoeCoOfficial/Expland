@@ -93,7 +93,7 @@ size = Vector2(1101.5, 253)
 size = Vector2(1101.5, 233)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_47l1q"]
-size = Vector2(432.875, 819)
+size = Vector2(429.875, 819)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_meokx"]
 bg_color = Color(0.125911, 0.125911, 0.125911, 1)
@@ -311,6 +311,8 @@ anchor_left = 0.388021
 anchor_top = 0.229938
 anchor_right = 0.612847
 anchor_bottom = 0.320987
+offset_top = -3.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("8_cdk3a")
@@ -367,7 +369,7 @@ shape = SubResource("RectangleShape2D_4c0ao")
 debug_color = Color(0.998937, 0, 0.128371, 0.42)
 
 [node name="Boundary4" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Boundary"]
-position = Vector2(973.438, 380)
+position = Vector2(974.938, 380)
 shape = SubResource("RectangleShape2D_47l1q")
 debug_color = Color(0.998937, 0, 0.128371, 0.42)
 
