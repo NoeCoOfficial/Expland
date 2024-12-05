@@ -148,7 +148,7 @@ func _process(delta):
 				mouse_over_timer.start() # Restart the timer when the item is placed down
 
 func _on_area_2d_body_entered(body):
-	if body.is_in_group("draggable") and !InventoryManager.is_inside_checker:  
+	if body.is_in_group("dropable") and !InventoryManager.is_inside_checker:  
 		if $PopulatedOnStartup.time_left > 0.0:
 			slot_inside = body
 		is_inside_dropable = true 
@@ -156,7 +156,7 @@ func _on_area_2d_body_entered(body):
 		body_ref = body
 
 func _on_area_2d_body_exited(body):
-	if body.is_in_group("draggable"):
+	if body.is_in_group("dropable"):
 		is_inside_dropable = false
 		
 
