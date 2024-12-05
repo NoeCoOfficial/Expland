@@ -1,5 +1,5 @@
 # ============================================================= #
-# InventoryDropable_SCRIPT.gd
+# InventoryDroppable_SCRIPT.gd
 # ============================================================= #
 #                       COPYRIGHT NOTICE                        #
 #                           Noe Co.                             #
@@ -51,7 +51,7 @@ extends Node2D
 @export var ITEM_TYPE: String ## The type of the item that the Sprite2D is holding.
 
 var draggable = false
-var is_inside_dropable = false
+var is_inside_droppable = false
 var body_ref
 var initialPos: Vector2
 var offset: Vector2
@@ -63,7 +63,7 @@ var can_create_pickup = true
 @onready var mouse_over_timer = $MouseOverTimer
 
 func _ready():
-	self.name = "Dropable"
+	self.name = "Droppable"
 	self.z_index = 0
 	
 	$ITEM_TYPE.text = ITEM_TYPE.capitalize()
@@ -124,7 +124,7 @@ func _process(delta):
 				InventoryManager.is_dragging = false
 				self.z_index = 0
 				var tween = get_tree().create_tween()
-				if is_inside_dropable and !InventoryManager.is_inside_checker:
+				if is_inside_droppable and !InventoryManager.is_inside_checker:
 					if body_ref == slot_inside:
 						# If the draggable is placed back into its current slot, do nothing
 						tween.tween_property(self, "position", body_ref.position, SNAP_TIME)
@@ -141,23 +141,23 @@ func _process(delta):
 										slot_inside.set_populated(false)
 								slot_inside = body_ref
 							else:
-								print("{LOCAL} [InventoryDropable_SCRIPT.gd] " + body_ref + " does not have method: set_populated()")
+								print("{LOCAL} [InventoryDroppable_SCRIPT.gd] " + body_ref + " does not have method: set_populated()")
 				else:
 					tween.tween_property(self, "global_position", initialPos, SNAP_TIME)
 			if mouse_over_timer.is_inside_tree():                          
 				mouse_over_timer.start() # Restart the timer when the item is placed down
 
 func _on_area_2d_body_entered(body):
-	if body.is_in_group("dropable") and !InventoryManager.is_inside_checker:  
+	if body.is_in_group("droppable") and !InventoryManager.is_inside_checker:  
 		if $PopulatedOnStartup.time_left > 0.0:
 			slot_inside = body
-		is_inside_dropable = true 
+		is_inside_droppable = true 
 		
 		body_ref = body
 
 func _on_area_2d_body_exited(body):
-	if body.is_in_group("dropable"):
-		is_inside_dropable = false
+	if body.is_in_group("droppable"):
+		is_inside_droppable = false
 		
 
 func _on_area_2d_mouse_entered():
@@ -175,11 +175,11 @@ func _on_mouse_over_timeout():
 	draggable = true
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.is_in_group("draggable"):
+	if area.is_in_group("droppable"):
 		InventoryManager.is_inside_checker = true
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
-	if area.is_in_group("draggable"):
+	if area.is_in_group("droppable"):
 		InventoryManager.is_inside_checker = false
 
 func set_ITEM_TYPE(ITEM_TYPE_TEMP : String):

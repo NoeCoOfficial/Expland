@@ -56,9 +56,9 @@ func saveInventory(parent_node: Node) -> void:
 	inventory_data.clear()
 	print("[InventoryData] Clearing old inventory data.")
 
-	# Collect data from nodes with names starting with "Dropable"
+	# Collect data from nodes with names starting with "Droppable"
 	for child in parent_node.get_children():
-		if child.name.begins_with("Dropable"):
+		if child.name.begins_with("Droppable"):
 			var drop_data = {
 				"position": Utils.vector2_to_dict(child.get_slot_inside().position),
 				"ITEM_TYPE": child.get_ITEM_TYPE()
@@ -96,7 +96,7 @@ func loadInventory() -> void:
 		for item in inventory_data:
 			var position = Utils.dict_to_vector2(item["position"])
 			var item_type = item["ITEM_TYPE"]
-			InventoryManager.spawn_inventory_dropable_from_load(position, item_type)
+			InventoryManager.spawn_inventory_droppable_from_load(position, item_type)
 		
 		# Debugging output
 		print_rich("[center][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf][font_size=30]-- INVENTORY DATA LOADED --[/font_size][/font][/center]")

@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://bah2p5efhcjtx"]
 
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDropable_SCRIPT.gd" id="1_opaah"]
-[ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="2_qromc"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDroppable_SCRIPT.gd" id="1_b0n6r"]
+[ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="2_j8uok"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mgv10"]
 size = Vector2(60, 60)
 
-[node name="Dropable" type="Node2D"]
-script = ExtResource("1_opaah")
+[node name="Droppable" type="Node2D" groups=["droppable"]]
+script = ExtResource("1_b0n6r")
 
 [node name="PopulatedOnStartup" type="Timer" parent="."]
 wait_time = 0.05
@@ -21,7 +21,7 @@ one_shot = true
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.17, 0.17)
 
-[node name="Area2D" type="Area2D" parent="." groups=["draggable"]]
+[node name="Area2D" type="Area2D" parent="." groups=["droppable"]]
 collision_priority = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -39,7 +39,7 @@ offset_right = 39.0
 offset_bottom = -36.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("2_qromc")
+theme = ExtResource("2_j8uok")
 theme_override_font_sizes/font_size = 10
 text = "ITEM_TYPE"
 horizontal_alignment = 1
