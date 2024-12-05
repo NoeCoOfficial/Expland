@@ -831,3 +831,7 @@ func _on_pickup_object_detector_body_entered(body: Node3D) -> void:
 		]
 		
 		DialogueManager.startDialogue(messages)
+
+func _on_player_area_collision_body_entered(body: Node3D) -> void:
+	if body.is_in_group("temp_spike"):
+		takeDamage(14)
