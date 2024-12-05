@@ -602,11 +602,11 @@ func openInventory():
 	inventory_opened_in_air = not is_on_floor() # Set the flag when inventory is opened in the air
 
 func _on_boundary_area_entered(area):
-	if area.is_in_group("droppable"):
+	if area.is_in_group("draggable"):
 		InventoryManager.is_inside_boundary = true
 
 func _on_boundary_area_exited(area):
-	if area.is_in_group("droppable"):
+	if area.is_in_group("draggable"):
 		InventoryManager.is_inside_boundary = false
 
 func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
@@ -658,7 +658,7 @@ func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 			await get_tree().create_timer(0.1).timeout
 			
 			delete_pickup_object(PickupObject)
-			InventoryManager.spawn_inventory_droppable(free_slot.position, PickupItemType, free_slot)
+			InventoryManager.spawn_inventory_dropable(free_slot.position, PickupItemType, free_slot)
 			
 		else:
 			print("{LOCAL} [Player_SCRIPT.gd] No free slot available.")
