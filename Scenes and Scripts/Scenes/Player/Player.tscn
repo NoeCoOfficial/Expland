@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=43 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/CrosshairCanvas/HealthLBL_SCRIPT.gd" id="4_56i84"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/OverlayLayer/RedOverlay_SCRIPT.gd" id="7_gnu1v"]
 [ext_resource type="PackedScene" uid="uid://dhhjltxmoydio" path="res://Scenes and Scripts/Scenes/Player/Inventory/InventorySlot.tscn" id="8_ads4s"]
+[ext_resource type="FontFile" uid="uid://c4h0gd5a2e2qb" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf" id="8_cdk3a"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/OverlayLayer/Overlay_SCRIPT.gd" id="8_uxqns"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/BlackOverlay_SCRIPT.gd" id="9_g6nwl"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/IgnoreMouseFilter.gd" id="9_svfxy"]
@@ -86,10 +87,10 @@ func _process(_delta):
 size = Vector2(404, 930)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sl537"]
-size = Vector2(1101.5, 260)
+size = Vector2(1101.5, 253)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4c0ao"]
-size = Vector2(1101.5, 236)
+size = Vector2(1101.5, 233)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_47l1q"]
 size = Vector2(432.875, 819)
@@ -218,6 +219,7 @@ target_position = Vector3(0, -3, 0)
 script = ExtResource("3_2qtqn")
 
 [node name="CrosshairCanvas" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="HealthLBL" type="Label" parent="Head/Camera3D/CrosshairCanvas"]
 anchors_preset = -1
@@ -249,7 +251,6 @@ texture = ExtResource("2_606ex")
 expand_mode = 1
 
 [node name="InventoryLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="Background" type="Panel" parent="Head/Camera3D/InventoryLayer"]
 anchors_preset = 8
@@ -257,10 +258,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -173.5
-offset_top = -194.0
-offset_right = 173.5
-offset_bottom = 194.0
+offset_left = -173.0
+offset_top = -199.0
+offset_right = 174.0
+offset_bottom = 218.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2kg3l")
@@ -270,9 +271,11 @@ script = SubResource("GDScript_tq46f")
 modulate = Color(0, 0, 0, 1)
 anchors_preset = -1
 anchor_left = 0.356771
-anchor_top = 0.212963
+anchor_top = 0.171296
 anchor_right = 0.643229
 anchor_bottom = 0.787037
+offset_top = 24.0
+offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xa5l0")
@@ -285,11 +288,14 @@ anchor_left = 0.356771
 anchor_top = 0.212963
 anchor_right = 0.643229
 anchor_bottom = 0.279321
+offset_left = -0.000183105
+offset_top = -3.00003
+offset_right = 0.000183105
+offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7tmhy")
 script = SubResource("GDScript_tq46f")
-metadata/_edit_use_anchors_ = true
 
 [node name="Overlay" type="Panel" parent="Head/Camera3D/InventoryLayer"]
 anchors_preset = 15
@@ -302,13 +308,13 @@ script = SubResource("GDScript_dc442")
 [node name="Title" type="Label" parent="Head/Camera3D/InventoryLayer"]
 anchors_preset = -1
 anchor_left = 0.388021
-anchor_top = 0.205247
+anchor_top = 0.229938
 anchor_right = 0.612847
-anchor_bottom = 0.296296
+anchor_bottom = 0.320987
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_yecwp")
-theme_override_font_sizes/font_size = 35
+theme_override_fonts/font = ExtResource("8_cdk3a")
+theme_override_font_sizes/font_size = 45
 text = "INVENTORY"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -316,31 +322,31 @@ script = ExtResource("9_svfxy")
 metadata/_edit_use_anchors_ = true
 
 [node name="Slot1" parent="Head/Camera3D/InventoryLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
-position = Vector2(470, 237)
+position = Vector2(470, 261)
 
 [node name="Slot2" parent="Head/Camera3D/InventoryLayer" groups=["Slot2"] instance=ExtResource("8_ads4s")]
-position = Vector2(576, 237)
+position = Vector2(576, 261)
 
 [node name="Slot3" parent="Head/Camera3D/InventoryLayer" groups=["Slot3"] instance=ExtResource("8_ads4s")]
-position = Vector2(683, 237)
+position = Vector2(683, 261)
 
 [node name="Slot4" parent="Head/Camera3D/InventoryLayer" groups=["Slot4"] instance=ExtResource("8_ads4s")]
-position = Vector2(469, 345)
+position = Vector2(469, 369)
 
 [node name="Slot5" parent="Head/Camera3D/InventoryLayer" groups=["Slot5"] instance=ExtResource("8_ads4s")]
-position = Vector2(575, 345)
+position = Vector2(575, 369)
 
 [node name="Slot6" parent="Head/Camera3D/InventoryLayer" groups=["Slot6"] instance=ExtResource("8_ads4s")]
-position = Vector2(682, 345)
+position = Vector2(682, 369)
 
 [node name="Slot7" parent="Head/Camera3D/InventoryLayer" groups=["Slot7"] instance=ExtResource("8_ads4s")]
-position = Vector2(469, 452)
+position = Vector2(469, 476)
 
 [node name="Slot8" parent="Head/Camera3D/InventoryLayer" groups=["Slot8"] instance=ExtResource("8_ads4s")]
-position = Vector2(575, 452)
+position = Vector2(575, 476)
 
 [node name="Slot9" parent="Head/Camera3D/InventoryLayer" groups=["Slot9"] instance=ExtResource("8_ads4s")]
-position = Vector2(682, 452)
+position = Vector2(682, 476)
 
 [node name="Boundary" type="Area2D" parent="Head/Camera3D/InventoryLayer" groups=["boundary"]]
 priority = 12
@@ -351,12 +357,12 @@ shape = SubResource("RectangleShape2D_cs88l")
 debug_color = Color(0.998937, 0, 0.128371, 0.42)
 
 [node name="Boundary2" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Boundary"]
-position = Vector2(619, -1)
+position = Vector2(619, -4.5)
 shape = SubResource("RectangleShape2D_sl537")
 debug_color = Color(0.998937, 0, 0.128371, 0.42)
 
 [node name="Boundary3" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Boundary"]
-position = Vector2(619, 661)
+position = Vector2(619, 662.5)
 shape = SubResource("RectangleShape2D_4c0ao")
 debug_color = Color(0.998937, 0, 0.128371, 0.42)
 
@@ -366,6 +372,7 @@ shape = SubResource("RectangleShape2D_47l1q")
 debug_color = Color(0.998937, 0, 0.128371, 0.42)
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/DeathScreen"]
 anchors_preset = 15
@@ -417,6 +424,7 @@ vertical_alignment = 1
 script = ExtResource("11_0enap")
 
 [node name="OverlayLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="RedOverlay" type="ColorRect" parent="Head/Camera3D/OverlayLayer"]
 process_priority = 10
@@ -443,6 +451,7 @@ color = Color(0, 0, 0, 1)
 script = ExtResource("8_uxqns")
 
 [node name="InteractionLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="InteractionHUD" parent="Head/Camera3D/InteractionLayer" instance=ExtResource("16_8a1wo")]
 offset_left = -183.0
@@ -451,6 +460,7 @@ offset_right = -1107.0
 offset_bottom = -532.0
 
 [node name="DialogueLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="DialogueInterface" parent="Head/Camera3D/DialogueLayer" instance=ExtResource("17_pkmg7")]
 visible = false
@@ -622,21 +632,25 @@ theme_override_font_sizes/font_size = 27
 text = "CREDITS"
 
 [node name="AchievementsLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="AchievementsUI" parent="Head/Camera3D/AchievementsLayer" instance=ExtResource("20_3vll1")]
 visible = false
 
 [node name="CreditsLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="CreditsLayer" parent="Head/Camera3D/CreditsLayer" instance=ExtResource("24_qhsvo")]
 visible = false
 
 [node name="SettingsLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="SettingsUI" parent="Head/Camera3D/SettingsLayer" instance=ExtResource("19_kj00b")]
 visible = false
 
 [node name="SaveOverlay" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="LighterBG" type="ColorRect" parent="Head/Camera3D/SaveOverlay"]
 anchors_preset = -1
@@ -674,6 +688,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="AlertLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="AlertLayer" parent="Head/Camera3D/AlertLayer" instance=ExtResource("21_r1ny7")]
 visible = false
@@ -884,6 +899,7 @@ vertical_alignment = 1
 script = ExtResource("20_bmbkh")
 
 [node name="TopLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/TopLayer"]
 visible = false
