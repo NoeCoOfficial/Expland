@@ -83,3 +83,11 @@ func set_dof_blur(value : bool) -> void:
 
 func _on_pickup_item_spawn_timer_timeout() -> void:
 	InventoryManager.create_pickup_object_at_pos(RockPosRef.position, "ROCK")
+	InventoryManager.create_pickup_object_at_pos(RedFlowerPosRef.position, "REDFLOWER")
+	InventoryManager.create_pickup_object_at_pos(BlueFlowerPosRef.position, "BLUEFLOWER")
+	InventoryManager.create_pickup_object_at_pos(PinkFlowerPosRef.position, "PINKFLOWER")
+	InventoryManager.create_pickup_object_at_pos(BlankFlowerPosRef.position, "BLANKFLOWER")
+	InventoryManager.create_pickup_object_at_pos(PickaxePosRef.position, "PICKAXE")
+	
+
+	
