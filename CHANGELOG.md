@@ -25,6 +25,8 @@ Welcome to this huge release! We are already halfway there to v1.0.0. Look at th
 
 ### Added:
 - Added an extra button that takes you to the main menu
+- Achievements button (with an interface upon being pressed, no achievements yet)
+- Credits button (with an interface upon being pressed)
 ---
 ## Environment
 
@@ -56,5 +58,5 @@ Welcome to this huge release! We are already halfway there to v1.0.0. Look at th
 	- Parkour Mode (Locked)
 
 - Fade out when transitioning to one of the game modes
-- Achievements button (with alert upon being pressed, no achievements yet)
-- Credits button (with an alert upon being pressed)
+- Achievements button (with an interface upon being pressed, no achievements yet)
+- Credits button (with an interface upon being pressed)
