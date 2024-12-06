@@ -40,6 +40,9 @@ Welcome to this huge release! We are already halfway there to v1.0.0. Look at th
 - Blank flower pickup item (#48)
 - Pickaxe pick up item
 
+### Changed:
+- Modified UI
+
 ### Fixed:
 - Fixed inventory pickup items not being able to be picked up in a cluster
 - Fixed being able to dupe items when pickup up 3D object
@@ -55,4 +58,3 @@ Welcome to this huge release! We are already halfway there to v1.0.0. Look at th
 - Fade out when transitioning to one of the game modes
 - Achievements button (No achievements yet)
 - Credits button (with an alert upon being pressed)
-

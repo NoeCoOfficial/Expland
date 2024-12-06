@@ -53,9 +53,14 @@ func saveAllData():
 	var playerNode = get_node("/root/World/Player")
 	
 	PlayerData.saveData()
-	playerNode.saveInventory()
+	if playerNode != null:
+		playerNode.saveInventory()
 	PlayerSettingsData.saveSettings()
 
 func loadAllData():
+	var playerNode = get_node("/root/World/Player")
+
 	PlayerData.loadData()
+	if playerNode != null:
+		playerNode.saveInventory()
 	PlayerSettingsData.loadSettings()
