@@ -17,7 +17,16 @@
 
 ### Fixed:
 - Fixed a bug where you could not pick 3D inventory pickup items up after trying to interact with them while the inventory was full
+---
+## Settings
 
+### Added:
+- Mouse sensitivity slider
+
+<!--
+### Changed:
+- Modified UI
+-->
 ---
 
 # v0.5.0 (released)
