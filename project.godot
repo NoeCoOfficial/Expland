@@ -28,6 +28,7 @@ buses/default_bus_layout="res://Resources/Audio Bus/default_bus_layout.tres"
 [autoload]
 
 Global="*res://Scenes and Scripts/Singletons/Global.gd"
+DebugManager="*res://Scenes and Scripts/Singletons/Debug/DebugManager.gd"
 PlayerData="*res://Scenes and Scripts/Singletons/Save and Load/PlayerData.gd"
 InventoryData="*res://Scenes and Scripts/Singletons/Save and Load/InventoryData.gd"
 PlayerSettingsData="*res://Scenes and Scripts/Singletons/Save and Load/PlayerSettingsData.gd"
