@@ -832,7 +832,7 @@ func _on_pickup_object_detector_body_entered(body: Node3D) -> void:
 			
 			{"author": "sebashtioon", 
 			"message": "My bad! Let me introduce you to Erik (or BobMcBobFacey), another founder of Noe Co.. He recently joined the team again as of December 2024!",
-			"duration": 0.7},
+			"duration": 3},
 			
 			{"author": "sebashtioon", 
 			"message": "Alright then, I'll leave you to it. Go explore.
