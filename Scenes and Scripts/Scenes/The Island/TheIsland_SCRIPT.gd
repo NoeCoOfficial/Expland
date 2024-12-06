@@ -58,7 +58,6 @@ extends Node
 @export var BlankFlowerPosRef : Node3D
 @export var PickaxePosRef : Node3D
 
-
 func _ready() -> void:
 	SaveManager.loadAllData()
 	set_motion_blur(PlayerSettingsData.MotionBlur)
