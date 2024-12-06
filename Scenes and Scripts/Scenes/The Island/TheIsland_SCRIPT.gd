@@ -92,6 +92,9 @@ func _on_pickup_item_spawn_timer_timeout() -> void:
 func _on_tick() -> void:
 	if TimeManager.CURRENT_HOUR == 23:
 		TimeManager.CURRENT_HOUR = 0
+		
+		
+		
 		SaveManager.saveAllData()
 		print("New day")
 	else:
