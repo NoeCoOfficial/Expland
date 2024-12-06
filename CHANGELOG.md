@@ -32,6 +32,7 @@ Welcome to this huge release! We are already halfway there to v1.0.0. Look at th
 
 ### Added:
 - Added a red spike to the test area, which when touched by the player, takes away 14 health
+- Added some 3D pickup items to the testing area, which you can pick up
 ---
 ## Inventory
 
