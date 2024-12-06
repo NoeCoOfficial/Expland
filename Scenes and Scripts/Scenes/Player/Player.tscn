@@ -84,16 +84,16 @@ func _process(_delta):
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cs88l"]
-size = Vector2(404, 930)
+size = Vector2(394, 648)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sl537"]
-size = Vector2(1101.5, 253)
+size = Vector2(1152, 101)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4c0ao"]
-size = Vector2(1101.5, 233)
+size = Vector2(1152, 107)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_47l1q"]
-size = Vector2(429.875, 819)
+size = Vector2(392, 648)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_meokx"]
 bg_color = Color(0.125911, 0.125911, 0.125911, 1)
@@ -256,7 +256,6 @@ texture = ExtResource("2_606ex")
 expand_mode = 1
 
 [node name="InventoryLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="Background" type="Panel" parent="Head/Camera3D/InventoryLayer"]
 anchors_preset = 8
@@ -265,9 +264,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -173.0
-offset_top = -199.0
+offset_top = -214.0
 offset_right = 174.0
-offset_bottom = 218.0
+offset_bottom = 203.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2kg3l")
@@ -280,8 +279,8 @@ anchor_left = 0.356771
 anchor_top = 0.171296
 anchor_right = 0.643229
 anchor_bottom = 0.787037
-offset_top = 24.0
-offset_bottom = 24.0
+offset_top = 9.00001
+offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xa5l0")
@@ -295,9 +294,9 @@ anchor_top = 0.212963
 anchor_right = 0.643229
 anchor_bottom = 0.279321
 offset_left = -0.000183105
-offset_top = -3.00003
+offset_top = -18.0
 offset_right = 0.000183105
-offset_bottom = 24.0
+offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7tmhy")
@@ -317,8 +316,8 @@ anchor_left = 0.388021
 anchor_top = 0.229938
 anchor_right = 0.612847
 anchor_bottom = 0.320987
-offset_top = -3.0
-offset_bottom = -3.0
+offset_top = -18.0
+offset_bottom = -18.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("8_cdk3a")
@@ -330,56 +329,57 @@ script = ExtResource("9_svfxy")
 metadata/_edit_use_anchors_ = true
 
 [node name="Slot1" parent="Head/Camera3D/InventoryLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
-position = Vector2(470, 261)
+position = Vector2(470, 246)
 
 [node name="Slot2" parent="Head/Camera3D/InventoryLayer" groups=["Slot2"] instance=ExtResource("8_ads4s")]
-position = Vector2(576, 261)
+position = Vector2(576, 246)
 
 [node name="Slot3" parent="Head/Camera3D/InventoryLayer" groups=["Slot3"] instance=ExtResource("8_ads4s")]
-position = Vector2(683, 261)
+position = Vector2(683, 246)
 
 [node name="Slot4" parent="Head/Camera3D/InventoryLayer" groups=["Slot4"] instance=ExtResource("8_ads4s")]
-position = Vector2(469, 369)
+position = Vector2(469, 354)
 
 [node name="Slot5" parent="Head/Camera3D/InventoryLayer" groups=["Slot5"] instance=ExtResource("8_ads4s")]
-position = Vector2(575, 369)
+position = Vector2(575, 354)
 
 [node name="Slot6" parent="Head/Camera3D/InventoryLayer" groups=["Slot6"] instance=ExtResource("8_ads4s")]
-position = Vector2(682, 369)
+position = Vector2(682, 354)
 
 [node name="Slot7" parent="Head/Camera3D/InventoryLayer" groups=["Slot7"] instance=ExtResource("8_ads4s")]
-position = Vector2(469, 476)
+position = Vector2(469, 461)
 
 [node name="Slot8" parent="Head/Camera3D/InventoryLayer" groups=["Slot8"] instance=ExtResource("8_ads4s")]
-position = Vector2(575, 476)
+position = Vector2(575, 461)
 
 [node name="Slot9" parent="Head/Camera3D/InventoryLayer" groups=["Slot9"] instance=ExtResource("8_ads4s")]
-position = Vector2(682, 476)
+position = Vector2(682, 461)
 
 [node name="Boundary" type="Area2D" parent="Head/Camera3D/InventoryLayer" groups=["boundary"]]
 priority = 12
 
 [node name="Boundary1" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Boundary"]
-position = Vector2(192, 306)
+position = Vector2(197, 324)
 shape = SubResource("RectangleShape2D_cs88l")
 debug_color = Color(0.998937, 0, 0.128371, 0.42)
 
 [node name="Boundary2" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Boundary"]
-position = Vector2(619, -4.5)
+position = Vector2(576, 50.5)
 shape = SubResource("RectangleShape2D_sl537")
 debug_color = Color(0.998937, 0, 0.128371, 0.42)
 
 [node name="Boundary3" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Boundary"]
-position = Vector2(619, 662.5)
+position = Vector2(576, 594.5)
 shape = SubResource("RectangleShape2D_4c0ao")
 debug_color = Color(0.998937, 0, 0.128371, 0.42)
 
 [node name="Boundary4" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Boundary"]
-position = Vector2(974.938, 380)
+position = Vector2(956, 324)
 shape = SubResource("RectangleShape2D_47l1q")
 debug_color = Color(0.998937, 0, 0.128371, 0.42)
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/DeathScreen"]
 anchors_preset = 15
@@ -431,6 +431,7 @@ vertical_alignment = 1
 script = ExtResource("11_0enap")
 
 [node name="OverlayLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="RedOverlay" type="ColorRect" parent="Head/Camera3D/OverlayLayer"]
 process_priority = 10
