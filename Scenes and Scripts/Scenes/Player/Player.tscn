@@ -204,12 +204,6 @@ shape = SubResource("ConvexPolygonShape3D_o1e22")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1972, 0)
 shape = SubResource("BoxShape3D_16v4h")
 
-[node name="PlayerAreaCollision" type="Area3D" parent="." groups=["player"]]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerAreaCollision"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1972, 0)
-shape = SubResource("BoxShape3D_16v4h")
-
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 
@@ -915,7 +909,6 @@ color = Color(0, 0, 0, 1)
 [connection signal="timeout" from="AutoSaveTimer" to="." method="_on_auto_save_timer_timeout"]
 [connection signal="area_entered" from="PickupObjectDetector" to="." method="_on_pickup_object_detector_area_entered"]
 [connection signal="body_entered" from="PickupObjectDetector" to="." method="_on_pickup_object_detector_body_entered"]
-[connection signal="body_entered" from="PlayerAreaCollision" to="." method="_on_player_area_collision_body_entered"]
 [connection signal="area_entered" from="Head/Camera3D/InventoryLayer/Boundary" to="." method="_on_boundary_area_entered"]
 [connection signal="area_exited" from="Head/Camera3D/InventoryLayer/Boundary" to="." method="_on_boundary_area_exited"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/Resume_Btn" to="." method="_on_resume_btn_pressed"]

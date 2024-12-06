@@ -611,6 +611,7 @@ func _on_boundary_area_exited(area):
 
 func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 	
+
 	
 	if area.is_in_group("pickup_player_detector"):
 		
@@ -774,6 +775,9 @@ func _on_start_debugging_btn_pressed() -> void:
 ######################################
 
 func _on_pickup_object_detector_body_entered(body: Node3D) -> void:
+	if body.is_in_group("temp_spike"):
+		takeDamage(14)
+	
 	if body.is_in_group("dialogue_test"):
 		
 		var messages = [
@@ -839,7 +843,3 @@ func _on_pickup_object_detector_body_entered(body: Node3D) -> void:
 		]
 		
 		DialogueManager.startDialogue(messages)
-
-func _on_player_area_collision_body_entered(body: Node3D) -> void:
-	if body.is_in_group("temp_spike"):
-		takeDamage(14)
