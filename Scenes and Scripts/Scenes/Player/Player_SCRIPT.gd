@@ -822,11 +822,19 @@ func _on_pickup_object_detector_body_entered(body: Node3D) -> void:
 			"message": "It truly does! Goats are the best.",
 			"duration": 1.5},
 			
+			{"author": "BobMcBobFacey (Noe Co. dev)", 
+			"message": "Hey! What about me?",
+			"duration": 0.7},
+			
 			{"author": "sebashtioon", 
-			"message": "Alright then, i'll leave you to it. Go explore.
+			"message": "My bad! Let me introduce you to Erik (or BobMcBobFacey), another founder of Noe Co.. He recently joined the team again as of December 2024!",
+			"duration": 0.7},
+			
+			{"author": "sebashtioon", 
+			"message": "Alright then, I'll leave you to it. Go explore.
 			Best wishes,
 			
-			Seb and Tristan",
+			Seb, Tristan and Erik",
 			"duration": 4},
 		]
 		
