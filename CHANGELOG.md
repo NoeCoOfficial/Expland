@@ -9,6 +9,11 @@
 ### Changed:
 - Modified pickup range to be slightly larger for 3D inventory pickup items
 - Increase range of 3D inventory pickup item drop position from the player
+---
+## Inventory
+
+### Fixed:
+- Fixed a bug where you could not pick 3D inventory pickup items up after trying to interact with them while the inventory was full
 
 ---
 
