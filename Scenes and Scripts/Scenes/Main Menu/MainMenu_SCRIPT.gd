@@ -127,9 +127,11 @@ func _input(_event: InputEvent) -> void:
 		if is_in_gamemode_select:
 			deSpawnGameModeMenu()
 		if PauseManager.is_inside_settings:
-			$Camera3D/MainLayer/SettingsUI.closeSettings()
+			$Camera3D/MainLayer/SettingsUI.closeSettings(0.5)
 		if PauseManager.is_inside_achievements_ui:
 			$Camera3D/MainLayer/AchievementsUI.despawnAchievements(0.5)
+		if PauseManager.is_inside_credits:
+			$Camera3D/MainLayer/CreditsLayer.despawnCredits(0.5)
 
 ######################################
 # PlayButton animations and functions
