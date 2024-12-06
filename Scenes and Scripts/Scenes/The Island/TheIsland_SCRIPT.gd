@@ -70,6 +70,3 @@ func set_dof_blur(value : bool) -> void:
 		cameraAttributesResource.dof_blur_far_enabled = true
 	else:
 		cameraAttributesResource.dof_blur_far_enabled = false
-
-func on_test_timer_done() -> void:
-	InventoryManager.create_pickup_object_at_pos(Vector3(-351.588, 0, 324.606), "ROCK")

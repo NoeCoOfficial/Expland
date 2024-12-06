@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dn71w5221elme"]
 
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Inventory/ItemPickupObject_SCRIPT.gd" id="1_sf25a"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Inventory/StandaloneItemPickupObject_SCRIPT.gd" id="1_cc1tf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0xbt0"]
 size = Vector3(1.7, 1.7, 1.7)
@@ -12,7 +12,7 @@ custom_solver_bias = 0.945
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 collision_layer = 4
 collision_mask = 2
-script = ExtResource("1_sf25a")
+script = ExtResource("1_cc1tf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0464582, 0)
