@@ -86,7 +86,7 @@ func loadData(withOutput : bool) -> void:
 	if file and not file.eof_reached():
 		var current_line = JSON.parse_string(file.get_line())
 		if current_line:
-			#TimeManager.CURRENT_HOUR = current_line["CURRENT_HOUR"]
+			TimeManager.CURRENT_HOUR = current_line["CURRENT_HOUR"]
 			
 			Health = current_line["Health"]
 			GAME_STATE = current_line["GAME_STATE"]
