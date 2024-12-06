@@ -65,7 +65,7 @@ func _ready() -> void:
 	set_dof_blur(PlayerSettingsData.DOFBlur)
 
 func _on_ready() -> void:
-	InventoryManager.create_pickup_object_at_pos(RockPosRef.position, "ROCK")
+	pass
 
 func set_motion_blur(value : bool) -> void:
 	if value:
@@ -80,3 +80,6 @@ func set_dof_blur(value : bool) -> void:
 		cameraAttributesResource.dof_blur_far_enabled = true
 	else:
 		cameraAttributesResource.dof_blur_far_enabled = false
+
+func _on_pickup_item_spawn_timer_timeout() -> void:
+	InventoryManager.create_pickup_object_at_pos(RockPosRef.position, "ROCK")
