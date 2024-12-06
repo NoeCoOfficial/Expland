@@ -57,5 +57,5 @@ func saveAllData():
 	PlayerSettingsData.saveSettings()
 
 func loadAllData():
-	PlayerData.loadData()
+	PlayerData.loadData(true)
 	PlayerSettingsData.loadSettings()
