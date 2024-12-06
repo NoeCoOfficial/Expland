@@ -366,9 +366,11 @@ func _headbob(time) -> Vector3:
 
 func _process(_delta):
 	
-	## DEBUGGING
-	
+	SENSITIVITY = PlayerSettingsData.Sensitivity
 	camera.fov = PlayerSettingsData.FOV
+	
+	
+	## DEBUGGING
 	
 	# Get the time
 	var time_now = Time.get_time_dict_from_system()

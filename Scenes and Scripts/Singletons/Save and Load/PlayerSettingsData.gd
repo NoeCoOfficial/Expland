@@ -130,6 +130,7 @@ func loadSettings() -> void:
 				
 				# Video
 				FOV = current_line["FOV"]
+				#Sensitivity = current_line["FOV"]
 				
 				# Audio
 				Master_Volume = current_line["Master_Volume"]
