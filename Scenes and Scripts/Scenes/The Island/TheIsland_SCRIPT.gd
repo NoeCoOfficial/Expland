@@ -98,3 +98,50 @@ func _on_tick() -> void:
 		TimeManager.CURRENT_HOUR += 1
 		SaveManager.saveAllData()
 		print("Next hour: " + str(TimeManager.CURRENT_HOUR))
+		match TimeManager.CURRENT_HOUR:
+			1:
+				pass
+			2:
+				pass
+			3:
+				pass
+			4:
+				pass
+			5:
+				pass
+			6:
+				pass
+			7:
+				pass
+			8:
+				pass
+			9:
+				pass
+			10:
+				pass
+			11:
+				pass
+			12:
+				pass
+			13:
+				pass
+			14:
+				pass
+			15:
+				pass
+			16:
+				pass
+			17:
+				pass
+			18:
+				pass
+			19:
+				pass
+			20:
+				pass
+			21:
+				pass
+			22:
+				pass
+			23:
+				pass
