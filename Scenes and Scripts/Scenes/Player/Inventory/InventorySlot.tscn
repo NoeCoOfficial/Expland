@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhhjltxmoydio"]
+[gd_scene load_steps=6 format=3 uid="uid://dhhjltxmoydio"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Inventory/InventorySlot_SCRIPT.gd" id="1_bxl3d"]
 [ext_resource type="Texture2D" uid="uid://dhnn7my6ghg0d" path="res://Textures/Inventory/Slot/InventorySlotTexture.png" id="2_2mtlq"]
+[ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="3_x0xu3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5hbs3"]
 size = Vector2(40, 40)
@@ -9,8 +10,9 @@ size = Vector2(40, 40)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5yu5"]
 size = Vector2(40, 40)
 
-[node name="InventorySlot" type="StaticBody2D" groups=["dropable"]]
+[node name="InventorySlot" type="StaticBody2D" node_paths=PackedStringArray("is_populated_label") groups=["dropable"]]
 script = ExtResource("1_bxl3d")
+is_populated_label = NodePath("is_populated")
 
 [node name="AlreadyPopulatedChecker" type="Timer" parent="."]
 wait_time = 0.05
@@ -39,6 +41,17 @@ shape = SubResource("RectangleShape2D_5hbs3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_q5yu5")
+
+[node name="is_populated" type="Label" parent="."]
+offset_left = 62.0
+offset_top = -23.0
+offset_right = 107.0
+rotation = 1.57079
+theme = ExtResource("3_x0xu3")
+theme_override_font_sizes/font_size = 10
+text = "Empty"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="area_entered" from="Draggable Detector" to="." method="_on_draggable_detector_area_entered"]
 [connection signal="area_exited" from="Draggable Detector" to="." method="_on_draggable_detector_area_exited"]

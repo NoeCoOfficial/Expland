@@ -50,6 +50,7 @@ extends StaticBody2D
 
 @export var is_touching_draggable = false
 @export var populated = false
+@export var is_populated_label : Label
 
 func _ready():
 	modulate = Color(1, 1, 1, 0.05)
@@ -59,6 +60,15 @@ func _process(_delta):
 		visible = true
 	else:
 		visible = false
+	
+	if DebugManager.is_debugging:
+		is_populated_label.visible = true
+		if populated:
+			is_populated_label.text = "Populated"
+		else:
+			is_populated_label.text = "Empty"
+	else:
+		is_populated_label.visible = false
 
 func is_populated():
 	if populated:
