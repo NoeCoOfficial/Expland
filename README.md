@@ -5,7 +5,7 @@
 </p>
 
 ---
-<h3 align="center">Current version: v0.4.7 (pre-release)</h3>
+<h3 align="center">Current version: v0.5.0 (pre-release)</h3>
 <h5 align="center">Any questions? See the FAQ below, or contact us via email at <i>noeco.official@gmail.com.</i></h5>
 
 ---
