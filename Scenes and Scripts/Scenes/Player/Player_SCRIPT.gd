@@ -220,7 +220,6 @@ func _input(_event): # A built-in function that listens for input using the inpu
 	
 	if Input.is_action_just_pressed("Exit"):
 		
-		
 		if PauseManager.is_paused:
 			
 			if !PauseManager.is_inside_settings and !PauseManager.is_inside_achievements_ui and !PauseManager.is_inside_credits and !PauseManager.is_inside_alert and !PlayerData.GAME_STATE == "DEAD":
@@ -369,7 +368,8 @@ func _process(_delta):
 	
 	## DEBUGGING
 	
-	$Head/Camera3D.fov = PlayerSettingsData.FOV
+	camera.fov = PlayerSettingsData.FOV
+	
 	# Get the time
 	var time_now = Time.get_time_dict_from_system()
 	var hours = time_now["hour"]
