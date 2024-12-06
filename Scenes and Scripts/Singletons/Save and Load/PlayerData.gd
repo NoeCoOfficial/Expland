@@ -54,6 +54,7 @@ const SAVE_PATH = "res://player.save"
 var GAME_STATE = "NORMAL"
 var Health := 100
 
+
 func saveData() -> void:
 	var player = get_node("/root/World/Player")
 	var playerHead = get_node("/root/World/Player/Head")
@@ -62,6 +63,7 @@ func saveData() -> void:
 	if player:
 		var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 		var data = {
+			"CURRENT_HOUR" : TimeManager.CURRENT_HOUR,
 			"GAME_STATE" : GAME_STATE,
 			"Health" : Health,
 			"Position" : Utils.vector3_to_dict(player.position),
@@ -84,6 +86,7 @@ func loadData() -> void:
 	if file and not file.eof_reached():
 		var current_line = JSON.parse_string(file.get_line())
 		if current_line:
+			TimeManager.CURRENT_HOUR = current_line["CURRENT_HOUR"]
 			
 			Health = current_line["Health"]
 			GAME_STATE = current_line["GAME_STATE"]
@@ -91,7 +94,7 @@ func loadData() -> void:
 			var player = get_node("/root/World/Player")
 			var playerHead = get_node("/root/World/Player/Head")
 			var playerCamera = get_node("/root/World/Player/Head/Camera3D")
-				
+			
 			if player:
 				
 				
@@ -105,6 +108,7 @@ func loadData() -> void:
 				
 				print_rich("[center][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf][font_size=30]-- PLAYER DATA HAS BEEN LOADED --[/font_size][/font][/center]")
 				
+				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Current hour: " + str(TimeManager.CURRENT_HOUR) + "[/font][/font_size][/center]")
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Health: " + str(Health) + "[/font][/font_size][/center]")
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Game State: " + GAME_STATE + "[/font][/font_size][/center]")
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Player Position: " + str(player.position) + "[/font][/font_size][/center]")
