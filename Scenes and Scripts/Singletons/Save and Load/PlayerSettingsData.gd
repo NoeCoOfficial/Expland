@@ -68,7 +68,7 @@ var DOFBlur = true
 ######################################
 
 var FOV = 110
-var Dynamic_FOV = true
+var Sensitivity = 0.001
 
 ######################################
 # Audio
@@ -95,6 +95,7 @@ func saveSettings() -> void:
 		
 		# Video
 		"FOV" : FOV,
+		"Sensitivity" : Sensitivity,
 		
 		# Audio
 		"sfx_Volume" : sfx_Volume,
