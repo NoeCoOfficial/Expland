@@ -220,9 +220,10 @@ func _input(_event): # A built-in function that listens for input using the inpu
 	
 	if Input.is_action_just_pressed("Exit"):
 		
+		
 		if PauseManager.is_paused:
 			
-			if !PauseManager.is_inside_settings and !PauseManager.is_inside_achievements_ui and !PauseManager.is_inside_credits and !PauseManager.is_inside_alert:
+			if !PauseManager.is_inside_settings and !PauseManager.is_inside_achievements_ui and !PauseManager.is_inside_credits and !PauseManager.is_inside_alert and !PlayerData.GAME_STATE == "DEAD":
 				resumeGame()
 			
 			if PauseManager.is_inside_settings:
@@ -239,7 +240,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			
 		else:
 			
-			if !DialogueManager.is_in_absolute_interface and !InventoryManager.inventory_open and !PauseManager.is_inside_alert:
+			if !DialogueManager.is_in_absolute_interface and !InventoryManager.inventory_open and !PauseManager.is_inside_alert and !PlayerData.GAME_STATE == "DEAD":
 				pauseGame()
 			
 			if InventoryManager.inventory_open:
@@ -248,9 +249,8 @@ func _input(_event): # A built-in function that listens for input using the inpu
 	
 	if Input.is_action_just_pressed("Quit") and Quit == true and OS.has_feature("debug"): # if the Quit input is pressed and the Quit variable is true
 		if GAME_STATE == "NORMAL" or "INVENTORY": # if the game state is normal or inventory
-			if !GAME_STATE == "DEAD":
-				SaveManager.saveAllData()
-				get_tree().quit() # quit the game
+			SaveManager.saveAllData()
+			get_tree().quit() # quit the game
 	
 	
 	if Input.is_action_just_pressed("Reset") and Reset == true and !PauseManager.is_paused and !PauseManager.is_inside_alert and OS.has_feature("debug"):
