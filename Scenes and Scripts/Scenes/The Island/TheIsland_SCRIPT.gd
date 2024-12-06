@@ -51,11 +51,21 @@ extends Node
 @onready var motionBlurCompositor = preload("res://Resources/Environment/TheIsland_MotionBlurCompositor.tres")
 @onready var noMotionBlurCompositor = preload("res://Resources/Environment/TheIsland_NoMotionBlurCompositor.tres")
 
+@export var RockPosRef : Node3D
+@export var RedFlowerPosRef : Node3D
+@export var BlueFlowerPosRef : Node3D
+@export var PinkFlowerPosRef : Node3D
+@export var BlankFlowerPosRef : Node3D
+@export var PickaxePosRef : Node3D
+
 
 func _ready() -> void:
 	SaveManager.loadAllData()
 	set_motion_blur(PlayerSettingsData.MotionBlur)
 	set_dof_blur(PlayerSettingsData.DOFBlur)
+
+func _on_ready() -> void:
+	InventoryManager.create_pickup_object_at_pos(RockPosRef.position, "ROCK")
 
 func set_motion_blur(value : bool) -> void:
 	if value:
