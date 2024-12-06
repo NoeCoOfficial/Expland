@@ -58,6 +58,7 @@ func nodeSetup():
 	$MainLayer/SettingsTabContainer/Graphics/DOFBlurSwitch.button_pressed = PlayerSettingsData.DOFBlur
 
 	$MainLayer/SettingsTabContainer/Video/FOVSlider.value = PlayerSettingsData.FOV
+	$MainLayer/SettingsTabContainer/Video/SENSITIVITYSlider.value = PlayerSettingsData.Sensitivity * 10
 	$MainLayer/SettingsTabContainer/Sound/MasterSlider.value = PlayerSettingsData.Master_Volume
 	$MainLayer/SettingsTabContainer/Sound/MusicSlider.value = PlayerSettingsData.music_Volume
 	$MainLayer/SettingsTabContainer/Sound/SFXSlider.value = PlayerSettingsData.sfx_Volume
@@ -74,7 +75,9 @@ func _ready() -> void:
 	nodeSetup()
 
 func _process(_delta: float) -> void:
+	
 	$MainLayer/SettingsTabContainer/Video/FOVValue.text = str(PlayerSettingsData.FOV)
+	$MainLayer/SettingsTabContainer/Video/SENSITIVITYValue.text = str(PlayerSettingsData.Sensitivity)
 	$MainLayer/SettingsTabContainer/Sound/MasterValue.text = str(int(PlayerSettingsData.Master_Volume * 100))
 	$MainLayer/SettingsTabContainer/Sound/MusicValue.text = str(int(PlayerSettingsData.music_Volume * 100))
 	$MainLayer/SettingsTabContainer/Sound/SFXValue.text = str(int(PlayerSettingsData.sfx_Volume * 100))
@@ -111,6 +114,10 @@ func _on_exit_settings_button_pressed() -> void:
 
 func _on_fov_slider_value_changed(value: float) -> void:
 	PlayerSettingsData.FOV = value
+
+func _on_sensitivity_slider_value_changed(value: float) -> void:
+	PlayerSettingsData.Sensitivity = value / 10
+
 
 func _on_master_slider_value_changed(value: float) -> void:
 	PlayerSettingsData.Master_Volume = value

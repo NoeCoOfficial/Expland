@@ -155,10 +155,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_0ocir")
 theme_override_font_sizes/font_size = 21
-current_tab = 0
+current_tab = 2
 script = ExtResource("2_swx28")
 
 [node name="General" type="TabBar" parent="MainLayer/SettingsTabContainer"]
+visible = false
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("2_swx28")
@@ -245,7 +246,6 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Video" type="TabBar" parent="MainLayer/SettingsTabContainer"]
-visible = false
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("2_swx28")
@@ -299,6 +299,58 @@ grow_vertical = 0
 theme = ExtResource("5_8j0xn")
 theme_override_font_sizes/font_size = 17
 text = "Field of Vision (FOV)"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="SENSITIVITYSlider" type="HSlider" parent="MainLayer/SettingsTabContainer/Video"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0413321
+anchor_top = 0.202651
+anchor_right = 0.484
+anchor_bottom = 0.248924
+offset_left = 1.43051e-05
+offset_right = 3.05176e-05
+focus_mode = 0
+theme_override_constants/center_grabber = -1
+theme_override_styles/slider = SubResource("StyleBoxLine_5ohsc")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_uykce")
+min_value = 0.01
+max_value = 1.0
+step = 0.001
+value = 0.01
+metadata/_edit_use_anchors_ = true
+
+[node name="SENSITIVITYValue" type="Label" parent="MainLayer/SettingsTabContainer/Video"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.512001
+anchor_top = 0.187239
+anchor_right = 0.677335
+anchor_bottom = 0.267054
+offset_top = -0.123955
+offset_right = -1.52588e-05
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("5_8j0xn")
+theme_override_font_sizes/font_size = 18
+text = "00"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="SENSITIVITYTTL" type="Label" parent="MainLayer/SettingsTabContainer/Video"]
+layout_mode = 2
+anchor_left = -0.0266681
+anchor_top = 0.140955
+anchor_right = 0.581334
+anchor_bottom = 0.220647
+offset_right = -1.52588e-05
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("5_8j0xn")
+theme_override_font_sizes/font_size = 17
+text = "Sensitivity"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -454,6 +506,7 @@ script = ExtResource("2_swx28")
 [connection signal="toggled" from="MainLayer/SettingsTabContainer/Graphics/MotionBlurSwitch" to="." method="_on_motion_blur_switch_toggled"]
 [connection signal="toggled" from="MainLayer/SettingsTabContainer/Graphics/DOFBlurSwitch" to="." method="_on_dof_blur_switch_toggled"]
 [connection signal="value_changed" from="MainLayer/SettingsTabContainer/Video/FOVSlider" to="." method="_on_fov_slider_value_changed"]
+[connection signal="value_changed" from="MainLayer/SettingsTabContainer/Video/SENSITIVITYSlider" to="." method="_on_sensitivity_slider_value_changed"]
 [connection signal="value_changed" from="MainLayer/SettingsTabContainer/Sound/MasterSlider" to="." method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="MainLayer/SettingsTabContainer/Sound/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="MainLayer/SettingsTabContainer/Sound/SFXSlider" to="." method="_on_sfx_slider_value_changed"]

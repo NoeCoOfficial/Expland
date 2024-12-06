@@ -369,7 +369,6 @@ func _process(_delta):
 	SENSITIVITY = PlayerSettingsData.Sensitivity
 	camera.fov = PlayerSettingsData.FOV
 	
-	
 	## DEBUGGING
 	
 	# Get the time
