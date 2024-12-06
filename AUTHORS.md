@@ -11,9 +11,9 @@ Note: This file is currently unfinished.
 
 ### Authors
 
-- **Sebastian Suciu** ([@sebashtioon](https://github.com/sebashtioon)): 3D Assets, Code and Game development
+- **Sebastian Suciu** ([@sebashtioon](https://github.com/sebashtioon)): Code, Game development, and 3D and 2D Assets
 - **Tristan Taylor** ([@GoatsAreTB](https://github.com/GoatsAreTB)): 3D and 2D Assets, Music, Storyboarding and Lore
-- **
+- **Erik Miller** (BobMcBobFacey): 3D and 2D Assets, Storyboarding and Visual Designer
 
 ### Contributors
 <a href="https://github.com/NoeCoOfficial/Expland/graphs/contributors">
@@ -24,7 +24,7 @@ Note: This file is currently unfinished.
 
 A special thanks to everyone who has supported us throughout the development of **Expland**. Your encouragement and feedback mean the world to us.
 
-- **Melinda Timpson**, for being the world's greatest school teacher.
+- **Mel Timpson**, for being the world's greatest school teacher.
 - **The team at the STEMVGC**
 
 ## 🗣️ Shout-outs
