@@ -763,10 +763,12 @@ func hideDarkerBG_SAVEOVERLAY():
 ######################################
 
 func _on_start_debugging_btn_pressed() -> void:
-	if $Head/Camera3D/DebugLayer.is_visible():
+	if DebugManager.is_debugging:
+		DebugManager.is_debugging = false
 		$Head/Camera3D/DebugLayer.hide()
 		$Head/Camera3D/PauseLayer/StartDebugging_Btn.text = "START DEBUGGING"
 	else:
+		DebugManager.is_debugging = true
 		$Head/Camera3D/DebugLayer.show()
 		$Head/Camera3D/PauseLayer/StartDebugging_Btn.text = "STOP DEBUGGING"
 

@@ -47,4 +47,4 @@
 
 extends Node
 
-var debugging = false
+var is_debugging = false
