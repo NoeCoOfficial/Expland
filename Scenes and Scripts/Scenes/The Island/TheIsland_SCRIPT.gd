@@ -88,6 +88,3 @@ func _on_pickup_item_spawn_timer_timeout() -> void:
 	InventoryManager.create_pickup_object_at_pos(PinkFlowerPosRef.position, "PINKFLOWER")
 	InventoryManager.create_pickup_object_at_pos(BlankFlowerPosRef.position, "BLANKFLOWER")
 	InventoryManager.create_pickup_object_at_pos(PickaxePosRef.position, "PICKAXE")
-	
-
-	
