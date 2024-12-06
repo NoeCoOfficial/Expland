@@ -57,9 +57,5 @@ func saveAllData():
 	PlayerSettingsData.saveSettings()
 
 func loadAllData():
-	var playerNode = get_node("/root/World/Player")
-
 	PlayerData.loadData()
-	if playerNode != null:
-		playerNode.saveInventory()
 	PlayerSettingsData.loadSettings()
