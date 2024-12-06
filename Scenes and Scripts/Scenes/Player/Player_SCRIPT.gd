@@ -611,12 +611,7 @@ func _on_boundary_area_exited(area):
 
 func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 	
-
-	
 	if area.is_in_group("pickup_player_detector"):
-		
-		area.set_deferred("monitorable", false)
-		area.set_deferred("monitoring", false)
 		
 		var slots = [
 			Slot1_Ref,
@@ -629,7 +624,7 @@ func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 			Slot8_Ref,
 			Slot9_Ref,
 		]
-
+		
 		var free_slot = null
 		
 		# Get the free slot
@@ -642,6 +637,10 @@ func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 		if free_slot != null and !free_slot.is_populated():
 			
 			free_slot.set_populated(true)
+			
+			area.set_deferred("monitorable", false)
+			area.set_deferred("monitoring", false)
+			
 			
 			print("{LOCAL} [Player_SCRIPT.gd] Free slot found: " + free_slot.name)
 			
