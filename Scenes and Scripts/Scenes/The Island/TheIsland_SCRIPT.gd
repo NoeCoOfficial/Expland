@@ -51,6 +51,10 @@ extends Node
 @onready var motionBlurCompositor = preload("res://Resources/Environment/TheIsland_MotionBlurCompositor.tres")
 @onready var noMotionBlurCompositor = preload("res://Resources/Environment/TheIsland_NoMotionBlurCompositor.tres")
 
+@export var IslandDirectionalLight : DirectionalLight3D
+@export var IslandWorldEnvironment : WorldEnvironment
+
+
 @export var RockPosRef : Node3D
 @export var RedFlowerPosRef : Node3D
 @export var BlueFlowerPosRef : Node3D
@@ -171,3 +175,17 @@ func _on_tick() -> void:
 			23:
 				# Go to hour 24
       pass
+
+"""
+
+
+
+func rotateSun(addX : float)
+   
+
+
+
+
+
+
+"""
