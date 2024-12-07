@@ -93,7 +93,7 @@ func _on_tick() -> void:
 	if TimeManager.CURRENT_HOUR == 23:
 		TimeManager.CURRENT_HOUR = 0
 		
-		
+		# Go to hour 1
 		
 		SaveManager.saveAllData()
 		print("New day")
@@ -103,48 +103,71 @@ func _on_tick() -> void:
 		print("Next hour: " + str(TimeManager.CURRENT_HOUR))
 		match TimeManager.CURRENT_HOUR:
 			1:
-				pass
+				# Go to hour 2
+      pass
 			2:
-				pass
+				# Go to hour 3
+      pass
 			3:
-				pass
+				# Go to hour 4
+      pass
 			4:
-				pass
+				# Go to hour 5
+      pass
 			5:
-				pass
+				# Go to hour 6
+      pass
 			6:
-				pass
+				# Go to hour 7
+      pass
 			7:
-				pass
+				# Go to hour 8
+      pass
 			8:
-				pass
+				# Go to hour 9
+      pass
 			9:
-				pass
+				# Go to hour 10
+      pass
 			10:
-				pass
+				# Go to hour 11
+      pass
 			11:
-				pass
+      # Go to hour 12
+      pass	
 			12:
-				pass
+				# Go to hour 13
+      pass
 			13:
-				pass
+				# Go to hour 14
+      pass
 			14:
-				pass
+				# Go to hour 15
+      pass
 			15:
-				pass
+				# Go to hour 16
+      pass
 			16:
-				pass
+				# Go to hour 17
+      pass
 			17:
-				pass
+				# Go to hour 18
+      pass
 			18:
-				pass
+				# Go to hour 19
+      pass
 			19:
-				pass
+				# Go to hour 20
+      pass
 			20:
-				pass
+				# Go to hour 21
+      pass
 			21:
-				pass
+				# Go to hour 22
+      pass
 			22:
-				pass
+	  		# Go to hour 23
+      pass	
 			23:
-				pass
+				# Go to hour 24
+      pass
