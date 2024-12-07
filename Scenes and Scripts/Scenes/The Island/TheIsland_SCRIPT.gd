@@ -56,6 +56,9 @@ extends Node
 @export var IslandDirectionalLight : DirectionalLight3D
 @export var IslandWorldEnvironment : WorldEnvironment
 
+var MiddayColor = Color(0.941, 0.987, 0.809)
+var SunriseColor = Color(0.793, 0.612, 0.18)
+var SunsetColor = Color(0.98, 0.729, 0.312)
 
 @export var RockPosRef : Node3D
 @export var RedFlowerPosRef : Node3D
@@ -130,104 +133,113 @@ func on_ready_time_check():
 		IslandDirectionalLight.rotation_degrees.x = 10.0
 	
 	if TimeManager.CURRENT_HOUR == 5:
-		IslandDirectionalLight.rotation_degrees.x = -22
+		IslandDirectionalLight.rotation_degrees.x = 10
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
-		IslandDirectionalLight.light_color = Color(0.793, 0.612, 0.18)
+		IslandDirectionalLight.light_color = SunriseColor
+		var tween = get_tree().create_tween()
+		tween.tween_property(IslandDirectionalLight, "light_energy", 1, HourTimer.wait_time).from(0)
+		rotateSun(-32)
+		## End at -22
+		
 	
 	if TimeManager.CURRENT_HOUR == 6:
 		IslandDirectionalLight.rotation_degrees.x = -39
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
-		IslandDirectionalLight.light_color = Color(0.793, 0.612, 0.18)
+		IslandDirectionalLight.light_color = SunriseColor
 	
 	if TimeManager.CURRENT_HOUR == 7:
 		IslandDirectionalLight.rotation_degrees.x = -44
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
-		IslandDirectionalLight.light_color = Color(0.793, 0.612, 0.18)
+		IslandDirectionalLight.light_color = SunriseColor
 	
 	if TimeManager.CURRENT_HOUR == 8:
 		IslandDirectionalLight.rotation_degrees.x = -56
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
-		IslandDirectionalLight.light_color = Color(0.941, 0.987, 0.809)
+		IslandDirectionalLight.light_color = MiddayColor
 	
 	if TimeManager.CURRENT_HOUR == 9:
 		IslandDirectionalLight.rotation_degrees.x = -66
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
-		IslandDirectionalLight.light_color = Color(0.941, 0.987, 0.809)
+		IslandDirectionalLight.light_color = MiddayColor
 	
 	if TimeManager.CURRENT_HOUR == 10:
 		IslandDirectionalLight.rotation_degrees.x = -75
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
-		IslandDirectionalLight.light_color = Color(0.941, 0.987, 0.809)
+		IslandDirectionalLight.light_color = MiddayColor
 	
 	if TimeManager.CURRENT_HOUR == 11:
 		IslandDirectionalLight.rotation_degrees.x = -83
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
-		IslandDirectionalLight.light_color = Color(0.941, 0.987, 0.809)
+		IslandDirectionalLight.light_color = MiddayColor
 	
 	if TimeManager.CURRENT_HOUR == 12:
 		IslandDirectionalLight.rotation_degrees.x = -90
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
-		IslandDirectionalLight.light_color = Color(0.941, 0.987, 0.809)
+		IslandDirectionalLight.light_color = MiddayColor
 
 	if TimeManager.CURRENT_HOUR == 13:
 		IslandDirectionalLight.rotation_degrees.x = -98
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
-		IslandDirectionalLight.light_color = Color(0.941, 0.987, 0.809)
+		IslandDirectionalLight.light_color = MiddayColor
 	
 	if TimeManager.CURRENT_HOUR == 14:
 		IslandDirectionalLight.rotation_degrees.x = -107
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
-		IslandDirectionalLight.light_color = Color(0.941, 0.987, 0.809)
+		IslandDirectionalLight.light_color = MiddayColor
 	
 	if TimeManager.CURRENT_HOUR == 15:
 		IslandDirectionalLight.rotation_degrees.x = -117
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
-		IslandDirectionalLight.light_color = Color(0.941, 0.987, 0.809)
+		IslandDirectionalLight.light_color = MiddayColor
 	
 	if TimeManager.CURRENT_HOUR == 16:
 		IslandDirectionalLight.rotation_degrees.x = -129
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
-		IslandDirectionalLight.light_color = Color(0.941, 0.987, 0.809)
+		IslandDirectionalLight.light_color = MiddayColor
 	
 	if TimeManager.CURRENT_HOUR == 17:
 		IslandDirectionalLight.rotation_degrees.x = -144
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
-		IslandDirectionalLight.light_color = Color(0.98, 0.729, 0.312)
+		IslandDirectionalLight.light_color = SunsetColor
 	
 	if TimeManager.CURRENT_HOUR == 18:
 		IslandDirectionalLight.rotation_degrees.x = -161
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
-		IslandDirectionalLight.light_color = Color(0.793, 0.612, 0.18)
+		IslandDirectionalLight.light_color = SunsetColor
 	
 	if TimeManager.CURRENT_HOUR == 19:
 		IslandDirectionalLight.rotation_degrees.x = -173
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
-		IslandDirectionalLight.light_color = Color(0.941, 0.987, 0.809)
+		IslandDirectionalLight.light_color = SunsetColor
 	
 	if TimeManager.CURRENT_HOUR == 20:
 		IslandDirectionalLight.rotation_degrees.x = -180
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
-		IslandDirectionalLight.light_color = Color(0.941, 0.987, 0.809)
+		IslandDirectionalLight.light_color = SunsetColor
 	
 	if TimeManager.CURRENT_HOUR == 21:
-		IslandDirectionalLight.visible = false
-		IslandDirectionalLight.rotation_degrees.x = 10.0
+		IslandDirectionalLight.rotation_degrees.x = -182
+		IslandDirectionalLight.visible = true
+		IslandDirectionalLight.light_energy = 1
+		IslandDirectionalLight.light_color = SunsetColor
+		rotateSun(-7)
+
 	
 	if TimeManager.CURRENT_HOUR == 22:
 		IslandDirectionalLight.visible = false
@@ -266,7 +278,7 @@ func _on_tick() -> void:
 		
 		if TimeManager.CURRENT_HOUR == 5:
 			IslandDirectionalLight.visible = true
-			IslandDirectionalLight.light_color = Color(0.793, 0.612, 0.18)
+			IslandDirectionalLight.light_color = SunsetColor
 			var tween = get_tree().create_tween()
 			tween.tween_property(IslandDirectionalLight, "light_energy", 1, HourTimer.wait_time).from(0)
 			rotateSun(-32) 
