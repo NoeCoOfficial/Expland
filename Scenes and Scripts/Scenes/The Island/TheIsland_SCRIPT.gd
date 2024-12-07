@@ -95,6 +95,14 @@ func _on_pickup_item_spawn_timer_timeout() -> void:
 	InventoryManager.create_pickup_object_at_pos(PickaxePosRef.position, "PICKAXE")
 
 
+func rotateSun(addX : float):
+   var currentX = IslandDirectionalLight.rotation.x
+
+   var newX = currentX + addX
+
+   var tween = get_tree().create_tween()
+   tween.tween_property(IslandDirectionalLight, "rotation:x", newX, TickTimer.wait_time).from(currentX)
+
 func _on_tick() -> void:
 	if TimeManager.CURRENT_HOUR == 23:
 		TimeManager.CURRENT_HOUR = 0
@@ -177,20 +185,9 @@ func _on_tick() -> void:
 			23:
 				# Go to hour 24
       pass
-
-"""
-
-
-
-func rotateSun(addX : float):
-   var currentX = IslandDirectionalLight.rotation.x
-
-   var newX = currentX + addX
-
-   var tween = get_tree().create_tween()
-   tween.tween_property(IslandDirectionalLight, "rotation:x", newX, TickTimer.wait_time).from(currentX)
    
 
+"""
 
 12: Sun rotation at -90 (-7)
 11: Sun rotation at -83 (-8)
@@ -201,7 +198,5 @@ func rotateSun(addX : float):
 6: Sun rotation at -39 (-17)
 5: Sun rotation at -22 (-22)
 4: Sun rotation at 0
-
-
 
 """
