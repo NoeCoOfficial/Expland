@@ -134,6 +134,8 @@ func _on_tick() -> void:
 				# Go to hour 5
 				IslandDirectionalLight.visible = true
 				IslandDirectionalLight.light_color = Color(0.793, 0.612, 0.18)
+				var tween = get_tree().create_tween()
+				tween.tween_property(IslandDirectionalLight, "light_energy", 2, HourTimer.wait_time).from(0)
 				rotateSun(-22)
 			5:
 				# Go to hour 6
