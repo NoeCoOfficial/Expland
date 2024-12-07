@@ -51,7 +51,7 @@ extends Node
 @onready var motionBlurCompositor = preload("res://Resources/Environment/TheIsland_MotionBlurCompositor.tres")
 @onready var noMotionBlurCompositor = preload("res://Resources/Environment/TheIsland_NoMotionBlurCompositor.tres")
 
-@export var TickTimer : Timer
+@export var HourTimer : Timer
 
 @export var IslandDirectionalLight : DirectionalLight3D
 @export var IslandWorldEnvironment : WorldEnvironment
@@ -101,7 +101,7 @@ func rotateSun(addX : float):
 	var newX = currentX + addX
 	
 	var tween = get_tree().create_tween()
-	tween.tween_property(IslandDirectionalLight, "rotation:x", newX, TickTimer.wait_time).from(currentX)
+	tween.tween_property(IslandDirectionalLight, "rotation:x", newX, HourTimer.wait_time).from(currentX)
 
 func _on_tick() -> void:
 	if TimeManager.CURRENT_HOUR == 23:
