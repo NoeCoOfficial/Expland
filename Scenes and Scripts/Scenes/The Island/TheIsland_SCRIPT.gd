@@ -141,13 +141,14 @@ func on_ready_time_check():
 		tween.tween_property(IslandDirectionalLight, "light_energy", 1, HourTimer.wait_time).from(0)
 		rotateSun(-32)
 		## End at -22
-		
 	
 	if TimeManager.CURRENT_HOUR == 6:
-		IslandDirectionalLight.rotation_degrees.x = -39
+		IslandDirectionalLight.rotation_degrees.x = -22
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
 		IslandDirectionalLight.light_color = SunriseColor
+		rotateSun(-15) 
+		## End at -37
 	
 	if TimeManager.CURRENT_HOUR == 7:
 		IslandDirectionalLight.rotation_degrees.x = -44
