@@ -178,43 +178,49 @@ func on_ready_time_check():
 		IslandDirectionalLight.light_color = Color(0.941, 0.987, 0.809)
 
 	if TimeManager.CURRENT_HOUR == 13:
-		IslandDirectionalLight.visible = false
-		IslandDirectionalLight.rotation_degrees.x = 10.0
+		IslandDirectionalLight.rotation_degrees.x = -98
+		IslandDirectionalLight.visible = true
+		IslandDirectionalLight.light_energy = 1
+		IslandDirectionalLight.light_color = Color(0.941, 0.987, 0.809)
 	
 	if TimeManager.CURRENT_HOUR == 14:
-		IslandDirectionalLight.visible = false
-		IslandDirectionalLight.rotation_degrees.x = 10.0
+		IslandDirectionalLight.rotation_degrees.x = -107
+		IslandDirectionalLight.visible = true
+		IslandDirectionalLight.light_energy = 1
+		IslandDirectionalLight.light_color = Color(0.941, 0.987, 0.809)
 	
 	if TimeManager.CURRENT_HOUR == 15:
-		IslandDirectionalLight.visible = false
-		IslandDirectionalLight.rotation_degrees.x = 10.0
+		IslandDirectionalLight.rotation_degrees.x = -117
+		IslandDirectionalLight.visible = true
+		IslandDirectionalLight.light_energy = 1
+		IslandDirectionalLight.light_color = Color(0.941, 0.987, 0.809)
 	
 	if TimeManager.CURRENT_HOUR == 16:
-		IslandDirectionalLight.rotation_degrees.x = -22
+		IslandDirectionalLight.rotation_degrees.x = -129
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
-		IslandDirectionalLight.light_color = Color(0.793, 0.612, 0.18)
+		IslandDirectionalLight.light_color = Color(0.941, 0.987, 0.809)
 	
 	if TimeManager.CURRENT_HOUR == 17:
-		IslandDirectionalLight.rotation_degrees.x = -39
+		IslandDirectionalLight.rotation_degrees.x = -144
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
-		IslandDirectionalLight.light_color = Color(0.793, 0.612, 0.18)
+		IslandDirectionalLight.light_color = Color(0.98, 0.729, 0.312)
 	
 	if TimeManager.CURRENT_HOUR == 18:
-		IslandDirectionalLight.rotation_degrees.x = -44
+		IslandDirectionalLight.rotation_degrees.x = -161
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
 		IslandDirectionalLight.light_color = Color(0.793, 0.612, 0.18)
 	
 	if TimeManager.CURRENT_HOUR == 19:
-		IslandDirectionalLight.rotation_degrees.x = -56
+		IslandDirectionalLight.rotation_degrees.x = -173
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
 		IslandDirectionalLight.light_color = Color(0.941, 0.987, 0.809)
 	
 	if TimeManager.CURRENT_HOUR == 20:
-		IslandDirectionalLight.rotation_degrees.x = -66
+		IslandDirectionalLight.rotation_degrees.x = -180
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
 		IslandDirectionalLight.light_color = Color(0.941, 0.987, 0.809)
@@ -263,36 +269,56 @@ func _on_tick() -> void:
 			IslandDirectionalLight.light_color = Color(0.793, 0.612, 0.18)
 			var tween = get_tree().create_tween()
 			tween.tween_property(IslandDirectionalLight, "light_energy", 1, HourTimer.wait_time).from(0)
-			rotateSun(-32)
+			rotateSun(-32) 
+			## -22 deg at finish
+			## 10 deg at start
 		
 		if TimeManager.CURRENT_HOUR == 6:
-			rotateSun(-15)
+			rotateSun(-15) 
+			## -37 deg at finish
+			## -22 deg at start
 		
 		if TimeManager.CURRENT_HOUR == 7:
-			rotateSun(-12)
 			var tween = get_tree().create_tween()
 			tween.tween_property(IslandDirectionalLight, "light_color", Color(0.941, 0.987, 0.809), HourTimer.wait_time * 2)
-		
+			rotateSun(-12) 
+			## -49 deg at finish
+			## -37 deg at start
+			
 		if TimeManager.CURRENT_HOUR == 8:
 			rotateSun(-12)
+			## -61 deg at finish
+			## -49 deg at start
 		
 		if TimeManager.CURRENT_HOUR == 9:
 			rotateSun(-9)
+			## -70 deg at finish
+			## -61 deg at start
 		
 		if TimeManager.CURRENT_HOUR == 10:
 			rotateSun(-8)
+			## -78 deg at finish
+			## -70 deg at start
 		
 		if TimeManager.CURRENT_HOUR == 11:
 			rotateSun(-7)
+			## -85 deg at finish
+			## -78 deg at start
 	
 		if TimeManager.CURRENT_HOUR == 12:
-				rotateSun(-8)
+			rotateSun(-8)
+			## -93 deg at finish
+			## -85 deg at start
 		
 		if TimeManager.CURRENT_HOUR == 13:
 			rotateSun(-9)
+			## -102 deg at finish
+			## -93 deg at start
 		
 		if TimeManager.CURRENT_HOUR == 14:
 			rotateSun(-10)
+			## -110 deg at finish
+			## -102 deg at start
 		
 		if TimeManager.CURRENT_HOUR == 15:
 			rotateSun(-12)
