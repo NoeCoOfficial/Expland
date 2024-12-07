@@ -173,15 +173,19 @@ func on_ready_time_check():
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
 		IslandDirectionalLight.light_color = MiddayColor
+		rotateSun(-9)
+		## End at -70
 	
 	if TimeManager.CURRENT_HOUR == 10:
-		IslandDirectionalLight.rotation_degrees.x = -75
+		IslandDirectionalLight.rotation_degrees.x = -70
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
 		IslandDirectionalLight.light_color = MiddayColor
+		rotateSun(-8)
+		## End at -78
 	
 	if TimeManager.CURRENT_HOUR == 11:
-		IslandDirectionalLight.rotation_degrees.x = -83
+		IslandDirectionalLight.rotation_degrees.x = -78
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
 		IslandDirectionalLight.light_color = MiddayColor
