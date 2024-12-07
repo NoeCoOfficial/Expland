@@ -7,7 +7,7 @@
 ## Player
 
 ### Changed:
-- Modified pickup range to be slightly larger for 3D inventory pickup items
+- Modified player pickup range to be slightly larger for 3D inventory pickup items
 - Increase range of 3D inventory pickup item drop position from the player
 
 ### Fixed:

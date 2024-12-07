@@ -41,5 +41,5 @@ You can download the game at the [releases page](https://github.com/sebashtioon/
 ### I found an issue/bug. Where can I report it?
 You can open a new issue on GitHub by going to this [link](https://github.com/NoeCoOfficial/Expland/issues/new/choose). We have templates for different issues.
 
-### I discovered a vulnerability and/or security problem. How can I report it?
+### I discovered a vulnerability and/or a security problem. How can I report it?
 View instructions by visiting our [security policy.](https://github.com/NoeCoOfficial/Expland?tab=security-ov-file#security-policy)

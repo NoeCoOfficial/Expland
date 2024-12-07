@@ -1,4 +1,4 @@
-# ============================================================= #
+I'm# ============================================================= #
 # TheIsland_SCRIPT.gd
 # ============================================================= #
 #                       COPYRIGHT NOTICE                        #
@@ -51,10 +51,10 @@ extends Node
 @onready var motionBlurCompositor = preload("res://Resources/Environment/TheIsland_MotionBlurCompositor.tres")
 @onready var noMotionBlurCompositor = preload("res://Resources/Environment/TheIsland_NoMotionBlurCompositor.tres")
 
-@export var HourTick : Timer
+@export var TickTimer : Timer
 
-@export var DirectionalLight : DirectionalLight3D
-@export var IslandEnvironment : WorldEnvironment
+@export var IslandDirectionalLight : DirectionalLight3D
+@export var IslandWorldEnvironment : WorldEnvironment
 
 
 @export var RockPosRef : Node3D
@@ -95,11 +95,19 @@ func _on_pickup_item_spawn_timer_timeout() -> void:
 	InventoryManager.create_pickup_object_at_pos(PickaxePosRef.position, "PICKAXE")
 
 
+func rotateSun(addX : float):
+   var currentX = IslandDirectionalLight.rotation.x
+
+   var newX = currentX + addX
+
+   var tween = get_tree().create_tween()
+   tween.tween_property(IslandDirectionalLight, "rotation:x", newX, TickTimer.wait_time).from(currentX)
+
 func _on_tick() -> void:
 	if TimeManager.CURRENT_HOUR == 23:
 		TimeManager.CURRENT_HOUR = 0
 		
-		
+		# Go to hour 1
 		
 		SaveManager.saveAllData()
 		print("New day")
@@ -112,65 +120,94 @@ func _on_tick() -> void:
 			
 			1:
 				# Go to hour 2
-				pass
+      pass
 			2:
 				# Go to hour 3
-				pass
+      pass
 			3:
 				# Go to hour 4
-				pass
+      pass
 			4:
 				# Go to hour 5
-				pass
+      rotateSun(-22)
 			5:
 				# Go to hour 6
-				pass
+      rotateSun(-17)
 			6:
 				# Go to hour 7
-				var tween = get_tree().create_tween()
-				tween.tween_property(DirectionalLight, "rotation:x", -20, HourTick.wait_time)
+      rotateSun(-15)
 			7:
 				# Go to hour 8
-				var tween = get_tree().create_tween()
-				tween.tween_property(DirectionalLight, "rotation:x", -30, HourTick.wait_time)
+      rotateSun(-12)
 			8:
 				# Go to hour 9
-				var tween = get_tree().create_tween()
-				tween.tween_property(DirectionalLight, "rotation:x", -50, HourTick.wait_time)
+      rotateSun(-10)
 			9:
 				# Go to hour 10
-				var tween = get_tree().create_tween()
-				tween.tween_property(DirectionalLight, "rotation:x", -70, HourTick.wait_time)
+      rotateSun(-9)
 			10:
 				# Go to hour 11
-				var tween = get_tree().create_tween()
-				tween.tween_property(DirectionalLight, "rotation:x", -80, HourTick.wait_time)
+      rotateSun(-8)
 			11:
-				# Go to hour 12
-				var tween = get_tree().create_tween()
-				tween.tween_property(DirectionalLight, "rotation:x", -90, HourTick.wait_time)
-				
+      # Go to hour 12
+      rotateSun(-7)
 			12:
-				pass
+				# Go to hour 13
+      rotateSun(-8)
 			13:
-				pass
+				# Go to hour 14
+      rotateSun(-9)
 			14:
-				pass
+				# Go to hour 15
+      rotateSun(-10)
 			15:
-				pass
+				# Go to hour 16
+      rotateSun(-12)
 			16:
-				pass
+				# Go to hour 17
+      rotateSun(-15)
 			17:
-				pass
+				# Go to hour 18
+      rotateSun(-17)
 			18:
-				pass
+				# Go to hour 19
+      rotateSun(-12)
 			19:
-				pass
+				# Go to hour 20
+      rotateSun(-7)
 			20:
-				pass
+				# Go to hour 21
+      pass
 			21:
-				pass
+				# Go to hour 22
+      pass
 			22:
-				pass
+	  		# Go to hour 23
+      pass	
 			23:
-				pass
+				# Go to hour 24
+      pass
+   
+
+"""
+Hours of sunlight rotation values
+
+20: at -180 (-7)
+19: at -173 (-12)
+18: at -161 (-17)
+17: at -144 (-15)
+16: at -129 (-12)
+15: at -117 (-10)
+14: at -107 (-9)
+13: at -98 (-8)
+12: at -90 (-7)
+11: at -83 (-8)
+10: at -75 (-9)
+9: at -66 (-10)
+8: at -56 (-12)
+7: at -44 (-15)
+6: at -39 (-17)
+5: at -22 (-22)
+4: at 0
+
+"""
