@@ -232,17 +232,18 @@ func on_ready_time_check():
 		var tween = get_tree().create_tween()
 		tween.tween_property(IslandDirectionalLight, "light_color", SunsetColor, HourTimer.wait_time * 2)
 		rotateSun(-15)
-		## -139 deg at finish
-		## -124 deg at start
+		## End at -139
 	
 	if TimeManager.CURRENT_HOUR == 17:
-		IslandDirectionalLight.rotation_degrees.x = -144
+		IslandDirectionalLight.rotation_degrees.x = -139
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
 		IslandDirectionalLight.light_color = SunsetColor
+		rotateSun(-17)
+		## End at -156
 	
 	if TimeManager.CURRENT_HOUR == 18:
-		IslandDirectionalLight.rotation_degrees.x = -161
+		IslandDirectionalLight.rotation_degrees.x = -156
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
 		IslandDirectionalLight.light_color = SunsetColor
