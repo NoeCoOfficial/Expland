@@ -271,8 +271,10 @@ func on_ready_time_check():
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
 		IslandDirectionalLight.light_color = SunsetColor
+		var tween = get_tree().create_tween()
+		tween.tween_property(IslandDirectionalLight, "light_energy", 0, HourTimer.wait_time)
 		rotateSun(-7)
-
+		## End at -189
 	
 	if TimeManager.CURRENT_HOUR == 22:
 		IslandDirectionalLight.visible = false
