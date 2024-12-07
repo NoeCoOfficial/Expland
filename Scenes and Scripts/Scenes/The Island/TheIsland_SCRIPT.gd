@@ -160,11 +160,22 @@ func on_ready_time_check():
 		IslandDirectionalLight.light_color = Color(0.941, 0.987, 0.809)
 	
 	if TimeManager.CURRENT_HOUR == 10:
-		IslandDirectionalLight.rotation_degrees.x = -39
+		IslandDirectionalLight.rotation_degrees.x = -75
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
 		IslandDirectionalLight.light_color = Color(0.941, 0.987, 0.809)
-
+	
+	if TimeManager.CURRENT_HOUR == 11:
+		IslandDirectionalLight.rotation_degrees.x = -83
+		IslandDirectionalLight.visible = true
+		IslandDirectionalLight.light_energy = 1
+		IslandDirectionalLight.light_color = Color(0.941, 0.987, 0.809)
+	
+	if TimeManager.CURRENT_HOUR == 12:
+		IslandDirectionalLight.rotation_degrees.x = -90
+		IslandDirectionalLight.visible = true
+		IslandDirectionalLight.light_energy = 1
+		IslandDirectionalLight.light_color = Color(0.941, 0.987, 0.809)
 
 func _on_tick() -> void:
 		TimeManager.CURRENT_HOUR += 1
