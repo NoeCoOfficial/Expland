@@ -129,52 +129,52 @@ func _on_tick() -> void:
 				pass
 			4:
 				# Go to hour 5
-				rotateSun(-22)
+				rotateSun(deg_to_rad(-22))
 			5:
 				# Go to hour 6
-				rotateSun(-17)
+				rotateSun(deg_to_rad(-17))
 			6:
 				# Go to hour 7
-				rotateSun(-15)
+				rotateSun(deg_to_rad(-15))
 			7:
 				# Go to hour 8
-				rotateSun(-12)
+				rotateSun(deg_to_rad(-12))
 			8:
 				# Go to hour 9
-				rotateSun(-10)
+				rotateSun(deg_to_rad(-10))
 			9:
 				# Go to hour 10
-				rotateSun(-9)
+				rotateSun(deg_to_rad(-9))
 			10:
 				# Go to hour 11
-				rotateSun(-8)
+				rotateSun(deg_to_rad(-8))
 			11:
 	  # Go to hour 12
-				rotateSun(-7)
+				rotateSun(deg_to_rad(-7))
 			12:
 				# Go to hour 13
-				rotateSun(-8)
+				rotateSun(deg_to_rad(-8))
 			13:
 				# Go to hour 14
-				rotateSun(-9)
+				rotateSun(deg_to_rad(-9))
 			14:
 				# Go to hour 15
-				rotateSun(-10)
+				rotateSun(deg_to_rad(-10))
 			15:
 				# Go to hour 16
-				rotateSun(-12)
+				rotateSun(deg_to_rad(-12))
 			16:
 				# Go to hour 17
-				rotateSun(-15)
+				rotateSun(deg_to_rad(-15))
 			17:
 				# Go to hour 18
-				rotateSun(-17)
+				rotateSun(deg_to_rad(-17))
 			18:
 				# Go to hour 19
-				rotateSun(-12)
+				rotateSun(deg_to_rad(-12))
 			19:
 				# Go to hour 20
-				rotateSun(-7)
+				rotateSun(deg_to_rad(-7))
 			20:
 				# Go to hour 21
 				pass
