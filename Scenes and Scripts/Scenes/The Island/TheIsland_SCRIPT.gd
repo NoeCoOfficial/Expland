@@ -108,7 +108,7 @@ func rotateSun(addX : float):
 
 func on_ready_time_check():
 	
-	if TimeManager.CURRENT_HOUR == 0:
+	if TimeManager.CURRENT_HOUR == 0 or 24:
 		IslandDirectionalLight.visible = false
 		IslandDirectionalLight.rotation_degrees.x = 10.0
 		print("New day")
@@ -176,6 +176,61 @@ func on_ready_time_check():
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
 		IslandDirectionalLight.light_color = Color(0.941, 0.987, 0.809)
+
+	if TimeManager.CURRENT_HOUR == 13:
+		IslandDirectionalLight.visible = false
+		IslandDirectionalLight.rotation_degrees.x = 10.0
+	
+	if TimeManager.CURRENT_HOUR == 14:
+		IslandDirectionalLight.visible = false
+		IslandDirectionalLight.rotation_degrees.x = 10.0
+	
+	if TimeManager.CURRENT_HOUR == 15:
+		IslandDirectionalLight.visible = false
+		IslandDirectionalLight.rotation_degrees.x = 10.0
+	
+	if TimeManager.CURRENT_HOUR == 16:
+		IslandDirectionalLight.rotation_degrees.x = -22
+		IslandDirectionalLight.visible = true
+		IslandDirectionalLight.light_energy = 1
+		IslandDirectionalLight.light_color = Color(0.793, 0.612, 0.18)
+	
+	if TimeManager.CURRENT_HOUR == 17:
+		IslandDirectionalLight.rotation_degrees.x = -39
+		IslandDirectionalLight.visible = true
+		IslandDirectionalLight.light_energy = 1
+		IslandDirectionalLight.light_color = Color(0.793, 0.612, 0.18)
+	
+	if TimeManager.CURRENT_HOUR == 18:
+		IslandDirectionalLight.rotation_degrees.x = -44
+		IslandDirectionalLight.visible = true
+		IslandDirectionalLight.light_energy = 1
+		IslandDirectionalLight.light_color = Color(0.793, 0.612, 0.18)
+	
+	if TimeManager.CURRENT_HOUR == 19:
+		IslandDirectionalLight.rotation_degrees.x = -56
+		IslandDirectionalLight.visible = true
+		IslandDirectionalLight.light_energy = 1
+		IslandDirectionalLight.light_color = Color(0.941, 0.987, 0.809)
+	
+	if TimeManager.CURRENT_HOUR == 20:
+		IslandDirectionalLight.rotation_degrees.x = -66
+		IslandDirectionalLight.visible = true
+		IslandDirectionalLight.light_energy = 1
+		IslandDirectionalLight.light_color = Color(0.941, 0.987, 0.809)
+	
+	if TimeManager.CURRENT_HOUR == 21:
+		IslandDirectionalLight.visible = false
+		IslandDirectionalLight.rotation_degrees.x = 10.0
+	
+	if TimeManager.CURRENT_HOUR == 22:
+		IslandDirectionalLight.visible = false
+		IslandDirectionalLight.rotation_degrees.x = 10.0
+	
+	if TimeManager.CURRENT_HOUR == 23:
+		IslandDirectionalLight.visible = false
+		IslandDirectionalLight.rotation_degrees.x = 10.0
+
 
 func _on_tick() -> void:
 		TimeManager.CURRENT_HOUR += 1
