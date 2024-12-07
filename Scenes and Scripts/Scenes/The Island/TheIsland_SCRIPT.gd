@@ -115,26 +115,26 @@ func _on_tick() -> void:
 		
 		if TimeManager.CURRENT_HOUR == 1:
 			IslandDirectionalLight.visible = false
-			IslandDirectionalLight.rotation_degrees.x = 0.0
+			IslandDirectionalLight.rotation_degrees.x = 10.0
 			
 		elif TimeManager.CURRENT_HOUR == 2:
 			IslandDirectionalLight.visible = false
-			IslandDirectionalLight.rotation_degrees.x = 0.0
+			IslandDirectionalLight.rotation_degrees.x = 10.0
 		
 		elif TimeManager.CURRENT_HOUR == 3:
 			IslandDirectionalLight.visible = false
-			IslandDirectionalLight.rotation_degrees.x = 0.0
+			IslandDirectionalLight.rotation_degrees.x = 10.0
 		
 		elif TimeManager.CURRENT_HOUR == 4:
 			IslandDirectionalLight.visible = false
-			IslandDirectionalLight.rotation_degrees.x = 0.0
+			IslandDirectionalLight.rotation_degrees.x = 10.0
 		
 		elif TimeManager.CURRENT_HOUR == 5:
 			IslandDirectionalLight.visible = true
 			IslandDirectionalLight.light_color = Color(0.793, 0.612, 0.18)
 			var tween = get_tree().create_tween()
 			tween.tween_property(IslandDirectionalLight, "light_energy", 1, HourTimer.wait_time).from(0)
-			rotateSun(-22)
+			rotateSun(-32)
 		
 		elif TimeManager.CURRENT_HOUR == 6:
 			rotateSun(-15)
@@ -192,15 +192,15 @@ func _on_tick() -> void:
 		
 		elif TimeManager.CURRENT_HOUR == 22:
 			IslandDirectionalLight.visible = false
-			IslandDirectionalLight.rotation_degrees.x = 0.0
+			IslandDirectionalLight.rotation_degrees.x = 10.0
 		
 		elif TimeManager.CURRENT_HOUR == 23:
 			IslandDirectionalLight.visible = false
-			IslandDirectionalLight.rotation_degrees.x = 0.0
+			IslandDirectionalLight.rotation_degrees.x = 10.0
 		
 		elif TimeManager.CURRENT_HOUR == 0:
 			IslandDirectionalLight.visible = false
-			IslandDirectionalLight.rotation_degrees.x = 0.0
+			IslandDirectionalLight.rotation_degrees.x = 10.0
 			print("New day")
    
 
