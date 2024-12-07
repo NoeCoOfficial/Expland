@@ -180,7 +180,12 @@ func _on_tick() -> void:
 
 
 
-func rotateSun(addX : float)
+func rotateSun(addX : float):
+   var currentX = IslandDirectionalLight.rotation.x
+
+   var newX = currentX + addX
+
+   var tween = get_tree().create_tween()
    
 
 
