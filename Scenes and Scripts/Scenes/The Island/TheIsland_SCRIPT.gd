@@ -188,6 +188,8 @@ func _on_tick() -> void:
    
 
 """
+Hours of sunlight rotation values
+
 20: at -180 (-7)
 19: at -173 (-12)
 18: at -161 (-17)
