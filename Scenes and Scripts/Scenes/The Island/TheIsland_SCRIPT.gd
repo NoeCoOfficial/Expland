@@ -151,13 +151,17 @@ func on_ready_time_check():
 		## End at -37
 	
 	if TimeManager.CURRENT_HOUR == 7:
-		IslandDirectionalLight.rotation_degrees.x = -44
+		IslandDirectionalLight.rotation_degrees.x = -37
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
 		IslandDirectionalLight.light_color = SunriseColor
+		var tween = get_tree().create_tween()
+		tween.tween_property(IslandDirectionalLight, "light_color", Color(0.941, 0.987, 0.809), HourTimer.wait_time * 2)
+		rotateSun(-12) 
+		## End at -49
 	
 	if TimeManager.CURRENT_HOUR == 8:
-		IslandDirectionalLight.rotation_degrees.x = -56
+		IslandDirectionalLight.rotation_degrees.x = -49
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
 		IslandDirectionalLight.light_color = MiddayColor
