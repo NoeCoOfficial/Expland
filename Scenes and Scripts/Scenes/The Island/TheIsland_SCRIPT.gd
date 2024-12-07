@@ -188,15 +188,22 @@ func _on_tick() -> void:
    
 
 """
-
-12: Sun rotation at -90 (-7)
-11: Sun rotation at -83 (-8)
-10: Sun rotation at -75 (-9)
-9: Sun rotation at -66 (-10)
-8: Sun rotation at -56 (-12)
-7: Sun rotation at -44 (-15)
-6: Sun rotation at -39 (-17)
-5: Sun rotation at -22 (-22)
-4: Sun rotation at 0
+20: at -180 (-7)
+19: at -173 (-12)
+18: at -161 (-17)
+17: at -144 (-15)
+16: at -129 (-12)
+15: at -117 (-10)
+14: at -107 (-9)
+13: at -98 (-8)
+12: at -90 (-7)
+11: at -83 (-8)
+10: at -75 (-9)
+9: at -66 (-10)
+8: at -56 (-12)
+7: at -44 (-15)
+6: at -39 (-17)
+5: at -22 (-22)
+4: at 0
 
 """
