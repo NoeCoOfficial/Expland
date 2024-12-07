@@ -194,11 +194,11 @@ func rotateSun(addX : float):
 
 12: Sun rotation at -90 (+10)
 11: Sun rotation at -80 (+10)
-10
-9
-8
-7
-6 
+10: Sun rotation at -73
+9: Sun rotation at -62
+8: Sun rotation at -55
+7: Sun rotation at -45
+6: Sun rotation at -30
 5: Sun rotation at -15
 4: Sun rotation at 0
 
