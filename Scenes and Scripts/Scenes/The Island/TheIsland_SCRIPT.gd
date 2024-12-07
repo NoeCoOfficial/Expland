@@ -317,33 +317,47 @@ func _on_tick() -> void:
 		
 		if TimeManager.CURRENT_HOUR == 14:
 			rotateSun(-10)
-			## -110 deg at finish
+			## -112 deg at finish
 			## -102 deg at start
 		
 		if TimeManager.CURRENT_HOUR == 15:
 			rotateSun(-12)
+			## -124 deg at finish
+			## -112 deg at start
 		
 		if TimeManager.CURRENT_HOUR == 16:
-			rotateSun(-15)
 			var tween = get_tree().create_tween()
 			tween.tween_property(IslandDirectionalLight, "light_color", Color(0.98, 0.729, 0.312), HourTimer.wait_time * 2)
+			rotateSun(-15)
+			## -139 deg at finish
+			## -124 deg at start
 		
 		if TimeManager.CURRENT_HOUR == 17:
 			rotateSun(-17)
+			## -156 deg at finish
+			## -139 deg at start
 		
 		if TimeManager.CURRENT_HOUR == 18:
 			rotateSun(-12)
+			## -168 deg at finish
+			## -156 deg at start
 		
 		if TimeManager.CURRENT_HOUR == 19:
 			rotateSun(-7)
+			## -175 deg at finish
+			## -168 deg at start
 		
 		if TimeManager.CURRENT_HOUR == 20:
 			rotateSun(-7)
+			## -182 deg at finish
+			## -175 deg at start
 		
 		if TimeManager.CURRENT_HOUR == 21:
-			rotateSun(-7)
 			var tween = get_tree().create_tween()
 			tween.tween_property(IslandDirectionalLight, "light_energy", 0, HourTimer.wait_time)
+			rotateSun(-7)
+			## -189 deg at finish
+			## -182 deg at start
 		
 		if TimeManager.CURRENT_HOUR == 22:
 			IslandDirectionalLight.visible = false
