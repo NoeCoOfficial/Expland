@@ -130,25 +130,25 @@ func _on_tick() -> void:
       rotateSun(-22)
 			5:
 				# Go to hour 6
-      pass
+      rotateSun(-17)
 			6:
 				# Go to hour 7
-      pass
+      rotateSun(-15)
 			7:
 				# Go to hour 8
-      pass
+      rotateSun(-12)
 			8:
 				# Go to hour 9
-      pass
+      rotateSun(-10)
 			9:
 				# Go to hour 10
-      pass
+      rotateSun(-9)
 			10:
 				# Go to hour 11
-      pass
+      rotateSun(-8)
 			11:
       # Go to hour 12
-      pass	
+      rotateSun(-7)
 			12:
 				# Go to hour 13
       pass
