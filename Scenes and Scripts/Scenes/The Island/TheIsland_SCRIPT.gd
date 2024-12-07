@@ -96,12 +96,12 @@ func _on_pickup_item_spawn_timer_timeout() -> void:
 
 
 func rotateSun(addX : float):
-   var currentX = IslandDirectionalLight.rotation.x
-
-   var newX = currentX + addX
-
-   var tween = get_tree().create_tween()
-   tween.tween_property(IslandDirectionalLight, "rotation:x", newX, TickTimer.wait_time).from(currentX)
+	var currentX = IslandDirectionalLight.rotation.x
+	
+	var newX = currentX + addX
+	
+	var tween = get_tree().create_tween()
+	tween.tween_property(IslandDirectionalLight, "rotation:x", newX, TickTimer.wait_time).from(currentX)
 
 func _on_tick() -> void:
 	if TimeManager.CURRENT_HOUR == 23:
@@ -120,73 +120,73 @@ func _on_tick() -> void:
 			
 			1:
 				# Go to hour 2
-      pass
+				pass
 			2:
 				# Go to hour 3
-      pass
+				pass
 			3:
 				# Go to hour 4
-      pass
+				pass
 			4:
 				# Go to hour 5
-      rotateSun(-22)
+				rotateSun(-22)
 			5:
 				# Go to hour 6
-      rotateSun(-17)
+				rotateSun(-17)
 			6:
 				# Go to hour 7
-      rotateSun(-15)
+				rotateSun(-15)
 			7:
 				# Go to hour 8
-      rotateSun(-12)
+				rotateSun(-12)
 			8:
 				# Go to hour 9
-      rotateSun(-10)
+				rotateSun(-10)
 			9:
 				# Go to hour 10
-      rotateSun(-9)
+				rotateSun(-9)
 			10:
 				# Go to hour 11
-      rotateSun(-8)
+				rotateSun(-8)
 			11:
-      # Go to hour 12
-      rotateSun(-7)
+	  # Go to hour 12
+				rotateSun(-7)
 			12:
 				# Go to hour 13
-      rotateSun(-8)
+				rotateSun(-8)
 			13:
 				# Go to hour 14
-      rotateSun(-9)
+				rotateSun(-9)
 			14:
 				# Go to hour 15
-      rotateSun(-10)
+				rotateSun(-10)
 			15:
 				# Go to hour 16
-      rotateSun(-12)
+				rotateSun(-12)
 			16:
 				# Go to hour 17
-      rotateSun(-15)
+				rotateSun(-15)
 			17:
 				# Go to hour 18
-      rotateSun(-17)
+				rotateSun(-17)
 			18:
 				# Go to hour 19
-      rotateSun(-12)
+				rotateSun(-12)
 			19:
 				# Go to hour 20
-      rotateSun(-7)
+				rotateSun(-7)
 			20:
 				# Go to hour 21
-      pass
+				pass
 			21:
 				# Go to hour 22
-      pass
+				pass
 			22:
 	  		# Go to hour 23
-      pass	
+				pass
 			23:
 				# Go to hour 24
-      pass
+				pass
    
 
 """
