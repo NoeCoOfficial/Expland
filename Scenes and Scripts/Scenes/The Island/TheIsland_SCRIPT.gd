@@ -156,7 +156,7 @@ func on_ready_time_check():
 		IslandDirectionalLight.light_energy = 1
 		IslandDirectionalLight.light_color = SunriseColor
 		var tween = get_tree().create_tween()
-		tween.tween_property(IslandDirectionalLight, "light_color", Color(0.941, 0.987, 0.809), HourTimer.wait_time * 2)
+		tween.tween_property(IslandDirectionalLight, "light_color", MiddayColor, HourTimer.wait_time * 2)
 		rotateSun(-12) 
 		## End at -49
 	
@@ -229,6 +229,11 @@ func on_ready_time_check():
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
 		IslandDirectionalLight.light_color = MiddayColor
+		var tween = get_tree().create_tween()
+		tween.tween_property(IslandDirectionalLight, "light_color", SunsetColor, HourTimer.wait_time * 2)
+		rotateSun(-15)
+		## -139 deg at finish
+		## -124 deg at start
 	
 	if TimeManager.CURRENT_HOUR == 17:
 		IslandDirectionalLight.rotation_degrees.x = -144
@@ -299,7 +304,7 @@ func _on_tick() -> void:
 		
 		if TimeManager.CURRENT_HOUR == 5:
 			IslandDirectionalLight.visible = true
-			IslandDirectionalLight.light_color = SunsetColor
+			IslandDirectionalLight.light_color = SunriseColor
 			var tween = get_tree().create_tween()
 			tween.tween_property(IslandDirectionalLight, "light_energy", 1, HourTimer.wait_time).from(0)
 			rotateSun(-32) 
@@ -313,7 +318,7 @@ func _on_tick() -> void:
 		
 		if TimeManager.CURRENT_HOUR == 7:
 			var tween = get_tree().create_tween()
-			tween.tween_property(IslandDirectionalLight, "light_color", Color(0.941, 0.987, 0.809), HourTimer.wait_time * 2)
+			tween.tween_property(IslandDirectionalLight, "light_color", MiddayColor, HourTimer.wait_time * 2)
 			rotateSun(-12) 
 			## -49 deg at finish
 			## -37 deg at start
@@ -360,7 +365,7 @@ func _on_tick() -> void:
 		
 		if TimeManager.CURRENT_HOUR == 16:
 			var tween = get_tree().create_tween()
-			tween.tween_property(IslandDirectionalLight, "light_color", Color(0.98, 0.729, 0.312), HourTimer.wait_time * 2)
+			tween.tween_property(IslandDirectionalLight, "light_color", SunsetColor, HourTimer.wait_time * 2)
 			rotateSun(-15)
 			## -139 deg at finish
 			## -124 deg at start
