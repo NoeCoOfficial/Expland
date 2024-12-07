@@ -68,6 +68,9 @@ func _ready() -> void:
 	SaveManager.loadAllData()
 	set_motion_blur(PlayerSettingsData.MotionBlur)
 	set_dof_blur(PlayerSettingsData.DOFBlur)
+	
+	on_ready_time_check()
+	
 
 func _on_ready() -> void:
 	pass
@@ -103,6 +106,43 @@ func rotateSun(addX : float):
 	var tween = get_tree().create_tween()
 	tween.tween_property(IslandDirectionalLight, "rotation_degrees:x", newX, HourTimer.wait_time).from(currentX)
 
+func on_ready_time_check():
+	
+	if TimeManager.CURRENT_HOUR == 0:
+		IslandDirectionalLight.visible = false
+		IslandDirectionalLight.rotation_degrees.x = 10.0
+		print("New day")
+	
+	if TimeManager.CURRENT_HOUR == 1:
+		IslandDirectionalLight.visible = false
+		IslandDirectionalLight.rotation_degrees.x = 10.0
+	
+	if TimeManager.CURRENT_HOUR == 2:
+		IslandDirectionalLight.visible = false
+		IslandDirectionalLight.rotation_degrees.x = 10.0
+	
+	if TimeManager.CURRENT_HOUR == 3:
+		IslandDirectionalLight.visible = false
+		IslandDirectionalLight.rotation_degrees.x = 10.0
+	
+	if TimeManager.CURRENT_HOUR == 4:
+		IslandDirectionalLight.visible = false
+		IslandDirectionalLight.rotation_degrees.x = 10.0
+	
+	if TimeManager.CURRENT_HOUR == 5:
+		IslandDirectionalLight.rotation_degrees.x = -22
+		IslandDirectionalLight.visible = true
+		IslandDirectionalLight.light_energy = 1
+		IslandDirectionalLight.light_color = Color(0.793, 0.612, 0.18)
+	
+	if TimeManager.CURRENT_HOUR == 6:
+		IslandDirectionalLight.rotation_degrees.x = -39
+		IslandDirectionalLight.visible = true
+		IslandDirectionalLight.light_energy = 1
+		IslandDirectionalLight.light_color = Color(0.793, 0.612, 0.18)
+		
+
+
 func _on_tick() -> void:
 		TimeManager.CURRENT_HOUR += 1
 		
@@ -117,88 +157,88 @@ func _on_tick() -> void:
 			IslandDirectionalLight.visible = false
 			IslandDirectionalLight.rotation_degrees.x = 10.0
 			
-		elif TimeManager.CURRENT_HOUR == 2:
+		if TimeManager.CURRENT_HOUR == 2:
 			IslandDirectionalLight.visible = false
 			IslandDirectionalLight.rotation_degrees.x = 10.0
 		
-		elif TimeManager.CURRENT_HOUR == 3:
+		if TimeManager.CURRENT_HOUR == 3:
 			IslandDirectionalLight.visible = false
 			IslandDirectionalLight.rotation_degrees.x = 10.0
 		
-		elif TimeManager.CURRENT_HOUR == 4:
+		if TimeManager.CURRENT_HOUR == 4:
 			IslandDirectionalLight.visible = false
 			IslandDirectionalLight.rotation_degrees.x = 10.0
 		
-		elif TimeManager.CURRENT_HOUR == 5:
+		if TimeManager.CURRENT_HOUR == 5:
 			IslandDirectionalLight.visible = true
 			IslandDirectionalLight.light_color = Color(0.793, 0.612, 0.18)
 			var tween = get_tree().create_tween()
 			tween.tween_property(IslandDirectionalLight, "light_energy", 1, HourTimer.wait_time).from(0)
 			rotateSun(-32)
 		
-		elif TimeManager.CURRENT_HOUR == 6:
+		if TimeManager.CURRENT_HOUR == 6:
 			rotateSun(-15)
 		
-		elif TimeManager.CURRENT_HOUR == 7:
+		if TimeManager.CURRENT_HOUR == 7:
 			rotateSun(-12)
 			var tween = get_tree().create_tween()
 			tween.tween_property(IslandDirectionalLight, "light_color", Color(0.941, 0.987, 0.809), HourTimer.wait_time * 2)
 		
-		elif TimeManager.CURRENT_HOUR == 8:
+		if TimeManager.CURRENT_HOUR == 8:
 			rotateSun(-12)
 		
-		elif TimeManager.CURRENT_HOUR == 9:
+		if TimeManager.CURRENT_HOUR == 9:
 			rotateSun(-9)
 		
-		elif TimeManager.CURRENT_HOUR == 10:
+		if TimeManager.CURRENT_HOUR == 10:
 			rotateSun(-8)
 		
-		elif TimeManager.CURRENT_HOUR == 11:
+		if TimeManager.CURRENT_HOUR == 11:
 			rotateSun(-7)
 	
-		elif TimeManager.CURRENT_HOUR == 12:
+		if TimeManager.CURRENT_HOUR == 12:
 				rotateSun(-8)
 		
-		elif TimeManager.CURRENT_HOUR == 13:
+		if TimeManager.CURRENT_HOUR == 13:
 			rotateSun(-9)
 		
-		elif TimeManager.CURRENT_HOUR == 14:
+		if TimeManager.CURRENT_HOUR == 14:
 			rotateSun(-10)
 		
-		elif TimeManager.CURRENT_HOUR == 15:
+		if TimeManager.CURRENT_HOUR == 15:
 			rotateSun(-12)
 		
-		elif TimeManager.CURRENT_HOUR == 16:
+		if TimeManager.CURRENT_HOUR == 16:
 			rotateSun(-15)
 			var tween = get_tree().create_tween()
 			tween.tween_property(IslandDirectionalLight, "light_color", Color(0.98, 0.729, 0.312), HourTimer.wait_time * 2)
 		
-		elif TimeManager.CURRENT_HOUR == 17:
+		if TimeManager.CURRENT_HOUR == 17:
 			rotateSun(-17)
 		
-		elif TimeManager.CURRENT_HOUR == 18:
+		if TimeManager.CURRENT_HOUR == 18:
 			rotateSun(-12)
 		
-		elif TimeManager.CURRENT_HOUR == 19:
+		if TimeManager.CURRENT_HOUR == 19:
 			rotateSun(-7)
 		
-		elif TimeManager.CURRENT_HOUR == 20:
+		if TimeManager.CURRENT_HOUR == 20:
 			rotateSun(-7)
 		
-		elif TimeManager.CURRENT_HOUR == 21:
+		if TimeManager.CURRENT_HOUR == 21:
 			rotateSun(-7)
 			var tween = get_tree().create_tween()
 			tween.tween_property(IslandDirectionalLight, "light_energy", 0, HourTimer.wait_time)
 		
-		elif TimeManager.CURRENT_HOUR == 22:
+		if TimeManager.CURRENT_HOUR == 22:
 			IslandDirectionalLight.visible = false
 			IslandDirectionalLight.rotation_degrees.x = 10.0
 		
-		elif TimeManager.CURRENT_HOUR == 23:
+		if TimeManager.CURRENT_HOUR == 23:
 			IslandDirectionalLight.visible = false
 			IslandDirectionalLight.rotation_degrees.x = 10.0
 		
-		elif TimeManager.CURRENT_HOUR == 0:
+		if TimeManager.CURRENT_HOUR == 0:
 			IslandDirectionalLight.visible = false
 			IslandDirectionalLight.rotation_degrees.x = 10.0
 			print("New day")
