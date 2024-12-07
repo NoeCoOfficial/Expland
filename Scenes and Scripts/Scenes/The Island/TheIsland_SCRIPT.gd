@@ -119,7 +119,7 @@ func _on_tick() -> void:
       pass
 			4:
 				# Go to hour 5
-      pass
+      rotateSun(-22)
 			5:
 				# Go to hour 6
       pass
