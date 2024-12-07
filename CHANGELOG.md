@@ -17,6 +17,7 @@
 
 ### Fixed:
 - Fixed a bug where you could not pick 3D inventory pickup items up after trying to interact with them while the inventory was full
+- Fixed Rock 3D pickup item mesh clipping into floor
 ---
 ## Settings
 

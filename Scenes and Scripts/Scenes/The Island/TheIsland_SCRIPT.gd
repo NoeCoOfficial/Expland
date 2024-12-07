@@ -51,6 +51,12 @@ extends Node
 @onready var motionBlurCompositor = preload("res://Resources/Environment/TheIsland_MotionBlurCompositor.tres")
 @onready var noMotionBlurCompositor = preload("res://Resources/Environment/TheIsland_NoMotionBlurCompositor.tres")
 
+@export var HourTick : Timer
+
+@export var DirectionalLight : DirectionalLight3D
+@export var IslandEnvironment : WorldEnvironment
+
+
 @export var RockPosRef : Node3D
 @export var RedFlowerPosRef : Node3D
 @export var BlueFlowerPosRef : Node3D
@@ -101,29 +107,49 @@ func _on_tick() -> void:
 		TimeManager.CURRENT_HOUR += 1
 		SaveManager.saveAllData()
 		print("Next hour: " + str(TimeManager.CURRENT_HOUR))
+				
 		match TimeManager.CURRENT_HOUR:
+			
 			1:
+				# Go to hour 2
 				pass
 			2:
+				# Go to hour 3
 				pass
 			3:
+				# Go to hour 4
 				pass
 			4:
+				# Go to hour 5
 				pass
 			5:
+				# Go to hour 6
 				pass
 			6:
-				pass
+				# Go to hour 7
+				var tween = get_tree().create_tween()
+				tween.tween_property(DirectionalLight, "rotation:x", -20, HourTick.wait_time)
 			7:
-				pass
+				# Go to hour 8
+				var tween = get_tree().create_tween()
+				tween.tween_property(DirectionalLight, "rotation:x", -30, HourTick.wait_time)
 			8:
-				pass
+				# Go to hour 9
+				var tween = get_tree().create_tween()
+				tween.tween_property(DirectionalLight, "rotation:x", -50, HourTick.wait_time)
 			9:
-				pass
+				# Go to hour 10
+				var tween = get_tree().create_tween()
+				tween.tween_property(DirectionalLight, "rotation:x", -70, HourTick.wait_time)
 			10:
-				pass
+				# Go to hour 11
+				var tween = get_tree().create_tween()
+				tween.tween_property(DirectionalLight, "rotation:x", -80, HourTick.wait_time)
 			11:
-				pass
+				# Go to hour 12
+				var tween = get_tree().create_tween()
+				tween.tween_property(DirectionalLight, "rotation:x", -90, HourTick.wait_time)
+				
 			12:
 				pass
 			13:
