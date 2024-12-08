@@ -100,7 +100,6 @@ func _on_pickup_item_spawn_timer_timeout() -> void:
 	InventoryManager.create_pickup_object_at_pos(BlankFlowerPosRef.position, "BLANKFLOWER")
 	InventoryManager.create_pickup_object_at_pos(PickaxePosRef.position, "PICKAXE")
 
-
 func rotateSun(addX : float):
 	var currentX = IslandDirectionalLight.rotation_degrees.x
 	
@@ -110,6 +109,7 @@ func rotateSun(addX : float):
 	tween.tween_property(IslandDirectionalLight, "rotation_degrees:x", newX, HourTimer.wait_time).from(currentX)
 
 func on_ready_time_check():
+	TimeManager.CURRENT_HOUR += 1
 	
 	if TimeManager.CURRENT_HOUR == 0 or 24:
 		IslandDirectionalLight.visible = false
@@ -283,7 +283,6 @@ func on_ready_time_check():
 	if TimeManager.CURRENT_HOUR == 23:
 		IslandDirectionalLight.visible = false
 		IslandDirectionalLight.rotation_degrees.x = 10.0
-
 
 func _on_tick() -> void:
 		TimeManager.CURRENT_HOUR += 1

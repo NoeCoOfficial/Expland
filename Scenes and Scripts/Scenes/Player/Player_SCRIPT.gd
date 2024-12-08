@@ -349,7 +349,7 @@ func _physics_process(delta):
 				is_crouching = true
 			else:
 				is_walking = true
-
+			
 		# Apply view bobbing only if the player is moving
 		if is_moving:
 			Wave_Length += delta * velocity.length()
