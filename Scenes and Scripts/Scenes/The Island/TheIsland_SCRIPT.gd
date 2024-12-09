@@ -51,6 +51,7 @@ extends Node
 @onready var motionBlurCompositor = preload("res://Resources/Environment/TheIsland_MotionBlurCompositor.tres")
 @onready var noMotionBlurCompositor = preload("res://Resources/Environment/TheIsland_NoMotionBlurCompositor.tres")
 @onready var TheIslandEnvironment = preload("res://Resources/Environment/TheIslandWorldEnvironment.tres")
+@onready var TheIslandProceduralSkyMaterial = preload("res://Resources/Environment/TheIslandProceduralSkyMaterial.tres")
 
 @export var HourTimer : Timer
 
