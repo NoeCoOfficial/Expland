@@ -50,11 +50,12 @@ extends Node
 
 @onready var motionBlurCompositor = preload("res://Resources/Environment/TheIsland_MotionBlurCompositor.tres")
 @onready var noMotionBlurCompositor = preload("res://Resources/Environment/TheIsland_NoMotionBlurCompositor.tres")
+@onready var TheIslandEnvironment = preload("res://Resources/Environment/TheIslandWorldEnvironment.tres")
 
 @export var HourTimer : Timer
 
 @export var IslandDirectionalLight : DirectionalLight3D
-@export var IslandWorldEnvironment : WorldEnvironment
+@export var IslandWorldEnvironmentNode : WorldEnvironment
 
 var MiddayColor = Color(0.941, 0.987, 0.809)
 var SunriseColor = Color(0.793, 0.612, 0.18)
