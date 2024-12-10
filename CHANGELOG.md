@@ -29,6 +29,11 @@
 - Modified UI
 -->
 ---
+## Environment
+
+### Added:
+- Added day and night cycle with data persistence
+---
 
 # v0.5.0 (released)
 Welcome to this huge release! We are already halfway there to v1.0.0. Look at the changelog below to see what was worked on from the last update (v0.4.7)!
