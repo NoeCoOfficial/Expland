@@ -20,7 +20,6 @@ This is the official GitHub repository for the game, where all changes and commi
 
 - **Sebastian Suciu** ([@sebashtioon](https://github.com/sebashtioon)): 3D Assets, Code and Game development
 - **Tristan Taylor** ([@GoatsAreTB](https://github.com/GoatsAreTB)): 3D and 2D Assets, Music, Storyboarding and Lore
-- **Erik Miller (BobMcBobFacey)**: 3D and 2D Assets, Storyboarding and Visual Designer
 
 ### See a full list of mentions in the [AUTHORS.md file.](https://github.com/NoeCoOfficial/Expland/blob/main/AUTHORS.md)
 ## 📢 Stay Updated
