@@ -191,11 +191,25 @@ func on_ready_time_check():
 		## End at -22
 	
 	if TimeManager.CURRENT_HOUR == 6:
+		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.22, 0.347, 0.53)
+		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.274, 0.435, 0.754)
+		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.117, 0.096, 0.072)
+		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0.221, 0.369, 0.665)
+		
 		IslandDirectionalLight.rotation_degrees.x = -22
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
 		IslandDirectionalLight.light_color = SunriseColor
-		rotateSun(-15) 
+		rotateSun(-15)
+		
+		var tween = get_tree().create_tween().set_parallel()
+		
+		
+		tween.tween_property(TheIslandProceduralSkyMaterial, "sky_top_color", Color(0.311, 0.463, 0.682), HourTimer.wait_time * 1.5)
+		tween.tween_property(TheIslandProceduralSkyMaterial, "sky_horizon_color", Color(0.502, 0.641, 0.905), HourTimer.wait_time * 1.5)
+		tween.tween_property(TheIslandProceduralSkyMaterial, "ground_bottom_color", Color(0.2, 0.169, 0.133), HourTimer.wait_time * 1.5)
+		tween.tween_property(TheIslandProceduralSkyMaterial, "ground_horizon_color", Color(0.502, 0.641, 0.905), HourTimer.wait_time * 1.5)
+		 
 		## End at -37
 	
 	if TimeManager.CURRENT_HOUR == 7:
