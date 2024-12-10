@@ -178,6 +178,9 @@ func on_ready_time_check():
 		tween.tween_property(IslandDirectionalLight, "light_energy", 1, HourTimer.wait_time).from(0)
 		
 		tween.tween_property(TheIslandProceduralSkyMaterial, "sky_top_color", Color(0.311, 0.463, 0.682), HourTimer.wait_time * 2.5)
+		tween.tween_property(TheIslandProceduralSkyMaterial, "sky_horizon_color", Color(0.502, 0.641, 0.905), HourTimer.wait_time * 2.5)
+		tween.tween_property(TheIslandProceduralSkyMaterial, "ground_bottom_color", Color(0.2, 0.169, 0.133), HourTimer.wait_time * 2.5)
+		tween.tween_property(TheIslandProceduralSkyMaterial, "ground_horizon_color", Color(0.502, 0.641, 0.905), HourTimer.wait_time * 2.5)
 		
 		rotateSun(-32)
 		## End at -22
