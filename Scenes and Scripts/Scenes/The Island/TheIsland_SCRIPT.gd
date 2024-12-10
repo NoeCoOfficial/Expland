@@ -168,6 +168,11 @@ func on_ready_time_check():
 		IslandDirectionalLight.rotation_degrees.x = 10.0
 	
 	if TimeManager.CURRENT_HOUR == 5:
+		# Midnight colors
+		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.011, 0.011, 0.011)
+		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.038, 0.038, 0.038)
+		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0, 0, 0)
+		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0, 0, 0)
 		
 		IslandDirectionalLight.rotation_degrees.x = 10
 		IslandDirectionalLight.visible = true
