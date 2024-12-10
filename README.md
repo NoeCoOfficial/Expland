@@ -22,7 +22,6 @@ This is the official GitHub repository for the game, where all changes and commi
 - **Tristan Taylor** ([@GoatsAreTB](https://github.com/GoatsAreTB)): 3D and 2D Assets, Music, Storyboarding and Lore
 
 ### See a full list of mentions in the [AUTHORS.md file.](https://github.com/NoeCoOfficial/Expland/blob/main/AUTHORS.md)
-
 ## 📢 Stay Updated
 
 Follow our progress and get the latest updates on:
@@ -30,7 +29,7 @@ Follow our progress and get the latest updates on:
 - **The GitHub Repository:** [Expland GitHub](https://github.com/sebashtioon/Expland)
 - **Our Discord Server:** [Join our Discord server for discussions and updates](https://discord.gg/QNgcKCAJn3)
 ## 📧 Contact Us
-Thank you for being so interested in this game. We can’t wait to share more with you soon! If you have any questions or want to get involved, please get in touch with our email (noeco.official@gmail.com) and we will respond within **48 hours.**.
+Thank you for being so interested in this game. We can’t wait to share more with you soon! If you have any questions or want to get involved, please get in touch with our email (noeco.official@gmail.com) and we will respond within **48 hours.**
 
 
 ## ❓ FAQ
