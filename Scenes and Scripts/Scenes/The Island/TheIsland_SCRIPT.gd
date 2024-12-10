@@ -339,8 +339,14 @@ func on_ready_time_check():
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
 		IslandDirectionalLight.light_color = MiddayColor
-		var tween = get_tree().create_tween()
+		var tween = get_tree().create_tween().set_parallel()
 		tween.tween_property(IslandDirectionalLight, "light_color", SunsetColor, HourTimer.wait_time * 2)
+		
+		tween.tween_property(TheIslandProceduralSkyMaterial, "sky_top_color", Color(0.011, 0.011, 0.011), HourTimer.wait_time * 7)
+		tween.tween_property(TheIslandProceduralSkyMaterial, "sky_horizon_color", Color(0.038, 0.038, 0.038), HourTimer.wait_time * 7)
+		tween.tween_property(TheIslandProceduralSkyMaterial, "ground_bottom_color", Color(0, 0, 0), HourTimer.wait_time * 7)
+		tween.tween_property(TheIslandProceduralSkyMaterial, "ground_horizon_color", Color(0, 0, 0), HourTimer.wait_time * 7)
+		
 		rotateSun(-15)
 		## End at -139
 	
