@@ -113,7 +113,16 @@ func rotateSun(addX : float):
 func on_ready_time_check():
 	TimeManager.CURRENT_HOUR += 1
 	
+	if TimeManager.CURRENT_HOUR == 24:
+		TimeManager.CURRENT_HOUR = 0
+	
 	if TimeManager.CURRENT_HOUR == 0 or 24:
+		# Midnight colors
+		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.011, 0.011, 0.011)
+		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.038, 0.038, 0.038)
+		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0, 0, 0)
+		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0, 0, 0)
+		
 		IslandDirectionalLight.visible = false
 		IslandDirectionalLight.rotation_degrees.x = 10.0
 		print("New day")
@@ -415,14 +424,7 @@ func _on_tick() -> void:
 			IslandDirectionalLight.visible = false
 			IslandDirectionalLight.rotation_degrees.x = 10.0
 		
-		if TimeManager.CURRENT_HOUR == 0:
-			# Midnight colors
-			TheIslandProceduralSkyMaterial.sky_top_color = Color(0.011, 0.011, 0.011)
-			TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.038, 0.038, 0.038)
-			
-			TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0, 0, 0)
-			TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0, 0, 0)
-			
+		if TimeManager.CURRENT_HOUR == 0 or 24:
 			
 			IslandDirectionalLight.visible = false
 			IslandDirectionalLight.rotation_degrees.x = 10.0
