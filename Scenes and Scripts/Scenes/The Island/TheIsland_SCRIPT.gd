@@ -352,6 +352,11 @@ func on_ready_time_check():
 		## End at -139
 	
 	if TimeManager.CURRENT_HOUR == 17:
+		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.245, 0.381, 0.577)
+		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.229, 0.38, 0.682)
+		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.325, 0.488, 0.809)
+		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0.325, 0.488, 0.809)
+		
 		IslandDirectionalLight.rotation_degrees.x = -139
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
@@ -368,6 +373,11 @@ func on_ready_time_check():
 		## End at -156
 	
 	if TimeManager.CURRENT_HOUR == 18:
+		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.195, 0.313, 0.483)
+		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.184, 0.317, 0.585)
+		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.248, 0.403, 0.714)
+		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0.236, 0.388, 0.693)
+		
 		IslandDirectionalLight.rotation_degrees.x = -156
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
@@ -384,6 +394,11 @@ func on_ready_time_check():
 		## End at -168
 	
 	if TimeManager.CURRENT_HOUR == 19:
+		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.151, 0.25, 0.393)
+		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.152, 0.27, 0.508)
+		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.177, 0.306, 0.567)
+		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0.155, 0.274, 0.513)
+		
 		IslandDirectionalLight.rotation_degrees.x = -168
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
@@ -400,6 +415,11 @@ func on_ready_time_check():
 		## -175 deg at finish
 	
 	if TimeManager.CURRENT_HOUR == 20:
+		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.109, 0.189, 0.304)
+		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.12, 0.221, 0.424)
+		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.129, 0.235, 0.448)
+		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0.113, 0.21, 0.405)
+		
 		IslandDirectionalLight.rotation_degrees.x = -175
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
@@ -416,6 +436,11 @@ func on_ready_time_check():
 		## End at -182
 	
 	if TimeManager.CURRENT_HOUR == 21:
+		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.065, 0.123, 0.208)
+		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.066, 0.137, 0.28)
+		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.053, 0.116, 0.243)
+		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0.071, 0.144, 0.292)
+		
 		IslandDirectionalLight.rotation_degrees.x = -182
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
