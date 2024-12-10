@@ -507,8 +507,15 @@ func _on_tick() -> void:
 		if TimeManager.CURRENT_HOUR == 5:
 			IslandDirectionalLight.visible = true
 			IslandDirectionalLight.light_color = SunriseColor
-			var tween = get_tree().create_tween()
+			
+			var tween = get_tree().create_tween().set_parallel()
 			tween.tween_property(IslandDirectionalLight, "light_energy", 1, HourTimer.wait_time).from(0)
+			
+			tween.tween_property(TheIslandProceduralSkyMaterial, "sky_top_color", Color(0.311, 0.463, 0.682), HourTimer.wait_time * 2.5)
+			tween.tween_property(TheIslandProceduralSkyMaterial, "sky_horizon_color", Color(0.502, 0.641, 0.905), HourTimer.wait_time * 2.5)
+			tween.tween_property(TheIslandProceduralSkyMaterial, "ground_bottom_color", Color(0.2, 0.169, 0.133), HourTimer.wait_time * 2.5)
+			tween.tween_property(TheIslandProceduralSkyMaterial, "ground_horizon_color", Color(0.502, 0.641, 0.905), HourTimer.wait_time * 2.5)
+			
 			rotateSun(-32) 
 			## -22 deg at finish
 			## 10 deg at start
@@ -566,8 +573,14 @@ func _on_tick() -> void:
 			## -112 deg at start
 		
 		if TimeManager.CURRENT_HOUR == 16:
-			var tween = get_tree().create_tween()
+			var tween = get_tree().create_tween().set_parallel()
 			tween.tween_property(IslandDirectionalLight, "light_color", SunsetColor, HourTimer.wait_time * 2)
+			
+			tween.tween_property(TheIslandProceduralSkyMaterial, "sky_top_color", Color(0.011, 0.011, 0.011), HourTimer.wait_time * 7)
+			tween.tween_property(TheIslandProceduralSkyMaterial, "sky_horizon_color", Color(0.038, 0.038, 0.038), HourTimer.wait_time * 7)
+			tween.tween_property(TheIslandProceduralSkyMaterial, "ground_bottom_color", Color(0, 0, 0), HourTimer.wait_time * 7)
+			tween.tween_property(TheIslandProceduralSkyMaterial, "ground_horizon_color", Color(0, 0, 0), HourTimer.wait_time * 7)
+			
 			rotateSun(-15)
 			## -139 deg at finish
 			## -124 deg at start
