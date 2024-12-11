@@ -46,3 +46,14 @@
 # ============================================================= #
 
 extends Node
+
+var PLAYER
+var WORLD
+
+
+func init(PLAYER_NODE, WORLD_NODE):
+	PLAYER = PLAYER_NODE
+	WORLD = WORLD_NODE
+
+func sleep():
+	pass

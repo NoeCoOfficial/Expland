@@ -58,6 +58,8 @@ extends Node
 @export var IslandDirectionalLight : DirectionalLight3D
 @export var IslandWorldEnvironmentNode : WorldEnvironment
 
+@export var Player : CharacterBody3D
+
 var MiddayColor = Color(0.941, 0.987, 0.809)
 var SunriseColor = Color(0.793, 0.612, 0.18)
 var SunsetColor = Color(0.98, 0.729, 0.312)
@@ -71,11 +73,11 @@ var SunsetColor = Color(0.98, 0.729, 0.312)
 
 func _ready() -> void:
 	SaveManager.loadAllData()
+	PlayerManager.init(Player, self)
 	set_motion_blur(PlayerSettingsData.MotionBlur)
 	set_dof_blur(PlayerSettingsData.DOFBlur)
 	
 	on_ready_time_check()
-	
 
 func _on_ready() -> void:
 	pass
