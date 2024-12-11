@@ -56,12 +56,19 @@ func _ready() -> void:
 	MainLayer.visible = false
 	MainLayer.self_modulate = Color(0, 0, 0, 0)
 
-func spawn_minimal_alert(holdSec : float, fadeTime : float, message : String):
-	MainLayer.visible = true
-	
-	var tween = get_tree().create_tween()
-	
-	tween.tween_property(MainLayer, "modulate", Color(1, 1, 1, 1), 0)
-	tween.tween_interval(holdSec)
-	tween.tween_property(MainLayer, "modulate", Color(0, 0, 0, 0), fadeTime)
-	tween.tween_property(MainLayer, "visible", false, 0)
+func spawn_minimal_alert(holdSec : float, fadeInTime : float, fadeOutTime : float, message : String):
+	if !PauseManager.is_showing_minimal_alert:
+		PauseManager.is_showing_minimal_alert = true
+		MainLayer.visible = true
+		MainLayer.text = message
+		
+		var tween = get_tree().create_tween()
+		
+		tween.tween_property(MainLayer, "self_modulate", Color(1, 1, 1, 1), fadeInTime)
+		tween.tween_interval(holdSec)
+		tween.tween_property(MainLayer, "self_modulate", Color(0, 0, 0, 0), fadeOutTime)
+		tween.tween_property(MainLayer, "visible", false, 0)
+		tween.connect("finished", Callable(self, "on_finished"))
+
+func on_finished():
+	PauseManager.is_showing_minimal_alert = false

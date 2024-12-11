@@ -87,4 +87,5 @@ func _input(_event: InputEvent) -> void:
 		if TimeManager.CURRENT_HOUR == 18 or TimeManager.CURRENT_HOUR == 19 or TimeManager.CURRENT_HOUR == 20 or TimeManager.CURRENT_HOUR == 21 or TimeManager.CURRENT_HOUR == 22 or TimeManager.CURRENT_HOUR == 23 or TimeManager.CURRENT_HOUR == 24 or TimeManager.CURRENT_HOUR == 0 or TimeManager.CURRENT_HOUR == 1 or TimeManager.CURRENT_HOUR == 2 or TimeManager.CURRENT_HOUR == 3 or TimeManager.CURRENT_HOUR == 4:
 			print("slep")
 		else:
-			print("no slep")
+			var PLAYER = get_node("/root/World/Player")
+			PLAYER.spawn_minimal_alert_from_player(2.0, 0.1, 0.5, "You can only sleep at night.")

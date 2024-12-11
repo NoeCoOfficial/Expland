@@ -845,3 +845,6 @@ func _on_pickup_object_detector_body_entered(body: Node3D) -> void:
 		]
 		
 		DialogueManager.startDialogue(messages)
+
+func spawn_minimal_alert_from_player(holdSec : float, fadeInTime : float, fadeOutTime : float, message : String):
+	$Head/Camera3D/MinimalAlertLayer/MinimalAlert.spawn_minimal_alert(holdSec, fadeInTime, fadeOutTime, message)

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Minimal Alert/MinimalAlert_SCRIPT.gd" id="1_pn0pq"]
 [ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="2_31a33"]
-[ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="2_obx6v"]
+[ext_resource type="StyleBox" uid="uid://7f6os4nc5ig2" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/MinimalAlert_WithMargin.tres" id="3_iov33"]
 
 [node name="MinimalAlert" type="Control" node_paths=PackedStringArray("MainLayer")]
 layout_mode = 3
@@ -21,16 +21,15 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -201.5
-offset_top = -110.0
-offset_right = 201.5
-offset_bottom = -64.0
+offset_left = -37.5
+offset_top = -133.0
+offset_right = 37.5
+offset_bottom = -87.0
 grow_horizontal = 2
 grow_vertical = 0
 focus_mode = 0
 theme_override_fonts/font = ExtResource("2_31a33")
-theme_override_styles/disabled = ExtResource("2_obx6v")
-theme_override_styles/hover = ExtResource("2_obx6v")
-theme_override_styles/pressed = ExtResource("2_obx6v")
-theme_override_styles/normal = ExtResource("2_obx6v")
-text = "<text text text text text text text text text text>"
+theme_override_styles/disabled = ExtResource("3_iov33")
+theme_override_styles/hover = ExtResource("3_iov33")
+theme_override_styles/pressed = ExtResource("3_iov33")
+theme_override_styles/normal = ExtResource("3_iov33")
