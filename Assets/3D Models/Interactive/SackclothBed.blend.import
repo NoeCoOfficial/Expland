@@ -33,9 +33,13 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
-"Material.001": {
+"FrameColor": {
 "use_external/enabled": true,
-"use_external/path": "res://Resources/Materials/PickaxeColor.tres"
+"use_external/path": "res://Resources/Materials/SackclothBed_Frame Color.tres"
+},
+"SackClothColorNew": {
+"use_external/enabled": true,
+"use_external/path": "res://Resources/Materials/SackClothNewColor.tres"
 }
 }
 }
