@@ -53,7 +53,7 @@ var is_colliding = false
 var is_hovering_over_email_noeco = false
 var is_hovering_over_feedback_github = false
 var is_hovering_over_test_obj = false
-
+var is_hovering_over_sackcloth_bed = false
 
 func spawn_interaction_notification(KEY : String, MESSAGE : String):
 	if !is_notification_on_screen:
@@ -76,9 +76,12 @@ func despawn_interaction_notification():
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Interact") and is_hovering_over_test_obj:
 		pass
-
+	
 	if Input.is_action_just_pressed("Interact") and is_hovering_over_email_noeco:
 		OS.shell_open("https://mail.google.com/mail/?view=cm&fs=1&to=noeco.official@gmail.com")
-
+	
 	if Input.is_action_just_pressed("Interact") and is_hovering_over_feedback_github:
 		OS.shell_open("https://github.com/NoeCoOfficial/Expland/issues/new?assignees=&labels=&projects=&template=feedback.md")
+	
+	if Input.is_action_just_pressed("Interact") and is_hovering_over_sackcloth_bed:
+		print("slep")
