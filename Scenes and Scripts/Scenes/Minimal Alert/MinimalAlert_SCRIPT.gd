@@ -48,6 +48,8 @@
 @icon("res://Textures/Icons/Script Icons/32x32/window_frame_show.png")
 extends Control
 
+var tween = null
+
 @export var MainLayer : Button
 
 func _ready() -> void:
@@ -57,18 +59,16 @@ func _ready() -> void:
 	MainLayer.self_modulate = Color(0, 0, 0, 0)
 
 func spawn_minimal_alert(holdSec : float, fadeInTime : float, fadeOutTime : float, message : String):
-	if !PauseManager.is_showing_minimal_alert:
-		PauseManager.is_showing_minimal_alert = true
-		MainLayer.visible = true
-		MainLayer.text = message
-		
-		var tween = get_tree().create_tween()
-		
-		tween.tween_property(MainLayer, "self_modulate", Color(1, 1, 1, 1), fadeInTime)
-		tween.tween_interval(holdSec)
-		tween.tween_property(MainLayer, "self_modulate", Color(0, 0, 0, 0), fadeOutTime)
-		tween.tween_property(MainLayer, "visible", false, 0)
-		tween.connect("finished", Callable(self, "on_finished"))
-
-func on_finished():
-	PauseManager.is_showing_minimal_alert = false
+	if tween != null:
+		tween.stop()
+	
+	MainLayer.self_modulate = Color(1, 1, 1, 1)
+	MainLayer.visible = true
+	MainLayer.text = message
+	
+	tween = get_tree().create_tween()
+	
+	tween.tween_property(MainLayer, "self_modulate", Color(1, 1, 1, 1), fadeInTime)
+	tween.tween_interval(holdSec)
+	tween.tween_property(MainLayer, "self_modulate", Color(0, 0, 0, 0), fadeOutTime)
+	tween.tween_property(MainLayer, "visible", false, 0)

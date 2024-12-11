@@ -52,4 +52,3 @@ var is_inside_settings = false
 var is_inside_alert = false
 var is_inside_credits = false
 var is_inside_achievements_ui = false
-var is_showing_minimal_alert = false
