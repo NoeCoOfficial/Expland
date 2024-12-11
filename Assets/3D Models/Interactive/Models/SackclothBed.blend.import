@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://vnk7463heub8"
-path="res://.godot/imported/SackclothBed.blend-16c6160097bef57c5e769a4a3169e8a0.scn"
+path="res://.godot/imported/SackclothBed.blend-a9bfc73247028b33aa3c07d04a361609.scn"
 
 [deps]
 
-source_file="res://Assets/3D Models/Interactive/SackclothBed.blend"
-dest_files=["res://.godot/imported/SackclothBed.blend-16c6160097bef57c5e769a4a3169e8a0.scn"]
+source_file="res://Assets/3D Models/Interactive/Models/SackclothBed.blend"
+dest_files=["res://.godot/imported/SackclothBed.blend-a9bfc73247028b33aa3c07d04a361609.scn"]
 
 [params]
 
