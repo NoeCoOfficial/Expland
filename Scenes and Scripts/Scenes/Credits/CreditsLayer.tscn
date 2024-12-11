@@ -114,6 +114,7 @@ offset_left = 417.0
 offset_top = 162.0
 offset_right = 735.0
 offset_bottom = 533.0
+scroll_vertical = 510
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainLayer/ScrollContainer"]
 layout_mode = 2
@@ -125,7 +126,7 @@ layout_mode = 2
 theme = ExtResource("5_ome4s")
 theme_override_fonts/font = ExtResource("6_8b5y6")
 theme_override_font_sizes/font_size = 23
-text = "Expland is made by Noe Co., a team of three looking to find joy in making games."
+text = "Expland is made by Noe Co., a partnership of two looking to find joy in making games."
 horizontal_alignment = 1
 autowrap_mode = 3
 
@@ -203,35 +204,6 @@ text = "Game Designer, Visual Designer, Audio Designer, Storyteller, Tester (whi
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Space2" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("8_uiqvs")
-theme_override_font_sizes/font_size = 5
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="Text17" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("8_uiqvs")
-theme_override_font_sizes/font_size = 20
-text = "Erik Miller"
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="Text18" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("9_3uiju")
-theme_override_font_sizes/font_size = 14
-text = "Game Designer, Visual Designer, 3D modelling, 2D assets and paperwork."
-horizontal_alignment = 1
-autowrap_mode = 3
-
 [node name="Space12" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
@@ -252,7 +224,7 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="Divider3" type="Line2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
-position = Vector2(20, 425)
+position = Vector2(20, 345)
 points = PackedVector2Array(-2, 0, 264, 0)
 width = 1.5
 default_color = Color(0.233926, 0.233925, 0.233925, 1)
@@ -363,12 +335,12 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="GodotIcon" type="Sprite2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
-position = Vector2(115, 808)
+position = Vector2(115, 732)
 scale = Vector2(0.06, 0.06)
 texture = ExtResource("15_ny2xt")
 
 [node name="RedHeartIcon" type="Sprite2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
-position = Vector2(189.375, 810.044)
+position = Vector2(189.375, 734.044)
 scale = Vector2(0.0657484, 0.0545605)
 texture = ExtResource("11_m50j2")
 
@@ -408,7 +380,7 @@ theme_override_font_sizes/font_size = 30
 text = "OPEN     "
 
 [node name="OpenExternalLinkWhiteIcon" type="Sprite2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
-position = Vector2(190.375, 938.625)
+position = Vector2(190.375, 862.625)
 scale = Vector2(0.103333, 0.103333)
 texture = ExtResource("12_lbc4b")
 
