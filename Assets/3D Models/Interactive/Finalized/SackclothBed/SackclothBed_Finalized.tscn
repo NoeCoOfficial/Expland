@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://ceeflh1bhg0ei"]
+
+[ext_resource type="PackedScene" uid="uid://vnk7463heub8" path="res://Assets/3D Models/Interactive/Models/SackclothBed.blend" id="1_vw55b"]
+[ext_resource type="Script" path="res://Assets/3D Models/Interactive/Finalized/SackclothBed/SackclothBed_Finalized_SCRIPT.gd" id="2_h6dgk"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_47cnr"]
+size = Vector3(3.35, 0.72, 1.495)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bv106"]
+points = PackedVector3Array(1.70159, 0.411032, 0.767976, -1.58815, -0.36, -0.722685, -1.70159, 0.411032, -0.774087, -1.70159, 0.411032, 0.767976, 1.70159, 0.411032, -0.774087, 1.58815, -0.36, 0.716574, -1.58815, -0.36, 0.716574, 1.58815, -0.36, -0.722685)
+
+[node name="SackclothBed" instance=ExtResource("1_vw55b")]
+script = ExtResource("2_h6dgk")
+
+[node name="HitboxMesh" type="MeshInstance3D" parent="." index="22"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.369905, 0.369904, -0.26164)
+visible = false
+mesh = SubResource("BoxMesh_47cnr")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="HitboxMesh" index="0"]
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxMesh/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_bv106")
