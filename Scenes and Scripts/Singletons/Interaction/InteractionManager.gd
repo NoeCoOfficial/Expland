@@ -84,4 +84,5 @@ func _input(_event: InputEvent) -> void:
 		OS.shell_open("https://github.com/NoeCoOfficial/Expland/issues/new?assignees=&labels=&projects=&template=feedback.md")
 	
 	if Input.is_action_just_pressed("Interact") and is_hovering_over_sackcloth_bed:
-		print("slep")
+		if TimeManager.CURRENT_HOUR > 18 and TimeManager.CURRENT_HOUR < 5:
+			print("slep")
