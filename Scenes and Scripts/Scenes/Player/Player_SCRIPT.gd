@@ -777,10 +777,19 @@ func sleep_cycle(setSleeping : bool, fadeInTime : float, holdTime : float, fadeO
 	var tween = get_tree().create_tween()
 	tween.tween_property(TopLayerBlackOverlay, "modulate", Color(1, 1, 1, 1), fadeInTime)
 	tween.tween_interval(holdTime)
+	
+	await get_tree().create_timer(fadeInTime).timeout
+	on_sleep_cycle_hold_finished(fadeOutTime)
+
+func on_sleep_cycle_hold_finished(fadeOutTime):
+	PlayerData.GAME_STATE = "NORMAL"
+	PlayerData.Health += 5
+	if PlayerData.Health > MaxHealth:
+		PlayerData.Health = MaxHealth
+	
+	var tween = get_tree().create_tween()
 	tween.tween_property(ProtectiveLayer, "visible", false, 0)
 	tween.tween_property(TopLayerBlackOverlay, "modulate", Color(1, 1, 1, 0), fadeOutTime)
-
-
 
 
 ######################################

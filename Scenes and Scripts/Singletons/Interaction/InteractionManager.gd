@@ -89,4 +89,4 @@ func _input(_event: InputEvent) -> void:
 				PlayerManager.sleep()
 			else:
 				var PLAYER = get_node("/root/World/Player")
-				PLAYER.spawn_minimal_alert_from_player(2.0, 0.1, 0.5, "You can only sleep at night.")
+				PLAYER.spawn_minimal_alert_from_player(2.0, 0.3, 0.5, "You can only sleep at night.")
