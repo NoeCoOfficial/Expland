@@ -47,5 +47,5 @@
 
 extends Node
 
-var CURRENT_HOUR = 9 # Starting time in 10am.
-# TODO: Create day number variable and logic
+var CURRENT_HOUR = 9 # Starting time is 10am.
+var CURRENT_DAY = 1

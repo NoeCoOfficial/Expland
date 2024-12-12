@@ -442,10 +442,13 @@ func _on_ready() -> void: # Called when the node is considered ready
 
 func nodeSetup(): # A function to setup the nodes. Called in the _ready function
 	
-	$Head/Camera3D/DeathScreen/BlackOverlay/GetUp.set_self_modulate(Color(0, 0, 0, 0)) # set the get up self modulate to black
-	$Head/Camera3D/DeathScreen/BlackOverlay/RandomText.set_self_modulate(Color(0, 0, 0, 0)) # set the random text self modulate to black
-	$Head/Camera3D/DeathScreen/BlackOverlay.set_self_modulate(Color(0, 0, 0, 0)) # set the black overlay self modulate to black
-	$Head/Camera3D/OverlayLayer/RedOverlay.set_self_modulate(Color(1, 0.016, 0, 0)) # set the red overlay self modulate to red
+	$Head/Camera3D/TopLayer/DayTextLabel.modulate = Color(1, 1, 1, 0)
+	$Head/Camera3D/TopLayer/DayTextLabel.visible = false
+	
+	$Head/Camera3D/DeathScreen/BlackOverlay/GetUp.self_modulate = Color(0, 0, 0, 0) # set the get up self modulate to black
+	$Head/Camera3D/DeathScreen/BlackOverlay/RandomText.self_modulate = Color(0, 0, 0, 0) # set the random text self modulate to black
+	$Head/Camera3D/DeathScreen/BlackOverlay.self_modulate = Color(0, 0, 0, 0) # set the black overlay self modulate to black
+	$Head/Camera3D/OverlayLayer/RedOverlay.self_modulate = Color(1, 0.016, 0, 0) # set the red overlay self modulate to red
 
 ######################################
 # Walking, sprinting and crouching sounds
