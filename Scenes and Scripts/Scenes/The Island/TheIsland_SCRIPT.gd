@@ -119,7 +119,8 @@ func on_ready_time_check():
 	
 	if TimeManager.CURRENT_HOUR == 24:
 		TimeManager.CURRENT_HOUR = 0
-
+	
+	set_hour(TimeManager.CURRENT_HOUR)
 
 func _on_tick() -> void:
 		TimeManager.CURRENT_HOUR += 1
