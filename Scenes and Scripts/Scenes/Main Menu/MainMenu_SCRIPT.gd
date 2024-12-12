@@ -99,6 +99,7 @@ func fadeOut(node):
 
 func onStartup():
 	fadeOut($Camera3D/MainLayer/FadeOut)
+	$Camera3D/MainLayer/Version_LBL.visible = true
 	
 	var tween = get_tree().create_tween().set_parallel()
 	

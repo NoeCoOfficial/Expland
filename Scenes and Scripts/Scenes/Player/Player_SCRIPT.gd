@@ -222,7 +222,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		
 		if PauseManager.is_paused:
 			
-			if !PauseManager.is_inside_settings and !PauseManager.is_inside_achievements_ui and !PauseManager.is_inside_credits and !PauseManager.is_inside_alert and !PlayerData.GAME_STATE == "DEAD":
+			if !PauseManager.is_inside_settings and !PauseManager.is_inside_achievements_ui and !PauseManager.is_inside_credits and !PauseManager.is_inside_alert and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
 				resumeGame()
 			
 			if PauseManager.is_inside_settings:
@@ -239,7 +239,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			
 		else:
 			
-			if !DialogueManager.is_in_absolute_interface and !InventoryManager.inventory_open and !PauseManager.is_inside_alert and !PlayerData.GAME_STATE == "DEAD":
+			if !DialogueManager.is_in_absolute_interface and !InventoryManager.inventory_open and !PauseManager.is_inside_alert and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
 				pauseGame()
 			
 			if InventoryManager.inventory_open:
@@ -261,10 +261,8 @@ func _input(_event): # A built-in function that listens for input using the inpu
 				self.position = ResetPOS # set the player's position to the Reset position 
 				velocity.y = 0.0 # set the player's velocity to 0 
 	
-	
 	if Input.is_action_just_pressed("SaveGame") and OS.has_feature("debug"):
 		saveAllDataWithAnimation()
-	
 	
 	if Input.is_action_just_pressed("Inventory") and !PauseManager.is_paused and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface: # if the Inventory input is pressed and game isn't paused or in dialogue
 		if GAME_STATE == "NORMAL": # Check if the game state is normal. If it is, open the inventory
@@ -294,7 +292,7 @@ func _physics_process(delta):
 	is_crouching = false
 	
 	# Crouching
-	if GAME_STATE != "INVENTORY" and GAME_STATE != "DEAD" and is_on_floor() and !PauseManager.is_paused and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface:
+	if GAME_STATE != "INVENTORY" and GAME_STATE != "DEAD" and GAME_STATE != "SLEEPING" and is_on_floor() and !PauseManager.is_paused and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface:
 		
 		
 		if Input.is_action_pressed("Crouch"):
@@ -825,19 +823,11 @@ func _on_pickup_object_detector_body_entered(body: Node3D) -> void:
 			"message": "It truly does! Goats are the best.",
 			"duration": 1.5},
 			
-			{"author": "BobMcBobFacey (Noe Co. dev)", 
-			"message": "Hey! What about me?",
-			"duration": 0.7},
-			
-			{"author": "sebashtioon", 
-			"message": "My bad! Let me introduce you to Erik (or BobMcBobFacey), another founder of Noe Co.. He recently joined the team again as of December 2024!",
-			"duration": 3},
-			
 			{"author": "sebashtioon", 
 			"message": "Alright then, I'll leave you to it. Go explore.
 			Best wishes,
 			
-			Seb, Tristan and Erik",
+			Seb and Tristan",
 			"duration": 4},
 		]
 		

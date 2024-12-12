@@ -74,18 +74,19 @@ func despawn_interaction_notification():
 			print("[InteractionManager] Despawned interaction notification")
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("Interact") and is_hovering_over_test_obj:
-		pass
-	
-	if Input.is_action_just_pressed("Interact") and is_hovering_over_email_noeco:
-		OS.shell_open("https://mail.google.com/mail/?view=cm&fs=1&to=noeco.official@gmail.com")
-	
-	if Input.is_action_just_pressed("Interact") and is_hovering_over_feedback_github:
-		OS.shell_open("https://github.com/NoeCoOfficial/Expland/issues/new?assignees=&labels=&projects=&template=feedback.md")
-	
-	if Input.is_action_just_pressed("Interact") and is_hovering_over_sackcloth_bed:
-		if TimeManager.CURRENT_HOUR == 18 or TimeManager.CURRENT_HOUR == 19 or TimeManager.CURRENT_HOUR == 20 or TimeManager.CURRENT_HOUR == 21 or TimeManager.CURRENT_HOUR == 22 or TimeManager.CURRENT_HOUR == 23 or TimeManager.CURRENT_HOUR == 24 or TimeManager.CURRENT_HOUR == 0 or TimeManager.CURRENT_HOUR == 1 or TimeManager.CURRENT_HOUR == 2 or TimeManager.CURRENT_HOUR == 3 or TimeManager.CURRENT_HOUR == 4:
-			PlayerManager.sleep()
-		else:
-			var PLAYER = get_node("/root/World/Player")
-			PLAYER.spawn_minimal_alert_from_player(2.0, 0.1, 0.5, "You can only sleep at night.")
+	if !PlayerData.GAME_STATE == "SLEEPING" and !PlayerData.GAME_STATE == "DEAD" and !InventoryManager.inventory_open and !PauseManager.is_paused:
+		if Input.is_action_just_pressed("Interact") and is_hovering_over_test_obj:
+			pass
+		
+		if Input.is_action_just_pressed("Interact") and is_hovering_over_email_noeco:
+			OS.shell_open("https://mail.google.com/mail/?view=cm&fs=1&to=noeco.official@gmail.com")
+		
+		if Input.is_action_just_pressed("Interact") and is_hovering_over_feedback_github:
+			OS.shell_open("https://github.com/NoeCoOfficial/Expland/issues/new?assignees=&labels=&projects=&template=feedback.md")
+		
+		if Input.is_action_just_pressed("Interact") and is_hovering_over_sackcloth_bed:
+			if TimeManager.CURRENT_HOUR == 18 or TimeManager.CURRENT_HOUR == 19 or TimeManager.CURRENT_HOUR == 20 or TimeManager.CURRENT_HOUR == 21 or TimeManager.CURRENT_HOUR == 22 or TimeManager.CURRENT_HOUR == 23 or TimeManager.CURRENT_HOUR == 24 or TimeManager.CURRENT_HOUR == 0 or TimeManager.CURRENT_HOUR == 1 or TimeManager.CURRENT_HOUR == 2 or TimeManager.CURRENT_HOUR == 3 or TimeManager.CURRENT_HOUR == 4:
+				PlayerManager.sleep()
+			else:
+				var PLAYER = get_node("/root/World/Player")
+				PLAYER.spawn_minimal_alert_from_player(2.0, 0.1, 0.5, "You can only sleep at night.")

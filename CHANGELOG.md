@@ -45,6 +45,7 @@ Welcome to this huge release! We are already halfway there to v1.0.0. Look at th
 ### Fixed:
 
 - Fixed health value not loading (#39)
+- Fixed being able to interact with objects while paused, inside the inventory or dead
 ---
 ## Settings
 

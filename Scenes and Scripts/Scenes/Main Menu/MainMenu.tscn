@@ -446,6 +446,7 @@ theme_override_font_sizes/font_size = 27
 text = "CREDITS"
 
 [node name="Version_LBL" type="Label" parent="Camera3D/MainLayer"]
+visible = false
 modulate = Color(1, 1, 1, 0.259)
 anchors_preset = 1
 anchor_left = 1.0
