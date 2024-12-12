@@ -416,19 +416,16 @@ func _process(_delta):
 func _ready():
 	nodeSetup() # Call the nodeSetup function to setup the nodes
 	
+	
 	InventoryData.loadInventory()
-	
 	DialogueManager.DialogueInterface = $Head/Camera3D/DialogueLayer/DialogueInterface
-	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Lock mouse
-	
 	GAME_STATE = PlayerData.GAME_STATE # set the game state to the player data's game state
-
+	
 	if GAME_STATE == "DEAD": # check if the game state is dead
 		$Head/Camera3D/DeathScreen/BlackOverlay.set_self_modulate(Color(0, 0, 0, 1)) # set the black overlay's self modulate to black
 		$Head/Camera3D/OverlayLayer/Overlay.show() # show the overlay
 		showDeathScreen() # call the death screen function
-
 	if Fade_In == true: # check if the fade in variable is true
 		$Head/Camera3D/OverlayLayer/Overlay.show() # show the overlay
 		var tween = get_tree().create_tween() # create a tween
