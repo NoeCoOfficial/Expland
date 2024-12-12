@@ -121,54 +121,6 @@ func on_ready_time_check():
 		TimeManager.CURRENT_HOUR = 0
 
 
-	
-	if TimeManager.CURRENT_HOUR == 21:
-		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.065, 0.123, 0.208)
-		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.066, 0.137, 0.28)
-		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.053, 0.116, 0.243)
-		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0.071, 0.144, 0.292)
-		
-		IslandDirectionalLight.rotation_degrees.x = -182
-		IslandDirectionalLight.visible = true
-		IslandDirectionalLight.light_energy = 1
-		IslandDirectionalLight.light_color = SunsetColor
-		
-		var tween = get_tree().create_tween().set_parallel()
-		tween.tween_property(IslandDirectionalLight, "light_energy", 0, HourTimer.wait_time)
-		
-		tween.tween_property(TheIslandProceduralSkyMaterial, "sky_top_color", Color(0.011, 0.011, 0.011), HourTimer.wait_time * 2)
-		tween.tween_property(TheIslandProceduralSkyMaterial, "sky_horizon_color", Color(0.038, 0.038, 0.038), HourTimer.wait_time * 2)
-		tween.tween_property(TheIslandProceduralSkyMaterial, "ground_bottom_color", Color(0, 0, 0), HourTimer.wait_time * 2)
-		tween.tween_property(TheIslandProceduralSkyMaterial, "ground_horizon_color", Color(0, 0, 0), HourTimer.wait_time * 2)
-		
-		rotateSun(-7)
-		## End at -189
-	
-	if TimeManager.CURRENT_HOUR == 22:
-		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.042, 0.089, 0.158)
-		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.033, 0.084, 0.187)
-		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.035, 0.087, 0.193)
-		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0.031, 0.08, 0.18)
-		
-		IslandDirectionalLight.visible = false
-		IslandDirectionalLight.rotation_degrees.x = 10.0
-		
-		var tween = get_tree().create_tween().set_parallel()
-		tween.tween_property(TheIslandProceduralSkyMaterial, "sky_top_color", Color(0.011, 0.011, 0.011), HourTimer.wait_time)
-		tween.tween_property(TheIslandProceduralSkyMaterial, "sky_horizon_color", Color(0.038, 0.038, 0.038), HourTimer.wait_time)
-		tween.tween_property(TheIslandProceduralSkyMaterial, "ground_bottom_color", Color(0, 0, 0), HourTimer.wait_time)
-		tween.tween_property(TheIslandProceduralSkyMaterial, "ground_horizon_color", Color(0, 0, 0), HourTimer.wait_time)
-	
-	if TimeManager.CURRENT_HOUR == 23:
-		# Midnight colors
-		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.011, 0.011, 0.011)
-		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.038, 0.038, 0.038)
-		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0, 0, 0)
-		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0, 0, 0)
-		
-		IslandDirectionalLight.visible = false
-		IslandDirectionalLight.rotation_degrees.x = 10.0
-
 func _on_tick() -> void:
 		TimeManager.CURRENT_HOUR += 1
 		
@@ -649,13 +601,51 @@ func set_hour(hour : int):
 		## End at -182
 	
 	if hour == 21:
-		pass
+		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.065, 0.123, 0.208)
+		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.066, 0.137, 0.28)
+		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.053, 0.116, 0.243)
+		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0.071, 0.144, 0.292)
+		
+		IslandDirectionalLight.rotation_degrees.x = -182
+		IslandDirectionalLight.visible = true
+		IslandDirectionalLight.light_energy = 1
+		IslandDirectionalLight.light_color = SunsetColor
+		
+		var tween = get_tree().create_tween().set_parallel()
+		tween.tween_property(IslandDirectionalLight, "light_energy", 0, HourTimer.wait_time)
+		
+		tween.tween_property(TheIslandProceduralSkyMaterial, "sky_top_color", Color(0.011, 0.011, 0.011), HourTimer.wait_time * 2)
+		tween.tween_property(TheIslandProceduralSkyMaterial, "sky_horizon_color", Color(0.038, 0.038, 0.038), HourTimer.wait_time * 2)
+		tween.tween_property(TheIslandProceduralSkyMaterial, "ground_bottom_color", Color(0, 0, 0), HourTimer.wait_time * 2)
+		tween.tween_property(TheIslandProceduralSkyMaterial, "ground_horizon_color", Color(0, 0, 0), HourTimer.wait_time * 2)
+		
+		rotateSun(-7)
+		## End at -189
 	
 	if hour == 22:
-		pass
+		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.042, 0.089, 0.158)
+		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.033, 0.084, 0.187)
+		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.035, 0.087, 0.193)
+		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0.031, 0.08, 0.18)
+		
+		IslandDirectionalLight.visible = false
+		IslandDirectionalLight.rotation_degrees.x = 10.0
+		
+		var tween = get_tree().create_tween().set_parallel()
+		tween.tween_property(TheIslandProceduralSkyMaterial, "sky_top_color", Color(0.011, 0.011, 0.011), HourTimer.wait_time)
+		tween.tween_property(TheIslandProceduralSkyMaterial, "sky_horizon_color", Color(0.038, 0.038, 0.038), HourTimer.wait_time)
+		tween.tween_property(TheIslandProceduralSkyMaterial, "ground_bottom_color", Color(0, 0, 0), HourTimer.wait_time)
+		tween.tween_property(TheIslandProceduralSkyMaterial, "ground_horizon_color", Color(0, 0, 0), HourTimer.wait_time)
 	
 	if hour == 23:
-		pass
+		# Midnight colors
+		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.011, 0.011, 0.011)
+		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.038, 0.038, 0.038)
+		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0, 0, 0)
+		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0, 0, 0)
+		
+		IslandDirectionalLight.visible = false
+		IslandDirectionalLight.rotation_degrees.x = 10.0
 
 
 """
