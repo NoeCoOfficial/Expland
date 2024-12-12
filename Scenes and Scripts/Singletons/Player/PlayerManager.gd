@@ -51,11 +51,10 @@ var PLAYER
 var PLAYER_CAMERA
 var WORLD
 
+func init():
+	WORLD = get_node("/root/World/")
+	PLAYER = get_node("/root/World/Player/")
+	PLAYER_CAMERA = get_node("/root/World/Player/Head/Camera3D")
 
-func init(PLAYER_NODE, PLAYER_CAMERA_NODE, WORLD_NODE):
-	PLAYER_CAMERA = PLAYER_CAMERA_NODE
-	PLAYER = PLAYER_NODE
-	WORLD = WORLD_NODE
-
-func sleep():
+func sleep(cameraGoTo : Vector3):
 	pass
