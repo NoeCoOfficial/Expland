@@ -912,6 +912,7 @@ color = Color(0, 0, 0, 1)
 script = ExtResource("9_svfxy")
 
 [node name="ProtectiveLayer" type="Control" parent="Head/Camera3D/TopLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
