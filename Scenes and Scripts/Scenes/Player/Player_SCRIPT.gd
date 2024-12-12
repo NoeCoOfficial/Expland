@@ -187,10 +187,13 @@ var is_crouching = false
 @export var Slot9_Ref : StaticBody2D
 
 @export_group("General Nodes")
+
+@export_subgroup("UI")
 @export var SettingsUI : Control
 @export var AchievementsUI : Control
 @export var AlertLayer : Control
 @export var CreditsLayer : Control
+@export var TopLayerBlackOverlay : Control
 
 @export_group("Debug")
 
