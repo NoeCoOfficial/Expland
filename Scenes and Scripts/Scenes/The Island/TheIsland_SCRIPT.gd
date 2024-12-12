@@ -79,6 +79,7 @@ var hour4_tween
 var hour5_tween
 var hour7_tween
 var hour16_tween
+
 var hour21_tween
 
 var sunRotation_tween
@@ -285,7 +286,8 @@ func _on_tick() -> void:
 			
 			IslandDirectionalLight.visible = false
 			IslandDirectionalLight.rotation_degrees.x = 10.0
-			print("New day")
+			TimeManager.CURRENT_DAY += 1
+			PlayerData.saveData()
    
 func set_hour(hour : int):
 	if hour == 0 or hour == 24:

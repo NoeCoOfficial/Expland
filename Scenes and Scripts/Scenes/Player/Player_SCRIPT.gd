@@ -729,7 +729,8 @@ func sleep_cycle(setSleeping : bool, incrementDay : bool, fadeInTime : float, ho
 		SaveManager.saveAllData()
 	
 	if incrementDay:
-		TimeManager.CURRENT_DAY += 1
+		if TimeManager.CURRENT_HOUR < 24:
+			TimeManager.CURRENT_DAY += 1
 	
 	SaveManager.saveAllData()
 	
