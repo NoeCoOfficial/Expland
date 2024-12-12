@@ -250,6 +250,14 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_606ex")
 expand_mode = 1
 
+[node name="InteractionLayer" type="CanvasLayer" parent="Head/Camera3D"]
+
+[node name="InteractionHUD" parent="Head/Camera3D/InteractionLayer" instance=ExtResource("16_8a1wo")]
+offset_left = -183.0
+offset_top = 56.0
+offset_right = -1107.0
+offset_bottom = -532.0
+
 [node name="InventoryLayer" type="CanvasLayer" parent="Head/Camera3D"]
 visible = false
 
@@ -450,14 +458,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("8_uxqns")
-
-[node name="InteractionLayer" type="CanvasLayer" parent="Head/Camera3D"]
-
-[node name="InteractionHUD" parent="Head/Camera3D/InteractionLayer" instance=ExtResource("16_8a1wo")]
-offset_left = -183.0
-offset_top = 56.0
-offset_right = -1107.0
-offset_bottom = -532.0
 
 [node name="DialogueLayer" type="CanvasLayer" parent="Head/Camera3D"]
 
