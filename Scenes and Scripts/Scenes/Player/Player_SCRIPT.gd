@@ -754,21 +754,17 @@ func hideDarkerBG_SAVEOVERLAY():
 	tween.tween_property($Head/Camera3D/SaveOverlay/DarkerBG, "position:x", 1796.0, 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
 
 ######################################
-# Debugging
+# User Interface
 ######################################
 
-func _on_start_debugging_btn_pressed() -> void:
-	if DebugManager.is_debugging:
-		DebugManager.is_debugging = false
-		$Head/Camera3D/DebugLayer.hide()
-		$Head/Camera3D/PauseLayer/StartDebugging_Btn.text = "START DEBUGGING"
-	else:
-		DebugManager.is_debugging = true
-		$Head/Camera3D/DebugLayer.show()
-		$Head/Camera3D/PauseLayer/StartDebugging_Btn.text = "STOP DEBUGGING"
+func spawn_minimal_alert_from_player(holdSec : float, fadeInTime : float, fadeOutTime : float, message : String):
+	$Head/Camera3D/MinimalAlertLayer/MinimalAlert.spawn_minimal_alert(holdSec, fadeInTime, fadeOutTime, message)
+
+func sleep_cycle(fadeInTime : float, holdTime : float, fadeOutTime : float):
+	pass
 
 ######################################
-# Playground
+# Area and body detection
 ######################################
 
 func _on_pickup_object_detector_body_entered(body: Node3D) -> void:
@@ -833,5 +829,16 @@ func _on_pickup_object_detector_body_entered(body: Node3D) -> void:
 		
 		DialogueManager.startDialogue(messages)
 
-func spawn_minimal_alert_from_player(holdSec : float, fadeInTime : float, fadeOutTime : float, message : String):
-	$Head/Camera3D/MinimalAlertLayer/MinimalAlert.spawn_minimal_alert(holdSec, fadeInTime, fadeOutTime, message)
+######################################
+# Debugging
+######################################
+
+func _on_start_debugging_btn_pressed() -> void:
+	if DebugManager.is_debugging:
+		DebugManager.is_debugging = false
+		$Head/Camera3D/DebugLayer.hide()
+		$Head/Camera3D/PauseLayer/StartDebugging_Btn.text = "START DEBUGGING"
+	else:
+		DebugManager.is_debugging = true
+		$Head/Camera3D/DebugLayer.show()
+		$Head/Camera3D/PauseLayer/StartDebugging_Btn.text = "STOP DEBUGGING"
