@@ -57,4 +57,5 @@ func init():
 	PLAYER_CAMERA = get_node("/root/World/Player/Head/Camera3D")
 
 func sleep(cameraGoTo : Vector3):
-	pass
+	PlayerData.GAME_STATE = "SLEEPING"
+	var tween = get_tree().create_tween()

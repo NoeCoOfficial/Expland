@@ -50,10 +50,8 @@ extends Node
 
 const SAVE_PATH = "res://player.save"
 
-
 var GAME_STATE = "NORMAL"
 var Health := 100
-
 
 func saveData() -> void:
 	var player = get_node("/root/World/Player")
