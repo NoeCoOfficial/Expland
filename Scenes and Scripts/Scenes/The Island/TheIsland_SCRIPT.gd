@@ -90,6 +90,10 @@ func _ready() -> void:
 	set_motion_blur(PlayerSettingsData.MotionBlur)
 	set_dof_blur(PlayerSettingsData.DOFBlur)
 	
+	if PlayerData.GAME_STATE == "SLEEPING":
+		PlayerData.GAME_STATE = "NORMAL"
+		set_hour(6)
+	
 	on_ready_time_check()
 
 func _on_ready() -> void:
