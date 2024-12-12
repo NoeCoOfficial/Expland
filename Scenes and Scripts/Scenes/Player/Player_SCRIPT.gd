@@ -765,7 +765,7 @@ func hideDarkerBG_SAVEOVERLAY():
 func spawn_minimal_alert_from_player(holdSec : float, fadeInTime : float, fadeOutTime : float, message : String):
 	MinimalAlert.spawn_minimal_alert(holdSec, fadeInTime, fadeOutTime, message)
 
-func sleep_cycle(setSleeping : bool, fadeInTime : float, holdTime : float, fadeOutTime : float):
+func sleep_cycle(setSleeping : bool, fadeInTime : float, holdTime : float, fadeOutTime : float, hour : int):
 	if setSleeping == true:
 		PlayerData.GAME_STATE = "SLEEPING"
 		SaveManager.saveAllData()
@@ -779,9 +779,18 @@ func sleep_cycle(setSleeping : bool, fadeInTime : float, holdTime : float, fadeO
 	tween.tween_interval(holdTime)
 	
 	await get_tree().create_timer(fadeInTime + holdTime).timeout
-	on_sleep_cycle_hold_finished(fadeOutTime)
+	
+	# TODO: Make day number animation
+	on_sleep_cycle_hold_finished(fadeOutTime, hour)
 
-func on_sleep_cycle_hold_finished(fadeOutTime):
+func on_sleep_cycle_hold_finished(fadeOutTime, hour : int):
+	
+	var WORLD = get_node("/root/World/")
+	
+	if WORLD != null:
+		if WORLD.has_method("set_hour"):
+			WORLD.set_hour(hour)
+	
 	PlayerData.GAME_STATE = "NORMAL"
 	PlayerData.Health += 5
 	if PlayerData.Health > MaxHealth:
@@ -790,7 +799,6 @@ func on_sleep_cycle_hold_finished(fadeOutTime):
 	var tween = get_tree().create_tween()
 	tween.tween_property(ProtectiveLayer, "visible", false, 0)
 	tween.tween_property(TopLayerBlackOverlay, "modulate", Color(1, 1, 1, 0), fadeOutTime)
-
 
 ######################################
 # Area and body detection

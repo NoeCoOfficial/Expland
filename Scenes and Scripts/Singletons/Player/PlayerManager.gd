@@ -60,4 +60,4 @@ func init():
 
 func sleep():
 	if PLAYER != null:
-		PLAYER.sleep_cycle(true, 2.0, 5.0, 2.0)
+		PLAYER.sleep_cycle(true, 2.0, 5.0, 2.0, 6)

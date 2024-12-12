@@ -48,3 +48,4 @@
 extends Node
 
 var CURRENT_HOUR = 9 # Starting time in 10am.
+# TODO: Create day number variable and logic
