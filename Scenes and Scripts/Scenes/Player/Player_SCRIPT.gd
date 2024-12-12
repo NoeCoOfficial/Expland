@@ -776,61 +776,7 @@ func _on_pickup_object_detector_body_entered(body: Node3D) -> void:
 	
 	if body.is_in_group("dialogue_test"):
 		
-		var messages = [
-			
-			{"author": "sebashtioon (Noe Co. dev)", 
-			"message": "Woah! Wassup?",
-			"duration": 0.5},
-			
-			{"author": "You", 
-			"message": "Not much... there really isn't anything to do here.",
-			"duration": 1},
-			
-			{"author": "sebashtioon", 
-			"message": "Yeah yeah, I know. But it will all come soon, I promise.",
-			"duration": 1},
-			
-			{"author": "You", 
-			"message": "Okay... but when exactly are you going to release the game? Like it's first release that isn't a pre-release? v1.0.0?",
-			"duration": 3},
-			
-			{"author": "sebashtioon", 
-			"message": "Just know that I'm not entirely sure. The due date for this is July 23, 2025. So it will be somewhere around then, maybe in June. I really don't know.",
-			"duration": 3},
-			
-			{"author": "sebashtioon", 
-			"message": "I hope you're enjoying the test area that I set up though?",
-			"duration": 1.5},
-			
-			{"author": "You", 
-			"message": "Yeah... it's fine.",
-			"duration": 1},
-			
-			{"author": "sebashtioon", 
-			"message": "By the way, you can press E to open the inventory. and ESC to pause the game. Please report any bugs, remember!",
-			"duration": 2.5},
-			
-			{"author": "You", 
-			"message": "Alright! I'll be playing this game alot when it comes out.",
-			"duration": 2},
-			
-			{"author": "sebashtioon", 
-			"message": "Wow, thank you! You're support means the world to me and Tristan, the team at Noe Co.. Isn't that right, Tristan?",
-			"duration": 3},
-			
-			{"author": "GoatsAreTB (Noe Co. dev)", 
-			"message": "It truly does! Goats are the best.",
-			"duration": 1.5},
-			
-			{"author": "sebashtioon", 
-			"message": "Alright then, I'll leave you to it. Go explore.
-			Best wishes,
-			
-			Seb and Tristan",
-			"duration": 4},
-		]
-		
-		DialogueManager.startDialogue(messages)
+		DialogueManager.startDialogue(DialogueManager.testDialogue)
 
 ######################################
 # Debugging
