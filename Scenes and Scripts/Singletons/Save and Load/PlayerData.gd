@@ -62,6 +62,7 @@ func saveData() -> void:
 		var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 		var data = {
 			"CURRENT_HOUR" : TimeManager.CURRENT_HOUR,
+			"CURRENT_DAY" : TimeManager.CURRENT_DAY,
 			"GAME_STATE" : GAME_STATE,
 			"Health" : Health,
 			"Position" : Utils.vector3_to_dict(player.position),
@@ -86,6 +87,8 @@ func loadData(withOutput : bool) -> void:
 		var current_line = JSON.parse_string(file.get_line())
 		if current_line:
 			TimeManager.CURRENT_HOUR = current_line["CURRENT_HOUR"]
+			TimeManager.CURRENT_DAY = current_line["CURRENT_DAY"]
+
 			
 			Health = current_line["Health"]
 			GAME_STATE = current_line["GAME_STATE"]

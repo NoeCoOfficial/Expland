@@ -424,6 +424,9 @@ func _ready():
 		$Head/Camera3D/OverlayLayer/Overlay.show() # show the overlay
 		showDeathScreen() # call the death screen function
 	
+	if PlayerData.GAME_STATE == "SLEEPING":
+		PlayerManager.SLEEPING_UPON_ENTERED = true
+		sleep_cycle(false, false, 2.0, 5.0, 2.0, 6)
 	
 	if Fade_In == true: # check if the fade in variable is true
 		$Head/Camera3D/OverlayLayer/Overlay.show() # show the overlay
@@ -441,9 +444,6 @@ func _on_ready() -> void: # Called when the node is considered ready
 	pass
 
 func nodeSetup(): # A function to setup the nodes. Called in the _ready function
-	
-	$Head/Camera3D/TopLayer/DayTextLabel.modulate = Color(1, 1, 1, 0)
-	$Head/Camera3D/TopLayer/DayTextLabel.visible = false
 	
 	$Head/Camera3D/DeathScreen/BlackOverlay/GetUp.self_modulate = Color(0, 0, 0, 0) # set the get up self modulate to black
 	$Head/Camera3D/DeathScreen/BlackOverlay/RandomText.self_modulate = Color(0, 0, 0, 0) # set the random text self modulate to black
@@ -760,22 +760,29 @@ func hideDarkerBG_SAVEOVERLAY():
 func spawn_minimal_alert_from_player(holdSec : float, fadeInTime : float, fadeOutTime : float, message : String):
 	MinimalAlert.spawn_minimal_alert(holdSec, fadeInTime, fadeOutTime, message)
 
-func sleep_cycle(setSleeping : bool, fadeInTime : float, holdTime : float, fadeOutTime : float, hour : int):
-	if setSleeping == true:
+func sleep_cycle(setSleeping : bool, incrementDay : bool, fadeInTime : float, holdTime : float, fadeOutTime : float, hour : int):
+	if setSleeping:
 		PlayerData.GAME_STATE = "SLEEPING"
 		SaveManager.saveAllData()
 	
+	if incrementDay:
+		TimeManager.CURRENT_DAY += 1
+	
+	SaveManager.saveAllData()
+	
+	$Head/Camera3D/TopLayer/DayTextLabel.text = "Day " + str(TimeManager.CURRENT_DAY)
 	TopLayerBlackOverlay.modulate = Color(1, 1, 1, 0)
 	TopLayerBlackOverlay.visible = true
 	ProtectiveLayer.visible = true
 	
 	var tween = get_tree().create_tween()
 	tween.tween_property(TopLayerBlackOverlay, "modulate", Color(1, 1, 1, 1), fadeInTime)
-	tween.tween_interval(holdTime)
+	tween.tween_interval(1.0)
+	tween.tween_property($Head/Camera3D/TopLayer/DayTextLabel, "modulate", Color(1, 1, 1, 1), 1.0)
+	
 	
 	await get_tree().create_timer(fadeInTime + holdTime).timeout
 	
-	# TODO: Make day number animation
 	on_sleep_cycle_hold_finished(fadeOutTime, hour)
 
 func on_sleep_cycle_hold_finished(fadeOutTime, hour : int):
@@ -791,7 +798,8 @@ func on_sleep_cycle_hold_finished(fadeOutTime, hour : int):
 	if PlayerData.Health > MaxHealth:
 		PlayerData.Health = MaxHealth
 	
-	var tween = get_tree().create_tween()
+	var tween = get_tree().create_tween().set_parallel()
+	tween.tween_property($Head/Camera3D/TopLayer/DayTextLabel, "modulate", Color(1, 1, 1, 0), fadeOutTime / 2)
 	tween.tween_property(ProtectiveLayer, "visible", false, 0)
 	tween.tween_property(TopLayerBlackOverlay, "modulate", Color(1, 1, 1, 0), fadeOutTime)
 

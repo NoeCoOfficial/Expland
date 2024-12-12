@@ -52,6 +52,8 @@ var PLAYER
 var PLAYER_CAMERA
 var CAMERA_POS_NODE_ON_BED
 
+var SLEEPING_UPON_ENTERED = false
+
 func init():
 	WORLD = get_node("/root/World/")
 	PLAYER = get_node("/root/World/Player/")
@@ -60,4 +62,4 @@ func init():
 
 func sleep():
 	if PLAYER != null:
-		PLAYER.sleep_cycle(true, 2.0, 5.0, 2.0, 6)
+		PLAYER.sleep_cycle(true, true, 2.0, 5.0, 2.0, 6)
