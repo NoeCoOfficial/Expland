@@ -69,3 +69,41 @@ func showNextMessage() -> void:
 		current_dialogue_index += 1
 	else:
 		DialogueInterface.despawnDialogue()
+
+########################################################################
+# Dialogues
+########################################################################
+
+var deathScreenRandomText = [ # a list of random text to display when the player dies
+	"Pull yourself together.", 
+	"Why did you have to die?",
+	"You will never get back now.",
+	"Your soul has been sealed.",
+	"You have now become one with the sky.",
+	"What have you done?",
+	"As you die, they will make more.",
+	"The more you fight, the more you lose.",
+	"Every fail you have the more they succeed.",
+	"Even gods fall.",
+	"There have been many cycles.",
+	"Why am I even talking to you?",
+	"Stop kidding yourself. This isn't a game.",
+	"What did you do?",
+	"You did everything to deserve this.",
+	"Your story ends here.",
+	"Not even time can save you now.",
+	"Everything you know has crumbled.",
+	"The end is inevitable.",
+	"No one will remember you.",
+	"All your efforts were in vain.",
+	"This world doesn't need you anymore.",
+	"The void welcomes you.",
+	"Was it worth it?",
+	"Death is just the beginning.",
+	"Your journey ends in silence.",
+	"Only shadows remain.",
+	"Hope fades into the darkness.",
+	"Your struggle was meaningless.",
+	"Nothing can undo what you've done.",
+	"How could you let this happen?"
+]
