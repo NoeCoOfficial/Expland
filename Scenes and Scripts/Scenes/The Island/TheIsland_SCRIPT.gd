@@ -734,19 +734,30 @@ func set_hour(hour : int):
 	PlayerData.saveData()
 
 func haltAllTweens():
-	hour4_tween.stop()
-	hour5_tween.stop()
-	hour7_tween.stop()
-	hour16_tween.stop()
-	hour21_tween.stop()
-	sunRotation_tween.stop()
 	
-	hour4_tween.kill()
-	hour5_tween.kill()
-	hour7_tween.kill()
-	hour16_tween.kill()
-	hour21_tween.kill()
-	sunRotation_tween.kill()
+	if hour4_tween:
+		hour4_tween.stop()
+		hour4_tween.kill()
+	
+	if hour5_tween:
+		hour5_tween.stop()
+		hour5_tween.kill()
+	
+	if hour7_tween:
+		hour7_tween.stop()
+		hour7_tween.kill()
+	
+	if hour16_tween:
+		hour16_tween.stop()
+		hour16_tween.kill()
+	
+	if hour21_tween:
+		hour21_tween.stop()
+		hour21_tween.kill()
+	
+	if sunRotation_tween:
+		sunRotation_tween.stop()
+		sunRotation_tween.kill()
 
 
 """
