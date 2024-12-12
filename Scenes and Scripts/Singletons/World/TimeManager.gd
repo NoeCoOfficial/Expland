@@ -47,4 +47,4 @@
 
 extends Node
 
-var CURRENT_HOUR = 0
+var CURRENT_HOUR = 9 # Starting time in 10am.
