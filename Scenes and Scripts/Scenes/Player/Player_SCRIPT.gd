@@ -424,10 +424,6 @@ func _ready():
 		$Head/Camera3D/OverlayLayer/Overlay.show() # show the overlay
 		showDeathScreen() # call the death screen function
 	
-	if PlayerData.GAME_STATE == "SLEEPING":
-		PlayerManager.SLEEPING_UPON_ENTERED = true
-		sleep_cycle(false, false, 2.0, 5.0, 2.0, 6)
-	
 	if Fade_In == true: # check if the fade in variable is true
 		$Head/Camera3D/OverlayLayer/Overlay.show() # show the overlay
 		var tween = get_tree().create_tween() # create a tween
