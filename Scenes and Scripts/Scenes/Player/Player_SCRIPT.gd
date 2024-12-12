@@ -70,7 +70,6 @@ The keyword @export means that they can be accessed in the inspector panel (righ
 
 @export var inventory_opened_in_air := false ## Checks if the inventory UI is opened in the air (so the same velocity can be kept, used in _physics_process()
 @export var speed:float ## The speed of the player. Used in _physics_process, this variable changes to SPRINT_SPEED, CROUCH_SPEED or WALK_SPEED depending on what input is pressed.
-@export var GAME_STATE := "NORMAL" ## The local game state. (Global variable is in PlayerData.gd and saved to a file)
 var transitioning_to_menu = false
 
 ######################################
@@ -227,7 +226,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		
 		if PauseManager.is_paused:
 			
-			if !PauseManager.is_inside_settings and !PauseManager.is_inside_achievements_ui and !PauseManager.is_inside_credits and !PauseManager.is_inside_alert and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
+			if !PauseManager.is_inside_settings and !PauseManager.is_inside_achievements_ui and !PauseManager.is_inside_credits and !PauseManager.is_inside_alert and !PlayerData.PlayerData.GAME_STATE == "DEAD" and !PlayerData.PlayerData.GAME_STATE == "SLEEPING":
 				resumeGame()
 			
 			if PauseManager.is_inside_settings:
@@ -244,7 +243,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			
 		else:
 			
-			if !DialogueManager.is_in_absolute_interface and !InventoryManager.inventory_open and !PauseManager.is_inside_alert and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
+			if !DialogueManager.is_in_absolute_interface and !InventoryManager.inventory_open and !PauseManager.is_inside_alert and !PlayerData.PlayerData.GAME_STATE == "DEAD" and !PlayerData.PlayerData.GAME_STATE == "SLEEPING":
 				pauseGame()
 			
 			if InventoryManager.inventory_open:
@@ -252,13 +251,12 @@ func _input(_event): # A built-in function that listens for input using the inpu
 	
 	
 	if Input.is_action_just_pressed("Quit") and Quit == true and OS.has_feature("debug"): # if the Quit input is pressed and the Quit variable is true
-		if GAME_STATE == "NORMAL" or "INVENTORY": # if the game state is normal or inventory
-			SaveManager.saveAllData()
-			get_tree().quit() # quit the game
+		SaveManager.saveAllData()
+		get_tree().quit() # quit the game
 	
 	
 	if Input.is_action_just_pressed("Reset") and Reset == true and !PauseManager.is_paused and !PauseManager.is_inside_alert and OS.has_feature("debug"):
-		if GAME_STATE == "NORMAL" or "INVENTORY":
+		if PlayerData.GAME_STATE == "NORMAL" or InventoryManager.inventory_open:
 			if ResetPOS == Vector3(999, 999, 999):
 				self.position = StartPOS # set the player's position to the Start position
 				velocity.y = 0.0 # set the player's velocity to 0
@@ -269,15 +267,15 @@ func _input(_event): # A built-in function that listens for input using the inpu
 	if Input.is_action_just_pressed("SaveGame") and OS.has_feature("debug"):
 		saveAllDataWithAnimation()
 	
-	if Input.is_action_just_pressed("Inventory") and !PauseManager.is_paused and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !GAME_STATE == "DEAD" and !GAME_STATE == "SLEEPING":
-		if GAME_STATE == "NORMAL": # Check if the game state is normal. If it is, open the inventory
+	if Input.is_action_just_pressed("Inventory") and !PauseManager.is_paused and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
+		if PlayerData.GAME_STATE == "NORMAL": # Check if the game state is normal. If it is, open the inventory
 			openInventory()
-		elif GAME_STATE == "INVENTORY": # Check if the player is in the inventory. If they are, close the inventory
+		elif InventoryManager.inventory_open: # Check if the player is in the inventory. If they are, close the inventory
 			closeInventory()
 	
 func _unhandled_input(event): # A built-in function that listens for input all the time
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
-		if GAME_STATE == "INVENTORY" or PauseManager.is_paused or PauseManager.is_inside_alert or DialogueManager.is_in_interface: # Check if the game state is inventory, or paused, or viewing dialogue.
+		if InventoryManager.inventory_open or PauseManager.is_paused or PauseManager.is_inside_alert or DialogueManager.is_in_interface: # Check if the game state is inventory, or paused, or viewing dialogue.
 			head.rotate_y(-event.relative.x * SENSITIVITY/20) # rotate the head on the y-axis
 			camera.rotate_x(-event.relative.y * SENSITIVITY/20) # rotate the camera on the x-axis
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90)) # clamp the camera rotation on the x-axis
@@ -297,7 +295,7 @@ func _physics_process(delta):
 	is_crouching = false
 	
 	# Crouching
-	if GAME_STATE != "INVENTORY" and GAME_STATE != "DEAD" and GAME_STATE != "SLEEPING" and is_on_floor() and !PauseManager.is_paused and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface:
+	if !InventoryManager.inventory_open and PlayerData.GAME_STATE != "DEAD" and PlayerData.GAME_STATE != "SLEEPING" and is_on_floor() and !PauseManager.is_paused and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface:
 		
 		
 		if Input.is_action_pressed("Crouch"):
@@ -307,19 +305,19 @@ func _physics_process(delta):
 	else:
 		self.scale.y = lerp(self.scale.y, 1.0, CROUCH_INTERPOLATION * delta)
 	
-	if GAME_STATE != "DEAD":
+	if PlayerData.GAME_STATE != "DEAD" and PlayerData.GAME_STATE != "SLEEPING":
 		# Always apply gravity unless game state is DEAD
 		if not is_on_floor():
 			velocity.y -= gravity * delta
 
 		# Jumping
-		if Input.is_action_just_pressed("Jump") and !Input.is_action_pressed("Crouch") and is_on_floor() and !PauseManager.is_paused and !PauseManager.is_inside_alert and GAME_STATE != "INVENTORY" and !DialogueManager.is_in_absolute_interface:
+		if Input.is_action_just_pressed("Jump") and !Input.is_action_pressed("Crouch") and is_on_floor() and !PauseManager.is_paused and !PauseManager.is_inside_alert and PlayerData.GAME_STATE != "DEAD" and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface:
 			velocity.y = JUMP_VELOCITY
 
 		# Handle Speed
-		if Input.is_action_pressed("Sprint") and !Input.is_action_pressed("Crouch") and !PauseManager.is_paused and GAME_STATE != "INVENTORY" and !DialogueManager.is_in_absolute_interface:
+		if Input.is_action_pressed("Sprint") and !Input.is_action_pressed("Crouch") and !PauseManager.is_paused and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface:
 			speed = SPRINT_SPEED
-		elif Input.is_action_pressed("Crouch") and !PauseManager.is_paused and GAME_STATE != "INVENTORY" and !DialogueManager.is_in_absolute_interface:
+		elif Input.is_action_pressed("Crouch") and !PauseManager.is_paused and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface:
 			speed = CROUCH_SPEED
 		else:
 			speed = WALK_SPEED
@@ -329,7 +327,7 @@ func _physics_process(delta):
 		var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
 		if is_on_floor():
-			if direction != Vector3.ZERO and !PauseManager.is_paused and !PauseManager.is_inside_alert and GAME_STATE != "INVENTORY" and !DialogueManager.is_in_absolute_interface:
+			if direction != Vector3.ZERO and !PauseManager.is_paused and !PauseManager.is_inside_alert and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface:
 				velocity.x = direction.x * speed
 				velocity.z = direction.z * speed
 			else:
@@ -423,9 +421,9 @@ func _ready():
 	InventoryData.loadInventory()
 	DialogueManager.DialogueInterface = $Head/Camera3D/DialogueLayer/DialogueInterface
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Lock mouse
-	GAME_STATE = PlayerData.GAME_STATE # set the game state to the player data's game state
+	PlayerData.GAME_STATE = PlayerData.PlayerData.GAME_STATE # set the game state to the player data's game state
 	
-	if GAME_STATE == "DEAD": # check if the game state is dead
+	if PlayerData.GAME_STATE == "DEAD": # check if the game state is dead
 		$Head/Camera3D/DeathScreen/BlackOverlay.set_self_modulate(Color(0, 0, 0, 1)) # set the black overlay's self modulate to black
 		$Head/Camera3D/OverlayLayer/Overlay.show() # show the overlay
 		showDeathScreen() # call the death screen function
@@ -480,8 +478,8 @@ func takeDamage(DamageToTake): # A function to take damage from the player
 			closeInventory()
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # lock mouse
 			
-			GAME_STATE = "DEAD" # set the game state to dead
-			PlayerData.GAME_STATE = "DEAD" # set the player data's game state to dead
+			PlayerData.GAME_STATE = "DEAD" # set the game state to dead
+			PlayerData.PlayerData.GAME_STATE = "DEAD" # set the player data's game state to dead
 			PlayerData.Health = 0 # set the health to 0
 			
 			showDeathScreen() # call the death screen function 
@@ -504,8 +502,8 @@ func respawnFromDeath(): # A function to respawn the player from death
 
 	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay, "self_modulate", Color(0, 0, 0, 0), 3) # tween the black overlay's self modulate to black
 	
-	GAME_STATE = "NORMAL" # set the game state to normal
-	PlayerData.GAME_STATE = GAME_STATE # set the player data's game state to the game state
+	PlayerData.GAME_STATE = "NORMAL" # set the game state to normal
+	PlayerData.PlayerData.GAME_STATE = PlayerData.GAME_STATE # set the player data's game state to the game state
 
 func _on_death_screen_finished(): # A function to call when the death screen is finished 
 	respawnFromDeath() # call the respawn from death function
@@ -590,7 +588,6 @@ func closeInventory():
 	$Head/Camera3D/InventoryLayer.hide() # hide the inventory UI
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor
 	Utils.center_mouse_cursor() # center the mouse cursor
-	GAME_STATE = "NORMAL" # set the game state to normal (so the player can move. This won't save to the file)
 	InventoryManager.inventory_open = false
 	inventory_opened_in_air = false  # Reset the flag when inventory is closed
 
@@ -598,7 +595,6 @@ func openInventory():
 	$Head/Camera3D/InventoryLayer.show() # show the inventory UI
 	Utils.center_mouse_cursor() # center the mouse cursor
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # set the mouse mode to visible
-	GAME_STATE = "INVENTORY" # set the game state to inventory (so the player can't move. This won't save to the file)
 	InventoryManager.inventory_open = true
 	inventory_opened_in_air = not is_on_floor() # Set the flag when inventory is opened in the air
 
@@ -767,7 +763,7 @@ func spawn_minimal_alert_from_player(holdSec : float, fadeInTime : float, fadeOu
 
 func sleep_cycle(setSleeping : bool, fadeInTime : float, holdTime : float, fadeOutTime : float, hour : int):
 	if setSleeping == true:
-		PlayerData.GAME_STATE = "SLEEPING"
+		PlayerData.PlayerData.GAME_STATE = "SLEEPING"
 		SaveManager.saveAllData()
 	
 	TopLayerBlackOverlay.modulate = Color(1, 1, 1, 0)
@@ -791,7 +787,7 @@ func on_sleep_cycle_hold_finished(fadeOutTime, hour : int):
 		if WORLD.has_method("set_hour"):
 			WORLD.set_hour(hour)
 	
-	PlayerData.GAME_STATE = "NORMAL"
+	PlayerData.PlayerData.GAME_STATE = "NORMAL"
 	PlayerData.Health += 5
 	if PlayerData.Health > MaxHealth:
 		PlayerData.Health = MaxHealth
