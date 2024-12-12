@@ -48,6 +48,8 @@
 @icon("res://Textures/Icons/Script Icons/32x32/world_page.png")
 extends Node
 
+var HOUR_LENGTH = 2
+
 @onready var motionBlurCompositor = preload("res://Resources/Environment/TheIsland_MotionBlurCompositor.tres")
 @onready var noMotionBlurCompositor = preload("res://Resources/Environment/TheIsland_NoMotionBlurCompositor.tres")
 @onready var TheIslandEnvironment = preload("res://Resources/Environment/TheIslandWorldEnvironment.tres")
@@ -74,6 +76,7 @@ var SunsetColor = Color(0.98, 0.729, 0.312)
 @export var PickaxePosRef : Node3D
 
 func _ready() -> void:
+	HourTimer.wait_time = HOUR_LENGTH
 	SaveManager.loadAllData()
 	PlayerManager.init()
 	set_motion_blur(PlayerSettingsData.MotionBlur)
@@ -274,6 +277,8 @@ func _on_tick() -> void:
    
 func set_hour(hour : int):
 	if hour == 0 or hour == 24:
+		TimeManager.CURRENT_HOUR = 0
+		HourTimer.wait_time = HOUR_LENGTH
 		# Midnight colors
 		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.011, 0.011, 0.011)
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.038, 0.038, 0.038)
@@ -285,6 +290,8 @@ func set_hour(hour : int):
 		print("New day")
 	
 	if hour == 1:
+		HourTimer.wait_time = HOUR_LENGTH
+		TimeManager.CURRENT_HOUR = 1
 		# Midnight colors
 		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.011, 0.011, 0.011)
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.038, 0.038, 0.038)
@@ -295,6 +302,8 @@ func set_hour(hour : int):
 		IslandDirectionalLight.rotation_degrees.x = 10.0
 	
 	if hour == 2:
+		HourTimer.wait_time = HOUR_LENGTH
+		TimeManager.CURRENT_HOUR = 2
 		# Midnight colors
 		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.011, 0.011, 0.011)
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.038, 0.038, 0.038)
@@ -305,6 +314,8 @@ func set_hour(hour : int):
 		IslandDirectionalLight.rotation_degrees.x = 10.0
 	
 	if hour == 3:
+		HourTimer.wait_time = HOUR_LENGTH
+		TimeManager.CURRENT_HOUR = 3
 		# Midnight colors
 		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.011, 0.011, 0.011)
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.038, 0.038, 0.038)
@@ -315,6 +326,8 @@ func set_hour(hour : int):
 		IslandDirectionalLight.rotation_degrees.x = 10.0
 	
 	if hour == 4:
+		HourTimer.wait_time = HOUR_LENGTH
+		TimeManager.CURRENT_HOUR = 4
 		# Midnight colors
 		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.011, 0.011, 0.011)
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.038, 0.038, 0.038)
@@ -331,6 +344,8 @@ func set_hour(hour : int):
 		tween.tween_property(TheIslandProceduralSkyMaterial, "ground_horizon_color", Color(0.502, 0.641, 0.905), HourTimer.wait_time * 3.5)
 	
 	if hour == 5:
+		HourTimer.wait_time = HOUR_LENGTH
+		TimeManager.CURRENT_HOUR = 5
 		# Midnight colors
 		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.011, 0.011, 0.011)
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.038, 0.038, 0.038)
@@ -348,12 +363,13 @@ func set_hour(hour : int):
 		tween.tween_property(TheIslandProceduralSkyMaterial, "sky_horizon_color", Color(0.502, 0.641, 0.905), HourTimer.wait_time * 2.5)
 		tween.tween_property(TheIslandProceduralSkyMaterial, "ground_bottom_color", Color(0.2, 0.169, 0.133), HourTimer.wait_time * 2.5)
 		tween.tween_property(TheIslandProceduralSkyMaterial, "ground_horizon_color", Color(0.502, 0.641, 0.905), HourTimer.wait_time * 2.5)
-		 
 		
 		rotateSun(-32)
 		## End at -22
 	
 	if hour == 6:
+		HourTimer.wait_time = HOUR_LENGTH
+		TimeManager.CURRENT_HOUR = 6
 		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.22, 0.347, 0.53)
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.274, 0.435, 0.754)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.117, 0.096, 0.072)
@@ -374,6 +390,8 @@ func set_hour(hour : int):
 		## End at -37
 	
 	if hour == 7:
+		HourTimer.wait_time = HOUR_LENGTH
+		TimeManager.CURRENT_HOUR = 7
 		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.311, 0.463, 0.682)
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.274, 0.435, 0.754)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.502, 0.641, 0.905)
@@ -390,6 +408,8 @@ func set_hour(hour : int):
 		## End at -49
 	
 	if hour == 8:
+		HourTimer.wait_time = HOUR_LENGTH
+		TimeManager.CURRENT_HOUR = 8
 		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.311, 0.463, 0.682)
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.274, 0.435, 0.754)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.502, 0.641, 0.905)
@@ -404,6 +424,8 @@ func set_hour(hour : int):
 		## End at -61
 	
 	if hour == 9:
+		HourTimer.wait_time = HOUR_LENGTH
+		TimeManager.CURRENT_HOUR = 9
 		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.311, 0.463, 0.682)
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.274, 0.435, 0.754)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.502, 0.641, 0.905)
@@ -418,6 +440,8 @@ func set_hour(hour : int):
 		## End at -70
 	
 	if hour == 10:
+		HourTimer.wait_time = HOUR_LENGTH
+		TimeManager.CURRENT_HOUR = 10
 		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.311, 0.463, 0.682)
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.274, 0.435, 0.754)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.502, 0.641, 0.905)
@@ -432,6 +456,8 @@ func set_hour(hour : int):
 		## End at -78
 	
 	if hour == 11:
+		HourTimer.wait_time = HOUR_LENGTH
+		TimeManager.CURRENT_HOUR = 11
 		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.311, 0.463, 0.682)
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.274, 0.435, 0.754)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.502, 0.641, 0.905)
@@ -446,6 +472,8 @@ func set_hour(hour : int):
 		## End at -85
 	
 	if hour == 12:
+		HourTimer.wait_time = HOUR_LENGTH
+		TimeManager.CURRENT_HOUR = 12
 		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.311, 0.463, 0.682)
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.274, 0.435, 0.754)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.502, 0.641, 0.905)
@@ -460,6 +488,8 @@ func set_hour(hour : int):
 		## End at -93
 	
 	if hour == 13:
+		HourTimer.wait_time = HOUR_LENGTH
+		TimeManager.CURRENT_HOUR = 13
 		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.311, 0.463, 0.682)
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.274, 0.435, 0.754)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.502, 0.641, 0.905)
@@ -474,6 +504,8 @@ func set_hour(hour : int):
 		## End at -102
 	
 	if hour == 14:
+		HourTimer.wait_time = HOUR_LENGTH
+		TimeManager.CURRENT_HOUR = 14
 		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.311, 0.463, 0.682)
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.274, 0.435, 0.754)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.502, 0.641, 0.905)
@@ -488,6 +520,8 @@ func set_hour(hour : int):
 		## End at -112
 	
 	if hour == 15:
+		HourTimer.wait_time = HOUR_LENGTH
+		TimeManager.CURRENT_HOUR = 15
 		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.311, 0.463, 0.682)
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.274, 0.435, 0.754)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.502, 0.641, 0.905)
@@ -502,6 +536,8 @@ func set_hour(hour : int):
 		## End at -124
 	
 	if hour == 16:
+		HourTimer.wait_time = HOUR_LENGTH
+		TimeManager.CURRENT_HOUR = 16
 		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.311, 0.463, 0.682)
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.274, 0.435, 0.754)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.502, 0.641, 0.905)
@@ -524,6 +560,8 @@ func set_hour(hour : int):
 		## End at -139
 	
 	if hour == 17:
+		HourTimer.wait_time = HOUR_LENGTH
+		TimeManager.CURRENT_HOUR = 17
 		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.245, 0.381, 0.577)
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.229, 0.38, 0.682)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.325, 0.488, 0.809)
@@ -544,6 +582,8 @@ func set_hour(hour : int):
 		## End at -156
 	
 	if hour == 18:
+		HourTimer.wait_time = HOUR_LENGTH
+		TimeManager.CURRENT_HOUR = 18
 		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.195, 0.313, 0.483)
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.184, 0.317, 0.585)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.248, 0.403, 0.714)
@@ -564,6 +604,8 @@ func set_hour(hour : int):
 		## End at -168
 	
 	if hour == 19:
+		HourTimer.wait_time = HOUR_LENGTH
+		TimeManager.CURRENT_HOUR = 19
 		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.151, 0.25, 0.393)
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.152, 0.27, 0.508)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.177, 0.306, 0.567)
@@ -584,6 +626,8 @@ func set_hour(hour : int):
 		## -175 deg at finish
 	
 	if hour == 20:
+		HourTimer.wait_time = HOUR_LENGTH
+		TimeManager.CURRENT_HOUR = 20
 		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.109, 0.189, 0.304)
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.12, 0.221, 0.424)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.129, 0.235, 0.448)
@@ -604,6 +648,8 @@ func set_hour(hour : int):
 		## End at -182
 	
 	if hour == 21:
+		HourTimer.wait_time = HOUR_LENGTH
+		TimeManager.CURRENT_HOUR = 21
 		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.065, 0.123, 0.208)
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.066, 0.137, 0.28)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.053, 0.116, 0.243)
@@ -626,6 +672,8 @@ func set_hour(hour : int):
 		## End at -189
 	
 	if hour == 22:
+		HourTimer.wait_time = HOUR_LENGTH
+		TimeManager.CURRENT_HOUR = 22
 		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.042, 0.089, 0.158)
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.033, 0.084, 0.187)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.035, 0.087, 0.193)
@@ -641,6 +689,8 @@ func set_hour(hour : int):
 		tween.tween_property(TheIslandProceduralSkyMaterial, "ground_horizon_color", Color(0, 0, 0), HourTimer.wait_time)
 	
 	if hour == 23:
+		HourTimer.wait_time = HOUR_LENGTH
+		TimeManager.CURRENT_HOUR = 23
 		# Midnight colors
 		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.011, 0.011, 0.011)
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.038, 0.038, 0.038)
@@ -649,6 +699,8 @@ func set_hour(hour : int):
 		
 		IslandDirectionalLight.visible = false
 		IslandDirectionalLight.rotation_degrees.x = 10.0
+	
+	PlayerData.saveData()
 
 
 """
