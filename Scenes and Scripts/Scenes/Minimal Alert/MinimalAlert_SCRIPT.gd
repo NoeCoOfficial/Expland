@@ -62,7 +62,6 @@ func spawn_minimal_alert(holdSec : float, fadeInTime : float, fadeOutTime : floa
 	if tween != null:
 		tween.stop()
 	
-	MainLayer.self_modulate = Color(1, 1, 1, 0)
 	MainLayer.visible = true
 	MainLayer.text = message
 	
