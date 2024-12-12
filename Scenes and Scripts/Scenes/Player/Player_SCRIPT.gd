@@ -193,6 +193,7 @@ var is_crouching = false
 @export var AchievementsUI : Control
 @export var AlertLayer : Control
 @export var CreditsLayer : Control
+@export var MinimalAlert : Control
 @export var TopLayerBlackOverlay : Control
 
 @export_group("Debug")
@@ -761,10 +762,13 @@ func hideDarkerBG_SAVEOVERLAY():
 ######################################
 
 func spawn_minimal_alert_from_player(holdSec : float, fadeInTime : float, fadeOutTime : float, message : String):
-	$Head/Camera3D/MinimalAlertLayer/MinimalAlert.spawn_minimal_alert(holdSec, fadeInTime, fadeOutTime, message)
+	MinimalAlert.spawn_minimal_alert(holdSec, fadeInTime, fadeOutTime, message)
 
 func sleep_cycle(fadeInTime : float, holdTime : float, fadeOutTime : float):
-	pass
+	TopLayerBlackOverlay.modulate = Color(1, 1, 1, 0)
+	TopLayerBlackOverlay.visible = true
+	
+	
 
 ######################################
 # Area and body detection
