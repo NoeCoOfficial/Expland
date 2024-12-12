@@ -121,21 +121,7 @@ func on_ready_time_check():
 		TimeManager.CURRENT_HOUR = 0
 	
 	
-	
-	if TimeManager.CURRENT_HOUR == 7:
-		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.311, 0.463, 0.682)
-		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.274, 0.435, 0.754)
-		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.502, 0.641, 0.905)
-		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0.502, 0.641, 0.905)
-		
-		IslandDirectionalLight.rotation_degrees.x = -37
-		IslandDirectionalLight.visible = true
-		IslandDirectionalLight.light_energy = 1
-		IslandDirectionalLight.light_color = SunriseColor
-		var tween = get_tree().create_tween()
-		tween.tween_property(IslandDirectionalLight, "light_color", MiddayColor, HourTimer.wait_time * 2)
-		rotateSun(-12) 
-		## End at -49
+
 	
 	if TimeManager.CURRENT_HOUR == 8:
 		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.311, 0.463, 0.682)
@@ -629,7 +615,6 @@ func set_hour(hour : int):
 		IslandDirectionalLight.visible = true
 		IslandDirectionalLight.light_energy = 1
 		IslandDirectionalLight.light_color = SunriseColor
-		rotateSun(-15)
 		
 		var tween = get_tree().create_tween().set_parallel()
 		tween.tween_property(TheIslandProceduralSkyMaterial, "sky_top_color", Color(0.311, 0.463, 0.682), HourTimer.wait_time * 1.5)
@@ -641,7 +626,20 @@ func set_hour(hour : int):
 		## End at -37
 	
 	if hour == 7:
-		pass
+		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.311, 0.463, 0.682)
+		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.274, 0.435, 0.754)
+		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.502, 0.641, 0.905)
+		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0.502, 0.641, 0.905)
+		
+		IslandDirectionalLight.rotation_degrees.x = -37
+		IslandDirectionalLight.visible = true
+		IslandDirectionalLight.light_energy = 1
+		IslandDirectionalLight.light_color = SunriseColor
+		var tween = get_tree().create_tween()
+		tween.tween_property(IslandDirectionalLight, "light_color", MiddayColor, HourTimer.wait_time * 2)
+		
+		rotateSun(-12) 
+		## End at -49
 	
 	if hour == 8:
 		pass
