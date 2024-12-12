@@ -58,6 +58,7 @@ func init():
 	PLAYER_CAMERA = get_node("/root/World/Player/Head/Camera3D")
 	CAMERA_POS_NODE_ON_BED = get_node("/root/World/SackclothBed/SleepCameraPos/")
 
-func sleep(cameraGoTo : Vector3):
+func sleep():
 	PlayerData.GAME_STATE = "SLEEPING"
 	var tween = get_tree().create_tween()
+	tween.tween_property(PLAYER_CAMERA, "position", CAMERA_POS_NODE_ON_BED.position, 3.0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_ELASTIC)
