@@ -194,6 +194,8 @@ var is_crouching = false
 @export var CreditsLayer : Control
 @export var MinimalAlert : Control
 @export var TopLayerBlackOverlay : Control
+@export var SleepLayerBlackOverlay : Control
+@export var DayText_Label : Control
 @export var ProtectiveLayer : Control
 
 @export_group("Debug")
@@ -397,9 +399,7 @@ func _process(_delta):
 	Is_On_Floor_Label.text = "is_on_floor() = " + str(is_on_floor())
 	CURRENT_DAY_Label.text = "CURRENT_DAY = " + str(TimeManager.CURRENT_DAY)
 	CURRENT_HOUR_Label.text = "CURRENT_HOUR = " + str(TimeManager.CURRENT_HOUR)
-
 	
-
 	## END DEBUGGING
 	
 	# HUD

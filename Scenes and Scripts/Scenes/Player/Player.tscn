@@ -122,7 +122,7 @@ Button/styles/normal = ExtResource("20_b68th")
 Button/styles/pressed = SubResource("StyleBoxFlat_8tgxn")
 Label/styles/normal = ExtResource("21_k6ube")
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "Slot1_Ref", "Slot2_Ref", "Slot3_Ref", "Slot4_Ref", "Slot5_Ref", "Slot6_Ref", "Slot7_Ref", "Slot8_Ref", "Slot9_Ref", "SettingsUI", "AchievementsUI", "AlertLayer", "CreditsLayer", "MinimalAlert", "TopLayerBlackOverlay", "ProtectiveLayer", "Inventory_Item_Ref_Label", "Is_Raycast_Colliding_Label", "Is_Inside_Settings_Label", "Is_Inventory_Open_Label", "Is_Moving_Label", "Is_Walking_Label", "Is_Sprinting_Label", "Is_Crouching_Label", "Is_In_Dialogue_Interface_Label", "Showing_Interaction_Notification_Label", "Current_Time_Label", "Current_FPS_Label", "Player_Position_Label", "Player_VelocityY_Label", "Player_VelocityY_Accurate_Label", "Is_On_Floor_Label", "Inputs_Currently_Pressing_Label", "CURRENT_DAY_Label", "CURRENT_HOUR_Label") groups=["PlayerBody"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "Slot1_Ref", "Slot2_Ref", "Slot3_Ref", "Slot4_Ref", "Slot5_Ref", "Slot6_Ref", "Slot7_Ref", "Slot8_Ref", "Slot9_Ref", "SettingsUI", "AchievementsUI", "AlertLayer", "CreditsLayer", "MinimalAlert", "TopLayerBlackOverlay", "SleepLayerBlackOverlay", "DayText_Label", "ProtectiveLayer", "Inventory_Item_Ref_Label", "Is_Raycast_Colliding_Label", "Is_Inside_Settings_Label", "Is_Inventory_Open_Label", "Is_Moving_Label", "Is_Walking_Label", "Is_Sprinting_Label", "Is_Crouching_Label", "Is_In_Dialogue_Interface_Label", "Showing_Interaction_Notification_Label", "Current_Time_Label", "Current_FPS_Label", "Player_Position_Label", "Player_VelocityY_Label", "Player_VelocityY_Accurate_Label", "Is_On_Floor_Label", "Inputs_Currently_Pressing_Label", "CURRENT_DAY_Label", "CURRENT_HOUR_Label") groups=["PlayerBody"]]
 collision_mask = 3
 script = ExtResource("1_5mhs1")
 Fade_In = true
@@ -146,7 +146,9 @@ AchievementsUI = NodePath("Head/Camera3D/AchievementsLayer/AchievementsUI")
 AlertLayer = NodePath("Head/Camera3D/AlertLayer/AlertLayer")
 CreditsLayer = NodePath("Head/Camera3D/CreditsLayer/CreditsLayer")
 MinimalAlert = NodePath("Head/Camera3D/MinimalAlertLayer/MinimalAlert")
-TopLayerBlackOverlay = NodePath("Head/Camera3D/TopLayer/BlackOverlay")
+TopLayerBlackOverlay = NodePath("Head/Camera3D/SleepLayer/BlackOverlay")
+SleepLayerBlackOverlay = NodePath("Head/Camera3D/SleepLayer/BlackOverlay")
+DayText_Label = NodePath("Head/Camera3D/SleepLayer/DayTextLabel")
 ProtectiveLayer = NodePath("Head/Camera3D/TopLayer/ProtectiveLayer")
 Inventory_Item_Ref_Label = NodePath("Head/Camera3D/DebugLayer/item_ref_LBL")
 Is_Raycast_Colliding_Label = NodePath("Head/Camera3D/DebugLayer/is_raycast_colliding")
@@ -696,6 +698,39 @@ visible = false
 
 [node name="MinimalAlert" parent="Head/Camera3D/MinimalAlertLayer" instance=ExtResource("27_5o6is")]
 
+[node name="SleepLayer" type="CanvasLayer" parent="Head/Camera3D"]
+
+[node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/SleepLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("9_svfxy")
+
+[node name="DayTextLabel" type="Label" parent="Head/Camera3D/SleepLayer"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -440.0
+offset_top = -38.5
+offset_right = 440.0
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 66
+text = "Day _"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+script = ExtResource("9_svfxy")
+
 [node name="DebugLayer" type="CanvasLayer" parent="Head/Camera3D"]
 
 [node name="item_ref_LBL" type="Label" parent="Head/Camera3D/DebugLayer"]
@@ -929,37 +964,6 @@ text = "CURRENT_HOUR = #"
 horizontal_alignment = 2
 
 [node name="TopLayer" type="CanvasLayer" parent="Head/Camera3D"]
-
-[node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/TopLayer"]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-script = ExtResource("9_svfxy")
-
-[node name="DayTextLabel" type="Label" parent="Head/Camera3D/TopLayer"]
-modulate = Color(1, 1, 1, 0)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -440.0
-offset_top = -38.5
-offset_right = 440.0
-offset_bottom = 38.5
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("17_rhxkt")
-theme_override_font_sizes/font_size = 66
-text = "Day _"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 1
-script = ExtResource("9_svfxy")
 
 [node name="ProtectiveLayer" type="Control" parent="Head/Camera3D/TopLayer"]
 visible = false
