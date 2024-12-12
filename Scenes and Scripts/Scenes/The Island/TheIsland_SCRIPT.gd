@@ -75,6 +75,25 @@ var SunsetColor = Color(0.98, 0.729, 0.312)
 @export var BlankFlowerPosRef : Node3D
 @export var PickaxePosRef : Node3D
 
+var hour4_tween
+var hour5_tween
+var hour6_tween
+var hour7_tween
+var hour8_tween
+var hour9_tween
+var hour10_tween
+var hour11_tween
+var hour12_tween
+var hour13_tween
+var hour14_tween
+var hour15_tween
+var hour16_tween
+var hour17_tween
+var hour18_tween
+var hour19_tween
+var hour20_tween
+var hour21_tween
+
 func _ready() -> void:
 	HourTimer.wait_time = HOUR_LENGTH
 	SaveManager.loadAllData()
