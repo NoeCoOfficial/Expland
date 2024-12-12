@@ -739,16 +739,15 @@ func sleep_cycle(setSleeping : bool, incrementDay : bool, fadeInTime : float, ho
 	
 	SaveManager.saveAllData()
 	
-	$Head/Camera3D/TopLayer/DayTextLabel.text = "Day " + str(TimeManager.CURRENT_DAY)
-	TopLayerBlackOverlay.modulate = Color(1, 1, 1, 0)
-	TopLayerBlackOverlay.visible = true
+	DayText_Label.text = "Day " + str(TimeManager.CURRENT_DAY)
+	SleepLayerBlackOverlay.modulate = Color(1, 1, 1, 0)
+	SleepLayerBlackOverlay.visible = true
 	ProtectiveLayer.visible = true
 	
 	var tween = get_tree().create_tween()
-	tween.tween_property(TopLayerBlackOverlay, "modulate", Color(1, 1, 1, 1), fadeInTime)
+	tween.tween_property(SleepLayerBlackOverlay, "modulate", Color(1, 1, 1, 1), fadeInTime)
 	tween.tween_interval(1.0)
-	tween.tween_property($Head/Camera3D/TopLayer/DayTextLabel, "modulate", Color(1, 1, 1, 1), 1.0)
-	
+	tween.tween_property(DayText_Label, "modulate", Color(1, 1, 1, 1), 1.0)
 	
 	await get_tree().create_timer(fadeInTime + holdTime).timeout
 	
@@ -768,9 +767,9 @@ func on_sleep_cycle_hold_finished(fadeOutTime, hour : int):
 		PlayerData.Health = MaxHealth
 	
 	var tween = get_tree().create_tween().set_parallel()
-	tween.tween_property($Head/Camera3D/TopLayer/DayTextLabel, "modulate", Color(1, 1, 1, 0), fadeOutTime / 2)
+	tween.tween_property(DayText_Label, "modulate", Color(1, 1, 1, 0), fadeOutTime / 2)
 	tween.tween_property(ProtectiveLayer, "visible", false, 0)
-	tween.tween_property(TopLayerBlackOverlay, "modulate", Color(1, 1, 1, 0), fadeOutTime)
+	tween.tween_property(SleepLayerBlackOverlay, "modulate", Color(1, 1, 1, 0), fadeOutTime)
 
 ######################################
 # Area and body detection
