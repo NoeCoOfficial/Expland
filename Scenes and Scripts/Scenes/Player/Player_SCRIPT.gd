@@ -195,6 +195,7 @@ var is_crouching = false
 @export var CreditsLayer : Control
 @export var MinimalAlert : Control
 @export var TopLayerBlackOverlay : Control
+@export var ProtectiveLayer : Control
 
 @export_group("Debug")
 
@@ -771,10 +772,16 @@ func sleep_cycle(setSleeping : bool, fadeInTime : float, holdTime : float, fadeO
 	
 	TopLayerBlackOverlay.modulate = Color(1, 1, 1, 0)
 	TopLayerBlackOverlay.visible = true
+	ProtectiveLayer.visible = true
 	
 	var tween = get_tree().create_tween()
-	tween.tween_property(TopLayerBlackOverlay, "modulate")
-	
+	tween.tween_property(TopLayerBlackOverlay, "modulate", Color(1, 1, 1, 1), fadeInTime)
+	tween.tween_interval(holdTime)
+	tween.tween_property(ProtectiveLayer, "visible", false, 0)
+	tween.tween_property(TopLayerBlackOverlay, "modulate", Color(1, 1, 1, 0), fadeOutTime)
+
+
+
 
 ######################################
 # Area and body detection
