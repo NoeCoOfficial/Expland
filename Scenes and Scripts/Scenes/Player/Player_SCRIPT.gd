@@ -215,6 +215,8 @@ var is_crouching = false
 @export var Player_VelocityY_Accurate_Label : Label
 @export var Is_On_Floor_Label : Label
 @export var Inputs_Currently_Pressing_Label : Label
+@export var CURRENT_DAY_Label : Label
+@export var CURRENT_HOUR_Label : Label
 
 ######################################
 # Input
@@ -393,6 +395,9 @@ func _process(_delta):
 	Player_VelocityY_Label.text = "velocity.y = " + str(round(velocity.y))
 	Player_VelocityY_Accurate_Label.text = str(velocity.y)
 	Is_On_Floor_Label.text = "is_on_floor() = " + str(is_on_floor())
+	CURRENT_DAY_Label.text = "CURRENT_DAY = " + str(TimeManager.CURRENT_DAY)
+	CURRENT_HOUR_Label.text = "CURRENT_HOUR = " + str(TimeManager.CURRENT_HOUR)
+
 	
 
 	## END DEBUGGING

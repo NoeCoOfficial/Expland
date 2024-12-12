@@ -122,7 +122,7 @@ Button/styles/normal = ExtResource("20_b68th")
 Button/styles/pressed = SubResource("StyleBoxFlat_8tgxn")
 Label/styles/normal = ExtResource("21_k6ube")
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "Slot1_Ref", "Slot2_Ref", "Slot3_Ref", "Slot4_Ref", "Slot5_Ref", "Slot6_Ref", "Slot7_Ref", "Slot8_Ref", "Slot9_Ref", "SettingsUI", "AchievementsUI", "AlertLayer", "CreditsLayer", "MinimalAlert", "TopLayerBlackOverlay", "ProtectiveLayer", "Inventory_Item_Ref_Label", "Is_Raycast_Colliding_Label", "Is_Inside_Settings_Label", "Is_Inventory_Open_Label", "Is_Moving_Label", "Is_Walking_Label", "Is_Sprinting_Label", "Is_Crouching_Label", "Is_In_Dialogue_Interface_Label", "Showing_Interaction_Notification_Label", "Current_Time_Label", "Current_FPS_Label", "Player_Position_Label", "Player_VelocityY_Label", "Player_VelocityY_Accurate_Label", "Is_On_Floor_Label", "Inputs_Currently_Pressing_Label") groups=["PlayerBody"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "Slot1_Ref", "Slot2_Ref", "Slot3_Ref", "Slot4_Ref", "Slot5_Ref", "Slot6_Ref", "Slot7_Ref", "Slot8_Ref", "Slot9_Ref", "SettingsUI", "AchievementsUI", "AlertLayer", "CreditsLayer", "MinimalAlert", "TopLayerBlackOverlay", "ProtectiveLayer", "Inventory_Item_Ref_Label", "Is_Raycast_Colliding_Label", "Is_Inside_Settings_Label", "Is_Inventory_Open_Label", "Is_Moving_Label", "Is_Walking_Label", "Is_Sprinting_Label", "Is_Crouching_Label", "Is_In_Dialogue_Interface_Label", "Showing_Interaction_Notification_Label", "Current_Time_Label", "Current_FPS_Label", "Player_Position_Label", "Player_VelocityY_Label", "Player_VelocityY_Accurate_Label", "Is_On_Floor_Label", "Inputs_Currently_Pressing_Label", "CURRENT_DAY_Label", "CURRENT_HOUR_Label") groups=["PlayerBody"]]
 collision_mask = 3
 script = ExtResource("1_5mhs1")
 Fade_In = true
@@ -165,6 +165,8 @@ Player_VelocityY_Label = NodePath("Head/Camera3D/DebugLayer/player_velocity_y")
 Player_VelocityY_Accurate_Label = NodePath("Head/Camera3D/DebugLayer/player_velocity_y_accurate")
 Is_On_Floor_Label = NodePath("Head/Camera3D/DebugLayer/is_on_floor")
 Inputs_Currently_Pressing_Label = NodePath("Head/Camera3D/DebugLayer/inputs_currently_pressing")
+CURRENT_DAY_Label = NodePath("Head/Camera3D/DebugLayer/CURRENT_DAY")
+CURRENT_HOUR_Label = NodePath("Head/Camera3D/DebugLayer/CURRENT_HOUR")
 
 [node name="WalkingSpeedSounds" type="Timer" parent="."]
 wait_time = 0.5
@@ -695,7 +697,6 @@ visible = false
 [node name="MinimalAlert" parent="Head/Camera3D/MinimalAlertLayer" instance=ExtResource("27_5o6is")]
 
 [node name="DebugLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="item_ref_LBL" type="Label" parent="Head/Camera3D/DebugLayer"]
 self_modulate = Color(1, 1, 1, 0.196078)
@@ -898,6 +899,34 @@ theme = ExtResource("17_rhxkt")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("20_bmbkh")
+
+[node name="CURRENT_DAY" type="Label" parent="Head/Camera3D/DebugLayer"]
+self_modulate = Color(1, 1, 1, 0.196078)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -156.0
+offset_top = 604.0
+offset_right = -3.0
+offset_bottom = 623.0
+grow_horizontal = 0
+theme = ExtResource("17_rhxkt")
+text = "CURRENT_DAY = #"
+horizontal_alignment = 2
+
+[node name="CURRENT_HOUR" type="Label" parent="Head/Camera3D/DebugLayer"]
+self_modulate = Color(1, 1, 1, 0.196078)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -156.0
+offset_top = 624.0
+offset_right = -3.0
+offset_bottom = 643.0
+grow_horizontal = 0
+theme = ExtResource("17_rhxkt")
+text = "CURRENT_HOUR = #"
+horizontal_alignment = 2
 
 [node name="TopLayer" type="CanvasLayer" parent="Head/Camera3D"]
 
