@@ -305,15 +305,17 @@ func _physics_process(delta):
 	else:
 		self.scale.y = lerp(self.scale.y, 1.0, CROUCH_INTERPOLATION * delta)
 	
-	if PlayerData.GAME_STATE != "DEAD" and PlayerData.GAME_STATE != "SLEEPING":
+	if PlayerData.GAME_STATE != "DEAD":
 		# Always apply gravity unless game state is DEAD
 		if not is_on_floor():
 			velocity.y -= gravity * delta
-
+	
+	if PlayerData.GAME_STATE != "DEAD" and PlayerData.GAME_STATE != "SLEEPING":
+		
 		# Jumping
 		if Input.is_action_just_pressed("Jump") and !Input.is_action_pressed("Crouch") and is_on_floor() and !PauseManager.is_paused and !PauseManager.is_inside_alert and PlayerData.GAME_STATE != "DEAD" and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface:
 			velocity.y = JUMP_VELOCITY
-
+		
 		# Handle Speed
 		if Input.is_action_pressed("Sprint") and !Input.is_action_pressed("Crouch") and !PauseManager.is_paused and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface:
 			speed = SPRINT_SPEED
@@ -321,11 +323,11 @@ func _physics_process(delta):
 			speed = CROUCH_SPEED
 		else:
 			speed = WALK_SPEED
-
+		
 		# Movement
 		var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 		var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-
+		
 		if is_on_floor():
 			if direction != Vector3.ZERO and !PauseManager.is_paused and !PauseManager.is_inside_alert and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface:
 				velocity.x = direction.x * speed
@@ -338,10 +340,10 @@ func _physics_process(delta):
 			velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
 		
 		move_and_slide()
-
+		
 		# Check if the player is moving and on the floor
 		is_moving = velocity.length() > 0.1 and is_on_floor()
-
+		
 		# Update movement state variables based on the player's movement and state
 		if is_moving:
 			if Input.is_action_pressed("Sprint"):
@@ -417,7 +419,6 @@ func _process(_delta):
 func _ready():
 	nodeSetup() # Call the nodeSetup function to setup the nodes
 	
-	
 	InventoryData.loadInventory()
 	DialogueManager.DialogueInterface = $Head/Camera3D/DialogueLayer/DialogueInterface
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Lock mouse
@@ -426,6 +427,15 @@ func _ready():
 		$Head/Camera3D/DeathScreen/BlackOverlay.set_self_modulate(Color(0, 0, 0, 1)) # set the black overlay's self modulate to black
 		$Head/Camera3D/OverlayLayer/Overlay.show() # show the overlay
 		showDeathScreen() # call the death screen function
+	
+	elif PlayerData.GAME_STATE == "SLEEPING":
+		PlayerData.GAME_STATE = "NORMAL"
+		
+		var WORLD = get_node("/root/World/")
+		if WORLD != null:
+			if WORLD.has_method("set_hour"):
+				WORLD.set_hour(6)
+	
 	if Fade_In == true: # check if the fade in variable is true
 		$Head/Camera3D/OverlayLayer/Overlay.show() # show the overlay
 		var tween = get_tree().create_tween() # create a tween
