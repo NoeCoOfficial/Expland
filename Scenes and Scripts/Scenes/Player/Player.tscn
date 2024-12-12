@@ -125,11 +125,32 @@ Label/styles/normal = ExtResource("21_k6ube")
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "Slot1_Ref", "Slot2_Ref", "Slot3_Ref", "Slot4_Ref", "Slot5_Ref", "Slot6_Ref", "Slot7_Ref", "Slot8_Ref", "Slot9_Ref", "SettingsUI", "AchievementsUI", "AlertLayer", "CreditsLayer", "MinimalAlert", "TopLayerBlackOverlay", "Inventory_Item_Ref_Label", "Is_Raycast_Colliding_Label", "Is_Inside_Settings_Label", "Is_Inventory_Open_Label", "Is_Moving_Label", "Is_Walking_Label", "Is_Sprinting_Label", "Is_Crouching_Label", "Is_In_Dialogue_Interface_Label", "Showing_Interaction_Notification_Label", "Current_Time_Label", "Current_FPS_Label", "Player_Position_Label", "Player_VelocityY_Label", "Player_VelocityY_Accurate_Label", "Is_On_Floor_Label", "Inputs_Currently_Pressing_Label") groups=["PlayerBody"]]
 collision_mask = 3
 script = ExtResource("1_5mhs1")
+inventory_opened_in_air = null
+speed = null
+GAME_STATE = null
+UseHealth = null
+MaxHealth = null
+Position = null
+StartPOS = null
+ResetPOS = null
 Fade_In = true
 Fade_In_Time = 2.0
+Pause = null
+Reset = null
+Quit = null
+crosshair_size = null
+BOB_FREQ = null
+BOB_AMP = null
+BOB_SMOOTHING_SPEED = null
+Wave_Length = null
+SENSITIVITY = null
+WALK_SPEED = null
+SPRINT_SPEED = null
+JUMP_VELOCITY = null
 CROUCH_JUMP_VELOCITY = 2.0
 CROUCH_SPEED = 2.0
 CROUCH_INTERPOLATION = 8.0
+gravity = null
 head = NodePath("Head")
 camera = NodePath("Head/Camera3D")
 Slot1_Ref = NodePath("Head/Camera3D/InventoryLayer/Slot1")
@@ -908,6 +929,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="ProtectiveLayer" type="Control" parent="Head/Camera3D/TopLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="timeout" from="WalkingSpeedSounds" to="." method="_on_walking_speed_sounds_timeout"]

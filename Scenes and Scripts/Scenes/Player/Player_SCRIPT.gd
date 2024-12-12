@@ -764,10 +764,16 @@ func hideDarkerBG_SAVEOVERLAY():
 func spawn_minimal_alert_from_player(holdSec : float, fadeInTime : float, fadeOutTime : float, message : String):
 	MinimalAlert.spawn_minimal_alert(holdSec, fadeInTime, fadeOutTime, message)
 
-func sleep_cycle(fadeInTime : float, holdTime : float, fadeOutTime : float):
+func sleep_cycle(setSleeping : bool, fadeInTime : float, holdTime : float, fadeOutTime : float):
+	if setSleeping == true:
+		PlayerData.GAME_STATE = "SLEEPING"
+		SaveManager.saveAllData()
+	
 	TopLayerBlackOverlay.modulate = Color(1, 1, 1, 0)
 	TopLayerBlackOverlay.visible = true
 	
+	var tween = get_tree().create_tween()
+	tween.tween_property(TopLayerBlackOverlay, "modulate")
 	
 
 ######################################

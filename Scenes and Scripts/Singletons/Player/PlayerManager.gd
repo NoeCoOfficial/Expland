@@ -59,4 +59,5 @@ func init():
 	CAMERA_POS_NODE_ON_BED = get_node("/root/World/SackclothBed/SleepCameraPos/")
 
 func sleep():
-	PlayerData.GAME_STATE = "SLEEPING"
+	if PLAYER != null:
+		PLAYER.sleep_cycle(true, 2.0, 5.0, 2.0)
