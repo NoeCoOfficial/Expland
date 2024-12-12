@@ -6,6 +6,9 @@
 
 ## Player
 
+### Added:
+- Added a minimal alert UI (triggered when you try to sleep in the day)
+
 ### Changed:
 - Modified player pickup range to be slightly larger for 3D inventory pickup items
 - Increase range of 3D inventory pickup item drop position from the player
@@ -33,6 +36,9 @@
 
 ### Added:
 - Added day and night cycle with data persistence
+- Added a bed that you can sleep in
+- Added collision to the tall white pillar supporting the black platform in the test area
+
 ---
 
 # v0.5.0 (released)
