@@ -226,7 +226,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		
 		if PauseManager.is_paused:
 			
-			if !PauseManager.is_inside_settings and !PauseManager.is_inside_achievements_ui and !PauseManager.is_inside_credits and !PauseManager.is_inside_alert and !PlayerData.PlayerData.GAME_STATE == "DEAD" and !PlayerData.PlayerData.GAME_STATE == "SLEEPING":
+			if !PauseManager.is_inside_settings and !PauseManager.is_inside_achievements_ui and !PauseManager.is_inside_credits and !PauseManager.is_inside_alert and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
 				resumeGame()
 			
 			if PauseManager.is_inside_settings:
@@ -243,7 +243,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			
 		else:
 			
-			if !DialogueManager.is_in_absolute_interface and !InventoryManager.inventory_open and !PauseManager.is_inside_alert and !PlayerData.PlayerData.GAME_STATE == "DEAD" and !PlayerData.PlayerData.GAME_STATE == "SLEEPING":
+			if !DialogueManager.is_in_absolute_interface and !InventoryManager.inventory_open and !PauseManager.is_inside_alert and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
 				pauseGame()
 			
 			if InventoryManager.inventory_open:
@@ -421,7 +421,6 @@ func _ready():
 	InventoryData.loadInventory()
 	DialogueManager.DialogueInterface = $Head/Camera3D/DialogueLayer/DialogueInterface
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Lock mouse
-	PlayerData.GAME_STATE = PlayerData.PlayerData.GAME_STATE # set the game state to the player data's game state
 	
 	if PlayerData.GAME_STATE == "DEAD": # check if the game state is dead
 		$Head/Camera3D/DeathScreen/BlackOverlay.set_self_modulate(Color(0, 0, 0, 1)) # set the black overlay's self modulate to black
@@ -478,8 +477,7 @@ func takeDamage(DamageToTake): # A function to take damage from the player
 			closeInventory()
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # lock mouse
 			
-			PlayerData.GAME_STATE = "DEAD" # set the game state to dead
-			PlayerData.PlayerData.GAME_STATE = "DEAD" # set the player data's game state to dead
+			PlayerData.GAME_STATE = "DEAD" # set the player data's game state to dead
 			PlayerData.Health = 0 # set the health to 0
 			
 			showDeathScreen() # call the death screen function 
@@ -503,7 +501,6 @@ func respawnFromDeath(): # A function to respawn the player from death
 	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay, "self_modulate", Color(0, 0, 0, 0), 3) # tween the black overlay's self modulate to black
 	
 	PlayerData.GAME_STATE = "NORMAL" # set the game state to normal
-	PlayerData.PlayerData.GAME_STATE = PlayerData.GAME_STATE # set the player data's game state to the game state
 
 func _on_death_screen_finished(): # A function to call when the death screen is finished 
 	respawnFromDeath() # call the respawn from death function
@@ -763,7 +760,7 @@ func spawn_minimal_alert_from_player(holdSec : float, fadeInTime : float, fadeOu
 
 func sleep_cycle(setSleeping : bool, fadeInTime : float, holdTime : float, fadeOutTime : float, hour : int):
 	if setSleeping == true:
-		PlayerData.PlayerData.GAME_STATE = "SLEEPING"
+		PlayerData.GAME_STATE = "SLEEPING"
 		SaveManager.saveAllData()
 	
 	TopLayerBlackOverlay.modulate = Color(1, 1, 1, 0)
@@ -787,7 +784,7 @@ func on_sleep_cycle_hold_finished(fadeOutTime, hour : int):
 		if WORLD.has_method("set_hour"):
 			WORLD.set_hour(hour)
 	
-	PlayerData.PlayerData.GAME_STATE = "NORMAL"
+	PlayerData.GAME_STATE = "NORMAL"
 	PlayerData.Health += 5
 	if PlayerData.Health > MaxHealth:
 		PlayerData.Health = MaxHealth
