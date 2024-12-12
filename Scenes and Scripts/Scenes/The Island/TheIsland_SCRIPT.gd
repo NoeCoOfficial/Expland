@@ -93,8 +93,8 @@ func _ready() -> void:
 	if PlayerData.GAME_STATE == "SLEEPING":
 		PlayerData.GAME_STATE = "NORMAL"
 		set_hour(6)
-	
-	on_ready_time_check()
+	else:
+		on_ready_time_check()
 
 func _on_ready() -> void:
 	pass
