@@ -268,9 +268,9 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		saveAllDataWithAnimation()
 	
 	if Input.is_action_just_pressed("Inventory") and !PauseManager.is_paused and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
-		if PlayerData.GAME_STATE == "NORMAL": # Check if the game state is normal. If it is, open the inventory
+		if !InventoryManager.inventory_open:
 			openInventory()
-		elif InventoryManager.inventory_open: # Check if the player is in the inventory. If they are, close the inventory
+		else:
 			closeInventory()
 	
 func _unhandled_input(event): # A built-in function that listens for input all the time
