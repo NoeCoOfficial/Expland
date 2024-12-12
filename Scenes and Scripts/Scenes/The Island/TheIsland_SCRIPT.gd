@@ -120,37 +120,6 @@ func on_ready_time_check():
 	if TimeManager.CURRENT_HOUR == 24:
 		TimeManager.CURRENT_HOUR = 0
 	
-	if TimeManager.CURRENT_HOUR == 0 or TimeManager.CURRENT_HOUR == 24:
-		# Midnight colors
-		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.011, 0.011, 0.011)
-		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.038, 0.038, 0.038)
-		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0, 0, 0)
-		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0, 0, 0)
-		
-		IslandDirectionalLight.visible = false
-		IslandDirectionalLight.rotation_degrees.x = 10.0
-		print("New day")
-	
-	if TimeManager.CURRENT_HOUR == 1:
-		# Midnight colors
-		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.011, 0.011, 0.011)
-		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.038, 0.038, 0.038)
-		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0, 0, 0)
-		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0, 0, 0)
-		
-		IslandDirectionalLight.visible = false
-		IslandDirectionalLight.rotation_degrees.x = 10.0
-	
-	if TimeManager.CURRENT_HOUR == 2:
-		# Midnight colors
-		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.011, 0.011, 0.011)
-		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.038, 0.038, 0.038)
-		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0, 0, 0)
-		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0, 0, 0)
-		
-		IslandDirectionalLight.visible = false
-		IslandDirectionalLight.rotation_degrees.x = 10.0
-	
 	if TimeManager.CURRENT_HOUR == 3:
 		# Midnight colors
 		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.011, 0.011, 0.011)
@@ -630,6 +599,101 @@ func _on_tick() -> void:
 			IslandDirectionalLight.rotation_degrees.x = 10.0
 			print("New day")
    
+func set_hour(hour : int):
+	if hour == 0 or hour == 24:
+		# Midnight colors
+		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.011, 0.011, 0.011)
+		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.038, 0.038, 0.038)
+		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0, 0, 0)
+		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0, 0, 0)
+		
+		IslandDirectionalLight.visible = false
+		IslandDirectionalLight.rotation_degrees.x = 10.0
+		print("New day")
+	
+	if hour == 1:
+		# Midnight colors
+		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.011, 0.011, 0.011)
+		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.038, 0.038, 0.038)
+		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0, 0, 0)
+		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0, 0, 0)
+		
+		IslandDirectionalLight.visible = false
+		IslandDirectionalLight.rotation_degrees.x = 10.0
+	
+	if hour == 2:
+		# Midnight colors
+		TheIslandProceduralSkyMaterial.sky_top_color = Color(0.011, 0.011, 0.011)
+		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.038, 0.038, 0.038)
+		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0, 0, 0)
+		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0, 0, 0)
+		
+		IslandDirectionalLight.visible = false
+		IslandDirectionalLight.rotation_degrees.x = 10.0
+	
+	if hour == 3:
+		pass
+	
+	if hour == 4:
+		pass
+	
+	if hour == 5:
+		pass
+	
+	if hour == 6:
+		pass
+	
+	if hour == 7:
+		pass
+	
+	if hour == 8:
+		pass
+	
+	if hour == 9:
+		pass
+	
+	if hour == 10:
+		pass
+	
+	if hour == 11:
+		pass
+	
+	if hour == 12:
+		pass
+	
+	if hour == 13:
+		pass
+	
+	if hour == 14:
+		pass
+	
+	if hour == 15:
+		pass
+	
+	if hour == 16:
+		pass
+	
+	if hour == 17:
+		pass
+	
+	if hour == 18:
+		pass
+	
+	if hour == 19:
+		pass
+	
+	if hour == 20:
+		pass
+	
+	if hour == 21:
+		pass
+	
+	if hour == 22:
+		pass
+	
+	if hour == 23:
+		pass
+
 
 """
 Hours of sunlight rotation values

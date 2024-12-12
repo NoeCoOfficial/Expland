@@ -778,7 +778,7 @@ func sleep_cycle(setSleeping : bool, fadeInTime : float, holdTime : float, fadeO
 	tween.tween_property(TopLayerBlackOverlay, "modulate", Color(1, 1, 1, 1), fadeInTime)
 	tween.tween_interval(holdTime)
 	
-	await get_tree().create_timer(fadeInTime).timeout
+	await get_tree().create_timer(fadeInTime + holdTime).timeout
 	on_sleep_cycle_hold_finished(fadeOutTime)
 
 func on_sleep_cycle_hold_finished(fadeOutTime):
