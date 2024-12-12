@@ -75,6 +75,7 @@ var SunsetColor = Color(0.98, 0.729, 0.312)
 
 func _ready() -> void:
 	SaveManager.loadAllData()
+	PlayerManager.init()
 	set_motion_blur(PlayerSettingsData.MotionBlur)
 	set_dof_blur(PlayerSettingsData.DOFBlur)
 	
