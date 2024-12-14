@@ -26,7 +26,7 @@ This is the official GitHub repository for the game, where all changes and commi
 
 Follow our progress and get the latest updates on:
 
-- **Our Website:** [noeco.xyz](https://noeco.xyz)
+- **Our Website:** [noeco.xyz](https://noeco.xyz/)
 - **The GitHub Repository:** [Expland GitHub](https://github.com/sebashtioon/Expland)
 - **Our Discord Server:** [Join our Discord server for discussions and updates](https://discord.gg/QNgcKCAJn3)
 ## 📧 Contact Us
