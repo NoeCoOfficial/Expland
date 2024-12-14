@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bv2vfk7n66opf"]
+
+[ext_resource type="Texture2D" uid="uid://bloxe7y7i4k1j" path="res://Resources/Materials/SwordColor.png" id="1_ejo36"]
+
+[resource]
+albedo_texture = ExtResource("1_ejo36")
