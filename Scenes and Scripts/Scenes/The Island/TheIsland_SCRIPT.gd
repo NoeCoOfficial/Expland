@@ -286,6 +286,7 @@ func _on_tick() -> void:
 			
 			IslandDirectionalLight.visible = false
 			IslandDirectionalLight.rotation_degrees.x = 10.0
+			# TODO: Fix bug where when going to sleep close to midnight, it increments 2 days
 			TimeManager.CURRENT_DAY += 1
 			PlayerData.saveData()
    
