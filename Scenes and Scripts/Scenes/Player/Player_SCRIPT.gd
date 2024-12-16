@@ -675,13 +675,13 @@ func _on_save_and_quit_to_menu_pressed() -> void:
 	SaveManager.saveAllData()
 	transitioning_to_menu = true
 	
-	$Head/Camera3D/TopLayer/BlackOverlay.modulate = Color(1, 1, 1, 0)
-	$Head/Camera3D/TopLayer/BlackOverlay.visible = true
+	SleepLayerBlackOverlay.modulate = Color(1, 1, 1, 0)
+	SleepLayerBlackOverlay.visible = true
 	
 	var tween = get_tree().create_tween()
 	tween.connect("finished", Callable(self, "on_save_and_quit_to_menu_fade_finished"))
 	
-	tween.tween_property($Head/Camera3D/TopLayer/BlackOverlay, "modulate", Color(1, 1, 1, 1), 1)
+	tween.tween_property(SleepLayerBlackOverlay, "modulate", Color(1, 1, 1, 1), 1)
 	tween.tween_interval(1)
 
 func on_save_and_quit_to_menu_fade_finished():

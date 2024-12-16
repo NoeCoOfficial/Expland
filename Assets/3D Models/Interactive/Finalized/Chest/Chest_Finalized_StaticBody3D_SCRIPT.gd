@@ -49,5 +49,8 @@ extends StaticBody3D
 
 @export var root : Node3D
 
-func _ready() -> void:
-	pass # Replace with function body.
+func on_raycast_hit_chest():
+	InteractionManager.is_hovering_over_chest = true
+
+func on_raycast_exit_chest():
+	InteractionManager.is_hovering_over_chest = false
