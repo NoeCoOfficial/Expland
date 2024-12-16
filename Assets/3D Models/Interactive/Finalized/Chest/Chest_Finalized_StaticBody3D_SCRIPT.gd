@@ -53,7 +53,10 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _on_anim_finished(anim_name: StringName) -> void:
-	pass # Replace with function body.
+	if anim_name == &"open":
+		pass
+	elif anim_name == &"close":
+		pass
 
 func is_animating():
 	return ANIMATING
