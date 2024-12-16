@@ -61,8 +61,6 @@ var HOUR_LENGTH = 2
 @export var IslandWorldEnvironmentNode : WorldEnvironment
 
 @export var Player : CharacterBody3D
-@export var PlayerCamera : CharacterBody3D
-
 
 var MiddayColor = Color(0.941, 0.987, 0.809)
 var SunriseColor = Color(0.793, 0.612, 0.18)
