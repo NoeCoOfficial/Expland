@@ -47,12 +47,24 @@
 
 extends Node3D
 
+var ANIMATING
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
+func _on_anim_finished(anim_name: StringName) -> void:
+	if anim_name == &"open":
+		ANIMATING = false
+	
+	elif anim_name == &"close":
+		ANIMATING = true
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func animate(TYPE : String):
+	if TYPE == "OPEN":
+		pass
+	
+	elif TYPE == "CLOSE":
+		pass
+
+func is_animating():
+	return ANIMATING
