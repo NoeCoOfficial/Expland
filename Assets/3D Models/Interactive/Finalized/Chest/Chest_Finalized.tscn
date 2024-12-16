@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvh658edbkjrn"]
+[gd_scene load_steps=9 format=3 uid="uid://dvh658edbkjrn"]
 
 [ext_resource type="PackedScene" uid="uid://bxy2ihf8ehq18" path="res://Assets/3D Models/Interactive/Models/Chest.blend" id="1_5yx1o"]
+[ext_resource type="Script" path="res://Assets/3D Models/Interactive/Finalized/Chest/Chest_Finalized_SCRIPT.gd" id="2_f51ac"]
 [ext_resource type="Script" path="res://Assets/3D Models/Interactive/Finalized/Chest/Chest_Finalized_StaticBody3D_SCRIPT.gd" id="2_ha2tq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nm63g"]
@@ -49,9 +50,10 @@ _data = {
 }
 
 [node name="Chest" instance=ExtResource("1_5yx1o")]
+script = ExtResource("2_f51ac")
 
 [node name="TopLayer" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, -0.521861, 0.00815576, 0, -0.00220185, -1.933, 0.587934, 0.719454, 0)
+transform = Transform3D(0.5, -0.451949, 0, -0.86602, -0.260931, 0.00674736, -0.00302294, -0.00091081, -1.933, 0.587934, 0.719454, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="3"]
 script = ExtResource("2_ha2tq")
