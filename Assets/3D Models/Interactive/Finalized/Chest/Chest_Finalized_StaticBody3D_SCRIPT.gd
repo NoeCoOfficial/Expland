@@ -52,10 +52,21 @@ var ANIMATING = false
 func _ready() -> void:
 	pass # Replace with function body.
 
+
+# TODO: transfer animation logic to a new script in the root node
+
 func _on_anim_finished(anim_name: StringName) -> void:
 	if anim_name == &"open":
-		pass
+		ANIMATING = false
+	
 	elif anim_name == &"close":
+		ANIMATING = true
+
+func animate(TYPE : String):
+	if TYPE == "OPEN":
+		pass
+	
+	elif TYPE == "CLOSE":
 		pass
 
 func is_animating():
