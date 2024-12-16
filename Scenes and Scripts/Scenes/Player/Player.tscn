@@ -732,7 +732,6 @@ autowrap_mode = 1
 script = ExtResource("9_svfxy")
 
 [node name="DebugLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="item_ref_LBL" type="Label" parent="Head/Camera3D/DebugLayer"]
 self_modulate = Color(1, 1, 1, 0.196078)
@@ -935,6 +934,20 @@ theme = ExtResource("17_rhxkt")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("20_bmbkh")
+
+[node name="GAME_STATE" type="Label" parent="Head/Camera3D/DebugLayer"]
+self_modulate = Color(1, 1, 1, 0.196078)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -156.0
+offset_top = 584.0
+offset_right = -3.0
+offset_bottom = 603.0
+grow_horizontal = 0
+theme = ExtResource("17_rhxkt")
+text = "GAME_STATE = \" \""
+horizontal_alignment = 2
 
 [node name="CURRENT_DAY" type="Label" parent="Head/Camera3D/DebugLayer"]
 self_modulate = Color(1, 1, 1, 0.196078)

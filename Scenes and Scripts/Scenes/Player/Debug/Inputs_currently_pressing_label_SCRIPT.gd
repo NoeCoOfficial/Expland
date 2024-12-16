@@ -1,5 +1,5 @@
 # ============================================================= #
-# Player_SCRIPT.gd
+# Inputs_currently_pressing_label_SCRIPT.gd
 # ============================================================= #
 #                       COPYRIGHT NOTICE                        #
 #                           Noe Co.                             #
