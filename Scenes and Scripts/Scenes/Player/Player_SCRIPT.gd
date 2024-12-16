@@ -163,8 +163,10 @@ var is_crouching = false
 
 ######################################
 ######################################
+
 # Node references
 @export_category("Node references")
+
 ######################################
 ######################################
 
@@ -252,7 +254,6 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			
 			if InventoryManager.inventory_open:
 				closeInventory()
-	
 	
 	if Input.is_action_just_pressed("Quit") and Quit == true and OS.has_feature("debug"): # if the Quit input is pressed and the Quit variable is true
 		SaveManager.saveAllData()
