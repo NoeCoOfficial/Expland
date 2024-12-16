@@ -49,16 +49,12 @@ extends Node
 
 var WORLD
 var PLAYER
-var PLAYER_CAMERA
-var CAMERA_POS_NODE_ON_BED
 
 var SLEEPING_UPON_ENTERED = false
 
 func init():
 	WORLD = get_node("/root/World/")
 	PLAYER = get_node("/root/World/Player/")
-	PLAYER_CAMERA = get_node("/root/World/Player/Head/Camera3D")
-	CAMERA_POS_NODE_ON_BED = get_node("/root/World/SackclothBed/SleepCameraPos/")
 
 func sleep():
 	if PLAYER != null:

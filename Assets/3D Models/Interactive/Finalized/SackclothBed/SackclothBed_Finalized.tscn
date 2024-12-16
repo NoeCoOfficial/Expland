@@ -15,6 +15,3 @@ script = ExtResource("2_h6dgk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_bv106")
-
-[node name="SleepCameraPos" type="Node3D" parent="." index="23"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.46077, 1.07227, -0.233102)
