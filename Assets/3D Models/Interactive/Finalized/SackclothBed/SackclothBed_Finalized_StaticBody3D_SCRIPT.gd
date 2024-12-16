@@ -1,5 +1,5 @@
 # ============================================================= #
-# SackclothBed_Finalized_SCRIPT.gd
+# SackclothBed_Finalized_StaticBody3D_SCRIPT.gd
 # ============================================================= #
 #                       COPYRIGHT NOTICE                        #
 #                           Noe Co.                             #
