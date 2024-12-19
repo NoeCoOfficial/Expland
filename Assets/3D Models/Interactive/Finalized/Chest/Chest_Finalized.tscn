@@ -56,7 +56,7 @@ script = ExtResource("2_f51ac")
 wait_time = 0.2
 
 [node name="TopLayer" parent="." index="2"]
-transform = Transform3D(0.499998, -0.45195, 0, -0.866021, -0.26093, 0.00675152, -0.0030248, -0.000911366, -1.93301, 0.587934, 0.719454, 0)
+transform = Transform3D(1, 0, 0, 0, -0.521861, 0.00816223, 0, -0.00220359, -1.933, 0.587934, 0.719454, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="4" node_paths=PackedStringArray("root")]
 script = ExtResource("2_ha2tq")
