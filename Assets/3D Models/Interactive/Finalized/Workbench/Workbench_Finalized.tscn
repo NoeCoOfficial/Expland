@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bregerrxnv3r1" path="res://Assets/3D Models/Interactive/Models/Pencil.blend" id="4_sncye"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cfe3k"]
-size = Vector3(1, 0.714478, 0.90918)
+size = Vector3(1.54175, 0.714478, 0.90918)
 
 [node name="Workbench" instance=ExtResource("1_oy301")]
 transform = Transform3D(1.59783, 0, 0, 0, 1.59783, 0, 0, 0, 1.59783, 0, -0.00279075, 0)
@@ -24,5 +24,5 @@ transform = Transform3D(-1.44279e-09, 0.0330071, 0.0190567, -0.0381133, -1.66599
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.559277, 0.313583, 0.378239)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0510864, 0.00015074)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00671393, 0.0510864, 0.00015074)
 shape = SubResource("BoxShape3D_cfe3k")
