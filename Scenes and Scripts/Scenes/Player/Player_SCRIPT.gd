@@ -183,9 +183,10 @@ var is_crouching = false
 
 @export_group("General Nodes")
 
-@export_subgroup("UI")
+@export_subgroup("CanvasLayers")
 @export var ChestUILayer : CanvasLayer
 
+@export_subgroup("UI")
 @export var SettingsUI : Control
 @export var AchievementsUI : Control
 @export var AlertLayer : Control
@@ -196,6 +197,7 @@ var is_crouching = false
 @export var DayText_Label : Control
 @export var ProtectiveLayer : Control
 
+@export_subgroup("HUD")
 @export var Health_Label : Label
 @export var Crosshair_Rect : TextureRect
 
