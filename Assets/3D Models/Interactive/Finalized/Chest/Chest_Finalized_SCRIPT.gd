@@ -55,8 +55,6 @@ func _ready() -> void:
 
 func _on_anim_finished(anim_name: StringName) -> void:
 	
-	ANIMATING = false
-	
 	if anim_name == &"open":
 		pass
 	
@@ -64,6 +62,10 @@ func _on_anim_finished(anim_name: StringName) -> void:
 		pass
 
 func animate(TYPE : String):
+	
+	ANIMATING = true
+	$DebounceTimer.start()
+	
 	if TYPE == "OPEN":
 		$OpenAndCloseAnim.play("open")
 	
@@ -72,3 +74,7 @@ func animate(TYPE : String):
 
 func is_animating():
 	return ANIMATING
+
+
+func _on_debounce_timer_timeout() -> void:
+	ANIMATING = false

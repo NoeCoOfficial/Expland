@@ -52,10 +52,13 @@ _data = {
 [node name="Chest" instance=ExtResource("1_5yx1o")]
 script = ExtResource("2_f51ac")
 
-[node name="TopLayer" parent="." index="1"]
+[node name="DebounceTimer" type="Timer" parent="." index="0"]
+wait_time = 0.2
+
+[node name="TopLayer" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, -0.521861, 0.00816223, 0, -0.00220359, -1.933, 0.587934, 0.719454, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." index="3" node_paths=PackedStringArray("root")]
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="4" node_paths=PackedStringArray("root")]
 script = ExtResource("2_ha2tq")
 root = NodePath("..")
 
@@ -63,9 +66,10 @@ root = NodePath("..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.513945, 0.0116425)
 shape = SubResource("BoxShape3D_nm63g")
 
-[node name="OpenAndCloseAnim" type="AnimationPlayer" parent="." index="4"]
+[node name="OpenAndCloseAnim" type="AnimationPlayer" parent="." index="5"]
 libraries = {
 "": SubResource("AnimationLibrary_g6lga")
 }
 
+[connection signal="timeout" from="DebounceTimer" to="." method="_on_debounce_timer_timeout"]
 [connection signal="animation_finished" from="OpenAndCloseAnim" to="." method="_on_anim_finished"]
