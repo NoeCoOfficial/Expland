@@ -7,22 +7,6 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_nm63g"]
 size = Vector3(1, 1, 2.29813)
 
-[sub_resource type="Animation" id="Animation_ye7vl"]
-resource_name = "open"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TopLayer:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(0.378929, 2.73208),
-"update": 0,
-"values": [Vector3(-3.13737, 0, 0), Vector3(-3.1381, 0, 1.0472)]
-}
-
 [sub_resource type="Animation" id="Animation_xo4kc"]
 length = 0.001
 
@@ -40,6 +24,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(2.73208, 0.517632),
 "update": 0,
 "values": [Vector3(-3.1381, 0, 1.0472), Vector3(-3.13737, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ye7vl"]
+resource_name = "open"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TopLayer:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.378929, 2.73208),
+"update": 0,
+"values": [Vector3(-3.13737, 0, 0), Vector3(-3.1381, 0, 1.0472)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g6lga"]
