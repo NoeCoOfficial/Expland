@@ -458,7 +458,7 @@ offset_bottom = 39.0
 grow_horizontal = 0
 theme = ExtResource("4_grlcg")
 theme_override_font_sizes/font_size = 26
-text = "v0.5.0"
+text = "v0.5.5"
 
 [node name="FadeOut" type="ColorRect" parent="Camera3D/MainLayer"]
 anchors_preset = 15

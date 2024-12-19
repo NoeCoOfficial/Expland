@@ -84,7 +84,13 @@ func loadData(withOutput : bool) -> void:
 		return
 	
 	if file and not file.eof_reached():
-		var current_line = JSON.parse_string(file.get_line())
+		var line = file.get_line()
+		if line.empty():
+			push_warning("[PlayerData] File is empty (" + SAVE_PATH + ")")
+			file.close()
+			return
+		
+		var current_line = JSON.parse_string(line)
 		if current_line:
 			TimeManager.CURRENT_HOUR = current_line["CURRENT_HOUR"]
 			TimeManager.CURRENT_DAY = current_line["CURRENT_DAY"]
