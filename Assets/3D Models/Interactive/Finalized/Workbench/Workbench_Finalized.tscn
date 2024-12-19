@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ebqmro758fob"]
+
+[ext_resource type="PackedScene" uid="uid://djhsxwsljjufa" path="res://Assets/3D Models/Interactive/Models/Workbench.blend" id="1_oy301"]
+[ext_resource type="PackedScene" uid="uid://cnpgx6ef6qxqs" path="res://Assets/3D Models/Tools/Pickaxe.blend" id="2_m1a1u"]
+
+[node name="Workbench" instance=ExtResource("1_oy301")]
+transform = Transform3D(1.59783, 0, 0, 0, 1.59783, 0, 0, 0, 1.59783, 0, -0.00279075, 0)
+
+[node name="Pickaxe" parent="." index="11" instance=ExtResource("2_m1a1u")]
+transform = Transform3D(0.0794885, 0, 0.0212989, 0, 0.0822926, 0, -0.0212989, 0, 0.0794885, 0.194312, 0.678881, 0.367499)
