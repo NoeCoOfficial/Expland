@@ -53,7 +53,7 @@ _data = {
 script = ExtResource("2_f51ac")
 
 [node name="TopLayer" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, -0.521861, 0.00815576, 0, -0.00220185, -1.933, 0.587934, 0.719454, 0)
+transform = Transform3D(1, 0, 0, 0, -0.521861, 0.00816223, 0, -0.00220359, -1.933, 0.587934, 0.719454, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="3" node_paths=PackedStringArray("root")]
 script = ExtResource("2_ha2tq")
