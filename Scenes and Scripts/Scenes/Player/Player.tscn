@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=43 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -36,20 +36,6 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_16v4h"]
 size = Vector3(1.7, 2.07, 1.7)
-
-[sub_resource type="GDScript" id="GDScript_dc442"]
-script/source = "extends Panel
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	self.mouse_filter = Control.MOUSE_FILTER_IGNORE
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
-"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2kg3l"]
 bg_color = Color(0.151276, 0.151276, 0.151276, 1)
@@ -273,13 +259,15 @@ offset_bottom = -532.0
 [node name="ChestUILayer" type="CanvasLayer" parent="Head/Camera3D"]
 visible = false
 
-[node name="Overlay" type="Panel" parent="Head/Camera3D/ChestUILayer"]
+[node name="GreyLayer" type="ColorRect" parent="Head/Camera3D/ChestUILayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = SubResource("GDScript_dc442")
+color = Color(0, 0, 0, 0.643137)
+script = ExtResource("16_wg7d4")
+metadata/_edit_use_anchors_ = true
 
 [node name="Background" type="Panel" parent="Head/Camera3D/ChestUILayer"]
 anchors_preset = 8
@@ -404,13 +392,15 @@ vertical_alignment = 1
 [node name="InventoryLayer" type="CanvasLayer" parent="Head/Camera3D"]
 visible = false
 
-[node name="Overlay" type="Panel" parent="Head/Camera3D/InventoryLayer"]
+[node name="GreyLayer" type="ColorRect" parent="Head/Camera3D/InventoryLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = SubResource("GDScript_dc442")
+color = Color(0, 0, 0, 0.643137)
+script = ExtResource("16_wg7d4")
+metadata/_edit_use_anchors_ = true
 
 [node name="Background" type="Panel" parent="Head/Camera3D/InventoryLayer"]
 anchors_preset = 8

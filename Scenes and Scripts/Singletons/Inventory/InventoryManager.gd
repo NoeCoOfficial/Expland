@@ -59,6 +59,8 @@ var item_ref_not_at_inventory: String =  ""
 var is_creating_pickup = false
 var is_inside_checker = false
 
+var chestNode
+
 func create_pickup_object_at_pos(position : Vector3, ITEM_TYPE):
 	creatingFromInventory = false
 	

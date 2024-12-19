@@ -94,6 +94,8 @@ func _ready() -> void:
 		set_hour(6)
 	else:
 		on_ready_time_check()
+	
+	InventoryManager.chestNode = $Chest
 
 func _on_ready() -> void:
 	pass
