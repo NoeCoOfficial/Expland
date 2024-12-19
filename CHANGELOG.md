@@ -37,6 +37,8 @@
 ### Added:
 - Added day and night cycle with data persistence
 - Added a bed that you can sleep in
+- Added a chest that you can open and close, functionality coming later
+- Added a workbench, functionality coming later
 - Added collision to the tall white pillar supporting the black platform in the test area
 
 ---
