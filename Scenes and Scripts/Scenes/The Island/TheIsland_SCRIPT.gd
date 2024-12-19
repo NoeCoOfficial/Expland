@@ -48,7 +48,7 @@
 @icon("res://Textures/Icons/Script Icons/32x32/world_page.png")
 extends Node
 
-var HOUR_LENGTH = 2
+var HOUR_LENGTH = 120
 
 @onready var motionBlurCompositor = preload("res://Resources/Environment/TheIsland_MotionBlurCompositor.tres")
 @onready var noMotionBlurCompositor = preload("res://Resources/Environment/TheIsland_NoMotionBlurCompositor.tres")
