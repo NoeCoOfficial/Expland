@@ -174,6 +174,7 @@ var is_crouching = false
 
 @export var head : Node3D
 @export var camera : Camera3D
+@export var PickupAttractionPos : Node3D
 
 @export_group("Inventory")
 
@@ -613,7 +614,7 @@ func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 			
 			var PickupObject = area.get_parent()
 			var PickupItemType = PickupObject.get_ITEM_TYPE()
-			var PlayerPos = $PickupAttractionPos.global_position
+			var PlayerPos = PickupAttractionPos.global_position
 			
 			print("{LOCAL} [Player_SCRIPT.gd] Collided with pickup player detector! Item: " + PickupItemType)
 			
