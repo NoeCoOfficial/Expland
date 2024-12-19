@@ -83,6 +83,7 @@ anchors_preset = -1
 anchor_right = 0.0175439
 offset_right = 220.0
 offset_bottom = 60.0
+focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_oiqoq")
 
 [node name="BackgroundKEY" type="Button" parent="Contents"]
@@ -96,6 +97,7 @@ offset_left = 3.50645
 offset_top = 3.79999
 offset_right = 55.5065
 offset_bottom = 55.8
+focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_1mgi3")
 
 [node name="BackgroundKEY2" type="Button" parent="Contents"]
@@ -104,6 +106,7 @@ offset_left = 5.90002
 offset_top = 6.20001
 offset_right = 53.9
 offset_bottom = 54.2
+focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_ljyx7")
 
 [node name="BackgroundKEY3" type="Button" parent="Contents"]
@@ -115,6 +118,7 @@ offset_left = 9.70388
 offset_top = 10.0
 offset_right = 49.7039
 offset_bottom = 50.0
+focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_2vpfm")
 
 [node name="BackgroundKEY4" type="Button" parent="Contents"]
@@ -123,6 +127,7 @@ offset_left = 12.1
 offset_top = 12.4
 offset_right = 48.1
 offset_bottom = 48.4
+focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_a2k7q")
 
 [node name="KEY" type="Label" parent="Contents"]
@@ -149,3 +154,8 @@ offset_bottom = 47.0
 theme = ExtResource("1_d3qmp")
 theme_override_font_sizes/font_size = 30
 text = "Interact"
+
+[node name="ProtectiveLayer" type="Control" parent="Contents"]
+anchors_preset = 0
+offset_right = 229.0
+offset_bottom = 60.0
