@@ -609,7 +609,6 @@ func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 			area.set_deferred("monitorable", false)
 			area.set_deferred("monitoring", false)
 			
-			
 			print("{LOCAL} [Player_SCRIPT.gd] Free slot found: " + free_slot.name)
 			
 			var PickupObject = area.get_parent()

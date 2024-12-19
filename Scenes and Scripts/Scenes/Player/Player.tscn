@@ -192,7 +192,7 @@ autostart = true
 script = ExtResource("2_t6toi")
 
 [node name="ManualSaveCooldown" type="Timer" parent="."]
-wait_time = 0.001
+wait_time = 0.1
 one_shot = true
 autostart = true
 script = ExtResource("2_t6toi")
