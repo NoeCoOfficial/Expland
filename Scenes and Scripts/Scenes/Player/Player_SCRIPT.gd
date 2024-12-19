@@ -50,17 +50,14 @@ extends CharacterBody3D # Inheritance
 
 """
 
-Below are the player scene's export variables. These are useful for flexibility between maps/levels.
+Below are the player scene's export variables. These are useful for flexibility between maps/levels and referencing nodes.
 The keyword @export means that they can be accessed in the inspector panel
 
 """
 ######################################
 ######################################
-# Properties
 
 @export_category("Properties")
-######################################
-######################################
 
 ######################################
 # Utility group
@@ -164,11 +161,7 @@ var is_crouching = false
 ######################################
 ######################################
 
-# Node references
 @export_category("Node references")
-
-######################################
-######################################
 
 @export_group("Body parts")
 
@@ -258,11 +251,13 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			
 			if InventoryManager.inventory_open:
 				closeInventory()
+			
+			if InventoryManager.in_chest_interface:
+				closeChest()
 	
 	if Input.is_action_just_pressed("Quit") and Quit == true and OS.has_feature("debug"): # if the Quit input is pressed and the Quit variable is true
 		SaveManager.saveAllData()
 		get_tree().quit() # quit the game
-	
 	
 	if Input.is_action_just_pressed("Reset") and Reset == true and !PauseManager.is_paused and !PauseManager.is_inside_alert and OS.has_feature("debug"):
 		if PlayerData.GAME_STATE == "NORMAL" or InventoryManager.inventory_open:
@@ -304,7 +299,7 @@ func _physics_process(delta):
 	is_crouching = false
 	
 	# Crouching
-	if !InventoryManager.inventory_open and PlayerData.GAME_STATE != "DEAD" and PlayerData.GAME_STATE != "SLEEPING" and is_on_floor() and !PauseManager.is_paused and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface:
+	if !InventoryManager.inventory_open and PlayerData.GAME_STATE != "DEAD" and PlayerData.GAME_STATE != "SLEEPING" and is_on_floor() and !InventoryManager.in_chest_interface and !PauseManager.is_paused and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface:
 		if Input.is_action_pressed("Crouch"):
 			self.scale.y = lerp(self.scale.y, 0.5, CROUCH_INTERPOLATION * delta)
 		else:
@@ -318,13 +313,13 @@ func _physics_process(delta):
 			velocity.y -= gravity * delta
 		
 		# Jumping
-		if Input.is_action_just_pressed("Jump") and !Input.is_action_pressed("Crouch") and is_on_floor() and !PauseManager.is_paused and !PauseManager.is_inside_alert and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface:
+		if Input.is_action_just_pressed("Jump") and !Input.is_action_pressed("Crouch") and is_on_floor() and !PauseManager.is_paused and !PauseManager.is_inside_alert and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.in_chest_interface and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface:
 			velocity.y = JUMP_VELOCITY
 		
 		# Handle Speed
-		if Input.is_action_pressed("Sprint") and !Input.is_action_pressed("Crouch") and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface:
+		if Input.is_action_pressed("Sprint") and !Input.is_action_pressed("Crouch") and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface and !InventoryManager.in_chest_interface:
 			speed = SPRINT_SPEED
-		elif Input.is_action_pressed("Crouch") and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface:
+		elif Input.is_action_pressed("Crouch") and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interfacesnd and !InventoryManager.in_chest_interface:
 			speed = CROUCH_SPEED
 		else:
 			speed = WALK_SPEED
@@ -334,7 +329,7 @@ func _physics_process(delta):
 		var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		
 		if is_on_floor():
-			if direction != Vector3.ZERO and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !PauseManager.is_inside_alert and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface:
+			if direction != Vector3.ZERO and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !PauseManager.is_inside_alert and !InventoryManager.in_chest_interface and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface:
 				velocity.x = direction.x * speed
 				velocity.z = direction.z * speed
 			else:
