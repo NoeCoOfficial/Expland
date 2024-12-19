@@ -122,7 +122,7 @@ Button/styles/normal = ExtResource("20_b68th")
 Button/styles/pressed = SubResource("StyleBoxFlat_8tgxn")
 Label/styles/normal = ExtResource("21_k6ube")
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "PickupAttractionPos", "Slot1_Ref", "Slot2_Ref", "Slot3_Ref", "Slot4_Ref", "Slot5_Ref", "Slot6_Ref", "Slot7_Ref", "Slot8_Ref", "Slot9_Ref", "ChestUILayer", "SettingsUI", "AchievementsUI", "AlertLayer", "CreditsLayer", "MinimalAlert", "TopLayerBlackOverlay", "SleepLayerBlackOverlay", "DayText_Label", "ProtectiveLayer", "Inventory_Item_Ref_Label", "Is_Raycast_Colliding_Label", "Is_Inside_Settings_Label", "Is_Inventory_Open_Label", "Is_Moving_Label", "Is_Walking_Label", "Is_Sprinting_Label", "Is_Crouching_Label", "Is_In_Dialogue_Interface_Label", "Showing_Interaction_Notification_Label", "Current_Time_Label", "Current_FPS_Label", "Player_Position_Label", "Player_VelocityY_Label", "Player_VelocityY_Accurate_Label", "Is_On_Floor_Label", "Inputs_Currently_Pressing_Label", "GAME_STATE_Label", "CURRENT_DAY_Label", "CURRENT_HOUR_Label") groups=["PlayerBody"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "PickupAttractionPos", "Slot1_Ref", "Slot2_Ref", "Slot3_Ref", "Slot4_Ref", "Slot5_Ref", "Slot6_Ref", "Slot7_Ref", "Slot8_Ref", "Slot9_Ref", "ChestUILayer", "SettingsUI", "AchievementsUI", "AlertLayer", "CreditsLayer", "MinimalAlert", "TopLayerBlackOverlay", "SleepLayerBlackOverlay", "DayText_Label", "ProtectiveLayer", "Health_Label", "Crosshair_Rect", "Inventory_Item_Ref_Label", "Is_Raycast_Colliding_Label", "Is_Inside_Settings_Label", "Is_Inventory_Open_Label", "Is_Moving_Label", "Is_Walking_Label", "Is_Sprinting_Label", "Is_Crouching_Label", "Is_In_Dialogue_Interface_Label", "Showing_Interaction_Notification_Label", "Current_Time_Label", "Current_FPS_Label", "Player_Position_Label", "Player_VelocityY_Label", "Player_VelocityY_Accurate_Label", "Is_On_Floor_Label", "Inputs_Currently_Pressing_Label", "GAME_STATE_Label", "CURRENT_DAY_Label", "CURRENT_HOUR_Label") groups=["PlayerBody"]]
 collision_mask = 3
 script = ExtResource("1_5mhs1")
 Fade_In = true
@@ -152,6 +152,8 @@ TopLayerBlackOverlay = NodePath("Head/Camera3D/SleepLayer/BlackOverlay")
 SleepLayerBlackOverlay = NodePath("Head/Camera3D/SleepLayer/BlackOverlay")
 DayText_Label = NodePath("Head/Camera3D/SleepLayer/DayTextLabel")
 ProtectiveLayer = NodePath("Head/Camera3D/TopLayer/ProtectiveLayer")
+Health_Label = NodePath("Head/Camera3D/CrosshairCanvas/HealthLBL")
+Crosshair_Rect = NodePath("Head/Camera3D/CrosshairCanvas/Crosshair")
 Inventory_Item_Ref_Label = NodePath("Head/Camera3D/DebugLayer/item_ref_LBL")
 Is_Raycast_Colliding_Label = NodePath("Head/Camera3D/DebugLayer/is_raycast_colliding")
 Is_Inside_Settings_Label = NodePath("Head/Camera3D/DebugLayer/is_inside_settings")

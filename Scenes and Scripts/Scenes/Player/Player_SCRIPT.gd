@@ -196,6 +196,9 @@ var is_crouching = false
 @export var DayText_Label : Control
 @export var ProtectiveLayer : Control
 
+@export var Health_Label : Label
+@export var Crosshair_Rect : TextureRect
+
 @export_group("Debug")
 
 @export var Inventory_Item_Ref_Label : Label
@@ -405,14 +408,14 @@ func _process(_delta):
 	
 	# HUD
 	if UseHealth == false: # Check if the UseHealth variable is false
-		$Head/Camera3D/CrosshairCanvas/HealthLBL.hide() # hide the health label
+		Health_Label.hide() # hide the health label
 	else: 
-		$Head/Camera3D/CrosshairCanvas/HealthLBL.show() # show the health label
+		Health_Label.show() # show the health label
 	
-	$Head/Camera3D/CrosshairCanvas/HealthLBL.text = "Health: " + str(PlayerData.Health) # set the health label text to "Health: " + the health variable as a string	
+	Health_Label.text = "Health: " + str(PlayerData.Health) # set the health label text to "Health: " + the health variable as a string	
 	
 	
-	$Head/Camera3D/CrosshairCanvas/Crosshair.size = crosshair_size # set the crosshair size to the crosshair size variable
+	Crosshair_Rect.size = crosshair_size # set the crosshair size to the crosshair size variable
 
 ######################################
 # On startup
