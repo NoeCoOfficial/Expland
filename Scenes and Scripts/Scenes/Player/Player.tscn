@@ -37,6 +37,20 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 [sub_resource type="BoxShape3D" id="BoxShape3D_16v4h"]
 size = Vector3(1.7, 2.07, 1.7)
 
+[sub_resource type="GDScript" id="GDScript_dc442"]
+script/source = "extends Panel
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	self.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+	pass
+"
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2kg3l"]
 bg_color = Color(0.151276, 0.151276, 0.151276, 1)
 corner_radius_top_left = 10
@@ -69,20 +83,6 @@ corner_radius_bottom_left = 12
 bg_color = Color(0.103744, 0.103744, 0.103744, 1)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
-
-[sub_resource type="GDScript" id="GDScript_dc442"]
-script/source = "extends Panel
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	self.mouse_filter = Control.MOUSE_FILTER_IGNORE
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
-"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cs88l"]
 size = Vector2(394, 648)
@@ -271,6 +271,14 @@ offset_bottom = -532.0
 
 [node name="ChestUILayer" type="CanvasLayer" parent="Head/Camera3D"]
 
+[node name="Overlay" type="Panel" parent="Head/Camera3D/ChestUILayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_dc442")
+
 [node name="Background" type="Panel" parent="Head/Camera3D/ChestUILayer"]
 anchors_preset = 8
 anchor_left = 0.5
@@ -329,12 +337,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Background2" type="Panel" parent="Head/Camera3D/ChestUILayer"]
 anchors_preset = -1
-anchor_left = 0.460938
+anchor_left = 0.461806
 anchor_top = 0.0709877
-anchor_right = 0.866319
+anchor_right = 0.921875
 anchor_bottom = 0.927469
-offset_left = 64.0
-offset_right = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2kg3l")
@@ -344,7 +350,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Background_4" type="Panel" parent="Head/Camera3D/ChestUILayer"]
 modulate = Color(0, 0, 0, 1)
 anchors_preset = -1
-anchor_left = 0.525174
+anchor_left = 0.46875
 anchor_top = 0.16821
 anchor_right = 0.914063
 anchor_bottom = 0.915123
@@ -356,29 +362,22 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Background_5" type="Panel" parent="Head/Camera3D/ChestUILayer"]
 anchors_preset = -1
-anchor_left = 0.0512153
-anchor_top = 0.185185
-anchor_right = 0.337674
-anchor_bottom = 0.29321
-offset_left = 546.0
-offset_top = -64.0
-offset_right = 664.0
-offset_bottom = -60.0
+anchor_left = 0.46875
+anchor_top = 0.0864198
+anchor_right = 0.914063
+anchor_bottom = 0.200617
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7tmhy")
 script = SubResource("GDScript_tq46f")
+metadata/_edit_use_anchors_ = true
 
 [node name="Title2" type="Label" parent="Head/Camera3D/ChestUILayer"]
 anchors_preset = -1
-anchor_left = 0.0824654
-anchor_top = 0.20216
-anchor_right = 0.307291
-anchor_bottom = 0.293209
-offset_left = 608.0
-offset_top = -61.0
-offset_right = 608.0
-offset_bottom = -61.0
+anchor_left = 0.578125
+anchor_top = 0.108024
+anchor_right = 0.802951
+anchor_bottom = 0.199073
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("8_cdk3a")
@@ -387,6 +386,18 @@ text = "CHEST"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("9_svfxy")
+metadata/_edit_use_anchors_ = true
+
+[node name="Notice" type="Label" parent="Head/Camera3D/ChestUILayer"]
+offset_left = 607.0
+offset_top = 320.0
+offset_right = 998.0
+offset_bottom = 369.0
+theme_override_fonts/font = ExtResource("3_yecwp")
+theme_override_font_sizes/font_size = 30
+text = "Nothing here yet, sorry :("
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="InventoryLayer" type="CanvasLayer" parent="Head/Camera3D"]
 visible = false

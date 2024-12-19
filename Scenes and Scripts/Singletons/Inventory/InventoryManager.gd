@@ -48,7 +48,10 @@
 extends Node
 
 var creatingFromInventory = false
+
 var inventory_open = false
+var in_chest_interface = false
+
 var is_dragging = false
 var is_inside_boundary = false
 var item_ref: String = ""

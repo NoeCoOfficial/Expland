@@ -635,6 +635,13 @@ func delete_pickup_object(pickupobj):
 		pickupobj.queue_free()
 
 ######################################
+# Chest UI
+######################################
+
+func openChest():
+	pass
+
+######################################
 # Pause functionality and layer
 ######################################
 
