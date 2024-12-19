@@ -260,7 +260,6 @@ texture = ExtResource("2_606ex")
 expand_mode = 1
 
 [node name="InteractionLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="InteractionHUD" parent="Head/Camera3D/InteractionLayer" instance=ExtResource("16_8a1wo")]
 offset_left = -183.0
@@ -736,6 +735,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="AlertLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="AlertLayer" parent="Head/Camera3D/AlertLayer" instance=ExtResource("21_r1ny7")]
 visible = false
