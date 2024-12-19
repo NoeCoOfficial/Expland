@@ -417,7 +417,6 @@ func _process(_delta):
 	
 	Health_Label.text = "Health: " + str(PlayerData.Health) # set the health label text to "Health: " + the health variable as a string	
 	
-	
 	Crosshair_Rect.size = crosshair_size # set the crosshair size to the crosshair size variable
 
 ######################################
