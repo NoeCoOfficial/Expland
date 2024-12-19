@@ -51,7 +51,7 @@ extends CharacterBody3D # Inheritance
 """
 
 Below are the player scene's export variables. These are useful for flexibility between maps/levels.
-The keyword @export means that they can be accessed in the inspector panel (right side)
+The keyword @export means that they can be accessed in the inspector panel
 
 """
 ######################################
@@ -191,6 +191,8 @@ var is_crouching = false
 @export_group("General Nodes")
 
 @export_subgroup("UI")
+@export var ChestUILayer : CanvasLayer
+
 @export var SettingsUI : Control
 @export var AchievementsUI : Control
 @export var AlertLayer : Control
@@ -639,7 +641,12 @@ func delete_pickup_object(pickupobj):
 ######################################
 
 func openChest():
-	pass
+	ChestUILayer.show()
+	InventoryManager.in_chest_interface = true
+
+func closeChest():
+	ChestUILayer.hide()
+	InventoryManager.in_chest_interface = false
 
 ######################################
 # Pause functionality and layer
