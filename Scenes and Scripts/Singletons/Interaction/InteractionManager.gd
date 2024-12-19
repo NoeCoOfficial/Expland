@@ -54,6 +54,7 @@ var is_hovering_over_email_noeco = false
 var is_hovering_over_feedback_github = false
 var is_hovering_over_test_obj = false
 var is_hovering_over_sackcloth_bed = false
+var is_hovering_over_chest = false
 
 func spawn_interaction_notification(KEY : String, MESSAGE : String):
 	if !is_notification_on_screen:
@@ -90,3 +91,6 @@ func _input(_event: InputEvent) -> void:
 			else:
 				var PLAYER = get_node("/root/World/Player")
 				PLAYER.spawn_minimal_alert_from_player(2.0, 0.1, 0.5, "You can only sleep at night.")
+		
+		if Input.is_action_just_pressed("Interact") and is_hovering_over_chest:
+			pass # do stuff
