@@ -45,26 +45,30 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
+@icon("res://Textures/Icons/Script Icons/32x32/chest.png")
 extends Node3D
 
 var ANIMATING
 
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 func _on_anim_finished(anim_name: StringName) -> void:
+	
+	ANIMATING = false
+	
 	if anim_name == &"open":
-		ANIMATING = false
+		pass
 	
 	elif anim_name == &"close":
-		ANIMATING = true
+		pass
 
 func animate(TYPE : String):
 	if TYPE == "OPEN":
-		pass
+		$OpenAndCloseAnim.play("open")
 	
 	elif TYPE == "CLOSE":
-		pass
+		$OpenAndCloseAnim.play("close")
 
 func is_animating():
 	return ANIMATING

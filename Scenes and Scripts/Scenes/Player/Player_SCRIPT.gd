@@ -258,7 +258,8 @@ func _input(_event): # A built-in function that listens for input using the inpu
 				closeInventory()
 			
 			if InventoryManager.in_chest_interface:
-				closeChest()
+				if !InventoryManager.chestNode.is_animating():
+					closeChest()
 	
 	if Input.is_action_just_pressed("Quit") and Quit == true and OS.has_feature("debug"): # if the Quit input is pressed and the Quit variable is true
 		SaveManager.saveAllData()
@@ -644,11 +645,13 @@ func openChest():
 	ChestUILayer.show()
 	InventoryManager.in_chest_interface = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	InventoryManager.chestNode.animate("OPEN")
 
 func closeChest():
 	ChestUILayer.hide()
 	InventoryManager.in_chest_interface = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	InventoryManager.chestNode.animate("CLOSE")
 
 ######################################
 # Pause functionality and layer
