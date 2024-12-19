@@ -276,7 +276,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 	if Input.is_action_just_pressed("SaveGame") and OS.has_feature("debug"):
 		saveAllDataWithAnimation()
 	
-	if Input.is_action_just_pressed("Inventory") and !PauseManager.is_paused and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
+	if Input.is_action_just_pressed("Inventory") and !PauseManager.is_paused and !InventoryManager.in_chest_interface and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
 		if !InventoryManager.inventory_open:
 			openInventory()
 		else:

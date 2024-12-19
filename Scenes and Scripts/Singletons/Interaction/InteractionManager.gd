@@ -93,4 +93,5 @@ func _input(_event: InputEvent) -> void:
 				PLAYER.spawn_minimal_alert_from_player(2.0, 0.1, 0.5, "You can only sleep at night.")
 		
 		if Input.is_action_just_pressed("Interact") and is_hovering_over_chest:
-			pass # do stuff
+			var PLAYER = get_node("/root/World/Player")
+			PLAYER.openChest()
