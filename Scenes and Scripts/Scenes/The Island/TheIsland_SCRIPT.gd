@@ -100,9 +100,9 @@ func _on_ready() -> void:
 
 func set_motion_blur(value : bool) -> void:
 	if value:
-		$WorldEnvironment.set_compositor(motionBlurCompositor)
+		IslandWorldEnvironmentNode.set_compositor(motionBlurCompositor)
 	else:
-		$WorldEnvironment.set_compositor(noMotionBlurCompositor)
+		IslandWorldEnvironmentNode.set_compositor(noMotionBlurCompositor)
 
 func set_dof_blur(value : bool) -> void:
 	var cameraAttributesResource = load("res://Resources/Environment/DefaultCameraAttributes.tres")

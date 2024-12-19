@@ -734,6 +734,7 @@ autowrap_mode = 1
 script = ExtResource("9_svfxy")
 
 [node name="DebugLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="item_ref_LBL" type="Label" parent="Head/Camera3D/DebugLayer"]
 self_modulate = Color(1, 1, 1, 0.196078)

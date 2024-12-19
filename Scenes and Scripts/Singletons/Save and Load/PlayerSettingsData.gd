@@ -152,37 +152,43 @@ func loadSettings() -> void:
 ######################################
 
 func set_motion_blur(value : bool) -> void:
-	if value:
-		MotionBlur = true
-		var world = get_node("/root/World")
-		
-		if world.has_method("set_motion_blur"):
-			world.set_motion_blur(value)
+	if get_node("/root/World") != null:
+		if value:
+			MotionBlur = true
+			var world = get_node("/root/World")
+			
+			if world.has_method("set_motion_blur"):
+				world.set_motion_blur(value)
+			else:
+				printerr("[PlayerSettingsData] Could not find set_motion_blur() method in world node.")
 		else:
-			printerr("[PlayerSettingsData] Could not find set_motion_blur() method in world node.")
+			MotionBlur = false
+			var world = get_node("/root/World")
+			
+			if world.has_method("set_motion_blur"):
+				world.set_motion_blur(value)
+			else:
+				printerr("[PlayerSettingsData] Could not find set_motion_blur() method in world node.")
 	else:
-		MotionBlur = false
-		var world = get_node("/root/World")
-		
-		if world.has_method("set_motion_blur"):
-			world.set_motion_blur(value)
-		else:
-			printerr("[PlayerSettingsData] Could not find set_motion_blur() method in world node.")
+		printerr("[PlayerSettingsData] World node (/root/World) is null. Can't call set_motion_blur().")
 
 func set_dof_blur(value : bool) -> void:
-	if value:
-		DOFBlur = true
-		var world = get_node("/root/World")
-		
-		if world.has_method("set_dof_blur"):
-			world.set_dof_blur(value)
-		else:
-			printerr("[PlayerSettingsData] Could not find set_dof_blur() method in world node.")
+	if get_node("/root/World") != null:
+			if value:
+				DOFBlur = true
+				var world = get_node("/root/World")
+				
+				if world.has_method("set_dof_blur"):
+					world.set_dof_blur(value)
+				else:
+					printerr("[PlayerSettingsData] Could not find set_dof_blur() method in world node.")
+			else:
+				DOFBlur = false
+				var world = get_node("/root/World")
+				
+				if world.has_method("set_dof_blur"):
+					world.set_dof_blur(value)
+				else:
+					printerr("[PlayerSettingsData] Could not find set_dof_blur() method in world node.")
 	else:
-		DOFBlur = false
-		var world = get_node("/root/World")
-		
-		if world.has_method("set_dof_blur"):
-			world.set_dof_blur(value)
-		else:
-			printerr("[PlayerSettingsData] Could not find set_dof_blur() method in world node.")
+		printerr("[PlayerSettingsData] World node (/root/World) is null. Can't call set_dof_blur().")
