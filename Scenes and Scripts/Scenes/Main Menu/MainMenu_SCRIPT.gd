@@ -50,10 +50,14 @@ extends Node3D
 
 var transitioning_scene = false
 var is_in_gamemode_select = false
+var is_in_free_mode_island_popup = false
 
 @onready var StartupNotice = preload("res://Scenes and Scripts/Scenes/Startup Notice/StartupNotice.tscn")
 @onready var world = preload("res://Scenes and Scripts/Scenes/The Island/TheIsland.tscn")
 @onready var DefaultXPos = $Camera3D/MainLayer/PlayButton.position.x
+
+@export_group("Node references")
+@export var FreeModeIslandPopupLayer : CanvasLayer
 
 ######################################
 # Startup
@@ -266,6 +270,15 @@ func _on_play_story_mode_button_pressed() -> void:
 	pass
 
 func _on_play_free_mode_button_pressed() -> void:
+	
+	
+	
+	
+	
+	
+	
+	
+	"""
 	transitioning_scene = true
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -278,6 +291,7 @@ func _on_play_free_mode_button_pressed() -> void:
 	
 	tween.tween_property($Camera3D/MainLayer/TransitionFadeOut, "modulate", Color(1, 1, 1, 1), 1)
 	tween.tween_interval(1)
+	"""
 
 func on_free_mode_fade_finished():
 	get_tree().change_scene_to_packed(world)

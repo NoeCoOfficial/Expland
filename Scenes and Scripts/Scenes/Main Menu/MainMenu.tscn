@@ -149,8 +149,9 @@ vertex_color_use_as_albedo = true
 material = SubResource("StandardMaterial3D_rvn2t")
 curve = SubResource("Curve_tq56d")
 
-[node name="MainMenu" type="Node3D"]
+[node name="MainMenu" type="Node3D" node_paths=PackedStringArray("FreeModeIslandPopupLayer")]
 script = ExtResource("1_8n1c6")
+FreeModeIslandPopupLayer = NodePath("Camera3D/MainLayer/FreeModeIslandPopup")
 
 [node name="CameraAnim" type="AnimationPlayer" parent="."]
 libraries = {
