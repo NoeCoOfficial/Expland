@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dj4gl1wcwor6m"]
+
+[node name="Space" type="Label"]
+theme_override_font_sizes/font_size = 15
+text = "
+
+
+
+"
