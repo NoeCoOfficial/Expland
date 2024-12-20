@@ -748,7 +748,6 @@ visible = false
 visible = false
 
 [node name="FreeModeIslandPopup" type="CanvasLayer" parent="Camera3D/MainLayer"]
-visible = false
 
 [node name="GreyLayer" type="ColorRect" parent="Camera3D/MainLayer/FreeModeIslandPopup"]
 anchors_preset = 15
@@ -760,16 +759,15 @@ color = Color(0, 0, 0, 0.643)
 script = ExtResource("10_y68f7")
 
 [node name="NewIslandOrLoadIslandPopup" type="Panel" parent="Camera3D/MainLayer/FreeModeIslandPopup"]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -180.0
-offset_top = -58.0
+offset_top = -33.0
 offset_right = 180.0
-offset_bottom = 8.0
+offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("21_v2lsw")
@@ -822,16 +820,15 @@ text = "Load Island"
 metadata/_edit_use_anchors_ = true
 
 [node name="NewIslandPopup" type="Panel" parent="Camera3D/MainLayer/FreeModeIslandPopup"]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -180.0
-offset_top = -58.0
+offset_top = -33.0
 offset_right = 180.0
-offset_bottom = 8.0
+offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("21_v2lsw")
@@ -868,6 +865,58 @@ text = "Start"
 metadata/_edit_use_anchors_ = true
 
 [node name="Island_Name_TextEdit" type="TextEdit" parent="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.025
+anchor_top = 0.469697
+anchor_right = 0.711111
+anchor_bottom = 0.909091
+focus_mode = 1
+theme_override_fonts/font = ExtResource("11_1cstc")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = ExtResource("25_3j2x4")
+theme_override_styles/focus = ExtResource("26_j2nrr")
+theme_override_styles/read_only = ExtResource("25_3j2x4")
+placeholder_text = "Island name..."
+context_menu_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+scroll_fit_content_height = true
+caret_blink = true
+metadata/_edit_use_anchors_ = true
+
+[node name="LoadIslandPopup" type="Panel" parent="Camera3D/MainLayer/FreeModeIslandPopup"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 732.0
+offset_top = -58.0
+offset_right = 1092.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("21_v2lsw")
+
+[node name="Title" type="Label" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -91.5
+offset_top = 6.0
+offset_right = 91.5
+offset_bottom = 29.0
+grow_horizontal = 2
+theme = ExtResource("4_grlcg")
+text = "Create a new Island"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Island_Name_TextEdit" type="TextEdit" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.025
