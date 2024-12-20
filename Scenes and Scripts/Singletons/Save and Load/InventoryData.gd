@@ -47,13 +47,13 @@
 
 extends Node
 
-var INVENTORY_SAVE_PATH = "res://saveData//inventory.save"
+var INVENTORY_SAVE_PATH = "res://saveData/Free Mode/Islands/inventory.save"
 
 var inventory_data = []
 
 func saveInventory(Island_Name : String, parent_node: Node) -> void:
 	Utils.createIslandSaveFolder(Island_Name)
-	INVENTORY_SAVE_PATH = "res://saveData/" + Island_Name + "/inventory.save"
+	INVENTORY_SAVE_PATH = "res://saveData/Free Mode/Islands/" + Island_Name + "/inventory.save"
 	
 	# Clear the inventory_data before saving
 	inventory_data.clear()
@@ -83,7 +83,7 @@ func saveInventory(Island_Name : String, parent_node: Node) -> void:
 
 func loadInventory(Island_Name : String) -> void:
 	Utils.createIslandSaveFolder(Island_Name)
-	INVENTORY_SAVE_PATH = "res://saveData/" + Island_Name + "/inventory.save"
+	INVENTORY_SAVE_PATH = "res://saveData/Free Mode/Islands/" + Island_Name + "/inventory.save"
 	
 	var file = FileAccess.open(INVENTORY_SAVE_PATH, FileAccess.READ)
 	if not file:
