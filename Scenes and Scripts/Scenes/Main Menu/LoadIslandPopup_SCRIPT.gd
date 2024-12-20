@@ -69,7 +69,10 @@ func loadAndShow() -> void:
 				first_element = false
 				var island_save_element = load("res://Scenes and Scripts/Scenes/Main Menu/IslandSaveElement/IslandSaveElement.tscn").instantiate()
 				$ScrollContainer/VBoxContainer.add_child(island_save_element)
-				island_save_element.initializeProperties(folder_name)
+				var image_path = "res://saveData/Free Mode/Islands/%s/island.png" % folder_name
+				if not FileAccess.file_exists(image_path):
+					image_path = ""
+				island_save_element.initializeProperties(folder_name, image_path)
 			folder_name = dir.get_next()
 		dir.list_dir_end()
 

@@ -51,5 +51,8 @@ extends Control
 func _ready() -> void:
 	name = "IslandSaveElement"
 
-func initializeProperties(Island_Name : String):
+func initializeProperties(Island_Name: String, gameplay_image_path: String) -> void:
 	$Island_Name_TextEdit.text = Island_Name
+	
+	if gameplay_image_path != "":
+		$PanelContainer/TextureRect.texture = load(gameplay_image_path)
