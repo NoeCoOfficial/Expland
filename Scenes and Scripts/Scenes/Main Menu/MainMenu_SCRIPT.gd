@@ -50,6 +50,7 @@ extends Node3D
 
 var transitioning_scene = false
 var is_in_gamemode_select = false
+var is_in_absolute_gamemode_select = false
 var is_in_free_mode_island_popup = false
 
 @onready var StartupNotice = preload("res://Scenes and Scripts/Scenes/Startup Notice/StartupNotice.tscn")
@@ -87,7 +88,6 @@ func _ready() -> void:
 	Utils.set_center_offset($Camera3D/MainLayer/QuitButton)
 	Utils.set_center_offset($Camera3D/MainLayer/QuitButtonTrigger)
 
-	
 	await get_tree().create_timer(1).timeout
 	onStartup()
 
@@ -121,7 +121,13 @@ func onStartup():
 	tween.tween_property($Camera3D/MainLayer/AchievementsButton, "position", Vector2(947, 558), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.2)
 	
 	tween.tween_property($Camera3D/MainLayer/CreditsButton, "position", Vector2(1018, 605), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.2)
+######################################
+# Process
+######################################
 
+func _process(_delta: float) -> void:
+	$Camera3D/MainLayer/is_in_gamemode_select.text = str(is_in_absolute_gamemode_select)
+	$Camera3D/MainLayer/is_in_free_mode_popup.text = str(is_in_free_mode_island_popup)
 
 ######################################
 # Input
@@ -137,6 +143,11 @@ func _input(_event: InputEvent) -> void:
 			$Camera3D/MainLayer/AchievementsUI.despawnAchievements(0.5)
 		if PauseManager.is_inside_credits:
 			$Camera3D/MainLayer/CreditsLayer.despawnCredits(0.5)
+		if is_in_free_mode_island_popup:
+			FreeModeIslandPopupLayer.visible = false
+			is_in_free_mode_island_popup = false
+			is_in_gamemode_select = true
+			is_in_absolute_gamemode_select = true
 
 ######################################
 # PlayButton animations and functions
@@ -167,6 +178,7 @@ func _on_play_button_trigger_pressed() -> void:
 	spawnGameModeMenu()
 
 func spawnGameModeMenu():
+	is_in_absolute_gamemode_select = true
 	
 	$Camera3D/MainLayer/PlayButtonTrigger.visible = false
 	$Camera3D/MainLayer/GreyLayerGamemodeLayer.show()
@@ -185,9 +197,9 @@ func spawnGameModeMenu():
 func on_spawn_game_mode_menu_tween_finished():
 	is_in_gamemode_select = true
 
-
 func deSpawnGameModeMenu():
 	if !transitioning_scene:
+		is_in_absolute_gamemode_select = false
 		is_in_gamemode_select = false
 		
 		$Camera3D/MainLayer/PlayButtonTrigger.visible = true
@@ -271,11 +283,10 @@ func _on_play_story_mode_button_pressed() -> void:
 
 func _on_play_free_mode_button_pressed() -> void:
 	
-	
-	
-	
-	
-	
+	FreeModeIslandPopupLayer.visible = true
+	is_in_free_mode_island_popup = true
+	is_in_gamemode_select = false
+	is_in_absolute_gamemode_select = false
 	
 	
 	"""

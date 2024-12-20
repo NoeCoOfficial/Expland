@@ -451,7 +451,6 @@ theme_override_font_sizes/font_size = 27
 text = "CREDITS"
 
 [node name="Version_LBL" type="Label" parent="Camera3D/MainLayer"]
-visible = false
 modulate = Color(1, 1, 1, 0.259)
 anchors_preset = 1
 anchor_left = 1.0
@@ -464,6 +463,34 @@ grow_horizontal = 0
 theme = ExtResource("4_grlcg")
 theme_override_font_sizes/font_size = 26
 text = "v0.5.5"
+
+[node name="is_in_gamemode_select" type="Label" parent="Camera3D/MainLayer"]
+modulate = Color(1, 1, 1, 0.259)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -83.0
+offset_top = 48.0
+offset_right = -8.0
+offset_bottom = 79.0
+grow_horizontal = 0
+theme = ExtResource("4_grlcg")
+theme_override_font_sizes/font_size = 26
+text = "true"
+
+[node name="is_in_free_mode_popup" type="Label" parent="Camera3D/MainLayer"]
+modulate = Color(1, 1, 1, 0.259)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -83.0
+offset_top = 72.0
+offset_right = -8.0
+offset_bottom = 103.0
+grow_horizontal = 0
+theme = ExtResource("4_grlcg")
+theme_override_font_sizes/font_size = 26
+text = "false"
 
 [node name="FadeOut" type="ColorRect" parent="Camera3D/MainLayer"]
 anchors_preset = 15
@@ -745,9 +772,9 @@ visible = false
 visible = false
 
 [node name="FreeModeIslandPopup" type="CanvasLayer" parent="Camera3D/MainLayer"]
+visible = false
 
 [node name="GreyLayer" type="ColorRect" parent="Camera3D/MainLayer/FreeModeIslandPopup"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
