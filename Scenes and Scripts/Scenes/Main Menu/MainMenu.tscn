@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=46 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="PackedScene" uid="uid://jb61th5px5nt" path="res://Assets/3D Models/Tests/Island/Island 2.blend" id="2_0llf6"]
@@ -29,6 +29,10 @@
 [ext_resource type="Texture2D" uid="uid://ddboyvj4u3hwq" path="res://Textures/Icons/PadlockWhite_Icon.png" id="16_3n0bi"]
 [ext_resource type="PackedScene" uid="uid://djenc4llne53s" path="res://Scenes and Scripts/Scenes/Credits/CreditsLayer.tscn" id="19_0ti8x"]
 [ext_resource type="PackedScene" uid="uid://b7la7o37o5gld" path="res://Scenes and Scripts/Scenes/Achievements/AchievementsUI.tscn" id="19_gyuud"]
+[ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="21_v2lsw"]
+[ext_resource type="StyleBox" uid="uid://dk6yg5shsrlga" path="res://Resources/Styles and Themes/Styles/Default/Button/Default_Hover.tres" id="22_dd8k4"]
+[ext_resource type="StyleBox" uid="uid://4bki1vu11lcb" path="res://Resources/Styles and Themes/Styles/Default/Button/Default_Pressed.tres" id="23_ocvtf"]
+[ext_resource type="StyleBox" uid="uid://dysjxkdohprwn" path="res://Resources/Styles and Themes/Styles/Default/Button/Default_Normal.tres" id="24_r2ree"]
 
 [sub_resource type="Animation" id="Animation_6cyol"]
 length = 0.001
@@ -739,6 +743,79 @@ visible = false
 [node name="CreditsLayer" parent="Camera3D/MainLayer" instance=ExtResource("19_0ti8x")]
 visible = false
 
+[node name="FreeModeIslandPopup" type="CanvasLayer" parent="Camera3D/MainLayer"]
+
+[node name="GreyLayer" type="ColorRect" parent="Camera3D/MainLayer/FreeModeIslandPopup"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.643)
+script = ExtResource("10_y68f7")
+
+[node name="Background" type="Panel" parent="Camera3D/MainLayer/FreeModeIslandPopup"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -58.0
+offset_right = 180.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("21_v2lsw")
+
+[node name="Title" type="Label" parent="Camera3D/MainLayer/FreeModeIslandPopup/Background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -91.5
+offset_top = 6.0
+offset_right = 91.5
+offset_bottom = 29.0
+grow_horizontal = 2
+theme = ExtResource("4_grlcg")
+text = "Start fresh or continue?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NewIslandButton" type="Button" parent="Camera3D/MainLayer/FreeModeIslandPopup/Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0305556
+anchor_top = 0.469697
+anchor_right = 0.494444
+anchor_bottom = 0.863636
+grow_vertical = 0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("5_dfh28")
+theme_override_styles/hover = ExtResource("22_dd8k4")
+theme_override_styles/pressed = ExtResource("23_ocvtf")
+theme_override_styles/normal = ExtResource("24_r2ree")
+text = "New Island"
+metadata/_edit_use_anchors_ = true
+
+[node name="LoadIslandButton" type="Button" parent="Camera3D/MainLayer/FreeModeIslandPopup/Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.505556
+anchor_top = 0.469697
+anchor_right = 0.969444
+anchor_bottom = 0.863636
+grow_vertical = 0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("5_dfh28")
+theme_override_styles/hover = ExtResource("22_dd8k4")
+theme_override_styles/pressed = ExtResource("23_ocvtf")
+theme_override_styles/normal = ExtResource("24_r2ree")
+text = "Load Island"
+metadata/_edit_use_anchors_ = true
+
 [node name="TransitionFadeOut" type="ColorRect" parent="Camera3D/MainLayer"]
 visible = false
 anchors_preset = 15
@@ -754,6 +831,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = -3.0
+offset_right = 12.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
