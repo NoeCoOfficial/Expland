@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://oker5ahpwg2"]
+[gd_scene load_steps=12 format=3 uid="uid://oker5ahpwg2"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/IslandSaveElement/IslandSaveElement_SCRIPT.gd" id="1_eww5b"]
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="2_drivp"]
@@ -6,6 +6,10 @@
 [ext_resource type="StyleBox" uid="uid://cm8xotke6bccm" path="res://Resources/Styles and Themes/Styles/Default/Text Edit/Default_Normal_TextEdit.tres" id="3_gaeij"]
 [ext_resource type="StyleBox" uid="uid://cf1a43wkesukc" path="res://Resources/Styles and Themes/Styles/Default/Text Edit/Default_Focus_TextEdit.tres" id="4_4qh26"]
 [ext_resource type="Texture2D" uid="uid://b4lev783o86l7" path="res://Textures/Images/DefaultLoadImage.png" id="6_y0s30"]
+[ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="7_hm3by"]
+[ext_resource type="StyleBox" uid="uid://dk6yg5shsrlga" path="res://Resources/Styles and Themes/Styles/Default/Button/Default_Hover.tres" id="8_3226v"]
+[ext_resource type="StyleBox" uid="uid://4bki1vu11lcb" path="res://Resources/Styles and Themes/Styles/Default/Button/Default_Pressed.tres" id="9_ng22a"]
+[ext_resource type="StyleBox" uid="uid://dysjxkdohprwn" path="res://Resources/Styles and Themes/Styles/Default/Button/Default_Normal.tres" id="10_cxkgr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6maf"]
 corner_radius_top_left = 5
@@ -56,7 +60,7 @@ scroll_fit_content_height = true
 caret_blink = true
 metadata/_edit_use_anchors_ = true
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="GameplayTextureContainer" type="PanelContainer" parent="."]
 clip_children = 1
 layout_mode = 0
 offset_left = 9.0
@@ -65,7 +69,58 @@ offset_right = 159.0
 offset_bottom = 88.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_g6maf")
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
+[node name="GameplayTexture" type="TextureRect" parent="GameplayTextureContainer"]
 layout_mode = 2
 texture = ExtResource("6_y0s30")
 expand_mode = 1
+
+[node name="EnterIslandButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.465054
+anchor_top = 0.40404
+anchor_right = 0.706989
+anchor_bottom = 0.616162
+grow_vertical = 0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("7_hm3by")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/hover = ExtResource("8_3226v")
+theme_override_styles/pressed = ExtResource("9_ng22a")
+theme_override_styles/normal = ExtResource("10_cxkgr")
+text = "Enter Island"
+metadata/_edit_use_anchors_ = true
+
+[node name="DeleteIslandButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.717742
+anchor_top = 0.40404
+anchor_right = 0.959678
+anchor_bottom = 0.616162
+grow_vertical = 0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("7_hm3by")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/hover = ExtResource("8_3226v")
+theme_override_styles/pressed = ExtResource("9_ng22a")
+theme_override_styles/normal = ExtResource("10_cxkgr")
+text = "Delete Island"
+metadata/_edit_use_anchors_ = true
+
+[node name="EnterIslandButton2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.465054
+anchor_top = 0.676768
+anchor_right = 0.959677
+anchor_bottom = 0.888889
+grow_vertical = 0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("7_hm3by")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/hover = ExtResource("8_3226v")
+theme_override_styles/pressed = ExtResource("9_ng22a")
+theme_override_styles/normal = ExtResource("10_cxkgr")
+text = "Export"
+metadata/_edit_use_anchors_ = true

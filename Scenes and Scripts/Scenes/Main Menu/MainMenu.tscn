@@ -749,7 +749,6 @@ visible = false
 visible = false
 
 [node name="FreeModeIslandPopup" type="CanvasLayer" parent="Camera3D/MainLayer"]
-visible = false
 
 [node name="GreyLayer" type="ColorRect" parent="Camera3D/MainLayer/FreeModeIslandPopup"]
 anchors_preset = 15
@@ -918,13 +917,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("21_v2lsw")
 
-[node name="IslandSaveElement" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup" instance=ExtResource("28_gk8ry")]
-layout_mode = 1
-anchor_left = 0.243056
-anchor_top = 0.324074
-anchor_right = 0.515625
-anchor_bottom = 0.476852
-
 [node name="Title" type="Label" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup"]
 layout_mode = 1
 anchors_preset = 5
@@ -940,6 +932,13 @@ theme_override_font_sizes/font_size = 20
 text = "Load an Island"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="IslandSaveElement" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup" instance=ExtResource("28_gk8ry")]
+layout_mode = 1
+anchor_left = 0.239583
+anchor_top = 0.322531
+anchor_right = 0.5625
+anchor_bottom = 0.475309
 
 [node name="TopLayer" type="CanvasLayer" parent="Camera3D/MainLayer"]
 
