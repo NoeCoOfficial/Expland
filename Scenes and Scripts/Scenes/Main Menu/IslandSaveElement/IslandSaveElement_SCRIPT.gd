@@ -51,5 +51,5 @@ extends Control
 func _ready() -> void:
 	name = "IslandSaveElement"
 
-func initializeProperties(Island_Name : String, path_to_image):
+func initializeProperties(Island_Name : String):
 	$Island_Name_TextEdit.text = Island_Name
