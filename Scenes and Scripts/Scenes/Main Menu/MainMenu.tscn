@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=49 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="PackedScene" uid="uid://jb61th5px5nt" path="res://Assets/3D Models/Tests/Island/Island 2.blend" id="2_0llf6"]
@@ -35,6 +35,7 @@
 [ext_resource type="StyleBox" uid="uid://dysjxkdohprwn" path="res://Resources/Styles and Themes/Styles/Default/Button/Default_Normal.tres" id="24_r2ree"]
 [ext_resource type="StyleBox" uid="uid://cm8xotke6bccm" path="res://Resources/Styles and Themes/Styles/Default/Text Edit/Default_Normal_TextEdit.tres" id="25_3j2x4"]
 [ext_resource type="StyleBox" uid="uid://cf1a43wkesukc" path="res://Resources/Styles and Themes/Styles/Default/Text Edit/Default_Focus_TextEdit.tres" id="26_j2nrr"]
+[ext_resource type="PackedScene" uid="uid://cq13w255wbu5l" path="res://Scenes and Scripts/Scenes/Minimal Alert/MinimalAlert.tscn" id="27_7myre"]
 
 [sub_resource type="Animation" id="Animation_6cyol"]
 length = 0.001
@@ -747,6 +748,7 @@ visible = false
 visible = false
 
 [node name="FreeModeIslandPopup" type="CanvasLayer" parent="Camera3D/MainLayer"]
+visible = false
 
 [node name="GreyLayer" type="ColorRect" parent="Camera3D/MainLayer/FreeModeIslandPopup"]
 anchors_preset = 15
@@ -820,6 +822,7 @@ text = "Load Island"
 metadata/_edit_use_anchors_ = true
 
 [node name="NewIslandPopup" type="Panel" parent="Camera3D/MainLayer/FreeModeIslandPopup"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -885,6 +888,8 @@ middle_mouse_paste_enabled = false
 scroll_fit_content_height = true
 caret_blink = true
 metadata/_edit_use_anchors_ = true
+
+[node name="MinimalAlert" parent="Camera3D/MainLayer/FreeModeIslandPopup" instance=ExtResource("27_7myre")]
 
 [node name="TransitionFadeOut" type="ColorRect" parent="Camera3D/MainLayer"]
 visible = false
@@ -986,4 +991,8 @@ initial_velocity_max = 47.09
 [connection signal="pressed" from="Camera3D/MainLayer/GameModeLayer/BG_StoryMode/PlayStoryModeButton" to="." method="_on_play_story_mode_button_pressed"]
 [connection signal="pressed" from="Camera3D/MainLayer/GameModeLayer/BG_FreeMode/PlayFreeModeButton" to="." method="_on_play_free_mode_button_pressed"]
 [connection signal="pressed" from="Camera3D/MainLayer/GameModeLayer/BG_ParkourMode/PlayParkourModeButton" to="." method="_on_play_parkour_mode_button_pressed"]
+[connection signal="pressed" from="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandOrLoadIslandPopup/NewIslandButton" to="." method="_on_new_island_button_pressed"]
+[connection signal="pressed" from="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandOrLoadIslandPopup/LoadIslandButton" to="." method="_on_load_island_button_pressed"]
 [connection signal="pressed" from="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/InPopupNewIslandButton" to="." method="_on_in_popup_new_island_button_pressed"]
+
+[editable path="Camera3D/MainLayer/FreeModeIslandPopup/MinimalAlert"]

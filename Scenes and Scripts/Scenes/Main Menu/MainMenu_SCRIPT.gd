@@ -49,9 +49,13 @@
 extends Node3D
 
 var transitioning_scene = false
+
 var is_in_gamemode_select = false
 var is_in_absolute_gamemode_select = false
+
 var is_in_free_mode_island_popup = false
+var is_in_free_mode_create_island = false
+
 var is_tweening = false
 
 @onready var StartupNotice = preload("res://Scenes and Scripts/Scenes/Startup Notice/StartupNotice.tscn")
@@ -287,6 +291,8 @@ func _on_play_story_mode_button_pressed() -> void:
 func _on_play_free_mode_button_pressed() -> void:
 	
 	FreeModeIslandPopupLayer.visible = true
+	$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandOrLoadIslandPopup.show()
+	$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup.hide()
 	is_in_free_mode_island_popup = true
 	is_in_gamemode_select = false
 	is_in_absolute_gamemode_select = false
@@ -325,12 +331,6 @@ func _on_new_island_name_text_input(event: InputEventKey) -> void:
 	if event.unicode_char in invalid_chars:
 		event.accepted = false
 
-#	if text == "" or text.length() > 100 or any(char in invalid_chars for char in text):
-#		print("Invalid island name: Name cannot be empty, exceed 100 characters, or contain invalid characters.")
-#	else:
-#		print("Valid island name: ", text)
-
-
 func _on_in_popup_new_island_button_pressed() -> void:
 	var text_edit = $Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit
 	var text = text_edit.text
@@ -350,6 +350,16 @@ func _on_in_popup_new_island_button_pressed() -> void:
 	text_edit.text = sanitized_name
 	
 	if not has_valid_char:
-		print("Invalid island name: Name cannot be empty or consist only of spaces and invalid characters.")
+		print("Invalid Island name: Name cannot be empty or consist only of spaces and invalid characters.")
+		$Camera3D/MainLayer/FreeModeIslandPopup/MinimalAlert.spawn_minimal_alert(4, 0.5, 0.5, "Island name cannot be empty, contain only spaces, or contain invalid characters.")
 	else:
 		print("Valid island name: ", sanitized_name)
+
+func _on_new_island_button_pressed() -> void:
+	is_in_free_mode_island_popup = false
+	is_in_free_mode_create_island = true
+	$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandOrLoadIslandPopup.hide()
+	$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup.hide()
+
+func _on_load_island_button_pressed() -> void:
+	pass # Replace with function body.
