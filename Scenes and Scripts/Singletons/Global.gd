@@ -48,6 +48,3 @@
 extends Node
 
 var is_first_time_in_menu = true
-
-func _ready() -> void:
-	Utils.createIslandSaveFolder("skibidi")

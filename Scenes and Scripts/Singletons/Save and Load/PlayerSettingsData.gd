@@ -48,7 +48,7 @@
 @icon("res://Textures/Icons/Script Icons/32x32/settings_save.png")
 extends Node
 
-const SAVE_PATH = "res://settings.save"
+const SAVE_PATH = "res://saveData/settings.save"
 
 ######################################
 # General
@@ -83,6 +83,7 @@ var Master_Volume = 1
 ######################################
 
 func saveSettings() -> void:
+	Utils.createBaseSaveFolder()
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	var data = {
 		
@@ -108,6 +109,7 @@ func saveSettings() -> void:
 	print("[PlayerSettingsData] --Saved Player Settings--")
 
 func loadSettings() -> void:
+	Utils.createBaseSaveFolder()
 	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
 	if not file:
 		push_warning("[PlayerSettingsData] File doesn't exist (" + SAVE_PATH + ")")

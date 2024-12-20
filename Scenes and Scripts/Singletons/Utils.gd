@@ -135,3 +135,19 @@ func createIslandSaveFolder(folder_name: String) -> void:
 			print("Folder already exists and will not be cleared: ", full_path)
 	else:
 		print("Failed to access res:// directory")
+
+func createBaseSaveFolder() -> void:
+	var dir = DirAccess.open("res://")
+	
+	if dir:
+		# Ensure the base "saveData" folder exists
+		if not dir.dir_exists("saveData"):
+			var err = dir.make_dir("saveData")
+			if err != OK:
+				print("Failed to create base folder 'saveData': ", err)
+			else:
+				print("Base folder 'saveData' created.")
+		else:
+			print("Base folder 'saveData' already exists and will not be cleared.")
+	else:
+		print("Failed to access res:// directory")
