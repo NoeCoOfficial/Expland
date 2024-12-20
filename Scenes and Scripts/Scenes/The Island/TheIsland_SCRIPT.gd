@@ -86,7 +86,10 @@ var sunRotation_tween
 
 func _ready() -> void:
 	HourTimer.wait_time = HOUR_LENGTH
-	SaveManager.loadAllData()
+	
+	PlayerData.loadData(IslandManager.Current_Island_Name, true)
+	InventoryData.loadInventory(IslandManager.Current_Island_Name)
+	
 	PlayerManager.init()
 	set_motion_blur(PlayerSettingsData.MotionBlur)
 	set_dof_blur(PlayerSettingsData.DOFBlur)
