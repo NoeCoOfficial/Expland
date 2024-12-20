@@ -934,7 +934,7 @@ vertical_alignment = 1
 [node name="ScrollContainer" type="ScrollContainer" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup"]
 layout_mode = 0
 offset_left = 272.0
-offset_top = 202.0
+offset_top = 208.0
 offset_right = 652.0
 offset_bottom = 477.0
 
