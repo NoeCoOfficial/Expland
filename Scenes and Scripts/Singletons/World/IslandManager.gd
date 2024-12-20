@@ -47,4 +47,4 @@
 
 extends Node
 
-var Current_Island_Name = ""
+var Current_Island_Name = "Default"
