@@ -48,6 +48,9 @@
 @icon("res://Textures/Icons/Script Icons/32x32/world_page.png")
 extends Node
 
+func initializeIslandProperties(_Island_Name):
+	pass
+
 var HOUR_LENGTH = 120
 
 @onready var motionBlurCompositor = preload("res://Resources/Environment/TheIsland_MotionBlurCompositor.tres")

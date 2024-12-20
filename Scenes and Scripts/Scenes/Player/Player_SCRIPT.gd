@@ -49,6 +49,7 @@
 extends CharacterBody3D # Inheritance
 
 
+
 """
 
 Below are the player scene's export variables. These are useful for flexibility between maps/levels and referencing nodes.
