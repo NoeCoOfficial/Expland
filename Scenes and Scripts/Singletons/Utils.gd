@@ -109,18 +109,15 @@ func dict_to_vector2(dict: Dictionary) -> Vector2: # Converts a dictionary value
 
 func createIslandSaveFolder(folder_name: String, game_mode : String) -> void:
 	var base_path = "res://saveData"
+	var full_path = base_path
 	
-	var full_path = base_path + "/" + folder_name
-	
+	# Determine the full path based on the game mode
 	if game_mode == "FREE":
-		full_path = base_path + "/Free Mode/Islands/" + folder_name
-	
-	if game_mode == "STORY":
-		full_path = base_path + "/Story Mode/Islands/" + folder_name
-	
-	if game_mode == "PARKOUR":
-		full_path = base_path + "/Parkour Mode/Runs/" + folder_name
-	
+		full_path += "/Free Mode/Islands/" + folder_name
+	elif game_mode == "STORY":
+		full_path += "/Story Mode/Islands/" + folder_name
+	elif game_mode == "PARKOUR":
+		full_path += "/Parkour Mode/Runs/" + folder_name
 	
 	var dir = DirAccess.open("res://")
 	
@@ -134,18 +131,21 @@ func createIslandSaveFolder(folder_name: String, game_mode : String) -> void:
 			else:
 				print("Base folder 'saveData' created.")
 		
-		# Move to the "saveData" directory
-		dir.change_dir("saveData")
+			# Create the necessary subdirectories
+		var subdirs = full_path.replace("res://", "").split("/")
+		var current_path = "res://"
 		
-		# Create the inner folder if it does not exist
-		if not dir.dir_exists(folder_name):
-			var err = dir.make_dir(folder_name)
-			if err == OK:
-				print("Folder created successfully: ", full_path)
+		for subdir in subdirs:
+			current_path += "/" + subdir
+			if not dir.dir_exists(current_path):
+				var err = dir.make_dir(current_path)
+				if err != OK:
+					print("Failed to create folder: ", current_path, " Error: ", err)
+					return
+				else:
+					print("Folder created successfully: ", current_path)
 			else:
-				print("Failed to create folder: ", full_path, " Error: ", err)
-		else:
-			print("Folder already exists and will not be cleared: ", full_path)
+				print("Folder already exists: ", current_path)
 	else:
 		print("Failed to access res:// directory")
 

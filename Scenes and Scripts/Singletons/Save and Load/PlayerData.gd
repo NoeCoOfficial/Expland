@@ -55,7 +55,7 @@ var Health := 100
 
 func saveData(Island_Name : String) -> void:
 	Utils.createIslandSaveFolder(Island_Name, "FREE")
-	SAVE_PATH = "res://saveData/Free Mode/Islands" + Island_Name + "/player.save"
+	SAVE_PATH = "res://saveData/Free Mode/Islands/" + Island_Name + "/player.save"
 	
 	var player = get_node("/root/World/Player")
 	var playerHead = get_node("/root/World/Player/Head")
