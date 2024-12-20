@@ -56,6 +56,8 @@ var is_in_absolute_gamemode_select = false
 var is_in_free_mode_island_popup = false
 var is_in_free_mode_create_island = false
 
+var is_in_load_island_interface = false
+
 var is_tweening = false
 
 @onready var StartupNotice = preload("res://Scenes and Scripts/Scenes/Startup Notice/StartupNotice.tscn")
@@ -135,7 +137,7 @@ func onStartup():
 func _input(_event: InputEvent) -> void:
 	if !transitioning_scene:
 		if Input.is_action_just_pressed("Exit") and !is_tweening:  # Check if not tweening
-			if is_in_gamemode_select and !is_in_free_mode_island_popup and !is_in_free_mode_create_island:
+			if is_in_gamemode_select and !is_in_free_mode_island_popup and !is_in_free_mode_create_island and !is_in_load_island_interface:
 				deSpawnGameModeMenu()
 			
 		if Input.is_action_just_pressed("Exit"):
@@ -148,6 +150,12 @@ func _input(_event: InputEvent) -> void:
 			if PauseManager.is_inside_credits:
 				$Camera3D/MainLayer/CreditsLayer.despawnCredits(0.5)
 			
+			if is_in_load_island_interface:
+				$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup.visible = false
+				is_in_load_island_interface = false
+				is_in_gamemode_select = true
+				is_in_absolute_gamemode_select = true
+				
 			if is_in_free_mode_island_popup:
 				FreeModeIslandPopupLayer.visible = false
 				is_in_free_mode_island_popup = false
@@ -378,4 +386,7 @@ func _on_new_island_button_pressed() -> void:
 	$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup.show()
 
 func _on_load_island_button_pressed() -> void:
-	pass # Replace with function body.
+	$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup.loadAndShow()
+	is_in_load_island_interface = true
+	is_in_absolute_gamemode_select = false
+	is_in_gamemode_select = false

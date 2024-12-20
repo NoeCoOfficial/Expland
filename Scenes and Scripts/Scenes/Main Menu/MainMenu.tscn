@@ -891,10 +891,13 @@ caret_blink = true
 metadata/_edit_use_anchors_ = true
 
 [node name="LoadIslandPopup" type="Control" parent="Camera3D/MainLayer/FreeModeIslandPopup"]
+visible = false
 layout_mode = 3
 anchor_left = 1.0
 anchor_right = 2.0
 anchor_bottom = 1.0
+offset_left = -1152.0
+offset_right = -1152.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("27_ro0wj")

@@ -54,6 +54,7 @@ func _ready() -> void:
 	visible = false
 
 func loadAndShow() -> void:
+	visible = true
 	var dir = DirAccess.open("res://saveData/Free Mode/Islands/")
 	if dir == OK:
 		dir.list_dir_begin()
@@ -62,11 +63,11 @@ func loadAndShow() -> void:
 		while folder_name != "":
 			if dir.current_is_dir() and folder_name != "." and folder_name != "..":
 				if not first_element:
-					var space_divider = load("res://path/to/SpaceDivider.tscn").instance()
-					add_child(space_divider)
+					var space_divider = load("res://Scenes and Scripts/Scenes/Main Menu/SpaceDivider_Label.tscn").instance()
+					$ScrollContainer/VBoxContainer.add_child(space_divider)
 				first_element = false
-				var island_save_element = load("res://path/to/IslandSaveElement.tscn").instance()
-				add_child(island_save_element)
+				var island_save_element = load("res://Scenes and Scripts/Scenes/Main Menu/IslandSaveElement/IslandSaveElement.tscn").instance()
+				$ScrollContainer/VBoxContainer.add_child(island_save_element)
 				island_save_element.initializeProperties(folder_name)
 			folder_name = dir.get_next()
 		dir.list_dir_end()
