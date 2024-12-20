@@ -104,3 +104,50 @@ func vector2_to_dict(vec: Vector2) -> Dictionary: # Converts a Vector2 value to 
 
 func dict_to_vector2(dict: Dictionary) -> Vector2: # Converts a dictionary value to a Vector2 value.
 	return Vector2(dict["x"], dict["y"])
+
+func createIslandSaveFolder(folder_name: String) -> void:
+	var base_path = "res://saveData"
+	var full_path = base_path + "/" + folder_name
+	
+	var dir = DirAccess.open("res://")
+	
+	if dir:
+		# Ensure the base "saveData" folder exists
+		if not dir.dir_exists("saveData"):
+			var err = dir.make_dir("saveData")
+			if err != OK:
+				print("Failed to create base folder 'saveData': ", err)
+				return
+			else:
+				print("Base folder 'saveData' created.")
+		
+		# Move to the "saveData" directory
+		dir.change_dir("saveData")
+		
+		# Create the inner folder if it does not exist
+		if not dir.dir_exists(folder_name):
+			var err = dir.make_dir(folder_name)
+			if err == OK:
+				print("Folder created successfully: ", full_path)
+			else:
+				print("Failed to create folder: ", full_path, " Error: ", err)
+		else:
+			print("Folder already exists and will not be cleared: ", full_path)
+	else:
+		print("Failed to access res:// directory")
+
+func createBaseSaveFolder() -> void:
+	var dir = DirAccess.open("res://")
+	
+	if dir:
+		# Ensure the base "saveData" folder exists
+		if not dir.dir_exists("saveData"):
+			var err = dir.make_dir("saveData")
+			if err != OK:
+				print("Failed to create base folder 'saveData': ", err)
+			else:
+				print("Base folder 'saveData' created.")
+		else:
+			print("Base folder 'saveData' already exists and will not be cleared.")
+	else:
+		print("Failed to access res:// directory")

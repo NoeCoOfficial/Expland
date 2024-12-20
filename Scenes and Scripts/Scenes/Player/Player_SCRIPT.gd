@@ -426,7 +426,8 @@ func _process(_delta):
 func _ready():
 	nodeSetup() # Call the nodeSetup function to setup the nodes
 	
-	InventoryData.loadInventory()
+	InventoryData.loadInventory(IslandManager.Current_Island_Name)
+	
 	DialogueManager.DialogueInterface = $Head/Camera3D/DialogueLayer/DialogueInterface
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Lock mouse
 	
@@ -439,7 +440,7 @@ func _ready():
 		$Head/Camera3D/OverlayLayer/Overlay.show() # show the overlay
 		
 		var tween = get_tree().create_tween()
-		tween.tween_interval(1)
+		tween.tween_interval(1.5)
 		tween.tween_property($Head/Camera3D/OverlayLayer/Overlay, "self_modulate", Color(0, 0, 0, 0), Fade_In_Time) # tween the overlay's self modulate to black
 		tween.tween_property($Head/Camera3D/OverlayLayer/Overlay, "visible", false, 0) # tween the overlay's visibility to false
 	else:
@@ -683,7 +684,7 @@ func _on_credits_button_pressed() -> void:
 ######################################
 
 func saveInventory():
-	InventoryData.saveInventory($Head/Camera3D/InventoryLayer)
+	InventoryData.saveInventory(IslandManager.Current_Island_Name, $Head/Camera3D/InventoryLayer)
 
 func _on_save_and_quit_btn_pressed():
 	SaveManager.saveAllData()

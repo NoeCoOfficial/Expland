@@ -49,9 +49,13 @@
 extends Node3D
 
 var transitioning_scene = false
+
 var is_in_gamemode_select = false
 var is_in_absolute_gamemode_select = false
+
 var is_in_free_mode_island_popup = false
+var is_in_free_mode_create_island = false
+
 var is_tweening = false
 
 @onready var StartupNotice = preload("res://Scenes and Scripts/Scenes/Startup Notice/StartupNotice.tscn")
@@ -60,6 +64,7 @@ var is_tweening = false
 
 @export_group("Node references")
 @export var FreeModeIslandPopupLayer : CanvasLayer
+@export var TextEditNewIslandName : TextEdit
 
 ######################################
 # Startup
@@ -128,22 +133,34 @@ func onStartup():
 ######################################
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("Exit") and !is_tweening:  # Check if not tweening
-		if is_in_gamemode_select and !is_in_free_mode_island_popup:
-			deSpawnGameModeMenu()
-		
-	if Input.is_action_just_pressed("Exit"):
-		if PauseManager.is_inside_settings:
-			$Camera3D/MainLayer/SettingsUI.closeSettings(0.5)
-		if PauseManager.is_inside_achievements_ui:
-			$Camera3D/MainLayer/AchievementsUI.despawnAchievements(0.5)
-		if PauseManager.is_inside_credits:
-			$Camera3D/MainLayer/CreditsLayer.despawnCredits(0.5)
-		if is_in_free_mode_island_popup:
-			FreeModeIslandPopupLayer.visible = false
-			is_in_free_mode_island_popup = false
-			is_in_gamemode_select = true
-			is_in_absolute_gamemode_select = true
+	if !transitioning_scene:
+		if Input.is_action_just_pressed("Exit") and !is_tweening:  # Check if not tweening
+			if is_in_gamemode_select and !is_in_free_mode_island_popup and !is_in_free_mode_create_island:
+				deSpawnGameModeMenu()
+			
+		if Input.is_action_just_pressed("Exit"):
+			if PauseManager.is_inside_settings:
+				$Camera3D/MainLayer/SettingsUI.closeSettings(0.5)
+			
+			if PauseManager.is_inside_achievements_ui:
+				$Camera3D/MainLayer/AchievementsUI.despawnAchievements(0.5)
+			
+			if PauseManager.is_inside_credits:
+				$Camera3D/MainLayer/CreditsLayer.despawnCredits(0.5)
+			
+			if is_in_free_mode_island_popup:
+				FreeModeIslandPopupLayer.visible = false
+				is_in_free_mode_island_popup = false
+				is_in_gamemode_select = true
+				is_in_absolute_gamemode_select = true
+				
+			if is_in_free_mode_create_island:
+				$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandOrLoadIslandPopup.show()
+				$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup.hide()
+				is_in_free_mode_island_popup = true
+				is_in_free_mode_create_island = false
+				is_in_gamemode_select = false
+				is_in_absolute_gamemode_select = false
 
 ######################################
 # PlayButton animations and functions
@@ -286,28 +303,11 @@ func _on_play_story_mode_button_pressed() -> void:
 func _on_play_free_mode_button_pressed() -> void:
 	
 	FreeModeIslandPopupLayer.visible = true
+	$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandOrLoadIslandPopup.show()
+	$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup.hide()
 	is_in_free_mode_island_popup = true
 	is_in_gamemode_select = false
 	is_in_absolute_gamemode_select = false
-	
-	
-	"""
-	transitioning_scene = true
-	
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
-	$Camera3D/MainLayer/TransitionFadeOut.modulate = Color(1, 1, 1, 0)
-	$Camera3D/MainLayer/TransitionFadeOut.visible = true
-	
-	var tween = get_tree().create_tween()
-	tween.connect("finished", Callable(self, "on_free_mode_fade_finished"))
-	
-	tween.tween_property($Camera3D/MainLayer/TransitionFadeOut, "modulate", Color(1, 1, 1, 1), 1)
-	tween.tween_interval(1)
-	"""
-
-func on_free_mode_fade_finished():
-	get_tree().change_scene_to_packed(world)
 
 func _on_play_parkour_mode_button_pressed() -> void:
 	pass
@@ -317,3 +317,63 @@ func _on_achievements_button_pressed() -> void:
 
 func _on_credits_button_pressed() -> void:
 	$Camera3D/MainLayer/CreditsLayer.spawnCredits(0.5)
+
+func _on_new_island_name_text_input(event: InputEventKey) -> void:
+	var invalid_chars = ["/", "\\", "|", "*", "<", ">", "\"", "?", ":", "+"]
+	
+	if event.unicode_char in invalid_chars:
+		event.accepted = false
+
+func _on_in_popup_new_island_button_pressed() -> void:
+	var text_edit = $Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit
+	var text = text_edit.text
+	var invalid_chars = ["/", "\\", "|", "*", "<", ">", "\"", "?", ":", "+"]
+	var sanitized_name = ""
+	var has_valid_char = false
+	
+	for character in text:
+		if character not in invalid_chars:
+			sanitized_name += character
+			if character != " ":
+				has_valid_char = true
+	
+	if sanitized_name.length() > 100:
+		sanitized_name = sanitized_name.substr(0, 100)
+	
+	text_edit.text = sanitized_name
+	
+	if not has_valid_char:
+		print("Invalid Island name: Name cannot be empty or consist only of spaces and invalid characters.")
+		$Camera3D/MainLayer/FreeModeIslandPopup/MinimalAlert.spawn_minimal_alert(4, 0.5, 0.5, "Island name cannot be empty, contain only spaces, or contain invalid characters.")
+	
+	else:
+		print("Valid island name: ", sanitized_name)
+		$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit.editable = false
+		
+		transitioning_scene = true
+		IslandManager.Current_Island_Name = sanitized_name
+		Utils.createBaseSaveFolder()
+		Utils.createIslandSaveFolder(sanitized_name)
+		
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		
+		$Camera3D/MainLayer/TopLayer/TransitionFadeOut.modulate = Color(1, 1, 1, 0)
+		$Camera3D/MainLayer/TopLayer/TransitionFadeOut.visible = true
+		
+		var tween = get_tree().create_tween()
+		tween.connect("finished", Callable(self, "on_free_mode_fade_finished"))
+		
+		tween.tween_property($Camera3D/MainLayer/TopLayer/TransitionFadeOut, "modulate", Color(1, 1, 1, 1), 1)
+		tween.tween_interval(1)
+
+func on_free_mode_fade_finished():
+	get_tree().change_scene_to_packed(world)
+
+func _on_new_island_button_pressed() -> void:
+	is_in_free_mode_island_popup = false
+	is_in_free_mode_create_island = true
+	$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandOrLoadIslandPopup.hide()
+	$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup.show()
+
+func _on_load_island_button_pressed() -> void:
+	pass # Replace with function body.

@@ -51,11 +51,10 @@ extends Node
 func saveAllData():
 	var playerNode = get_node("/root/World/Player")
 	
-	PlayerData.saveData()
-	if playerNode != null:
+	if IslandManager.Current_Island_Name != "":
+		PlayerData.saveData(IslandManager.Current_Island_Name)
+	
+	if playerNode != null and IslandManager.Current_Island_Name != "":
 		playerNode.saveInventory()
+	
 	PlayerSettingsData.saveSettings()
-
-func loadAllData():
-	PlayerData.loadData(true)
-	PlayerSettingsData.loadSettings()

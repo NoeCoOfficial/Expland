@@ -1,5 +1,29 @@
 <h1 align="center">Expland Changelog</h1>
 
+# v0.6.0 (unreleased)
+
+---
+
+<!--
+## Player
+
+### Added:
+- Added a minimal alert UI (triggered when you try to sleep in the day)
+
+### Changed:
+- Modified player pickup range to be slightly larger for 3D inventory pickup items
+- Increase range of 3D inventory pickup item drop position from the player
+
+### Fixed:
+- Fixed being able to pause the game while dead
+-->
+
+## Inventory
+
+### Added:
+- Yellow flower pickup item (currently can't obtain) (#46)
+---
+
 # v0.5.5 (released)
 
 ---
@@ -26,11 +50,6 @@
 
 ### Added:
 - Mouse sensitivity slider
-
-<!--
-### Changed:
-- Modified UI
--->
 ---
 ## Environment
 

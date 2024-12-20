@@ -48,6 +48,9 @@
 @icon("res://Textures/Icons/Script Icons/32x32/world_page.png")
 extends Node
 
+func initializeIslandProperties(_Island_Name):
+	pass
+
 var HOUR_LENGTH = 120
 
 @onready var motionBlurCompositor = preload("res://Resources/Environment/TheIsland_MotionBlurCompositor.tres")
@@ -83,7 +86,10 @@ var sunRotation_tween
 
 func _ready() -> void:
 	HourTimer.wait_time = HOUR_LENGTH
-	SaveManager.loadAllData()
+	
+	PlayerData.loadData(IslandManager.Current_Island_Name, true)
+	InventoryData.loadInventory(IslandManager.Current_Island_Name)
+	
 	PlayerManager.init()
 	set_motion_blur(PlayerSettingsData.MotionBlur)
 	set_dof_blur(PlayerSettingsData.DOFBlur)
@@ -288,7 +294,7 @@ func _on_tick() -> void:
 			
 			if !PlayerData.GAME_STATE == "SLEEPING":
 				TimeManager.CURRENT_DAY += 1
-			PlayerData.saveData()
+			PlayerData.saveData(IslandManager.Current_Island_Name)
    
 func set_hour(hour : int):
 	if hour == 0 or hour == 24:
@@ -738,7 +744,7 @@ func set_hour(hour : int):
 		IslandDirectionalLight.visible = false
 		IslandDirectionalLight.rotation_degrees.x = 10.0
 	
-	PlayerData.saveData()
+	PlayerData.saveData(IslandManager.Current_Island_Name)
 
 func haltAllTweens():
 	

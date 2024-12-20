@@ -73,7 +73,7 @@ func create_pickup_object_at_pos(position : Vector3, ITEM_TYPE):
 	WORLD.add_child(PICKUP)
 	PICKUP.global_position = position
 	
-	InventoryData.saveInventory(INVENTORY_LAYER)
+	InventoryData.saveInventory(IslandManager.Current_Island_Name, INVENTORY_LAYER)
 
 
 func create_pickup_object():
@@ -90,7 +90,7 @@ func create_pickup_object():
 	
 	is_creating_pickup = false
 	
-	InventoryData.saveInventory(INVENTORY_LAYER)
+	InventoryData.saveInventory(IslandManager.Current_Island_Name, INVENTORY_LAYER)
 
 func spawn_inventory_dropable(atPos : Vector2, ITEM_TYPE, slotToPopulate):
 	if get_node("/root/World/Player/Head/Camera3D/InventoryLayer") != null:
