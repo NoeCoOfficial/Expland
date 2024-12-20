@@ -51,7 +51,7 @@ const INVENTORY_SAVE_PATH = "res://inventory.save"
 
 var inventory_data = []
 
-func saveInventory(parent_node: Node) -> void:
+func saveInventory(Island_Name : String, parent_node: Node) -> void:
 	# Clear the inventory_data before saving
 	inventory_data.clear()
 	print("[InventoryData] Clearing old inventory data.")

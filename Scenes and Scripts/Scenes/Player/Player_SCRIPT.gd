@@ -48,8 +48,6 @@
 @icon("res://Textures/Icons/Script Icons/32x32/character.png") # Give the node an icon (so it looks cool)
 extends CharacterBody3D # Inheritance
 
-
-
 """
 
 Below are the player scene's export variables. These are useful for flexibility between maps/levels and referencing nodes.

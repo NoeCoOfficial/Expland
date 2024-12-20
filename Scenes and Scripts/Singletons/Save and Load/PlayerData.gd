@@ -53,7 +53,7 @@ const SAVE_PATH = "res://player.save"
 var GAME_STATE = "NORMAL"
 var Health := 100
 
-func saveData() -> void:
+func saveData(Island_Name : String) -> void:
 	var player = get_node("/root/World/Player")
 	var playerHead = get_node("/root/World/Player/Head")
 	var playerCamera = get_node("/root/World/Player/Head/Camera3D")
@@ -77,7 +77,7 @@ func saveData() -> void:
 	else:
 		printerr("[PlayerData] Player node not found. SaveData failed.")
 
-func loadData(withOutput : bool) -> void:
+func loadData(Island_Name : String, withOutput : bool) -> void:
 	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
 	if not file:
 		push_warning("[PlayerData] File doesn't exist (" + SAVE_PATH + ")")
