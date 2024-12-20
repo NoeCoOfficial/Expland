@@ -56,7 +56,7 @@ func _ready() -> void:
 func loadAndShow() -> void:
 	visible = true
 	var dir = DirAccess.open("res://saveData/Free Mode/Islands/")
-	if dir == OK:
+	if dir:
 		dir.list_dir_begin()
 		var first_element = true
 		var folder_name = dir.get_next()

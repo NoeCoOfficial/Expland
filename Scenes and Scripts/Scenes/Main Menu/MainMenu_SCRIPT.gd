@@ -152,17 +152,18 @@ func _input(_event: InputEvent) -> void:
 			
 			if is_in_load_island_interface:
 				$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup.visible = false
+				$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandOrLoadIslandPopup.show()
+				FreeModeIslandPopupLayer.visible = true
 				is_in_load_island_interface = false
-				is_in_gamemode_select = true
-				is_in_absolute_gamemode_select = true
-				
-			if is_in_free_mode_island_popup:
+				is_in_free_mode_island_popup = true
+			
+			elif is_in_free_mode_island_popup:
 				FreeModeIslandPopupLayer.visible = false
 				is_in_free_mode_island_popup = false
 				is_in_gamemode_select = true
 				is_in_absolute_gamemode_select = true
 				
-			if is_in_free_mode_create_island:
+			elif is_in_free_mode_create_island:
 				$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandOrLoadIslandPopup.show()
 				$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup.hide()
 				is_in_free_mode_island_popup = true
@@ -388,5 +389,4 @@ func _on_new_island_button_pressed() -> void:
 func _on_load_island_button_pressed() -> void:
 	$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup.loadAndShow()
 	is_in_load_island_interface = true
-	is_in_absolute_gamemode_select = false
-	is_in_gamemode_select = false
+	is_in_free_mode_island_popup = false
