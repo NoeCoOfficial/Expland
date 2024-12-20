@@ -133,22 +133,34 @@ func onStartup():
 ######################################
 
 func _input(_event: InputEvent) -> void:
+	
 	if Input.is_action_just_pressed("Exit") and !is_tweening:  # Check if not tweening
-		if is_in_gamemode_select and !is_in_free_mode_island_popup:
+		if is_in_gamemode_select and !is_in_free_mode_island_popup and !is_in_free_mode_create_island:
 			deSpawnGameModeMenu()
 		
 	if Input.is_action_just_pressed("Exit"):
 		if PauseManager.is_inside_settings:
 			$Camera3D/MainLayer/SettingsUI.closeSettings(0.5)
+		
 		if PauseManager.is_inside_achievements_ui:
 			$Camera3D/MainLayer/AchievementsUI.despawnAchievements(0.5)
+		
 		if PauseManager.is_inside_credits:
 			$Camera3D/MainLayer/CreditsLayer.despawnCredits(0.5)
+		
 		if is_in_free_mode_island_popup:
 			FreeModeIslandPopupLayer.visible = false
 			is_in_free_mode_island_popup = false
 			is_in_gamemode_select = true
 			is_in_absolute_gamemode_select = true
+			
+		if is_in_free_mode_create_island:
+			$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandOrLoadIslandPopup.show()
+			$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup.hide()
+			is_in_free_mode_island_popup = true
+			is_in_free_mode_create_island = false
+			is_in_gamemode_select = false
+			is_in_absolute_gamemode_select = false
 
 ######################################
 # PlayButton animations and functions
@@ -359,7 +371,7 @@ func _on_new_island_button_pressed() -> void:
 	is_in_free_mode_island_popup = false
 	is_in_free_mode_create_island = true
 	$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandOrLoadIslandPopup.hide()
-	$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup.hide()
+	$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup.show()
 
 func _on_load_island_button_pressed() -> void:
 	pass # Replace with function body.
