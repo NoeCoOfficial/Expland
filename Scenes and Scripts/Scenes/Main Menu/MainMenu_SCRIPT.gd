@@ -52,6 +52,7 @@ var transitioning_scene = false
 var is_in_gamemode_select = false
 var is_in_absolute_gamemode_select = false
 var is_in_free_mode_island_popup = false
+var is_tweening = false
 
 @onready var StartupNotice = preload("res://Scenes and Scripts/Scenes/Startup Notice/StartupNotice.tscn")
 @onready var world = preload("res://Scenes and Scripts/Scenes/The Island/TheIsland.tscn")
@@ -134,7 +135,7 @@ func _process(_delta: float) -> void:
 ######################################
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("Exit"):
+	if Input.is_action_just_pressed("Exit") and !is_tweening:  # Check if not tweening
 		if is_in_gamemode_select:
 			deSpawnGameModeMenu()
 		if PauseManager.is_inside_settings:
@@ -179,6 +180,7 @@ func _on_play_button_trigger_pressed() -> void:
 
 func spawnGameModeMenu():
 	is_in_absolute_gamemode_select = true
+	is_tweening = true  # Set tweening flag to true
 	
 	$Camera3D/MainLayer/PlayButtonTrigger.visible = false
 	$Camera3D/MainLayer/GreyLayerGamemodeLayer.show()
@@ -196,11 +198,13 @@ func spawnGameModeMenu():
 
 func on_spawn_game_mode_menu_tween_finished():
 	is_in_gamemode_select = true
+	is_tweening = false  # Set tweening flag to false
 
 func deSpawnGameModeMenu():
-	if !transitioning_scene:
+	if !transitioning_scene and !is_tweening:  # Check if not tweening
 		is_in_absolute_gamemode_select = false
 		is_in_gamemode_select = false
+		is_tweening = true  # Set tweening flag to true
 		
 		$Camera3D/MainLayer/PlayButtonTrigger.visible = true
 		
@@ -214,6 +218,9 @@ func deSpawnGameModeMenu():
 		tween.tween_property($Camera3D/MainLayer/GameModeLayer/BG_StoryMode, "position:y", 28, 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
 		tween.tween_property($Camera3D/MainLayer/GameModeLayer/BG_FreeMode, "position:y", 28, 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.1)
 		tween.tween_property($Camera3D/MainLayer/GameModeLayer/BG_ParkourMode, "position:y", 28, 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.2)
+
+func on_despawn_game_mode_menu_tween_finished():
+	is_tweening = false  # Set tweening flag to false
 
 ######################################
 # SettingsButton animations and functions
