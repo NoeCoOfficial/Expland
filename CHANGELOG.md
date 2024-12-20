@@ -21,7 +21,7 @@
 ## Inventory
 
 ### Added:
-- Yellow flower pickup item (currently can't obtain)
+- Yellow flower pickup item (currently can't obtain) (#46)
 ---
 
 # v0.5.5 (released)
