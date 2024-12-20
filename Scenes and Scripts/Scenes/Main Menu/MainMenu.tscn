@@ -151,9 +151,10 @@ vertex_color_use_as_albedo = true
 material = SubResource("StandardMaterial3D_rvn2t")
 curve = SubResource("Curve_tq56d")
 
-[node name="MainMenu" type="Node3D" node_paths=PackedStringArray("FreeModeIslandPopupLayer")]
+[node name="MainMenu" type="Node3D" node_paths=PackedStringArray("FreeModeIslandPopupLayer", "TextEditNewIslandName")]
 script = ExtResource("1_8n1c6")
 FreeModeIslandPopupLayer = NodePath("Camera3D/MainLayer/FreeModeIslandPopup")
+TextEditNewIslandName = NodePath("Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit")
 
 [node name="CameraAnim" type="AnimationPlayer" parent="."]
 libraries = {
@@ -847,7 +848,7 @@ text = "Create a new Island"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LoadIslandButton" type="Button" parent="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup"]
+[node name="InPopupNewIslandButton" type="Button" parent="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.625
@@ -985,3 +986,4 @@ initial_velocity_max = 47.09
 [connection signal="pressed" from="Camera3D/MainLayer/GameModeLayer/BG_StoryMode/PlayStoryModeButton" to="." method="_on_play_story_mode_button_pressed"]
 [connection signal="pressed" from="Camera3D/MainLayer/GameModeLayer/BG_FreeMode/PlayFreeModeButton" to="." method="_on_play_free_mode_button_pressed"]
 [connection signal="pressed" from="Camera3D/MainLayer/GameModeLayer/BG_ParkourMode/PlayParkourModeButton" to="." method="_on_play_parkour_mode_button_pressed"]
+[connection signal="pressed" from="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/InPopupNewIslandButton" to="." method="_on_in_popup_new_island_button_pressed"]

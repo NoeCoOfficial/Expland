@@ -60,6 +60,7 @@ var is_tweening = false
 
 @export_group("Node references")
 @export var FreeModeIslandPopupLayer : CanvasLayer
+@export var TextEditNewIslandName : TextEdit
 
 ######################################
 # Startup
@@ -317,3 +318,38 @@ func _on_achievements_button_pressed() -> void:
 
 func _on_credits_button_pressed() -> void:
 	$Camera3D/MainLayer/CreditsLayer.spawnCredits(0.5)
+
+func _on_new_island_name_text_input(event: InputEventKey) -> void:
+	var invalid_chars = ["/", "\\", "|", "*", "<", ">", "\"", "?", ":", "+"]
+	
+	if event.unicode_char in invalid_chars:
+		event.accepted = false
+
+#	if text == "" or text.length() > 100 or any(char in invalid_chars for char in text):
+#		print("Invalid island name: Name cannot be empty, exceed 100 characters, or contain invalid characters.")
+#	else:
+#		print("Valid island name: ", text)
+
+
+func _on_in_popup_new_island_button_pressed() -> void:
+	var text_edit = $Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit
+	var text = text_edit.text
+	var invalid_chars = ["/", "\\", "|", "*", "<", ">", "\"", "?", ":", "+"]
+	var sanitized_name = ""
+	var has_valid_char = false
+	
+	for character in text:
+		if character not in invalid_chars:
+			sanitized_name += character
+			if character != " ":
+				has_valid_char = true
+	
+	if sanitized_name.length() > 100:
+		sanitized_name = sanitized_name.substr(0, 100)
+	
+	text_edit.text = sanitized_name
+	
+	if not has_valid_char:
+		print("Invalid island name: Name cannot be empty or consist only of spaces and invalid characters.")
+	else:
+		print("Valid island name: ", sanitized_name)
