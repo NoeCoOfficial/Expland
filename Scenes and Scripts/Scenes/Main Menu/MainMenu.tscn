@@ -755,7 +755,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.643)
 script = ExtResource("10_y68f7")
 
-[node name="Background" type="Panel" parent="Camera3D/MainLayer/FreeModeIslandPopup"]
+[node name="NewIslandOrLoadIslandPopup" type="Panel" parent="Camera3D/MainLayer/FreeModeIslandPopup"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -769,7 +769,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("21_v2lsw")
 
-[node name="Title" type="Label" parent="Camera3D/MainLayer/FreeModeIslandPopup/Background"]
+[node name="Title" type="Label" parent="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandOrLoadIslandPopup"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -784,7 +784,7 @@ text = "Start fresh or continue?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="NewIslandButton" type="Button" parent="Camera3D/MainLayer/FreeModeIslandPopup/Background"]
+[node name="NewIslandButton" type="Button" parent="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandOrLoadIslandPopup"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0305556
@@ -800,7 +800,7 @@ theme_override_styles/normal = ExtResource("24_r2ree")
 text = "New Island"
 metadata/_edit_use_anchors_ = true
 
-[node name="LoadIslandButton" type="Button" parent="Camera3D/MainLayer/FreeModeIslandPopup/Background"]
+[node name="LoadIslandButton" type="Button" parent="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandOrLoadIslandPopup"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.505556
