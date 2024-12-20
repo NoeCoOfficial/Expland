@@ -54,6 +54,7 @@ var GAME_STATE = "NORMAL"
 var Health := 100
 
 func saveData(Island_Name : String) -> void:
+	Utils.createIslandSaveFolder(Island_Name)
 	SAVE_PATH = "res://saveData/" + Island_Name + "/player.save"
 	
 	var player = get_node("/root/World/Player")
@@ -80,6 +81,7 @@ func saveData(Island_Name : String) -> void:
 		printerr("[PlayerData] Player node not found. SaveData failed.")
 
 func loadData(Island_Name : String, withOutput : bool) -> void:
+	Utils.createIslandSaveFolder(Island_Name)
 	SAVE_PATH = "res://saveData/" + Island_Name + "/player.save"
 	
 	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)

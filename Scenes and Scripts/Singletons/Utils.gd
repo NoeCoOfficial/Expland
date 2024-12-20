@@ -124,7 +124,7 @@ func createIslandSaveFolder(folder_name: String) -> void:
 		# Move to the "saveData" directory
 		dir.change_dir("saveData")
 		
-		# Create the inner folder
+		# Create the inner folder if it does not exist
 		if not dir.dir_exists(folder_name):
 			var err = dir.make_dir(folder_name)
 			if err == OK:
@@ -132,6 +132,6 @@ func createIslandSaveFolder(folder_name: String) -> void:
 			else:
 				print("Failed to create folder: ", full_path, " Error: ", err)
 		else:
-			print("Folder already exists: ", full_path)
+			print("Folder already exists and will not be cleared: ", full_path)
 	else:
 		print("Failed to access res:// directory")

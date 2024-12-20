@@ -47,4 +47,8 @@
 
 extends Node
 
-var Current_Island_Name = "Default"
+var Current_Island_Name = "Debug"
+
+func _ready() -> void:
+	if !OS.has_feature("debug"):
+		Current_Island_Name = ""
