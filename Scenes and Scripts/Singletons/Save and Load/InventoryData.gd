@@ -47,7 +47,7 @@
 
 extends Node
 
-var INVENTORY_SAVE_PATH = "res://saveData/Free Mode/Islands/inventory.save"
+var INVENTORY_SAVE_PATH = ""
 
 var inventory_data = []
 
