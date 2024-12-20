@@ -47,7 +47,7 @@
 
 extends Node
 
-const INVENTORY_SAVE_PATH = "res://inventory.save"
+var INVENTORY_SAVE_PATH = "res://inventory.save"
 
 var inventory_data = []
 

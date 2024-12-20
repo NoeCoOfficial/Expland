@@ -48,12 +48,14 @@
 @icon("res://Textures/Icons/Script Icons/32x32/disk_save.png")
 extends Node
 
-const SAVE_PATH = "res://player.save"
+var SAVE_PATH = "res://player//player.save"
 
 var GAME_STATE = "NORMAL"
 var Health := 100
 
 func saveData(Island_Name : String) -> void:
+	
+	
 	var player = get_node("/root/World/Player")
 	var playerHead = get_node("/root/World/Player/Head")
 	var playerCamera = get_node("/root/World/Player/Head/Camera3D")
