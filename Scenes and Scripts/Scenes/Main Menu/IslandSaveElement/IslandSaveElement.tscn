@@ -17,8 +17,8 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[node name="IslandSaveElement" type="Control"]
-layout_mode = 3
+[node name="IslandSaveElement" type="Container"]
+anchors_preset = -1
 anchor_right = 0.322917
 anchor_bottom = 0.152778
 grow_horizontal = 2
@@ -27,22 +27,11 @@ script = ExtResource("1_eww5b")
 metadata/_edit_use_anchors_ = true
 
 [node name="Background" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 theme_override_styles/panel = ExtResource("2_drivp")
 
 [node name="Island_Name_TextEdit" type="TextEdit" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.44086
-anchor_top = 0.0707071
-anchor_right = 0.978495
-anchor_bottom = 0.323232
-offset_bottom = 1.0
+layout_mode = 2
 focus_mode = 1
 theme_override_fonts/font = ExtResource("2_ptwj5")
 theme_override_font_sizes/font_size = 15
@@ -62,11 +51,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="GameplayTextureContainer" type="PanelContainer" parent="."]
 clip_children = 1
-layout_mode = 0
-offset_left = 9.0
-offset_top = 11.0
-offset_right = 159.0
-offset_bottom = 88.0
+layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_g6maf")
 
 [node name="GameplayTexture" type="TextureRect" parent="GameplayTextureContainer"]
@@ -75,13 +60,7 @@ texture = ExtResource("6_y0s30")
 expand_mode = 1
 
 [node name="EnterIslandButton" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.465054
-anchor_top = 0.40404
-anchor_right = 0.706989
-anchor_bottom = 0.616162
-grow_vertical = 0
+layout_mode = 2
 focus_mode = 0
 theme_override_fonts/font = ExtResource("7_hm3by")
 theme_override_font_sizes/font_size = 14
@@ -92,13 +71,7 @@ text = "Enter Island"
 metadata/_edit_use_anchors_ = true
 
 [node name="DeleteIslandButton" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.717742
-anchor_top = 0.40404
-anchor_right = 0.959678
-anchor_bottom = 0.616162
-grow_vertical = 0
+layout_mode = 2
 focus_mode = 0
 theme_override_fonts/font = ExtResource("7_hm3by")
 theme_override_font_sizes/font_size = 14
@@ -109,13 +82,7 @@ text = "Delete Island"
 metadata/_edit_use_anchors_ = true
 
 [node name="EnterIslandButton2" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.465054
-anchor_top = 0.676768
-anchor_right = 0.959677
-anchor_bottom = 0.888889
-grow_vertical = 0
+layout_mode = 2
 focus_mode = 0
 theme_override_fonts/font = ExtResource("7_hm3by")
 theme_override_font_sizes/font_size = 14

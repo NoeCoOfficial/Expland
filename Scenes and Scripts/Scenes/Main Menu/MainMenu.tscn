@@ -890,8 +890,6 @@ scroll_fit_content_height = true
 caret_blink = true
 metadata/_edit_use_anchors_ = true
 
-[node name="MinimalAlert" parent="Camera3D/MainLayer/FreeModeIslandPopup" instance=ExtResource("27_7myre")]
-
 [node name="LoadIslandPopup" type="Control" parent="Camera3D/MainLayer/FreeModeIslandPopup"]
 layout_mode = 3
 anchors_preset = 15
@@ -939,6 +937,18 @@ anchor_left = 0.239583
 anchor_top = 0.322531
 anchor_right = 0.5625
 anchor_bottom = 0.475309
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup"]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 202.0
+offset_right = 652.0
+offset_bottom = 477.0
+
+[node name="AspectRatioContainer" type="VSplitContainer" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup/ScrollContainer"]
+layout_mode = 2
+
+[node name="MinimalAlert" parent="Camera3D/MainLayer/FreeModeIslandPopup" instance=ExtResource("27_7myre")]
 
 [node name="TopLayer" type="CanvasLayer" parent="Camera3D/MainLayer"]
 
