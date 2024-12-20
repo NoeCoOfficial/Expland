@@ -7,7 +7,7 @@
 
 [node name="IslandSaveElement" type="Control"]
 layout_mode = 3
-anchor_right = 0.289063
+anchor_right = 0.322917
 anchor_bottom = 0.152778
 grow_horizontal = 2
 grow_vertical = 2
@@ -25,9 +25,9 @@ grow_vertical = 2
 [node name="Island_Name_TextEdit" type="TextEdit" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.369369
+anchor_left = 0.44086
 anchor_top = 0.0707071
-anchor_right = 0.975976
+anchor_right = 0.978495
 anchor_bottom = 0.323232
 offset_bottom = 1.0
 focus_mode = 1
