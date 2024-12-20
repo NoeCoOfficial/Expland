@@ -122,13 +122,6 @@ func onStartup():
 	tween.tween_property($Camera3D/MainLayer/AchievementsButton, "position", Vector2(947, 558), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.2)
 	
 	tween.tween_property($Camera3D/MainLayer/CreditsButton, "position", Vector2(1018, 605), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.2)
-######################################
-# Process
-######################################
-
-func _process(_delta: float) -> void:
-	$Camera3D/MainLayer/is_in_gamemode_select.text = str(is_in_absolute_gamemode_select)
-	$Camera3D/MainLayer/is_in_free_mode_popup.text = str(is_in_free_mode_island_popup)
 
 ######################################
 # Input
