@@ -136,8 +136,10 @@ func _process(_delta: float) -> void:
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Exit") and !is_tweening:  # Check if not tweening
-		if is_in_gamemode_select:
+		if is_in_gamemode_select and !is_in_free_mode_island_popup:
 			deSpawnGameModeMenu()
+		
+	if Input.is_action_just_pressed("Exit"):
 		if PauseManager.is_inside_settings:
 			$Camera3D/MainLayer/SettingsUI.closeSettings(0.5)
 		if PauseManager.is_inside_achievements_ui:
