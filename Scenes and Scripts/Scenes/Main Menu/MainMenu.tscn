@@ -33,8 +33,8 @@
 [ext_resource type="StyleBox" uid="uid://dk6yg5shsrlga" path="res://Resources/Styles and Themes/Styles/Default/Button/Default_Hover.tres" id="22_dd8k4"]
 [ext_resource type="StyleBox" uid="uid://4bki1vu11lcb" path="res://Resources/Styles and Themes/Styles/Default/Button/Default_Pressed.tres" id="23_ocvtf"]
 [ext_resource type="StyleBox" uid="uid://dysjxkdohprwn" path="res://Resources/Styles and Themes/Styles/Default/Button/Default_Normal.tres" id="24_r2ree"]
-[ext_resource type="StyleBox" uid="uid://cm8xotke6bccm" path="res://Resources/Styles and Themes/Styles/Default/Text Edit/Default_Normal_TextEdit.tres" id="25_3j2x4"]
-[ext_resource type="StyleBox" uid="uid://cf1a43wkesukc" path="res://Resources/Styles and Themes/Styles/Default/Text Edit/Default_Focus_TextEdit.tres" id="26_j2nrr"]
+[ext_resource type="StyleBox" uid="uid://cm8xotke6bccm" path="res://Resources/Styles and Themes/Styles/Default/LineEdit/Default_Normal_LineEdit.tres" id="25_3j2x4"]
+[ext_resource type="StyleBox" uid="uid://cf1a43wkesukc" path="res://Resources/Styles and Themes/Styles/Default/LineEdit/Default_Focus_LineEdit.tres" id="26_j2nrr"]
 [ext_resource type="PackedScene" uid="uid://cq13w255wbu5l" path="res://Scenes and Scripts/Scenes/Minimal Alert/MinimalAlert.tscn" id="27_7myre"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/LoadIslandPopup_SCRIPT.gd" id="27_ro0wj"]
 
@@ -755,7 +755,6 @@ visible = false
 visible = false
 
 [node name="FreeModeIslandPopup" type="CanvasLayer" parent="Camera3D/MainLayer"]
-visible = false
 
 [node name="GreyLayer" type="ColorRect" parent="Camera3D/MainLayer/FreeModeIslandPopup"]
 anchors_preset = 15
@@ -829,7 +828,6 @@ text = "Load Island"
 metadata/_edit_use_anchors_ = true
 
 [node name="NewIslandPopup" type="Panel" parent="Camera3D/MainLayer/FreeModeIslandPopup"]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -874,7 +872,7 @@ theme_override_styles/normal = ExtResource("24_r2ree")
 text = "Start"
 metadata/_edit_use_anchors_ = true
 
-[node name="Island_Name_TextEdit" type="TextEdit" parent="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup"]
+[node name="Island_Name_TextEdit" type="LineEdit" parent="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.025
@@ -884,16 +882,15 @@ anchor_bottom = 0.909091
 focus_mode = 1
 theme_override_fonts/font = ExtResource("11_1cstc")
 theme_override_font_sizes/font_size = 15
-theme_override_styles/normal = ExtResource("25_3j2x4")
 theme_override_styles/focus = ExtResource("26_j2nrr")
 theme_override_styles/read_only = ExtResource("25_3j2x4")
+theme_override_styles/normal = ExtResource("25_3j2x4")
 placeholder_text = "Island name..."
 context_menu_enabled = false
-deselect_on_focus_loss_enabled = false
-drag_and_drop_selection_enabled = false
 virtual_keyboard_enabled = false
 middle_mouse_paste_enabled = false
-scroll_fit_content_height = true
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
 caret_blink = true
 metadata/_edit_use_anchors_ = true
 
@@ -941,10 +938,12 @@ vertical_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup"]
 layout_mode = 0
-offset_left = 272.0
-offset_top = 208.0
-offset_right = 652.0
-offset_bottom = 477.0
+offset_left = 280.0
+offset_top = 262.0
+offset_right = 660.0
+offset_bottom = 459.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup/ScrollContainer"]
 layout_mode = 2

@@ -66,7 +66,7 @@ var is_tweening = false
 
 @export_group("Node references")
 @export var FreeModeIslandPopupLayer : CanvasLayer
-@export var TextEditNewIslandName : TextEdit
+@export var TextEditNewIslandName : LineEdit
 
 ######################################
 # Startup
@@ -153,6 +153,7 @@ func _input(_event: InputEvent) -> void:
 			if is_in_load_island_interface:
 				$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup.visible = false
 				$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandOrLoadIslandPopup.show()
+				$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup.clearOldElements()
 				FreeModeIslandPopupLayer.visible = true
 				is_in_load_island_interface = false
 				is_in_free_mode_island_popup = true

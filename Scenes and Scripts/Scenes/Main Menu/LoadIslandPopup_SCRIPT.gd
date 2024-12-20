@@ -55,6 +55,7 @@ func _ready() -> void:
 
 func loadAndShow() -> void:
 	visible = true
+	clearOldElements()
 	var dir = DirAccess.open("res://saveData/Free Mode/Islands/")
 	if dir:
 		dir.list_dir_begin()
@@ -71,3 +72,10 @@ func loadAndShow() -> void:
 				island_save_element.initializeProperties(folder_name)
 			folder_name = dir.get_next()
 		dir.list_dir_end()
+
+func clearOldElements() -> void:
+	var container = $ScrollContainer/VBoxContainer
+	for child in container.get_children():
+		if child.name.begins_with("Space") or child.name.begins_with("IslandSaveElement"):
+			container.remove_child(child)
+			child.queue_free()

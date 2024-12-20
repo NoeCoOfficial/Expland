@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/IslandSaveElement/IslandSaveElement_SCRIPT.gd" id="1_eww5b"]
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="2_drivp"]
 [ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="2_ptwj5"]
-[ext_resource type="StyleBox" uid="uid://cm8xotke6bccm" path="res://Resources/Styles and Themes/Styles/Default/Text Edit/Default_Normal_TextEdit.tres" id="3_gaeij"]
-[ext_resource type="StyleBox" uid="uid://cf1a43wkesukc" path="res://Resources/Styles and Themes/Styles/Default/Text Edit/Default_Focus_TextEdit.tres" id="4_4qh26"]
+[ext_resource type="StyleBox" uid="uid://cm8xotke6bccm" path="res://Resources/Styles and Themes/Styles/Default/LineEdit/Default_Normal_LineEdit.tres" id="3_gaeij"]
+[ext_resource type="StyleBox" uid="uid://cf1a43wkesukc" path="res://Resources/Styles and Themes/Styles/Default/LineEdit/Default_Focus_LineEdit.tres" id="4_4qh26"]
 [ext_resource type="Texture2D" uid="uid://b4lev783o86l7" path="res://Textures/Images/DefaultLoadImage.png" id="6_y0s30"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6maf"]
@@ -15,6 +15,7 @@ corner_radius_bottom_left = 5
 
 [node name="IslandSaveElement" type="Control"]
 layout_mode = 3
+anchors_preset = 0
 offset_right = 372.0
 offset_bottom = 99.0001
 grow_horizontal = 2
@@ -28,7 +29,7 @@ offset_right = 372.0
 offset_bottom = 99.0001
 theme_override_styles/panel = ExtResource("2_drivp")
 
-[node name="Island_Name_TextEdit" type="TextEdit" parent="."]
+[node name="Island_Name_TextEdit" type="LineEdit" parent="."]
 layout_mode = 1
 anchors_preset = -1
 offset_left = 164.0
@@ -38,17 +39,16 @@ offset_bottom = 33.0
 focus_mode = 1
 theme_override_fonts/font = ExtResource("2_ptwj5")
 theme_override_font_sizes/font_size = 15
-theme_override_styles/normal = ExtResource("3_gaeij")
 theme_override_styles/focus = ExtResource("4_4qh26")
 theme_override_styles/read_only = ExtResource("3_gaeij")
+theme_override_styles/normal = ExtResource("3_gaeij")
 text = "text"
 placeholder_text = "Island name..."
 context_menu_enabled = false
-deselect_on_focus_loss_enabled = false
-drag_and_drop_selection_enabled = false
 virtual_keyboard_enabled = false
 middle_mouse_paste_enabled = false
-scroll_fit_content_height = true
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
 caret_blink = true
 metadata/_edit_use_anchors_ = true
 
