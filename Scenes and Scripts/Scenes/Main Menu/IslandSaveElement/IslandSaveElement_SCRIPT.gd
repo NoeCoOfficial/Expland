@@ -48,6 +48,8 @@
 @icon("res://Textures/Icons/Script Icons/32x32/disk_save.png")
 extends Control
 
-
 func _ready() -> void:
 	name = "IslandSaveElement"
+
+func initializeProperties(Island_Name : String, path_to_image):
+	$Island_Name_TextEdit.text = Island_Name
