@@ -426,7 +426,8 @@ func _process(_delta):
 func _ready():
 	nodeSetup() # Call the nodeSetup function to setup the nodes
 	
-	InventoryData.loadInventory()
+	InventoryData.loadInventory(IslandManager.Current_Island_Name)
+	
 	DialogueManager.DialogueInterface = $Head/Camera3D/DialogueLayer/DialogueInterface
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Lock mouse
 	
@@ -683,7 +684,7 @@ func _on_credits_button_pressed() -> void:
 ######################################
 
 func saveInventory():
-	InventoryData.saveInventory($Head/Camera3D/InventoryLayer)
+	InventoryData.saveInventory(IslandManager.Current_Island_Name, $Head/Camera3D/InventoryLayer)
 
 func _on_save_and_quit_btn_pressed():
 	SaveManager.saveAllData()
