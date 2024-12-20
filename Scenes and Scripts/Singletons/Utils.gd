@@ -47,6 +47,8 @@
 
 extends Node
 
+var screenshot_thread: Thread
+
 func format_number(n: int) -> String: # A function for formatting numbers easily. Must be an integer!
 	if n >= 1_000: # if the number is greater than or equal to 1,000
 
@@ -151,3 +153,45 @@ func createBaseSaveFolder() -> void:
 			print("Base folder 'saveData' already exists and will not be cleared.")
 	else:
 		print("Failed to access res:// directory")
+
+func take_screenshot_in_thread(save_path: String):
+	# Ensure no other thread is running
+	if screenshot_thread:
+		screenshot_thread.wait_to_finish()
+		screenshot_thread = null
+	
+	# Capture the image on the main thread
+	var viewport = get_viewport()
+	var image = viewport.get_texture().get_image()
+	
+	# Ensure the image is valid
+	if image:
+		
+		# Start the thread for saving the image
+		screenshot_thread = Thread.new()
+		var callable = Callable(self, "_save_image_thread").bind(image, save_path)
+		var result = screenshot_thread.start(callable)
+		
+		if result == OK:
+			print("Screenshot save thread started")
+		else:
+			print("Failed to start screenshot save thread")
+	else:
+		print("Failed to capture image from viewport.")
+
+# Function that runs on the thread for saving
+func _save_image_thread(image: Image, save_path: String):
+	var result = image.save_png(save_path)
+	if result == OK:
+		print("Screenshot saved to:", save_path)
+	else:
+		print("Failed to save screenshot.")
+	
+	# Signal the main thread that the task is complete (if needed)
+	call_deferred("_cleanup_screenshot_thread")
+
+# Cleanup function to safely stop and reset the thread
+func _cleanup_screenshot_thread():
+	if screenshot_thread:
+		screenshot_thread.wait_to_finish()
+		screenshot_thread = null

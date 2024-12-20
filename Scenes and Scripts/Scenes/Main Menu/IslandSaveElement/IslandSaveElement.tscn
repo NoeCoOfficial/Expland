@@ -25,10 +25,10 @@ grow_vertical = 2
 [node name="Island_Name_TextEdit" type="TextEdit" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.288181
-anchor_top = 0.0689655
-anchor_right = 0.974986
-anchor_bottom = 0.321491
+anchor_left = 0.369369
+anchor_top = 0.0707071
+anchor_right = 0.975976
+anchor_bottom = 0.323232
 offset_bottom = 1.0
 focus_mode = 1
 theme_override_fonts/font = ExtResource("2_ptwj5")
