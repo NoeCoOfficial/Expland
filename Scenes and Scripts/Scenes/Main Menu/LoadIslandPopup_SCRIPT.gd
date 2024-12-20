@@ -47,6 +47,9 @@
 
 extends Control
 
+# Island Save file element path: "res://Scenes and Scripts/Scenes/Main Menu/IslandSaveElement/IslandSaveElement.tscn"
+# Space divider path: "res://Scenes and Scripts/Scenes/Main Menu/SpaceDivider_Label.tscn"
+
 func _ready() -> void:
 	visible = false
 

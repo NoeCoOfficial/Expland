@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=50 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="PackedScene" uid="uid://jb61th5px5nt" path="res://Assets/3D Models/Tests/Island/Island 2.blend" id="2_0llf6"]
@@ -37,9 +37,6 @@
 [ext_resource type="StyleBox" uid="uid://cf1a43wkesukc" path="res://Resources/Styles and Themes/Styles/Default/Text Edit/Default_Focus_TextEdit.tres" id="26_j2nrr"]
 [ext_resource type="PackedScene" uid="uid://cq13w255wbu5l" path="res://Scenes and Scripts/Scenes/Minimal Alert/MinimalAlert.tscn" id="27_7myre"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/LoadIslandPopup_SCRIPT.gd" id="27_ro0wj"]
-[ext_resource type="PackedScene" uid="uid://oker5ahpwg2" path="res://Scenes and Scripts/Scenes/Main Menu/IslandSaveElement/IslandSaveElement.tscn" id="28_gk8ry"]
-[ext_resource type="PackedScene" uid="uid://dj4gl1wcwor6m" path="res://Scenes and Scripts/Scenes/Main Menu/SpaceDivider_Label.tscn" id="29_hete6"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/Space_Divider_Label_SCRIPT.gd" id="30_cy3u2"]
 
 [sub_resource type="Animation" id="Animation_6cyol"]
 length = 0.001
@@ -942,16 +939,6 @@ offset_right = 652.0
 offset_bottom = 477.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup/ScrollContainer"]
-layout_mode = 2
-
-[node name="IslandSaveElement" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup/ScrollContainer/VBoxContainer" instance=ExtResource("28_gk8ry")]
-layout_mode = 2
-
-[node name="Space" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup/ScrollContainer/VBoxContainer" instance=ExtResource("29_hete6")]
-layout_mode = 2
-script = ExtResource("30_cy3u2")
-
-[node name="IslandSaveElement2" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup/ScrollContainer/VBoxContainer" instance=ExtResource("28_gk8ry")]
 layout_mode = 2
 
 [node name="MinimalAlert" parent="Camera3D/MainLayer/FreeModeIslandPopup" instance=ExtResource("27_7myre")]
