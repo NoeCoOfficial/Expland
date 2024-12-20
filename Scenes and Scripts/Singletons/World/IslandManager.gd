@@ -48,6 +48,7 @@
 extends Node
 
 var Current_Island_Name = "Debug"
+var Current_Game_Mode : String
 
 func _ready() -> void:
 	if !OS.has_feature("debug"):

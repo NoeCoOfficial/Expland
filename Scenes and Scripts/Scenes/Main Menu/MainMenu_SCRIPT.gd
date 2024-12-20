@@ -324,7 +324,7 @@ func _on_new_island_name_text_input(event: InputEventKey) -> void:
 	if event.unicode_char in invalid_chars:
 		event.accepted = false
 
-func _on_in_popup_new_island_button_pressed() -> void:
+func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 	var text_edit = $Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit
 	var text = text_edit.text
 	var invalid_chars = ["/", "\\", "|", "*", "<", ">", "\"", "?", ":", "+"]
@@ -352,8 +352,10 @@ func _on_in_popup_new_island_button_pressed() -> void:
 		
 		transitioning_scene = true
 		IslandManager.Current_Island_Name = sanitized_name
+		IslandManager.Current_Game_Mode = "FREE"
+		
 		Utils.createBaseSaveFolder()
-		Utils.createIslandSaveFolder(sanitized_name, "FREE")
+		Utils.createIslandSaveFolder(sanitized_name, IslandManager.Current_Game_Mode)
 		
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		

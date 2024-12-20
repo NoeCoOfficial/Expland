@@ -853,7 +853,7 @@ text = "Create a new Island"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="InPopupNewIslandButton" type="Button" parent="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup"]
+[node name="Free_ModeInPopupNewIslandButton" type="Button" parent="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.725
@@ -1064,6 +1064,6 @@ initial_velocity_max = 47.09
 [connection signal="pressed" from="Camera3D/MainLayer/GameModeLayer/BG_ParkourMode/PlayParkourModeButton" to="." method="_on_play_parkour_mode_button_pressed"]
 [connection signal="pressed" from="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandOrLoadIslandPopup/NewIslandButton" to="." method="_on_new_island_button_pressed"]
 [connection signal="pressed" from="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandOrLoadIslandPopup/LoadIslandButton" to="." method="_on_load_island_button_pressed"]
-[connection signal="pressed" from="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/InPopupNewIslandButton" to="." method="_on_in_popup_new_island_button_pressed"]
+[connection signal="pressed" from="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Free_ModeInPopupNewIslandButton" to="." method="_on_free_mode_in_popup_new_island_button_pressed"]
 
 [editable path="Camera3D/MainLayer/FreeModeIslandPopup/MinimalAlert"]
