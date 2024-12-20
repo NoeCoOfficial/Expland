@@ -48,14 +48,14 @@
 @icon("res://Textures/Icons/Script Icons/32x32/disk_save.png")
 extends Node
 
-var SAVE_PATH = "res://player//player.save"
+var SAVE_PATH = "res://saveData//player.save"
 
 var GAME_STATE = "NORMAL"
 var Health := 100
 
 func saveData(Island_Name : String) -> void:
-	
-	
+	SAVE_PATH = "res://saveData" + Island_Name + "//player.save"
+
 	var player = get_node("/root/World/Player")
 	var playerHead = get_node("/root/World/Player/Head")
 	var playerCamera = get_node("/root/World/Player/Head/Camera3D")
@@ -80,6 +80,8 @@ func saveData(Island_Name : String) -> void:
 		printerr("[PlayerData] Player node not found. SaveData failed.")
 
 func loadData(Island_Name : String, withOutput : bool) -> void:
+	SAVE_PATH = "res://saveData" + Island_Name + "//player.save"
+	
 	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
 	if not file:
 		push_warning("[PlayerData] File doesn't exist (" + SAVE_PATH + ")")
