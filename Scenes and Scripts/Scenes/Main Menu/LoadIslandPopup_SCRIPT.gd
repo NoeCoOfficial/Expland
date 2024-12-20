@@ -63,10 +63,10 @@ func loadAndShow() -> void:
 		while folder_name != "":
 			if dir.current_is_dir() and folder_name != "." and folder_name != "..":
 				if not first_element:
-					var space_divider = load("res://Scenes and Scripts/Scenes/Main Menu/SpaceDivider_Label.tscn").instance()
+					var space_divider = load("res://Scenes and Scripts/Scenes/Main Menu/SpaceDivider_Label.tscn").instantiate()
 					$ScrollContainer/VBoxContainer.add_child(space_divider)
 				first_element = false
-				var island_save_element = load("res://Scenes and Scripts/Scenes/Main Menu/IslandSaveElement/IslandSaveElement.tscn").instance()
+				var island_save_element = load("res://Scenes and Scripts/Scenes/Main Menu/IslandSaveElement/IslandSaveElement.tscn").instantiate()
 				$ScrollContainer/VBoxContainer.add_child(island_save_element)
 				island_save_element.initializeProperties(folder_name)
 			folder_name = dir.get_next()
