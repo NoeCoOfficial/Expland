@@ -1,14 +1,48 @@
-[gd_scene load_steps=2 format=3 uid="uid://oker5ahpwg2"]
+[gd_scene load_steps=5 format=3 uid="uid://oker5ahpwg2"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/IslandSaveElement/IslandSaveElement_SCRIPT.gd" id="1_eww5b"]
+[ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="2_ptwj5"]
+[ext_resource type="StyleBox" uid="uid://cm8xotke6bccm" path="res://Resources/Styles and Themes/Styles/Default/Text Edit/Default_Normal_TextEdit.tres" id="3_gaeij"]
+[ext_resource type="StyleBox" uid="uid://cf1a43wkesukc" path="res://Resources/Styles and Themes/Styles/Default/Text Edit/Default_Focus_TextEdit.tres" id="4_4qh26"]
 
 [node name="IslandSaveElement" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -725.0
-offset_bottom = -537.0
+anchor_right = 0.289063
+anchor_bottom = 0.152778
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_eww5b")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Island_Name_TextEdit" type="TextEdit" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.288181
+anchor_top = 0.0689655
+anchor_right = 0.974986
+anchor_bottom = 0.321491
+offset_bottom = 1.0
+focus_mode = 1
+theme_override_fonts/font = ExtResource("2_ptwj5")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = ExtResource("3_gaeij")
+theme_override_styles/focus = ExtResource("4_4qh26")
+theme_override_styles/read_only = ExtResource("3_gaeij")
+text = "text"
+placeholder_text = "Island name..."
+context_menu_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+scroll_fit_content_height = true
+caret_blink = true
+metadata/_edit_use_anchors_ = true

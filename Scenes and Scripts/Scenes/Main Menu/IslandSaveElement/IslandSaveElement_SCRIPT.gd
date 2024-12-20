@@ -45,8 +45,9 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
+@icon("res://Textures/Icons/Script Icons/32x32/disk_save.png")
 extends Control
 
 
 func _ready() -> void:
-	pass
+	name = "IslandSaveElement"
