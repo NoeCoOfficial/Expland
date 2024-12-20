@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=49 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="PackedScene" uid="uid://jb61th5px5nt" path="res://Assets/3D Models/Tests/Island/Island 2.blend" id="2_0llf6"]
@@ -36,7 +36,6 @@
 [ext_resource type="StyleBox" uid="uid://cm8xotke6bccm" path="res://Resources/Styles and Themes/Styles/Default/Text Edit/Default_Normal_TextEdit.tres" id="25_3j2x4"]
 [ext_resource type="StyleBox" uid="uid://cf1a43wkesukc" path="res://Resources/Styles and Themes/Styles/Default/Text Edit/Default_Focus_TextEdit.tres" id="26_j2nrr"]
 [ext_resource type="PackedScene" uid="uid://cq13w255wbu5l" path="res://Scenes and Scripts/Scenes/Minimal Alert/MinimalAlert.tscn" id="27_7myre"]
-[ext_resource type="PackedScene" uid="uid://oker5ahpwg2" path="res://Scenes and Scripts/Scenes/Main Menu/IslandSaveElement/IslandSaveElement.tscn" id="28_gk8ry"]
 
 [sub_resource type="Animation" id="Animation_6cyol"]
 length = 0.001
@@ -931,13 +930,6 @@ text = "Load an Island"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="IslandSaveElement" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup" instance=ExtResource("28_gk8ry")]
-layout_mode = 1
-anchor_left = 0.239583
-anchor_top = 0.322531
-anchor_right = 0.5625
-anchor_bottom = 0.475309
-
 [node name="ScrollContainer" type="ScrollContainer" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup"]
 layout_mode = 0
 offset_left = 272.0
@@ -945,7 +937,7 @@ offset_top = 202.0
 offset_right = 652.0
 offset_bottom = 477.0
 
-[node name="AspectRatioContainer" type="VSplitContainer" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup/ScrollContainer"]
 layout_mode = 2
 
 [node name="MinimalAlert" parent="Camera3D/MainLayer/FreeModeIslandPopup" instance=ExtResource("27_7myre")]
