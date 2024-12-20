@@ -55,7 +55,7 @@ var Health := 100
 
 func saveData(Island_Name : String) -> void:
 	SAVE_PATH = "res://saveData" + Island_Name + "//player.save"
-
+	
 	var player = get_node("/root/World/Player")
 	var playerHead = get_node("/root/World/Player/Head")
 	var playerCamera = get_node("/root/World/Player/Head/Camera3D")

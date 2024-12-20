@@ -291,7 +291,7 @@ func _on_tick() -> void:
 			
 			if !PlayerData.GAME_STATE == "SLEEPING":
 				TimeManager.CURRENT_DAY += 1
-			PlayerData.saveData()
+			PlayerData.saveData(IslandManager.Current_Island_Name)
    
 func set_hour(hour : int):
 	if hour == 0 or hour == 24:
@@ -741,7 +741,7 @@ func set_hour(hour : int):
 		IslandDirectionalLight.visible = false
 		IslandDirectionalLight.rotation_degrees.x = 10.0
 	
-	PlayerData.saveData()
+	PlayerData.saveData(IslandManager.Current_Island_Name)
 
 func haltAllTweens():
 	
