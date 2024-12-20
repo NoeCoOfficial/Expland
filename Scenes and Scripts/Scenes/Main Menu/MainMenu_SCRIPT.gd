@@ -133,34 +133,34 @@ func onStartup():
 ######################################
 
 func _input(_event: InputEvent) -> void:
-	
-	if Input.is_action_just_pressed("Exit") and !is_tweening:  # Check if not tweening
-		if is_in_gamemode_select and !is_in_free_mode_island_popup and !is_in_free_mode_create_island:
-			deSpawnGameModeMenu()
-		
-	if Input.is_action_just_pressed("Exit"):
-		if PauseManager.is_inside_settings:
-			$Camera3D/MainLayer/SettingsUI.closeSettings(0.5)
-		
-		if PauseManager.is_inside_achievements_ui:
-			$Camera3D/MainLayer/AchievementsUI.despawnAchievements(0.5)
-		
-		if PauseManager.is_inside_credits:
-			$Camera3D/MainLayer/CreditsLayer.despawnCredits(0.5)
-		
-		if is_in_free_mode_island_popup:
-			FreeModeIslandPopupLayer.visible = false
-			is_in_free_mode_island_popup = false
-			is_in_gamemode_select = true
-			is_in_absolute_gamemode_select = true
+	if !transitioning_scene:
+		if Input.is_action_just_pressed("Exit") and !is_tweening:  # Check if not tweening
+			if is_in_gamemode_select and !is_in_free_mode_island_popup and !is_in_free_mode_create_island:
+				deSpawnGameModeMenu()
 			
-		if is_in_free_mode_create_island:
-			$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandOrLoadIslandPopup.show()
-			$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup.hide()
-			is_in_free_mode_island_popup = true
-			is_in_free_mode_create_island = false
-			is_in_gamemode_select = false
-			is_in_absolute_gamemode_select = false
+		if Input.is_action_just_pressed("Exit"):
+			if PauseManager.is_inside_settings:
+				$Camera3D/MainLayer/SettingsUI.closeSettings(0.5)
+			
+			if PauseManager.is_inside_achievements_ui:
+				$Camera3D/MainLayer/AchievementsUI.despawnAchievements(0.5)
+			
+			if PauseManager.is_inside_credits:
+				$Camera3D/MainLayer/CreditsLayer.despawnCredits(0.5)
+			
+			if is_in_free_mode_island_popup:
+				FreeModeIslandPopupLayer.visible = false
+				is_in_free_mode_island_popup = false
+				is_in_gamemode_select = true
+				is_in_absolute_gamemode_select = true
+				
+			if is_in_free_mode_create_island:
+				$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandOrLoadIslandPopup.show()
+				$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup.hide()
+				is_in_free_mode_island_popup = true
+				is_in_free_mode_create_island = false
+				is_in_gamemode_select = false
+				is_in_absolute_gamemode_select = false
 
 ######################################
 # PlayButton animations and functions
@@ -308,25 +308,6 @@ func _on_play_free_mode_button_pressed() -> void:
 	is_in_free_mode_island_popup = true
 	is_in_gamemode_select = false
 	is_in_absolute_gamemode_select = false
-	
-	
-	"""
-	transitioning_scene = true
-	
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
-	$Camera3D/MainLayer/TransitionFadeOut.modulate = Color(1, 1, 1, 0)
-	$Camera3D/MainLayer/TransitionFadeOut.visible = true
-	
-	var tween = get_tree().create_tween()
-	tween.connect("finished", Callable(self, "on_free_mode_fade_finished"))
-	
-	tween.tween_property($Camera3D/MainLayer/TransitionFadeOut, "modulate", Color(1, 1, 1, 1), 1)
-	tween.tween_interval(1)
-	"""
-
-func on_free_mode_fade_finished():
-	get_tree().change_scene_to_packed(world)
 
 func _on_play_parkour_mode_button_pressed() -> void:
 	pass
@@ -364,8 +345,29 @@ func _on_in_popup_new_island_button_pressed() -> void:
 	if not has_valid_char:
 		print("Invalid Island name: Name cannot be empty or consist only of spaces and invalid characters.")
 		$Camera3D/MainLayer/FreeModeIslandPopup/MinimalAlert.spawn_minimal_alert(4, 0.5, 0.5, "Island name cannot be empty, contain only spaces, or contain invalid characters.")
+	
 	else:
 		print("Valid island name: ", sanitized_name)
+		$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit.editable = false
+		
+		transitioning_scene = true
+		IslandManager.Current_Island_Name = sanitized_name
+		Utils.createBaseSaveFolder()
+		Utils.createIslandSaveFolder(sanitized_name)
+		
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		
+		$Camera3D/MainLayer/TopLayer/TransitionFadeOut.modulate = Color(1, 1, 1, 0)
+		$Camera3D/MainLayer/TopLayer/TransitionFadeOut.visible = true
+		
+		var tween = get_tree().create_tween()
+		tween.connect("finished", Callable(self, "on_free_mode_fade_finished"))
+		
+		tween.tween_property($Camera3D/MainLayer/TopLayer/TransitionFadeOut, "modulate", Color(1, 1, 1, 1), 1)
+		tween.tween_interval(1)
+
+func on_free_mode_fade_finished():
+	get_tree().change_scene_to_packed(world)
 
 func _on_new_island_button_pressed() -> void:
 	is_in_free_mode_island_popup = false

@@ -440,7 +440,7 @@ func _ready():
 		$Head/Camera3D/OverlayLayer/Overlay.show() # show the overlay
 		
 		var tween = get_tree().create_tween()
-		tween.tween_interval(1)
+		tween.tween_interval(1.5)
 		tween.tween_property($Head/Camera3D/OverlayLayer/Overlay, "self_modulate", Color(0, 0, 0, 0), Fade_In_Time) # tween the overlay's self modulate to black
 		tween.tween_property($Head/Camera3D/OverlayLayer/Overlay, "visible", false, 0) # tween the overlay's visibility to false
 	else:
