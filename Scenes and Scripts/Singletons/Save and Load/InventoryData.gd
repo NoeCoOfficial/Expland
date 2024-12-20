@@ -52,8 +52,18 @@ var INVENTORY_SAVE_PATH = "res://saveData/Free Mode/Islands/inventory.save"
 var inventory_data = []
 
 func saveInventory(Island_Name : String, parent_node: Node) -> void:
-	Utils.createIslandSaveFolder(Island_Name, "FREE")
-	INVENTORY_SAVE_PATH = "res://saveData/Free Mode/Islands/" + Island_Name + "/inventory.save"
+	
+	if IslandManager.Current_Game_Mode == "FREE":
+		Utils.createIslandSaveFolder(Island_Name, "FREE")
+		INVENTORY_SAVE_PATH = "res://saveData/Free Mode/Islands/" + Island_Name + "/inventory.save"
+		
+	elif IslandManager.Current_Game_Mode == "STORY":
+		Utils.createIslandSaveFolder(Island_Name, "STORY")
+		INVENTORY_SAVE_PATH = "res://saveData/Story Mode/Islands/" + Island_Name + "/inventory.save"
+		
+	elif IslandManager.Current_Game_Mode == "STORY":
+		Utils.createIslandSaveFolder(Island_Name, "STORY")
+		INVENTORY_SAVE_PATH = "res://saveData/Parkour Mode/Runs/" + Island_Name + "/inventory.save"
 	
 	# Clear the inventory_data before saving
 	inventory_data.clear()
