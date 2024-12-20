@@ -353,7 +353,7 @@ func _on_in_popup_new_island_button_pressed() -> void:
 		transitioning_scene = true
 		IslandManager.Current_Island_Name = sanitized_name
 		Utils.createBaseSaveFolder()
-		Utils.createIslandSaveFolder(sanitized_name)
+		Utils.createIslandSaveFolder(sanitized_name, "FREE")
 		
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		

@@ -52,7 +52,7 @@ var INVENTORY_SAVE_PATH = "res://saveData/Free Mode/Islands/inventory.save"
 var inventory_data = []
 
 func saveInventory(Island_Name : String, parent_node: Node) -> void:
-	Utils.createIslandSaveFolder(Island_Name)
+	Utils.createIslandSaveFolder(Island_Name, "FREE")
 	INVENTORY_SAVE_PATH = "res://saveData/Free Mode/Islands/" + Island_Name + "/inventory.save"
 	
 	# Clear the inventory_data before saving
@@ -82,7 +82,7 @@ func saveInventory(Island_Name : String, parent_node: Node) -> void:
 		printerr("[InventoryData] Failed to open inventory save file.")
 
 func loadInventory(Island_Name : String) -> void:
-	Utils.createIslandSaveFolder(Island_Name)
+	Utils.createIslandSaveFolder(Island_Name, "FREE")
 	INVENTORY_SAVE_PATH = "res://saveData/Free Mode/Islands/" + Island_Name + "/inventory.save"
 	
 	var file = FileAccess.open(INVENTORY_SAVE_PATH, FileAccess.READ)

@@ -750,6 +750,7 @@ visible = false
 visible = false
 
 [node name="FreeModeIslandPopup" type="CanvasLayer" parent="Camera3D/MainLayer"]
+visible = false
 
 [node name="GreyLayer" type="ColorRect" parent="Camera3D/MainLayer/FreeModeIslandPopup"]
 anchors_preset = 15
@@ -893,14 +894,13 @@ metadata/_edit_use_anchors_ = true
 
 [node name="LoadIslandPopup" type="Control" parent="Camera3D/MainLayer/FreeModeIslandPopup"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
+anchor_left = 1.0
+anchor_right = 2.0
 anchor_bottom = 1.0
-offset_left = 1152.0
-offset_right = 1152.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("27_ro0wj")
+metadata/_edit_use_anchors_ = true
 
 [node name="LoadIslandPopupBG" type="Panel" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup"]
 layout_mode = 1

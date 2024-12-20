@@ -46,7 +46,7 @@
 # ============================================================= #
 
 @icon("res://Textures/Icons/Script Icons/32x32/disk_save.png")
-extends Container
+extends Control
 
 func _ready() -> void:
 	name = "IslandSaveElement"

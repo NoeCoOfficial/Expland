@@ -107,9 +107,20 @@ func vector2_to_dict(vec: Vector2) -> Dictionary: # Converts a Vector2 value to 
 func dict_to_vector2(dict: Dictionary) -> Vector2: # Converts a dictionary value to a Vector2 value.
 	return Vector2(dict["x"], dict["y"])
 
-func createIslandSaveFolder(folder_name: String) -> void:
+func createIslandSaveFolder(folder_name: String, game_mode : String) -> void:
 	var base_path = "res://saveData"
+	
 	var full_path = base_path + "/" + folder_name
+	
+	if game_mode == "FREE":
+		full_path = base_path + "/Free Mode/Islands/" + folder_name
+	
+	if game_mode == "STORY":
+		full_path = base_path + "/Story Mode/Islands/" + folder_name
+	
+	if game_mode == "PARKOUR":
+		full_path = base_path + "/Parkour Mode/Runs/" + folder_name
+	
 	
 	var dir = DirAccess.open("res://")
 	
