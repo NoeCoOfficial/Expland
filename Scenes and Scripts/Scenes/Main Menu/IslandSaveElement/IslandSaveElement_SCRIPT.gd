@@ -48,6 +48,8 @@
 @icon("res://Textures/Icons/Script Icons/32x32/disk_save.png")
 extends Control
 
+@onready var resource_preloader: ResourcePreloader = $ResourcePreloader
+
 var current_name_submitted : String
 var game_mode
 
@@ -55,13 +57,19 @@ func _ready() -> void:
 	name = "IslandSaveElement"
 
 func initializeProperties(Island_Name : String, gameplay_image_path : String) -> void:
+	
+	var resource_texture = load(gameplay_image_path)
+	var texture_name : StringName = "Gameplay_Texture_" + gameplay_image_path
+	
+	resource_preloader.add_resource(texture_name, resource_texture)
+	
 	$Island_Name_TextEdit.text = Island_Name
 	current_name_submitted = Island_Name
 	
 	if gameplay_image_path != "":
-		var texture = ResourceLoader.load(gameplay_image_path)
-		if texture:
-			$PanelContainer/TextureRect.texture = texture
+		var texture_instance = resource_preloader.get_resource(texture_name)
+		if texture_instance:
+			$PanelContainer/TextureRect.texture = texture_instance
 		else:
 			print("Failed to load image: %s" % gameplay_image_path)
 
