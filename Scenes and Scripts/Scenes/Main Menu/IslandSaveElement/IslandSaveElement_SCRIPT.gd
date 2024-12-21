@@ -48,8 +48,6 @@
 @icon("res://Textures/Icons/Script Icons/32x32/disk_save.png")
 extends Control
 
-@onready var resource_preloader: ResourcePreloader = $ResourcePreloader
-
 var current_name_submitted : String
 var game_mode
 
