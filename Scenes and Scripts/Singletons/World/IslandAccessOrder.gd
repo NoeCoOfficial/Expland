@@ -1,5 +1,5 @@
 # ============================================================= #
-# IslandManager.gd [AUTOLOAD]
+# IslandAccessOrder.gd [AUTOLOAD]
 # ============================================================= #
 #                       COPYRIGHT NOTICE                        #
 #                           Noe Co.                             #
@@ -47,13 +47,35 @@
 
 extends Node
 
-var Current_Island_Name = "Debug"
-var Current_Game_Mode : String
+const SAVE_PATH = "res://saveData/island_access_order.save"
 
-func _ready() -> void:
-	if !OS.has_feature("debug"):
-		Current_Island_Name = ""
+var island_access_order = []
 
-func set_current_island(island_name: String) -> void:
-	Current_Island_Name = island_name
-	IslandAccessOrder.add_island(island_name)
+func add_island(island_name: String) -> void:
+	if island_name != "Debug":
+		island_access_order.append(island_name)
+		save_order()
+
+func save_order() -> void:
+	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+	var data = {
+		"island_access_order": island_access_order,
+	}
+	var jstr = JSON.stringify(data)
+	file.store_line(jstr)
+	file.close()
+	print("[IslandAccessOrder] --Saved Island Access Order--")
+
+func load_order() -> void:
+	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
+	if not file:
+		push_warning("[IslandAccessOrder] File doesn't exist (" + SAVE_PATH + ")")
+		return
+	if file == null:
+		return
+	if FileAccess.file_exists(SAVE_PATH) == true:
+		if not file.eof_reached():
+			var current_line = JSON.parse_string(file.get_line())
+			if current_line:
+				island_access_order = current_line["island_access_order"]
+				print("[IslandAccessOrder] --Loaded Island Access Order--")
