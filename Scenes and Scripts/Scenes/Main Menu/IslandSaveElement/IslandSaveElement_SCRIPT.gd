@@ -75,9 +75,21 @@ func _on_continue_btn_pressed() -> void:
 func _on_info_btn_pressed() -> void:
 	pass
 	# TODO
+	# Get main menu node
+	# Create popup node in main menu
+	# Get popup node
+	# Display popup with the info
 
 func _on_edit_btn_pressed() -> void:
 	pass
+	# TODO
+	# Get minimal popup node
+	# Display text saying that this isnt available yet
 
 func _on_delete_btn_pressed() -> void:
-	pass # Replace with function body.
+	pass
+	# TODO
+	# Create new binary choice popup scene
+	# Instace it into the main menu
+	# Get main menu node
+	# Open the popup
