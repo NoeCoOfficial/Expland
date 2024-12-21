@@ -67,6 +67,7 @@ func _on_island_name_text_edit_text_changed(new_text: String) -> void:
 
 func _on_continue_btn_pressed() -> void:
 	pass
+	# im actually cooked for this one lol
 	# TODO
 	# Get main menu node
 	# Switch current island to the island name
