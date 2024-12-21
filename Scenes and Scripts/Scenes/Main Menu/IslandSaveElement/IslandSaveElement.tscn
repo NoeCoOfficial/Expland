@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://oker5ahpwg2"]
+[gd_scene load_steps=13 format=3 uid="uid://oker5ahpwg2"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/IslandSaveElement/IslandSaveElement_SCRIPT.gd" id="1_eww5b"]
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="2_drivp"]
@@ -10,6 +10,7 @@
 [ext_resource type="StyleBox" uid="uid://dk6yg5shsrlga" path="res://Resources/Styles and Themes/Styles/Default/Button/Default_Hover.tres" id="8_3226v"]
 [ext_resource type="StyleBox" uid="uid://4bki1vu11lcb" path="res://Resources/Styles and Themes/Styles/Default/Button/Default_Pressed.tres" id="9_ng22a"]
 [ext_resource type="StyleBox" uid="uid://dysjxkdohprwn" path="res://Resources/Styles and Themes/Styles/Default/Button/Default_Normal.tres" id="10_cxkgr"]
+[ext_resource type="Texture2D" uid="uid://dfmqiqc2kf85e" path="res://saveData/Free Mode/Islands/Jesus is King/island.png" id="11_7toa5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6maf"]
 corner_radius_top_left = 5
@@ -141,6 +142,9 @@ visible = false
 anchors_preset = 0
 offset_right = 373.0
 offset_bottom = 98.0
+
+[node name="ResourcePreloader" type="ResourcePreloader" parent="."]
+resources = [PackedStringArray("island"), [ExtResource("11_7toa5")]]
 
 [connection signal="text_submitted" from="Island_Name_TextEdit" to="." method="_on_island_name_text_edit_text_submitted"]
 [connection signal="pressed" from="Continue_Btn" to="." method="_on_continue_btn_pressed"]
