@@ -402,6 +402,25 @@ func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 	tween.tween_property($Camera3D/MainLayer/TopLayer/TransitionFadeOut, "modulate", Color(1, 1, 1, 1), 1)
 	tween.tween_interval(1)
 
+func goToIsland(island_name : String, gamemode : String):
+	transitioning_scene = true
+	IslandManager.set_current_island(island_name)
+	IslandManager.Current_Game_Mode = "FREE"
+	
+	Utils.createBaseSaveFolder()
+	Utils.createIslandSaveFolder(island_name, IslandManager.Current_Game_Mode)
+	
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	$Camera3D/MainLayer/TopLayer/TransitionFadeOut.modulate = Color(1, 1, 1, 0)
+	$Camera3D/MainLayer/TopLayer/TransitionFadeOut.visible = true
+	
+	var tween = get_tree().create_tween()
+	tween.connect("finished", Callable(self, "on_free_mode_fade_finished"))
+	
+	tween.tween_property($Camera3D/MainLayer/TopLayer/TransitionFadeOut, "modulate", Color(1, 1, 1, 1), 1)
+	tween.tween_interval(1)
+
 func on_free_mode_fade_finished():
 	get_tree().change_scene_to_packed(world)
 

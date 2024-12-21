@@ -66,6 +66,7 @@ func initializeProperties(Island_Name : String, gameplay_image_path : String) ->
 			print("Failed to load image: %s" % gameplay_image_path)
 
 func _on_continue_btn_pressed() -> void:
+	var main_menu = get_node("/root/MainMenu")
 	var dir = DirAccess.open("res://saveData/Free Mode/Islands")
 	var text_edit = $Island_Name_TextEdit
 	var text = text_edit.text
@@ -90,7 +91,6 @@ func _on_continue_btn_pressed() -> void:
 	while sanitized_name.ends_with(" "):
 		sanitized_name = sanitized_name.substr(0, sanitized_name.length() - 1)
 	
-	
 	if dir:
 		dir.list_dir_begin()
 		var folder_name = dir.get_next()
@@ -109,20 +109,12 @@ func _on_continue_btn_pressed() -> void:
 	current_name_submitted = text_edit.text
 	
 	text_edit.editable = false
+	text_edit.focus_mode = 0
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	# im actually cooked for this one lol
-	# TODO
-	# Get main menu node
-	# Switch current island to the island name
-	# Go to island
+	main_menu.goToIsland(current_name_submitted, "FREE")
+
+func _on_island_name_text_edit_text_submitted(new_text: String) -> void:
+	pass # Replace with function body.
 
 func _on_info_btn_pressed() -> void:
 	pass
@@ -145,7 +137,3 @@ func _on_delete_btn_pressed() -> void:
 	# Instace it into the main menu
 	# Get main menu node
 	# Open the popup
-
-
-func _on_island_name_text_edit_text_submitted(new_text: String) -> void:
-	pass # Replace with function body.
