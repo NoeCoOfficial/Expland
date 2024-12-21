@@ -70,8 +70,6 @@ func _on_continue_btn_pressed() -> void:
 	
 	if main_menu != null:
 		main_menu.goToIsland($Island_Name_TextEdit.text, "FREE")
-	# Switch current island to the island name
-	# Go to island
 
 func _on_info_btn_pressed() -> void:
 	pass

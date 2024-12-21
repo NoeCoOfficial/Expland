@@ -384,7 +384,9 @@ func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 	print("Valid island name: ", sanitized_name)
 	$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit.editable = false
 	
+	$Camera3D/MainLayer/ProtectiveLayer.visible = false
 	transitioning_scene = true
+	
 	IslandManager.set_current_island(sanitized_name)
 	IslandManager.Current_Game_Mode = "FREE"
 	
@@ -402,7 +404,8 @@ func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 	tween.tween_property($Camera3D/MainLayer/TopLayer/TransitionFadeOut, "modulate", Color(1, 1, 1, 1), 1)
 	tween.tween_interval(1)
 
-func goToIsland(IslandName : String, GameMode : String, ):
+func goToIsland(IslandName : String, GameMode : String):
+	$Camera3D/MainLayer/ProtectiveLayer.visible = true
 	transitioning_scene = true
 	IslandManager.set_current_island(IslandName)
 	
