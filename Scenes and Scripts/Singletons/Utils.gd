@@ -208,7 +208,7 @@ func _cleanup_screenshot_thread():
 		screenshot_thread = null
 
 func sanitize_island_name(text: String) -> String:
-	var invalid_chars = ["/", "\\", "|", "*", "<", ">", "\"", "?", ":", "+", " ", "\t", "\n", "\r"]
+	var invalid_chars = ["/", "\\", "|", "*", "<", ">", "\"", "?", ":", "+", "\t", "\n", "\r"]
 	var sanitized_name = ""
 	var has_valid_char = false
 	

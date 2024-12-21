@@ -62,10 +62,21 @@ func initializeProperties(Island_Name: String, gameplay_image_path: String) -> v
 			print("Failed to load image: %s" % gameplay_image_path)
 
 func _on_island_name_text_edit_text_submitted(new_text: String) -> void:
+	_sanitize_and_rename_island(new_text)
+
+func _on_continue_btn_pressed() -> void:
+	var new_text = $Island_Name_TextEdit.text
+	_sanitize_and_rename_island(new_text)
+	var main_menu = get_node("/root/MainMenu")
+	if main_menu != null:
+		main_menu.goToIsland($Island_Name_TextEdit.text, "FREE")
+
+func _sanitize_and_rename_island(new_text: String) -> void:
 	var sanitized_name = Utils.sanitize_island_name(new_text)
+	$Island_Name_TextEdit.text = sanitized_name
+	
 	if sanitized_name.is_empty():
 		print("Invalid Island name: Name cannot be empty or consist only of spaces and invalid characters.")
-		$Island_Name_TextEdit.text = ""
 		var minimal_popup_node = get_node("/root/MainMenu/Camera3D/MainLayer/FreeModeIslandPopup/MinimalAlert")
 		if minimal_popup_node != null:
 			minimal_popup_node.spawn_minimal_alert(4, 0.5, 0.5, "Island name cannot be empty, contain only spaces, or contain invalid characters.")
@@ -79,35 +90,34 @@ func _on_island_name_text_edit_text_submitted(new_text: String) -> void:
 		var root_dir = DirAccess.open("res://")
 		if root_dir and root_dir.dir_exists(new_path):
 			print("Island name already exists: ", sanitized_name)
-			$Island_Name_TextEdit.text = old_name
 			var minimal_popup_node = get_node("/root/MainMenu/Camera3D/MainLayer/FreeModeIslandPopup/MinimalAlert")
 			if minimal_popup_node != null:
 				minimal_popup_node.spawn_minimal_alert(4, 0.5, 0.5, "Island name already exists. Please choose a different name.")
 		else:
 			var old_dir = DirAccess.open(old_path)
 			if old_dir:
-				var result = old_dir.rename(old_path, new_path)
-				if result == OK:
-					print("Island folder renamed from %s to %s" % [old_name, sanitized_name])
-					$Island_Name_TextEdit.text = sanitized_name
-				else:
-					print("Failed to rename directory: %s" % old_path)
-					$Island_Name_TextEdit.text = old_name
-					var minimal_popup_node = get_node("/root/MainMenu/Camera3D/MainLayer/FreeModeIslandPopup/MinimalAlert")
-					if minimal_popup_node != null:
-						minimal_popup_node.spawn_minimal_alert(4, 0.5, 0.5, "Failed to rename" + old_name + ", folder could not be found.")
+				var new_dir = DirAccess.open("res://")
+				new_dir.make_dir(new_path)
+				old_dir.list_dir_begin()
+				var file_name = old_dir.get_next()
+				while file_name != "":
+					if file_name != "." and file_name != "..":
+						var from_path = old_path + "/" + file_name
+						var to_path = new_path + "/" + file_name
+						var file_dir = DirAccess.open("res://")
+						var result = file_dir.copy(from_path, to_path)
+						if result != OK:
+							print("Failed to copy file: %s" % from_path)
+					file_name = old_dir.get_next()
+				old_dir.list_dir_end()
+				old_dir.remove(old_path)
+				print("Island folder renamed from %s to %s" % [old_name, sanitized_name])
+				$Island_Name_TextEdit.text = sanitized_name
 			else:
 				print("Failed to open directory: %s" % old_path)
-				$Island_Name_TextEdit.text = old_name
 				var minimal_popup_node = get_node("/root/MainMenu/Camera3D/MainLayer/FreeModeIslandPopup/MinimalAlert")
 				if minimal_popup_node != null:
-					minimal_popup_node.spawn_minimal_alert(4, 0.5, 0.5, "Failed to rename" + old_name + ", folder could not be found.")
-
-func _on_continue_btn_pressed() -> void:
-	var main_menu = get_node("/root/MainMenu")
-	
-	if main_menu != null:
-		main_menu.goToIsland($Island_Name_TextEdit.text, "FREE")
+					minimal_popup_node.spawn_minimal_alert(4, 0.5, 0.5, "Failed to rename " + old_name + ", folder could not be found.")
 
 func _on_info_btn_pressed() -> void:
 	pass
