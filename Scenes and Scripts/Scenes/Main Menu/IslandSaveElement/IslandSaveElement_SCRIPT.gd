@@ -56,22 +56,31 @@ var game_mode
 func _ready() -> void:
 	name = "IslandSaveElement"
 
-func initializeProperties(Island_Name : String, gameplay_image_path : String) -> void:
-	
-	var resource_texture = load(gameplay_image_path)
-	var texture_name : StringName = "Gameplay_Texture_" + gameplay_image_path
-	
-	resource_preloader.add_resource(texture_name, resource_texture)
-	
-	$Island_Name_TextEdit.text = Island_Name
-	current_name_submitted = Island_Name
-	
+func initializeProperties(island_name: String, gameplay_image_path: String) -> void:
+	# Set the island name text
+	$Island_Name_TextEdit.text = island_name
+	current_name_submitted = island_name
+
 	if gameplay_image_path != "":
-		var texture_instance = resource_preloader.get_resource(texture_name)
-		if texture_instance:
+		# Load the image from the provided path
+		var image = Image.new()
+		var error = image.load(gameplay_image_path)
+		
+		if error == OK:
+			# Create a texture from the image
+			var texture_instance = ImageTexture.create_from_image(image)
 			$PanelContainer/TextureRect.texture = texture_instance
 		else:
+			# Handle the error by loading the fallback image
 			print("Failed to load image: %s" % gameplay_image_path)
+			load_fallback_texture()
+	else:
+		# No path provided, use fallback image
+		load_fallback_texture()
+
+func load_fallback_texture() -> void:
+	# Load and set a fallback texture
+	$PanelContainer/TextureRect.texture = preload("res://Textures/Images/DefaultLoadImage.png")
 
 func _on_continue_btn_pressed() -> void:
 	var main_menu = get_node("/root/MainMenu")
