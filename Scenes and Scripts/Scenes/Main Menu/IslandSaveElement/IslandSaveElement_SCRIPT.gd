@@ -111,9 +111,8 @@ func _on_continue_btn_pressed() -> void:
 	text_edit.editable = false
 	text_edit.focus_mode = 0
 	
-	$Continue_Btn.disabled = true
-	$Delete_Btn.disabled = true
-
+	$ProtectiveLayer.visible = true
+	
 	main_menu.goToIsland(current_name_submitted, "FREE")
 
 func _on_island_name_text_edit_text_submitted(new_text: String) -> void:
