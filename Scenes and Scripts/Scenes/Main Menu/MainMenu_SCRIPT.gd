@@ -330,14 +330,12 @@ func _on_credits_button_pressed() -> void:
 	$Camera3D/MainLayer/CreditsLayer.spawnCredits(0.5)
 
 func _on_new_island_name_text_input(event: InputEventKey) -> void:
-	var invalid_chars = ["/", "\\", "|", "*", "<", ">", "\"", "?", ":", "+"]
+	var invalid_chars = ["/", "\\", "|", "*", "<", ">", "\"", "?", ":", "+", " ", "\t", "\n", "\r"]
 	
 	if event.unicode_char in invalid_chars:
 		event.accepted = false
 
-func _on_free_mode_in_popup_new_island_button_pressed() -> void:
-	var text_edit = $Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit
-	var text = text_edit.text
+func sanitize_island_name(text: String) -> String:
 	var invalid_chars = ["/", "\\", "|", "*", "<", ">", "\"", "?", ":", "+", " ", "\t", "\n", "\r"]
 	var sanitized_name = ""
 	var has_valid_char = false
@@ -359,9 +357,14 @@ func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 	while sanitized_name.ends_with(" "):
 		sanitized_name = sanitized_name.substr(0, sanitized_name.length() - 1)
 	
-	text_edit.text = sanitized_name
+	return sanitized_name
+
+func _on_free_mode_in_popup_new_island_button_pressed() -> void:
+	var text_edit = $Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit
+	var text = text_edit.text
+	var sanitized_name = sanitize_island_name(text)
 	
-	if not has_valid_char:
+	if sanitized_name.empty():
 		$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit.text = ""
 		print("Invalid Island name: Name cannot be empty or consist only of spaces and invalid characters.")
 		$Camera3D/MainLayer/FreeModeIslandPopup/MinimalAlert.spawn_minimal_alert(4, 0.5, 0.5, "Island name cannot be empty, contain only spaces, or contain invalid characters.")
