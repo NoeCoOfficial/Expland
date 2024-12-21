@@ -62,7 +62,6 @@ func loadAndShow() -> void:
 		var folder_name = dir.get_next()
 		while folder_name != "":
 			if dir.current_is_dir() and folder_name != "." and folder_name != "..":
-				print("Folder: %s" % folder_name)
 				folders.append({"name": folder_name})
 			folder_name = dir.get_next()
 		dir.list_dir_end()
