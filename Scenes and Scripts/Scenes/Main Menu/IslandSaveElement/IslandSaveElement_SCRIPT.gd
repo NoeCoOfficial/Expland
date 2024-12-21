@@ -66,9 +66,10 @@ func _on_island_name_text_edit_text_changed(new_text: String) -> void:
 
 
 func _on_continue_btn_pressed() -> void:
-	pass
-	# TODO
-	# Get main menu node
+	var main_menu = get_node("/root/MainMenu")
+	
+	if main_menu != null:
+		main_menu.goToIsland($Island_Name_TextEdit.text, "FREE")
 	# Switch current island to the island name
 	# Go to island
 
