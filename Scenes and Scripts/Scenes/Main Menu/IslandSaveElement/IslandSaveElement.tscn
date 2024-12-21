@@ -133,3 +133,9 @@ theme_override_styles/pressed = ExtResource("9_ng22a")
 theme_override_styles/normal = ExtResource("10_cxkgr")
 text = "Delete"
 metadata/_edit_use_anchors_ = true
+
+[connection signal="text_changed" from="Island_Name_TextEdit" to="." method="_on_island_name_text_edit_text_changed"]
+[connection signal="pressed" from="Continue_Btn" to="." method="_on_continue_btn_pressed"]
+[connection signal="pressed" from="Info_Btn" to="." method="_on_info_btn_pressed"]
+[connection signal="pressed" from="Edit_Btn" to="." method="_on_edit_btn_pressed"]
+[connection signal="pressed" from="Delete_Btn" to="." method="_on_delete_btn_pressed"]

@@ -60,3 +60,24 @@ func initializeProperties(Island_Name: String, gameplay_image_path: String) -> v
 			$PanelContainer/TextureRect.texture = texture
 		else:
 			print("Failed to load image: %s" % gameplay_image_path)
+
+func _on_island_name_text_edit_text_changed(new_text: String) -> void:
+	pass # Replace with function body.
+
+
+func _on_continue_btn_pressed() -> void:
+	pass
+	# TODO
+	# Get main menu node
+	# Switch current island to the island name
+	# Go to island
+
+func _on_info_btn_pressed() -> void:
+	pass
+	# TODO
+
+func _on_edit_btn_pressed() -> void:
+	pass
+
+func _on_delete_btn_pressed() -> void:
+	pass # Replace with function body.
