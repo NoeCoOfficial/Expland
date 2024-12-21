@@ -64,7 +64,6 @@ func initializeProperties(Island_Name: String, gameplay_image_path: String) -> v
 func _on_island_name_text_edit_text_changed(new_text: String) -> void:
 	pass # Replace with function body.
 
-
 func _on_continue_btn_pressed() -> void:
 	var main_menu = get_node("/root/MainMenu")
 	

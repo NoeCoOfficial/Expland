@@ -206,3 +206,27 @@ func _cleanup_screenshot_thread():
 	if screenshot_thread:
 		screenshot_thread.wait_to_finish()
 		screenshot_thread = null
+
+func sanitize_island_name(text: String) -> String:
+	var invalid_chars = ["/", "\\", "|", "*", "<", ">", "\"", "?", ":", "+", " ", "\t", "\n", "\r"]
+	var sanitized_name = ""
+	var has_valid_char = false
+	
+	for character in text:
+		if character not in invalid_chars:
+			sanitized_name += character
+			if character != " ":
+				has_valid_char = true
+	
+	# Remove trailing spaces
+	while sanitized_name.ends_with(" "):
+		sanitized_name = sanitized_name.substr(0, sanitized_name.length() - 1)
+	
+	if sanitized_name.length() > 100:
+		sanitized_name = sanitized_name.substr(0, 100)
+	
+	# Remove trailing spaces again after length check
+	while sanitized_name.ends_with(" "):
+		sanitized_name = sanitized_name.substr(0, sanitized_name.length() - 1)
+	
+	return sanitized_name
