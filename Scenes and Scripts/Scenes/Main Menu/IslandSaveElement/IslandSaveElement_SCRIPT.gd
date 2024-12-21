@@ -65,9 +65,6 @@ func initializeProperties(Island_Name : String, gameplay_image_path : String) ->
 		else:
 			print("Failed to load image: %s" % gameplay_image_path)
 
-func _on_island_name_text_edit_text_changed(new_text: String) -> void:
-	pass # Replace with function body.
-
 func _on_continue_btn_pressed() -> void:
 	var dir = DirAccess.open("res://saveData/Free Mode/Islands")
 	var text_edit = $Island_Name_TextEdit
@@ -148,3 +145,7 @@ func _on_delete_btn_pressed() -> void:
 	# Instace it into the main menu
 	# Get main menu node
 	# Open the popup
+
+
+func _on_island_name_text_edit_text_submitted(new_text: String) -> void:
+	pass # Replace with function body.
