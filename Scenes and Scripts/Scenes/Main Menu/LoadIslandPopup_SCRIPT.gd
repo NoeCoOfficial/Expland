@@ -66,7 +66,14 @@ func loadAndShow() -> void:
 			folder_name = dir.get_next()
 		dir.list_dir_end()
 		
-		for folder in folders:
+		var ordered_folders = []
+		for island_name in IslandAccessOrder.island_access_order:
+			for folder in folders:
+				if folder["name"] == island_name:
+					ordered_folders.append(folder)
+					break
+		
+		for folder in ordered_folders:
 			print_rich("[color=red]Detected folder: %s[/color]" % folder["name"])
 			
 			var island_save_element = load("res://Scenes and Scripts/Scenes/Main Menu/IslandSaveElement/IslandSaveElement.tscn").instantiate()

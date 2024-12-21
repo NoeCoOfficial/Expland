@@ -53,7 +53,10 @@ var island_access_order = []
 
 func add_island(island_name: String) -> void:
 	if island_name != "Debug":
-		island_access_order.append(island_name)
+		# Remove the island if it already exists in the list
+		island_access_order.erase(island_name)
+		# Insert the island at the start of the list
+		island_access_order.insert(0, island_name)
 		save_order()
 
 func save_order() -> void:

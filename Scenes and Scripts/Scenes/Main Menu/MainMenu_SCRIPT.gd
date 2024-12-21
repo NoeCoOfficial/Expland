@@ -356,28 +356,42 @@ func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 	if not has_valid_char:
 		print("Invalid Island name: Name cannot be empty or consist only of spaces and invalid characters.")
 		$Camera3D/MainLayer/FreeModeIslandPopup/MinimalAlert.spawn_minimal_alert(4, 0.5, 0.5, "Island name cannot be empty, contain only spaces, or contain invalid characters.")
+		return
 	
-	else:
-		print("Valid island name: ", sanitized_name)
-		$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit.editable = false
-		
-		transitioning_scene = true
-		IslandManager.Current_Island_Name = sanitized_name
-		IslandManager.Current_Game_Mode = "FREE"
-		
-		Utils.createBaseSaveFolder()
-		Utils.createIslandSaveFolder(sanitized_name, IslandManager.Current_Game_Mode)
-		
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		
-		$Camera3D/MainLayer/TopLayer/TransitionFadeOut.modulate = Color(1, 1, 1, 0)
-		$Camera3D/MainLayer/TopLayer/TransitionFadeOut.visible = true
-		
-		var tween = get_tree().create_tween()
-		tween.connect("finished", Callable(self, "on_free_mode_fade_finished"))
-		
-		tween.tween_property($Camera3D/MainLayer/TopLayer/TransitionFadeOut, "modulate", Color(1, 1, 1, 1), 1)
-		tween.tween_interval(1)
+	# Check if the sanitized name already exists
+	var dir = DirAccess.open("res://saveData/Free Mode/Islands/")
+	if dir:
+		dir.list_dir_begin()
+		var folder_name = dir.get_next()
+		while folder_name != "":
+			if dir.current_is_dir() and folder_name != "." and folder_name != "..":
+				if folder_name == sanitized_name:
+					print("Island name already exists: ", sanitized_name)
+					$Camera3D/MainLayer/FreeModeIslandPopup/MinimalAlert.spawn_minimal_alert(4, 0.5, 0.5, "Island name already exists. Please choose a different name.")
+					return
+			folder_name = dir.get_next()
+		dir.list_dir_end()
+	
+	print("Valid island name: ", sanitized_name)
+	$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit.editable = false
+	
+	transitioning_scene = true
+	IslandManager.set_current_island(sanitized_name)
+	IslandManager.Current_Game_Mode = "FREE"
+	
+	Utils.createBaseSaveFolder()
+	Utils.createIslandSaveFolder(sanitized_name, IslandManager.Current_Game_Mode)
+	
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	$Camera3D/MainLayer/TopLayer/TransitionFadeOut.modulate = Color(1, 1, 1, 0)
+	$Camera3D/MainLayer/TopLayer/TransitionFadeOut.visible = true
+	
+	var tween = get_tree().create_tween()
+	tween.connect("finished", Callable(self, "on_free_mode_fade_finished"))
+	
+	tween.tween_property($Camera3D/MainLayer/TopLayer/TransitionFadeOut, "modulate", Color(1, 1, 1, 1), 1)
+	tween.tween_interval(1)
 
 func on_free_mode_fade_finished():
 	get_tree().change_scene_to_packed(world)
