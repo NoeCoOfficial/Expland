@@ -110,6 +110,7 @@ func _on_continue_btn_pressed() -> void:
 	
 	text_edit.editable = false
 	text_edit.focus_mode = 0
+	$Delete_Btn.focus_mode = 0
 	
 	$Continue_Btn.disabled = true
 	$Delete_Btn.disabled = true
