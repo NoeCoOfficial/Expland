@@ -338,7 +338,7 @@ func _on_new_island_name_text_input(event: InputEventKey) -> void:
 func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 	var text_edit = $Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit
 	var text = text_edit.text
-	var invalid_chars = ["/", "\\", "|", "*", "<", ">", "\"", "?", ":", "+"]
+	var invalid_chars = ["/", "\\", "|", "*", "<", ">", "\"", "?", ":", "+", " ", "\t", "\n", "\r"]
 	var sanitized_name = ""
 	var has_valid_char = false
 	
