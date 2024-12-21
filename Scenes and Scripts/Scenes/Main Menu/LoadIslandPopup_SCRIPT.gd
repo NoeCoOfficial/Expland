@@ -62,8 +62,11 @@ func loadAndShow() -> void:
 		var folder_name = dir.get_next()
 		while folder_name != "":
 			if dir.current_is_dir() and folder_name != "." and folder_name != "..":
-				var folder_path = "res://saveData/Free Mode/Islands/%s" % folder_name
-				var mod_time = FileAccess.get_modified_time(folder_path)
+				var image_path = "res://saveData/Free Mode/Islands/%s/island.png" % folder_name
+				var mod_time = 0
+				if FileAccess.file_exists(image_path):
+					mod_time = FileAccess.get_modified_time(image_path)
+				print("Folder: %s, Modified Time: %d" % [folder_name, mod_time])
 				folders.append({"name": folder_name, "mod_time": mod_time})
 			folder_name = dir.get_next()
 		dir.list_dir_end()
