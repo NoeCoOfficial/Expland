@@ -70,7 +70,7 @@ func _on_continue_btn_pressed() -> void:
 	var dir = DirAccess.open("res://saveData/Free Mode/Islands")
 	var text_edit = $Island_Name_TextEdit
 	var text = text_edit.text
-	var invalid_chars = ["/", "\\", "|", "*", "<", ">", "\"", "?", ":", "+", " ", "\t", "\n", "\r"]
+	var invalid_chars = ["/", "\\", "|", "*", "<", ">", "\"", "?", ":", "+", "\t", "\n", "\r"]
 	var sanitized_name = ""
 	var has_valid_char = false
 	
