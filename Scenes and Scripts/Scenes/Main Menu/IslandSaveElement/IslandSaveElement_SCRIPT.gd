@@ -81,10 +81,10 @@ func _on_info_btn_pressed() -> void:
 	# Display popup with the info
 
 func _on_edit_btn_pressed() -> void:
-	pass
-	# TODO
-	# Get minimal popup node
-	# Display text saying that this isnt available yet
+	var minimal_popup_node = get_node("/root/MainMenu/Camera3D/MainLayer/FreeModeIslandPopup/MinimalAlert")
+	
+	if minimal_popup_node != null:
+		minimal_popup_node.spawn_minimal_alert(3, 0.5, 0.5, "This feature isn't available yet!")
 
 func _on_delete_btn_pressed() -> void:
 	pass
