@@ -348,12 +348,21 @@ func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 			if character != " ":
 				has_valid_char = true
 	
+	# Remove trailing spaces
+	while sanitized_name.ends_with(" "):
+		sanitized_name = sanitized_name.substr(0, sanitized_name.length() - 1)
+	
 	if sanitized_name.length() > 100:
 		sanitized_name = sanitized_name.substr(0, 100)
+	
+	# Remove trailing spaces again after length check
+	while sanitized_name.ends_with(" "):
+		sanitized_name = sanitized_name.substr(0, sanitized_name.length() - 1)
 	
 	text_edit.text = sanitized_name
 	
 	if not has_valid_char:
+		$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit.text = ""
 		print("Invalid Island name: Name cannot be empty or consist only of spaces and invalid characters.")
 		$Camera3D/MainLayer/FreeModeIslandPopup/MinimalAlert.spawn_minimal_alert(4, 0.5, 0.5, "Island name cannot be empty, contain only spaces, or contain invalid characters.")
 		return
