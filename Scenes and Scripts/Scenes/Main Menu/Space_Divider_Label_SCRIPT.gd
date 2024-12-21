@@ -1,5 +1,5 @@
 # ============================================================= #
-# IslandSaveElement_SCRIPT.gd
+# Space_Divider_Label_SCRIPT.gd
 # ============================================================= #
 #                       COPYRIGHT NOTICE                        #
 #                           Noe Co.                             #
@@ -45,18 +45,7 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-@icon("res://Textures/Icons/Script Icons/32x32/disk_save.png")
-extends Control
+extends Label
 
 func _ready() -> void:
-	name = "IslandSaveElement"
-
-func initializeProperties(Island_Name: String, gameplay_image_path: String) -> void:
-	$Island_Name_TextEdit.text = Island_Name
-	
-	if gameplay_image_path != "":
-		var texture = ResourceLoader.load(gameplay_image_path)
-		if texture:
-			$PanelContainer/TextureRect.texture = texture
-		else:
-			print("Failed to load image: %s" % gameplay_image_path)
+	self.name = "Space"

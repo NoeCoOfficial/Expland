@@ -1,5 +1,5 @@
 # ============================================================= #
-# IslandSaveElement_SCRIPT.gd
+# GlobalData.gd [AUTOLOAD]
 # ============================================================= #
 #                       COPYRIGHT NOTICE                        #
 #                           Noe Co.                             #
@@ -45,18 +45,57 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-@icon("res://Textures/Icons/Script Icons/32x32/disk_save.png")
-extends Control
+@icon("res://Textures/Icons/Script Icons/32x32/settings_save.png")
+extends Node
 
-func _ready() -> void:
-	name = "IslandSaveElement"
+const SAVE_PATH = "res://saveData/global.save"
 
-func initializeProperties(Island_Name: String, gameplay_image_path: String) -> void:
-	$Island_Name_TextEdit.text = Island_Name
-	
-	if gameplay_image_path != "":
-		var texture = ResourceLoader.load(gameplay_image_path)
-		if texture:
-			$PanelContainer/TextureRect.texture = texture
-		else:
-			print("Failed to load image: %s" % gameplay_image_path)
+func saveGlobal() -> void:
+	Utils.createBaseSaveFolder()
+	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+	var data = {
+		"placeholder" : 0,
+	}
+	var jstr = JSON.stringify(data)
+	file.store_line(jstr)
+	print("[GlobalData] --Saved Player Settings--")
+
+func loadGlobal() -> void:
+	Utils.createBaseSaveFolder()
+	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
+	if not file:
+		push_warning("[GlobalData] File doesn't exist (" + SAVE_PATH + ")")
+		return
+	if file == null:
+		return
+	if FileAccess.file_exists(SAVE_PATH) == true:
+		if not file.eof_reached():
+			
+			
+			var current_line = JSON.parse_string(file.get_line())
+			if current_line:
+				pass
+				# General
+			#	showStartupScreen = current_line["show_startup_screen"]
+				
+				# Graphics
+			#	MotionBlur = current_line["motion_blur"]
+			#	DOFBlur = current_line["dof_blur"]
+				
+				# Video
+			#	FOV = current_line["FOV"]
+			#	Sensitivity = current_line["Sensitivity"]
+				
+				# Audio
+			#	Master_Volume = current_line["Master_Volume"]
+				#music_Volume = current_line["music_Volume"]
+			#	sfx_Volume = current_line["sfx_Volume"]
+				
+				#print_rich("[center][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf][font_size=30]-- PLAYER SETTINGS HAVE BEEN LOADED --[/font_size][/font][/center]")
+				
+				#print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Show startup screen: "+str(showStartupScreen)+"[/font][/font_size][/center]")
+				#print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]DOF Blur: "+str(DOFBlur)+"[/font][/font_size][/center]")
+				#print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]FOV: "+str(FOV)+"[/font][/font_size][/center]")
+				#print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Master Volume: "+str(Master_Volume)+"[/font][/font_size][/center]")
+				#print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Music Volume: "+str(music_Volume)+"[/font][/font_size][/center]")
+				#print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]SFX Volume: "+str(sfx_Volume)+"[/font][/font_size][/center]")

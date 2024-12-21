@@ -1,5 +1,5 @@
 # ============================================================= #
-# IslandSaveElement_SCRIPT.gd
+# LoadIslandPopup_SCRIPT.gd
 # ============================================================= #
 #                       COPYRIGHT NOTICE                        #
 #                           Noe Co.                             #
@@ -45,18 +45,53 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-@icon("res://Textures/Icons/Script Icons/32x32/disk_save.png")
 extends Control
 
-func _ready() -> void:
-	name = "IslandSaveElement"
+# Island Save file element path: "res://Scenes and Scripts/Scenes/Main Menu/IslandSaveElement/IslandSaveElement.tscn"
+# Space divider path: "res://Scenes and Scripts/Scenes/Main Menu/SpaceDivider_Label.tscn"
 
-func initializeProperties(Island_Name: String, gameplay_image_path: String) -> void:
-	$Island_Name_TextEdit.text = Island_Name
-	
-	if gameplay_image_path != "":
-		var texture = ResourceLoader.load(gameplay_image_path)
-		if texture:
-			$PanelContainer/TextureRect.texture = texture
-		else:
-			print("Failed to load image: %s" % gameplay_image_path)
+func _ready() -> void:
+	visible = false
+
+func loadAndShow() -> void:
+	visible = true
+	var dir = DirAccess.open("res://saveData/Free Mode/Islands/")
+	if dir:
+		var folders = []
+		dir.list_dir_begin()
+		var folder_name = dir.get_next()
+		while folder_name != "":
+			if dir.current_is_dir() and folder_name != "." and folder_name != "..":
+				folders.append({"name": folder_name})
+			folder_name = dir.get_next()
+		dir.list_dir_end()
+		
+		var ordered_folders = []
+		for island_name in IslandAccessOrder.island_access_order:
+			for folder in folders:
+				if folder["name"] == island_name:
+					ordered_folders.append(folder)
+					break
+		
+		for folder in ordered_folders:
+			print_rich("[color=red]Detected folder: %s[/color]" % folder["name"])
+			
+			var island_save_element = load("res://Scenes and Scripts/Scenes/Main Menu/IslandSaveElement/IslandSaveElement.tscn").instantiate()
+			$ScrollContainer/VBoxContainer.add_child(island_save_element)
+			island_save_element.name = "IslandSaveElement"
+			
+			var image_path = "res://saveData/Free Mode/Islands/%s/island.png" % folder["name"]
+			if not FileAccess.file_exists(image_path):
+				image_path = ""
+			island_save_element.initializeProperties(folder["name"], image_path)
+			
+			var space_divider = load("res://Scenes and Scripts/Scenes/Main Menu/SpaceDivider_Label.tscn").instantiate()
+			$ScrollContainer/VBoxContainer.add_child(space_divider)
+			space_divider.name = "Space"
+
+func clearOldElements() -> void:
+	var container = $ScrollContainer/VBoxContainer
+	for child in container.get_children():
+		if child.name.begins_with("Space") or child.name.begins_with("IslandSaveElement"):
+			container.remove_child(child)
+			child.queue_free()

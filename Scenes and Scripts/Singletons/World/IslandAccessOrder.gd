@@ -1,5 +1,5 @@
 # ============================================================= #
-# IslandSaveElement_SCRIPT.gd
+# IslandAccessOrder.gd [AUTOLOAD]
 # ============================================================= #
 #                       COPYRIGHT NOTICE                        #
 #                           Noe Co.                             #
@@ -45,18 +45,40 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-@icon("res://Textures/Icons/Script Icons/32x32/disk_save.png")
-extends Control
+extends Node
 
-func _ready() -> void:
-	name = "IslandSaveElement"
+const SAVE_PATH = "res://saveData/island_access_order.save"
 
-func initializeProperties(Island_Name: String, gameplay_image_path: String) -> void:
-	$Island_Name_TextEdit.text = Island_Name
-	
-	if gameplay_image_path != "":
-		var texture = ResourceLoader.load(gameplay_image_path)
-		if texture:
-			$PanelContainer/TextureRect.texture = texture
-		else:
-			print("Failed to load image: %s" % gameplay_image_path)
+var island_access_order = []
+
+func add_island(island_name: String) -> void:
+	if island_name != "Debug":
+		# Remove the island if it already exists in the list
+		island_access_order.erase(island_name)
+		# Insert the island at the start of the list
+		island_access_order.insert(0, island_name)
+		save_order()
+
+func save_order() -> void:
+	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+	var data = {
+		"island_access_order": island_access_order,
+	}
+	var jstr = JSON.stringify(data)
+	file.store_line(jstr)
+	file.close()
+	print("[IslandAccessOrder] --Saved Island Access Order--")
+
+func load_order() -> void:
+	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
+	if not file:
+		push_warning("[IslandAccessOrder] File doesn't exist (" + SAVE_PATH + ")")
+		return
+	if file == null:
+		return
+	if FileAccess.file_exists(SAVE_PATH) == true:
+		if not file.eof_reached():
+			var current_line = JSON.parse_string(file.get_line())
+			if current_line:
+				island_access_order = current_line["island_access_order"]
+				print("[IslandAccessOrder] --Loaded Island Access Order--")

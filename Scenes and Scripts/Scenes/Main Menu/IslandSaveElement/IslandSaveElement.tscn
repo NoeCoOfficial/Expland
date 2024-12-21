@@ -1,14 +1,141 @@
-[gd_scene load_steps=2 format=3 uid="uid://oker5ahpwg2"]
+[gd_scene load_steps=12 format=3 uid="uid://oker5ahpwg2"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/IslandSaveElement/IslandSaveElement_SCRIPT.gd" id="1_eww5b"]
+[ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="2_drivp"]
+[ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="2_ptwj5"]
+[ext_resource type="StyleBox" uid="uid://cm8xotke6bccm" path="res://Resources/Styles and Themes/Styles/Default/LineEdit/Default_Normal_LineEdit.tres" id="3_gaeij"]
+[ext_resource type="StyleBox" uid="uid://cf1a43wkesukc" path="res://Resources/Styles and Themes/Styles/Default/LineEdit/Default_Focus_LineEdit.tres" id="4_4qh26"]
+[ext_resource type="Texture2D" uid="uid://b4lev783o86l7" path="res://Textures/Images/DefaultLoadImage.png" id="6_y0s30"]
+[ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="7_hm3by"]
+[ext_resource type="StyleBox" uid="uid://dk6yg5shsrlga" path="res://Resources/Styles and Themes/Styles/Default/Button/Default_Hover.tres" id="8_3226v"]
+[ext_resource type="StyleBox" uid="uid://4bki1vu11lcb" path="res://Resources/Styles and Themes/Styles/Default/Button/Default_Pressed.tres" id="9_ng22a"]
+[ext_resource type="StyleBox" uid="uid://dysjxkdohprwn" path="res://Resources/Styles and Themes/Styles/Default/Button/Default_Normal.tres" id="10_cxkgr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6maf"]
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="IslandSaveElement" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -725.0
-offset_bottom = -537.0
+anchors_preset = 0
+offset_right = 372.0
+offset_bottom = 99.0001
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_eww5b")
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+offset_right = 372.0
+offset_bottom = 99.0001
+theme_override_styles/panel = ExtResource("2_drivp")
+
+[node name="Island_Name_TextEdit" type="LineEdit" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 164.0
+offset_top = 7.00001
+offset_right = 364.001
+offset_bottom = 33.0
+focus_mode = 1
+theme_override_fonts/font = ExtResource("2_ptwj5")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/focus = ExtResource("4_4qh26")
+theme_override_styles/read_only = ExtResource("3_gaeij")
+theme_override_styles/normal = ExtResource("3_gaeij")
+text = "text"
+placeholder_text = "Island name..."
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+drag_and_drop_selection_enabled = false
+caret_blink = true
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+clip_children = 1
+layout_mode = 0
+offset_left = 9.0
+offset_top = 11.0
+offset_right = 159.0
+offset_bottom = 88.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_g6maf")
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
+layout_mode = 2
+texture = ExtResource("6_y0s30")
+expand_mode = 1
+
+[node name="Continue_Btn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 172.0
+offset_top = 38.0
+offset_right = 262.0
+offset_bottom = 63.0
+grow_vertical = 0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("7_hm3by")
+theme_override_styles/hover = ExtResource("8_3226v")
+theme_override_styles/pressed = ExtResource("9_ng22a")
+theme_override_styles/normal = ExtResource("10_cxkgr")
+text = "Continue"
+metadata/_edit_use_anchors_ = true
+
+[node name="Info_Btn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.292929
+anchor_bottom = 0.292929
+offset_left = 172.0
+offset_top = 38.0
+offset_right = 262.0
+offset_bottom = 63.0
+grow_vertical = 0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("7_hm3by")
+theme_override_styles/hover = ExtResource("8_3226v")
+theme_override_styles/pressed = ExtResource("9_ng22a")
+theme_override_styles/normal = ExtResource("10_cxkgr")
+text = "Info"
+metadata/_edit_use_anchors_ = true
+
+[node name="Info_Btn2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.258065
+anchor_top = 0.292929
+anchor_right = 0.258065
+anchor_bottom = 0.292929
+offset_left = 172.0
+offset_top = 38.0
+offset_right = 262.0
+offset_bottom = 63.0
+grow_vertical = 0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("7_hm3by")
+theme_override_styles/hover = ExtResource("8_3226v")
+theme_override_styles/pressed = ExtResource("9_ng22a")
+theme_override_styles/normal = ExtResource("10_cxkgr")
+text = "Edit"
+metadata/_edit_use_anchors_ = true
+
+[node name="Delete_Btn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 267.0
+offset_top = 38.0
+offset_right = 357.0
+offset_bottom = 63.0
+grow_vertical = 0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("7_hm3by")
+theme_override_styles/hover = ExtResource("8_3226v")
+theme_override_styles/pressed = ExtResource("9_ng22a")
+theme_override_styles/normal = ExtResource("10_cxkgr")
+text = "Delete"
+metadata/_edit_use_anchors_ = true

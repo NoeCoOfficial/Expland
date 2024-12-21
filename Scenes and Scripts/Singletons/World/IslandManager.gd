@@ -48,7 +48,12 @@
 extends Node
 
 var Current_Island_Name = "Debug"
+var Current_Game_Mode : String
 
 func _ready() -> void:
 	if !OS.has_feature("debug"):
 		Current_Island_Name = ""
+
+func set_current_island(island_name: String) -> void:
+	Current_Island_Name = island_name
+	IslandAccessOrder.add_island(island_name)

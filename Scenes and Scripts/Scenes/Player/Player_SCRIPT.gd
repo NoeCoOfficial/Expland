@@ -274,7 +274,8 @@ func _input(_event): # A built-in function that listens for input using the inpu
 				self.position = ResetPOS # set the player's position to the Reset position 
 				velocity.y = 0.0 # set the player's velocity to 0 
 	
-	if Input.is_action_just_pressed("SaveGame") and OS.has_feature("debug"):
+	if Input.is_action_just_pressed("SaveGame") and OS.has_feature("debug") and IslandManager.Current_Game_Mode == "FREE":
+		Utils.take_screenshot_in_thread("res://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
 		saveAllDataWithAnimation()
 	
 	if Input.is_action_just_pressed("Inventory") and !PauseManager.is_paused and !InventoryManager.in_chest_interface and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":

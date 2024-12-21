@@ -47,6 +47,8 @@
 
 extends Node
 
+var screenshot_thread: Thread
+
 func format_number(n: int) -> String: # A function for formatting numbers easily. Must be an integer!
 	if n >= 1_000: # if the number is greater than or equal to 1,000
 
@@ -105,9 +107,17 @@ func vector2_to_dict(vec: Vector2) -> Dictionary: # Converts a Vector2 value to 
 func dict_to_vector2(dict: Dictionary) -> Vector2: # Converts a dictionary value to a Vector2 value.
 	return Vector2(dict["x"], dict["y"])
 
-func createIslandSaveFolder(folder_name: String) -> void:
+func createIslandSaveFolder(folder_name: String, game_mode : String) -> void:
 	var base_path = "res://saveData"
-	var full_path = base_path + "/" + folder_name
+	var full_path = base_path
+	
+	# Determine the full path based on the game mode
+	if game_mode == "FREE":
+		full_path += "/Free Mode/Islands/" + folder_name
+	elif game_mode == "STORY":
+		full_path += "/Story Mode/Islands/" + folder_name
+	elif game_mode == "PARKOUR":
+		full_path += "/Parkour Mode/Runs/" + folder_name
 	
 	var dir = DirAccess.open("res://")
 	
@@ -121,18 +131,21 @@ func createIslandSaveFolder(folder_name: String) -> void:
 			else:
 				print("Base folder 'saveData' created.")
 		
-		# Move to the "saveData" directory
-		dir.change_dir("saveData")
+			# Create the necessary subdirectories
+		var subdirs = full_path.replace("res://", "").split("/")
+		var current_path = "res://"
 		
-		# Create the inner folder if it does not exist
-		if not dir.dir_exists(folder_name):
-			var err = dir.make_dir(folder_name)
-			if err == OK:
-				print("Folder created successfully: ", full_path)
+		for subdir in subdirs:
+			current_path += "/" + subdir
+			if not dir.dir_exists(current_path):
+				var err = dir.make_dir(current_path)
+				if err != OK:
+					print("Failed to create folder: ", current_path, " Error: ", err)
+					return
+				else:
+					print("Folder created successfully: ", current_path)
 			else:
-				print("Failed to create folder: ", full_path, " Error: ", err)
-		else:
-			print("Folder already exists and will not be cleared: ", full_path)
+				print("Folder already exists: ", current_path)
 	else:
 		print("Failed to access res:// directory")
 
@@ -151,3 +164,45 @@ func createBaseSaveFolder() -> void:
 			print("Base folder 'saveData' already exists and will not be cleared.")
 	else:
 		print("Failed to access res:// directory")
+
+func take_screenshot_in_thread(save_path: String):
+	# Ensure no other thread is running
+	if screenshot_thread:
+		screenshot_thread.wait_to_finish()
+		screenshot_thread = null
+	
+	# Capture the image on the main thread
+	var viewport = get_viewport()
+	var image = viewport.get_texture().get_image()
+	
+	# Ensure the image is valid
+	if image:
+		
+		# Start the thread for saving the image
+		screenshot_thread = Thread.new()
+		var callable = Callable(self, "_save_image_thread").bind(image, save_path)
+		var result = screenshot_thread.start(callable)
+		
+		if result == OK:
+			print("Screenshot save thread started")
+		else:
+			print("Failed to start screenshot save thread")
+	else:
+		print("Failed to capture image from viewport.")
+
+# Function that runs on the thread for saving
+func _save_image_thread(image: Image, save_path: String):
+	var result = image.save_png(save_path)
+	if result == OK:
+		print("Screenshot saved to:", save_path)
+	else:
+		print("Failed to save screenshot.")
+	
+	# Signal the main thread that the task is complete (if needed)
+	call_deferred("_cleanup_screenshot_thread")
+
+# Cleanup function to safely stop and reset the thread
+func _cleanup_screenshot_thread():
+	if screenshot_thread:
+		screenshot_thread.wait_to_finish()
+		screenshot_thread = null
