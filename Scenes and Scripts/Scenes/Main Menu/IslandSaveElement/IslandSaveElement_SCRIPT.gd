@@ -48,11 +48,14 @@
 @icon("res://Textures/Icons/Script Icons/32x32/disk_save.png")
 extends Control
 
+var current_name_submitted : String
+
 func _ready() -> void:
 	name = "IslandSaveElement"
 
 func initializeProperties(Island_Name: String, gameplay_image_path: String) -> void:
 	$Island_Name_TextEdit.text = Island_Name
+	current_name_submitted = Island_Name
 	
 	if gameplay_image_path != "":
 		var texture = ResourceLoader.load(gameplay_image_path)
@@ -63,7 +66,6 @@ func initializeProperties(Island_Name: String, gameplay_image_path: String) -> v
 
 func _on_island_name_text_edit_text_changed(new_text: String) -> void:
 	pass # Replace with function body.
-
 
 func _on_continue_btn_pressed() -> void:
 	pass
