@@ -48,4 +48,4 @@
 extends Label
 
 func _ready() -> void:
-	name = "Space"
+	self.name = "Space"

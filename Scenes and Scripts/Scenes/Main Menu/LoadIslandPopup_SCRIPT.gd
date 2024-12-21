@@ -55,26 +55,38 @@ func _ready() -> void:
 
 func loadAndShow() -> void:
 	visible = true
-	clearOldElements()
 	var dir = DirAccess.open("res://saveData/Free Mode/Islands/")
 	if dir:
+		var folders = []
 		dir.list_dir_begin()
-		var first_element = true
 		var folder_name = dir.get_next()
 		while folder_name != "":
 			if dir.current_is_dir() and folder_name != "." and folder_name != "..":
-				if not first_element:
-					var space_divider = load("res://Scenes and Scripts/Scenes/Main Menu/SpaceDivider_Label.tscn").instantiate()
-					$ScrollContainer/VBoxContainer.add_child(space_divider)
-				first_element = false
-				var island_save_element = load("res://Scenes and Scripts/Scenes/Main Menu/IslandSaveElement/IslandSaveElement.tscn").instantiate()
-				$ScrollContainer/VBoxContainer.add_child(island_save_element)
-				var image_path = "res://saveData/Free Mode/Islands/%s/island.png" % folder_name
-				if not FileAccess.file_exists(image_path):
-					image_path = ""
-				island_save_element.initializeProperties(folder_name, image_path)
+				var folder_path = "res://saveData/Free Mode/Islands/%s" % folder_name
+				var mod_time = FileAccess.get_modified_time(folder_path)
+				folders.append({"name": folder_name, "mod_time": mod_time})
 			folder_name = dir.get_next()
 		dir.list_dir_end()
+		
+		folders.sort_custom(func(a, b):
+			return b["mod_time"] - a["mod_time"]
+		)
+		
+		for folder in folders:
+			print_rich("[color=red]Detected folder: %s[/color]" % folder["name"])
+			
+			var island_save_element = load("res://Scenes and Scripts/Scenes/Main Menu/IslandSaveElement/IslandSaveElement.tscn").instantiate()
+			$ScrollContainer/VBoxContainer.add_child(island_save_element)
+			island_save_element.name = "IslandSaveElement"
+			
+			var image_path = "res://saveData/Free Mode/Islands/%s/island.png" % folder["name"]
+			if not FileAccess.file_exists(image_path):
+				image_path = ""
+			island_save_element.initializeProperties(folder["name"], image_path)
+			
+			var space_divider = load("res://Scenes and Scripts/Scenes/Main Menu/SpaceDivider_Label.tscn").instantiate()
+			$ScrollContainer/VBoxContainer.add_child(space_divider)
+			space_divider.name = "Space"
 
 func clearOldElements() -> void:
 	var container = $ScrollContainer/VBoxContainer

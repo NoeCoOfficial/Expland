@@ -55,4 +55,8 @@ func initializeProperties(Island_Name: String, gameplay_image_path: String) -> v
 	$Island_Name_TextEdit.text = Island_Name
 	
 	if gameplay_image_path != "":
-		$PanelContainer/TextureRect.texture = load(gameplay_image_path)
+		var texture = ResourceLoader.load(gameplay_image_path)
+		if texture:
+			$PanelContainer/TextureRect.texture = texture
+		else:
+			print("Failed to load image: %s" % gameplay_image_path)
