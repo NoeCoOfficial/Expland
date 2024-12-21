@@ -1,6 +1,6 @@
 <h1 align="center">Expland Changelog</h1>
 
-# v0.6.0 (unreleased)
+# v0.6.0 (released)
 
 ---
 
