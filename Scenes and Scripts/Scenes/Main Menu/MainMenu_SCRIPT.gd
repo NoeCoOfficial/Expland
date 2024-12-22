@@ -371,7 +371,7 @@ func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 	
 	if not has_valid_char:
 		$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit.text = ""
-		print("Invalid Island name: Name cannot be empty or consist only of spaces and invalid characters.")
+		print("Invalid Island name: Name cannot be empty, consist only of spaces or have invalid characters.")
 		$Camera3D/MainLayer/FreeModeIslandPopup/MinimalAlert.spawn_minimal_alert(4, 0.5, 0.5, "Island name cannot be empty, contain only spaces, or contain invalid characters.")
 		return
 	
@@ -382,7 +382,7 @@ func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 		var folder_name = dir.get_next()
 		while folder_name != "":
 			if dir.current_is_dir() and folder_name != "." and folder_name != "..":
-				if folder_name == sanitized_name:
+				if folder_name.to_lower() == sanitized_name.to_lower():
 					print("Island name already exists: ", sanitized_name)
 					$Camera3D/MainLayer/FreeModeIslandPopup/MinimalAlert.spawn_minimal_alert(4, 0.5, 0.5, "Island name already exists. Please choose a different name.")
 					return
