@@ -174,6 +174,12 @@ func _input(_event: InputEvent) -> void:
 				is_in_free_mode_create_island = false
 				is_in_gamemode_select = false
 				is_in_absolute_gamemode_select = false
+			
+			elif is_in_delete_popup:
+				$Camera3D/MainLayer/DeleteIslandPopup.visible = false
+				$Camera3D/MainLayer/DeleteIslandPopup.hide()
+				is_in_delete_popup = false
+				is_in_load_island_interface = true
 
 ######################################
 # PlayButton animations and functions
