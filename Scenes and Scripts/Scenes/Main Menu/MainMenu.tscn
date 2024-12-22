@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=53 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="PackedScene" uid="uid://jb61th5px5nt" path="res://Assets/3D Models/Tests/Island/Island 2.blend" id="2_0llf6"]
@@ -37,6 +37,7 @@
 [ext_resource type="StyleBox" uid="uid://cf1a43wkesukc" path="res://Resources/Styles and Themes/Styles/Default/LineEdit/Default_Focus_LineEdit.tres" id="26_j2nrr"]
 [ext_resource type="PackedScene" uid="uid://cq13w255wbu5l" path="res://Scenes and Scripts/Scenes/Minimal Alert/MinimalAlert.tscn" id="27_7myre"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/Custom Popups/LoadIslandPopup_SCRIPT.gd" id="27_ro0wj"]
+[ext_resource type="PackedScene" uid="uid://oker5ahpwg2" path="res://Scenes and Scripts/Scenes/Main Menu/IslandSaveElement/IslandSaveElement.tscn" id="28_a0f5s"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/Custom Popups/DeleteIslandPopupMain_SCRIPT.gd" id="29_37xid"]
 
 [sub_resource type="Animation" id="Animation_6cyol"]
@@ -138,6 +139,18 @@ Button/styles/hover = SubResource("StyleBoxFlat_pdfov")
 Button/styles/normal = ExtResource("12_3uklh")
 Button/styles/pressed = SubResource("StyleBoxFlat_tv74r")
 Label/styles/normal = ExtResource("15_8lpeu")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_22ajn"]
+bg_color = Color(0.0768358, 0.0768358, 0.0768358, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.259294, 0.259294, 0.259293, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="Curve" id="Curve_tq56d"]
 max_value = 0.1
@@ -914,9 +927,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -314.5
+offset_left = -226.0
 offset_top = -161.0
-offset_right = 314.5
+offset_right = 226.0
 offset_bottom = 161.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -939,15 +952,30 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup"]
-layout_mode = 0
-offset_left = 280.0
-offset_top = 262.0
-offset_right = 660.0
-offset_bottom = 459.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -105.0
+offset_right = 190.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_22ajn")
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 105
+
+[node name="IslandSaveElement" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup/ScrollContainer/VBoxContainer" instance=ExtResource("28_a0f5s")]
+layout_mode = 2
+
+[node name="IslandSaveElement2" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup/ScrollContainer/VBoxContainer" instance=ExtResource("28_a0f5s")]
 layout_mode = 2
 
 [node name="MinimalAlert" parent="Camera3D/MainLayer/FreeModeIslandPopup" instance=ExtResource("27_7myre")]
