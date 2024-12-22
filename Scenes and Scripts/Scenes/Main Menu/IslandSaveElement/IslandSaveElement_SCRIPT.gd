@@ -95,6 +95,9 @@ func _on_continue_btn_pressed() -> void:
 			if character != " ":
 				has_valid_char = true
 	
+	if sanitized_name == "":
+		sanitized_name = current_name_submitted
+	
 	# Remove trailing spaces
 	while sanitized_name.ends_with(" "):
 		sanitized_name = sanitized_name.substr(0, sanitized_name.length() - 1)
