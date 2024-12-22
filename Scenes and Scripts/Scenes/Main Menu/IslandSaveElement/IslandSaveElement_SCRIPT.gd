@@ -111,7 +111,7 @@ func _on_continue_btn_pressed() -> void:
 		var folder_name = dir.get_next()
 		while folder_name != "":
 			if dir.current_is_dir() and folder_name != "." and folder_name != "..":
-				if folder_name.to_lower() == sanitized_name.to_lower() and folder_name != current_name_submitted:
+				if folder_name.to_lower() == sanitized_name.to_lower() and folder_name.to_lower() != current_name_submitted.to_lower():
 					print("Island name already exists: ", sanitized_name)
 					var minimal_alert = get_node("/root/MainMenu/Camera3D/MainLayer/FreeModeIslandPopup/MinimalAlert")
 					minimal_alert.spawn_minimal_alert(4, 0.5, 0.5, "Island name already exists. Please choose a different name.")
