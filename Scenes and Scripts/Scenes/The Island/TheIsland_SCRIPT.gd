@@ -134,6 +134,7 @@ func _on_pickup_item_spawn_timer_timeout() -> void:
 func _on_auto_save_timeout() -> void:
 	if IslandManager.Current_Game_Mode == "FREE":
 		Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
+		SaveManager.saveAllData()
 
 func rotateSun(addX : float):
 	var currentX = IslandDirectionalLight.rotation_degrees.x
