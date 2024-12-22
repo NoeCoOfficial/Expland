@@ -71,6 +71,7 @@ var HOUR_LENGTH = 120
 @export var PinkFlowerPosRef : Node3D
 @export var BlankFlowerPosRef : Node3D
 @export var PickaxePosRef : Node3D
+@export var HealthPotionPosRef : Node3D
 
 var hour4_tween
 var hour5_tween
@@ -128,6 +129,8 @@ func _on_pickup_item_spawn_timer_timeout() -> void:
 	InventoryManager.create_pickup_object_at_pos(PinkFlowerPosRef.position, "PINKFLOWER")
 	InventoryManager.create_pickup_object_at_pos(BlankFlowerPosRef.position, "BLANKFLOWER")
 	InventoryManager.create_pickup_object_at_pos(PickaxePosRef.position, "PICKAXE")
+	InventoryManager.create_pickup_object_at_pos(HealthPotionPosRef.position, "HEALTHPOTION")
+
 
 func rotateSun(addX : float):
 	var currentX = IslandDirectionalLight.rotation_degrees.x
