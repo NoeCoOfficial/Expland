@@ -82,7 +82,7 @@ func loadAndShow() -> void:
 				image_path = ""
 			island_save_element.initializeProperties(folder["name"], image_path)
 			
-			var space_divider = load("res://Scenes and Scripts/Scenes/Main Menu/SpaceDivider_Label.tscn").instantiate()
+			var space_divider = load("res://Scenes and Scripts/Scenes/Main Menu/Space Divider Label/Space_Divider_Label.tscn").instantiate()
 			$ScrollContainer/VBoxContainer.add_child(space_divider)
 			space_divider.name = "Space"
 

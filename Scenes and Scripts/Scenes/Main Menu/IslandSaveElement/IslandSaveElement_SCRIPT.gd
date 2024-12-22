@@ -148,10 +148,5 @@ func _on_edit_btn_pressed() -> void:
 		minimal_popup_node.spawn_minimal_alert(3, 0.5, 0.5, "This feature isn't available yet!")
 
 func _on_delete_btn_pressed() -> void:
-	pass
 	var main_menu = get_node("/root/MainMenu")
-
-	
-	# TODO
-	# Get main menu node
-	# Open the popup
+	main_menu.ShowDeletePopup(current_name_submitted)
