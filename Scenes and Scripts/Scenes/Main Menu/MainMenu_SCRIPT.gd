@@ -426,7 +426,7 @@ func goToIsland(island_name : String, gamemode : String):
 	
 	var tween = get_tree().create_tween()
 	tween.connect("finished", Callable(self, "on_free_mode_fade_finished"))
-	
+		
 	tween.tween_property($Camera3D/MainLayer/TopLayer/TransitionFadeOut, "modulate", Color(1, 1, 1, 1), 1)
 	tween.tween_interval(1)
 
