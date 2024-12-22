@@ -126,12 +126,12 @@ func createIslandSaveFolder(folder_name: String, game_mode : String) -> void:
 		if not dir.dir_exists("saveData"):
 			var err = dir.make_dir("saveData")
 			if err != OK:
-				print("Failed to create base folder 'saveData': ", err)
+				print_rich("[color=orange][Utils] Failed to create base folder 'saveData': [/color]", err)
 				return
 			else:
-				print("Base folder 'saveData' created.")
+				print_rich("[color=orange][Utils] Base folder 'saveData' created.[/color]")
 		
-			# Create the necessary subdirectories
+		# Create the necessary subdirectories
 		var subdirs = full_path.replace("user://", "").split("/")
 		var current_path = "user://"
 		
@@ -140,14 +140,14 @@ func createIslandSaveFolder(folder_name: String, game_mode : String) -> void:
 			if not dir.dir_exists(current_path):
 				var err = dir.make_dir(current_path)
 				if err != OK:
-					print("Failed to create folder: ", current_path, " Error: ", err)
+					print_rich("[color=orange][Utils] Failed to create folder: [/color]", current_path, " Error: ", err)
 					return
 				else:
-					print("Folder created successfully: ", current_path)
+					print_rich("[color=orange][Utils] Folder created successfully: [/color]", current_path)
 			else:
-				print("Folder already exists: ", current_path)
+				print_rich("[color=orange][Utils] Folder already exists: [/color]", current_path)
 	else:
-		print("Failed to access user:// directory")
+		print_rich("[color=orange][Utils] Failed to access user:// directory[/color]")
 
 func createBaseSaveFolder() -> void:
 	var dir = DirAccess.open("user://")
@@ -157,13 +157,13 @@ func createBaseSaveFolder() -> void:
 		if not dir.dir_exists("saveData"):
 			var err = dir.make_dir("saveData")
 			if err != OK:
-				print("Failed to create base folder 'saveData': ", err)
+				print_rich("[color=orange][Utils] Failed to create base folder 'saveData': [/color]", err)
 			else:
-				print("Base folder 'saveData' created.")
+				print_rich("[color=orange][Utils] Base folder 'saveData' created.[/color]")
 		else:
-			print("Base folder 'saveData' already exists and will not be cleared.")
+			print_rich("[color=orange][Utils] Base folder 'saveData' already exists and will not be cleared.[/color]")
 	else:
-		print("Failed to access user:// directory")
+		print_rich("[color=orange][Utils] Failed to access user:// directory[/color]")
 
 func take_screenshot_in_thread(save_path: String):
 	# Ensure no other thread is running
@@ -184,19 +184,19 @@ func take_screenshot_in_thread(save_path: String):
 		var result = screenshot_thread.start(callable)
 		
 		if result == OK:
-			print("Screenshot save thread started")
+			print_rich("[color=orange][Utils] Screenshot save thread started[/color]")
 		else:
-			print("Failed to start screenshot save thread")
+			print_rich("[color=orange][Utils] Failed to start screenshot save thread[/color]")
 	else:
-		print("Failed to capture image from viewport.")
+		print_rich("[color=orange][Utils] Failed to capture image from viewport.[/color]")
 
 # Function that runs on the thread for saving
 func _save_image_thread(image: Image, save_path: String):
 	var result = image.save_png(save_path)
 	if result == OK:
-		print("Screenshot saved to:", save_path)
+		print_rich("[color=orange][Utils] Screenshot saved to: [/color]", save_path)
 	else:
-		print("Failed to save screenshot.")
+		print_rich("[color=orange][Utils] Failed to save screenshot.[/color]")
 	
 	# Signal the main thread that the task is complete (if needed)
 	call_deferred("_cleanup_screenshot_thread")
