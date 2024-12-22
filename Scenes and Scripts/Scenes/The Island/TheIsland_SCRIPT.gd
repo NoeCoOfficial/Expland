@@ -131,6 +131,8 @@ func _on_pickup_item_spawn_timer_timeout() -> void:
 	InventoryManager.create_pickup_object_at_pos(PickaxePosRef.position, "PICKAXE")
 	InventoryManager.create_pickup_object_at_pos(HealthPotionPosRef.position, "HEALTHPOTION")
 
+func _on_auto_save_timeout() -> void:
+	pass # Replace with function body.
 
 func rotateSun(addX : float):
 	var currentX = IslandDirectionalLight.rotation_degrees.x
