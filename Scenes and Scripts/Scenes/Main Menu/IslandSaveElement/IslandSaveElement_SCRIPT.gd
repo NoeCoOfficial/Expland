@@ -111,7 +111,7 @@ func _on_continue_btn_pressed() -> void:
 		var folder_name = dir.get_next()
 		while folder_name != "":
 			if dir.current_is_dir() and folder_name != "." and folder_name != "..":
-				if folder_name == sanitized_name and folder_name != current_name_submitted:
+				if folder_name.to_lower() == sanitized_name.to_lower() and folder_name.to_lower() != current_name_submitted.to_lower():
 					print("Island name already exists: ", sanitized_name)
 					var minimal_alert = get_node("/root/MainMenu/Camera3D/MainLayer/FreeModeIslandPopup/MinimalAlert")
 					minimal_alert.spawn_minimal_alert(4, 0.5, 0.5, "Island name already exists. Please choose a different name.")
@@ -134,18 +134,16 @@ func _on_island_name_text_edit_text_submitted(new_text: String) -> void:
 	pass # Replace with function body.
 
 func _on_info_btn_pressed() -> void:
-	pass
-	# TODO
-	# Get main menu node
-	# Create popup node in main menu
-	# Get popup node
-	# Display popup with the info
+	var minimal_popup_node = get_node("/root/MainMenu/Camera3D/MainLayer/FreeModeIslandPopup/MinimalAlert")
+	
+	if minimal_popup_node != null:
+		minimal_popup_node.spawn_minimal_alert(2, 0.5, 0.5, "Viewing Island information isn't available yet!")
 
 func _on_edit_btn_pressed() -> void:
 	var minimal_popup_node = get_node("/root/MainMenu/Camera3D/MainLayer/FreeModeIslandPopup/MinimalAlert")
 	
 	if minimal_popup_node != null:
-		minimal_popup_node.spawn_minimal_alert(3, 0.5, 0.5, "This feature isn't available yet!")
+		minimal_popup_node.spawn_minimal_alert(2, 0.5, 0.5, "Editing Island information isn't available yet!")
 
 func _on_delete_btn_pressed() -> void:
 	var main_menu = get_node("/root/MainMenu")

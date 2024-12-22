@@ -444,8 +444,6 @@ func _on_load_island_button_pressed() -> void:
 	is_in_load_island_interface = true
 	is_in_free_mode_island_popup = false
 
-
-
 func ShowDeletePopup(Island_Name):
 	is_in_load_island_interface = false
 	is_in_delete_popup = true
