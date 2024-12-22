@@ -81,14 +81,10 @@ func loadAndShow() -> void:
 			if not FileAccess.file_exists(image_path):
 				image_path = ""
 			island_save_element.initializeProperties(folder["name"], image_path)
-			
-			var space_divider = load("res://Scenes and Scripts/Scenes/Main Menu/Space Divider Label/Space_Divider_Label.tscn").instantiate()
-			$ScrollContainer/VBoxContainer.add_child(space_divider)
-			space_divider.name = "Space"
 
 func clearOldElements() -> void:
 	var container = $ScrollContainer/VBoxContainer
 	for child in container.get_children():
-		if child.name.begins_with("Space") or child.name.begins_with("IslandSaveElement"):
+		if child.name.begins_with("IslandSaveElement"):
 			container.remove_child(child)
 			child.queue_free()
