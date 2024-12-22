@@ -183,10 +183,6 @@ func _on_island_name_text_edit_text_submitted(new_text: String) -> void:
 	current_name_submitted = text_edit.text
 
 
-
-
-
-
 func _on_info_btn_pressed() -> void:
 	var minimal_popup_node = get_node("/root/MainMenu/Camera3D/MainLayer/FreeModeIslandPopup/MinimalAlert")
 	
