@@ -143,6 +143,9 @@ func _on_island_name_text_edit_text_submitted(new_text: String) -> void:
 	var sanitized_name = ""
 	var has_valid_char = false
 	
+	$Island_Name_TextEdit.focus_mode = 0
+	$Island_Name_TextEdit.focus_mode = 1
+	
 	for character in text:
 		if character not in invalid_chars:
 			sanitized_name += character
