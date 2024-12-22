@@ -48,7 +48,7 @@
 @icon("res://Textures/Icons/Script Icons/32x32/settings_save.png")
 extends Node
 
-const SAVE_PATH = "res://saveData/global.save"
+const SAVE_PATH = "user://saveData/global.save"
 
 func saveGlobal() -> void:
 	Utils.createBaseSaveFolder()

@@ -47,15 +47,12 @@
 
 extends Control
 
-# Island Save file element path: "res://Scenes and Scripts/Scenes/Main Menu/IslandSaveElement/IslandSaveElement.tscn"
-# Space divider path: "res://Scenes and Scripts/Scenes/Main Menu/SpaceDivider_Label.tscn"
-
 func _ready() -> void:
 	visible = false
 
 func loadAndShow() -> void:
 	visible = true
-	var dir = DirAccess.open("res://saveData/Free Mode/Islands/")
+	var dir = DirAccess.open("user://saveData/Free Mode/Islands/")
 	if dir:
 		var folders = []
 		dir.list_dir_begin()
@@ -80,12 +77,12 @@ func loadAndShow() -> void:
 			$ScrollContainer/VBoxContainer.add_child(island_save_element)
 			island_save_element.name = "IslandSaveElement"
 			
-			var image_path = "res://saveData/Free Mode/Islands/%s/island.png" % folder["name"]
+			var image_path = "user://saveData/Free Mode/Islands/%s/island.png" % folder["name"]
 			if not FileAccess.file_exists(image_path):
 				image_path = ""
 			island_save_element.initializeProperties(folder["name"], image_path)
 			
-			var space_divider = load("res://Scenes and Scripts/Scenes/Main Menu/SpaceDivider_Label.tscn").instantiate()
+			var space_divider = load("res://Scenes and Scripts/Scenes/Main Menu/Space Divider Label/Space_Divider_Label.tscn").instantiate()
 			$ScrollContainer/VBoxContainer.add_child(space_divider)
 			space_divider.name = "Space"
 

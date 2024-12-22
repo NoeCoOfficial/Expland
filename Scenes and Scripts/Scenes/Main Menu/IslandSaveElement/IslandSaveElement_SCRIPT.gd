@@ -82,7 +82,7 @@ func load_fallback_texture() -> void:
 
 func _on_continue_btn_pressed() -> void:
 	var main_menu = get_node("/root/MainMenu")
-	var dir = DirAccess.open("res://saveData/Free Mode/Islands")
+	var dir = DirAccess.open("user://saveData/Free Mode/Islands")
 	var text_edit = $Island_Name_TextEdit
 	var text = text_edit.text
 	var invalid_chars = ["/", "\\", "|", "*", "<", ">", "\"", "?", ":", "+", "\t", "\n", "\r"]
@@ -148,9 +148,5 @@ func _on_edit_btn_pressed() -> void:
 		minimal_popup_node.spawn_minimal_alert(3, 0.5, 0.5, "This feature isn't available yet!")
 
 func _on_delete_btn_pressed() -> void:
-	pass
-	# TODO
-	# Create new binary choice popup scene
-	# Instace it into the main menu
-	# Get main menu node
-	# Open the popup
+	var main_menu = get_node("/root/MainMenu")
+	main_menu.ShowDeletePopup(current_name_submitted)
