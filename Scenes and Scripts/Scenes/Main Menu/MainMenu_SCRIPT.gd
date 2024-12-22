@@ -411,7 +411,7 @@ func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 	tween.tween_property($Camera3D/MainLayer/TopLayer/TransitionFadeOut, "modulate", Color(1, 1, 1, 1), 1)
 	tween.tween_interval(1)
 
-func goToIsland(island_name : String, gamemode : String):
+func goToIsland(island_name : String, _gamemode : String):
 	transitioning_scene = true
 	IslandManager.set_current_island(island_name)
 	IslandManager.Current_Game_Mode = "FREE"

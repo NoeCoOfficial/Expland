@@ -97,7 +97,7 @@ func loadInventory(Island_Name : String) -> void:
 	
 	var file = FileAccess.open(INVENTORY_SAVE_PATH, FileAccess.READ)
 	if not file:
-		push_warning("[InventoryData] File doesn't exist (" + INVENTORY_SAVE_PATH + ")")
+		print("[InventoryData] File doesn't exist (" + INVENTORY_SAVE_PATH + ")")
 		return
 
 	if file and not file.eof_reached():
