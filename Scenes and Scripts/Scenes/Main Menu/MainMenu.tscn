@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=52 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="PackedScene" uid="uid://jb61th5px5nt" path="res://Assets/3D Models/Tests/Island/Island 2.blend" id="2_0llf6"]
@@ -37,7 +37,6 @@
 [ext_resource type="StyleBox" uid="uid://cf1a43wkesukc" path="res://Resources/Styles and Themes/Styles/Default/LineEdit/Default_Focus_LineEdit.tres" id="26_j2nrr"]
 [ext_resource type="PackedScene" uid="uid://cq13w255wbu5l" path="res://Scenes and Scripts/Scenes/Minimal Alert/MinimalAlert.tscn" id="27_7myre"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/Custom Popups/LoadIslandPopup_SCRIPT.gd" id="27_ro0wj"]
-[ext_resource type="PackedScene" uid="uid://oker5ahpwg2" path="res://Scenes and Scripts/Scenes/Main Menu/IslandSaveElement/IslandSaveElement.tscn" id="28_a0f5s"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/Custom Popups/DeleteIslandPopupMain_SCRIPT.gd" id="29_37xid"]
 
 [sub_resource type="Animation" id="Animation_6cyol"]
@@ -771,6 +770,7 @@ visible = false
 visible = false
 
 [node name="FreeModeIslandPopup" type="CanvasLayer" parent="Camera3D/MainLayer"]
+visible = false
 
 [node name="GreyLayer" type="ColorRect" parent="Camera3D/MainLayer/FreeModeIslandPopup"]
 anchors_preset = 15
@@ -912,6 +912,7 @@ caret_blink = true
 metadata/_edit_use_anchors_ = true
 
 [node name="LoadIslandPopup" type="Control" parent="Camera3D/MainLayer/FreeModeIslandPopup"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -972,12 +973,6 @@ vertical_scroll_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup/ScrollContainer"]
 layout_mode = 2
 theme_override_constants/separation = 105
-
-[node name="IslandSaveElement" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup/ScrollContainer/VBoxContainer" instance=ExtResource("28_a0f5s")]
-layout_mode = 2
-
-[node name="IslandSaveElement2" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup/ScrollContainer/VBoxContainer" instance=ExtResource("28_a0f5s")]
-layout_mode = 2
 
 [node name="MinimalAlert" parent="Camera3D/MainLayer/FreeModeIslandPopup" instance=ExtResource("27_7myre")]
 
