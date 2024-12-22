@@ -275,7 +275,9 @@ func _input(_event): # A built-in function that listens for input using the inpu
 				velocity.y = 0.0 # set the player's velocity to 0 
 	
 	if Input.is_action_just_pressed("SaveGame") and OS.has_feature("debug") and IslandManager.Current_Game_Mode == "FREE":
-		Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
+		if IslandManager.Current_Game_Mode == "FREE":
+			Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
+		
 		saveAllDataWithAnimation()
 	
 	if Input.is_action_just_pressed("Inventory") and !PauseManager.is_paused and !InventoryManager.in_chest_interface and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
@@ -436,17 +438,25 @@ func _ready():
 		showDeathScreen() # call the death screen function
 	
 	if Fade_In == true: # check if the fade in variable is true
+		
 		$Head/Camera3D/OverlayLayer/Overlay.show() # show the overlay
 		
 		var tween = get_tree().create_tween()
+		tween.connect("finished", Callable(self, "on_fade_in_tween_finished"))
 		tween.tween_interval(1.5)
 		tween.tween_property($Head/Camera3D/OverlayLayer/Overlay, "self_modulate", Color(0, 0, 0, 0), Fade_In_Time) # tween the overlay's self modulate to black
 		tween.tween_property($Head/Camera3D/OverlayLayer/Overlay, "visible", false, 0) # tween the overlay's visibility to false
+		
 	else:
+		
 		$Head/Camera3D/OverlayLayer/Overlay.hide() # hide the overlay
 		
 	if !OS.has_feature("debug"):
 		$Head/Camera3D/PauseLayer/StartDebugging_Btn.hide()
+
+func on_fade_in_tween_finished():
+	if IslandManager.Current_Game_Mode == "FREE":
+		Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
 
 func _on_ready() -> void: # Called when the node is considered ready
 	pass

@@ -70,6 +70,13 @@ func loadAndShow() -> void:
 					ordered_folders.append(folder)
 					break
 		
+		# Check if ordered_folders is empty and set the label visibility
+		if ordered_folders.size() == 0:
+			$NoSavedIslandsNotice.visible = true
+		else:
+			$NoSavedIslandsNotice.visible = false
+
+		# Populate the UI with the folders
 		for folder in ordered_folders:
 			print_rich("[color=red]Detected folder: %s[/color]" % folder["name"])
 			
