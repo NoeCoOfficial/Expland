@@ -58,6 +58,8 @@ var is_in_free_mode_create_island = false
 
 var is_in_load_island_interface = false
 
+var is_in_delete_popup = false
+
 var is_tweening = false
 
 @onready var StartupNotice = preload("res://Scenes and Scripts/Scenes/Startup Notice/StartupNotice.tscn")
@@ -138,7 +140,7 @@ func onStartup():
 func _input(_event: InputEvent) -> void:
 	if !transitioning_scene:
 		if Input.is_action_just_pressed("Exit") and !is_tweening:  # Check if not tweening
-			if is_in_gamemode_select and !is_in_free_mode_island_popup and !is_in_free_mode_create_island and !is_in_load_island_interface:
+			if is_in_gamemode_select and !is_in_free_mode_island_popup and !is_in_free_mode_create_island and !is_in_load_island_interface and !is_in_delete_popup:
 				deSpawnGameModeMenu()
 			
 		if Input.is_action_just_pressed("Exit"):
@@ -172,6 +174,12 @@ func _input(_event: InputEvent) -> void:
 				is_in_free_mode_create_island = false
 				is_in_gamemode_select = false
 				is_in_absolute_gamemode_select = false
+			
+			elif is_in_delete_popup:
+				$Camera3D/MainLayer/DeleteIslandPopup.visible = false
+				$Camera3D/MainLayer/DeleteIslandPopup.hide()
+				is_in_delete_popup = false
+				is_in_load_island_interface = true
 
 ######################################
 # PlayButton animations and functions
@@ -338,7 +346,7 @@ func _on_new_island_name_text_input(event: InputEventKey) -> void:
 func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 	var text_edit = $Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit
 	var text = text_edit.text
-	var invalid_chars = ["/", "\\", "|", "*", "<", ">", "\"", "?", ":", "+", " ", "\t", "\n", "\r"]
+	var invalid_chars = ["/", "\\", "|", "*", "<", ">", "\"", "?", ":", "+", "\t", "\n", "\r"]
 	var sanitized_name = ""
 	var has_valid_char = false
 	
@@ -368,7 +376,7 @@ func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 		return
 	
 	# Check if the sanitized name already exists
-	var dir = DirAccess.open("res://saveData/Free Mode/Islands/")
+	var dir = DirAccess.open("user://saveData/Free Mode/Islands/")
 	if dir:
 		dir.list_dir_begin()
 		var folder_name = dir.get_next()
@@ -384,12 +392,32 @@ func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 	print("Valid island name: ", sanitized_name)
 	$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit.editable = false
 	
+	
 	transitioning_scene = true
 	IslandManager.set_current_island(sanitized_name)
 	IslandManager.Current_Game_Mode = "FREE"
 	
 	Utils.createBaseSaveFolder()
 	Utils.createIslandSaveFolder(sanitized_name, IslandManager.Current_Game_Mode)
+	
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	$Camera3D/MainLayer/TopLayer/TransitionFadeOut.modulate = Color(1, 1, 1, 0)
+	$Camera3D/MainLayer/TopLayer/TransitionFadeOut.visible = true
+	
+	var tween = get_tree().create_tween()
+	tween.connect("finished", Callable(self, "on_free_mode_fade_finished"))
+	
+	tween.tween_property($Camera3D/MainLayer/TopLayer/TransitionFadeOut, "modulate", Color(1, 1, 1, 1), 1)
+	tween.tween_interval(1)
+
+func goToIsland(island_name : String, gamemode : String):
+	transitioning_scene = true
+	IslandManager.set_current_island(island_name)
+	IslandManager.Current_Game_Mode = "FREE"
+	
+	Utils.createBaseSaveFolder()
+	Utils.createIslandSaveFolder(island_name, IslandManager.Current_Game_Mode)
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
@@ -415,3 +443,28 @@ func _on_load_island_button_pressed() -> void:
 	$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup.loadAndShow()
 	is_in_load_island_interface = true
 	is_in_free_mode_island_popup = false
+
+func ShowDeletePopup(Island_Name):
+	is_in_load_island_interface = false
+	is_in_delete_popup = true
+	$Camera3D/MainLayer/DeleteIslandPopup/DeleteIslandPopupMain.showDeleteIslandPopup(Island_Name)
+
+func _on_delete_island_yes_pressed() -> void:
+	var Island_To_Delete = $Camera3D/MainLayer/DeleteIslandPopup/DeleteIslandPopupMain.getIslandToDelete()
+	
+	Utils.delete_free_mode_island(Island_To_Delete)
+
+	$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup.clearOldElements()
+	$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup.loadAndShow()
+	
+	
+	$Camera3D/MainLayer/DeleteIslandPopup.visible = false
+	$Camera3D/MainLayer/DeleteIslandPopup.hide()
+	is_in_delete_popup = false
+	is_in_load_island_interface = true
+
+func _on_delete_island_no_pressed() -> void:
+	$Camera3D/MainLayer/DeleteIslandPopup.visible = false
+	$Camera3D/MainLayer/DeleteIslandPopup.hide()
+	is_in_delete_popup = false
+	is_in_load_island_interface = true

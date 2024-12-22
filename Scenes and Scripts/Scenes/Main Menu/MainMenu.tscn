@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=51 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="PackedScene" uid="uid://jb61th5px5nt" path="res://Assets/3D Models/Tests/Island/Island 2.blend" id="2_0llf6"]
@@ -36,7 +36,8 @@
 [ext_resource type="StyleBox" uid="uid://cm8xotke6bccm" path="res://Resources/Styles and Themes/Styles/Default/LineEdit/Default_Normal_LineEdit.tres" id="25_3j2x4"]
 [ext_resource type="StyleBox" uid="uid://cf1a43wkesukc" path="res://Resources/Styles and Themes/Styles/Default/LineEdit/Default_Focus_LineEdit.tres" id="26_j2nrr"]
 [ext_resource type="PackedScene" uid="uid://cq13w255wbu5l" path="res://Scenes and Scripts/Scenes/Minimal Alert/MinimalAlert.tscn" id="27_7myre"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/LoadIslandPopup_SCRIPT.gd" id="27_ro0wj"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/Custom Popups/LoadIslandPopup_SCRIPT.gd" id="27_ro0wj"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/Custom Popups/DeleteIslandPopupMain_SCRIPT.gd" id="29_37xid"]
 
 [sub_resource type="Animation" id="Animation_6cyol"]
 length = 0.001
@@ -952,6 +953,82 @@ layout_mode = 2
 
 [node name="MinimalAlert" parent="Camera3D/MainLayer/FreeModeIslandPopup" instance=ExtResource("27_7myre")]
 
+[node name="DeleteIslandPopup" type="CanvasLayer" parent="Camera3D/MainLayer"]
+visible = false
+
+[node name="GreyLayer" type="ColorRect" parent="Camera3D/MainLayer/DeleteIslandPopup"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.643)
+script = ExtResource("10_y68f7")
+
+[node name="DeleteIslandPopupMain" type="Panel" parent="Camera3D/MainLayer/DeleteIslandPopup"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -71.5
+offset_right = 180.0
+offset_bottom = 71.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("21_v2lsw")
+script = ExtResource("29_37xid")
+
+[node name="Notice" type="Label" parent="Camera3D/MainLayer/DeleteIslandPopup/DeleteIslandPopupMain"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -163.0
+offset_top = 7.0
+offset_right = 163.0
+offset_bottom = 97.0
+grow_horizontal = 2
+theme = ExtResource("4_grlcg")
+text = "Are you sure you want to delete \"Island_name\"?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+text_overrun_behavior = 1
+
+[node name="DeleteIsland_No" type="Button" parent="Camera3D/MainLayer/DeleteIslandPopup/DeleteIslandPopupMain"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0305556
+anchor_top = 0.713287
+anchor_right = 0.494444
+anchor_bottom = 0.923077
+grow_vertical = 0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("5_dfh28")
+theme_override_styles/hover = ExtResource("22_dd8k4")
+theme_override_styles/pressed = ExtResource("23_ocvtf")
+theme_override_styles/normal = ExtResource("24_r2ree")
+text = "No"
+metadata/_edit_use_anchors_ = true
+
+[node name="DeleteIsland_Yes" type="Button" parent="Camera3D/MainLayer/DeleteIslandPopup/DeleteIslandPopupMain"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.505556
+anchor_top = 0.713287
+anchor_right = 0.969444
+anchor_bottom = 0.923077
+grow_vertical = 0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("5_dfh28")
+theme_override_styles/hover = ExtResource("22_dd8k4")
+theme_override_styles/pressed = ExtResource("23_ocvtf")
+theme_override_styles/normal = ExtResource("24_r2ree")
+text = "Yes"
+metadata/_edit_use_anchors_ = true
+
 [node name="TopLayer" type="CanvasLayer" parent="Camera3D/MainLayer"]
 
 [node name="TransitionFadeOut" type="ColorRect" parent="Camera3D/MainLayer/TopLayer"]
@@ -969,10 +1046,6 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 12.0
-offset_top = -3.0
-offset_right = 12.0
-offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
@@ -1057,3 +1130,5 @@ initial_velocity_max = 47.09
 [connection signal="pressed" from="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandOrLoadIslandPopup/NewIslandButton" to="." method="_on_new_island_button_pressed"]
 [connection signal="pressed" from="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandOrLoadIslandPopup/LoadIslandButton" to="." method="_on_load_island_button_pressed"]
 [connection signal="pressed" from="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Free_ModeInPopupNewIslandButton" to="." method="_on_free_mode_in_popup_new_island_button_pressed"]
+[connection signal="pressed" from="Camera3D/MainLayer/DeleteIslandPopup/DeleteIslandPopupMain/DeleteIsland_No" to="." method="_on_delete_island_no_pressed"]
+[connection signal="pressed" from="Camera3D/MainLayer/DeleteIslandPopup/DeleteIslandPopupMain/DeleteIsland_Yes" to="." method="_on_delete_island_yes_pressed"]

@@ -57,15 +57,15 @@ func saveData(Island_Name : String) -> void:
 	
 	if IslandManager.Current_Game_Mode == "FREE":
 		Utils.createIslandSaveFolder(Island_Name, "FREE")
-		SAVE_PATH = "res://saveData/Free Mode/Islands/" + Island_Name + "/player.save"
+		SAVE_PATH = "user://saveData/Free Mode/Islands/" + Island_Name + "/player.save"
 		
 	elif IslandManager.Current_Game_Mode == "STORY":
 		Utils.createIslandSaveFolder(Island_Name, "STORY")
-		SAVE_PATH = "res://saveData/Story Mode/Islands/" + Island_Name + "/player.save"
+		SAVE_PATH = "user://saveData/Story Mode/Islands/" + Island_Name + "/player.save"
 		
 	elif IslandManager.Current_Game_Mode == "STORY":
 		Utils.createIslandSaveFolder(Island_Name, "STORY")
-		SAVE_PATH = "res://saveData/Parkour Mode/Runs/" + Island_Name + "/player.save"
+		SAVE_PATH = "user://saveData/Parkour Mode/Runs/" + Island_Name + "/player.save"
 	
 	
 	var player = get_node("/root/World/Player")
@@ -95,15 +95,15 @@ func loadData(Island_Name : String, withOutput : bool) -> void:
 	
 	if IslandManager.Current_Game_Mode == "FREE":
 		Utils.createIslandSaveFolder(Island_Name, "FREE")
-		SAVE_PATH = "res://saveData/Free Mode/Islands/" + Island_Name + "/player.save"
+		SAVE_PATH = "user://saveData/Free Mode/Islands/" + Island_Name + "/player.save"
 		
 	elif IslandManager.Current_Game_Mode == "STORY":
 		Utils.createIslandSaveFolder(Island_Name, "STORY")
-		SAVE_PATH = "res://saveData/Story Mode/Islands/" + Island_Name + "/player.save"
+		SAVE_PATH = "user://saveData/Story Mode/Islands/" + Island_Name + "/player.save"
 		
 	elif IslandManager.Current_Game_Mode == "STORY":
 		Utils.createIslandSaveFolder(Island_Name, "STORY")
-		SAVE_PATH = "res://saveData/Parkour Mode/Runs/" + Island_Name + "/player.save"
+		SAVE_PATH = "user://saveData/Parkour Mode/Runs/" + Island_Name + "/player.save"
 	
 	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
 	if not file:
