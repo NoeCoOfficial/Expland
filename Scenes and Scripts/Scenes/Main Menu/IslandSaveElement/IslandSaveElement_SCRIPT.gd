@@ -54,6 +54,13 @@ var game_mode
 func _ready() -> void:
 	name = "IslandSaveElement"
 
+func _process(_delta: float) -> void:
+	if IslandManager.transitioning_from_menu:
+		$Continue_Btn.disabled = true
+		$Info_Btn.disabled = true
+		$Edit_Btn.disabled = true
+		$Delete_Btn.disabled = true
+
 func initializeProperties(island_name: String, gameplay_image_path: String) -> void:
 	# Set the island name text
 	$Island_Name_TextEdit.text = island_name

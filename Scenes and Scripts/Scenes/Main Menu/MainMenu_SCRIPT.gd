@@ -392,7 +392,7 @@ func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 	print("Valid island name: ", sanitized_name)
 	$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit.editable = false
 	
-	
+	IslandManager.transitioning_from_menu = true
 	transitioning_scene = true
 	IslandManager.set_current_island(sanitized_name)
 	IslandManager.Current_Game_Mode = "FREE"
@@ -413,6 +413,7 @@ func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 
 func goToIsland(island_name : String, _gamemode : String):
 	transitioning_scene = true
+	IslandManager.transitioning_from_menu = true
 	IslandManager.set_current_island(island_name)
 	IslandManager.Current_Game_Mode = "FREE"
 	
