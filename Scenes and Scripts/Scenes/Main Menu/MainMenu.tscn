@@ -952,6 +952,8 @@ layout_mode = 2
 
 [node name="MinimalAlert" parent="Camera3D/MainLayer/FreeModeIslandPopup" instance=ExtResource("27_7myre")]
 
+[node name="DeleteIslandPopup" type="CanvasLayer" parent="Camera3D/MainLayer"]
+
 [node name="TopLayer" type="CanvasLayer" parent="Camera3D/MainLayer"]
 
 [node name="TransitionFadeOut" type="ColorRect" parent="Camera3D/MainLayer/TopLayer"]
