@@ -41,6 +41,7 @@
 
 [sub_resource type="Animation" id="Animation_6cyol"]
 length = 0.001
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -139,18 +140,17 @@ Button/styles/normal = ExtResource("12_3uklh")
 Button/styles/pressed = SubResource("StyleBoxFlat_tv74r")
 Label/styles/normal = ExtResource("15_8lpeu")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_22ajn"]
-content_margin_bottom = 139.0
-bg_color = Color(0.0768358, 0.0768358, 0.0768358, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q7bbx"]
+bg_color = Color(0.0177325, 0.0177324, 0.0177324, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.259294, 0.259294, 0.259293, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+border_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="Curve" id="Curve_tq56d"]
 max_value = 0.1
@@ -953,6 +953,21 @@ text = "Load an Island"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ScrollBackground" type="Panel" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -193.0
+offset_top = -121.0
+offset_right = 194.0
+offset_bottom = 149.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_q7bbx")
+
 [node name="ScrollContainer" type="ScrollContainer" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup"]
 layout_mode = 1
 anchors_preset = 8
@@ -961,12 +976,11 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -190.0
-offset_top = -116.0
+offset_top = -117.0
 offset_right = 190.0
 offset_bottom = 144.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_22ajn")
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
