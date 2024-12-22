@@ -47,7 +47,7 @@
 
 extends Node
 
-const SAVE_PATH = "res://saveData/island_access_order.save"
+const SAVE_PATH = "user://saveData/island_access_order.save"
 
 var island_access_order = []
 

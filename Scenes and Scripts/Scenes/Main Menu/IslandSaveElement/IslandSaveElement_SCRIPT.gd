@@ -82,7 +82,7 @@ func load_fallback_texture() -> void:
 
 func _on_continue_btn_pressed() -> void:
 	var main_menu = get_node("/root/MainMenu")
-	var dir = DirAccess.open("res://saveData/Free Mode/Islands")
+	var dir = DirAccess.open("user://saveData/Free Mode/Islands")
 	var text_edit = $Island_Name_TextEdit
 	var text = text_edit.text
 	var invalid_chars = ["/", "\\", "|", "*", "<", ">", "\"", "?", ":", "+", "\t", "\n", "\r"]

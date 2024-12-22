@@ -368,7 +368,7 @@ func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 		return
 	
 	# Check if the sanitized name already exists
-	var dir = DirAccess.open("res://saveData/Free Mode/Islands/")
+	var dir = DirAccess.open("user://saveData/Free Mode/Islands/")
 	if dir:
 		dir.list_dir_begin()
 		var folder_name = dir.get_next()

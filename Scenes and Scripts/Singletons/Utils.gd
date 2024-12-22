@@ -108,7 +108,7 @@ func dict_to_vector2(dict: Dictionary) -> Vector2: # Converts a dictionary value
 	return Vector2(dict["x"], dict["y"])
 
 func createIslandSaveFolder(folder_name: String, game_mode : String) -> void:
-	var base_path = "res://saveData"
+	var base_path = "user://saveData"
 	var full_path = base_path
 	
 	# Determine the full path based on the game mode
@@ -119,7 +119,7 @@ func createIslandSaveFolder(folder_name: String, game_mode : String) -> void:
 	elif game_mode == "PARKOUR":
 		full_path += "/Parkour Mode/Runs/" + folder_name
 	
-	var dir = DirAccess.open("res://")
+	var dir = DirAccess.open("user://")
 	
 	if dir:
 		# Ensure the base "saveData" folder exists
@@ -132,8 +132,8 @@ func createIslandSaveFolder(folder_name: String, game_mode : String) -> void:
 				print("Base folder 'saveData' created.")
 		
 			# Create the necessary subdirectories
-		var subdirs = full_path.replace("res://", "").split("/")
-		var current_path = "res://"
+		var subdirs = full_path.replace("user://", "").split("/")
+		var current_path = "user://"
 		
 		for subdir in subdirs:
 			current_path += "/" + subdir
@@ -150,7 +150,7 @@ func createIslandSaveFolder(folder_name: String, game_mode : String) -> void:
 		print("Failed to access res:// directory")
 
 func createBaseSaveFolder() -> void:
-	var dir = DirAccess.open("res://")
+	var dir = DirAccess.open("user://")
 	
 	if dir:
 		# Ensure the base "saveData" folder exists
