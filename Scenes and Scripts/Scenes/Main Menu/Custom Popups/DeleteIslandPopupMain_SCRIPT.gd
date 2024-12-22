@@ -1,11 +1,8 @@
 extends Panel
 
+func showDeleteIslandPopup(Island_Name : String):
+	$"..".visible = true
+	updateNotice(Island_Name)
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func updateNotice(Island_Name : String):
+	$Notice.text = 'Are you sure you want to delete "' + Island_Name + '"?'
