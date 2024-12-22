@@ -147,7 +147,7 @@ func createIslandSaveFolder(folder_name: String, game_mode : String) -> void:
 			else:
 				print("Folder already exists: ", current_path)
 	else:
-		print("Failed to access res:// directory")
+		print("Failed to access user:// directory")
 
 func createBaseSaveFolder() -> void:
 	var dir = DirAccess.open("user://")
@@ -163,7 +163,7 @@ func createBaseSaveFolder() -> void:
 		else:
 			print("Base folder 'saveData' already exists and will not be cleared.")
 	else:
-		print("Failed to access res:// directory")
+		print("Failed to access user:// directory")
 
 func take_screenshot_in_thread(save_path: String):
 	# Ensure no other thread is running
