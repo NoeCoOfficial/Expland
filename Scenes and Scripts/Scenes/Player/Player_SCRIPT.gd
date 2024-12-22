@@ -436,13 +436,17 @@ func _ready():
 		showDeathScreen() # call the death screen function
 	
 	if Fade_In == true: # check if the fade in variable is true
+		
 		$Head/Camera3D/OverlayLayer/Overlay.show() # show the overlay
 		
 		var tween = get_tree().create_tween()
+		tween.connect("finished", Callable(self, "on_fade_in_tween_finished"))
 		tween.tween_interval(1.5)
 		tween.tween_property($Head/Camera3D/OverlayLayer/Overlay, "self_modulate", Color(0, 0, 0, 0), Fade_In_Time) # tween the overlay's self modulate to black
 		tween.tween_property($Head/Camera3D/OverlayLayer/Overlay, "visible", false, 0) # tween the overlay's visibility to false
+		
 	else:
+		
 		$Head/Camera3D/OverlayLayer/Overlay.hide() # hide the overlay
 		
 	if !OS.has_feature("debug"):
