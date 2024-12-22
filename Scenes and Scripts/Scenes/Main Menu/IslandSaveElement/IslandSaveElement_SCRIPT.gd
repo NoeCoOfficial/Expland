@@ -131,7 +131,9 @@ func _on_continue_btn_pressed() -> void:
 	main_menu.goToIsland(current_name_submitted, "FREE")
 
 func _on_island_name_text_edit_text_submitted(new_text: String) -> void:
-	pass # Replace with function body.
+	$Island_Name_TextEdit.focus_mode = 0
+	$Island_Name_TextEdit.focus_mode = 1
+
 
 func _on_info_btn_pressed() -> void:
 	var minimal_popup_node = get_node("/root/MainMenu/Camera3D/MainLayer/FreeModeIslandPopup/MinimalAlert")
