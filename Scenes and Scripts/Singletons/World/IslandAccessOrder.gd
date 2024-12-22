@@ -59,6 +59,18 @@ func add_island(island_name: String) -> void:
 		island_access_order.insert(0, island_name)
 		save_order()
 
+func remove_island(island_name: String) -> void:
+	island_access_order.erase(island_name)
+	save_order()
+	print("[IslandAccessOrder] --Removed Island from Access Order--")
+
+func rename_island(old_name: String, new_name: String) -> void:
+	var index = island_access_order.find(old_name)
+	if index != -1:
+		island_access_order[index] = new_name
+		save_order()
+		print("[IslandAccessOrder] --Renamed Island in Access Order--")
+
 func save_order() -> void:
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	var data = {

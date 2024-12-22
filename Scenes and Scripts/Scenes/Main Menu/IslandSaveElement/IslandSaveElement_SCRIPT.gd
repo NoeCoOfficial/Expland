@@ -124,6 +124,7 @@ func _on_continue_btn_pressed() -> void:
 	
 	text_edit.text = sanitized_name
 	dir.rename(current_name_submitted, text_edit.text)
+	IslandAccessOrder.rename_island(current_name_submitted, text_edit.text)
 	current_name_submitted = text_edit.text
 	
 	text_edit.editable = false
@@ -141,9 +142,6 @@ func _on_island_name_text_edit_text_submitted(new_text: String) -> void:
 	var invalid_chars = ["/", "\\", "|", "*", "<", ">", "\"", "?", ":", "+", "\t", "\n", "\r"]
 	var sanitized_name = ""
 	var has_valid_char = false
-	
-	$Island_Name_TextEdit.focus_mode = 0
-	$Island_Name_TextEdit.focus_mode = 1
 	
 	for character in text:
 		if character not in invalid_chars:
@@ -180,6 +178,7 @@ func _on_island_name_text_edit_text_submitted(new_text: String) -> void:
 	
 	text_edit.text = sanitized_name
 	dir.rename(current_name_submitted, text_edit.text)
+	IslandAccessOrder.rename_island(current_name_submitted, text_edit.text)
 	current_name_submitted = text_edit.text
 
 
