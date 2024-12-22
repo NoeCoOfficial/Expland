@@ -140,7 +140,7 @@ func onStartup():
 func _input(_event: InputEvent) -> void:
 	if !transitioning_scene:
 		if Input.is_action_just_pressed("Exit") and !is_tweening:  # Check if not tweening
-			if is_in_gamemode_select and !is_in_free_mode_island_popup and !is_in_free_mode_create_island and !is_in_load_island_interface:
+			if is_in_gamemode_select and !is_in_free_mode_island_popup and !is_in_free_mode_create_island and !is_in_load_island_interface and !is_in_delete_popup:
 				deSpawnGameModeMenu()
 			
 		if Input.is_action_just_pressed("Exit"):
