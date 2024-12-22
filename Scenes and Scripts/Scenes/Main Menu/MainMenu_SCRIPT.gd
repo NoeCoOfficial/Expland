@@ -444,7 +444,18 @@ func _on_load_island_button_pressed() -> void:
 	is_in_load_island_interface = true
 	is_in_free_mode_island_popup = false
 
+
+
 func ShowDeletePopup(Island_Name):
 	is_in_load_island_interface = false
 	is_in_delete_popup = true
 	$Camera3D/MainLayer/DeleteIslandPopup/DeleteIslandPopupMain.showDeleteIslandPopup(Island_Name)
+
+func _on_delete_island_yes_pressed() -> void:
+	pass # Replace with function body.
+
+func _on_delete_island_no_pressed() -> void:
+	$Camera3D/MainLayer/DeleteIslandPopup.visible = false
+	$Camera3D/MainLayer/DeleteIslandPopup.hide()
+	is_in_delete_popup = false
+	is_in_load_island_interface = true
