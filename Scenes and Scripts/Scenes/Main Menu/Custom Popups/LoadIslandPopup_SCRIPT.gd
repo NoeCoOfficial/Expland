@@ -51,6 +51,7 @@ func _ready() -> void:
 	visible = false
 
 func loadAndShow() -> void:
+	$NoSavedIslandsNotice.visible = false
 	visible = true
 	var dir = DirAccess.open("user://saveData/Free Mode/Islands/")
 	if dir:
@@ -76,6 +77,8 @@ func loadAndShow() -> void:
 			var island_save_element = load("res://Scenes and Scripts/Scenes/Main Menu/IslandSaveElement/IslandSaveElement.tscn").instantiate()
 			$ScrollContainer/VBoxContainer.add_child(island_save_element)
 			island_save_element.name = "IslandSaveElement"
+			
+			#$NoSavedIslandsNotice.visible = true
 			
 			var image_path = "user://saveData/Free Mode/Islands/%s/island.png" % folder["name"]
 			if not FileAccess.file_exists(image_path):

@@ -770,7 +770,6 @@ visible = false
 visible = false
 
 [node name="FreeModeIslandPopup" type="CanvasLayer" parent="Camera3D/MainLayer"]
-visible = false
 
 [node name="GreyLayer" type="ColorRect" parent="Camera3D/MainLayer/FreeModeIslandPopup"]
 anchors_preset = 15
@@ -912,7 +911,6 @@ caret_blink = true
 metadata/_edit_use_anchors_ = true
 
 [node name="LoadIslandPopup" type="Control" parent="Camera3D/MainLayer/FreeModeIslandPopup"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -987,6 +985,25 @@ vertical_scroll_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup/ScrollContainer"]
 layout_mode = 2
 theme_override_constants/separation = 105
+
+[node name="NoSavedIslandsNotice" type="Label" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup"]
+modulate = Color(0.589096, 0.589096, 0.589096, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.0
+offset_top = -7.0
+offset_right = 128.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_grlcg")
+text = "You don't have any saved Islands!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MinimalAlert" parent="Camera3D/MainLayer/FreeModeIslandPopup" instance=ExtResource("27_7myre")]
 
