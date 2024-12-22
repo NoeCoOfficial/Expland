@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=51 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="PackedScene" uid="uid://jb61th5px5nt" path="res://Assets/3D Models/Tests/Island/Island 2.blend" id="2_0llf6"]
@@ -36,7 +36,8 @@
 [ext_resource type="StyleBox" uid="uid://cm8xotke6bccm" path="res://Resources/Styles and Themes/Styles/Default/LineEdit/Default_Normal_LineEdit.tres" id="25_3j2x4"]
 [ext_resource type="StyleBox" uid="uid://cf1a43wkesukc" path="res://Resources/Styles and Themes/Styles/Default/LineEdit/Default_Focus_LineEdit.tres" id="26_j2nrr"]
 [ext_resource type="PackedScene" uid="uid://cq13w255wbu5l" path="res://Scenes and Scripts/Scenes/Minimal Alert/MinimalAlert.tscn" id="27_7myre"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/LoadIslandPopup_SCRIPT.gd" id="27_ro0wj"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/Custom Popups/LoadIslandPopup_SCRIPT.gd" id="27_ro0wj"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/Custom Popups/DeleteIslandPopupMain_SCRIPT.gd" id="29_37xid"]
 
 [sub_resource type="Animation" id="Animation_6cyol"]
 length = 0.001
@@ -976,6 +977,7 @@ offset_bottom = 71.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("21_v2lsw")
+script = ExtResource("29_37xid")
 
 [node name="Notice" type="Label" parent="Camera3D/MainLayer/DeleteIslandPopup/DeleteIslandPopupMain"]
 layout_mode = 1
