@@ -73,7 +73,6 @@ func create_pickup_object_at_pos(position : Vector3, ITEM_TYPE):
 	WORLD.add_child(PICKUP)
 	PICKUP.global_position = position
 	
-	InventoryData.saveInventory(IslandManager.Current_Island_Name, INVENTORY_LAYER)
 
 
 func create_pickup_object():

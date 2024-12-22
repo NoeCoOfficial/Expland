@@ -427,8 +427,6 @@ func _process(_delta):
 func _ready():
 	nodeSetup() # Call the nodeSetup function to setup the nodes
 	
-	InventoryData.loadInventory(IslandManager.Current_Island_Name)
-	
 	DialogueManager.DialogueInterface = $Head/Camera3D/DialogueLayer/DialogueInterface
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Lock mouse
 	
