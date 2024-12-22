@@ -141,6 +141,7 @@ Button/styles/pressed = SubResource("StyleBoxFlat_tv74r")
 Label/styles/normal = ExtResource("15_8lpeu")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_22ajn"]
+content_margin_bottom = 139.0
 bg_color = Color(0.0768358, 0.0768358, 0.0768358, 1)
 border_width_left = 2
 border_width_top = 2
@@ -959,7 +960,7 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -190.0
-offset_top = -105.0
+offset_top = -116.0
 offset_right = 190.0
 offset_bottom = 144.0
 grow_horizontal = 2
