@@ -371,7 +371,7 @@ func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 	
 	if not has_valid_char:
 		$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit.text = ""
-		print("Invalid Island name: Name cannot be empty or consist only of spaces and invalid characters.")
+		print("Invalid Island name: Name cannot be empty, consist only of spaces or have invalid characters.")
 		$Camera3D/MainLayer/FreeModeIslandPopup/MinimalAlert.spawn_minimal_alert(4, 0.5, 0.5, "Island name cannot be empty, contain only spaces, or contain invalid characters.")
 		return
 	
