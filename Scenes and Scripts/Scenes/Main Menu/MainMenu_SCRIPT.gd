@@ -392,7 +392,7 @@ func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 	print("Valid island name: ", sanitized_name)
 	$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit.editable = false
 	
-	
+	IslandManager.transitioning_from_menu = true
 	transitioning_scene = true
 	IslandManager.set_current_island(sanitized_name)
 	IslandManager.Current_Game_Mode = "FREE"
@@ -411,8 +411,9 @@ func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 	tween.tween_property($Camera3D/MainLayer/TopLayer/TransitionFadeOut, "modulate", Color(1, 1, 1, 1), 1)
 	tween.tween_interval(1)
 
-func goToIsland(island_name : String, gamemode : String):
+func goToIsland(island_name : String, _gamemode : String):
 	transitioning_scene = true
+	IslandManager.transitioning_from_menu = true
 	IslandManager.set_current_island(island_name)
 	IslandManager.Current_Game_Mode = "FREE"
 	
@@ -426,7 +427,7 @@ func goToIsland(island_name : String, gamemode : String):
 	
 	var tween = get_tree().create_tween()
 	tween.connect("finished", Callable(self, "on_free_mode_fade_finished"))
-	
+		
 	tween.tween_property($Camera3D/MainLayer/TopLayer/TransitionFadeOut, "modulate", Color(1, 1, 1, 1), 1)
 	tween.tween_interval(1)
 
@@ -453,6 +454,7 @@ func _on_delete_island_yes_pressed() -> void:
 	var Island_To_Delete = $Camera3D/MainLayer/DeleteIslandPopup/DeleteIslandPopupMain.getIslandToDelete()
 	
 	Utils.delete_free_mode_island(Island_To_Delete)
+	IslandAccessOrder.remove_island(Island_To_Delete)  # Add this line to remove the island from the order
 
 	$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup.clearOldElements()
 	$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup.loadAndShow()

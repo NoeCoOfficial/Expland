@@ -54,6 +54,13 @@ var game_mode
 func _ready() -> void:
 	name = "IslandSaveElement"
 
+func _process(_delta: float) -> void:
+	if IslandManager.transitioning_from_menu:
+		$Continue_Btn.disabled = true
+		$Info_Btn.disabled = true
+		$Edit_Btn.disabled = true
+		$Delete_Btn.disabled = true
+
 func initializeProperties(island_name: String, gameplay_image_path: String) -> void:
 	# Set the island name text
 	$Island_Name_TextEdit.text = island_name
@@ -124,6 +131,7 @@ func _on_continue_btn_pressed() -> void:
 	
 	text_edit.text = sanitized_name
 	dir.rename(current_name_submitted, text_edit.text)
+	IslandAccessOrder.rename_island(current_name_submitted, text_edit.text)
 	current_name_submitted = text_edit.text
 	
 	text_edit.editable = false
@@ -133,8 +141,7 @@ func _on_continue_btn_pressed() -> void:
 	
 	main_menu.goToIsland(current_name_submitted, "FREE")
 
-func _on_island_name_text_edit_text_submitted(new_text: String) -> void:
-	var main_menu = get_node("/root/MainMenu")
+func _on_island_name_text_edit_text_submitted(_new_text: String) -> void:
 	var dir = DirAccess.open("user://saveData/Free Mode/Islands")
 	var text_edit = $Island_Name_TextEdit
 	var text = text_edit.text
@@ -180,11 +187,8 @@ func _on_island_name_text_edit_text_submitted(new_text: String) -> void:
 	
 	text_edit.text = sanitized_name
 	dir.rename(current_name_submitted, text_edit.text)
+	IslandAccessOrder.rename_island(current_name_submitted, text_edit.text)
 	current_name_submitted = text_edit.text
-
-
-
-
 
 
 func _on_info_btn_pressed() -> void:
