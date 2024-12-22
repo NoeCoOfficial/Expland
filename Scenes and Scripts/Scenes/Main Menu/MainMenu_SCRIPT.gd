@@ -452,7 +452,14 @@ func ShowDeletePopup(Island_Name):
 	$Camera3D/MainLayer/DeleteIslandPopup/DeleteIslandPopupMain.showDeleteIslandPopup(Island_Name)
 
 func _on_delete_island_yes_pressed() -> void:
-	pass # Replace with function body.
+	var Island_To_Delete = $Camera3D/MainLayer/DeleteIslandPopup/DeleteIslandPopupMain.getIslandToDelete()
+	
+	Utils.delete_directory(Island_To_Delete)
+	
+	$Camera3D/MainLayer/DeleteIslandPopup.visible = false
+	$Camera3D/MainLayer/DeleteIslandPopup.hide()
+	is_in_delete_popup = false
+	is_in_load_island_interface = true
 
 func _on_delete_island_no_pressed() -> void:
 	$Camera3D/MainLayer/DeleteIslandPopup.visible = false
