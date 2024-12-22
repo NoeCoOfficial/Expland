@@ -17,7 +17,16 @@
 ### Fixed:
 - Fixed being able to pause the game while dead
 -->
+## Main Menu
 
+### Added:
+- You can now create Island save files with names, load save files, rename the save files, and delete them.
+---
+## System
+
+### Changed:
+- Changed save file location, so save files are not in the same folder as the executable
+---
 ## Inventory
 
 ### Added:
