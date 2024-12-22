@@ -77,6 +77,23 @@ func _ready():
 	elif "PINKFLOWER" in ITEM_TYPE:
 		$ITEM_TYPE.text = "Pink Flower"
 	
+	elif "EFFICIENCYPOTION" in ITEM_TYPE:
+		$ITEM_TYPE.text = "Efficiency Potion"
+	elif "HASTEPOTION" in ITEM_TYPE:
+		$ITEM_TYPE.text = "Haste Potion"
+	elif "HEALTHPOTION" in ITEM_TYPE:
+		$ITEM_TYPE.text = "Health Potion"
+	elif "LUCKPOTION" in ITEM_TYPE:
+		$ITEM_TYPE.text = "Luck Potion"
+	elif "NIGHTVISIONPOTION" in ITEM_TYPE:
+		$ITEM_TYPE.text = "Night Vision Potion"
+	elif "REGENERATINGPOTION" in ITEM_TYPE:
+		$ITEM_TYPE.text = "Regenerating Potion"
+	elif "STAMINAPOTION" in ITEM_TYPE:
+		$ITEM_TYPE.text = "Stamina Potion"
+	elif "STRENGTHPOTION" in ITEM_TYPE:
+		$ITEM_TYPE.text = "Strength Potion"
+	
 	if ITEM_TYPE != "":
 		var OBJ_TEXTURE: Texture2D = load("res://Textures/Inventory/" + ITEM_TYPE + ".png")
 		if OBJ_TEXTURE == null:
