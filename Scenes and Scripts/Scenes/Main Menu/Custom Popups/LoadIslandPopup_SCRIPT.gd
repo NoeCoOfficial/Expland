@@ -51,7 +51,6 @@ func _ready() -> void:
 	visible = false
 
 func loadAndShow() -> void:
-	$NoSavedIslandsNotice.visible = false
 	visible = true
 	var dir = DirAccess.open("user://saveData/Free Mode/Islands/")
 	if dir:
@@ -71,14 +70,19 @@ func loadAndShow() -> void:
 					ordered_folders.append(folder)
 					break
 		
+		# Check if ordered_folders is empty and set the label visibility
+		if ordered_folders.size() == 0:
+			$NoSavedIslandsNotice.visible = true
+		else:
+			$NoSavedIslandsNotice.visible = false
+
+		# Populate the UI with the folders
 		for folder in ordered_folders:
 			print_rich("[color=red]Detected folder: %s[/color]" % folder["name"])
 			
 			var island_save_element = load("res://Scenes and Scripts/Scenes/Main Menu/IslandSaveElement/IslandSaveElement.tscn").instantiate()
 			$ScrollContainer/VBoxContainer.add_child(island_save_element)
 			island_save_element.name = "IslandSaveElement"
-			
-			#$NoSavedIslandsNotice.visible = true
 			
 			var image_path = "user://saveData/Free Mode/Islands/%s/island.png" % folder["name"]
 			if not FileAccess.file_exists(image_path):
