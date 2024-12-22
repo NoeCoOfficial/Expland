@@ -207,11 +207,6 @@ func _cleanup_screenshot_thread():
 		screenshot_thread.wait_to_finish()
 		screenshot_thread = null
 
-func delete_directory(directory_path: String) -> void:
-	var global_path = ProjectSettings.globalize_path(directory_path)
-	var result = OS.move_to_trash(global_path)
-	
-	if result == OK:
-		print("Directory moved to trash:", global_path)
-	else:
-		print("Failed to move directory to trash:", global_path)
+func delete_free_mode_island(Island_Name: String) -> void:
+	var full_dir = "user://saveData/Free Mode/Islands/" + Island_Name
+	OS.move_to_trash(ProjectSettings.globalize_path(full_dir))
