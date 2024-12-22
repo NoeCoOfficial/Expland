@@ -149,8 +149,9 @@ func _on_edit_btn_pressed() -> void:
 
 func _on_delete_btn_pressed() -> void:
 	pass
+	var main_menu = get_node("/root/MainMenu")
+
+	
 	# TODO
-	# Create new binary choice popup scene
-	# Instace it into the main menu
 	# Get main menu node
 	# Open the popup

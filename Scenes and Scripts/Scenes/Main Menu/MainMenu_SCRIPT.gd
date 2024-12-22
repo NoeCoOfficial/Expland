@@ -58,6 +58,8 @@ var is_in_free_mode_create_island = false
 
 var is_in_load_island_interface = false
 
+var is_in_delete_popup = false
+
 var is_tweening = false
 
 @onready var StartupNotice = preload("res://Scenes and Scripts/Scenes/Startup Notice/StartupNotice.tscn")
@@ -435,3 +437,7 @@ func _on_load_island_button_pressed() -> void:
 	$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup.loadAndShow()
 	is_in_load_island_interface = true
 	is_in_free_mode_island_popup = false
+
+func ShowDeletePopup(Island_Name):
+	is_in_delete_popup = true
+	$Camera3D/MainLayer/DeleteIslandPopup/DeleteIslandPopupMain.showDeleteIslandPopup(Island_Name)
