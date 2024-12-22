@@ -148,6 +148,9 @@ func _on_island_name_text_edit_text_submitted(new_text: String) -> void:
 			if character != " ":
 				has_valid_char = true
 	
+	if sanitized_name == "":
+		sanitized_name = current_name_submitted
+	
 	# Remove trailing spaces
 	while sanitized_name.ends_with(" "):
 		sanitized_name = sanitized_name.substr(0, sanitized_name.length() - 1)
@@ -175,13 +178,6 @@ func _on_island_name_text_edit_text_submitted(new_text: String) -> void:
 	text_edit.text = sanitized_name
 	dir.rename(current_name_submitted, text_edit.text)
 	current_name_submitted = text_edit.text
-	
-	text_edit.editable = false
-	text_edit.focus_mode = 0
-	
-	$ProtectiveLayer.visible = true
-	
-	main_menu.goToIsland(current_name_submitted, "FREE")
 
 
 
