@@ -573,6 +573,7 @@ func closeInventory():
 	Utils.center_mouse_cursor() # center the mouse cursor
 	InventoryManager.inventory_open = false
 	inventory_opened_in_air = false  # Reset the flag when inventory is closed
+	$Head/Camera3D/MinimalAlertLayer/MinimalAlert.hide_minimal_alert(0.1)
 
 func openInventory():
 	$Head/Camera3D/InventoryLayer.show() # show the inventory UI
