@@ -180,12 +180,21 @@ func _on_area_2d_mouse_entered():
 	if not InventoryManager.is_dragging:
 		mouse_over_timer.start()
 		scale = Vector2(1.05, 1.05)
+		
+		if ITEM_TYPE == "PICKAXE" or ITEM_TYPE == "AXE" or ITEM_TYPE == "SWORD":
+			var minimal_alert = get_node("/root/World/Player//Head/Camera3D/MinimalAlertLayer/MinimalAlert")
+			minimal_alert.show_minimal_alert(0.1, "Right click to hold item")
+		
 
 func _on_area_2d_mouse_exited():
 	if not InventoryManager.is_dragging:
 		mouse_over_timer.stop()
 		draggable = false
 		scale = Vector2(1.0, 1.0)
+		
+		if ITEM_TYPE == "PICKAXE" or ITEM_TYPE == "AXE" or ITEM_TYPE == "SWORD":
+			var minimal_alert = get_node("/root/World/Player//Head/Camera3D/MinimalAlertLayer/MinimalAlert")
+			minimal_alert.hide_minimal_alert(0.1)
 
 func _on_mouse_over_timeout():
 	draggable = true

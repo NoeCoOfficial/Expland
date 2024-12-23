@@ -71,3 +71,23 @@ func spawn_minimal_alert(holdSec : float, fadeInTime : float, fadeOutTime : floa
 	tween.tween_interval(holdSec)
 	tween.tween_property(MainLayer, "self_modulate", Color(0, 0, 0, 0), fadeOutTime)
 	tween.tween_property(MainLayer, "visible", false, 0)
+
+func show_minimal_alert(fadeInTime : float, message : String):
+	if tween != null:
+		tween.stop()
+	
+	MainLayer.visible = true
+	MainLayer.text = message
+	
+	tween = get_tree().create_tween()
+	
+	tween.tween_property(MainLayer, "self_modulate", Color(1, 1, 1, 1), fadeInTime)
+
+func hide_minimal_alert(fadeOutTime : float):
+	if tween != null:
+		tween.stop()
+	
+	tween = get_tree().create_tween()
+	
+	tween.tween_property(MainLayer, "self_modulate", Color(0, 0, 0, 0), fadeOutTime)
+	tween.tween_property(MainLayer, "visible", false, 0)
