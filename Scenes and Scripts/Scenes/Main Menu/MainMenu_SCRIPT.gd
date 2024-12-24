@@ -459,7 +459,6 @@ func _on_delete_island_yes_pressed() -> void:
 	$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup.clearOldElements()
 	$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup.loadAndShow()
 	
-	
 	$Camera3D/MainLayer/DeleteIslandPopup.visible = false
 	$Camera3D/MainLayer/DeleteIslandPopup.hide()
 	is_in_delete_popup = false
