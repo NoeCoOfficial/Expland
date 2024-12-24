@@ -15,7 +15,7 @@
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/IgnoreMouseFilter.gd" id="9_svfxy"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/RandomText_SCRIPT.gd" id="10_6w37c"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/GetUp_SCRIPT.gd" id="11_0enap"]
-[ext_resource type="VideoStream" uid="uid://dy45bdldi43a1" path="res://Resources/Streams/Video/HandDropableVideo.tres" id="13_cxi4r"]
+[ext_resource type="VideoStream" uid="uid://dy45bdldi43a1" path="res://Resources/Streams/Video/PickaxeHandDropableVideo.tres" id="13_cxi4r"]
 [ext_resource type="PackedScene" uid="uid://bin1awyog56pg" path="res://Scenes and Scripts/Scenes/Player/Interaction/InteractionHUD.tscn" id="16_8a1wo"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="16_wg7d4"]
 [ext_resource type="PackedScene" uid="uid://du1ak3ldg8x4e" path="res://Scenes and Scripts/Scenes/Dialogue/DialogueInterface.tscn" id="17_pkmg7"]
@@ -533,7 +533,29 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2kg3l")
 script = SubResource("GDScript_tq46f")
 
-[node name="Hand_Dropable_Video" type="VideoStreamPlayer" parent="Head/Camera3D/InventoryLayer/Hand_Dropable_Background"]
+[node name="Pickaxe_Hand_Dropable_Video" type="VideoStreamPlayer" parent="Head/Camera3D/InventoryLayer/Hand_Dropable_Background"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 607.0
+offset_bottom = 1087.0
+scale = Vector2(0.259975, 0.259975)
+stream = ExtResource("13_cxi4r")
+autoplay = true
+loop = true
+
+[node name="Axe_Hand_Dropable_Video" type="VideoStreamPlayer" parent="Head/Camera3D/InventoryLayer/Hand_Dropable_Background"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 607.0
+offset_bottom = 1087.0
+scale = Vector2(0.259975, 0.259975)
+stream = ExtResource("13_cxi4r")
+autoplay = true
+loop = true
+
+[node name="Sword_Hand_Dropable_Video" type="VideoStreamPlayer" parent="Head/Camera3D/InventoryLayer/Hand_Dropable_Background"]
 layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
