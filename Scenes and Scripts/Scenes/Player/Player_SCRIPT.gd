@@ -586,7 +586,13 @@ func openInventory():
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = false
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = false
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = true
-
+		
+	elif InventoryData.HAND_ITEM_TYPE == "" or InventoryData.HAND_ITEM_TYPE == '"' or InventoryData.HAND_ITEM_TYPE == null:
+		# TODO: Create empty text if value is empty
+		
+		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = false
+		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = false
+		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = false
 func closeInventory():
 	saveInventory()
 	$Head/Camera3D/InventoryLayer.hide() # hide the inventory UI
