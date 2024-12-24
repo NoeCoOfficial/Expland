@@ -161,6 +161,11 @@ var is_crouching = false
 ######################################
 ######################################
 
+@onready var HandDropableVideo = preload("res://Resources/Streams/Video/HandDropableVideo.tres")
+
+######################################
+######################################
+
 @export_category("Node references")
 
 @export_group("Body parts")
@@ -565,6 +570,19 @@ func showDeathScreen(): # A function to show the death screen
 # Inventory
 ######################################
 
+func openInventory():
+	$Head/Camera3D/InventoryLayer.show() # show the inventory UI
+	Utils.center_mouse_cursor() # center the mouse cursor
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # set the mouse mode to visible
+	InventoryManager.inventory_open = true
+	inventory_opened_in_air = not is_on_floor() # Set the flag when inventory is opened in the air
+	
+	
+	if InventoryData.HAND_ITEM_TYPE == "PICKAXE":
+		HandDropableVideo.file = "res://Assets/Videos/Inventory Hand/PickaxeVideo.ogg"
+	
+	
+
 func closeInventory():
 	saveInventory()
 	$Head/Camera3D/InventoryLayer.hide() # hide the inventory UI
@@ -573,13 +591,6 @@ func closeInventory():
 	InventoryManager.inventory_open = false
 	inventory_opened_in_air = false  # Reset the flag when inventory is closed
 	$Head/Camera3D/MinimalAlertLayer/MinimalAlert.hide_minimal_alert(0.1)
-
-func openInventory():
-	$Head/Camera3D/InventoryLayer.show() # show the inventory UI
-	Utils.center_mouse_cursor() # center the mouse cursor
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # set the mouse mode to visible
-	InventoryManager.inventory_open = true
-	inventory_opened_in_air = not is_on_floor() # Set the flag when inventory is opened in the air
 
 func _on_boundary_area_entered(area):
 	if area.is_in_group("draggable"):
