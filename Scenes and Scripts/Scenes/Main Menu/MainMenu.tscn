@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=53 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="PackedScene" uid="uid://jb61th5px5nt" path="res://Assets/3D Models/Tests/Island/Island 2.blend" id="2_0llf6"]
@@ -38,6 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://cq13w255wbu5l" path="res://Scenes and Scripts/Scenes/Minimal Alert/MinimalAlert.tscn" id="27_7myre"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/Custom Popups/LoadIslandPopup_SCRIPT.gd" id="27_ro0wj"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/Custom Popups/DeleteIslandPopupMain_SCRIPT.gd" id="29_37xid"]
+[ext_resource type="PackedScene" uid="uid://cnjk50xkc07o" path="res://Scenes and Scripts/Scenes/Player/Inventory/InventoryHandSlot.tscn" id="30_lks4p"]
 
 [sub_resource type="Animation" id="Animation_6cyol"]
 length = 0.001
@@ -196,6 +197,9 @@ environment = SubResource("Environment_v4n35")
 transform = Transform3D(0.0364183, 0, -0.999336, 0, 1, 0, 0.999336, 0, 0.0364183, -62.5013, 6.30089, -14.5163)
 
 [node name="MainLayer" type="CanvasLayer" parent="Camera3D"]
+
+[node name="InventoryHandSlot" parent="Camera3D/MainLayer" instance=ExtResource("30_lks4p")]
+position = Vector2(933, 279)
 
 [node name="Logo" type="TextureRect" parent="Camera3D/MainLayer"]
 offset_left = -494.0

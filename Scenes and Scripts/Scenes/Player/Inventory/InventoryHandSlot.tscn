@@ -1,7 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cnjk50xkc07o"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Inventory/InventoryHandSlot_SCRIPT.gd" id="1_4id76"]
-[ext_resource type="Texture2D" uid="uid://dhnn7my6ghg0d" path="res://Textures/Inventory/Slot/InventorySlotTexture.png" id="2_mpv6x"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="3_2aqmh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5hbs3"]
@@ -10,28 +9,17 @@ size = Vector2(40, 40)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5yu5"]
 size = Vector2(40, 40)
 
-[node name="InventoryHandSlot" type="StaticBody2D" groups=["hand_slot"]]
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_rx46k"]
+file = "Assets/Videos/Inventory Hand/PickaxeVideo1.ogg"
+
+[node name="InventoryHandSlot" type="StaticBody2D" node_paths=PackedStringArray("is_populated_label") groups=["hand_slot"]]
 script = ExtResource("1_4id76")
+is_populated_label = NodePath("is_populated")
 
 [node name="AlreadyPopulatedChecker" type="Timer" parent="."]
 wait_time = 0.05
 one_shot = true
 autostart = true
-
-[node name="ColorRect" type="TextureRect" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -45.0
-offset_top = -45.0
-offset_right = 45.0
-offset_bottom = 45.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_mpv6x")
-expand_mode = 1
 
 [node name="Draggable Detector" type="Area2D" parent="."]
 
@@ -51,6 +39,16 @@ theme_override_font_sizes/font_size = 10
 text = "Empty"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_left = -72.0
+offset_top = -144.0
+offset_right = 536.0
+offset_bottom = 944.0
+scale = Vector2(0.254209, 0.254209)
+stream = SubResource("VideoStreamTheora_rx46k")
+autoplay = true
+loop = true
 
 [connection signal="area_entered" from="Draggable Detector" to="." method="_on_draggable_detector_area_entered"]
 [connection signal="area_exited" from="Draggable Detector" to="." method="_on_draggable_detector_area_exited"]

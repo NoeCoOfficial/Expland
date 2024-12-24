@@ -53,13 +53,13 @@ extends StaticBody2D
 @export var is_populated_label : Label
 
 func _ready():
-	modulate = Color(1, 1, 1, 0.05)
+	pass
 
 func _process(_delta):
-	if InventoryManager.is_dragging:
-		visible = true
-	else:
-		visible = false
+	#if InventoryManager.is_dragging:
+	#	visible = true
+	#else:
+	#	visible = false
 	
 	if DebugManager.is_debugging:
 		is_populated_label.visible = true
