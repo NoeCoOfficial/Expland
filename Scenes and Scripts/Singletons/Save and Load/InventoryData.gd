@@ -50,6 +50,7 @@ extends Node
 var INVENTORY_SAVE_PATH = ""
 
 var inventory_data = []
+var HAND_ITEM_TYPE
 
 func saveInventory(Island_Name : String, parent_node: Node) -> void:
 	
@@ -61,9 +62,9 @@ func saveInventory(Island_Name : String, parent_node: Node) -> void:
 		Utils.createIslandSaveFolder(Island_Name, "STORY")
 		INVENTORY_SAVE_PATH = "user://saveData/Story Mode/Islands/" + Island_Name + "/inventory.save"
 		
-	elif IslandManager.Current_Game_Mode == "STORY":
-		Utils.createIslandSaveFolder(Island_Name, "STORY")
-		INVENTORY_SAVE_PATH = "user://saveData/Parkour Mode/Runs/" + Island_Name + "/inventory.save"
+	#elif IslandManager.Current_Game_Mode == "STORY":
+		#Utils.createIslandSaveFolder(Island_Name, "STORY")
+		#INVENTORY_SAVE_PATH = "user://saveData/Parkour Mode/Runs/" + Island_Name + "/inventory.save"
 	
 	#print_rich("[color=blue]" + INVENTORY_SAVE_PATH + "[/color]")
 	# Clear the inventory_data before saving
