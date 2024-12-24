@@ -161,11 +161,6 @@ var is_crouching = false
 ######################################
 ######################################
 
-@onready var HandDropableVideo = preload("res://Resources/Streams/Video/HandDropableVideo.tres")
-
-######################################
-######################################
-
 @export_category("Node references")
 
 @export_group("Body parts")
@@ -577,11 +572,20 @@ func openInventory():
 	InventoryManager.inventory_open = true
 	inventory_opened_in_air = not is_on_floor() # Set the flag when inventory is opened in the air
 	
-	
 	if InventoryData.HAND_ITEM_TYPE == "PICKAXE":
-		HandDropableVideo.file = "res://Assets/Videos/Inventory Hand/PickaxeVideo.ogg"
-	
-	
+		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = true
+		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = false
+		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = false
+		
+	elif InventoryData.HAND_ITEM_TYPE == "AXE":
+		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = false
+		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = true
+		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = false
+		
+	elif InventoryData.HAND_ITEM_TYPE == "SWORD":
+		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = false
+		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = false
+		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = true
 
 func closeInventory():
 	saveInventory()
