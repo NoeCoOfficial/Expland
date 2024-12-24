@@ -409,9 +409,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -244.0
+offset_left = -255.0
 offset_top = -214.0
-offset_right = 278.0
+offset_right = 267.0
 offset_bottom = 203.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -425,9 +425,9 @@ anchor_left = 0.356771
 anchor_top = 0.171296
 anchor_right = 0.796007
 anchor_bottom = 0.787037
-offset_left = -71.0
+offset_left = -82.0
 offset_top = 9.00001
-offset_right = -71.0
+offset_right = -82.0
 offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -441,9 +441,9 @@ anchor_left = 0.356771
 anchor_top = 0.212963
 anchor_right = 0.643229
 anchor_bottom = 0.279321
-offset_left = -71.0002
+offset_left = -82.0002
 offset_top = -18.0
-offset_right = 105.0
+offset_right = 94.0002
 offset_bottom = 9.00002
 grow_horizontal = 2
 grow_vertical = 2
@@ -456,8 +456,8 @@ anchor_left = 0.46441
 anchor_top = 0.20216
 anchor_right = 0.689236
 anchor_bottom = 0.293209
-offset_left = -71.0
-offset_right = -71.0
+offset_left = -82.0
+offset_right = -82.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("8_cdk3a")
 theme_override_font_sizes/font_size = 45
@@ -468,31 +468,31 @@ script = ExtResource("9_svfxy")
 metadata/_edit_use_anchors_ = true
 
 [node name="Slot1" parent="Head/Camera3D/InventoryLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
-position = Vector2(399, 246)
+position = Vector2(388, 246)
 
 [node name="Slot2" parent="Head/Camera3D/InventoryLayer" groups=["Slot2"] instance=ExtResource("8_ads4s")]
-position = Vector2(505, 246)
+position = Vector2(494, 246)
 
 [node name="Slot3" parent="Head/Camera3D/InventoryLayer" groups=["Slot3"] instance=ExtResource("8_ads4s")]
-position = Vector2(612, 246)
+position = Vector2(601, 246)
 
 [node name="Slot4" parent="Head/Camera3D/InventoryLayer" groups=["Slot4"] instance=ExtResource("8_ads4s")]
-position = Vector2(398, 354)
+position = Vector2(387, 354)
 
 [node name="Slot5" parent="Head/Camera3D/InventoryLayer" groups=["Slot5"] instance=ExtResource("8_ads4s")]
-position = Vector2(504, 354)
+position = Vector2(493, 354)
 
 [node name="Slot6" parent="Head/Camera3D/InventoryLayer" groups=["Slot6"] instance=ExtResource("8_ads4s")]
-position = Vector2(611, 354)
+position = Vector2(600, 354)
 
 [node name="Slot7" parent="Head/Camera3D/InventoryLayer" groups=["Slot7"] instance=ExtResource("8_ads4s")]
-position = Vector2(398, 461)
+position = Vector2(387, 461)
 
 [node name="Slot8" parent="Head/Camera3D/InventoryLayer" groups=["Slot8"] instance=ExtResource("8_ads4s")]
-position = Vector2(504, 461)
+position = Vector2(493, 461)
 
 [node name="Slot9" parent="Head/Camera3D/InventoryLayer" groups=["Slot9"] instance=ExtResource("8_ads4s")]
-position = Vector2(611, 461)
+position = Vector2(600, 461)
 
 [node name="Boundary" type="Area2D" parent="Head/Camera3D/InventoryLayer" groups=["boundary"]]
 visible = false
