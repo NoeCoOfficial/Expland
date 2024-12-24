@@ -158,6 +158,8 @@ var is_crouching = false
 @export_subgroup("Gravity") ## A subgroup for gravity variables.
 @export var gravity = 12.0 ## Was originally 9.8 (Earth's gravitational pull) but I felt it to be too unrealistic. This is the gravity of the player. The higher this value is, the faster the player falls.
 
+var HAND_ITEM_TYPE : String
+
 ######################################
 ######################################
 
