@@ -110,3 +110,7 @@ func spawn_inventory_dropable_from_load(atPos : Vector2, ITEM_TYPE):
 		
 		InventoryLayer.add_child(DropableInstance)
 		DropableInstance.position = atPos
+
+func set_hand_item(dropable_to_delete, ITEM_TYPE : String):
+	var WORLD = get_node("/root/World")
+	var INVENTORY_LAYER = get_node("/root/World/Player/Head/Camera3D/InventoryLayer")
