@@ -313,11 +313,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 					
 					free_slot.set_populated(true)
 					InventoryManager.spawn_inventory_dropable(free_slot.position, InventoryData.HAND_ITEM_TYPE, free_slot)
-					InventoryData.HAND_ITEM_TYPE = ""
-					$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Empty"
-					$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = false
-					$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = false
-					$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = false
+					set_hand_item_type("")
 
 func _unhandled_input(event): # A built-in function that listens for input all the time
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
