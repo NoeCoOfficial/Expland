@@ -112,5 +112,6 @@ func spawn_inventory_dropable_from_load(atPos : Vector2, ITEM_TYPE):
 		DropableInstance.position = atPos
 
 func set_hand_item(dropable_to_delete, ITEM_TYPE : String):
-	var WORLD = get_node("/root/World")
-	var INVENTORY_LAYER = get_node("/root/World/Player/Head/Camera3D/InventoryLayer")
+	var PLAYER = get_node("/root/World/Player")
+	dropable_to_delete.queue_free()
+	PLAYER.set_hand_item_type(ITEM_TYPE)
