@@ -694,24 +694,28 @@ func _on_hand_dropable_detector_mouse_exited() -> void:
 func set_hand_item_type(ITEM_TYPE : String):
 	
 	if ITEM_TYPE == "":
+		InventoryData.HAND_ITEM_TYPE = ""
 		$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Empty"
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visble = false
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visble = false
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visble = false
 	
 	elif ITEM_TYPE == "PICKAXE":
+		InventoryData.HAND_ITEM_TYPE = "PICKAXE"
 		$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Pickaxe"
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visble = true
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visble = false
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visble = false
 	
-	elif ITEM_TYPE == "PICKAXE":
+	elif ITEM_TYPE == "AXE":
+		InventoryData.HAND_ITEM_TYPE = "AXE"
 		$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Axe"
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visble = false
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visble = true
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visble = false
 	
 	elif ITEM_TYPE == "SWORD":
+		InventoryData.HAND_ITEM_TYPE = "SWORD"
 		$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Sword"
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visble = false
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visble = false
