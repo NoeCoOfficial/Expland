@@ -289,7 +289,6 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		if InventoryManager.is_hovering_over_hand_dropable:
 			if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup:
 				if !InventoryData.HAND_ITEM_TYPE == "":
-					
 					var slots = [
 						Slot1_Ref,
 						Slot2_Ref,

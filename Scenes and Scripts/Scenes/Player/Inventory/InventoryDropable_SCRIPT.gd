@@ -166,7 +166,7 @@ func _process(delta):
 func _input(_event: InputEvent) -> void:
 	var minimal_alert = get_node("/root/World/Player//Head/Camera3D/MinimalAlertLayer/MinimalAlert")
 	if Input.is_action_just_pressed("RightClick"):
-		if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup:
+		if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup               :
 				if ITEM_TYPE == "PICKAXE" or ITEM_TYPE == "AXE" or ITEM_TYPE == "SWORD":
 					minimal_alert.hide_minimal_alert(0.1)
 					slot_inside.set_populated(false)
