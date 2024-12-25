@@ -857,10 +857,11 @@ func _on_start_debugging_btn_pressed() -> void:
 		$Head/Camera3D/DebugLayer.show()
 		$Head/Camera3D/PauseLayer/StartDebugging_Btn.text = "STOP DEBUGGING"
 
-func _on_hand_dropable_area_mouse_entered() -> void:
-	InventoryManager.is_hovering_over_hand_dropable = true
-	print("skib")
 
-func _on_hand_dropable_area_mouse_exited() -> void:
+func _on_hand_dropable_detector_mouse_entered() -> void:
+	InventoryManager.is_hovering_over_hand_dropable = true
+	print("boom")
+
+func _on_hand_dropable_detector_mouse_exited() -> void:
 	InventoryManager.is_hovering_over_hand_dropable = false
-	print("not skib")
+	print("skib")
