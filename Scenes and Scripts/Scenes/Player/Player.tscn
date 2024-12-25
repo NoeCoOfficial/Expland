@@ -584,9 +584,9 @@ stream = ExtResource("15_mlct4")
 autoplay = true
 loop = true
 
-[node name="Area2D" type="Area2D" parent="Head/Camera3D/InventoryLayer/Hand_Dropable_Background"]
+[node name="Hand_Dropable_Area" type="Area2D" parent="Head/Camera3D/InventoryLayer/Hand_Dropable_Background"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Hand_Dropable_Area"]
 position = Vector2(77.5, 139.5)
 shape = SubResource("RectangleShape2D_n1vu3")
 
@@ -1222,6 +1222,8 @@ metadata/_edit_use_anchors_ = true
 [connection signal="body_entered" from="PickupObjectDetector" to="." method="_on_pickup_object_detector_body_entered"]
 [connection signal="area_entered" from="Head/Camera3D/InventoryLayer/Boundary" to="." method="_on_boundary_area_entered"]
 [connection signal="area_exited" from="Head/Camera3D/InventoryLayer/Boundary" to="." method="_on_boundary_area_exited"]
+[connection signal="mouse_entered" from="Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Hand_Dropable_Area" to="." method="_on_hand_dropable_area_mouse_entered"]
+[connection signal="mouse_exited" from="Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Hand_Dropable_Area" to="." method="_on_hand_dropable_area_mouse_exited"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/Resume_Btn" to="." method="_on_resume_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/Settings_Btn" to="." method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/SaveAndQuit_Btn" to="." method="_on_save_and_quit_btn_pressed"]
