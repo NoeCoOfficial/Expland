@@ -412,9 +412,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -255.0
-offset_top = -214.0
-offset_right = 267.0
+offset_left = -261.0
+offset_top = -213.0
+offset_right = 261.0
 offset_bottom = 203.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -424,30 +424,26 @@ script = SubResource("GDScript_tq46f")
 [node name="Background_2" type="Panel" parent="Head/Camera3D/InventoryLayer"]
 modulate = Color(0, 0, 0, 1)
 anchors_preset = -1
-anchor_left = 0.356771
-anchor_top = 0.171296
-anchor_right = 0.796007
-anchor_bottom = 0.787037
-offset_left = -82.0
-offset_top = 9.00001
-offset_right = -82.0
-offset_bottom = 9.0
+anchor_left = 0.28559
+anchor_top = 0.185185
+anchor_right = 0.724826
+anchor_bottom = 0.800926
+offset_left = -6.0
+offset_right = -6.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xa5l0")
 script = SubResource("GDScript_tq46f")
-metadata/_edit_use_anchors_ = true
 
 [node name="Background_3" type="Panel" parent="Head/Camera3D/InventoryLayer"]
 anchors_preset = -1
-anchor_left = 0.356771
-anchor_top = 0.212963
-anchor_right = 0.643229
-anchor_bottom = 0.279321
-offset_left = -82.0002
-offset_top = -18.0
-offset_right = 94.0002
-offset_bottom = 9.00002
+anchor_left = 0.28559
+anchor_top = 0.185185
+anchor_right = 0.724826
+anchor_bottom = 0.29321
+offset_left = -6.0
+offset_right = -6.0
+offset_bottom = 1.52588e-05
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7tmhy")
@@ -459,6 +455,8 @@ anchor_left = 0.393229
 anchor_top = 0.20216
 anchor_right = 0.618055
 anchor_bottom = 0.293209
+offset_left = -6.0
+offset_right = -6.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("8_cdk3a")
 theme_override_font_sizes/font_size = 45
@@ -466,34 +464,33 @@ text = "INVENTORY"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("9_svfxy")
-metadata/_edit_use_anchors_ = true
 
 [node name="Slot1" parent="Head/Camera3D/InventoryLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
-position = Vector2(388, 246)
+position = Vector2(382, 246)
 
 [node name="Slot2" parent="Head/Camera3D/InventoryLayer" groups=["Slot2"] instance=ExtResource("8_ads4s")]
-position = Vector2(494, 246)
+position = Vector2(488, 246)
 
 [node name="Slot3" parent="Head/Camera3D/InventoryLayer" groups=["Slot3"] instance=ExtResource("8_ads4s")]
-position = Vector2(601, 246)
+position = Vector2(595, 246)
 
 [node name="Slot4" parent="Head/Camera3D/InventoryLayer" groups=["Slot4"] instance=ExtResource("8_ads4s")]
-position = Vector2(387, 354)
+position = Vector2(381, 354)
 
 [node name="Slot5" parent="Head/Camera3D/InventoryLayer" groups=["Slot5"] instance=ExtResource("8_ads4s")]
-position = Vector2(493, 354)
+position = Vector2(487, 354)
 
 [node name="Slot6" parent="Head/Camera3D/InventoryLayer" groups=["Slot6"] instance=ExtResource("8_ads4s")]
-position = Vector2(600, 354)
+position = Vector2(594, 354)
 
 [node name="Slot7" parent="Head/Camera3D/InventoryLayer" groups=["Slot7"] instance=ExtResource("8_ads4s")]
-position = Vector2(387, 461)
+position = Vector2(381, 461)
 
 [node name="Slot8" parent="Head/Camera3D/InventoryLayer" groups=["Slot8"] instance=ExtResource("8_ads4s")]
-position = Vector2(493, 461)
+position = Vector2(487, 461)
 
 [node name="Slot9" parent="Head/Camera3D/InventoryLayer" groups=["Slot9"] instance=ExtResource("8_ads4s")]
-position = Vector2(600, 461)
+position = Vector2(594, 461)
 
 [node name="Boundary" type="Area2D" parent="Head/Camera3D/InventoryLayer" groups=["boundary"]]
 visible = false
@@ -527,9 +524,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 93.0
+offset_left = 87.0
 offset_top = -95.0
-offset_right = 249.0
+offset_right = 243.0
 offset_bottom = 185.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -570,9 +567,9 @@ autoplay = true
 loop = true
 
 [node name="HAND_ITEM_TYPE" type="Label" parent="Head/Camera3D/InventoryLayer"]
-offset_left = 683.0
+offset_left = 677.0
 offset_top = 200.0
-offset_right = 813.0
+offset_right = 807.0
 offset_bottom = 231.0
 theme = ExtResource("17_rhxkt")
 theme_override_font_sizes/font_size = 20
