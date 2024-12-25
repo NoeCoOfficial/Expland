@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=47 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -84,6 +84,9 @@ size = Vector2(1152, 107)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_47l1q"]
 size = Vector2(392, 648)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n1vu3"]
+size = Vector2(139, 263)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_meokx"]
 bg_color = Color(0.125911, 0.125911, 0.125911, 1)
@@ -221,6 +224,7 @@ target_position = Vector3(0, -3, 0)
 script = ExtResource("3_2qtqn")
 
 [node name="CrosshairCanvas" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="HealthLBL" type="Label" parent="Head/Camera3D/CrosshairCanvas"]
 anchors_preset = -1
@@ -252,6 +256,7 @@ texture = ExtResource("2_606ex")
 expand_mode = 1
 
 [node name="InteractionLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="InteractionHUD" parent="Head/Camera3D/InteractionLayer" instance=ExtResource("16_8a1wo")]
 offset_left = -183.0
@@ -393,7 +398,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="InventoryLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="GreyLayer" type="ColorRect" parent="Head/Camera3D/InventoryLayer"]
 anchors_preset = 15
@@ -580,6 +584,12 @@ stream = ExtResource("15_mlct4")
 autoplay = true
 loop = true
 
+[node name="Area2D" type="Area2D" parent="Head/Camera3D/InventoryLayer/Hand_Dropable_Background"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Area2D"]
+position = Vector2(77.5, 139.5)
+shape = SubResource("RectangleShape2D_n1vu3")
+
 [node name="HAND_ITEM_TYPE" type="Label" parent="Head/Camera3D/InventoryLayer"]
 offset_left = 677.0
 offset_top = 200.0
@@ -592,6 +602,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/DeathScreen"]
 anchors_preset = 15
@@ -643,6 +654,7 @@ vertical_alignment = 1
 script = ExtResource("11_0enap")
 
 [node name="OverlayLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="RedOverlay" type="ColorRect" parent="Head/Camera3D/OverlayLayer"]
 process_priority = 10
@@ -669,6 +681,7 @@ color = Color(0, 0, 0, 1)
 script = ExtResource("8_uxqns")
 
 [node name="DialogueLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="DialogueInterface" parent="Head/Camera3D/DialogueLayer" instance=ExtResource("17_pkmg7")]
 visible = false
@@ -840,21 +853,25 @@ theme_override_font_sizes/font_size = 27
 text = "CREDITS"
 
 [node name="AchievementsLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="AchievementsUI" parent="Head/Camera3D/AchievementsLayer" instance=ExtResource("20_3vll1")]
 visible = false
 
 [node name="CreditsLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="CreditsLayer" parent="Head/Camera3D/CreditsLayer" instance=ExtResource("24_qhsvo")]
 visible = false
 
 [node name="SettingsLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="SettingsUI" parent="Head/Camera3D/SettingsLayer" instance=ExtResource("19_kj00b")]
 visible = false
 
 [node name="SaveOverlay" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="LighterBG" type="ColorRect" parent="Head/Camera3D/SaveOverlay"]
 anchors_preset = -1
@@ -892,15 +909,18 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="AlertLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="AlertLayer" parent="Head/Camera3D/AlertLayer" instance=ExtResource("21_r1ny7")]
 visible = false
 
 [node name="MinimalAlertLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="MinimalAlert" parent="Head/Camera3D/MinimalAlertLayer" instance=ExtResource("27_5o6is")]
 
 [node name="SleepLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/SleepLayer"]
 visible = false
@@ -1181,6 +1201,7 @@ text = "CURRENT_HOUR = #"
 horizontal_alignment = 2
 
 [node name="TopLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="ProtectiveLayer" type="Control" parent="Head/Camera3D/TopLayer"]
 visible = false
