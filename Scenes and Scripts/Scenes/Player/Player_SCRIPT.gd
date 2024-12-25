@@ -286,34 +286,35 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			closeInventory()
 	
 	if Input.is_action_just_pressed("RightClick"):
-		if InventoryManager.is_hovering_over_hand_dropable and InventoryData.HAND_ITEM_TYPE != "":
-			if !InventoryManager.is_dragging and InventoryManager.inventory_open:
-				
-				var slots = [
-					Slot1_Ref,
-					Slot2_Ref,
-					Slot3_Ref,
-					Slot4_Ref,
-					Slot5_Ref,
-					Slot6_Ref,
-					Slot7_Ref,
-					Slot8_Ref,
-					Slot9_Ref,
-				]
-				
-				var free_slot = null
-				
-				# Get the free slot
-				for i in range(slots.size()):
-					if not slots[i].is_populated():
-						free_slot = slots[i]
-						break
-				
-				if free_slot != null and !free_slot.is_populated():
+		if InventoryManager.is_hovering_over_hand_dropable:
+			if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup:
+				if !InventoryData.HAND_ITEM_TYPE == "":
 					
-					free_slot.set_populated(true)
-					InventoryManager.spawn_inventory_dropable(free_slot.position, InventoryData.HAND_ITEM_TYPE, free_slot)
-					set_hand_item_type("")
+					var slots = [
+						Slot1_Ref,
+						Slot2_Ref,
+						Slot3_Ref,
+						Slot4_Ref,
+						Slot5_Ref,
+						Slot6_Ref,
+						Slot7_Ref,
+						Slot8_Ref,
+						Slot9_Ref,
+					]
+					
+					var free_slot = null
+					
+					# Get the free slot
+					for i in range(slots.size()):
+						if not slots[i].is_populated():
+							free_slot = slots[i]
+							break
+					
+					if free_slot != null and !free_slot.is_populated():
+						
+						InventoryManager.spawn_inventory_dropable(free_slot.position, InventoryData.HAND_ITEM_TYPE, free_slot)
+						free_slot.set_populated(true)
+						set_hand_item_type("")
 
 func _unhandled_input(event): # A built-in function that listens for input all the time
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
@@ -680,7 +681,7 @@ func delete_pickup_object(pickupobj):
 
 func _on_hand_dropable_detector_mouse_entered() -> void:
 	InventoryManager.is_hovering_over_hand_dropable = true
-	if !InventoryManager.is_dragging and InventoryManager.inventory_open and InventoryData.HAND_ITEM_TYPE != "":
+	if InventoryManager.inventory_open and InventoryData.HAND_ITEM_TYPE != "":
 		MinimalAlert.show_minimal_alert(0.1, "Right click to put item back into pockets")
 
 func _on_hand_dropable_detector_mouse_exited() -> void:

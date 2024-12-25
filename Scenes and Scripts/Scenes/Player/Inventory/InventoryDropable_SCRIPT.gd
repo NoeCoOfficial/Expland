@@ -165,15 +165,16 @@ func _process(delta):
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("RightClick"):
-		if draggable and !InventoryManager.is_dragging and InventoryManager.inventory_open and !InventoryManager.is_creating_pickup:
-			if ITEM_TYPE == "PICKAXE" or ITEM_TYPE == "AXE" or ITEM_TYPE == "SWORD":
-				InventoryManager.set_hand_item(self, ITEM_TYPE)
+		if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup:
+				if ITEM_TYPE == "PICKAXE" or ITEM_TYPE == "AXE" or ITEM_TYPE == "SWORD":
+					slot_inside.set_populated(false)
+					InventoryManager.set_hand_item(self, ITEM_TYPE)
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("slot") and !InventoryManager.is_inside_checker:  
 		if $PopulatedOnStartup.time_left > 0.0:
 			slot_inside = body
-		is_inside_dropable = true 
+		is_inside_dropable = true
 		
 		body_ref = body
 
@@ -182,17 +183,17 @@ func _on_area_2d_body_exited(body):
 		is_inside_dropable = false
 
 func _on_area_2d_mouse_entered():
-	if not InventoryManager.is_dragging:
+	if !InventoryManager.is_dragging:
 		mouse_over_timer.start()
 		scale = Vector2(1.05, 1.05)
 		
-		if draggable and InventoryManager.inventory_open and !InventoryManager.is_creating_pickup:
-			if ITEM_TYPE == "PICKAXE" or ITEM_TYPE == "AXE" or ITEM_TYPE == "SWORD":
-				var minimal_alert = get_node("/root/World/Player//Head/Camera3D/MinimalAlertLayer/MinimalAlert")
-				minimal_alert.show_minimal_alert(0.1, "Right click to hold item")
+	if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup:
+		if ITEM_TYPE == "PICKAXE" or ITEM_TYPE == "AXE" or ITEM_TYPE == "SWORD":
+			var minimal_alert = get_node("/root/World/Player//Head/Camera3D/MinimalAlertLayer/MinimalAlert")
+			minimal_alert.show_minimal_alert(0.1, "Right click to hold item")
 
 func _on_area_2d_mouse_exited():
-	if not InventoryManager.is_dragging:
+	if !InventoryManager.is_dragging:
 		mouse_over_timer.stop()
 		draggable = false
 		scale = Vector2(1.0, 1.0)
@@ -227,3 +228,6 @@ func get_ITEM_TYPE():
 
 func get_slot_inside():
 	return slot_inside
+
+func set_slot_inside(slot):
+	slot_inside = slot
