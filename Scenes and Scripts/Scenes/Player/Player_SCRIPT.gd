@@ -315,6 +315,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 						InventoryManager.spawn_inventory_dropable(free_slot.position, InventoryData.HAND_ITEM_TYPE, free_slot)
 						free_slot.set_populated(true)
 						set_hand_item_type("")
+						MinimalAlert.hide_minimal_alert(0.1)
 
 func _unhandled_input(event): # A built-in function that listens for input all the time
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
