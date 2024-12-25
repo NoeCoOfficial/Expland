@@ -221,7 +221,6 @@ target_position = Vector3(0, -3, 0)
 script = ExtResource("3_2qtqn")
 
 [node name="CrosshairCanvas" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="HealthLBL" type="Label" parent="Head/Camera3D/CrosshairCanvas"]
 anchors_preset = -1
@@ -253,7 +252,6 @@ texture = ExtResource("2_606ex")
 expand_mode = 1
 
 [node name="InteractionLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="InteractionHUD" parent="Head/Camera3D/InteractionLayer" instance=ExtResource("16_8a1wo")]
 offset_left = -183.0
@@ -395,6 +393,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="InventoryLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="GreyLayer" type="ColorRect" parent="Head/Camera3D/InventoryLayer"]
 anchors_preset = 15
@@ -533,6 +532,21 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2kg3l")
 script = SubResource("GDScript_tq46f")
 
+[node name="Empty_Label" type="Label" parent="Head/Camera3D/InventoryLayer/Hand_Dropable_Background"]
+modulate = Color(1, 1, 1, 0.395)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0512821
+anchor_top = 0.364286
+anchor_right = 0.935897
+anchor_bottom = 0.517857
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 25
+text = "EMPTY"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
 [node name="Pickaxe_Hand_Dropable_Video" type="VideoStreamPlayer" parent="Head/Camera3D/InventoryLayer/Hand_Dropable_Background"]
 layout_mode = 0
 offset_left = -1.0
@@ -566,21 +580,6 @@ stream = ExtResource("15_mlct4")
 autoplay = true
 loop = true
 
-[node name="Empty_Label" type="Label" parent="Head/Camera3D/InventoryLayer/Hand_Dropable_Background"]
-modulate = Color(1, 1, 1, 0.395)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0512821
-anchor_top = 0.364286
-anchor_right = 0.935897
-anchor_bottom = 0.517857
-theme = ExtResource("17_rhxkt")
-theme_override_font_sizes/font_size = 25
-text = "EMPTY"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
 [node name="HAND_ITEM_TYPE" type="Label" parent="Head/Camera3D/InventoryLayer"]
 offset_left = 677.0
 offset_top = 200.0
@@ -593,7 +592,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/DeathScreen"]
 anchors_preset = 15
@@ -645,7 +643,6 @@ vertical_alignment = 1
 script = ExtResource("11_0enap")
 
 [node name="OverlayLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="RedOverlay" type="ColorRect" parent="Head/Camera3D/OverlayLayer"]
 process_priority = 10
@@ -672,7 +669,6 @@ color = Color(0, 0, 0, 1)
 script = ExtResource("8_uxqns")
 
 [node name="DialogueLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="DialogueInterface" parent="Head/Camera3D/DialogueLayer" instance=ExtResource("17_pkmg7")]
 visible = false
@@ -844,25 +840,21 @@ theme_override_font_sizes/font_size = 27
 text = "CREDITS"
 
 [node name="AchievementsLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="AchievementsUI" parent="Head/Camera3D/AchievementsLayer" instance=ExtResource("20_3vll1")]
 visible = false
 
 [node name="CreditsLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="CreditsLayer" parent="Head/Camera3D/CreditsLayer" instance=ExtResource("24_qhsvo")]
 visible = false
 
 [node name="SettingsLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="SettingsUI" parent="Head/Camera3D/SettingsLayer" instance=ExtResource("19_kj00b")]
 visible = false
 
 [node name="SaveOverlay" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="LighterBG" type="ColorRect" parent="Head/Camera3D/SaveOverlay"]
 anchors_preset = -1
@@ -900,18 +892,15 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="AlertLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="AlertLayer" parent="Head/Camera3D/AlertLayer" instance=ExtResource("21_r1ny7")]
 visible = false
 
 [node name="MinimalAlertLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="MinimalAlert" parent="Head/Camera3D/MinimalAlertLayer" instance=ExtResource("27_5o6is")]
 
 [node name="SleepLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/SleepLayer"]
 visible = false
@@ -1192,7 +1181,6 @@ text = "CURRENT_HOUR = #"
 horizontal_alignment = 2
 
 [node name="TopLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="ProtectiveLayer" type="Control" parent="Head/Camera3D/TopLayer"]
 visible = false
