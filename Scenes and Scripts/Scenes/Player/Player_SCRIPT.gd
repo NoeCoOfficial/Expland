@@ -675,6 +675,12 @@ func delete_pickup_object(pickupobj):
 	if pickupobj != null:
 		pickupobj.queue_free()
 
+func _on_hand_dropable_detector_mouse_entered() -> void:
+	InventoryManager.is_hovering_over_hand_dropable = true
+
+func _on_hand_dropable_detector_mouse_exited() -> void:
+	InventoryManager.is_hovering_over_hand_dropable = false
+
 ######################################
 # Chest UI
 ######################################
@@ -856,12 +862,3 @@ func _on_start_debugging_btn_pressed() -> void:
 		DebugManager.is_debugging = true
 		$Head/Camera3D/DebugLayer.show()
 		$Head/Camera3D/PauseLayer/StartDebugging_Btn.text = "STOP DEBUGGING"
-
-
-func _on_hand_dropable_detector_mouse_entered() -> void:
-	InventoryManager.is_hovering_over_hand_dropable = true
-	print("boom")
-
-func _on_hand_dropable_detector_mouse_exited() -> void:
-	InventoryManager.is_hovering_over_hand_dropable = false
-	print("skib")
