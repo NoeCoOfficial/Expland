@@ -285,6 +285,11 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		else:
 			closeInventory()
 	
+	if Input.is_action_just_pressed("RightClick"):
+		if InventoryManager.is_hovering_over_hand_dropable and InventoryData.HAND_ITEM_TYPE != "":
+			if !InventoryManager.is_dragging and InventoryManager.inventory_open and InventoryManager:
+				pass
+	
 func _unhandled_input(event): # A built-in function that listens for input all the time
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
 		if InventoryManager.inventory_open or PauseManager.is_paused or PauseManager.is_inside_alert or DialogueManager.is_in_interface or InventoryManager.in_chest_interface: # Check if the game state is inventory, or paused, or viewing dialogue.
