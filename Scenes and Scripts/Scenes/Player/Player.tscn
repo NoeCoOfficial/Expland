@@ -566,6 +566,21 @@ stream = ExtResource("15_mlct4")
 autoplay = true
 loop = true
 
+[node name="Empty_Label" type="Label" parent="Head/Camera3D/InventoryLayer/Hand_Dropable_Background"]
+modulate = Color(1, 1, 1, 0.395)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0512821
+anchor_top = 0.364286
+anchor_right = 0.935897
+anchor_bottom = 0.517857
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 25
+text = "EMPTY"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
 [node name="HAND_ITEM_TYPE" type="Label" parent="Head/Camera3D/InventoryLayer"]
 offset_left = 677.0
 offset_top = 200.0
@@ -573,7 +588,7 @@ offset_right = 807.0
 offset_bottom = 231.0
 theme = ExtResource("17_rhxkt")
 theme_override_font_sizes/font_size = 20
-text = "ITEM_TYPE"
+text = "Empty"
 horizontal_alignment = 1
 vertical_alignment = 1
 
