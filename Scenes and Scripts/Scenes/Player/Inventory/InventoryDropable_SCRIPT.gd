@@ -163,7 +163,7 @@ func _process(delta):
 			if mouse_over_timer.is_inside_tree():                          
 				mouse_over_timer.start() # Restart the timer when the item is placed down
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("RightClick"):
 		if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup:
 				if ITEM_TYPE == "PICKAXE" or ITEM_TYPE == "AXE" or ITEM_TYPE == "SWORD":
