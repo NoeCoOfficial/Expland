@@ -677,9 +677,12 @@ func delete_pickup_object(pickupobj):
 
 func _on_hand_dropable_detector_mouse_entered() -> void:
 	InventoryManager.is_hovering_over_hand_dropable = true
+	if !InventoryManager.is_dragging and InventoryManager.inventory_open and InventoryData.HAND_ITEM_TYPE != "":
+		MinimalAlert.show_minimal_alert(0.1, "Right click to put item back into pockets")
 
 func _on_hand_dropable_detector_mouse_exited() -> void:
 	InventoryManager.is_hovering_over_hand_dropable = false
+	MinimalAlert.hide_minimal_alert(0.1)
 
 ######################################
 # Chest UI
