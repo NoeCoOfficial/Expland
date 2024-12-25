@@ -50,6 +50,7 @@ extends Node
 var INVENTORY_SAVE_PATH = ""
 
 var inventory_data = []
+var HAND_ITEM_TYPE : String = ""
 
 func saveInventory(Island_Name : String, parent_node: Node) -> void:
 	
@@ -61,10 +62,6 @@ func saveInventory(Island_Name : String, parent_node: Node) -> void:
 		Utils.createIslandSaveFolder(Island_Name, "STORY")
 		INVENTORY_SAVE_PATH = "user://saveData/Story Mode/Islands/" + Island_Name + "/inventory.save"
 		
-	elif IslandManager.Current_Game_Mode == "STORY":
-		Utils.createIslandSaveFolder(Island_Name, "STORY")
-		INVENTORY_SAVE_PATH = "user://saveData/Parkour Mode/Runs/" + Island_Name + "/inventory.save"
-	
 	#print_rich("[color=blue]" + INVENTORY_SAVE_PATH + "[/color]")
 	# Clear the inventory_data before saving
 	inventory_data.clear()
@@ -82,10 +79,16 @@ func saveInventory(Island_Name : String, parent_node: Node) -> void:
 	# Debugging: Ensure inventory_data contains all collected items
 	print("[InventoryData] Final inventory_data array: ", inventory_data)
 
+	# Add HAND_ITEM_TYPE to the inventory data
+	var save_data = {
+		"inventory": inventory_data,
+		"hand_item_type": HAND_ITEM_TYPE
+	}
+
 	# Write fresh data to the file
 	var file = FileAccess.open(INVENTORY_SAVE_PATH, FileAccess.WRITE)
 	if file:
-		var json_data = JSON.stringify(inventory_data)
+		var json_data = JSON.stringify(save_data)
 		file.store_line(json_data)
 		file.close()
 		print("[InventoryData] --Saved Inventory Data--")
@@ -103,11 +106,13 @@ func loadInventory(Island_Name : String) -> void:
 
 	if file and not file.eof_reached():
 		var current_line = JSON.parse_string(file.get_line())
-		if not current_line or current_line == []:
+		if not current_line or current_line == {}:
 			print("[InventoryData] No inventory data to load.")
 			return
 		
-		inventory_data = current_line  # Update the in-memory inventory data
+		# Update the in-memory inventory data and HAND_ITEM_TYPE
+		inventory_data = current_line["inventory"]
+		HAND_ITEM_TYPE = current_line["hand_item_type"]
 		
 		# Spawn inventory items based on loaded data
 		for item in inventory_data:

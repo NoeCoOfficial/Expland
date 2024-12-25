@@ -275,8 +275,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 				velocity.y = 0.0 # set the player's velocity to 0 
 	
 	if Input.is_action_just_pressed("SaveGame") and OS.has_feature("debug") and IslandManager.Current_Game_Mode == "FREE":
-		if IslandManager.Current_Game_Mode == "FREE":
-			Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
+		Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
 		
 		saveAllDataWithAnimation()
 	
@@ -285,6 +284,11 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			openInventory()
 		else:
 			closeInventory()
+	
+	if Input.is_action_just_pressed("RightClick"):
+		if InventoryManager.is_hovering_over_hand_dropable and InventoryData.HAND_ITEM_TYPE != "":
+			if !InventoryManager.is_dragging and InventoryManager.inventory_open:
+				print("PUT BACK ITEM")
 	
 func _unhandled_input(event): # A built-in function that listens for input all the time
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
@@ -566,6 +570,37 @@ func showDeathScreen(): # A function to show the death screen
 # Inventory
 ######################################
 
+func openInventory():
+	$Head/Camera3D/InventoryLayer.show() # show the inventory UI
+	Utils.center_mouse_cursor() # center the mouse cursor
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # set the mouse mode to visible
+	InventoryManager.inventory_open = true
+	inventory_opened_in_air = not is_on_floor() # Set the flag when inventory is opened in the air
+	
+	if InventoryData.HAND_ITEM_TYPE == "PICKAXE":
+		$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Pickaxe"
+		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = true
+		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = false
+		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = false
+		
+	elif InventoryData.HAND_ITEM_TYPE == "AXE":
+		$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Axe"
+		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = false
+		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = true
+		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = false
+		
+	elif InventoryData.HAND_ITEM_TYPE == "SWORD":
+		$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Sword"
+		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = false
+		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = false
+		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = true
+		
+	elif InventoryData.HAND_ITEM_TYPE == "" or InventoryData.HAND_ITEM_TYPE == '"' or InventoryData.HAND_ITEM_TYPE == null:
+		$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Empty"
+		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = false
+		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = false
+		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = false
+
 func closeInventory():
 	saveInventory()
 	$Head/Camera3D/InventoryLayer.hide() # hide the inventory UI
@@ -574,13 +609,6 @@ func closeInventory():
 	InventoryManager.inventory_open = false
 	inventory_opened_in_air = false  # Reset the flag when inventory is closed
 	$Head/Camera3D/MinimalAlertLayer/MinimalAlert.hide_minimal_alert(0.1)
-
-func openInventory():
-	$Head/Camera3D/InventoryLayer.show() # show the inventory UI
-	Utils.center_mouse_cursor() # center the mouse cursor
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # set the mouse mode to visible
-	InventoryManager.inventory_open = true
-	inventory_opened_in_air = not is_on_floor() # Set the flag when inventory is opened in the air
 
 func _on_boundary_area_entered(area):
 	if area.is_in_group("draggable"):
@@ -646,6 +674,12 @@ func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 func delete_pickup_object(pickupobj):
 	if pickupobj != null:
 		pickupobj.queue_free()
+
+func _on_hand_dropable_detector_mouse_entered() -> void:
+	InventoryManager.is_hovering_over_hand_dropable = true
+
+func _on_hand_dropable_detector_mouse_exited() -> void:
+	InventoryManager.is_hovering_over_hand_dropable = false
 
 ######################################
 # Chest UI

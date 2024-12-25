@@ -454,11 +454,10 @@ func _on_delete_island_yes_pressed() -> void:
 	var Island_To_Delete = $Camera3D/MainLayer/DeleteIslandPopup/DeleteIslandPopupMain.getIslandToDelete()
 	
 	Utils.delete_free_mode_island(Island_To_Delete)
-	IslandAccessOrder.remove_island(Island_To_Delete)  # Add this line to remove the island from the order
-
+	IslandAccessOrder.remove_island(Island_To_Delete)
+	
 	$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup.clearOldElements()
 	$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup.loadAndShow()
-	
 	
 	$Camera3D/MainLayer/DeleteIslandPopup.visible = false
 	$Camera3D/MainLayer/DeleteIslandPopup.hide()
