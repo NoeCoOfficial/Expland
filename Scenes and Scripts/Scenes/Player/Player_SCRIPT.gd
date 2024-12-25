@@ -287,8 +287,8 @@ func _input(_event): # A built-in function that listens for input using the inpu
 	
 	if Input.is_action_just_pressed("RightClick"):
 		if InventoryManager.is_hovering_over_hand_dropable and InventoryData.HAND_ITEM_TYPE != "":
-			if !InventoryManager.is_dragging and InventoryManager.inventory_open and InventoryManager:
-				pass
+			if !InventoryManager.is_dragging and InventoryManager.inventory_open:
+				print("PUT BACK ITEM")
 	
 func _unhandled_input(event): # A built-in function that listens for input all the time
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
@@ -859,6 +859,8 @@ func _on_start_debugging_btn_pressed() -> void:
 
 func _on_hand_dropable_area_mouse_entered() -> void:
 	InventoryManager.is_hovering_over_hand_dropable = true
+	print("skib")
 
 func _on_hand_dropable_area_mouse_exited() -> void:
 	InventoryManager.is_hovering_over_hand_dropable = false
+	print("not skib")

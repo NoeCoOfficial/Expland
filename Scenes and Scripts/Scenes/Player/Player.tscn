@@ -74,16 +74,16 @@ corner_radius_top_left = 12
 corner_radius_top_right = 12
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cs88l"]
-size = Vector2(394, 648)
+size = Vector2(313, 648)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sl537"]
-size = Vector2(1152, 101)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4c0ao"]
 size = Vector2(1152, 107)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4c0ao"]
+size = Vector2(1152, 118)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_47l1q"]
-size = Vector2(392, 648)
+size = Vector2(313, 648)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n1vu3"]
 size = Vector2(139, 263)
@@ -495,30 +495,6 @@ position = Vector2(487, 461)
 [node name="Slot9" parent="Head/Camera3D/InventoryLayer" groups=["Slot9"] instance=ExtResource("8_ads4s")]
 position = Vector2(594, 461)
 
-[node name="Boundary" type="Area2D" parent="Head/Camera3D/InventoryLayer" groups=["boundary"]]
-visible = false
-priority = 12
-
-[node name="Boundary1" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Boundary"]
-position = Vector2(197, 324)
-shape = SubResource("RectangleShape2D_cs88l")
-debug_color = Color(0.998937, 0, 0.128371, 0.42)
-
-[node name="Boundary2" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Boundary"]
-position = Vector2(576, 50.5)
-shape = SubResource("RectangleShape2D_sl537")
-debug_color = Color(0.998937, 0, 0.128371, 0.42)
-
-[node name="Boundary3" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Boundary"]
-position = Vector2(576, 594.5)
-shape = SubResource("RectangleShape2D_4c0ao")
-debug_color = Color(0.998937, 0, 0.128371, 0.42)
-
-[node name="Boundary4" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Boundary"]
-position = Vector2(956, 324)
-shape = SubResource("RectangleShape2D_47l1q")
-debug_color = Color(0.998937, 0, 0.128371, 0.42)
-
 [node name="Hand_Dropable_Background" type="Panel" parent="Head/Camera3D/InventoryLayer"]
 clip_children = 2
 clip_contents = true
@@ -584,9 +560,33 @@ stream = ExtResource("15_mlct4")
 autoplay = true
 loop = true
 
-[node name="Hand_Dropable_Area" type="Area2D" parent="Head/Camera3D/InventoryLayer/Hand_Dropable_Background"]
+[node name="Boundary" type="Area2D" parent="Head/Camera3D/InventoryLayer" groups=["boundary"]]
+priority = 12
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Hand_Dropable_Area"]
+[node name="Boundary1" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Boundary"]
+position = Vector2(156.5, 324)
+shape = SubResource("RectangleShape2D_cs88l")
+debug_color = Color(0.998937, 0, 0.128371, 0.42)
+
+[node name="Boundary2" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Boundary"]
+position = Vector2(576, 53.5)
+shape = SubResource("RectangleShape2D_sl537")
+debug_color = Color(0.998937, 0, 0.128371, 0.42)
+
+[node name="Boundary3" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Boundary"]
+position = Vector2(576, 589)
+shape = SubResource("RectangleShape2D_4c0ao")
+debug_color = Color(0.998937, 0, 0.128371, 0.42)
+
+[node name="Boundary4" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Boundary"]
+position = Vector2(995.5, 324)
+shape = SubResource("RectangleShape2D_47l1q")
+debug_color = Color(0.998937, 0, 0.128371, 0.42)
+
+[node name="Hand_Dropable_Area" type="Area2D" parent="Head/Camera3D/InventoryLayer"]
+position = Vector2(663, 229)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Hand_Dropable_Area"]
 position = Vector2(77.5, 139.5)
 shape = SubResource("RectangleShape2D_n1vu3")
 
@@ -853,25 +853,21 @@ theme_override_font_sizes/font_size = 27
 text = "CREDITS"
 
 [node name="AchievementsLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="AchievementsUI" parent="Head/Camera3D/AchievementsLayer" instance=ExtResource("20_3vll1")]
 visible = false
 
 [node name="CreditsLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="CreditsLayer" parent="Head/Camera3D/CreditsLayer" instance=ExtResource("24_qhsvo")]
 visible = false
 
 [node name="SettingsLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="SettingsUI" parent="Head/Camera3D/SettingsLayer" instance=ExtResource("19_kj00b")]
 visible = false
 
 [node name="SaveOverlay" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="LighterBG" type="ColorRect" parent="Head/Camera3D/SaveOverlay"]
 anchors_preset = -1
@@ -909,18 +905,15 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="AlertLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="AlertLayer" parent="Head/Camera3D/AlertLayer" instance=ExtResource("21_r1ny7")]
 visible = false
 
 [node name="MinimalAlertLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="MinimalAlert" parent="Head/Camera3D/MinimalAlertLayer" instance=ExtResource("27_5o6is")]
 
 [node name="SleepLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/SleepLayer"]
 visible = false
@@ -1201,7 +1194,6 @@ text = "CURRENT_HOUR = #"
 horizontal_alignment = 2
 
 [node name="TopLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="ProtectiveLayer" type="Control" parent="Head/Camera3D/TopLayer"]
 visible = false
@@ -1222,8 +1214,8 @@ metadata/_edit_use_anchors_ = true
 [connection signal="body_entered" from="PickupObjectDetector" to="." method="_on_pickup_object_detector_body_entered"]
 [connection signal="area_entered" from="Head/Camera3D/InventoryLayer/Boundary" to="." method="_on_boundary_area_entered"]
 [connection signal="area_exited" from="Head/Camera3D/InventoryLayer/Boundary" to="." method="_on_boundary_area_exited"]
-[connection signal="mouse_entered" from="Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Hand_Dropable_Area" to="." method="_on_hand_dropable_area_mouse_entered"]
-[connection signal="mouse_exited" from="Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Hand_Dropable_Area" to="." method="_on_hand_dropable_area_mouse_exited"]
+[connection signal="mouse_entered" from="Head/Camera3D/InventoryLayer/Hand_Dropable_Area" to="." method="_on_hand_dropable_area_mouse_entered"]
+[connection signal="mouse_exited" from="Head/Camera3D/InventoryLayer/Hand_Dropable_Area" to="." method="_on_hand_dropable_area_mouse_exited"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/Resume_Btn" to="." method="_on_resume_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/Settings_Btn" to="." method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/SaveAndQuit_Btn" to="." method="_on_save_and_quit_btn_pressed"]
