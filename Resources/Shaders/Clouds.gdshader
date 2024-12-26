@@ -2,25 +2,27 @@ shader_type spatial;
 render_mode unshaded;
 
 uniform sampler3D cloud_noise_texture;
-uniform float cloud_scale : hint_range(0.001, 5.0) = 0.006;
-uniform float cloud_threshold : hint_range(0.0, 1.0) = 0.0;
-uniform float cloud_threshold_multiplier: hint_range(0.00, 10.00) = 5.0;
-uniform int max_steps : hint_range(1, 200) = 128;
-uniform float step_size : hint_range(0.01, 1.0) = 0.4;
-uniform float cloud_scroll_speed : hint_range(-10.0, 10.0) = 0.022;
-uniform vec3 minBounds = vec3(-1.0, -1.0, -1.0);
-uniform vec3 maxBounds = vec3(1.0, 1.0, 1.0);
+uniform float CloudNoiseUVTiling : hint_range(0.001, 5.0) = 2.0;
+uniform float CloudNoiseTilingMagnitude : hint_range(0.0, 1.0, 0.001) = 0.3;
+uniform float cloud_threshold : hint_range(0.0, 1.0) = 1.0;
+uniform float cloud_threshold_multiplier: hint_range(0.00, 10.00) = 6.5;
+uniform int GPUKiller : hint_range(1, 512, 0.1) = 64;
+uniform float GPUSaver : hint_range(0.01, 3.0, 0.01) = 0.8;
+uniform float cloud_scroll_speed = 0.022;
+uniform vec3 minBounds = vec3(-4096.0, 256.0, -4096.0);
+uniform vec3 maxBounds = vec3(4096.0, 576.0, 4096.0);
 
 uniform sampler3D detail_noise_texture;
-uniform float detail_intensity = 100.0;
-uniform float detail_scroll_speed : hint_range(-10.0, 10.0) = -10.0;
-uniform float cloud_scatter : hint_range(0.0, 10.0) = 1.0;
-uniform vec3 light_direction = vec3(0.5, 1.0, 0.5);
-uniform vec3 cloud_movement_direction = vec3(1.0, 0.0, 0.0);  // Example direction (move along the X-axis)
-uniform float cloud_movement_speed = 8.00;
-uniform float shadow_intensity = 0.75;
-uniform float cloud_alpha = 30.0;
-uniform vec3 cloud_color : source_color;
+uniform float DetailNoiseInfluenceOnFinalResult: hint_range(0.0, 256.0) = 32.0;
+uniform float detail_scroll_speed : hint_range(-10.0, 10.0) = -4.0;
+uniform float DetailNoiseUVTiling : hint_range(0.0, 32.0) = 6.0;
+uniform vec3 light_direction = vec3(0.1, -0.1, 0.1);
+uniform vec3 cloud_movement_direction = vec3(0.0007, -0.0007, 0.0007);
+uniform float cloud_movement_speed = 0;
+uniform float cloudMovementMagnitude: hint_range(0.0, 1.0, 0.001) = 0.01;
+uniform float LightCorrection = 1.5;
+uniform float cloud_alpha = 256.0;
+uniform vec3 cloud_color : source_color = vec3(0.7, 0.4, 0.4);
 
 float sample_detail_noise(vec3 position) {
     return texture(detail_noise_texture, position).r;
@@ -28,16 +30,16 @@ float sample_detail_noise(vec3 position) {
 
 float sample_cloud(vec3 position) {
     // Add the cloud movement vector and scroll the noise texture.
-    vec3 movementOffset = cloud_movement_speed * cloud_movement_direction * TIME;
-    vec3 mainScrollingOffset = cloud_scroll_speed * cloud_movement_direction * TIME;
+    vec3 movementOffset = cloud_movement_speed * cloud_movement_direction * TIME * cloudMovementMagnitude;
+    vec3 mainScrollingOffset = cloud_scroll_speed * cloud_movement_direction * TIME ;
     vec3 detailScrollingOffset = detail_scroll_speed * cloud_movement_direction * TIME;  // separate scrolling for detail
 
     vec3 mainOffsetPos = position + mainScrollingOffset + movementOffset;
     vec3 detailOffsetPos = position + detailScrollingOffset + movementOffset; // Different offset for detail noise
 
     float main_cloud = texture(cloud_noise_texture, mainOffsetPos).r;
-    float detail = sample_detail_noise(detailOffsetPos * cloud_scatter);
-    return mix(main_cloud, detail, detail_intensity);
+    float detail = sample_detail_noise(detailOffsetPos * DetailNoiseUVTiling * 2.0);
+    return mix(main_cloud, detail, DetailNoiseInfluenceOnFinalResult);
 }
 
 
@@ -48,16 +50,16 @@ float raymarch(vec3 ro_model, vec3 rd_model, vec2 intersections) {
     float t = intersections.x;  // start from the entry point
     float max_t = intersections.y;  // march up to the exit point
 
-    for (int i = 0; i < max_steps && t < max_t; i++) {
+    for (int i = 0; i < GPUKiller && t < max_t; i++) {
         vec3 pos_model = ro_model + t * rd_model;
-        float density = sample_cloud(pos_model * cloud_scale);
+        float density = sample_cloud(pos_model * CloudNoiseUVTiling * CloudNoiseTilingMagnitude);
 
         // Self-shadowing based on accumulated density
         density *= 1.0 - shadowing_factor * accumulated_density;
 
         float depth_factor = (t - intersections.x) / (intersections.y - intersections.x);
         float orientation_factor = max(0.0, dot(normalize(rd_model), light_direction));
-        float shadow_factor = mix(shadow_intensity, 0.35, orientation_factor) * mix(0.05, 0.05, depth_factor);
+        float shadow_factor = mix(LightCorrection, 0.35, orientation_factor) * mix(0.05, 0.05, depth_factor);
 
         // Calculate the attenuation based on the direction to the light
         float light_attenuation = 2.5 - max(0.5, dot(normalize(rd_model), -light_direction));
@@ -65,11 +67,11 @@ float raymarch(vec3 ro_model, vec3 rd_model, vec2 intersections) {
 
         density = smoothstep(cloud_threshold * cloud_threshold_multiplier, cloud_threshold, density);
         density *= shadow_factor;
-        density *= 0.8 - shadow_intensity * light_attenuation; // Apply the attenuation
+        density *= 0.8 - LightCorrection * light_attenuation; // Apply the attenuation
 
-        total_density += density * step_size;
+        total_density += density * GPUSaver;
         accumulated_density = mix(accumulated_density, total_density, 0.1);  // Update the running average using a mix function. The 0.1 value is an arbitrary blend factor; adjust it as necessary.
-        t += step_size;
+        t += GPUSaver;
     }
     return total_density;
 }
