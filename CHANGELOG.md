@@ -17,10 +17,25 @@
 ### Fixed:
 - Fixed being able to pause the game while dead
 -->
+## Inventory
+
+### Added:
+- The ability to save and load Islands!
 
 ## Inventory
 
 ### Added:
+- The ability to place tools (Sword, Pickaxe, Axe) in your hand.
+- Axe pickup item
+- Sword pickup item
+- Efficiency potion pickup item c
+- Haste potion pickup item
+- Health potion pickup item
+- Luck potion pickup item
+- Night Vision potion pickup item
+- Regenerating potion pickup item
+- Stamina potion pickup item
+- Strength potion pickup item
 - Yellow flower pickup item (currently can't obtain) (#46)
 ---
 
