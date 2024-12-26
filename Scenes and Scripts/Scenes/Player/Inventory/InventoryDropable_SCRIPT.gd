@@ -166,13 +166,14 @@ func _process(delta):
 
 func _input(_event: InputEvent) -> void:
 	var minimal_alert = get_node("/root/World/Player//Head/Camera3D/MinimalAlertLayer/MinimalAlert")
-	if Input.is_action_just_pressed("RightClick"):
+	if Input.is_action_just_pressed("RightClick") and debounce_timer <= 0:
 		if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup and is_hovering_over:
 			if ITEM_TYPE != InventoryData.HAND_ITEM_TYPE:
 				if ITEM_TYPE == "PICKAXE" or ITEM_TYPE == "AXE" or ITEM_TYPE == "SWORD":
 					minimal_alert.hide_minimal_alert(0.1)
 					slot_inside.set_populated(false)
 					InventoryManager.set_hand_item(self, ITEM_TYPE)
+					debounce_timer = 0.2 # Reset debounce timer
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("slot") and !InventoryManager.is_inside_checker:  
