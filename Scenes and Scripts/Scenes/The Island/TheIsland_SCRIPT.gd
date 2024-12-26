@@ -57,6 +57,7 @@ var HOUR_LENGTH = 120
 @onready var noMotionBlurCompositor = preload("res://Resources/Environment/TheIsland_NoMotionBlurCompositor.tres")
 @onready var TheIslandEnvironment = preload("res://Resources/Environment/TheIslandWorldEnvironment.tres")
 @onready var TheIslandProceduralSkyMaterial = preload("res://Resources/Environment/TheIslandProceduralSkyMaterial.tres")
+@onready var CloudsShaderMaterial = preload("res://Resources/Materials/CloudsMaterial.tres")
 
 @export var HourTimer : Timer
 
@@ -83,6 +84,9 @@ var MiddayColor = Color(0.941, 0.987, 0.809)
 var SunriseColor = Color(0.793, 0.612, 0.18)
 var SunsetColor = Color(0.98, 0.729, 0.312)
 
+var NightCloudColor = Color(0, 0, 0)
+var DayCloudColor = Color(0.7, 0.4, 0.4)
+
 var sunRotation_tween
 
 func _ready() -> void:
@@ -106,7 +110,10 @@ func _ready() -> void:
 	InventoryManager.chestNode = $Chest
 
 func _on_ready() -> void:
-	pass
+	print(str(CloudsShaderMaterial.get_shader_parameter(&"cloud_color")))
+	
+	# TODO: Implement cloud color functionality when changing hours
+	
 
 func set_motion_blur(value : bool) -> void:
 	if value:
@@ -376,6 +383,7 @@ func set_hour(hour : int):
 		tween.tween_property(TheIslandProceduralSkyMaterial, "sky_horizon_color", Color(0.502, 0.641, 0.905), HourTimer.wait_time * 3.5)
 		tween.tween_property(TheIslandProceduralSkyMaterial, "ground_bottom_color", Color(0.2, 0.169, 0.133), HourTimer.wait_time * 3.5)
 		tween.tween_property(TheIslandProceduralSkyMaterial, "ground_horizon_color", Color(0.502, 0.641, 0.905), HourTimer.wait_time * 3.5)
+		
 	
 	if hour == 5:
 		HourTimer.wait_time = HOUR_LENGTH
