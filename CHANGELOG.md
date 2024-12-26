@@ -28,14 +28,14 @@
 - The ability to place tools (Sword, Pickaxe, Axe) in your hand.
 - Axe pickup item
 - Sword pickup item
-- Efficiency potion pickup item c
-- Haste potion pickup item
-- Health potion pickup item
-- Luck potion pickup item
-- Night Vision potion pickup item
-- Regenerating potion pickup item
-- Stamina potion pickup item
-- Strength potion pickup item
+- Efficiency potion pickup item (currently can't obtain)
+- Haste potion pickup item (currently can't obtain)
+- Health potion pickup item (currently can't obtain)
+- Luck potion pickup item (currently can't obtain)
+- Night Vision potion pickup item (currently can't obtain)
+- Regenerating potion pickup item (currently can't obtain)
+- Stamina potion pickup item (currently can't obtain)
+- Strength potion pickup item (currently can't obtain)
 - Yellow flower pickup item (currently can't obtain) (#46)
 ---
 
