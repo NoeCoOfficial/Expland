@@ -187,8 +187,8 @@ func _on_area_2d_body_exited(body):
 		is_inside_dropable = false
 
 func _on_area_2d_mouse_entered():
-	is_hovering_over = true
 	if !InventoryManager.is_dragging:
+		is_hovering_over = true
 		mouse_over_timer.start()
 		scale = Vector2(1.05, 1.05)
 		
@@ -198,8 +198,8 @@ func _on_area_2d_mouse_entered():
 			minimal_alert.show_minimal_alert(0.1, "Right click to hold item")
 
 func _on_area_2d_mouse_exited():
-	is_hovering_over = false
 	if !InventoryManager.is_dragging:
+		is_hovering_over = false
 		mouse_over_timer.stop()
 		draggable = false
 		scale = Vector2(1.0, 1.0)
