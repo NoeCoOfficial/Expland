@@ -151,7 +151,7 @@ func _on_auto_save_timeout() -> void:
 		SaveManager.saveAllData()
 
 func get_weighted_random_weather():
-	var weights = [50, 20, 10, 20]
+	var weights = [60, 10, 10, 20]
 	var options = [1, 2, 3, 4]
 	var total_weight = Utils.sum_array(weights)  # Use the helper function
 	var random_value = randi() % total_weight
