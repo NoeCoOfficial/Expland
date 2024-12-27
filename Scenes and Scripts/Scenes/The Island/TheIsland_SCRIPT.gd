@@ -51,7 +51,7 @@ extends Node
 func initializeIslandProperties(_Island_Name):
 	pass
 
-var HOUR_LENGTH = 2
+var HOUR_LENGTH = 120
 
 @onready var motionBlurCompositor = preload("res://Resources/Environment/TheIsland_MotionBlurCompositor.tres")
 @onready var noMotionBlurCompositor = preload("res://Resources/Environment/TheIsland_NoMotionBlurCompositor.tres")
@@ -769,6 +769,7 @@ func set_hour(hour : int):
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.033, 0.084, 0.187)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.035, 0.087, 0.193)
 		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0.031, 0.08, 0.18)
+		CloudsShaderMaterial.set_shader_parameter(&"cloud_color", NightCloudColor)
 		
 		IslandDirectionalLight.visible = false
 		IslandDirectionalLight.rotation_degrees.x = 10.0
