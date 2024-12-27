@@ -118,6 +118,10 @@ func _ready() -> void:
 func _on_ready() -> void:
 	pass
 
+func _process(delta: float) -> void:
+	RainParticles.position.x = Player.position.x
+	RainParticles.position.z = Player.position.z
+
 func set_motion_blur(value : bool) -> void:
 	if value:
 		IslandWorldEnvironmentNode.set_compositor(motionBlurCompositor)
