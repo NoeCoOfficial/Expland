@@ -91,6 +91,7 @@ var DayCloudColor = Color(0.649, 0.467, 0.471)
 var sunRotation_tween
 
 func _ready() -> void:
+	randomize()
 	HourTimer.wait_time = HOUR_LENGTH
 	
 	IslandManager.transitioning_from_menu = false
@@ -144,8 +145,20 @@ func _on_auto_save_timeout() -> void:
 		Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
 		SaveManager.saveAllData()
 
+func get_weighted_random_weather():
+	var weights = [50, 20, 10, 20]  # Adjust these weights as needed
+	var options = [1, 2, 3, 4]
+	var total_weight = weights.sum()
+	var random_value = randi() % total_weight
+	var cumulative = 0
+	
+	for i in options.size():
+		cumulative += weights[i]
+		if random_value < cumulative:
+			return options[i]
+
 func change_weather() -> void:
-	pass # Replace with function body.
+	var weather = get_weighted_random_weather()
 
 func gotoWeather(type : String):
 	
