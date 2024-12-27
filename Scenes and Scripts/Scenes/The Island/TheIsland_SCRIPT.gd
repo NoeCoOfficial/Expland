@@ -144,6 +144,9 @@ func _on_auto_save_timeout() -> void:
 		Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
 		SaveManager.saveAllData()
 
+func change_weather() -> void:
+	pass # Replace with function body.
+
 func gotoWeather(type : String):
 	
 	if type == "SUNNY":
