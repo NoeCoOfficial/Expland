@@ -17,7 +17,12 @@
 ### Fixed:
 - Fixed being able to pause the game while dead
 -->
-## Inventory
+## Environment
+
+### Changed:
+- Motion Blur effect is now alot smoother and less laggy
+
+## Main Menu
 
 ### Added:
 - The ability to save and load Islands!
