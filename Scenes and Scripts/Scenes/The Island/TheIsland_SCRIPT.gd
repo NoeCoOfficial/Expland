@@ -64,6 +64,9 @@ var HOUR_LENGTH = 120
 @export var IslandDirectionalLight : DirectionalLight3D
 @export var IslandWorldEnvironmentNode : WorldEnvironment
 
+@export var RainParticles : CPUParticles3D
+@export var Clouds : MeshInstance3D
+
 @export var Player : CharacterBody3D
 
 @export var RockPosRef : Node3D
@@ -112,10 +115,7 @@ func _ready() -> void:
 	InventoryManager.chestNode = $Chest
 
 func _on_ready() -> void:
-	print(str(CloudsShaderMaterial.get_shader_parameter(&"cloud_color")))
-	
-	# TODO: Implement cloud color functionality when changing hours
-	
+	pass
 
 func set_motion_blur(value : bool) -> void:
 	if value:
