@@ -86,7 +86,7 @@ var SunriseColor = Color(0.793, 0.612, 0.18)
 var SunsetColor = Color(0.98, 0.729, 0.312)
 
 var NightCloudColor = Color(0, 0, 0)
-var DayCloudColor = Color(0.7, 0.4, 0.4)
+var DayCloudColor = Color(0.649, 0.467, 0.471)
 
 var sunRotation_tween
 
