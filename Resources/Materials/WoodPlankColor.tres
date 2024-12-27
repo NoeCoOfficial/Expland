@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://e08xutigrum5"]
+
+[ext_resource type="Texture2D" uid="uid://b8jtykl8y0uic" path="res://Resources/Materials/WoodPlankColor.png" id="1_rx8bp"]
+
+[resource]
+albedo_texture = ExtResource("1_rx8bp")
