@@ -113,12 +113,12 @@ func _ready() -> void:
 		on_ready_time_check()
 	
 	InventoryManager.chestNode = $Chest
-	change_weather()
+	change_weather(false)
 
 func _on_ready() -> void:
 	pass
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	RainParticles.position.x = Player.position.x
 	RainParticles.position.z = Player.position.z
 
@@ -162,28 +162,63 @@ func get_weighted_random_weather():
 		if random_value < cumulative:
 			return options[i]
 
+func change_weather_timeout() -> void:
+	change_weather(true)
 
-func change_weather() -> void:
+func change_weather(animate : bool) -> void:
 	
 	var weather = get_weighted_random_weather()
 	
-	if weather == 1:
-		gotoWeather("SUNNY")
-		print("SUNNY")
+	if animate:
+		
+		if weather == 1:
+			transToWeather("SUNNY")
+			print("SUNNY")
+		
+		elif weather == 2:
+			transToWeather("RAIN")
+			print("RAIN")
+		
+		elif weather == 3:
+			transToWeather("STORM")
+			print("STORM")
+		
+		elif weather == 4:
+			transToWeather("CLOUDY")
+			print("CLOUDY")
 	
-	elif weather == 2:
-		gotoWeather("RAIN")
-		print("RAIN")
-	
-	elif weather == 3:
-		gotoWeather("STORM")
-		print("STORM")
-	
-	elif weather == 4:
-		gotoWeather("CLOUDY")
-		print("CLOUDY")
+	else:
+		if weather == 1:
+			gotoWeather("SUNNY")
+			print("SUNNY")
+		
+		elif weather == 2:
+			gotoWeather("RAIN")
+			print("RAIN")
+		
+		elif weather == 3:
+			gotoWeather("STORM")
+			print("STORM")
+		
+		elif weather == 4:
+			gotoWeather("CLOUDY")
+			print("CLOUDY")
 
 func gotoWeather(type : String):
+	
+	if type == "SUNNY":
+		pass
+	
+	elif type == "RAIN":
+		pass
+	
+	elif type == "STORM":
+		pass
+	
+	elif type == "CLOUDY":
+		pass
+
+func transToWeather(type : String):
 	
 	if type == "SUNNY":
 		pass
