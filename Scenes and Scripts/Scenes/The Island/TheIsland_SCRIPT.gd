@@ -51,7 +51,7 @@ extends Node
 func initializeIslandProperties(_Island_Name):
 	pass
 
-var HOUR_LENGTH = 120
+var HOUR_LENGTH = 2
 
 @onready var motionBlurCompositor = preload("res://Resources/Environment/TheIsland_MotionBlurCompositor.tres")
 @onready var noMotionBlurCompositor = preload("res://Resources/Environment/TheIsland_NoMotionBlurCompositor.tres")
@@ -78,6 +78,7 @@ var hour4_tween
 var hour5_tween
 var hour7_tween
 var hour16_tween
+var hour19_tween
 var hour21_tween
 
 var MiddayColor = Color(0.941, 0.987, 0.809)
@@ -152,6 +153,7 @@ func rotateSun(addX : float):
 	sunRotation_tween.tween_property(IslandDirectionalLight, "rotation_degrees:x", newX, HourTimer.wait_time).from(currentX)
 
 func on_ready_time_check():
+	
 	TimeManager.CURRENT_HOUR += 1
 	
 	if TimeManager.CURRENT_HOUR == 24:
@@ -191,6 +193,8 @@ func _on_tick() -> void:
 			hour4_tween.tween_property(TheIslandProceduralSkyMaterial, "sky_horizon_color", Color(0.502, 0.641, 0.905), HourTimer.wait_time * 5.5)
 			hour4_tween.tween_property(TheIslandProceduralSkyMaterial, "ground_bottom_color", Color(0.2, 0.169, 0.133), HourTimer.wait_time * 5.5)
 			hour4_tween.tween_property(TheIslandProceduralSkyMaterial, "ground_horizon_color", Color(0.502, 0.641, 0.905), HourTimer.wait_time * 5.5)
+			
+			hour4_tween.tween_property(CloudsShaderMaterial, "shader_parameter/cloud_color", DayCloudColor, HourTimer.wait_time)
 			
 		if TimeManager.CURRENT_HOUR == 5:
 			IslandDirectionalLight.visible = true
@@ -264,6 +268,8 @@ func _on_tick() -> void:
 			hour16_tween.tween_property(TheIslandProceduralSkyMaterial, "ground_bottom_color", Color(0, 0, 0), HourTimer.wait_time * 7)
 			hour16_tween.tween_property(TheIslandProceduralSkyMaterial, "ground_horizon_color", Color(0, 0, 0), HourTimer.wait_time * 7)
 			
+			hour16_tween.tween_property(CloudsShaderMaterial, "shader_parameter/cloud_color", NightCloudColor, HourTimer.wait_time * 6)
+			
 			rotateSun(-15)
 			## -139 deg at finish
 			## -124 deg at start
@@ -279,6 +285,8 @@ func _on_tick() -> void:
 			## -156 deg at start
 		
 		if TimeManager.CURRENT_HOUR == 19:
+			hour19_tween = get_tree().create_tween().set_parallel()
+			hour19_tween.tween_property(CloudsShaderMaterial, "shader_parameter/cloud_color", NightCloudColor, HourTimer.wait_time * 2)
 			rotateSun(-7)
 			## -175 deg at finish
 			## -168 deg at start
@@ -321,6 +329,7 @@ func set_hour(hour : int):
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.038, 0.038, 0.038)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0, 0, 0)
 		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0, 0, 0)
+		CloudsShaderMaterial.set_shader_parameter(&"cloud_color", NightCloudColor)
 		
 		IslandDirectionalLight.visible = false
 		IslandDirectionalLight.rotation_degrees.x = 10.0
@@ -335,6 +344,7 @@ func set_hour(hour : int):
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.038, 0.038, 0.038)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0, 0, 0)
 		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0, 0, 0)
+		CloudsShaderMaterial.set_shader_parameter(&"cloud_color", NightCloudColor)
 		
 		IslandDirectionalLight.visible = false
 		IslandDirectionalLight.rotation_degrees.x = 10.0
@@ -348,6 +358,7 @@ func set_hour(hour : int):
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.038, 0.038, 0.038)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0, 0, 0)
 		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0, 0, 0)
+		CloudsShaderMaterial.set_shader_parameter(&"cloud_color", NightCloudColor)
 		
 		IslandDirectionalLight.visible = false
 		IslandDirectionalLight.rotation_degrees.x = 10.0
@@ -361,6 +372,7 @@ func set_hour(hour : int):
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.038, 0.038, 0.038)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0, 0, 0)
 		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0, 0, 0)
+		CloudsShaderMaterial.set_shader_parameter(&"cloud_color", NightCloudColor)
 		
 		IslandDirectionalLight.visible = false
 		IslandDirectionalLight.rotation_degrees.x = 10.0
@@ -374,6 +386,7 @@ func set_hour(hour : int):
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.038, 0.038, 0.038)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0, 0, 0)
 		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0, 0, 0)
+		CloudsShaderMaterial.set_shader_parameter(&"cloud_color", NightCloudColor)
 		
 		IslandDirectionalLight.visible = false
 		IslandDirectionalLight.rotation_degrees.x = 10.0
@@ -383,7 +396,8 @@ func set_hour(hour : int):
 		tween.tween_property(TheIslandProceduralSkyMaterial, "sky_horizon_color", Color(0.502, 0.641, 0.905), HourTimer.wait_time * 3.5)
 		tween.tween_property(TheIslandProceduralSkyMaterial, "ground_bottom_color", Color(0.2, 0.169, 0.133), HourTimer.wait_time * 3.5)
 		tween.tween_property(TheIslandProceduralSkyMaterial, "ground_horizon_color", Color(0.502, 0.641, 0.905), HourTimer.wait_time * 3.5)
-		
+		tween.tween_property(CloudsShaderMaterial, "shader_parameter/cloud_color", DayCloudColor, HourTimer.wait_time)
+
 	
 	if hour == 5:
 		HourTimer.wait_time = HOUR_LENGTH
@@ -394,6 +408,7 @@ func set_hour(hour : int):
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.038, 0.038, 0.038)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0, 0, 0)
 		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0, 0, 0)
+		CloudsShaderMaterial.set_shader_parameter(&"cloud_color", DayCloudColor)
 		
 		IslandDirectionalLight.rotation_degrees.x = 10
 		IslandDirectionalLight.visible = true
@@ -418,6 +433,7 @@ func set_hour(hour : int):
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.274, 0.435, 0.754)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.117, 0.096, 0.072)
 		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0.221, 0.369, 0.665)
+		CloudsShaderMaterial.set_shader_parameter(&"cloud_color", DayCloudColor)
 		
 		IslandDirectionalLight.rotation_degrees.x = -22
 		IslandDirectionalLight.visible = true
@@ -441,6 +457,7 @@ func set_hour(hour : int):
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.274, 0.435, 0.754)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.502, 0.641, 0.905)
 		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0.502, 0.641, 0.905)
+		CloudsShaderMaterial.set_shader_parameter(&"cloud_color", DayCloudColor)
 		
 		IslandDirectionalLight.rotation_degrees.x = -37
 		IslandDirectionalLight.visible = true
@@ -460,6 +477,7 @@ func set_hour(hour : int):
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.274, 0.435, 0.754)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.502, 0.641, 0.905)
 		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0.502, 0.641, 0.905)
+		CloudsShaderMaterial.set_shader_parameter(&"cloud_color", DayCloudColor)
 		
 		IslandDirectionalLight.rotation_degrees.x = -49
 		IslandDirectionalLight.visible = true
@@ -477,6 +495,7 @@ func set_hour(hour : int):
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.274, 0.435, 0.754)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.502, 0.641, 0.905)
 		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0.502, 0.641, 0.905)
+		CloudsShaderMaterial.set_shader_parameter(&"cloud_color", DayCloudColor)
 		
 		IslandDirectionalLight.rotation_degrees.x = -61
 		IslandDirectionalLight.visible = true
@@ -494,6 +513,7 @@ func set_hour(hour : int):
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.274, 0.435, 0.754)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.502, 0.641, 0.905)
 		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0.502, 0.641, 0.905)
+		CloudsShaderMaterial.set_shader_parameter(&"cloud_color", DayCloudColor)
 		
 		IslandDirectionalLight.rotation_degrees.x = -70
 		IslandDirectionalLight.visible = true
@@ -511,6 +531,7 @@ func set_hour(hour : int):
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.274, 0.435, 0.754)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.502, 0.641, 0.905)
 		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0.502, 0.641, 0.905)
+		CloudsShaderMaterial.set_shader_parameter(&"cloud_color", DayCloudColor)
 		
 		IslandDirectionalLight.rotation_degrees.x = -78
 		IslandDirectionalLight.visible = true
@@ -528,6 +549,7 @@ func set_hour(hour : int):
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.274, 0.435, 0.754)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.502, 0.641, 0.905)
 		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0.502, 0.641, 0.905)
+		CloudsShaderMaterial.set_shader_parameter(&"cloud_color", DayCloudColor)
 		
 		IslandDirectionalLight.rotation_degrees.x = -85
 		IslandDirectionalLight.visible = true
@@ -545,6 +567,7 @@ func set_hour(hour : int):
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.274, 0.435, 0.754)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.502, 0.641, 0.905)
 		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0.502, 0.641, 0.905)
+		CloudsShaderMaterial.set_shader_parameter(&"cloud_color", DayCloudColor)
 		
 		IslandDirectionalLight.rotation_degrees.x = -93
 		IslandDirectionalLight.visible = true
@@ -562,6 +585,7 @@ func set_hour(hour : int):
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.274, 0.435, 0.754)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.502, 0.641, 0.905)
 		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0.502, 0.641, 0.905)
+		CloudsShaderMaterial.set_shader_parameter(&"cloud_color", DayCloudColor)
 		
 		IslandDirectionalLight.rotation_degrees.x = -102
 		IslandDirectionalLight.visible = true
@@ -579,6 +603,7 @@ func set_hour(hour : int):
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.274, 0.435, 0.754)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.502, 0.641, 0.905)
 		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0.502, 0.641, 0.905)
+		CloudsShaderMaterial.set_shader_parameter(&"cloud_color", DayCloudColor)
 		
 		IslandDirectionalLight.rotation_degrees.x = -112
 		IslandDirectionalLight.visible = true
@@ -596,6 +621,7 @@ func set_hour(hour : int):
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.274, 0.435, 0.754)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.502, 0.641, 0.905)
 		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0.502, 0.641, 0.905)
+		CloudsShaderMaterial.set_shader_parameter(&"cloud_color", DayCloudColor)
 		
 		IslandDirectionalLight.rotation_degrees.x = -124
 		IslandDirectionalLight.visible = true
@@ -621,6 +647,7 @@ func set_hour(hour : int):
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.229, 0.38, 0.682)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.325, 0.488, 0.809)
 		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0.325, 0.488, 0.809)
+		CloudsShaderMaterial.set_shader_parameter(&"cloud_color", DayCloudColor)
 		
 		IslandDirectionalLight.rotation_degrees.x = -139
 		IslandDirectionalLight.visible = true
@@ -644,6 +671,7 @@ func set_hour(hour : int):
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.184, 0.317, 0.585)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.248, 0.403, 0.714)
 		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0.236, 0.388, 0.693)
+		CloudsShaderMaterial.set_shader_parameter(&"cloud_color", DayCloudColor)
 		
 		IslandDirectionalLight.rotation_degrees.x = -156
 		IslandDirectionalLight.visible = true
@@ -667,6 +695,7 @@ func set_hour(hour : int):
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.152, 0.27, 0.508)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.177, 0.306, 0.567)
 		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0.155, 0.274, 0.513)
+		CloudsShaderMaterial.set_shader_parameter(&"cloud_color", DayCloudColor)
 		
 		IslandDirectionalLight.rotation_degrees.x = -168
 		IslandDirectionalLight.visible = true
@@ -678,7 +707,7 @@ func set_hour(hour : int):
 		tween.tween_property(TheIslandProceduralSkyMaterial, "sky_horizon_color", Color(0.038, 0.038, 0.038), HourTimer.wait_time * 4)
 		tween.tween_property(TheIslandProceduralSkyMaterial, "ground_bottom_color", Color(0, 0, 0), HourTimer.wait_time * 4)
 		tween.tween_property(TheIslandProceduralSkyMaterial, "ground_horizon_color", Color(0, 0, 0), HourTimer.wait_time * 4)
-		
+		tween.tween_property(CloudsShaderMaterial, "shader_parameter/cloud_color", NightCloudColor, HourTimer.wait_time * 2)
 		rotateSun(-7)
 		## -175 deg at finish
 	
@@ -690,6 +719,7 @@ func set_hour(hour : int):
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.12, 0.221, 0.424)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.129, 0.235, 0.448)
 		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0.113, 0.21, 0.405)
+		CloudsShaderMaterial.set_shader_parameter(&"cloud_color", NightCloudColor)
 		
 		IslandDirectionalLight.rotation_degrees.x = -175
 		IslandDirectionalLight.visible = true
@@ -713,6 +743,7 @@ func set_hour(hour : int):
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.066, 0.137, 0.28)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0.053, 0.116, 0.243)
 		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0.071, 0.144, 0.292)
+		CloudsShaderMaterial.set_shader_parameter(&"cloud_color", NightCloudColor)
 		
 		IslandDirectionalLight.rotation_degrees.x = -182
 		IslandDirectionalLight.visible = true
@@ -757,6 +788,7 @@ func set_hour(hour : int):
 		TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.038, 0.038, 0.038)
 		TheIslandProceduralSkyMaterial.ground_bottom_color = Color(0, 0, 0)
 		TheIslandProceduralSkyMaterial.ground_horizon_color = Color(0, 0, 0)
+		CloudsShaderMaterial.set_shader_parameter(&"cloud_color", NightCloudColor)
 		
 		IslandDirectionalLight.visible = false
 		IslandDirectionalLight.rotation_degrees.x = 10.0
@@ -780,6 +812,10 @@ func haltAllTweens():
 	if hour16_tween:
 		hour16_tween.stop()
 		hour16_tween.kill()
+	
+	if hour19_tween:
+		hour19_tween.stop()
+		hour19_tween.kill()
 	
 	if hour21_tween:
 		hour21_tween.stop()
