@@ -113,6 +113,7 @@ func _ready() -> void:
 		on_ready_time_check()
 	
 	InventoryManager.chestNode = $Chest
+	change_weather()
 
 func _on_ready() -> void:
 	pass
