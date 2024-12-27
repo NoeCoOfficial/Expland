@@ -158,7 +158,20 @@ func get_weighted_random_weather():
 			return options[i]
 
 func change_weather() -> void:
+	
 	var weather = get_weighted_random_weather()
+	
+	if weather == 1:
+		gotoWeather("SUNNY")
+	
+	elif weather == 2:
+		gotoWeather("RAIN")
+	
+	elif weather == 3:
+		gotoWeather("STORM")
+	
+	elif weather == 4:
+		gotoWeather("CLOUDY")
 
 func gotoWeather(type : String):
 	
