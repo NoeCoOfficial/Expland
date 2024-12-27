@@ -152,20 +152,20 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="Curve" id="Curve_tq56d"]
+[sub_resource type="Curve" id="Curve_myn2q"]
 max_value = 0.1
 _data = [Vector2(0, 0), 0.0, 0.333367, 0, 0, Vector2(0.433526, 0.0316176), 0.185509, 0.185509, 0, 0, Vector2(0.791908, 0.0220588), -0.0267802, -0.0267802, 0, 0, Vector2(1, 0.0132353), 0.0, 0.0, 0, 0]
 point_count = 4
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rvn2t"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eda5c"]
 transparency = 1
 cull_mode = 2
 shading_mode = 0
 vertex_color_use_as_albedo = true
 
 [sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_tsx5c"]
-material = SubResource("StandardMaterial3D_rvn2t")
-curve = SubResource("Curve_tq56d")
+material = SubResource("StandardMaterial3D_eda5c")
+curve = SubResource("Curve_myn2q")
 
 [node name="MainMenu" type="Node3D" node_paths=PackedStringArray("FreeModeIslandPopupLayer", "TextEditNewIslandName")]
 script = ExtResource("1_8n1c6")

@@ -153,7 +153,7 @@ func _on_auto_save_timeout() -> void:
 func get_weighted_random_weather():
 	var weights = [50, 20, 10, 20]
 	var options = [1, 2, 3, 4]
-	var total_weight = weights.sum()
+	var total_weight = Utils.sum_array(weights)  # Use the helper function
 	var random_value = randi() % total_weight
 	var cumulative = 0
 	
@@ -162,21 +162,26 @@ func get_weighted_random_weather():
 		if random_value < cumulative:
 			return options[i]
 
+
 func change_weather() -> void:
 	
 	var weather = get_weighted_random_weather()
 	
 	if weather == 1:
 		gotoWeather("SUNNY")
+		print("SUNNY")
 	
 	elif weather == 2:
 		gotoWeather("RAIN")
+		print("RAIN")
 	
 	elif weather == 3:
 		gotoWeather("STORM")
+		print("STORM")
 	
 	elif weather == 4:
 		gotoWeather("CLOUDY")
+		print("CLOUDY")
 
 func gotoWeather(type : String):
 	

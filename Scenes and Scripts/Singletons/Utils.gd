@@ -210,3 +210,9 @@ func _cleanup_screenshot_thread():
 func delete_free_mode_island(Island_Name: String) -> void:
 	var full_dir = "user://saveData/Free Mode/Islands/" + Island_Name
 	OS.move_to_trash(ProjectSettings.globalize_path(full_dir))
+
+func sum_array(arr):
+	var total = 0
+	for value in arr:
+		total += value
+	return total
