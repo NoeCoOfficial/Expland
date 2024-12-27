@@ -59,6 +59,8 @@ var item_ref_not_at_inventory: String =  ""
 var is_creating_pickup = false
 var is_inside_checker = false
 
+var is_hovering_over_hand_dropable = false
+
 var chestNode
 
 func create_pickup_object_at_pos(position : Vector3, ITEM_TYPE):
@@ -67,13 +69,10 @@ func create_pickup_object_at_pos(position : Vector3, ITEM_TYPE):
 	item_ref_not_at_inventory = ITEM_TYPE
 	
 	var WORLD = get_node("/root/World")
-	var INVENTORY_LAYER = get_node("/root/World/Player/Head/Camera3D/InventoryLayer")
 	var PICKUP_SCENE = load("res://Scenes and Scripts/Scenes/Player/Inventory/ItemPickupObject.tscn")
 	var PICKUP = PICKUP_SCENE.instantiate()
 	WORLD.add_child(PICKUP)
 	PICKUP.global_position = position
-	
-
 
 func create_pickup_object():
 	creatingFromInventory = true
@@ -100,7 +99,10 @@ func spawn_inventory_dropable(atPos : Vector2, ITEM_TYPE, slotToPopulate):
 		
 		InventoryLayer.add_child(DropableInstance)
 		DropableInstance.position = atPos
+		DropableInstance.set_slot_inside(slotToPopulate)
 		slotToPopulate.set_populated(true)
+		
+		return DropableInstance
 
 func spawn_inventory_dropable_from_load(atPos : Vector2, ITEM_TYPE):
 	if get_node("/root/World/Player/Head/Camera3D/InventoryLayer") != null:
@@ -111,3 +113,10 @@ func spawn_inventory_dropable_from_load(atPos : Vector2, ITEM_TYPE):
 		
 		InventoryLayer.add_child(DropableInstance)
 		DropableInstance.position = atPos
+
+func set_hand_item(dropable_to_delete, ITEM_TYPE : String):
+	var PLAYER = get_node("/root/World/Player")
+	if InventoryData.HAND_ITEM_TYPE != "":
+		spawn_inventory_dropable(dropable_to_delete.position, InventoryData.HAND_ITEM_TYPE, dropable_to_delete.get_slot_inside())
+	dropable_to_delete.queue_free()
+	PLAYER.set_hand_item_type(ITEM_TYPE)

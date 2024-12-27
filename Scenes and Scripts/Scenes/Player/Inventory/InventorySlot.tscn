@@ -10,7 +10,7 @@ size = Vector2(40, 40)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5yu5"]
 size = Vector2(40, 40)
 
-[node name="InventorySlot" type="StaticBody2D" node_paths=PackedStringArray("is_populated_label") groups=["dropable"]]
+[node name="InventorySlot" type="StaticBody2D" node_paths=PackedStringArray("is_populated_label") groups=["slot"]]
 script = ExtResource("1_bxl3d")
 is_populated_label = NodePath("is_populated")
 

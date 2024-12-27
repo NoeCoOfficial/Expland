@@ -51,6 +51,8 @@ var transitioning_from_menu
 
 var Current_Island_Name = "Debug"
 var Current_Game_Mode : String
+var Current_Weather = ""
+
 
 func _ready() -> void:
 	if !OS.has_feature("debug"):

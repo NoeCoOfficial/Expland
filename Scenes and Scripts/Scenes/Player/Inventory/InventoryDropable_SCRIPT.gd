@@ -59,6 +59,7 @@ var slot_inside = null
 var SNAP_TIME = 0.0
 var debounce_timer = 0.2 # Debounce time in seconds
 var can_create_pickup = true
+var is_hovering_over = false
 
 @onready var mouse_over_timer = $MouseOverTimer
 
@@ -107,7 +108,6 @@ func _ready():
 	if not mouse_over_timer.is_inside_tree():
 		add_child(mouse_over_timer)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if debounce_timer > 0:
 		debounce_timer -= delta
@@ -164,29 +164,50 @@ func _process(delta):
 			if mouse_over_timer.is_inside_tree():                          
 				mouse_over_timer.start() # Restart the timer when the item is placed down
 
+func _input(_event: InputEvent) -> void:
+	var minimal_alert = get_node("/root/World/Player//Head/Camera3D/MinimalAlertLayer/MinimalAlert")
+	if Input.is_action_just_pressed("RightClick") and debounce_timer <= 0:
+		if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup and is_hovering_over:
+			if ITEM_TYPE != InventoryData.HAND_ITEM_TYPE:
+				if ITEM_TYPE == "PICKAXE" or ITEM_TYPE == "AXE" or ITEM_TYPE == "SWORD":
+					minimal_alert.hide_minimal_alert(0.1)
+					slot_inside.set_populated(false)
+					InventoryManager.set_hand_item(self, ITEM_TYPE)
+					debounce_timer = 0.2 # Reset debounce timer
+
 func _on_area_2d_body_entered(body):
-	if body.is_in_group("dropable") and !InventoryManager.is_inside_checker:  
+	if body.is_in_group("slot") and !InventoryManager.is_inside_checker:  
 		if $PopulatedOnStartup.time_left > 0.0:
 			slot_inside = body
-		is_inside_dropable = true 
+		is_inside_dropable = true
 		
 		body_ref = body
 
 func _on_area_2d_body_exited(body):
-	if body.is_in_group("dropable"):
+	if body.is_in_group("slot"):
 		is_inside_dropable = false
-		
 
 func _on_area_2d_mouse_entered():
-	if not InventoryManager.is_dragging:
+	if !InventoryManager.is_dragging:
+		is_hovering_over = true
 		mouse_over_timer.start()
 		scale = Vector2(1.05, 1.05)
+		
+	if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup:
+		if ITEM_TYPE == "PICKAXE" or ITEM_TYPE == "AXE" or ITEM_TYPE == "SWORD":
+			var minimal_alert = get_node("/root/World/Player//Head/Camera3D/MinimalAlertLayer/MinimalAlert")
+			minimal_alert.show_minimal_alert(0.1, "Right click to hold item")
 
 func _on_area_2d_mouse_exited():
-	if not InventoryManager.is_dragging:
+	if !InventoryManager.is_dragging:
+		is_hovering_over = false
 		mouse_over_timer.stop()
 		draggable = false
 		scale = Vector2(1.0, 1.0)
+		
+		if ITEM_TYPE == "PICKAXE" or ITEM_TYPE == "AXE" or ITEM_TYPE == "SWORD":
+			var minimal_alert = get_node("/root/World/Player//Head/Camera3D/MinimalAlertLayer/MinimalAlert")
+			minimal_alert.hide_minimal_alert(0.1)
 
 func _on_mouse_over_timeout():
 	draggable = true
@@ -214,3 +235,6 @@ func get_ITEM_TYPE():
 
 func get_slot_inside():
 	return slot_inside
+
+func set_slot_inside(slot):
+	slot_inside = slot

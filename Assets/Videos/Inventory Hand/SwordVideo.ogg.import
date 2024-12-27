@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cf88bcqyfbvtd"
+path="res://.godot/imported/SwordVideo.ogg-2c86bf639ef03bd5baa1ecff4a3e3f30.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Videos/Inventory Hand/SwordVideo.ogg"
+dest_files=["res://.godot/imported/SwordVideo.ogg-2c86bf639ef03bd5baa1ecff4a3e3f30.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

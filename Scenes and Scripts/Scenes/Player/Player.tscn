@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=46 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -15,6 +15,9 @@
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/IgnoreMouseFilter.gd" id="9_svfxy"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/RandomText_SCRIPT.gd" id="10_6w37c"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/GetUp_SCRIPT.gd" id="11_0enap"]
+[ext_resource type="VideoStream" uid="uid://dy45bdldi43a1" path="res://Resources/Streams/Video/PickaxeHandDropableVideo.tres" id="13_cxi4r"]
+[ext_resource type="VideoStream" uid="uid://ju0bf88uic41" path="res://Resources/Streams/Video/AxeHandDropableVideo.tres" id="14_3qyxm"]
+[ext_resource type="VideoStream" uid="uid://j5g08pm8317j" path="res://Resources/Streams/Video/SwordHandDropableVideo.tres" id="15_mlct4"]
 [ext_resource type="PackedScene" uid="uid://bin1awyog56pg" path="res://Scenes and Scripts/Scenes/Player/Interaction/InteractionHUD.tscn" id="16_8a1wo"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="16_wg7d4"]
 [ext_resource type="PackedScene" uid="uid://du1ak3ldg8x4e" path="res://Scenes and Scripts/Scenes/Dialogue/DialogueInterface.tscn" id="17_pkmg7"]
@@ -71,16 +74,16 @@ corner_radius_top_left = 12
 corner_radius_top_right = 12
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cs88l"]
-size = Vector2(394, 648)
+size = Vector2(313, 648)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sl537"]
-size = Vector2(1152, 101)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4c0ao"]
 size = Vector2(1152, 107)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4c0ao"]
+size = Vector2(1152, 118)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_47l1q"]
-size = Vector2(392, 648)
+size = Vector2(313, 648)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_meokx"]
 bg_color = Color(0.125911, 0.125911, 0.125911, 1)
@@ -408,9 +411,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -173.0
-offset_top = -214.0
-offset_right = 174.0
+offset_left = -261.0
+offset_top = -213.0
+offset_right = 261.0
 offset_bottom = 203.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -420,28 +423,26 @@ script = SubResource("GDScript_tq46f")
 [node name="Background_2" type="Panel" parent="Head/Camera3D/InventoryLayer"]
 modulate = Color(0, 0, 0, 1)
 anchors_preset = -1
-anchor_left = 0.356771
-anchor_top = 0.171296
-anchor_right = 0.643229
-anchor_bottom = 0.787037
-offset_top = 9.00001
-offset_bottom = 9.0
+anchor_left = 0.28559
+anchor_top = 0.185185
+anchor_right = 0.724826
+anchor_bottom = 0.800926
+offset_left = -6.0
+offset_right = -6.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xa5l0")
 script = SubResource("GDScript_tq46f")
-metadata/_edit_use_anchors_ = true
 
 [node name="Background_3" type="Panel" parent="Head/Camera3D/InventoryLayer"]
 anchors_preset = -1
-anchor_left = 0.356771
-anchor_top = 0.212963
-anchor_right = 0.643229
-anchor_bottom = 0.279321
-offset_left = -0.000183105
-offset_top = -18.0
-offset_right = 0.000183105
-offset_bottom = 9.0
+anchor_left = 0.28559
+anchor_top = 0.185185
+anchor_right = 0.724826
+anchor_bottom = 0.29321
+offset_left = -6.0
+offset_right = -6.0
+offset_bottom = 1.52588e-05
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7tmhy")
@@ -449,71 +450,154 @@ script = SubResource("GDScript_tq46f")
 
 [node name="Title" type="Label" parent="Head/Camera3D/InventoryLayer"]
 anchors_preset = -1
-anchor_left = 0.388021
-anchor_top = 0.229938
-anchor_right = 0.612847
-anchor_bottom = 0.320987
-offset_top = -18.0
-offset_bottom = -18.0
+anchor_left = 0.393229
+anchor_top = 0.20216
+anchor_right = 0.618055
+anchor_bottom = 0.293209
+offset_left = -6.0
+offset_right = -6.0
 grow_horizontal = 2
-grow_vertical = 2
 theme_override_fonts/font = ExtResource("8_cdk3a")
 theme_override_font_sizes/font_size = 45
 text = "INVENTORY"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("9_svfxy")
-metadata/_edit_use_anchors_ = true
 
 [node name="Slot1" parent="Head/Camera3D/InventoryLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
-position = Vector2(470, 246)
+position = Vector2(382, 246)
 
 [node name="Slot2" parent="Head/Camera3D/InventoryLayer" groups=["Slot2"] instance=ExtResource("8_ads4s")]
-position = Vector2(576, 246)
+position = Vector2(488, 246)
 
 [node name="Slot3" parent="Head/Camera3D/InventoryLayer" groups=["Slot3"] instance=ExtResource("8_ads4s")]
-position = Vector2(683, 246)
+position = Vector2(595, 246)
 
 [node name="Slot4" parent="Head/Camera3D/InventoryLayer" groups=["Slot4"] instance=ExtResource("8_ads4s")]
-position = Vector2(469, 354)
+position = Vector2(381, 354)
 
 [node name="Slot5" parent="Head/Camera3D/InventoryLayer" groups=["Slot5"] instance=ExtResource("8_ads4s")]
-position = Vector2(575, 354)
+position = Vector2(487, 354)
 
 [node name="Slot6" parent="Head/Camera3D/InventoryLayer" groups=["Slot6"] instance=ExtResource("8_ads4s")]
-position = Vector2(682, 354)
+position = Vector2(594, 354)
 
 [node name="Slot7" parent="Head/Camera3D/InventoryLayer" groups=["Slot7"] instance=ExtResource("8_ads4s")]
-position = Vector2(469, 461)
+position = Vector2(381, 461)
 
 [node name="Slot8" parent="Head/Camera3D/InventoryLayer" groups=["Slot8"] instance=ExtResource("8_ads4s")]
-position = Vector2(575, 461)
+position = Vector2(487, 461)
 
 [node name="Slot9" parent="Head/Camera3D/InventoryLayer" groups=["Slot9"] instance=ExtResource("8_ads4s")]
-position = Vector2(682, 461)
+position = Vector2(594, 461)
+
+[node name="Hand_Dropable_Background" type="Panel" parent="Head/Camera3D/InventoryLayer"]
+clip_children = 2
+clip_contents = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 87.0
+offset_top = -95.0
+offset_right = 243.0
+offset_bottom = 185.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2kg3l")
+script = SubResource("GDScript_tq46f")
+
+[node name="Empty_Label" type="Label" parent="Head/Camera3D/InventoryLayer/Hand_Dropable_Background"]
+modulate = Color(1, 1, 1, 0.395)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0512821
+anchor_top = 0.364286
+anchor_right = 0.935897
+anchor_bottom = 0.517857
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 25
+text = "EMPTY"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Pickaxe_Hand_Dropable_Video" type="VideoStreamPlayer" parent="Head/Camera3D/InventoryLayer/Hand_Dropable_Background"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 607.0
+offset_bottom = 1087.0
+scale = Vector2(0.259975, 0.259975)
+stream = ExtResource("13_cxi4r")
+autoplay = true
+loop = true
+
+[node name="Axe_Hand_Dropable_Video" type="VideoStreamPlayer" parent="Head/Camera3D/InventoryLayer/Hand_Dropable_Background"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 607.0
+offset_bottom = 1087.0
+scale = Vector2(0.259975, 0.259975)
+stream = ExtResource("14_3qyxm")
+autoplay = true
+loop = true
+
+[node name="Sword_Hand_Dropable_Video" type="VideoStreamPlayer" parent="Head/Camera3D/InventoryLayer/Hand_Dropable_Background"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 607.0
+offset_bottom = 1087.0
+scale = Vector2(0.259975, 0.259975)
+stream = ExtResource("15_mlct4")
+autoplay = true
+loop = true
+
+[node name="HAND_ITEM_TYPE" type="Label" parent="Head/Camera3D/InventoryLayer"]
+offset_left = 677.0
+offset_top = 200.0
+offset_right = 807.0
+offset_bottom = 231.0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 20
+text = "Empty"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Boundary" type="Area2D" parent="Head/Camera3D/InventoryLayer" groups=["boundary"]]
+visible = false
 priority = 12
 
 [node name="Boundary1" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Boundary"]
-position = Vector2(197, 324)
+position = Vector2(156.5, 324)
 shape = SubResource("RectangleShape2D_cs88l")
 debug_color = Color(0.998937, 0, 0.128371, 0.42)
 
 [node name="Boundary2" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Boundary"]
-position = Vector2(576, 50.5)
+position = Vector2(576, 53.5)
 shape = SubResource("RectangleShape2D_sl537")
 debug_color = Color(0.998937, 0, 0.128371, 0.42)
 
 [node name="Boundary3" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Boundary"]
-position = Vector2(576, 594.5)
+position = Vector2(576, 589)
 shape = SubResource("RectangleShape2D_4c0ao")
 debug_color = Color(0.998937, 0, 0.128371, 0.42)
 
 [node name="Boundary4" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Boundary"]
-position = Vector2(956, 324)
+position = Vector2(995.5, 324)
 shape = SubResource("RectangleShape2D_47l1q")
 debug_color = Color(0.998937, 0, 0.128371, 0.42)
+
+[node name="HandDropableDetector" type="Button" parent="Head/Camera3D/InventoryLayer"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 670.0
+offset_top = 235.0
+offset_right = 812.0
+offset_bottom = 502.0
+focus_mode = 0
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
 
@@ -1125,6 +1209,8 @@ metadata/_edit_use_anchors_ = true
 [connection signal="body_entered" from="PickupObjectDetector" to="." method="_on_pickup_object_detector_body_entered"]
 [connection signal="area_entered" from="Head/Camera3D/InventoryLayer/Boundary" to="." method="_on_boundary_area_entered"]
 [connection signal="area_exited" from="Head/Camera3D/InventoryLayer/Boundary" to="." method="_on_boundary_area_exited"]
+[connection signal="mouse_entered" from="Head/Camera3D/InventoryLayer/HandDropableDetector" to="." method="_on_hand_dropable_detector_mouse_entered"]
+[connection signal="mouse_exited" from="Head/Camera3D/InventoryLayer/HandDropableDetector" to="." method="_on_hand_dropable_detector_mouse_exited"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/Resume_Btn" to="." method="_on_resume_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/Settings_Btn" to="." method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/SaveAndQuit_Btn" to="." method="_on_save_and_quit_btn_pressed"]

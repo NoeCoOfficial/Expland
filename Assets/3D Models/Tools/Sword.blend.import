@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cv34xwiea0tal"
+uid="uid://duk84wfnoo2r6"
 path="res://.godot/imported/Sword.blend-a9eae461433758cc7a80179878890f1c.scn"
 
 [deps]
@@ -31,14 +31,7 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"materials": {
-"Material.001": {
-"use_external/enabled": true,
-"use_external/path": "res://Resources/Materials/SwordColor.tres"
-}
-}
-}
+_subresources={}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true

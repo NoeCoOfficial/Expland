@@ -17,10 +17,30 @@
 ### Fixed:
 - Fixed being able to pause the game while dead
 -->
+## Environment
+
+### Changed:
+- Motion Blur effect is now alot smoother and less laggy
+
+## Main Menu
+
+### Added:
+- The ability to save and load Islands!
 
 ## Inventory
 
 ### Added:
+- The ability to place tools (Sword, Pickaxe, Axe) in your hand.
+- Axe pickup item
+- Sword pickup item
+- Efficiency potion pickup item (currently can't obtain)
+- Haste potion pickup item (currently can't obtain)
+- Health potion pickup item (currently can't obtain)
+- Luck potion pickup item (currently can't obtain)
+- Night Vision potion pickup item (currently can't obtain)
+- Regenerating potion pickup item (currently can't obtain)
+- Stamina potion pickup item (currently can't obtain)
+- Strength potion pickup item (currently can't obtain)
 - Yellow flower pickup item (currently can't obtain) (#46)
 ---
 
