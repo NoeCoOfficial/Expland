@@ -144,6 +144,20 @@ func _on_auto_save_timeout() -> void:
 		Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
 		SaveManager.saveAllData()
 
+func gotoWeather(type : String):
+	
+	if type == "SUNNY":
+		pass
+	
+	elif type == "RAIN":
+		pass
+	
+	elif type == "STORM":
+		pass
+	
+	elif type == "CLOUDY":
+		pass
+
 func rotateSun(addX : float):
 	var currentX = IslandDirectionalLight.rotation_degrees.x
 	
