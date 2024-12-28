@@ -224,6 +224,9 @@ func gotoWeather(type : String):
 		RainParticles.visible = true
 		RainParticles.emitting = true
 		
+		if TimeManager.DAY_STATE == "DAY":
+			TheIslandProceduralSkyMaterial.sky_top_color = Color(0.421, 0.475, 0.515)
+		
 		# NOTE: Put rain and thunder sound logic here
 	
 	elif type == "CLOUDY":
@@ -246,6 +249,10 @@ func transToWeather(type : String):
 	elif type == "STORM":
 		RainParticles.visible = true
 		RainParticles.emitting = true
+		
+		if TimeManager.DAY_STATE == "DAY":
+			var tween = get_tree().create_tween()
+			tween.tween_property(TheIslandProceduralSkyMaterial, "sky_top_color", Color(0.421, 0.475, 0.515), 10)
 		
 		# NOTE: Put rain and thunder sound logic here
 	
