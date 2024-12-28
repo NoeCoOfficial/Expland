@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=47 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -31,6 +31,7 @@
 [ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="22_7sfup"]
 [ext_resource type="PackedScene" uid="uid://djenc4llne53s" path="res://Scenes and Scripts/Scenes/Credits/CreditsLayer.tscn" id="24_qhsvo"]
 [ext_resource type="PackedScene" uid="uid://cq13w255wbu5l" path="res://Scenes and Scripts/Scenes/Minimal Alert/MinimalAlert.tscn" id="27_5o6is"]
+[ext_resource type="PackedScene" uid="uid://cnpgx6ef6qxqs" path="res://Assets/3D Models/Tools/Pickaxe.blend" id="32_avlte"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_w6tro"]
 
@@ -1214,6 +1215,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
+
+[node name="Pickaxe" parent="Head/Camera3D" instance=ExtResource("32_avlte")]
+transform = Transform3D(-5.70256e-09, -0.130459, 5.70256e-09, 0.0652296, -7.78984e-09, -0.112981, 0.112981, -2.08728e-09, 0.0652296, 0.414557, -0.380401, -0.558034)
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="timeout" from="WalkingSpeedSounds" to="." method="_on_walking_speed_sounds_timeout"]
