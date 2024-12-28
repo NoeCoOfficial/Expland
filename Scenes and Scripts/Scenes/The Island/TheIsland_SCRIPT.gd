@@ -51,7 +51,7 @@ extends Node
 func initializeIslandProperties(_Island_Name):
 	pass
 
-var HOUR_LENGTH = 5
+var HOUR_LENGTH = 20
 
 @onready var motionBlurCompositor = preload("res://Resources/Environment/TheIsland_MotionBlurCompositor.tres")
 @onready var noMotionBlurCompositor = preload("res://Resources/Environment/TheIsland_NoMotionBlurCompositor.tres")
@@ -85,7 +85,6 @@ var hour19_tween
 var hour21_tween
 
 var MiddayColor = Color(0.941, 0.987, 0.809)
-var StormColor
 var SunriseColor = Color(0.793, 0.612, 0.18)
 var SunsetColor = Color(0.98, 0.729, 0.312)
 
@@ -286,13 +285,19 @@ func _on_tick() -> void:
 			IslandDirectionalLight.visible = false
 			IslandDirectionalLight.rotation_degrees.x = 10.0
 			
+			TimeManager.DAY_STATE = "NIGHT"
+			
 		if TimeManager.CURRENT_HOUR == 2:
 			IslandDirectionalLight.visible = false
 			IslandDirectionalLight.rotation_degrees.x = 10.0
+			
+			TimeManager.DAY_STATE = "NIGHT"
 		
 		if TimeManager.CURRENT_HOUR == 3:
 			IslandDirectionalLight.visible = false
 			IslandDirectionalLight.rotation_degrees.x = 10.0
+			
+			TimeManager.DAY_STATE = "NIGHT"
 		
 		if TimeManager.CURRENT_HOUR == 4:
 			IslandDirectionalLight.visible = false
@@ -307,6 +312,9 @@ func _on_tick() -> void:
 			
 			hour4_tween.tween_property(CloudsShaderMaterial, "shader_parameter/cloud_color", DayCloudColor, HourTimer.wait_time)
 			
+			TimeManager.DAY_STATE = "NIGHT"
+			
+		
 		if TimeManager.CURRENT_HOUR == 5:
 			IslandDirectionalLight.visible = true
 			IslandDirectionalLight.light_color = SunriseColor
@@ -317,11 +325,15 @@ func _on_tick() -> void:
 			rotateSun(-32) 
 			## -22 deg at finish
 			## 10 deg at start
+			
+			TimeManager.DAY_STATE = "DAY"
 		
 		if TimeManager.CURRENT_HOUR == 6:
 			rotateSun(-15) 
 			## -37 deg at finish
 			## -22 deg at start
+			
+			TimeManager.DAY_STATE = "DAY"
 		
 		if TimeManager.CURRENT_HOUR == 7:
 			hour7_tween = get_tree().create_tween()
@@ -330,45 +342,63 @@ func _on_tick() -> void:
 			## -49 deg at finish
 			## -37 deg at start
 			
+			TimeManager.DAY_STATE = "DAY"
+			
 		if TimeManager.CURRENT_HOUR == 8:
 			rotateSun(-12)
 			## -61 deg at finish
 			## -49 deg at start
+			
+			TimeManager.DAY_STATE = "DAY"
 		
 		if TimeManager.CURRENT_HOUR == 9:
 			rotateSun(-9)
 			## -70 deg at finish
 			## -61 deg at start
+			
+			TimeManager.DAY_STATE = "DAY"
 		
 		if TimeManager.CURRENT_HOUR == 10:
 			rotateSun(-8)
 			## -78 deg at finish
 			## -70 deg at start
+			
+			TimeManager.DAY_STATE = "DAY"
 		
 		if TimeManager.CURRENT_HOUR == 11:
 			rotateSun(-7)
 			## -85 deg at finish
 			## -78 deg at start
+			
+			TimeManager.DAY_STATE = "DAY"
 	
 		if TimeManager.CURRENT_HOUR == 12:
 			rotateSun(-8)
 			## -93 deg at finish
 			## -85 deg at start
+			
+			TimeManager.DAY_STATE = "DAY"
 		
 		if TimeManager.CURRENT_HOUR == 13:
 			rotateSun(-9)
 			## -102 deg at finish
 			## -93 deg at start
+			
+			TimeManager.DAY_STATE = "DAY"
 		
 		if TimeManager.CURRENT_HOUR == 14:
 			rotateSun(-10)
 			## -112 deg at finish
 			## -102 deg at start
+			
+			TimeManager.DAY_STATE = "DAY"
 		
 		if TimeManager.CURRENT_HOUR == 15:
 			rotateSun(-12)
 			## -124 deg at finish
 			## -112 deg at start
+			
+			TimeManager.DAY_STATE = "DAY"
 		
 		if TimeManager.CURRENT_HOUR == 16:
 			hour16_tween = get_tree().create_tween().set_parallel()
@@ -384,16 +414,22 @@ func _on_tick() -> void:
 			rotateSun(-15)
 			## -139 deg at finish
 			## -124 deg at start
+			
+			TimeManager.DAY_STATE = "DAY"
 		
 		if TimeManager.CURRENT_HOUR == 17:
 			rotateSun(-17)
 			## -156 deg at finish
 			## -139 deg at start
+			
+			TimeManager.DAY_STATE = "DAY"
 		
 		if TimeManager.CURRENT_HOUR == 18:
 			rotateSun(-12)
 			## -168 deg at finish
 			## -156 deg at start
+			
+			TimeManager.DAY_STATE = "NIGHT"
 		
 		if TimeManager.CURRENT_HOUR == 19:
 			hour19_tween = get_tree().create_tween().set_parallel()
@@ -401,11 +437,15 @@ func _on_tick() -> void:
 			rotateSun(-7)
 			## -175 deg at finish
 			## -168 deg at start
+			
+			TimeManager.DAY_STATE = "NIGHT"
 		
 		if TimeManager.CURRENT_HOUR == 20:
 			rotateSun(-7)
 			## -182 deg at finish
 			## -175 deg at start
+			
+			TimeManager.DAY_STATE = "NIGHT"
 		
 		if TimeManager.CURRENT_HOUR == 21:
 			hour21_tween = get_tree().create_tween()
@@ -413,14 +453,20 @@ func _on_tick() -> void:
 			rotateSun(-7)
 			## -189 deg at finish
 			## -182 deg at start
+			
+			TimeManager.DAY_STATE = "NIGHT"
 		
 		if TimeManager.CURRENT_HOUR == 22:
 			IslandDirectionalLight.visible = false
 			IslandDirectionalLight.rotation_degrees.x = 10.0
+			
+			TimeManager.DAY_STATE = "NIGHT"
 		
 		if TimeManager.CURRENT_HOUR == 23:
 			IslandDirectionalLight.visible = false
 			IslandDirectionalLight.rotation_degrees.x = 10.0
+			
+			TimeManager.DAY_STATE = "NIGHT"
 		
 		if TimeManager.CURRENT_HOUR == 0 or TimeManager.CURRENT_HOUR == 24:
 			
@@ -430,6 +476,8 @@ func _on_tick() -> void:
 			if !PlayerData.GAME_STATE == "SLEEPING":
 				TimeManager.CURRENT_DAY += 1
 			PlayerData.saveData(IslandManager.Current_Island_Name)
+			
+			TimeManager.DAY_STATE = "NIGHT"
    
 func set_hour(hour : int):
 	if hour == 0 or hour == 24:
