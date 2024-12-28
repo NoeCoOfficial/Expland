@@ -52,7 +52,7 @@ func initializeIslandProperties(_Island_Name):
 	pass
 
 var HOUR_LENGTH = 2
-var SKY_TRANS_TIME = 0
+var SKY_TRANS_TIME = 0.0
 
 @onready var motionBlurCompositor = preload("res://Resources/Environment/TheIsland_MotionBlurCompositor.tres")
 @onready var noMotionBlurCompositor = preload("res://Resources/Environment/TheIsland_NoMotionBlurCompositor.tres")
