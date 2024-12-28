@@ -51,7 +51,7 @@ extends Node
 func initializeIslandProperties(_Island_Name):
 	pass
 
-var HOUR_LENGTH = 2
+var HOUR_LENGTH = 5
 
 @onready var motionBlurCompositor = preload("res://Resources/Environment/TheIsland_MotionBlurCompositor.tres")
 @onready var noMotionBlurCompositor = preload("res://Resources/Environment/TheIsland_NoMotionBlurCompositor.tres")
@@ -124,6 +124,7 @@ func _process(_delta: float) -> void:
 
 func initNodes():
 	RainParticles.emitting = false
+	RainParticles.visible = false
 
 func set_motion_blur(value : bool) -> void:
 	if value:
@@ -210,30 +211,48 @@ func change_weather(animate : bool) -> void:
 func gotoWeather(type : String):
 	
 	if type == "SUNNY":
-		pass
+		RainParticles.visible = false
+		RainParticles.emitting = false
 	
 	elif type == "RAIN":
-		pass
+		RainParticles.visible = true
+		RainParticles.emitting = true
+		
+		# NOTE: Put rain sound logic here
 	
 	elif type == "STORM":
-		pass
+		RainParticles.visible = true
+		RainParticles.emitting = true
+		
+		# NOTE: Put rain and thunder sound logic here
 	
 	elif type == "CLOUDY":
-		pass
+		RainParticles.visible = false
+		RainParticles.emitting = false
 
 func transToWeather(type : String):
 	
 	if type == "SUNNY":
-		pass
+		RainParticles.emitting = false
+		await get_tree().create_timer(1).timeout
+		RainParticles.visible = false
 	
 	elif type == "RAIN":
-		pass
+		RainParticles.visible = true
+		RainParticles.emitting = true
+		
+		# NOTE: Put rain sound logic here
 	
 	elif type == "STORM":
-		pass
+		RainParticles.visible = true
+		RainParticles.emitting = true
+		
+		# NOTE: Put rain and thunder sound logic here
 	
 	elif type == "CLOUDY":
-		pass
+		RainParticles.emitting = false
+		await get_tree().create_timer(1).timeout
+		RainParticles.visible = false
 
 func rotateSun(addX : float):
 	var currentX = IslandDirectionalLight.rotation_degrees.x
