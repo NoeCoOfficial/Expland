@@ -51,7 +51,7 @@ extends Node
 func initializeIslandProperties(_Island_Name):
 	pass
 
-var HOUR_LENGTH = 20
+var HOUR_LENGTH = 2
 
 @onready var motionBlurCompositor = preload("res://Resources/Environment/TheIsland_MotionBlurCompositor.tres")
 @onready var noMotionBlurCompositor = preload("res://Resources/Environment/TheIsland_NoMotionBlurCompositor.tres")
@@ -252,7 +252,7 @@ func transToWeather(type : String):
 		
 		if TimeManager.DAY_STATE == "DAY":
 			var tween = get_tree().create_tween()
-			tween.tween_property(TheIslandProceduralSkyMaterial, "sky_top_color", Color(0.421, 0.475, 0.515), 10)
+			tween.tween_property(TheIslandProceduralSkyMaterial, "sky_top_color", Color(0.421, 0.475, 0.515), 0)
 		
 		# NOTE: Put rain and thunder sound logic here
 	
