@@ -440,7 +440,9 @@ func _process(_delta):
 	GAME_STATE_Label.text = "GAME_STATE = " + PlayerData.GAME_STATE
 	CURRENT_DAY_Label.text = "CURRENT_DAY = " + str(TimeManager.CURRENT_DAY)
 	CURRENT_HOUR_Label.text = "CURRENT_HOUR = " + str(TimeManager.CURRENT_HOUR)
-	CURRENT_WEATHER_Label.text = "CURRENT_WEATHER = " + str(IslandManager.Current_Weather)
+	
+	if IslandManager.Current_Weather != "":
+		CURRENT_WEATHER_Label.text = "CURRENT_WEATHER = " + IslandManager.Current_Weather
 
 	
 	## END DEBUGGING
