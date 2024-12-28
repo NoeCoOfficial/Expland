@@ -85,6 +85,7 @@ var hour19_tween
 var hour21_tween
 
 var MiddayColor = Color(0.941, 0.987, 0.809)
+var StormColor
 var SunriseColor = Color(0.793, 0.612, 0.18)
 var SunsetColor = Color(0.98, 0.729, 0.312)
 
