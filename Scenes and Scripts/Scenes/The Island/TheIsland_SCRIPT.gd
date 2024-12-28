@@ -51,8 +51,8 @@ extends Node
 func initializeIslandProperties(_Island_Name):
 	pass
 
-var HOUR_LENGTH = 60
-var SKY_TRANS_TIME = 10.0
+var HOUR_LENGTH = 30
+var SKY_TRANS_TIME = 5.0
 
 @onready var motionBlurCompositor = preload("res://Resources/Environment/TheIsland_MotionBlurCompositor.tres")
 @onready var noMotionBlurCompositor = preload("res://Resources/Environment/TheIsland_NoMotionBlurCompositor.tres")
