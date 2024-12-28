@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=47 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Interaction/RayCast3D_SCRIPT.gd" id="3_2qtqn"]
 [ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="3_yecwp"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/CrosshairCanvas/HealthLBL_SCRIPT.gd" id="4_56i84"]
+[ext_resource type="Texture2D" uid="uid://bxxnhb6vulkry" path="res://Textures/Inventory/PICKAXE.png" id="5_lj5dt"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/OverlayLayer/RedOverlay_SCRIPT.gd" id="7_gnu1v"]
 [ext_resource type="PackedScene" uid="uid://dhhjltxmoydio" path="res://Scenes and Scripts/Scenes/Player/Inventory/InventorySlot.tscn" id="8_ads4s"]
 [ext_resource type="FontFile" uid="uid://c4h0gd5a2e2qb" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf" id="8_cdk3a"]
@@ -111,7 +112,7 @@ Button/styles/normal = ExtResource("20_b68th")
 Button/styles/pressed = SubResource("StyleBoxFlat_8tgxn")
 Label/styles/normal = ExtResource("21_k6ube")
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "PickupAttractionPos", "Slot1_Ref", "Slot2_Ref", "Slot3_Ref", "Slot4_Ref", "Slot5_Ref", "Slot6_Ref", "Slot7_Ref", "Slot8_Ref", "Slot9_Ref", "ChestUILayer", "SettingsUI", "AchievementsUI", "AlertLayer", "CreditsLayer", "MinimalAlert", "TopLayerBlackOverlay", "SleepLayerBlackOverlay", "DayText_Label", "ProtectiveLayer", "Health_Label", "Crosshair_Rect", "Inventory_Item_Ref_Label", "Is_Raycast_Colliding_Label", "Is_Inside_Settings_Label", "Is_Inventory_Open_Label", "Is_Moving_Label", "Is_Walking_Label", "Is_Sprinting_Label", "Is_Crouching_Label", "Is_In_Dialogue_Interface_Label", "Showing_Interaction_Notification_Label", "Current_Time_Label", "Current_FPS_Label", "Player_Position_Label", "Player_VelocityY_Label", "Player_VelocityY_Accurate_Label", "Is_On_Floor_Label", "Inputs_Currently_Pressing_Label", "GAME_STATE_Label", "CURRENT_DAY_Label", "CURRENT_HOUR_Label", "CURRENT_WEATHER_Label") groups=["PlayerBody"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "PickupAttractionPos", "Slot1_Ref", "Slot2_Ref", "Slot3_Ref", "Slot4_Ref", "Slot5_Ref", "Slot6_Ref", "Slot7_Ref", "Slot8_Ref", "Slot9_Ref", "ChestUILayer", "SettingsUI", "AchievementsUI", "AlertLayer", "CreditsLayer", "MinimalAlert", "TopLayerBlackOverlay", "SleepLayerBlackOverlay", "DayText_Label", "ProtectiveLayer", "hand_item_texture", "Health_Label", "Crosshair_Rect", "Inventory_Item_Ref_Label", "Is_Raycast_Colliding_Label", "Is_Inside_Settings_Label", "Is_Inventory_Open_Label", "Is_Moving_Label", "Is_Walking_Label", "Is_Sprinting_Label", "Is_Crouching_Label", "Is_In_Dialogue_Interface_Label", "Showing_Interaction_Notification_Label", "Current_Time_Label", "Current_FPS_Label", "Player_Position_Label", "Player_VelocityY_Label", "Player_VelocityY_Accurate_Label", "Is_On_Floor_Label", "Inputs_Currently_Pressing_Label", "GAME_STATE_Label", "CURRENT_DAY_Label", "CURRENT_HOUR_Label", "CURRENT_WEATHER_Label") groups=["PlayerBody"]]
 collision_mask = 3
 script = ExtResource("1_5mhs1")
 Fade_In = true
@@ -141,6 +142,7 @@ TopLayerBlackOverlay = NodePath("Head/Camera3D/SleepLayer/BlackOverlay")
 SleepLayerBlackOverlay = NodePath("Head/Camera3D/SleepLayer/BlackOverlay")
 DayText_Label = NodePath("Head/Camera3D/SleepLayer/DayTextLabel")
 ProtectiveLayer = NodePath("Head/Camera3D/TopLayer/ProtectiveLayer")
+hand_item_texture = NodePath("Head/Camera3D/InventoryHandItemLayer/Pickaxe")
 Health_Label = NodePath("Head/Camera3D/CrosshairCanvas/HealthLBL")
 Crosshair_Rect = NodePath("Head/Camera3D/CrosshairCanvas/Crosshair")
 Inventory_Item_Ref_Label = NodePath("Head/Camera3D/DebugLayer/item_ref_LBL")
@@ -220,6 +222,16 @@ script = ExtResource("2_37tst")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.0158332)
 target_position = Vector3(0, -3, 0)
 script = ExtResource("3_2qtqn")
+
+[node name="InventoryHandItemLayer" type="CanvasLayer" parent="Head/Camera3D"]
+
+[node name="Pickaxe" type="TextureRect" parent="Head/Camera3D/InventoryHandItemLayer"]
+offset_left = 853.0
+offset_top = 387.0
+offset_right = 1111.0
+offset_bottom = 645.0
+texture = ExtResource("5_lj5dt")
+expand_mode = 1
 
 [node name="CrosshairCanvas" type="CanvasLayer" parent="Head/Camera3D"]
 

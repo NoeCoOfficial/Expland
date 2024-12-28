@@ -123,6 +123,7 @@ var transitioning_to_menu = false
 @export var BOB_FREQ := 3.0 ## The frequency of the waves (how often it occurs)
 @export var BOB_AMP = 0.08 ## The amplitude of the waves (how much you actually go up and down)
 @export var BOB_SMOOTHING_SPEED := 3.0  ## Speed to smooth the return to the original position. The lower it get's, the smoother it is.
+@export var HAND_BOB_SCALE := 5.0 ## The scale of the hand bobbing. The higher this value is, the more the hand will bob.
 
 @export_subgroup("Other") ## a subgroup for other view bobbing variables.
 @export var Wave_Length = 0.0 ## The wavelength of the bobbing
@@ -198,6 +199,7 @@ var is_crouching = false
 @export var ProtectiveLayer : Control
 
 @export_subgroup("HUD")
+@export var hand_item_texture : TextureRect
 @export var Health_Label : Label
 @export var Crosshair_Rect : TextureRect
 
