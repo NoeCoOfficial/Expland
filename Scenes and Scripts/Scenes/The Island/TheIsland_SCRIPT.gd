@@ -51,8 +51,8 @@ extends Node
 func initializeIslandProperties(_Island_Name):
 	pass
 
-var HOUR_LENGTH = 2
-var SKY_TRANS_TIME = 0.0
+var HOUR_LENGTH = 60
+var SKY_TRANS_TIME = 10.0
 
 @onready var motionBlurCompositor = preload("res://Resources/Environment/TheIsland_MotionBlurCompositor.tres")
 @onready var noMotionBlurCompositor = preload("res://Resources/Environment/TheIsland_NoMotionBlurCompositor.tres")
@@ -181,36 +181,36 @@ func change_weather(animate : bool) -> void:
 		
 		if weather == 1:
 			transToWeather("SUNNY")
-			print("SUNNY")
+			print_rich("[color=green]SUNNY[/color]")
 		
 		elif weather == 2:
 			transToWeather("RAIN")
-			print("RAIN")
+			print_rich("[color=green]RAIN[/color]")
 		
 		elif weather == 3:
 			transToWeather("STORM")
-			print("STORM")
+			print_rich("[color=green]STORM[/color]")
 		
 		elif weather == 4:
 			transToWeather("CLOUDY")
-			print("CLOUDY")
+			print_rich("[color=green]CLOUDY[/color]")
 	
 	else:
 		if weather == 1:
 			gotoWeather("SUNNY")
-			print("SUNNY")
+			print_rich("[color=green]SUNNY[/color]")
 		
 		elif weather == 2:
 			gotoWeather("RAIN")
-			print("RAIN")
+			print_rich("[color=green]RAIN[/color]")
 		
 		elif weather == 3:
 			gotoWeather("STORM")
-			print("STORM")
+			print_rich("[color=green]STORM[/color]")
 		
 		elif weather == 4:
 			gotoWeather("CLOUDY")
-			print("CLOUDY")
+			print_rich("[color=green]CLOUDY[/color]")
 
 func gotoWeather(type : String):
 	

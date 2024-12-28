@@ -942,7 +942,6 @@ autowrap_mode = 1
 script = ExtResource("9_svfxy")
 
 [node name="DebugLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="item_ref_LBL" type="Label" parent="Head/Camera3D/DebugLayer"]
 self_modulate = Color(1, 1, 1, 0.196078)
@@ -1152,9 +1151,9 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -156.0
-offset_top = 584.0
+offset_top = 566.0
 offset_right = -3.0
-offset_bottom = 603.0
+offset_bottom = 585.0
 grow_horizontal = 0
 theme = ExtResource("17_rhxkt")
 text = "GAME_STATE = \" \""
@@ -1166,9 +1165,9 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -156.0
-offset_top = 604.0
+offset_top = 586.0
 offset_right = -3.0
-offset_bottom = 623.0
+offset_bottom = 605.0
 grow_horizontal = 0
 theme = ExtResource("17_rhxkt")
 text = "CURRENT_DAY = #"
@@ -1180,12 +1179,26 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -156.0
-offset_top = 624.0
+offset_top = 606.0
 offset_right = -3.0
-offset_bottom = 643.0
+offset_bottom = 625.0
 grow_horizontal = 0
 theme = ExtResource("17_rhxkt")
 text = "CURRENT_HOUR = #"
+horizontal_alignment = 2
+
+[node name="CURRENT_WEATHER" type="Label" parent="Head/Camera3D/DebugLayer"]
+self_modulate = Color(1, 1, 1, 0.196078)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -156.0
+offset_top = 626.0
+offset_right = -3.0
+offset_bottom = 645.0
+grow_horizontal = 0
+theme = ExtResource("17_rhxkt")
+text = "CURRENT_WEATHER = \"\""
 horizontal_alignment = 2
 
 [node name="TopLayer" type="CanvasLayer" parent="Head/Camera3D"]

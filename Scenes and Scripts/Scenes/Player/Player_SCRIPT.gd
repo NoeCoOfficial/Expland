@@ -223,6 +223,7 @@ var is_crouching = false
 @export var GAME_STATE_Label : Label
 @export var CURRENT_DAY_Label : Label
 @export var CURRENT_HOUR_Label : Label
+@export var CURRENT_WEATHER_Label : Label
 
 ######################################
 # Input
@@ -439,6 +440,8 @@ func _process(_delta):
 	GAME_STATE_Label.text = "GAME_STATE = " + PlayerData.GAME_STATE
 	CURRENT_DAY_Label.text = "CURRENT_DAY = " + str(TimeManager.CURRENT_DAY)
 	CURRENT_HOUR_Label.text = "CURRENT_HOUR = " + str(TimeManager.CURRENT_HOUR)
+	CURRENT_WEATHER_Label.text = "CURRENT_WEATHER = " + str(IslandManager.Current_Weather)
+
 	
 	## END DEBUGGING
 	
