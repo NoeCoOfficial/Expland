@@ -177,6 +177,18 @@ func change_weather(animate : bool) -> void:
 	
 	var weather = get_weighted_random_weather()
 	
+	if weather == 1:
+		IslandManager.Current_Weather = "SUNNY"
+	
+	if weather == 2:
+		IslandManager.Current_Weather = "RAIN"
+	
+	if weather == 3:
+		IslandManager.Current_Weather = "STORM"
+	
+	if weather == 4:
+		IslandManager.Current_Weather = "CLOUDY"
+	
 	if animate:
 		
 		if weather == 1:
