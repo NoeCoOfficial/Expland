@@ -7,7 +7,7 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_f4qm5")
-shader_parameter/CloudNoiseUVTiling = 1.0
+shader_parameter/CloudNoiseUVTiling = 2.0
 shader_parameter/CloudNoiseTilingMagnitude = 0.225
 shader_parameter/cloud_threshold = 0.141
 shader_parameter/cloud_threshold_multiplier = 4.291
