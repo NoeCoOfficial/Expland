@@ -4,7 +4,7 @@
 offsets = PackedFloat32Array(0.309051, 0.671082)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_vskvr"]
-noise_type = 0
+noise_type = 2
 seed = 77
 frequency = 0.0295
 fractal_type = 2
