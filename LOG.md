@@ -5,3 +5,7 @@
 [31/12/24] 2024 had gone way too fast, thank you all 💪❤️
 
 [1/1/2025] Happy new year everyone! Thank you for showing interest in this game. We promise we will release it at the deadline! Even if stuff doesn't go to plan, we will release a demo, but that's highly unlikely. Once again, thank you!
+
+[3/1/2025] Oops I might have missed a day... didn't do anything today. Back on 5th.
+
+
