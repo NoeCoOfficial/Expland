@@ -51,8 +51,8 @@ extends Node
 func initializeIslandProperties(_Island_Name):
 	pass
 
-var HOUR_LENGTH = 30
-var SKY_TRANS_TIME = 5.0
+var HOUR_LENGTH = 10.0
+var SKY_TRANS_TIME = 1.0
 
 @onready var motionBlurCompositor = preload("res://Resources/Environment/TheIsland_MotionBlurCompositor.tres")
 @onready var noMotionBlurCompositor = preload("res://Resources/Environment/TheIsland_NoMotionBlurCompositor.tres")
@@ -544,7 +544,8 @@ func set_hour(hour : int):
 		
 		IslandDirectionalLight.visible = false
 		IslandDirectionalLight.rotation_degrees.x = 10.0
-		print("New day")
+		
+		TimeManager.DAY_STATE = "NIGHT"
 	
 	if hour == 1:
 		HourTimer.wait_time = HOUR_LENGTH
@@ -559,6 +560,8 @@ func set_hour(hour : int):
 		
 		IslandDirectionalLight.visible = false
 		IslandDirectionalLight.rotation_degrees.x = 10.0
+		
+		TimeManager.DAY_STATE = "NIGHT"
 	
 	if hour == 2:
 		HourTimer.wait_time = HOUR_LENGTH
@@ -573,6 +576,8 @@ func set_hour(hour : int):
 		
 		IslandDirectionalLight.visible = false
 		IslandDirectionalLight.rotation_degrees.x = 10.0
+		
+		TimeManager.DAY_STATE = "NIGHT"
 	
 	if hour == 3:
 		HourTimer.wait_time = HOUR_LENGTH
@@ -587,6 +592,8 @@ func set_hour(hour : int):
 		
 		IslandDirectionalLight.visible = false
 		IslandDirectionalLight.rotation_degrees.x = 10.0
+		
+		TimeManager.DAY_STATE = "NIGHT"
 	
 	if hour == 4:
 		HourTimer.wait_time = HOUR_LENGTH
@@ -608,6 +615,8 @@ func set_hour(hour : int):
 		tween.tween_property(TheIslandProceduralSkyMaterial, "ground_bottom_color", Color(0.2, 0.169, 0.133), HourTimer.wait_time * 3.5)
 		tween.tween_property(TheIslandProceduralSkyMaterial, "ground_horizon_color", Color(0.502, 0.641, 0.905), HourTimer.wait_time * 3.5)
 		tween.tween_property(CloudsShaderMaterial, "shader_parameter/cloud_color", DayCloudColor, HourTimer.wait_time)
+		
+		TimeManager.DAY_STATE = "NIGHT"
 
 	
 	if hour == 5:
@@ -635,6 +644,8 @@ func set_hour(hour : int):
 		
 		rotateSun(-32)
 		## End at -22
+		
+		TimeManager.DAY_STATE = "DAY"
 	
 	if hour == 6:
 		HourTimer.wait_time = HOUR_LENGTH
@@ -659,6 +670,8 @@ func set_hour(hour : int):
 		 
 		rotateSun(-15)
 		## End at -37
+		
+		TimeManager.DAY_STATE = "DAY"
 	
 	if hour == 7:
 		HourTimer.wait_time = HOUR_LENGTH
@@ -679,6 +692,8 @@ func set_hour(hour : int):
 		
 		rotateSun(-12) 
 		## End at -49
+		
+		TimeManager.DAY_STATE = "DAY"
 	
 	if hour == 8:
 		HourTimer.wait_time = HOUR_LENGTH
@@ -697,6 +712,8 @@ func set_hour(hour : int):
 		
 		rotateSun(-12)
 		## End at -61
+		
+		TimeManager.DAY_STATE = "DAY"
 	
 	if hour == 9:
 		HourTimer.wait_time = HOUR_LENGTH
@@ -715,6 +732,8 @@ func set_hour(hour : int):
 		
 		rotateSun(-9)
 		## End at -70
+		
+		TimeManager.DAY_STATE = "DAY"
 	
 	if hour == 10:
 		HourTimer.wait_time = HOUR_LENGTH
@@ -733,6 +752,8 @@ func set_hour(hour : int):
 		
 		rotateSun(-8)
 		## End at -78
+		
+		TimeManager.DAY_STATE = "DAY"
 	
 	if hour == 11:
 		HourTimer.wait_time = HOUR_LENGTH
@@ -751,6 +772,8 @@ func set_hour(hour : int):
 		
 		rotateSun(-7)
 		## End at -85
+		
+		TimeManager.DAY_STATE = "DAY"
 	
 	if hour == 12:
 		HourTimer.wait_time = HOUR_LENGTH
@@ -769,6 +792,8 @@ func set_hour(hour : int):
 		
 		rotateSun(-8)
 		## End at -93
+		
+		TimeManager.DAY_STATE = "DAY"
 	
 	if hour == 13:
 		HourTimer.wait_time = HOUR_LENGTH
@@ -787,6 +812,8 @@ func set_hour(hour : int):
 		
 		rotateSun(-9)
 		## End at -102
+		
+		TimeManager.DAY_STATE = "DAY"
 	
 	if hour == 14:
 		HourTimer.wait_time = HOUR_LENGTH
@@ -805,6 +832,8 @@ func set_hour(hour : int):
 		
 		rotateSun(-10)
 		## End at -112
+		
+		TimeManager.DAY_STATE = "DAY"
 	
 	if hour == 15:
 		HourTimer.wait_time = HOUR_LENGTH
@@ -823,6 +852,8 @@ func set_hour(hour : int):
 		
 		rotateSun(-12)
 		## End at -124
+		
+		TimeManager.DAY_STATE = "DAY"
 	
 	if hour == 16:
 		HourTimer.wait_time = HOUR_LENGTH
@@ -849,6 +880,8 @@ func set_hour(hour : int):
 		
 		rotateSun(-15)
 		## End at -139
+		
+		TimeManager.DAY_STATE = "DAY"
 	
 	if hour == 17:
 		HourTimer.wait_time = HOUR_LENGTH
@@ -873,6 +906,8 @@ func set_hour(hour : int):
 		
 		rotateSun(-17)
 		## End at -156
+		
+		TimeManager.DAY_STATE = "DAY"
 	
 	if hour == 18:
 		HourTimer.wait_time = HOUR_LENGTH
@@ -897,6 +932,8 @@ func set_hour(hour : int):
 		
 		rotateSun(-12)
 		## End at -168
+		
+		TimeManager.DAY_STATE = "NIGHT"
 	
 	if hour == 19:
 		HourTimer.wait_time = HOUR_LENGTH
@@ -919,8 +956,11 @@ func set_hour(hour : int):
 		tween.tween_property(TheIslandProceduralSkyMaterial, "ground_bottom_color", Color(0, 0, 0), HourTimer.wait_time * 4)
 		tween.tween_property(TheIslandProceduralSkyMaterial, "ground_horizon_color", Color(0, 0, 0), HourTimer.wait_time * 4)
 		tween.tween_property(CloudsShaderMaterial, "shader_parameter/cloud_color", NightCloudColor, HourTimer.wait_time * 2)
+		
 		rotateSun(-7)
 		## -175 deg at finish
+		
+		TimeManager.DAY_STATE = "NIGHT"
 	
 	if hour == 20:
 		HourTimer.wait_time = HOUR_LENGTH
@@ -945,6 +985,8 @@ func set_hour(hour : int):
 		
 		rotateSun(-7)
 		## End at -182
+		
+		TimeManager.DAY_STATE = "NIGHT"
 	
 	if hour == 21:
 		HourTimer.wait_time = HOUR_LENGTH
@@ -971,6 +1013,8 @@ func set_hour(hour : int):
 		
 		rotateSun(-7)
 		## End at -189
+		
+		TimeManager.DAY_STATE = "NIGHT"
 	
 	if hour == 22:
 		HourTimer.wait_time = HOUR_LENGTH
@@ -990,6 +1034,8 @@ func set_hour(hour : int):
 		tween.tween_property(TheIslandProceduralSkyMaterial, "sky_horizon_color", Color(0.038, 0.038, 0.038), HourTimer.wait_time)
 		tween.tween_property(TheIslandProceduralSkyMaterial, "ground_bottom_color", Color(0, 0, 0), HourTimer.wait_time)
 		tween.tween_property(TheIslandProceduralSkyMaterial, "ground_horizon_color", Color(0, 0, 0), HourTimer.wait_time)
+		
+		TimeManager.DAY_STATE = "NIGHT"
 	
 	if hour == 23:
 		HourTimer.wait_time = HOUR_LENGTH
@@ -1004,6 +1050,8 @@ func set_hour(hour : int):
 		
 		IslandDirectionalLight.visible = false
 		IslandDirectionalLight.rotation_degrees.x = 10.0
+		
+		TimeManager.DAY_STATE = "NIGHT"
 	
 	PlayerData.saveData(IslandManager.Current_Island_Name)
 
