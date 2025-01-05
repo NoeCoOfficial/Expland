@@ -41,7 +41,6 @@
 
 [sub_resource type="Animation" id="Animation_6cyol"]
 length = 0.001
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -70,6 +69,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_kvdnl"]
 resource_name = "camera movement"
 length = 200.0
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
