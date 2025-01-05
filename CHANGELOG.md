@@ -19,7 +19,7 @@
 ## Environment
 
 ### Removed:
-- Removed motion blur effect
+- Removed motion blur effect (#79)
 
 ## Main Menu
 
