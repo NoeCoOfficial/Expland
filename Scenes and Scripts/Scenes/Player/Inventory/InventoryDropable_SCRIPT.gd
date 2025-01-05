@@ -148,10 +148,12 @@ func _process(delta):
 					if body_ref == slot_inside:
 						# If the draggable is placed back into its current slot, do nothing
 						tween.tween_property(self, "position", body_ref.position, SNAP_TIME)
+						print("Placed into current slot, do nothing")
 					else:
 						if body_ref.has_method("is_populated") and body_ref.is_populated():
 							# If the slot is already populated, snap back to the original position
 							tween.tween_property(self, "global_position", initialPos, SNAP_TIME)
+							print("Slot already populated")
 						else:
 							tween.tween_property(self, "position", body_ref.position, SNAP_TIME)
 							if body_ref.has_method("set_populated"):
