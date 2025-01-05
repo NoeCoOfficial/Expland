@@ -31,6 +31,11 @@
 ### Added:
 - The ability to save and load Islands
 
+## Player
+
+### Added:
+- Nothing yet
+
 ## Inventory
 
 ### Added:
