@@ -54,8 +54,6 @@ func initializeIslandProperties(_Island_Name):
 var HOUR_LENGTH = 30
 var SKY_TRANS_TIME = 5.0
 
-@onready var motionBlurCompositor = preload("res://Resources/Environment/TheIsland_MotionBlurCompositor.tres")
-@onready var noMotionBlurCompositor = preload("res://Resources/Environment/TheIsland_NoMotionBlurCompositor.tres")
 @onready var TheIslandEnvironment = preload("res://Resources/Environment/TheIslandWorldEnvironment.tres")
 @onready var TheIslandProceduralSkyMaterial = preload("res://Resources/Environment/TheIslandProceduralSkyMaterial.tres")
 @onready var CloudsShaderMaterial = preload("res://Resources/Materials/CloudsMaterial.tres")
