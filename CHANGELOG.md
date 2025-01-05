@@ -8,6 +8,13 @@
 ### Changed:
 - Camera animation now loops instead of stopping when returned to original position
 
+## The Island
+
+### Added:
+- Water to the lake and around The Island
+- Dynamic clouds in the sky that move
+- A very simple weather system that is yet to be improved
+
 ## Environment
 
 ### Removed:
@@ -16,7 +23,7 @@
 ## Main Menu
 
 ### Added:
-- The ability to save and load Islands!
+- The ability to save and load Islands
 
 ## Inventory
 
