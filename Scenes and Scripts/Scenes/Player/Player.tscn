@@ -111,7 +111,7 @@ Button/styles/normal = ExtResource("20_b68th")
 Button/styles/pressed = SubResource("StyleBoxFlat_8tgxn")
 Label/styles/normal = ExtResource("21_k6ube")
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "PickupAttractionPos", "Slot1_Ref", "Slot2_Ref", "Slot3_Ref", "Slot4_Ref", "Slot5_Ref", "Slot6_Ref", "Slot7_Ref", "Slot8_Ref", "Slot9_Ref", "ChestUILayer", "SettingsUI", "AchievementsUI", "AlertLayer", "CreditsLayer", "MinimalAlert", "TopLayerBlackOverlay", "SleepLayerBlackOverlay", "DayText_Label", "ProtectiveLayer", "Health_Label", "Crosshair_Rect", "Inventory_Item_Ref_Label", "Is_Raycast_Colliding_Label", "Is_Inside_Settings_Label", "Is_Inventory_Open_Label", "Is_Moving_Label", "Is_Walking_Label", "Is_Sprinting_Label", "Is_Crouching_Label", "Is_In_Dialogue_Interface_Label", "Showing_Interaction_Notification_Label", "Current_Time_Label", "Current_FPS_Label", "Player_Position_Label", "Player_VelocityY_Label", "Player_VelocityY_Accurate_Label", "Is_On_Floor_Label", "Inputs_Currently_Pressing_Label", "GAME_STATE_Label", "CURRENT_DAY_Label", "CURRENT_HOUR_Label", "CURRENT_WEATHER_Label") groups=["PlayerBody"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "PickupAttractionPos", "Slot1_Ref", "Slot2_Ref", "Slot3_Ref", "Slot4_Ref", "Slot5_Ref", "Slot6_Ref", "Slot7_Ref", "Slot8_Ref", "Slot9_Ref", "ChestUILayer", "SettingsUI", "AchievementsUI", "AlertLayer", "CreditsLayer", "MinimalAlert", "TopLayerBlackOverlay", "SleepLayerBlackOverlay", "DayText_Label", "ProtectiveLayer", "Health_Label", "Crosshair_Rect", "Inventory_Item_Ref_Label", "Is_Raycast_Colliding_Label", "Is_Inside_Settings_Label", "Is_Inventory_Open_Label", "Is_Moving_Label", "Is_Walking_Label", "Is_Sprinting_Label", "Is_Crouching_Label", "Is_In_Dialogue_Interface_Label", "Showing_Interaction_Notification_Label", "Current_Time_Label", "Current_FPS_Label", "Player_Position_Label", "Player_VelocityY_Label", "Player_VelocityY_Accurate_Label", "Is_On_Floor_Label", "Inputs_Currently_Pressing_Label", "DAY_STATE_Label", "GAME_STATE_Label", "CURRENT_DAY_Label", "CURRENT_HOUR_Label", "CURRENT_WEATHER_Label") groups=["PlayerBody"]]
 collision_mask = 3
 script = ExtResource("1_5mhs1")
 Fade_In = true
@@ -161,6 +161,7 @@ Player_VelocityY_Label = NodePath("Head/Camera3D/DebugLayer/player_velocity_y")
 Player_VelocityY_Accurate_Label = NodePath("Head/Camera3D/DebugLayer/player_velocity_y_accurate")
 Is_On_Floor_Label = NodePath("Head/Camera3D/DebugLayer/is_on_floor")
 Inputs_Currently_Pressing_Label = NodePath("Head/Camera3D/DebugLayer/Inputs_currently_pressing")
+DAY_STATE_Label = NodePath("Head/Camera3D/DebugLayer/DAY_STATE")
 GAME_STATE_Label = NodePath("Head/Camera3D/DebugLayer/GAME_STATE")
 CURRENT_DAY_Label = NodePath("Head/Camera3D/DebugLayer/CURRENT_DAY")
 CURRENT_HOUR_Label = NodePath("Head/Camera3D/DebugLayer/CURRENT_HOUR")
@@ -944,6 +945,7 @@ autowrap_mode = 1
 script = ExtResource("9_svfxy")
 
 [node name="DebugLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="item_ref_LBL" type="Label" parent="Head/Camera3D/DebugLayer"]
 self_modulate = Color(1, 1, 1, 0.196078)
