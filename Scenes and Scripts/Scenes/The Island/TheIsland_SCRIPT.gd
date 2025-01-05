@@ -90,14 +90,14 @@ var transRain_tween
 var transStorm_tween
 var transCloudy_tween
 
+var sunRotation_tween
+
 var MiddayColor = Color(0.941, 0.987, 0.809)
 var SunriseColor = Color(0.793, 0.612, 0.18)
 var SunsetColor = Color(0.98, 0.729, 0.312)
 
 var NightCloudColor = Color(0, 0, 0)
 var DayCloudColor = Color(0.367, 0.367, 0.367)
-
-var sunRotation_tween
 
 func _ready() -> void:
 	randomize()
