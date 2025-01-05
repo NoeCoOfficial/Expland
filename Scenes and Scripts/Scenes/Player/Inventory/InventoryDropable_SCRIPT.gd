@@ -140,7 +140,9 @@ func _process(delta):
 				can_create_pickup = false
 				debounce_timer = 0.2
 				InventoryManager.create_pickup_object()
+				
 			else:
+				
 				InventoryManager.is_dragging = false
 				self.z_index = 0
 				var tween = get_tree().create_tween()
@@ -163,8 +165,8 @@ func _process(delta):
 							else:
 								print("{LOCAL} [InventoryDropable_SCRIPT.gd] " + body_ref + " does not have method: set_populated()")
 				else:
-					print("BOOM")
 					tween.tween_property(self, "global_position", initialPos, SNAP_TIME)
+			
 			if mouse_over_timer.is_inside_tree():                          
 				mouse_over_timer.start() # Restart the timer when the item is placed down
 

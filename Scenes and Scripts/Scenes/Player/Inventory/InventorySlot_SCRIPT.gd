@@ -89,6 +89,9 @@ func _on_draggable_detector_area_entered(area: Area2D) -> void:
 		if $AlreadyPopulatedChecker.time_left > 0.0:
 			set_populated(true)
 		else:
+			if !populated:
+				InventoryManager.is_inside_checker = false
+				
 			is_touching_draggable = true
 
 func _on_draggable_detector_area_exited(area: Area2D) -> void:
