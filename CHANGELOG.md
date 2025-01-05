@@ -3,6 +3,7 @@
 # v0.6.0 (unreleased)
 
 ---
+
 ## Main Menu
 
 ### Changed:
