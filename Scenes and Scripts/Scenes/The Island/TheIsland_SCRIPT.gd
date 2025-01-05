@@ -110,7 +110,6 @@ func _ready() -> void:
 	InventoryData.loadInventory(IslandManager.Current_Island_Name)
 	
 	PlayerManager.init()
-	set_motion_blur(PlayerSettingsData.MotionBlur)
 	set_dof_blur(PlayerSettingsData.DOFBlur)
 	
 	if PlayerData.GAME_STATE == "SLEEPING":
@@ -134,12 +133,6 @@ func initNodes():
 	RainParticles.visible = false
 	TheIslandProceduralSkyMaterial.sky_top_color = Color(0.311, 0.463, 0.682)
 	TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.502, 0.641, 0.905)
-
-func set_motion_blur(value : bool) -> void:
-	if value:
-		IslandWorldEnvironmentNode.set_compositor(motionBlurCompositor)
-	else:
-		IslandWorldEnvironmentNode.set_compositor(noMotionBlurCompositor)
 
 func set_dof_blur(value : bool) -> void:
 	var cameraAttributesResource = load("res://Resources/Environment/DefaultCameraAttributes.tres")
