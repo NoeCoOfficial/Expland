@@ -60,7 +60,6 @@ var showStartupScreen = true
 # Graphics
 ######################################
 
-var MotionBlur = true
 var DOFBlur = true
 
 ######################################
@@ -91,7 +90,6 @@ func saveSettings() -> void:
 		"show_startup_screen" : showStartupScreen,
 		
 		# Graphics
-		"motion_blur" : MotionBlur,
 		"dof_blur" : DOFBlur,
 		
 		# Video
@@ -127,7 +125,6 @@ func loadSettings() -> void:
 				showStartupScreen = current_line["show_startup_screen"]
 				
 				# Graphics
-				MotionBlur = current_line["motion_blur"]
 				DOFBlur = current_line["dof_blur"]
 				
 				# Video
@@ -143,7 +140,6 @@ func loadSettings() -> void:
 				
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Show startup screen: "+str(showStartupScreen)+"[/font][/font_size][/center]")
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]DOF Blur: "+str(DOFBlur)+"[/font][/font_size][/center]")
-				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Motion Blur: "+str(MotionBlur)+"[/font][/font_size][/center]")
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]FOV: "+str(FOV)+"[/font][/font_size][/center]")
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Master Volume: "+str(Master_Volume)+"[/font][/font_size][/center]")
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Music Volume: "+str(music_Volume)+"[/font][/font_size][/center]")
@@ -152,27 +148,6 @@ func loadSettings() -> void:
 ######################################
 # Setting values
 ######################################
-
-func set_motion_blur(value : bool) -> void:
-	if get_node("/root/World") != null:
-		if value:
-			MotionBlur = true
-			var world = get_node("/root/World")
-			
-			if world.has_method("set_motion_blur"):
-				world.set_motion_blur(value)
-			else:
-				printerr("[PlayerSettingsData] Could not find set_motion_blur() method in world node.")
-		else:
-			MotionBlur = false
-			var world = get_node("/root/World")
-			
-			if world.has_method("set_motion_blur"):
-				world.set_motion_blur(value)
-			else:
-				printerr("[PlayerSettingsData] Could not find set_motion_blur() method in world node.")
-	else:
-		printerr("[PlayerSettingsData] World node (/root/World) is null. Can't call set_motion_blur().")
 
 func set_dof_blur(value : bool) -> void:
 	if get_node("/root/World") != null:

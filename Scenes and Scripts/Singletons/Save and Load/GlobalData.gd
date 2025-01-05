@@ -79,8 +79,7 @@ func loadGlobal() -> void:
 			#	showStartupScreen = current_line["show_startup_screen"]
 				
 				# Graphics
-			#	MotionBlur = current_line["motion_blur"]
-			#	DOFBlur = current_line["dof_blur"]
+				# DOFBlur = current_line["dof_blur"]
 				
 				# Video
 			#	FOV = current_line["FOV"]
