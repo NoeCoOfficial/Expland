@@ -4,6 +4,11 @@
 
 ---
 
+## Core
+
+### Changed:
+- Changed default Linux driver to Wayland instead of XWayland, which is hard to maintain (#74)
+
 ## Main Menu
 
 ### Changed:
