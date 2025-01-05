@@ -182,6 +182,7 @@ func _input(_event: InputEvent) -> void:
 					slot_inside.set_populated(false)
 					InventoryManager.set_hand_item(self, ITEM_TYPE)
 					debounce_timer = 0.2
+					
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("slot") and !InventoryManager.is_inside_checker:  
