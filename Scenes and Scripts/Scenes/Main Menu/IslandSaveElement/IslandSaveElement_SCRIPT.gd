@@ -95,7 +95,7 @@ func _on_continue_btn_pressed() -> void:
 	var invalid_chars = ["/", "\\", "|", "*", "<", ">", "\"", "?", ":", "+", "\t", "\n", "\r"]
 	var sanitized_name = ""
 	var has_valid_char = false
-	
+		
 	for character in text:
 		if character not in invalid_chars:
 			sanitized_name += character
