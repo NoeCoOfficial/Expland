@@ -47,6 +47,19 @@
 
 extends Node
 
+const CONSUMABLE_ITEMS = [
+	
+	"HEALTHPOTION", 
+	"EFFICIENCYPOTION", 
+	"HASTEPOTION",
+	"LUCKPOTION",
+	"NIGHTVISIONPOTION",
+	"REGENERATINGPOTION",
+	"STAMINAPOTION",
+	"STRENGTHPOTION",
+	
+	]
+
 var creatingFromInventory = false
 
 var inventory_open = false
