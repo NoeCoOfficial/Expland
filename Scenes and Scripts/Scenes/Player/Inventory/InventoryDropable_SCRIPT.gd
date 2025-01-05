@@ -48,7 +48,7 @@
 @icon("res://Textures/Icons/Script Icons/32x32/inventory.png")
 extends Node2D
 
-@export var ITEM_TYPE : String ## The type of the item that the Sprite2D is holding.
+@export var ITEM_TYPE : String
 @export var ITEM_TYPE_Label : Label
 @export var ITEM_Sprite : Sprite2D
 
@@ -62,7 +62,7 @@ var initialPos: Vector2
 var offset: Vector2
 var slot_inside = null
 var SNAP_TIME = 0.0
-var debounce_timer = 0.2 # Debounce time in seconds
+var debounce_timer = 0.2
 var can_create_pickup = true
 var is_hovering_over = false
 
@@ -138,7 +138,7 @@ func _process(delta):
 				var PARENT = self.get_parent()
 				PARENT.remove_child(self)
 				can_create_pickup = false
-				debounce_timer = 0.2 # Reset debounce timer
+				debounce_timer = 0.2
 				InventoryManager.create_pickup_object()
 			else:
 				InventoryManager.is_dragging = false
@@ -169,10 +169,14 @@ func _process(delta):
 
 func _input(_event: InputEvent) -> void:
 	var minimal_alert = get_node("/root/World/Player//Head/Camera3D/MinimalAlertLayer/MinimalAlert")
+	
 	if Input.is_action_just_pressed("RightClick") and debounce_timer <= 0:
+		
 		if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup and is_hovering_over:
+			
 			if ITEM_TYPE != InventoryData.HAND_ITEM_TYPE:
-				if ITEM_TYPE == "PICKAXE" or ITEM_TYPE == "AXE" or ITEM_TYPE == "SWORD":
+				
+				if ITEM_TYPE in InventoryManager.HANDHELD_ITEMS:
 					minimal_alert.hide_minimal_alert(0.1)
 					slot_inside.set_populated(false)
 					InventoryManager.set_hand_item(self, ITEM_TYPE)
