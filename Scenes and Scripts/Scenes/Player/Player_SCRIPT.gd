@@ -184,7 +184,9 @@ var is_crouching = false
 @export_group("General Nodes")
 
 @export_subgroup("CanvasLayers")
+@export var HUDLayer : CanvasLayer
 @export var ChestUILayer : CanvasLayer
+@export var InventoryLayer : CanvasLayer
 
 @export_subgroup("UI")
 @export var SettingsUI : Control

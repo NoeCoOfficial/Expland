@@ -111,7 +111,7 @@ Button/styles/normal = ExtResource("20_b68th")
 Button/styles/pressed = SubResource("StyleBoxFlat_8tgxn")
 Label/styles/normal = ExtResource("21_k6ube")
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "PickupAttractionPos", "Slot1_Ref", "Slot2_Ref", "Slot3_Ref", "Slot4_Ref", "Slot5_Ref", "Slot6_Ref", "Slot7_Ref", "Slot8_Ref", "Slot9_Ref", "ChestUILayer", "SettingsUI", "AchievementsUI", "AlertLayer", "CreditsLayer", "MinimalAlert", "TopLayerBlackOverlay", "SleepLayerBlackOverlay", "DayText_Label", "ProtectiveLayer", "Health_Label", "Crosshair_Rect", "Inventory_Item_Ref_Label", "Is_Raycast_Colliding_Label", "Is_Inside_Settings_Label", "Is_Inventory_Open_Label", "Is_Moving_Label", "Is_Walking_Label", "Is_Sprinting_Label", "Is_Crouching_Label", "Is_In_Dialogue_Interface_Label", "Showing_Interaction_Notification_Label", "Current_Time_Label", "Current_FPS_Label", "Player_Position_Label", "Player_VelocityY_Label", "Player_VelocityY_Accurate_Label", "Is_On_Floor_Label", "Inputs_Currently_Pressing_Label", "DAY_STATE_Label", "GAME_STATE_Label", "CURRENT_DAY_Label", "CURRENT_HOUR_Label", "CURRENT_WEATHER_Label") groups=["PlayerBody"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "PickupAttractionPos", "Slot1_Ref", "Slot2_Ref", "Slot3_Ref", "Slot4_Ref", "Slot5_Ref", "Slot6_Ref", "Slot7_Ref", "Slot8_Ref", "Slot9_Ref", "HUDLayer", "ChestUILayer", "InventoryLayer", "SettingsUI", "AchievementsUI", "AlertLayer", "CreditsLayer", "MinimalAlert", "TopLayerBlackOverlay", "SleepLayerBlackOverlay", "DayText_Label", "ProtectiveLayer", "Health_Label", "Crosshair_Rect", "Inventory_Item_Ref_Label", "Is_Raycast_Colliding_Label", "Is_Inside_Settings_Label", "Is_Inventory_Open_Label", "Is_Moving_Label", "Is_Walking_Label", "Is_Sprinting_Label", "Is_Crouching_Label", "Is_In_Dialogue_Interface_Label", "Showing_Interaction_Notification_Label", "Current_Time_Label", "Current_FPS_Label", "Player_Position_Label", "Player_VelocityY_Label", "Player_VelocityY_Accurate_Label", "Is_On_Floor_Label", "Inputs_Currently_Pressing_Label", "DAY_STATE_Label", "GAME_STATE_Label", "CURRENT_DAY_Label", "CURRENT_HOUR_Label", "CURRENT_WEATHER_Label") groups=["PlayerBody"]]
 collision_mask = 3
 script = ExtResource("1_5mhs1")
 Fade_In = true
@@ -131,7 +131,9 @@ Slot6_Ref = NodePath("Head/Camera3D/InventoryLayer/Slot6")
 Slot7_Ref = NodePath("Head/Camera3D/InventoryLayer/Slot7")
 Slot8_Ref = NodePath("Head/Camera3D/InventoryLayer/Slot8")
 Slot9_Ref = NodePath("Head/Camera3D/InventoryLayer/Slot9")
+HUDLayer = NodePath("Head/Camera3D/HUDLayer")
 ChestUILayer = NodePath("Head/Camera3D/ChestUILayer")
+InventoryLayer = NodePath("Head/Camera3D/InventoryLayer")
 SettingsUI = NodePath("Head/Camera3D/SettingsLayer/SettingsUI")
 AchievementsUI = NodePath("Head/Camera3D/AchievementsLayer/AchievementsUI")
 AlertLayer = NodePath("Head/Camera3D/AlertLayer/AlertLayer")
@@ -141,8 +143,8 @@ TopLayerBlackOverlay = NodePath("Head/Camera3D/SleepLayer/BlackOverlay")
 SleepLayerBlackOverlay = NodePath("Head/Camera3D/SleepLayer/BlackOverlay")
 DayText_Label = NodePath("Head/Camera3D/SleepLayer/DayTextLabel")
 ProtectiveLayer = NodePath("Head/Camera3D/TopLayer/ProtectiveLayer")
-Health_Label = NodePath("Head/Camera3D/CrosshairCanvas/HealthLBL")
-Crosshair_Rect = NodePath("Head/Camera3D/CrosshairCanvas/Crosshair")
+Health_Label = NodePath("Head/Camera3D/HUDLayer/HealthLBL")
+Crosshair_Rect = NodePath("Head/Camera3D/HUDLayer/Crosshair")
 Inventory_Item_Ref_Label = NodePath("Head/Camera3D/DebugLayer/item_ref_LBL")
 Is_Raycast_Colliding_Label = NodePath("Head/Camera3D/DebugLayer/is_raycast_colliding")
 Is_Inside_Settings_Label = NodePath("Head/Camera3D/DebugLayer/is_inside_settings")
@@ -222,9 +224,9 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 
 target_position = Vector3(0, -3, 0)
 script = ExtResource("3_2qtqn")
 
-[node name="CrosshairCanvas" type="CanvasLayer" parent="Head/Camera3D"]
+[node name="HUDLayer" type="CanvasLayer" parent="Head/Camera3D"]
 
-[node name="HealthLBL" type="Label" parent="Head/Camera3D/CrosshairCanvas"]
+[node name="HealthLBL" type="Label" parent="Head/Camera3D/HUDLayer"]
 anchors_preset = -1
 anchor_left = 0.00260417
 anchor_top = 0.00462963
@@ -237,7 +239,7 @@ text = "Health : 100"
 script = ExtResource("4_56i84")
 metadata/_edit_use_anchors_ = true
 
-[node name="Crosshair" type="TextureRect" parent="Head/Camera3D/CrosshairCanvas"]
+[node name="Crosshair" type="TextureRect" parent="Head/Camera3D/HUDLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
