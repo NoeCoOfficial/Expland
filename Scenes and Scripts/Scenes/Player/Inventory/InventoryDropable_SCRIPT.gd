@@ -183,6 +183,13 @@ func _input(_event: InputEvent) -> void:
 					InventoryManager.set_hand_item(self, ITEM_TYPE)
 					debounce_timer = 0.2
 					
+				# Right clicked on a consumable item (see InventoryManager.gd for contents)
+				if ITEM_TYPE in InventoryManager.CONSUMABLE_ITEMS:
+					minimal_alert.hide_minimal_alert(0.1)
+					
+					# TODO: Eat items here
+					
+					debounce_timer = 0.2
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("slot") and !InventoryManager.is_inside_checker:  
