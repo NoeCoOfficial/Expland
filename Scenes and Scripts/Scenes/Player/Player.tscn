@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=48 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -39,6 +39,30 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_16v4h"]
 size = Vector3(1.7, 2.07, 1.7)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wf401"]
+bg_color = Color(0.125911, 0.125911, 0.125911, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bjmfh"]
+bg_color = Color(0.984648, 0.348932, 0.393409, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2kg3l"]
 bg_color = Color(0.151276, 0.151276, 0.151276, 1)
@@ -226,19 +250,6 @@ script = ExtResource("3_2qtqn")
 
 [node name="HUDLayer" type="CanvasLayer" parent="Head/Camera3D"]
 
-[node name="HealthLBL" type="Label" parent="Head/Camera3D/HUDLayer"]
-anchors_preset = -1
-anchor_left = 0.00260417
-anchor_top = 0.00462963
-anchor_right = 0.0789931
-anchor_bottom = 0.0354938
-offset_right = -1.52588e-05
-theme_override_fonts/font = ExtResource("3_yecwp")
-theme_override_font_sizes/font_size = 17
-text = "Health : 100"
-script = ExtResource("4_56i84")
-metadata/_edit_use_anchors_ = true
-
 [node name="Crosshair" type="TextureRect" parent="Head/Camera3D/HUDLayer"]
 anchors_preset = 8
 anchor_left = 0.5
@@ -254,6 +265,31 @@ grow_vertical = 2
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_606ex")
 expand_mode = 1
+
+[node name="HealthLBL" type="Label" parent="Head/Camera3D/HUDLayer"]
+anchors_preset = -1
+anchor_left = 0.00260417
+anchor_top = 0.00462963
+anchor_right = 0.0789931
+anchor_bottom = 0.0354938
+offset_right = -1.52588e-05
+offset_bottom = 1.90735e-05
+theme_override_fonts/font = ExtResource("3_yecwp")
+theme_override_font_sizes/font_size = 17
+text = "Health : 100"
+script = ExtResource("4_56i84")
+metadata/_edit_use_anchors_ = true
+
+[node name="HealthBar" type="ProgressBar" parent="Head/Camera3D/HUDLayer"]
+offset_left = 6.0
+offset_top = 633.0
+offset_right = 76.0
+offset_bottom = 642.0
+theme_override_styles/background = SubResource("StyleBoxFlat_wf401")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bjmfh")
+step = 1.0
+value = 28.0
+show_percentage = false
 
 [node name="InteractionLayer" type="CanvasLayer" parent="Head/Camera3D"]
 
