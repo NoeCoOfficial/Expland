@@ -42,6 +42,9 @@
 - Strength potion pickup item (currently can't obtain)
 - Yellow flower pickup item (currently can't obtain) (#46)
 
+### Fixed:
+- Fixed a bug where you could sometimes not place dropables down in empty slots (#81)
+
 ---
 
 # v0.5.5 (released)
