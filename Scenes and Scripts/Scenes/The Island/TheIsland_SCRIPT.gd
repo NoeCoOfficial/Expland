@@ -165,15 +165,24 @@ func _on_auto_save_timeout() -> void:
 
 func get_weighted_random_weather():
 	var weights = [60, 10, 10, 20]
+	
 	var options = [1, 2, 3, 4]
-	var total_weight = Utils.sum_array(weights)  # Use the helper function
+	# 1 = SUNNY
+	# 2 = RAIN
+	# 3 = STORM
+	# 4 = CLOUDY
+	
+	var total_weight = Utils.sum_array(weights)
 	var random_value = randi() % total_weight
 	var cumulative = 0
 	
 	for i in options.size():
 		cumulative += weights[i]
 		if random_value < cumulative:
-			return options[i]
+			if TimeManager.CURRENT_HOUR != 18 or TimeManager.CURRENT_HOUR != 4:
+				return options[i]
+			else:
+				return 1
 
 func change_weather_timeout() -> void:
 	change_weather(true)
