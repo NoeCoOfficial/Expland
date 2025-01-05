@@ -47,6 +47,14 @@
 
 extends Node
 
+const HANDHELD_ITEMS = [
+	
+	"PICKAXE",
+	"AXE",
+	"SWORD",
+	
+]
+
 const CONSUMABLE_ITEMS = [
 	
 	"HEALTHPOTION", 
@@ -68,7 +76,7 @@ const CONSUMABLE_ITEMS = [
 	"WATERBOTTLE",
 	"WATERCANTEEN",
 	
-	]
+]
 
 var creatingFromInventory = false
 
