@@ -176,11 +176,13 @@ func _input(_event: InputEvent) -> void:
 			
 			if ITEM_TYPE != InventoryData.HAND_ITEM_TYPE:
 				
+				# Right clicked on a handheld item (see InventoryManager.gd for contents)
 				if ITEM_TYPE in InventoryManager.HANDHELD_ITEMS:
 					minimal_alert.hide_minimal_alert(0.1)
 					slot_inside.set_populated(false)
 					InventoryManager.set_hand_item(self, ITEM_TYPE)
-					debounce_timer = 0.2 # Reset debounce timer
+					debounce_timer = 0.2
+				
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("slot") and !InventoryManager.is_inside_checker:  
@@ -201,7 +203,7 @@ func _on_area_2d_mouse_entered():
 		scale = Vector2(1.05, 1.05)
 		
 	if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup:
-		if ITEM_TYPE == "PICKAXE" or ITEM_TYPE == "AXE" or ITEM_TYPE == "SWORD":
+		if ITEM_TYPE in InventoryManager.HANDHELD_ITEMS:
 			var minimal_alert = get_node("/root/World/Player//Head/Camera3D/MinimalAlertLayer/MinimalAlert")
 			minimal_alert.show_minimal_alert(0.1, "Right click to hold item")
 
@@ -212,7 +214,7 @@ func _on_area_2d_mouse_exited():
 		draggable = false
 		scale = Vector2(1.0, 1.0)
 		
-		if ITEM_TYPE == "PICKAXE" or ITEM_TYPE == "AXE" or ITEM_TYPE == "SWORD":
+		if ITEM_TYPE in InventoryManager.HANDHELD_ITEMS:
 			var minimal_alert = get_node("/root/World/Player//Head/Camera3D/MinimalAlertLayer/MinimalAlert")
 			minimal_alert.hide_minimal_alert(0.1)
 
