@@ -48,7 +48,12 @@
 @icon("res://Textures/Icons/Script Icons/32x32/inventory.png")
 extends Node2D
 
-@export var ITEM_TYPE: String ## The type of the item that the Sprite2D is holding.
+@export var ITEM_TYPE : String ## The type of the item that the Sprite2D is holding.
+@export var ITEM_TYPE_Label : Label
+@export var ITEM_Sprite : Sprite2D
+
+@export var mouse_over_timer : Timer
+@export var populated_on_startup_timer : Timer
 
 var draggable = false
 var is_inside_dropable = false
@@ -61,46 +66,44 @@ var debounce_timer = 0.2 # Debounce time in seconds
 var can_create_pickup = true
 var is_hovering_over = false
 
-@onready var mouse_over_timer = $MouseOverTimer
-
 func _ready():
 	self.name = "Dropable"
 	self.z_index = 0
 	
-	$ITEM_TYPE.text = ITEM_TYPE.capitalize()
+	ITEM_TYPE_Label.text = ITEM_TYPE.capitalize()
 	
 	if "REDFLOWER" in ITEM_TYPE:
-		$ITEM_TYPE.text = "Red Flower"
+		ITEM_TYPE_Label.text = "Red Flower"
 	elif "BLUEFLOWER" in ITEM_TYPE:
-		$ITEM_TYPE.text = "Blue Flower"
+		ITEM_TYPE_Label.text = "Blue Flower"
 	elif "BLANKFLOWER" in ITEM_TYPE:
-		$ITEM_TYPE.text = "Blank Flower"
+		ITEM_TYPE_Label.text = "Blank Flower"
 	elif "PINKFLOWER" in ITEM_TYPE:
-		$ITEM_TYPE.text = "Pink Flower"
+		ITEM_TYPE_Label.text = "Pink Flower"
 	
 	elif "EFFICIENCYPOTION" in ITEM_TYPE:
-		$ITEM_TYPE.text = "Efficiency Potion"
+		ITEM_TYPE_Label.text = "Efficiency Potion"
 	elif "HASTEPOTION" in ITEM_TYPE:
-		$ITEM_TYPE.text = "Haste Potion"
+		ITEM_TYPE_Label.text = "Haste Potion"
 	elif "HEALTHPOTION" in ITEM_TYPE:
-		$ITEM_TYPE.text = "Health Potion"
+		ITEM_TYPE_Label.text = "Health Potion"
 	elif "LUCKPOTION" in ITEM_TYPE:
-		$ITEM_TYPE.text = "Luck Potion"
+		ITEM_TYPE_Label.text = "Luck Potion"
 	elif "NIGHTVISIONPOTION" in ITEM_TYPE:
-		$ITEM_TYPE.text = "Night Vision Potion"
+		ITEM_TYPE_Label.text = "Night Vision Potion"
 	elif "REGENERATINGPOTION" in ITEM_TYPE:
-		$ITEM_TYPE.text = "Regenerating Potion"
+		ITEM_TYPE_Label.text = "Regenerating Potion"
 	elif "STAMINAPOTION" in ITEM_TYPE:
-		$ITEM_TYPE.text = "Stamina Potion"
+		ITEM_TYPE_Label.text = "Stamina Potion"
 	elif "STRENGTHPOTION" in ITEM_TYPE:
-		$ITEM_TYPE.text = "Strength Potion"
+		ITEM_TYPE_Label.text = "Strength Potion"
 	
 	if ITEM_TYPE != "":
 		var OBJ_TEXTURE: Texture2D = load("res://Textures/Inventory/" + ITEM_TYPE + ".png")
 		if OBJ_TEXTURE == null:
 			print("Failed to load texture: res://Textures/Inventory/" + ITEM_TYPE + ".png")
 		else:
-			$Sprite2D.texture = OBJ_TEXTURE
+			ITEM_Sprite.texture = OBJ_TEXTURE
 	
 	mouse_over_timer.connect("timeout", Callable(self, "_on_mouse_over_timeout"))
 	
@@ -177,7 +180,7 @@ func _input(_event: InputEvent) -> void:
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("slot") and !InventoryManager.is_inside_checker:  
-		if $PopulatedOnStartup.time_left > 0.0:
+		if populated_on_startup_timer.time_left > 0.0:
 			slot_inside = body
 		is_inside_dropable = true
 		
@@ -222,13 +225,13 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 
 func set_ITEM_TYPE(ITEM_TYPE_TEMP : String):
 	ITEM_TYPE = ITEM_TYPE_TEMP
-	$ITEM_TYPE.text = ITEM_TYPE.capitalize()
+	ITEM_TYPE_Label.text = ITEM_TYPE.capitalize()
 	
 	var OBJ_TEXTURE: Texture2D = load("res://Textures/Inventory/" + ITEM_TYPE + ".png")
 	if OBJ_TEXTURE == null:
 		print("Failed to load texture: res://Textures/Inventory/" + ITEM_TYPE + ".png")
 	else:
-		$Sprite2D.texture = OBJ_TEXTURE
+		ITEM_Sprite.texture = OBJ_TEXTURE
 
 func get_ITEM_TYPE():
 	return ITEM_TYPE

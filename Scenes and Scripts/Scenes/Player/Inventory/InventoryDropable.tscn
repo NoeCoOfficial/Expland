@@ -6,8 +6,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mgv10"]
 size = Vector2(60, 60)
 
-[node name="Dropable" type="Node2D"]
+[node name="Dropable" type="Node2D" node_paths=PackedStringArray("ITEM_TYPE_Label", "ITEM_Sprite", "mouse_over_timer", "populated_on_startup_timer")]
 script = ExtResource("1_opaah")
+ITEM_TYPE_Label = NodePath("ITEM_TYPE")
+ITEM_Sprite = NodePath("Sprite2D")
+mouse_over_timer = NodePath("MouseOverTimer")
+populated_on_startup_timer = NodePath("PopulatedOnStartup")
 
 [node name="PopulatedOnStartup" type="Timer" parent="."]
 wait_time = 0.05
