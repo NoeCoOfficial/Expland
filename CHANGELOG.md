@@ -3,20 +3,11 @@
 # v0.6.0 (unreleased)
 
 ---
-
-<!--
-## Player
-
-### Added:
-- Added a minimal alert UI (triggered when you try to sleep in the day)
+## Main Menu
 
 ### Changed:
-- Modified player pickup range to be slightly larger for 3D inventory pickup items
-- Increase range of 3D inventory pickup item drop position from the player
+- Camera animation now loops instead of stopping when returned to original position
 
-### Fixed:
-- Fixed being able to pause the game while dead
--->
 ## Environment
 
 ### Changed:
