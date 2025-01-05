@@ -160,7 +160,7 @@ Player_Position_Label = NodePath("Head/Camera3D/DebugLayer/player_position")
 Player_VelocityY_Label = NodePath("Head/Camera3D/DebugLayer/player_velocity_y")
 Player_VelocityY_Accurate_Label = NodePath("Head/Camera3D/DebugLayer/player_velocity_y_accurate")
 Is_On_Floor_Label = NodePath("Head/Camera3D/DebugLayer/is_on_floor")
-Inputs_Currently_Pressing_Label = NodePath("Head/Camera3D/DebugLayer/inputs_currently_pressing")
+Inputs_Currently_Pressing_Label = NodePath("Head/Camera3D/DebugLayer/Inputs_currently_pressing")
 GAME_STATE_Label = NodePath("Head/Camera3D/DebugLayer/GAME_STATE")
 CURRENT_DAY_Label = NodePath("Head/Camera3D/DebugLayer/CURRENT_DAY")
 CURRENT_HOUR_Label = NodePath("Head/Camera3D/DebugLayer/CURRENT_HOUR")
@@ -1130,7 +1130,7 @@ text = "is_on_floor() = false"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="inputs_currently_pressing" type="Label" parent="Head/Camera3D/DebugLayer"]
+[node name="Inputs_currently_pressing" type="Label" parent="Head/Camera3D/DebugLayer"]
 modulate = Color(1, 1, 1, 0.568627)
 anchors_preset = 7
 anchor_left = 0.5
@@ -1147,8 +1147,22 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("20_bmbkh")
 
+[node name="DAY_STATE" type="Label" parent="Head/Camera3D/DebugLayer"]
+self_modulate = Color(1, 1, 1, 0.466667)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -175.0
+offset_top = 549.0
+offset_right = -3.0
+offset_bottom = 568.0
+grow_horizontal = 0
+theme = ExtResource("17_rhxkt")
+text = "DAY_STATE = \"\""
+horizontal_alignment = 2
+
 [node name="GAME_STATE" type="Label" parent="Head/Camera3D/DebugLayer"]
-self_modulate = Color(1, 1, 1, 0.196078)
+self_modulate = Color(1, 1, 1, 0.466667)
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -1162,7 +1176,7 @@ text = "GAME_STATE = \" \""
 horizontal_alignment = 2
 
 [node name="CURRENT_DAY" type="Label" parent="Head/Camera3D/DebugLayer"]
-self_modulate = Color(1, 1, 1, 0.196078)
+self_modulate = Color(1, 1, 1, 0.466667)
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -1176,7 +1190,7 @@ text = "CURRENT_DAY = #"
 horizontal_alignment = 2
 
 [node name="CURRENT_HOUR" type="Label" parent="Head/Camera3D/DebugLayer"]
-self_modulate = Color(1, 1, 1, 0.196078)
+self_modulate = Color(1, 1, 1, 0.466667)
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -1190,7 +1204,7 @@ text = "CURRENT_HOUR = #"
 horizontal_alignment = 2
 
 [node name="CURRENT_WEATHER" type="Label" parent="Head/Camera3D/DebugLayer"]
-self_modulate = Color(1, 1, 1, 0.196078)
+self_modulate = Color(1, 1, 1, 0.466667)
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
