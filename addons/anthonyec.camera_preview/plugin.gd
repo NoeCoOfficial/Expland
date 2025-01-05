@@ -22,7 +22,7 @@ func _exit_tree() -> void:
 		preview.queue_free()
 		
 func _ready() -> void:
-	# TODO: Currently there is no API to get the main screen name without 
+	# Currently there is no API to get the main screen name without 
 	# listening to the `EditorPlugin.main_screen_changed` signal:
 	# https://github.com/godotengine/godot-proposals/issues/2081
 	EditorInterface.set_main_screen_editor("Script")
@@ -31,7 +31,6 @@ func _ready() -> void:
 func _on_main_screen_changed(screen_name: String) -> void:
 	current_main_screen_name = screen_name
 	
-	 # TODO: Bit of a hack to prevent pinned staying between view changes on the same scene.
 	preview.unlink_camera()
 	_on_editor_selection_changed()
 

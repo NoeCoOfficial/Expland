@@ -214,7 +214,6 @@ func _process(_delta: float) -> void:
 		var project_window_size = get_project_window_size()
 		var ratio = project_window_size.x / panel.size.x
 		
-		# TODO: Is there a better way to fix this?
 		# The camera border is visible sometimes due to pixel rounding. 
 		# Subtract 1px from right and bottom to hide this.
 		var hide_camera_border_fix = Vector2(1, 1)
@@ -236,7 +235,7 @@ func _process(_delta: float) -> void:
 		preview_camera_2d.limit_bottom = selected_camera_2d.limit_bottom
 
 func link_with_camera_3d(camera_3d: Camera3D) -> void:
-	# TODO: Camera may not be ready since this method is called in `_enter_tree` 
+	# Camera may not be ready since this method is called in `_enter_tree` 
 	# in the plugin because of a workaround for: 
 	# https://github.com/godotengine/godot-proposals/issues/2081
 	if not preview_camera_3d:
@@ -244,7 +243,6 @@ func link_with_camera_3d(camera_3d: Camera3D) -> void:
 		
 	var is_different_camera = camera_3d != preview_camera_3d
 	
-	# TODO: A bit messy.
 	if is_different_camera:
 		if preview_camera_3d.tree_exiting.is_connected(unlink_camera):
 			preview_camera_3d.tree_exiting.disconnect(unlink_camera)
@@ -264,7 +262,6 @@ func link_with_camera_2d(camera_2d: Camera2D) -> void:
 	
 	var is_different_camera = camera_2d != preview_camera_2d
 	
-	# TODO: A bit messy.
 	if is_different_camera:
 		if preview_camera_2d.tree_exiting.is_connected(unlink_camera):
 			preview_camera_2d.tree_exiting.disconnect(unlink_camera)

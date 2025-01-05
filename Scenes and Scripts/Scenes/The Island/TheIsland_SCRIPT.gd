@@ -269,24 +269,26 @@ func gotoWeather(type : String):
 
 func transToWeather(type : String):
 	
+	haltAllWeatherTweens()
+	
 	if type == "SUNNY":
 		RainParticles.emitting = false
 		await get_tree().create_timer(1).timeout
 		RainParticles.visible = false
 		
 		if TimeManager.DAY_STATE == "DAY":
-			var tween = get_tree().create_tween().set_parallel()
-			tween.tween_property(TheIslandProceduralSkyMaterial, "sky_top_color", Color(0.311, 0.463, 0.682), SKY_TRANS_TIME)
-			tween.tween_property(TheIslandProceduralSkyMaterial, "sky_horizon_color", Color(0.502, 0.641, 0.905), SKY_TRANS_TIME)
+			transSunny_tween = get_tree().create_tween().set_parallel()
+			transSunny_tween.tween_property(TheIslandProceduralSkyMaterial, "sky_top_color", Color(0.311, 0.463, 0.682), SKY_TRANS_TIME)
+			transSunny_tween.tween_property(TheIslandProceduralSkyMaterial, "sky_horizon_color", Color(0.502, 0.641, 0.905), SKY_TRANS_TIME)
 	
 	elif type == "RAIN":
 		RainParticles.visible = true
 		RainParticles.emitting = true
 		
 		if TimeManager.DAY_STATE == "DAY":
-			var tween = get_tree().create_tween().set_parallel()
-			tween.tween_property(TheIslandProceduralSkyMaterial, "sky_top_color", Color(0.421, 0.475, 0.515), SKY_TRANS_TIME)
-			tween.tween_property(TheIslandProceduralSkyMaterial, "sky_horizon_color", Color(0.582, 0.647, 0.748), SKY_TRANS_TIME)
+			transRain_tween = get_tree().create_tween().set_parallel()
+			transRain_tween.tween_property(TheIslandProceduralSkyMaterial, "sky_top_color", Color(0.421, 0.475, 0.515), SKY_TRANS_TIME)
+			transRain_tween.tween_property(TheIslandProceduralSkyMaterial, "sky_horizon_color", Color(0.582, 0.647, 0.748), SKY_TRANS_TIME)
 		
 		# NOTE: Put rain sound logic here
 	
