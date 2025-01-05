@@ -10,8 +10,8 @@
 
 ## Environment
 
-### Changed:
-- Motion Blur effect is now alot smoother and less laggy
+### Removed:
+- Removed motion blur effect
 
 ## Main Menu
 
