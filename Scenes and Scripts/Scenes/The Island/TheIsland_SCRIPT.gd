@@ -243,18 +243,10 @@ func gotoWeather(type : String):
 	if type == "SUNNY":
 		RainParticles.visible = false
 		RainParticles.emitting = false
-		
-		if TimeManager.DAY_STATE == "DAY":
-			TheIslandProceduralSkyMaterial.sky_top_color = Color(0.311, 0.463, 0.682)
-			TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.502, 0.641, 0.905)
 	
 	elif type == "RAIN":
 		RainParticles.visible = true
 		RainParticles.emitting = true
-		
-		if TimeManager.DAY_STATE == "DAY":
-			TheIslandProceduralSkyMaterial.sky_top_color = Color(0.421, 0.475, 0.515)
-			TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.582, 0.647, 0.748)
 		
 		# NOTE: Put rain sound logic here
 	
@@ -262,19 +254,11 @@ func gotoWeather(type : String):
 		RainParticles.visible = true
 		RainParticles.emitting = true
 		
-		if TimeManager.DAY_STATE == "DAY":
-			TheIslandProceduralSkyMaterial.sky_top_color = Color(0.421, 0.475, 0.515)
-			TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.582, 0.647, 0.748)
-		
 		# NOTE: Put rain and thunder sound logic here
 	
 	elif type == "CLOUDY":
 		RainParticles.visible = false
 		RainParticles.emitting = false
-		
-		if TimeManager.DAY_STATE == "DAY":
-			TheIslandProceduralSkyMaterial.sky_top_color = Color(0.311, 0.463, 0.682)
-			TheIslandProceduralSkyMaterial.sky_horizon_color = Color(0.502, 0.641, 0.905)
 
 func transToWeather(type : String):
 	
@@ -285,19 +269,9 @@ func transToWeather(type : String):
 		await get_tree().create_timer(1).timeout
 		RainParticles.visible = false
 		
-		if TimeManager.DAY_STATE == "DAY":
-			transSunny_tween = get_tree().create_tween().set_parallel()
-			transSunny_tween.tween_property(TheIslandProceduralSkyMaterial, "sky_top_color", Color(0.311, 0.463, 0.682), SKY_TRANS_TIME)
-			transSunny_tween.tween_property(TheIslandProceduralSkyMaterial, "sky_horizon_color", Color(0.502, 0.641, 0.905), SKY_TRANS_TIME)
-	
 	elif type == "RAIN":
 		RainParticles.visible = true
 		RainParticles.emitting = true
-		
-		if TimeManager.DAY_STATE == "DAY":
-			transRain_tween = get_tree().create_tween().set_parallel()
-			transRain_tween.tween_property(TheIslandProceduralSkyMaterial, "sky_top_color", Color(0.421, 0.475, 0.515), SKY_TRANS_TIME)
-			transRain_tween.tween_property(TheIslandProceduralSkyMaterial, "sky_horizon_color", Color(0.582, 0.647, 0.748), SKY_TRANS_TIME)
 		
 		# NOTE: Put rain sound logic here
 	
@@ -305,22 +279,12 @@ func transToWeather(type : String):
 		RainParticles.visible = true
 		RainParticles.emitting = true
 		
-		if TimeManager.DAY_STATE == "DAY":
-			transStorm_tween = get_tree().create_tween().set_parallel()
-			transStorm_tween.tween_property(TheIslandProceduralSkyMaterial, "sky_top_color", Color(0.421, 0.475, 0.515), SKY_TRANS_TIME)
-			transStorm_tween.tween_property(TheIslandProceduralSkyMaterial, "sky_horizon_color", Color(0.582, 0.647, 0.748), SKY_TRANS_TIME)
-			
 		# NOTE: Put rain and thunder sound logic here
 	
 	elif type == "CLOUDY":
 		RainParticles.emitting = false
 		await get_tree().create_timer(1).timeout
 		RainParticles.visible = false
-		
-		if TimeManager.DAY_STATE == "DAY":
-			transCloudy_tween = get_tree().create_tween().set_parallel()
-			transCloudy_tween.tween_property(TheIslandProceduralSkyMaterial, "sky_top_color", Color(0.311, 0.463, 0.682), SKY_TRANS_TIME)
-			transCloudy_tween.tween_property(TheIslandProceduralSkyMaterial, "sky_horizon_color", Color(0.502, 0.641, 0.905), SKY_TRANS_TIME)
 
 func rotateSun(addX : float):
 	var currentX = IslandDirectionalLight.rotation_degrees.x
@@ -405,7 +369,7 @@ func _on_tick() -> void:
 		
 		if TimeManager.CURRENT_HOUR == 7:
 			hour7_tween = get_tree().create_tween()
-			hour7_tween.tween_property(IslandDirectionalLight, "light_color", MiddayColor, HourTimer.wait_time * 2)
+			hour7_tween.tween_property(IslandDirectionalLight, "light_color", MiddayColor, HourTimer.wait_time)
 			rotateSun(-12) 
 			## -49 deg at finish
 			## -37 deg at start
@@ -704,7 +668,7 @@ func set_hour(hour : int):
 		IslandDirectionalLight.light_energy = 1
 		IslandDirectionalLight.light_color = SunriseColor
 		var tween = get_tree().create_tween()
-		tween.tween_property(IslandDirectionalLight, "light_color", MiddayColor, HourTimer.wait_time * 2)
+		tween.tween_property(IslandDirectionalLight, "light_color", MiddayColor, HourTimer.wait_time)
 		
 		rotateSun(-12) 
 		## End at -49
