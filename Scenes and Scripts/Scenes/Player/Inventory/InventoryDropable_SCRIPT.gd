@@ -163,6 +163,7 @@ func _process(delta):
 							else:
 								print("{LOCAL} [InventoryDropable_SCRIPT.gd] " + body_ref + " does not have method: set_populated()")
 				else:
+					print("BOOM")
 					tween.tween_property(self, "global_position", initialPos, SNAP_TIME)
 			if mouse_over_timer.is_inside_tree():                          
 				mouse_over_timer.start() # Restart the timer when the item is placed down
