@@ -1,0 +1,51 @@
+[gd_resource type="Compositor" load_steps=15 format=3 uid="uid://ch6wsdq4ij4nw"]
+
+[ext_resource type="Resource" uid="uid://cslvcweyejh3c" path="res://addons/SphynxMotionBlurToolkit/PreBlurProcessing/default_camera_movement_component.tres" id="1_kgscr"]
+[ext_resource type="Resource" uid="uid://iru8ynu04i00" path="res://addons/SphynxMotionBlurToolkit/PreBlurProcessing/default_camera_rotation_component.tres" id="2_g8ib0"]
+[ext_resource type="Resource" uid="uid://rp3mpjmisoyh" path="res://addons/SphynxMotionBlurToolkit/PreBlurProcessing/default_object_movement_component.tres" id="3_kj1dv"]
+[ext_resource type="Resource" uid="uid://c8ulad7utgrg7" path="res://addons/SphynxMotionBlurToolkit/PreBlurProcessing/pre_blur_processing_stage.tres" id="4_2hvcv"]
+[ext_resource type="Script" path="res://addons/SphynxMotionBlurToolkit/PreBlurProcessing/pre_blur_processor.gd" id="5_ktcjp"]
+[ext_resource type="Resource" uid="uid://bk5yd5plopwi2" path="res://addons/SphynxMotionBlurToolkit/JumpFlood/simple_jf_blur_stage.tres" id="6_ih6vj"]
+[ext_resource type="Resource" uid="uid://bj3exhmsfcx4w" path="res://addons/SphynxMotionBlurToolkit/JumpFlood/jf_simple_stage.tres" id="7_hpue5"]
+[ext_resource type="Resource" uid="uid://co5k7plgmxepi" path="res://addons/SphynxMotionBlurToolkit/JumpFlood/jump_flood_neighbor_max_stage.tres" id="8_3h54i"]
+[ext_resource type="Resource" uid="uid://dc5fr84ue3dn5" path="res://addons/SphynxMotionBlurToolkit/JumpFlood/jump_flood_overlay_stage.tres" id="9_dvi6u"]
+[ext_resource type="Script" path="res://addons/SphynxMotionBlurToolkit/JumpFlood/simple_jf_motion_blur.gd" id="10_2wifl"]
+[ext_resource type="Resource" uid="uid://c10aboaly701b" path="res://addons/SphynxMotionBlurToolkit/JumpFlood/jump_flood_tile_max_x_stage.tres" id="11_eu6w8"]
+[ext_resource type="Resource" uid="uid://cymk87e4nyxva" path="res://addons/SphynxMotionBlurToolkit/JumpFlood/jump_flood_tile_max_y_stage.tres" id="12_yvk2m"]
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_isoub"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("5_ktcjp")
+pre_blur_processor_stage = ExtResource("4_2hvcv")
+camera_rotation_component = ExtResource("2_g8ib0")
+camera_movement_component = ExtResource("1_kgscr")
+object_movement_component = ExtResource("3_kj1dv")
+debug = false
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_tfr1t"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("10_2wifl")
+tile_max_x_stage = ExtResource("11_eu6w8")
+tile_max_y_stage = ExtResource("12_yvk2m")
+construct_stage = ExtResource("7_hpue5")
+neighbor_max_stage = ExtResource("8_3h54i")
+blur_stage = ExtResource("6_ih6vj")
+overlay_stage = ExtResource("9_dvi6u")
+perpen_error_threshold = 0.5
+sample_step_multiplier = 16
+step_exponent_modifier = 1.0
+JFA_pass_count = 3
+debug = false
+
+[resource]
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_isoub"), SubResource("CompositorEffect_tfr1t")])
