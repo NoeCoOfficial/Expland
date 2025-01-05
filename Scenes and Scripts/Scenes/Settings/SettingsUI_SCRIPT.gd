@@ -48,7 +48,6 @@
 @icon("res://Textures/Icons/Script Icons/32x32/settings_gear.png")
 extends Control
 
-
 func nodeSetup():
 	$GreyLayer.modulate = Color(1, 1, 1, 0)
 	
