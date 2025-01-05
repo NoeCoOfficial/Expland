@@ -54,9 +54,8 @@ func nodeSetup():
 	
 	$MainLayer/SettingsTabContainer/General/SSCSwitch.button_pressed = PlayerSettingsData.showStartupScreen
 	
-	$MainLayer/SettingsTabContainer/Graphics/MotionBlurSwitch.button_pressed = PlayerSettingsData.MotionBlur
 	$MainLayer/SettingsTabContainer/Graphics/DOFBlurSwitch.button_pressed = PlayerSettingsData.DOFBlur
-
+	
 	$MainLayer/SettingsTabContainer/Video/FOVSlider.value = PlayerSettingsData.FOV
 	$MainLayer/SettingsTabContainer/Video/SENSITIVITYSlider.value = PlayerSettingsData.Sensitivity * 10
 	$MainLayer/SettingsTabContainer/Sound/MasterSlider.value = PlayerSettingsData.Master_Volume
@@ -130,12 +129,6 @@ func _on_sfx_slider_value_changed(value: float) -> void:
 
 func _on_save_settings_pressed() -> void:
 	PlayerSettingsData.saveSettings()
-
-func _on_motion_blur_switch_toggled(toggled_on: bool) -> void:
-	if toggled_on:
-		PlayerSettingsData.set_motion_blur(true)
-	else:
-		PlayerSettingsData.set_motion_blur(false)
 
 func _on_dof_blur_switch_toggled(toggled_on: bool) -> void:
 	if toggled_on:
