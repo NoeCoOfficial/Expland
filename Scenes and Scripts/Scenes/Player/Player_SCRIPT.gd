@@ -756,6 +756,28 @@ func visually_equip(ITEM_TYPE):
 				await get_tree().create_timer(0.15).timeout
 				$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_AXE")
 
+func init_visually_equip(ITEM_TYPE : String):
+	
+	if ITEM_TYPE == "":
+		$Head/Camera3D/InventoryHand/Pickaxe.visible = false
+		$Head/Camera3D/InventoryHand/Sword.visible = false
+		$Head/Camera3D/InventoryHand/Axe.visible = false
+	
+	if ITEM_TYPE == "PICKAXE":
+		$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_PICKAXE")
+		$Head/Camera3D/InventoryHand/Sword.visible = false
+		$Head/Camera3D/InventoryHand/Axe.visible = false
+	
+	if ITEM_TYPE == "AXE":
+		$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_AXE")
+		$Head/Camera3D/InventoryHand/Pickaxe.visible = false
+		$Head/Camera3D/InventoryHand/Sword.visible = false
+	
+	if ITEM_TYPE == "SWORD":
+		$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_SWORD")
+		$Head/Camera3D/InventoryHand/Pickaxe.visible = false
+		$Head/Camera3D/InventoryHand/Axe.visible = false
+
 ######################################
 # Chest UI
 ######################################
@@ -900,6 +922,8 @@ func on_sleep_cycle_hold_finished(fadeOutTime, hour : int):
 	
 	if WORLD != null:
 		if WORLD.has_method("set_hour"):
+			# TODO: Halt tweens here
+			
 			WORLD.set_hour(hour)
 	
 	PlayerData.GAME_STATE = "NORMAL"
