@@ -227,6 +227,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(-0.161, -2.631, -0.509), Vector3(-0.160571, -0.341295, -0.509379)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pickaxe:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_q6boy"]
 resource_name = "unequip_pickaxe"
@@ -1473,7 +1485,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.551257, 0, 0)
 
 [node name="Pickaxe" parent="Head/Camera3D/InventoryHand" instance=ExtResource("32_4dvtj")]
 transform = Transform3D(0.0162218, 0.0973932, -0.00666097, -0.0375891, -5.64452e-09, -0.0915424, -0.0900936, 0.0175361, 0.0369942, -0.161, -2.631, -0.509)
-visible = false
 
 [node name="Sword" parent="Head/Camera3D/InventoryHand" instance=ExtResource("33_pxyba")]
 transform = Transform3D(0.0240239, 0.00983063, 0.211569, -0.0427782, 0.208762, -0.0048427, -0.207432, -0.041914, 0.0255017, -0.175508, -0.624848, -0.528615)
