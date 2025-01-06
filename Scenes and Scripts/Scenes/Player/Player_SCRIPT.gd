@@ -60,14 +60,13 @@ The keyword @export means that they can be accessed in the inspector panel
 @export_category("Properties")
 
 ######################################
-# Utility group
+# Utility
 ######################################
 
-@export_group("Utility") ## A group for utility variables
-
-@export var inventory_opened_in_air := false ## Checks if the inventory UI is opened in the air (so the same velocity can be kept, used in _physics_process()
-@export var speed:float ## The speed of the player. Used in _physics_process, this variable changes to SPRINT_SPEED, CROUCH_SPEED or WALK_SPEED depending on what input is pressed.
+var inventory_opened_in_air := false ## Checks if the inventory UI is opened in the air (so the same velocity can be kept, used in _physics_process()
+var speed : float ## The speed of the player. Used in _physics_process, this variable changes to SPRINT_SPEED, CROUCH_SPEED or WALK_SPEED depending on what input is pressed.
 var transitioning_to_menu = false
+var stamina_restoring_f0 = false
 
 ######################################
 # Gameplay group
@@ -202,6 +201,7 @@ var is_crouching = false
 @export_subgroup("HUD")
 @export var Health_Label : Label
 @export var Crosshair_Rect : TextureRect
+@export var StaminaBar : ProgressBar
 
 @export_group("Debug")
 
@@ -336,10 +336,8 @@ func _unhandled_input(event): # A built-in function that listens for input all t
 ######################################
 
 func _physics_process(delta):
-	# Initialize movement state variables
-	is_walking = false
-	is_sprinting = false
-	is_crouching = false
+	
+	## Player movement and physics
 	
 	# Crouching
 	if !InventoryManager.inventory_open and PlayerData.GAME_STATE != "DEAD" and PlayerData.GAME_STATE != "SLEEPING" and is_on_floor() and !InventoryManager.in_chest_interface and !PauseManager.is_paused and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface:
@@ -360,12 +358,16 @@ func _physics_process(delta):
 			velocity.y = JUMP_VELOCITY
 		
 		# Handle Speed
-		if Input.is_action_pressed("Sprint") and !Input.is_action_pressed("Crouch") and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface and !InventoryManager.in_chest_interface:
-			speed = SPRINT_SPEED
+		if Input.is_action_pressed("Sprint"):
+			if !Input.is_action_pressed("Crouch") and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface and !InventoryManager.in_chest_interface:
+				speed = SPRINT_SPEED
+				is_sprinting = true
 		elif Input.is_action_pressed("Crouch") and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface and !InventoryManager.in_chest_interface:
 			speed = CROUCH_SPEED
+			is_crouching = true
 		else:
 			speed = WALK_SPEED
+			is_walking = true
 		
 		# Movement
 		var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
@@ -387,15 +389,6 @@ func _physics_process(delta):
 		# Check if the player is moving and on the floor
 		is_moving = velocity.length() > 0.1 and is_on_floor()
 		
-		# Update movement state variables based on the player's movement and state
-		if is_moving:
-			if Input.is_action_pressed("Sprint"):
-				is_sprinting = true
-			elif Input.is_action_pressed("Crouch"):
-				is_crouching = true
-			else:
-				is_walking = true
-			
 		# Apply view bobbing only if the player is moving
 		if is_moving:
 			Wave_Length += delta * velocity.length()
@@ -698,6 +691,7 @@ func _on_hand_dropable_detector_mouse_exited() -> void:
 func set_hand_item_type(ITEM_TYPE : String):
 	
 	if ITEM_TYPE == "":
+		visually_equip("")
 		InventoryData.HAND_ITEM_TYPE = ""
 		$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Empty"
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = false
@@ -705,6 +699,7 @@ func set_hand_item_type(ITEM_TYPE : String):
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = false
 	
 	elif ITEM_TYPE == "PICKAXE":
+		visually_equip("PICKAXE")
 		InventoryData.HAND_ITEM_TYPE = "PICKAXE"
 		$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Pickaxe"
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = true
@@ -712,6 +707,7 @@ func set_hand_item_type(ITEM_TYPE : String):
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = false
 	
 	elif ITEM_TYPE == "AXE":
+		visually_equip("AXE")
 		InventoryData.HAND_ITEM_TYPE = "AXE"
 		$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Axe"
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = false
@@ -719,11 +715,68 @@ func set_hand_item_type(ITEM_TYPE : String):
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = false
 	
 	elif ITEM_TYPE == "SWORD":
+		visually_equip("SWORD")
 		InventoryData.HAND_ITEM_TYPE = "SWORD"
 		$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Sword"
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = false
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = false
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = true
+
+func visually_equip(ITEM_TYPE):
+	if !ITEM_TYPE == InventoryData.HAND_ITEM_TYPE:
+		if ITEM_TYPE == "":
+			if InventoryData.HAND_ITEM_TYPE != "":
+				var anim_to_play : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
+				$Head/Camera3D/InventoryHand/EquipAnimations.play(anim_to_play)
+		
+		if ITEM_TYPE == "SWORD":
+			if InventoryData.HAND_ITEM_TYPE == "":
+				$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_SWORD")
+			else:
+				var item_to_unequip : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
+				$Head/Camera3D/InventoryHand/EquipAnimations.play(item_to_unequip)
+				await get_tree().create_timer(0.15).timeout
+				$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_SWORD")
+		
+		if ITEM_TYPE == "PICKAXE":
+			if InventoryData.HAND_ITEM_TYPE == "":
+				$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_PICKAXE")
+			else:
+				var item_to_unequip : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
+				$Head/Camera3D/InventoryHand/EquipAnimations.play(item_to_unequip)
+				await get_tree().create_timer(0.15).timeout
+				$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_PICKAXE")
+		
+		if ITEM_TYPE == "AXE":
+			if InventoryData.HAND_ITEM_TYPE == "":
+				$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_AXE")
+			else:
+				var item_to_unequip : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
+				$Head/Camera3D/InventoryHand/EquipAnimations.play(item_to_unequip)
+				await get_tree().create_timer(0.15).timeout
+				$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_AXE")
+
+func init_visually_equip(ITEM_TYPE : String):
+	
+	if ITEM_TYPE == "":
+		$Head/Camera3D/InventoryHand/Pickaxe.visible = false
+		$Head/Camera3D/InventoryHand/Sword.visible = false
+		$Head/Camera3D/InventoryHand/Axe.visible = false
+	
+	if ITEM_TYPE == "PICKAXE":
+		$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_PICKAXE")
+		$Head/Camera3D/InventoryHand/Sword.visible = false
+		$Head/Camera3D/InventoryHand/Axe.visible = false
+	
+	if ITEM_TYPE == "AXE":
+		$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_AXE")
+		$Head/Camera3D/InventoryHand/Pickaxe.visible = false
+		$Head/Camera3D/InventoryHand/Sword.visible = false
+	
+	if ITEM_TYPE == "SWORD":
+		$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_SWORD")
+		$Head/Camera3D/InventoryHand/Pickaxe.visible = false
+		$Head/Camera3D/InventoryHand/Axe.visible = false
 
 ######################################
 # Chest UI
@@ -869,6 +922,8 @@ func on_sleep_cycle_hold_finished(fadeOutTime, hour : int):
 	
 	if WORLD != null:
 		if WORLD.has_method("set_hour"):
+			# TODO: Halt tweens here
+			
 			WORLD.set_hour(hour)
 	
 	PlayerData.GAME_STATE = "NORMAL"
