@@ -336,6 +336,13 @@ func _unhandled_input(event): # A built-in function that listens for input all t
 ######################################
 
 func _physics_process(delta):
+	
+	if stamina_restoring_f0:
+		if PlayerManager.Stamina >= 50.0:
+			stamina_restoring_f0 = false
+	
+	## Player movement and physics
+	
 	# Initialize movement state variables
 	is_walking = false
 	is_sprinting = false
