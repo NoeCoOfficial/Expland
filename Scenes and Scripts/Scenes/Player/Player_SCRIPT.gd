@@ -351,11 +351,6 @@ func _physics_process(delta):
 	
 	## Player movement and physics
 	
-	# Initialize movement state variables
-	is_walking = false
-	is_sprinting = false
-	is_crouching = false
-	
 	# Crouching
 	if !InventoryManager.inventory_open and PlayerData.GAME_STATE != "DEAD" and PlayerData.GAME_STATE != "SLEEPING" and is_on_floor() and !InventoryManager.in_chest_interface and !PauseManager.is_paused and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface:
 		if Input.is_action_pressed("Crouch"):
@@ -383,7 +378,7 @@ func _physics_process(delta):
 				if PlayerManager.Stamina == 0.0:
 					stamina_restoring_f0 = true
 				
-				if !stamina_restoring_f0 and is_moving:
+				if !stamina_restoring_f0 and is_moving and is_sprinting:
 					PlayerManager.Stamina -= 0.5
 				
 				if !stamina_restoring_f0 and is_moving:
