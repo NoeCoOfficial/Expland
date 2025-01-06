@@ -698,29 +698,65 @@ func set_hand_item_type(ITEM_TYPE : String):
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = false
 	
 	elif ITEM_TYPE == "PICKAXE":
-		InventoryData.HAND_ITEM_TYPE = "PICKAXE"
+		equip("PICKAXE")
 		$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Pickaxe"
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = true
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = false
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = false
 	
 	elif ITEM_TYPE == "AXE":
-		InventoryData.HAND_ITEM_TYPE = "AXE"
+		equip("AXE")
 		$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Axe"
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = false
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = true
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = false
 	
 	elif ITEM_TYPE == "SWORD":
-		InventoryData.HAND_ITEM_TYPE = "SWORD"
+		equip("SWORD")
 		$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Sword"
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = false
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = false
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = true
 
 func equip(ITEM_TYPE):
+	
 	if ITEM_TYPE == "SWORD":
-		pass
+		
+		if InventoryData.HAND_ITEM_TYPE == "PICKAXE":
+			$Head/Camera3D/InventoryHand/EquipAnimations.play("unequip_pickaxe")
+		elif InventoryData.HAND_ITEM_TYPE == "AXE":
+			$Head/Camera3D/InventoryHand/EquipAnimations.play("unequip_axe")
+			
+		await get_tree().create_timer(0.15).timeout
+		
+		if InventoryData.HAND_ITEM_TYPE != ITEM_TYPE:
+			$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_sword")
+		InventoryData.HAND_ITEM_TYPE = "SWORD"
+		
+	
+	elif ITEM_TYPE == "PICKAXE":
+		if InventoryData.HAND_ITEM_TYPE == "SWORD":
+			$Head/Camera3D/InventoryHand/EquipAnimations.play("unequip_sword")
+		elif InventoryData.HAND_ITEM_TYPE == "AXE":
+			$Head/Camera3D/InventoryHand/EquipAnimations.play("unequip_axe")
+		
+		await get_tree().create_timer(0.15).timeout
+		
+		if InventoryData.HAND_ITEM_TYPE != ITEM_TYPE:
+			$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_pickaxe")
+		InventoryData.HAND_ITEM_TYPE = "PICKAXE"
+
+	elif ITEM_TYPE == "AXE":
+		if InventoryData.HAND_ITEM_TYPE == "SWORD":
+			$Head/Camera3D/InventoryHand/EquipAnimations.play("unequip_sword")
+		elif InventoryData.HAND_ITEM_TYPE == "PICKAXE":
+			$Head/Camera3D/InventoryHand/EquipAnimations.play("unequip_pickaxe")
+		
+		await get_tree().create_timer(0.15).timeout
+		
+		if InventoryData.HAND_ITEM_TYPE != ITEM_TYPE:
+			$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_axe")
+		InventoryData.HAND_ITEM_TYPE = "AXE"
 
 ######################################
 # Chest UI
