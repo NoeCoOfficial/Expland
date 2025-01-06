@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=52 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://djenc4llne53s" path="res://Scenes and Scripts/Scenes/Credits/CreditsLayer.tscn" id="24_qhsvo"]
 [ext_resource type="PackedScene" uid="uid://cq13w255wbu5l" path="res://Scenes and Scripts/Scenes/Minimal Alert/MinimalAlert.tscn" id="27_5o6is"]
 [ext_resource type="PackedScene" uid="uid://cnpgx6ef6qxqs" path="res://Assets/3D Models/Tools/Pickaxe.blend" id="32_4dvtj"]
+[ext_resource type="PackedScene" uid="uid://duk84wfnoo2r6" path="res://Assets/3D Models/Tools/Sword.blend" id="33_pxyba"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_w6tro"]
 
@@ -1319,6 +1320,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.551257, 0, 0)
 
 [node name="Pickaxe" parent="Head/Camera3D/InventoryHand" instance=ExtResource("32_4dvtj")]
 transform = Transform3D(0.0162218, 0.0973932, -0.00666097, -0.0375891, -5.64452e-09, -0.0915424, -0.0900936, 0.0175361, 0.0369942, -0.160571, -0.341295, -0.509379)
+visible = false
+
+[node name="Sword" parent="Head/Camera3D/InventoryHand" instance=ExtResource("33_pxyba")]
+transform = Transform3D(0.0240239, 0.00983063, 0.211569, -0.0427782, 0.208762, -0.0048427, -0.207432, -0.041914, 0.0255017, -0.175508, -0.624848, -0.528615)
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="timeout" from="WalkingSpeedSounds" to="." method="_on_walking_speed_sounds_timeout"]
