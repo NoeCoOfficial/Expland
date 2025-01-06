@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ceabjbnv3nnyr"]
+[gd_scene load_steps=19 format=3 uid="uid://ceabjbnv3nnyr"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Settings/SettingsUI_SCRIPT.gd" id="1_ucu3v"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="2_vw753"]
@@ -11,6 +11,16 @@
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Settings/Volume/SFXSlider_SCRIPT.gd" id="9_vkpop"]
 [ext_resource type="StyleBox" uid="uid://com3tix0pshhk" path="res://Resources/Styles and Themes/Styles/Default/Label/Default_Label.tres" id="10_6yhy8"]
 [ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="11_mokm2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xxfmj"]
+bg_color = Color(0.169245, 0.169245, 0.169245, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_top = 1.0
+anti_aliasing = false
+anti_aliasing_size = 0.01
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_5ohsc"]
 thickness = 10
@@ -242,11 +252,17 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="ShadowQualityDropDown" type="OptionButton" parent="MainLayer/SettingsTabContainer/Graphics"]
-layout_mode = 0
-offset_left = 265.0
-offset_top = 15.0
-offset_right = 367.0
-offset_bottom = 46.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.712002
+anchor_top = 0.0388442
+anchor_right = 0.973336
+anchor_bottom = 0.111677
+focus_mode = 0
+theme_override_fonts/font = ExtResource("11_mokm2")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_xxfmj")
+alignment = 1
 selected = 2
 item_count = 5
 popup/item_0/text = "Disabled"
@@ -258,6 +274,7 @@ popup/item_3/text = "High"
 popup/item_3/id = 3
 popup/item_4/text = "Ultra"
 popup/item_4/id = 4
+metadata/_edit_use_anchors_ = true
 
 [node name="Video" type="TabBar" parent="MainLayer/SettingsTabContainer"]
 visible = false
