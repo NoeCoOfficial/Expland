@@ -430,6 +430,7 @@ func _process(_delta):
 	Is_Sprinting_Label.text = "is_sprinting = " + str(is_sprinting)
 	Is_Crouching_Label.text = "is_crouching = " + str(is_crouching)
 	Is_In_Dialogue_Interface_Label.text = "In dialogue interface? " + str(DialogueManager.is_in_interface)
+	InventoryHand_Label.text = "Hand: " + InventoryData.HAND_ITEM_TYPE
 	Showing_Interaction_Notification_Label.text = "Showing notification? " + str(InteractionManager.is_notification_on_screen)
 	Current_Time_Label.text = time_string
 	Current_FPS_Label.text = "FPS: %d" % Engine.get_frames_per_second()
