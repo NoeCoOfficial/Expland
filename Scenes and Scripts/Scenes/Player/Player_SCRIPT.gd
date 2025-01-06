@@ -719,6 +719,11 @@ func set_hand_item_type(ITEM_TYPE : String):
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = true
 
 func visually_equip(ITEM_TYPE):
+	if ITEM_TYPE == "":
+		if InventoryData.HAND_ITEM_TYPE != "":
+			var anim_to_play : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
+			$Head/Camera3D/InventoryHand/EquipAnimations.play(anim_to_play)
+		
 	if ITEM_TYPE == "SWORD":
 		pass
 
