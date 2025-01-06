@@ -192,6 +192,8 @@ func _input(_event: InputEvent) -> void:
 					
 					# TODO: Eat items here
 					
+					
+					
 					debounce_timer = 0.2
 
 func _on_area_2d_body_entered(body):
