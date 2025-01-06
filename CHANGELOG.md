@@ -39,9 +39,10 @@
 ## Inventory
 
 ### Added:
-- The ability to place tools (Sword, Pickaxe, Axe) in your hand.
+- The ability to hold items (Sword, Pickaxe, Axe) in your hand.
 - Axe pickup item
 - Sword pickup item
+- Coconut pickup item
 - Efficiency potion pickup item (currently can't obtain)
 - Haste potion pickup item (currently can't obtain)
 - Health potion pickup item (currently can't obtain)
