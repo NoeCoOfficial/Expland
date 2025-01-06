@@ -691,6 +691,7 @@ func _on_hand_dropable_detector_mouse_exited() -> void:
 func set_hand_item_type(ITEM_TYPE : String):
 	
 	if ITEM_TYPE == "":
+		visually_equip("")
 		InventoryData.HAND_ITEM_TYPE = ""
 		$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Empty"
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = false
@@ -698,6 +699,7 @@ func set_hand_item_type(ITEM_TYPE : String):
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = false
 	
 	elif ITEM_TYPE == "PICKAXE":
+		visually_equip("PICKAXE")
 		InventoryData.HAND_ITEM_TYPE = "PICKAXE"
 		$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Pickaxe"
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = true
@@ -705,6 +707,7 @@ func set_hand_item_type(ITEM_TYPE : String):
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = false
 	
 	elif ITEM_TYPE == "AXE":
+		visually_equip("AXE")
 		InventoryData.HAND_ITEM_TYPE = "AXE"
 		$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Axe"
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = false
@@ -712,11 +715,68 @@ func set_hand_item_type(ITEM_TYPE : String):
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = false
 	
 	elif ITEM_TYPE == "SWORD":
+		visually_equip("SWORD")
 		InventoryData.HAND_ITEM_TYPE = "SWORD"
 		$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Sword"
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = false
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = false
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = true
+
+func visually_equip(ITEM_TYPE):
+	if !ITEM_TYPE == InventoryData.HAND_ITEM_TYPE:
+		if ITEM_TYPE == "":
+			if InventoryData.HAND_ITEM_TYPE != "":
+				var anim_to_play : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
+				$Head/Camera3D/InventoryHand/EquipAnimations.play(anim_to_play)
+		
+		if ITEM_TYPE == "SWORD":
+			if InventoryData.HAND_ITEM_TYPE == "":
+				$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_SWORD")
+			else:
+				var item_to_unequip : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
+				$Head/Camera3D/InventoryHand/EquipAnimations.play(item_to_unequip)
+				await get_tree().create_timer(0.15).timeout
+				$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_SWORD")
+		
+		if ITEM_TYPE == "PICKAXE":
+			if InventoryData.HAND_ITEM_TYPE == "":
+				$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_PICKAXE")
+			else:
+				var item_to_unequip : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
+				$Head/Camera3D/InventoryHand/EquipAnimations.play(item_to_unequip)
+				await get_tree().create_timer(0.15).timeout
+				$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_PICKAXE")
+		
+		if ITEM_TYPE == "AXE":
+			if InventoryData.HAND_ITEM_TYPE == "":
+				$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_AXE")
+			else:
+				var item_to_unequip : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
+				$Head/Camera3D/InventoryHand/EquipAnimations.play(item_to_unequip)
+				await get_tree().create_timer(0.15).timeout
+				$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_AXE")
+
+func init_visually_equip(ITEM_TYPE : String):
+	
+	if ITEM_TYPE == "":
+		$Head/Camera3D/InventoryHand/Pickaxe.visible = false
+		$Head/Camera3D/InventoryHand/Sword.visible = false
+		$Head/Camera3D/InventoryHand/Axe.visible = false
+	
+	if ITEM_TYPE == "PICKAXE":
+		$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_PICKAXE")
+		$Head/Camera3D/InventoryHand/Sword.visible = false
+		$Head/Camera3D/InventoryHand/Axe.visible = false
+	
+	if ITEM_TYPE == "AXE":
+		$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_AXE")
+		$Head/Camera3D/InventoryHand/Pickaxe.visible = false
+		$Head/Camera3D/InventoryHand/Sword.visible = false
+	
+	if ITEM_TYPE == "SWORD":
+		$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_SWORD")
+		$Head/Camera3D/InventoryHand/Pickaxe.visible = false
+		$Head/Camera3D/InventoryHand/Axe.visible = false
 
 ######################################
 # Chest UI
@@ -862,6 +922,8 @@ func on_sleep_cycle_hold_finished(fadeOutTime, hour : int):
 	
 	if WORLD != null:
 		if WORLD.has_method("set_hour"):
+			# TODO: Halt tweens here
+			
 			WORLD.set_hour(hour)
 	
 	PlayerData.GAME_STATE = "NORMAL"
