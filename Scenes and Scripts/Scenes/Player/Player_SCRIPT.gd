@@ -361,9 +361,12 @@ func _physics_process(delta):
 		
 		# Handle Speed
 		if Input.is_action_pressed("Sprint") and !Input.is_action_pressed("Crouch") and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface and !InventoryManager.in_chest_interface:
-			speed = SPRINT_SPEED
+			if !stamina_restoring_f0:
+				speed = SPRINT_SPEED
+		
 		elif Input.is_action_pressed("Crouch") and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface and !InventoryManager.in_chest_interface:
 			speed = CROUCH_SPEED
+		
 		else:
 			speed = WALK_SPEED
 		
