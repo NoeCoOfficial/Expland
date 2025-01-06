@@ -209,17 +209,55 @@ button_pressed = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0133333
-anchor_top = 0.096059
+anchor_top = 0.0377927
 anchor_right = 0.208
-anchor_bottom = 0.167488
-offset_top = -24.0
-offset_bottom = -24.0
+anchor_bottom = 0.109222
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("4_m5nwd")
 theme_override_font_sizes/font_size = 17
 text = "DOF Blur"
+horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ShadowQualityTTL" type="Label" parent="MainLayer/SettingsTabContainer/Graphics"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.384001
+anchor_top = 0.0377927
+anchor_right = 0.696002
+anchor_bottom = 0.109222
+offset_left = 6.0
+offset_top = 1.0
+offset_right = 6.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("4_m5nwd")
+theme_override_font_sizes/font_size = 15
+text = "Shadow Quality"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ShadowQualityDropDown" type="OptionButton" parent="MainLayer/SettingsTabContainer/Graphics"]
+layout_mode = 0
+offset_left = 265.0
+offset_top = 15.0
+offset_right = 367.0
+offset_bottom = 46.0
+selected = 2
+item_count = 5
+popup/item_0/text = "Disabled"
+popup/item_1/text = "Low"
+popup/item_1/id = 1
+popup/item_2/text = "Medium"
+popup/item_2/id = 2
+popup/item_3/text = "High"
+popup/item_3/id = 3
+popup/item_4/text = "Ultra"
+popup/item_4/id = 4
 
 [node name="Video" type="TabBar" parent="MainLayer/SettingsTabContainer"]
 visible = false
