@@ -214,7 +214,6 @@ var is_crouching = false
 @export var Is_Sprinting_Label : Label
 @export var Is_Crouching_Label : Label
 @export var Is_In_Dialogue_Interface_Label : Label
-@export var InventoryHand_Label : Label
 @export var Showing_Interaction_Notification_Label : Label
 @export var Current_Time_Label : Label
 @export var Current_FPS_Label : Label
@@ -318,9 +317,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 						
 						InventoryManager.spawn_inventory_dropable(free_slot.position, InventoryData.HAND_ITEM_TYPE, free_slot)
 						free_slot.set_populated(true)
-						
 						set_hand_item_type("")
-						
 						MinimalAlert.hide_minimal_alert(0.1)
 
 func _unhandled_input(event): # A built-in function that listens for input all the time
@@ -429,7 +426,6 @@ func _process(_delta):
 	Is_Sprinting_Label.text = "is_sprinting = " + str(is_sprinting)
 	Is_Crouching_Label.text = "is_crouching = " + str(is_crouching)
 	Is_In_Dialogue_Interface_Label.text = "In dialogue interface? " + str(DialogueManager.is_in_interface)
-	InventoryHand_Label.text = "Hand: " + InventoryData.HAND_ITEM_TYPE
 	Showing_Interaction_Notification_Label.text = "Showing notification? " + str(InteractionManager.is_notification_on_screen)
 	Current_Time_Label.text = time_string
 	Current_FPS_Label.text = "FPS: %d" % Engine.get_frames_per_second()
@@ -695,81 +691,36 @@ func _on_hand_dropable_detector_mouse_exited() -> void:
 func set_hand_item_type(ITEM_TYPE : String):
 	
 	if ITEM_TYPE == "":
-		equip("")
+		InventoryData.HAND_ITEM_TYPE = ""
 		$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Empty"
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = false
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = false
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = false
 	
 	elif ITEM_TYPE == "PICKAXE":
-		equip("PICKAXE")
+		InventoryData.HAND_ITEM_TYPE = "PICKAXE"
 		$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Pickaxe"
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = true
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = false
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = false
 	
 	elif ITEM_TYPE == "AXE":
-		equip("AXE")
+		InventoryData.HAND_ITEM_TYPE = "AXE"
 		$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Axe"
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = false
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = true
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = false
 	
 	elif ITEM_TYPE == "SWORD":
-		equip("SWORD")
+		InventoryData.HAND_ITEM_TYPE = "SWORD"
 		$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Sword"
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = false
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = false
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = true
 
-func equip(ITEM_TYPE : String):
-	if ITEM_TYPE == "":
-		if InventoryData.HAND_ITEM_TYPE == "PICKAXE":
-			$Head/Camera3D/InventoryHand/EquipAnimations.play("unequip_pickaxe")
-		
-		elif InventoryData.HAND_ITEM_TYPE == "SWORD":
-			$Head/Camera3D/InventoryHand/EquipAnimations.play("unequip_sword")
-		
-		elif InventoryData.HAND_ITEM_TYPE == "AXE":
-			$Head/Camera3D/InventoryHand/EquipAnimations.play("unequip_axe")
-	
-	elif ITEM_TYPE == "SWORD":
-		
-		if InventoryData.HAND_ITEM_TYPE == "PICKAXE":
-			$Head/Camera3D/InventoryHand/EquipAnimations.play("unequip_pickaxe")
-		elif InventoryData.HAND_ITEM_TYPE == "AXE":
-			$Head/Camera3D/InventoryHand/EquipAnimations.play("unequip_axe")
-			
-		await get_tree().create_timer(0.15).timeout
-		
-		if InventoryData.HAND_ITEM_TYPE != ITEM_TYPE:
-			$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_sword")
-		InventoryData.HAND_ITEM_TYPE = "SWORD"
-		
-	
-	elif ITEM_TYPE == "PICKAXE":
-		if InventoryData.HAND_ITEM_TYPE == "SWORD":
-			$Head/Camera3D/InventoryHand/EquipAnimations.play("unequip_sword")
-		elif InventoryData.HAND_ITEM_TYPE == "AXE":
-			$Head/Camera3D/InventoryHand/EquipAnimations.play("unequip_axe")
-		
-		await get_tree().create_timer(0.15).timeout
-		
-		if InventoryData.HAND_ITEM_TYPE != ITEM_TYPE:
-			$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_pickaxe")
-		InventoryData.HAND_ITEM_TYPE = "PICKAXE"
-
-	elif ITEM_TYPE == "AXE":
-		if InventoryData.HAND_ITEM_TYPE == "SWORD":
-			$Head/Camera3D/InventoryHand/EquipAnimations.play("unequip_sword")
-		elif InventoryData.HAND_ITEM_TYPE == "PICKAXE":
-			$Head/Camera3D/InventoryHand/EquipAnimations.play("unequip_pickaxe")
-		
-		await get_tree().create_timer(0.15).timeout
-		
-		if InventoryData.HAND_ITEM_TYPE != ITEM_TYPE:
-			$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_axe")
-		InventoryData.HAND_ITEM_TYPE = "AXE"
+func equip(ITEM_TYPE):
+	if ITEM_TYPE == "SWORD":
+		pass
 
 ######################################
 # Chest UI
