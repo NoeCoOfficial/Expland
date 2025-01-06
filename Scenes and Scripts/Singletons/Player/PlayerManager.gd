@@ -51,7 +51,7 @@ var WORLD
 var PLAYER
 
 var SLEEPING_UPON_ENTERED = false
-var Stamina : float
+var Stamina : float = 100.0
 
 func init():
 	WORLD = get_node("/root/World/")

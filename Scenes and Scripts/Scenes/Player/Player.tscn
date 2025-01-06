@@ -684,7 +684,6 @@ offset_bottom = 502.0
 focus_mode = 0
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/DeathScreen"]
 anchors_preset = 15
@@ -736,7 +735,6 @@ vertical_alignment = 1
 script = ExtResource("11_0enap")
 
 [node name="OverlayLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="RedOverlay" type="ColorRect" parent="Head/Camera3D/OverlayLayer"]
 process_priority = 10
@@ -763,7 +761,6 @@ color = Color(0, 0, 0, 1)
 script = ExtResource("8_uxqns")
 
 [node name="DialogueLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="DialogueInterface" parent="Head/Camera3D/DialogueLayer" instance=ExtResource("17_pkmg7")]
 visible = false

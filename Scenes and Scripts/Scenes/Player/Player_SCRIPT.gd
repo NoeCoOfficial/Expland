@@ -337,9 +337,17 @@ func _unhandled_input(event): # A built-in function that listens for input all t
 
 func _physics_process(delta):
 	
+	StaminaBar.value = PlayerManager.Stamina
+	
 	if stamina_restoring_f0:
 		if PlayerManager.Stamina >= 50.0:
 			stamina_restoring_f0 = false
+	
+	if !Input.is_action_pressed("Sprint"):
+		PlayerManager.Stamina += 0.5
+		
+		if PlayerManager.Stamina >= 100.0:
+			PlayerManager.Stamina = 100.0
 	
 	## Player movement and physics
 	
@@ -366,10 +374,21 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("Jump") and !Input.is_action_pressed("Crouch") and is_on_floor() and !PauseManager.is_paused and !PauseManager.is_inside_alert and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.in_chest_interface and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface:
 			velocity.y = JUMP_VELOCITY
 		
+		
 		# Handle Speed
-		if Input.is_action_pressed("Sprint") and !Input.is_action_pressed("Crouch") and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface and !InventoryManager.in_chest_interface:
-			if !stamina_restoring_f0:
-				speed = SPRINT_SPEED
+		if Input.is_action_pressed("Sprint"):
+			
+			if !Input.is_action_pressed("Crouch") and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface and !InventoryManager.in_chest_interface:
+				
+				if is_moving:
+					if PlayerManager.Stamina == 0.0:
+						stamina_restoring_f0 = true
+					
+					if !stamina_restoring_f0:
+						PlayerManager.Stamina -= 0.5
+				
+				if !stamina_restoring_f0:
+					speed = SPRINT_SPEED
 		
 		elif Input.is_action_pressed("Crouch") and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface and !InventoryManager.in_chest_interface:
 			speed = CROUCH_SPEED
