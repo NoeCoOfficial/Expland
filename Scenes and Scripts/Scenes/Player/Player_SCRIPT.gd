@@ -319,7 +319,6 @@ func _input(_event): # A built-in function that listens for input using the inpu
 						InventoryManager.spawn_inventory_dropable(free_slot.position, InventoryData.HAND_ITEM_TYPE, free_slot)
 						free_slot.set_populated(true)
 						
-						unequip(InventoryData.HAND_ITEM_TYPE)
 						set_hand_item_type("")
 						
 						MinimalAlert.hide_minimal_alert(0.1)
@@ -696,7 +695,7 @@ func _on_hand_dropable_detector_mouse_exited() -> void:
 func set_hand_item_type(ITEM_TYPE : String):
 	
 	if ITEM_TYPE == "":
-		InventoryData.HAND_ITEM_TYPE = ""
+		equip("")
 		$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Empty"
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = false
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = false
@@ -724,8 +723,17 @@ func set_hand_item_type(ITEM_TYPE : String):
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = true
 
 func equip(ITEM_TYPE : String):
+	if ITEM_TYPE == "":
+		if InventoryData.HAND_ITEM_TYPE == "PICKAXE":
+			$Head/Camera3D/InventoryHand/EquipAnimations.play("unequip_pickaxe")
+		
+		elif InventoryData.HAND_ITEM_TYPE == "SWORD":
+			$Head/Camera3D/InventoryHand/EquipAnimations.play("unequip_sword")
+		
+		elif InventoryData.HAND_ITEM_TYPE == "AXE":
+			$Head/Camera3D/InventoryHand/EquipAnimations.play("unequip_axe")
 	
-	if ITEM_TYPE == "SWORD":
+	elif ITEM_TYPE == "SWORD":
 		
 		if InventoryData.HAND_ITEM_TYPE == "PICKAXE":
 			$Head/Camera3D/InventoryHand/EquipAnimations.play("unequip_pickaxe")
@@ -762,16 +770,6 @@ func equip(ITEM_TYPE : String):
 		if InventoryData.HAND_ITEM_TYPE != ITEM_TYPE:
 			$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_axe")
 		InventoryData.HAND_ITEM_TYPE = "AXE"
-
-func unequip(ITEM_TYPE : String):
-	if ITEM_TYPE == "SWORD":
-		$Head/Camera3D/InventoryHand/EquipAnimations.play("unequip_sword")
-	
-	elif ITEM_TYPE == "PICKAXE":
-		$Head/Camera3D/InventoryHand/EquipAnimations.play("unequip_pickaxe")
-	
-	elif ITEM_TYPE == "AXE":
-		$Head/Camera3D/InventoryHand/EquipAnimations.play("unequip_axe")
 
 ######################################
 # Chest UI
