@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b70yi42u0wnmm"
-path.s3tc="res://.godot/imported/coconut Base Color.png-198d1de62f57bf92857d0b0ea1ff9e1a.s3tc.ctex"
-path.etc2="res://.godot/imported/coconut Base Color.png-198d1de62f57bf92857d0b0ea1ff9e1a.etc2.ctex"
+path.s3tc="res://.godot/imported/CoconutColor.png-cb2dede3f10201f3a9b6645e93fc3f43.s3tc.ctex"
+path.etc2="res://.godot/imported/CoconutColor.png-cb2dede3f10201f3a9b6645e93fc3f43.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/3D Models/Consumables/Potions/coconut Base Color.png"
-dest_files=["res://.godot/imported/coconut Base Color.png-198d1de62f57bf92857d0b0ea1ff9e1a.s3tc.ctex", "res://.godot/imported/coconut Base Color.png-198d1de62f57bf92857d0b0ea1ff9e1a.etc2.ctex"]
+source_file="res://Resources/Materials/CoconutColor.png"
+dest_files=["res://.godot/imported/CoconutColor.png-cb2dede3f10201f3a9b6645e93fc3f43.s3tc.ctex", "res://.godot/imported/CoconutColor.png-cb2dede3f10201f3a9b6645e93fc3f43.etc2.ctex"]
 
 [params]
 

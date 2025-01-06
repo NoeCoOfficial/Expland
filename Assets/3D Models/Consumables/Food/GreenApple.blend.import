@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c1dw7gj6t5520"
-path="res://.godot/imported/green apple.blend-85e59b6eb26d48c18dd8ef845e5ae1e6.scn"
+path="res://.godot/imported/GreenApple.blend-26cb2db61a111ad20695b33e110b3eae.scn"
 
 [deps]
 
-source_file="res://Assets/3D Models/Consumables/Potions/green apple.blend"
-dest_files=["res://.godot/imported/green apple.blend-85e59b6eb26d48c18dd8ef845e5ae1e6.scn"]
+source_file="res://Assets/3D Models/Consumables/Food/GreenApple.blend"
+dest_files=["res://.godot/imported/GreenApple.blend-26cb2db61a111ad20695b33e110b3eae.scn"]
 
 [params]
 

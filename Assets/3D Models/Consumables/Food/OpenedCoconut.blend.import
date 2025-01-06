@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c5os6d76ut0do"
-path="res://.godot/imported/coconut.blend-dbae77ff780f4dcb95dcee03a6023899.scn"
+uid="uid://h7ctdswxwode"
+path="res://.godot/imported/OpenedCoconut.blend-35952aada888cbf9bbc1a8d3230636db.scn"
 
 [deps]
 
-source_file="res://Assets/3D Models/Consumables/Potions/coconut.blend"
-dest_files=["res://.godot/imported/coconut.blend-dbae77ff780f4dcb95dcee03a6023899.scn"]
+source_file="res://Assets/3D Models/Consumables/Food/OpenedCoconut.blend"
+dest_files=["res://.godot/imported/OpenedCoconut.blend-35952aada888cbf9bbc1a8d3230636db.scn"]
 
 [params]
 
@@ -31,7 +31,14 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"Material.001": {
+"use_external/enabled": true,
+"use_external/path": "res://Resources/Materials/CoconutColor.tres"
+}
+}
+}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true

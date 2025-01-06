@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://h7ctdswxwode"
-path="res://.godot/imported/opend coconut.blend-fa4c7a04d30b58875adad3fc6a886178.scn"
+uid="uid://bwh4p1wobg4po"
+path="res://.godot/imported/RedApple.blend-583e0bdc6b8d57b5a11722f2cbfa20d3.scn"
 
 [deps]
 
-source_file="res://Assets/3D Models/Consumables/Potions/opend coconut.blend"
-dest_files=["res://.godot/imported/opend coconut.blend-fa4c7a04d30b58875adad3fc6a886178.scn"]
+source_file="res://Assets/3D Models/Consumables/Food/RedApple.blend"
+dest_files=["res://.godot/imported/RedApple.blend-583e0bdc6b8d57b5a11722f2cbfa20d3.scn"]
 
 [params]
 
