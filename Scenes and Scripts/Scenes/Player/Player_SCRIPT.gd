@@ -202,6 +202,7 @@ var is_crouching = false
 @export_subgroup("HUD")
 @export var Health_Label : Label
 @export var Crosshair_Rect : TextureRect
+@export var StaminaBar : ProgressBar
 
 @export_group("Debug")
 
