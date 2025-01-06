@@ -718,7 +718,7 @@ func set_hand_item_type(ITEM_TYPE : String):
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = false
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = true
 
-func equip(ITEM_TYPE):
+func equip(ITEM_TYPE : String):
 	
 	if ITEM_TYPE == "SWORD":
 		
@@ -757,6 +757,16 @@ func equip(ITEM_TYPE):
 		if InventoryData.HAND_ITEM_TYPE != ITEM_TYPE:
 			$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_axe")
 		InventoryData.HAND_ITEM_TYPE = "AXE"
+
+func unequip(ITEM_TYPE : String):
+	if ITEM_TYPE == "SWORD":
+		$Head/Camera3D/InventoryHand/EquipAnimations.play("unequip_sword")
+	
+	elif ITEM_TYPE == "PICKAXE":
+		$Head/Camera3D/InventoryHand/EquipAnimations.play("unequip_pickaxe")
+	
+	elif ITEM_TYPE == "AXE":
+		$Head/Camera3D/InventoryHand/EquipAnimations.play("unequip_axe")
 
 ######################################
 # Chest UI
