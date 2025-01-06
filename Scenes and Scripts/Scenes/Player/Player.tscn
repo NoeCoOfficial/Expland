@@ -386,7 +386,7 @@ _data = {
 "unequip_sword": SubResource("Animation_u5xyb")
 }
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "PickupAttractionPos", "Slot1_Ref", "Slot2_Ref", "Slot3_Ref", "Slot4_Ref", "Slot5_Ref", "Slot6_Ref", "Slot7_Ref", "Slot8_Ref", "Slot9_Ref", "HUDLayer", "ChestUILayer", "InventoryLayer", "SettingsUI", "AchievementsUI", "AlertLayer", "CreditsLayer", "MinimalAlert", "TopLayerBlackOverlay", "SleepLayerBlackOverlay", "DayText_Label", "ProtectiveLayer", "Health_Label", "Crosshair_Rect", "StaminaBar", "Inventory_Item_Ref_Label", "Is_Raycast_Colliding_Label", "Is_Inside_Settings_Label", "Is_Inventory_Open_Label", "Is_Moving_Label", "Is_Walking_Label", "Is_Sprinting_Label", "Is_Crouching_Label", "Is_In_Dialogue_Interface_Label", "Showing_Interaction_Notification_Label", "Current_Time_Label", "Current_FPS_Label", "Player_Position_Label", "Player_VelocityY_Label", "Player_VelocityY_Accurate_Label", "Is_On_Floor_Label", "Inputs_Currently_Pressing_Label", "DAY_STATE_Label", "GAME_STATE_Label", "CURRENT_DAY_Label", "CURRENT_HOUR_Label", "CURRENT_WEATHER_Label") groups=["PlayerBody"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "PickupAttractionPos", "Slot1_Ref", "Slot2_Ref", "Slot3_Ref", "Slot4_Ref", "Slot5_Ref", "Slot6_Ref", "Slot7_Ref", "Slot8_Ref", "Slot9_Ref", "HUDLayer", "ChestUILayer", "InventoryLayer", "SettingsUI", "AchievementsUI", "AlertLayer", "CreditsLayer", "MinimalAlert", "TopLayerBlackOverlay", "SleepLayerBlackOverlay", "DayText_Label", "ProtectiveLayer", "Health_Label", "Crosshair_Rect", "StaminaBar", "Inventory_Item_Ref_Label", "Is_Raycast_Colliding_Label", "Is_Inside_Settings_Label", "Is_Inventory_Open_Label", "Is_Moving_Label", "Is_Walking_Label", "Is_Sprinting_Label", "Is_Crouching_Label", "Is_In_Dialogue_Interface_Label", "InventoryHand_Label", "Showing_Interaction_Notification_Label", "Current_Time_Label", "Current_FPS_Label", "Player_Position_Label", "Player_VelocityY_Label", "Player_VelocityY_Accurate_Label", "Is_On_Floor_Label", "Inputs_Currently_Pressing_Label", "DAY_STATE_Label", "GAME_STATE_Label", "CURRENT_DAY_Label", "CURRENT_HOUR_Label", "CURRENT_WEATHER_Label") groups=["PlayerBody"]]
 collision_mask = 3
 script = ExtResource("1_5mhs1")
 Fade_In = true
@@ -430,6 +430,7 @@ Is_Walking_Label = NodePath("Head/Camera3D/DebugLayer/is_walking")
 Is_Sprinting_Label = NodePath("Head/Camera3D/DebugLayer/is_sprinting")
 Is_Crouching_Label = NodePath("Head/Camera3D/DebugLayer/is_crouching")
 Is_In_Dialogue_Interface_Label = NodePath("Head/Camera3D/DebugLayer/is_in_dialogue_interface")
+InventoryHand_Label = NodePath("Head/Camera3D/DebugLayer/inventory_hand")
 Showing_Interaction_Notification_Label = NodePath("Head/Camera3D/DebugLayer/showing_interaction_notification")
 Current_Time_Label = NodePath("Head/Camera3D/DebugLayer/current_time")
 Current_FPS_Label = NodePath("Head/Camera3D/DebugLayer/current_fps")
@@ -1254,7 +1255,6 @@ autowrap_mode = 1
 script = ExtResource("9_svfxy")
 
 [node name="DebugLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="item_ref_LBL" type="Label" parent="Head/Camera3D/DebugLayer"]
 self_modulate = Color(1, 1, 1, 0.196078)
@@ -1364,13 +1364,24 @@ metadata/_edit_use_anchors_ = true
 self_modulate = Color(1, 1, 1, 0.196078)
 anchors_preset = -1
 anchor_left = 0.00260417
-anchor_top = 0.0586418
+anchor_top = 0.367284
 anchor_right = 0.206597
-anchor_bottom = 0.125
-offset_top = 200.0
-offset_bottom = 200.0
+anchor_bottom = 0.396605
 theme = ExtResource("17_rhxkt")
 text = "In dialogue interface? false"
+metadata/_edit_use_anchors_ = true
+
+[node name="inventory_hand" type="Label" parent="Head/Camera3D/DebugLayer"]
+self_modulate = Color(1, 1, 1, 0.196078)
+anchors_preset = -1
+anchor_left = 0.00260417
+anchor_top = 0.367284
+anchor_right = 0.206597
+anchor_bottom = 0.396605
+offset_top = 24.0
+offset_bottom = 24.0
+theme = ExtResource("17_rhxkt")
+text = "Hand: _______"
 metadata/_edit_use_anchors_ = true
 
 [node name="current_time" type="Label" parent="Head/Camera3D/DebugLayer"]

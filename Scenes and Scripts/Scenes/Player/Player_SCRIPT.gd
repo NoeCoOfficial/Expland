@@ -214,6 +214,7 @@ var is_crouching = false
 @export var Is_Sprinting_Label : Label
 @export var Is_Crouching_Label : Label
 @export var Is_In_Dialogue_Interface_Label : Label
+@export var InventoryHand_Label : Label
 @export var Showing_Interaction_Notification_Label : Label
 @export var Current_Time_Label : Label
 @export var Current_FPS_Label : Label
@@ -317,7 +318,10 @@ func _input(_event): # A built-in function that listens for input using the inpu
 						
 						InventoryManager.spawn_inventory_dropable(free_slot.position, InventoryData.HAND_ITEM_TYPE, free_slot)
 						free_slot.set_populated(true)
+						
+						unequip(InventoryData.HAND_ITEM_TYPE)
 						set_hand_item_type("")
+						
 						MinimalAlert.hide_minimal_alert(0.1)
 
 func _unhandled_input(event): # A built-in function that listens for input all the time
