@@ -723,17 +723,38 @@ func set_hand_item_type(ITEM_TYPE : String):
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = true
 
 func visually_equip(ITEM_TYPE):
+	
 	if ITEM_TYPE == "":
 		if InventoryData.HAND_ITEM_TYPE != "":
 			var anim_to_play : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
 			$Head/Camera3D/InventoryHand/EquipAnimations.play(anim_to_play)
-		
+	
 	if ITEM_TYPE == "SWORD":
 		if InventoryData.HAND_ITEM_TYPE == "":
 			$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_SWORD")
 		else:
 			var item_to_unequip : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
 			$Head/Camera3D/InventoryHand/EquipAnimations.play(item_to_unequip)
+			await get_tree().create_timer(0.15).timeout
+			$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_SWORD")
+	
+	if ITEM_TYPE == "PICKAXE":
+		if InventoryData.HAND_ITEM_TYPE == "":
+			$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_PICKAXE")
+		else:
+			var item_to_unequip : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
+			$Head/Camera3D/InventoryHand/EquipAnimations.play(item_to_unequip)
+			await get_tree().create_timer(0.15).timeout
+			$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_PICKAXE")
+	
+	if ITEM_TYPE == "AXE":
+		if InventoryData.HAND_ITEM_TYPE == "":
+			$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_AXE")
+		else:
+			var item_to_unequip : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
+			$Head/Camera3D/InventoryHand/EquipAnimations.play(item_to_unequip)
+			await get_tree().create_timer(0.15).timeout
+			$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_AXE")
 
 ######################################
 # Chest UI
