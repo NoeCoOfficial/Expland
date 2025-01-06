@@ -343,7 +343,7 @@ func _physics_process(delta):
 		if PlayerManager.Stamina >= 50.0:
 			stamina_restoring_f0 = false
 	
-	if !Input.is_action_pressed("Sprint"):
+	if !Input.is_action_pressed("Sprint") or stamina_restoring_f0:
 		PlayerManager.Stamina += 0.5
 		
 		if PlayerManager.Stamina >= 100.0:
@@ -380,21 +380,23 @@ func _physics_process(delta):
 			
 			if !Input.is_action_pressed("Crouch") and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface and !InventoryManager.in_chest_interface:
 				
-				if is_moving:
-					if PlayerManager.Stamina == 0.0:
-						stamina_restoring_f0 = true
-					
-					if !stamina_restoring_f0:
-						PlayerManager.Stamina -= 0.5
+				if PlayerManager.Stamina == 0.0:
+					stamina_restoring_f0 = true
+				
+				if !stamina_restoring_f0:
+					PlayerManager.Stamina -= 0.5
 				
 				if !stamina_restoring_f0:
 					speed = SPRINT_SPEED
+					is_sprinting = true
 		
 		elif Input.is_action_pressed("Crouch") and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface and !InventoryManager.in_chest_interface:
 			speed = CROUCH_SPEED
+			is_crouching = true
 		
 		else:
 			speed = WALK_SPEED
+			is_walking = true
 		
 		# Movement
 		var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
@@ -416,15 +418,6 @@ func _physics_process(delta):
 		# Check if the player is moving and on the floor
 		is_moving = velocity.length() > 0.1 and is_on_floor()
 		
-		# Update movement state variables based on the player's movement and state
-		if is_moving:
-			if Input.is_action_pressed("Sprint"):
-				is_sprinting = true
-			elif Input.is_action_pressed("Crouch"):
-				is_crouching = true
-			else:
-				is_walking = true
-			
 		# Apply view bobbing only if the player is moving
 		if is_moving:
 			Wave_Length += delta * velocity.length()
