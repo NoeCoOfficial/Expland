@@ -383,10 +383,10 @@ func _physics_process(delta):
 				if PlayerManager.Stamina == 0.0:
 					stamina_restoring_f0 = true
 				
-				if !stamina_restoring_f0:
+				if !stamina_restoring_f0 and is_moving:
 					PlayerManager.Stamina -= 0.5
 				
-				if !stamina_restoring_f0:
+				if !stamina_restoring_f0 and is_moving:
 					speed = SPRINT_SPEED
 					is_sprinting = true
 		
