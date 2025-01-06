@@ -718,6 +718,10 @@ func set_hand_item_type(ITEM_TYPE : String):
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = false
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = true
 
+func equip(ITEM_TYPE):
+	if ITEM_TYPE == "SWORD":
+		pass
+
 ######################################
 # Chest UI
 ######################################
