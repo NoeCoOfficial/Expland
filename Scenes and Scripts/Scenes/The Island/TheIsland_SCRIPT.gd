@@ -68,14 +68,6 @@ var SKY_TRANS_TIME = 1.0
 
 @export var Player : CharacterBody3D
 
-@export var RockPosRef : Node3D
-@export var RedFlowerPosRef : Node3D
-@export var BlueFlowerPosRef : Node3D
-@export var PinkFlowerPosRef : Node3D
-@export var BlankFlowerPosRef : Node3D
-@export var PickaxePosRef : Node3D
-@export var HealthPotionPosRef : Node3D
-
 var hour4_tween
 var hour5_tween
 var hour7_tween
@@ -141,15 +133,6 @@ func set_dof_blur(value : bool) -> void:
 		cameraAttributesResource.dof_blur_far_enabled = true
 	else:
 		cameraAttributesResource.dof_blur_far_enabled = false
-
-func _on_pickup_item_spawn_timer_timeout() -> void:
-	InventoryManager.create_pickup_object_at_pos(RockPosRef.position, "ROCK")
-	InventoryManager.create_pickup_object_at_pos(RedFlowerPosRef.position, "REDFLOWER")
-	InventoryManager.create_pickup_object_at_pos(BlueFlowerPosRef.position, "BLUEFLOWER")
-	InventoryManager.create_pickup_object_at_pos(PinkFlowerPosRef.position, "PINKFLOWER")
-	InventoryManager.create_pickup_object_at_pos(BlankFlowerPosRef.position, "BLANKFLOWER")
-	InventoryManager.create_pickup_object_at_pos(PickaxePosRef.position, "PICKAXE")
-	InventoryManager.create_pickup_object_at_pos(HealthPotionPosRef.position, "HEALTHPOTION")
 
 func _on_auto_save_timeout() -> void:
 	if IslandManager.Current_Game_Mode == "FREE":
