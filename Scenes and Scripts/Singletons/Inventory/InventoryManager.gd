@@ -78,6 +78,21 @@ const CONSUMABLE_ITEMS = [
 	
 ]
 
+const FOOD_ITEMS = {
+	"COCONUT": 20,
+	"COCONUTCAKE": 40,
+	"BERRY": 5,
+	"BLUEBERRY": 7,
+	"STRAWBERRY": 10,
+}
+
+# Utility
+
+func get_hunger_restoration_value(item: String) -> int:
+	if item in FOOD_ITEMS:
+		return FOOD_ITEMS[item]
+	return 0
+
 var creatingFromInventory = false
 
 var inventory_open = false

@@ -191,6 +191,8 @@ func _input(_event: InputEvent) -> void:
 					minimal_alert.hide_minimal_alert(0.1)
 					
 					# TODO: Eat items here
+					if ITEM_TYPE in InventoryManager.FOOD_ITEMS:
+						var value = InventoryManager.get_hunger_restoration_value(ITEM_TYPE)
 					
 					
 					
