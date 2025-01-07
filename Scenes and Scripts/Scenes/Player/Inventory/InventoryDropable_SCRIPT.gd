@@ -195,8 +195,8 @@ func _input(_event: InputEvent) -> void:
 					if ITEM_TYPE in InventoryManager.FOOD_ITEMS:
 						var value = InventoryManager.get_hunger_restoration_value(ITEM_TYPE)
 						PlayerManager.eat(value)
-					
-					
+						slot_inside.set_populated(false)
+						self.queue_free()
 					
 					debounce_timer = 0.2
 
