@@ -87,6 +87,8 @@ func _ready() -> void:
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
+	IslandManager.resetAttributes()
+	
 	PlayerSettingsData.loadSettings()
 	IslandAccessOrder.load_order()
 	
@@ -98,10 +100,10 @@ func _ready() -> void:
 	
 	Utils.set_center_offset($Camera3D/MainLayer/QuitButton)
 	Utils.set_center_offset($Camera3D/MainLayer/QuitButtonTrigger)
-
+	
 	await get_tree().create_timer(1).timeout
 	onStartup()
-
+	
 	await get_tree().create_timer(2).timeout
 	$Camera3D/MainLayer/ProtectiveLayer.visible = false
 

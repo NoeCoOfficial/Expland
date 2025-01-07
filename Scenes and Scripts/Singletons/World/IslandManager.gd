@@ -50,7 +50,7 @@ extends Node
 var transitioning_from_menu
 
 var Current_Island_Name = "Debug"
-var Current_Game_Mode : String
+var Current_Game_Mode = ""
 var Current_Weather = ""
 
 
@@ -61,3 +61,46 @@ func _ready() -> void:
 func set_current_island(island_name: String) -> void:
 	Current_Island_Name = island_name
 	IslandAccessOrder.add_island(island_name)
+
+func resetAttributes():
+	
+	## CRITICAL
+	# EVERY NEW VALUE ASSOCIATED WITH THE ISLAND
+	# IT'S NAME AND IT'S DEFAULT HERE!
+	# VERY IMPORTANT!
+	
+	PlayerData.GAME_STATE = "NORMAL"
+	PlayerData.Health = 100
+	PlayerData.Hunger = 100
+	PlayerData.Hydration = 100
+	PlayerManager.Stamina = 100
+	InventoryData.HAND_ITEM_TYPE = ""
+	IslandManager.Current_Island_Name = ""
+	IslandManager.Current_Game_Mode = ""
+	IslandManager.Current_Weather = ""
+	TimeManager.CURRENT_HOUR = 9
+	TimeManager.CURRENT_DAY = 1
+	TimeManager.DAY_STATE = "DAY"
+	
+	InventoryManager.creatingFromInventory = false
+	InventoryManager.inventory_open = false
+	InventoryManager.in_chest_interface = false
+	InventoryManager.is_dragging = false
+	InventoryManager.is_inside_boundary = false
+	InventoryManager.item_ref = ""
+	InventoryManager.item_ref_not_at_inventory = ""
+	InventoryManager.is_creating_pickup = false
+	InventoryManager.is_inside_checker = false
+	InventoryManager.is_hovering_over_hand_dropable = false
+	InventoryManager.chestNode = null
+
+	InteractionManager.is_notification_on_screen = false
+	InteractionManager.is_colliding = false
+	InteractionManager.is_hovering_over_email_noeco = false
+	InteractionManager.is_hovering_over_feedback_github = false
+	InteractionManager.is_hovering_over_test_obj = false
+	InteractionManager.is_hovering_over_sackcloth_bed = false
+	InteractionManager.is_hovering_over_chest = false
+
+	# May need to reset TerrainManager variables here in future
+	
