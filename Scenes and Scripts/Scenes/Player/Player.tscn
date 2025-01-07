@@ -1078,23 +1078,6 @@ text = "SETTINGS"
 script = ExtResource("16_wg7d4")
 metadata/_edit_use_anchors_ = true
 
-[node name="SaveAndQuit_Btn" type="Button" parent="Head/Camera3D/PauseLayer"]
-anchors_preset = -1
-anchor_left = 0.413194
-anchor_top = 0.641203
-anchor_right = 0.586806
-anchor_bottom = 0.76003
-offset_top = 13.0
-offset_bottom = 13.0
-grow_horizontal = 2
-grow_vertical = 2
-focus_mode = 0
-theme = ExtResource("17_rhxkt")
-theme_override_font_sizes/font_size = 27
-text = "SAVE AND QUIT"
-script = ExtResource("16_wg7d4")
-metadata/_edit_use_anchors_ = true
-
 [node name="SaveAndQuitToMenu" type="Button" parent="Head/Camera3D/PauseLayer"]
 anchors_preset = -1
 anchor_left = 0.413194
@@ -1129,6 +1112,23 @@ text = "SAVE AND QUIT TO MAIN MENU"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="SaveAndQuit_Btn" type="Button" parent="Head/Camera3D/PauseLayer"]
+anchors_preset = -1
+anchor_left = 0.413194
+anchor_top = 0.641203
+anchor_right = 0.586806
+anchor_bottom = 0.76003
+offset_top = 13.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 27
+text = "SAVE AND QUIT"
+script = ExtResource("16_wg7d4")
+metadata/_edit_use_anchors_ = true
 
 [node name="StartDebugging_Btn" type="Button" parent="Head/Camera3D/PauseLayer"]
 anchors_preset = -1
@@ -1596,8 +1596,8 @@ libraries = {
 [connection signal="mouse_exited" from="Head/Camera3D/InventoryLayer/HandDropableDetector" to="." method="_on_hand_dropable_detector_mouse_exited"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/Resume_Btn" to="." method="_on_resume_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/Settings_Btn" to="." method="_on_settings_btn_pressed"]
-[connection signal="pressed" from="Head/Camera3D/PauseLayer/SaveAndQuit_Btn" to="." method="_on_save_and_quit_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/SaveAndQuitToMenu" to="." method="_on_save_and_quit_to_menu_pressed"]
+[connection signal="pressed" from="Head/Camera3D/PauseLayer/SaveAndQuit_Btn" to="." method="_on_save_and_quit_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/StartDebugging_Btn" to="." method="_on_start_debugging_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/AchievementsButton" to="." method="_on_achievements_button_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/CreditsButton" to="." method="_on_credits_button_pressed"]
