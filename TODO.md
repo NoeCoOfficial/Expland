@@ -1,0 +1,1 @@
+- Fix sky color staying the same when loading new island
