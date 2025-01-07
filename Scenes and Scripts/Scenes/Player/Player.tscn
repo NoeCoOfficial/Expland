@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=65 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/OverlayLayer/RedOverlay_SCRIPT.gd" id="7_gnu1v"]
 [ext_resource type="PackedScene" uid="uid://dhhjltxmoydio" path="res://Scenes and Scripts/Scenes/Player/Inventory/InventorySlot.tscn" id="8_ads4s"]
 [ext_resource type="FontFile" uid="uid://c4h0gd5a2e2qb" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf" id="8_cdk3a"]
+[ext_resource type="Texture2D" uid="uid://bg100aqmtgfn4" path="res://Textures/Icons/WhiteHam_Icon.png" id="8_l231k"]
+[ext_resource type="Texture2D" uid="uid://b20d3fbxr6vhx" path="res://Textures/Icons/WhiteHeart_Icon.png" id="8_ty1rt"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/OverlayLayer/Overlay_SCRIPT.gd" id="8_uxqns"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/BlackOverlay_SCRIPT.gd" id="9_g6nwl"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/IgnoreMouseFilter.gd" id="9_svfxy"]
@@ -570,6 +572,19 @@ step = 0.001
 value = 100.0
 show_percentage = false
 
+[node name="WhiteHamIcon" type="Sprite2D" parent="Head/Camera3D/HUDLayer"]
+modulate = Color(0.682353, 0.682353, 0.682353, 1)
+position = Vector2(17, 609)
+rotation = 3.14159
+scale = Vector2(0.0367313, 0.0367313)
+texture = ExtResource("8_l231k")
+
+[node name="WhiteHeartIcon" type="Sprite2D" parent="Head/Camera3D/HUDLayer"]
+modulate = Color(0.683077, 0.683077, 0.683077, 1)
+position = Vector2(16.5, 633)
+scale = Vector2(0.018711, 0.0152068)
+texture = ExtResource("8_ty1rt")
+
 [node name="InteractionLayer" type="CanvasLayer" parent="Head/Camera3D"]
 
 [node name="InteractionHUD" parent="Head/Camera3D/InteractionLayer" instance=ExtResource("16_8a1wo")]
@@ -919,6 +934,7 @@ offset_bottom = 502.0
 focus_mode = 0
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/DeathScreen"]
 anchors_preset = 15
@@ -970,6 +986,7 @@ vertical_alignment = 1
 script = ExtResource("11_0enap")
 
 [node name="OverlayLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="RedOverlay" type="ColorRect" parent="Head/Camera3D/OverlayLayer"]
 process_priority = 10
