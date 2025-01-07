@@ -868,6 +868,9 @@ func _on_save_and_quit_to_menu_pressed() -> void:
 func on_save_and_quit_to_menu_fade_finished():
 	var mainMenuScene = load("res://Scenes and Scripts/Scenes/Main Menu/MainMenu.tscn")
 	
+	PlayerManager.WORLD.haltAllHourTweens()
+	PlayerManager.WORLD.haltAllWeatherTweens()
+	
 	get_tree().change_scene_to_packed(mainMenuScene)
 
 func saveAllDataWithAnimation():

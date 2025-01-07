@@ -48,7 +48,7 @@
 extends Node
 
 var transitioning_from_menu
-var ransitioningFromNewIsland = false
+var transitioningFromNewIsland = false
 
 var Current_Island_Name = "Debug"
 var Current_Game_Mode = ""
