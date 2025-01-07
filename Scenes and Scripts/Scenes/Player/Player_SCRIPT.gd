@@ -845,7 +845,9 @@ func _on_save_and_quit_to_menu_pressed() -> void:
 	tween.tween_interval(1)
 
 func on_save_and_quit_to_menu_fade_finished():
+	var WORLD = get_node("/root/World")
 	var mainMenuScene = load("res://Scenes and Scripts/Scenes/Main Menu/MainMenu.tscn")
+	
 	get_tree().change_scene_to_packed(mainMenuScene)
 
 func saveAllDataWithAnimation():

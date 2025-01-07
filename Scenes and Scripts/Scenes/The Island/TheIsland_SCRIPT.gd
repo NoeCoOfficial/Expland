@@ -116,8 +116,6 @@ func _ready() -> void:
 	else:
 		on_ready_time_check()
 	
-	Player.init_visually_equip(InventoryData.HAND_ITEM_TYPE)
-	
 	InventoryManager.chestNode = $Chest
 	change_weather(false)
 
