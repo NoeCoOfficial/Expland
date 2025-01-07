@@ -191,8 +191,10 @@ func _input(_event: InputEvent) -> void:
 					minimal_alert.hide_minimal_alert(0.1)
 					
 					if ITEM_TYPE in InventoryManager.FOOD_ITEMS:
+						
 						var value = InventoryManager.FOOD_ITEMS[ITEM_TYPE]
 						PlayerManager.eat(value)
+						
 						self.queue_free()
 						slot_inside.set_populated(false)
 						
