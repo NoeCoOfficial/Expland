@@ -60,3 +60,12 @@ func init():
 func sleep():
 	if PLAYER != null:
 		PLAYER.sleep_cycle(true, true, 2.0, 5.0, 2.0, 6)
+
+func eat(valueToIncreaseBy):
+	if PLAYER != null:
+		
+		if valueToIncreaseBy + PlayerData.Hunger >= 100:
+			PlayerData.Hunger = 100
+			valueToIncreaseBy = 0
+			
+		PLAYER.update_bar("HUNGER", true, PlayerData.Hunger + valueToIncreaseBy)

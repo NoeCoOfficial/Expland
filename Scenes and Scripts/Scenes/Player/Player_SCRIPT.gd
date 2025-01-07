@@ -922,6 +922,7 @@ func on_sleep_cycle_hold_finished(fadeOutTime, hour : int):
 	
 	if WORLD != null:
 		if WORLD.has_method("set_hour"):
+			
 			# TODO: Halt tweens here
 			
 			WORLD.set_hour(hour)
@@ -947,6 +948,24 @@ func _on_pickup_object_detector_body_entered(body: Node3D) -> void:
 	if body.is_in_group("dialogue_test"):
 		
 		DialogueManager.startDialogue(DialogueManager.testDialogue)
+
+######################################
+# Player Stats
+######################################
+
+func update_bar(barName : String, animate : bool, toValue):
+	
+	if animate:
+		# TODO: Health animating
+		if barName == "HEALTH":
+			pass
+		
+		if barName == "HUNGER":
+			var tween = get_tree().create_tween()
+			tween.tween_property($Head/Camera3D/HUDLayer/HungerBar, "value", toValue, 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+		
+		if barName == "HYDRATION":
+			pass
 
 ######################################
 # Debugging
