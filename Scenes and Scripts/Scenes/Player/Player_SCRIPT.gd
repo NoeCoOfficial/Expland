@@ -68,6 +68,7 @@ var speed : float ## The speed of the player. Used in _physics_process, this var
 var transitioning_to_menu = false
 var stamina_restoring_f0 = false
 var inventoryHand_debounce_timer = 0.2
+var inside_item_workshop = false
 
 ######################################
 # Gameplay group
@@ -955,6 +956,16 @@ func on_sleep_cycle_hold_finished(fadeOutTime, hour : int):
 	tween.tween_property(DayText_Label, "modulate", Color(1, 1, 1, 0), fadeOutTime / 2)
 	tween.tween_property(ProtectiveLayer, "visible", false, 0)
 	tween.tween_property(SleepLayerBlackOverlay, "modulate", Color(1, 1, 1, 0), fadeOutTime)
+	
+######################################
+# Item Workshop
+######################################
+
+func openItemWorkshop():
+	pass
+
+func closeItemWorkshop():
+	pass
 
 ######################################
 # Area and body detection
@@ -963,6 +974,9 @@ func on_sleep_cycle_hold_finished(fadeOutTime, hour : int):
 func _on_pickup_object_detector_body_entered(body: Node3D) -> void:
 	if body.is_in_group("temp_spike"):
 		takeDamage(14)
+	
+	if body.is_in_group("item_workshop"):
+		pass
 	
 	if body.is_in_group("dialogue_test"):
 		
