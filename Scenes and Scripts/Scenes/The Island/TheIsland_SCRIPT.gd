@@ -92,6 +92,8 @@ var DayCloudColor = Color(0.367, 0.367, 0.367)
 func _ready() -> void:
 	randomize()
 	initNodes()
+	haltAllHourTweens()
+	haltAllWeatherTweens()
 	HourTimer.wait_time = HOUR_LENGTH
 	
 	IslandManager.transitioning_from_menu = false
