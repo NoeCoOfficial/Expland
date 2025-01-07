@@ -53,7 +53,7 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
-expand_margin_left = 2.0
+expand_margin_left = 17.0
 expand_margin_top = 2.0
 expand_margin_right = 2.0
 expand_margin_bottom = 2.0
@@ -498,11 +498,10 @@ script = ExtResource("4_56i84")
 metadata/_edit_use_anchors_ = true
 
 [node name="HealthBar" type="ProgressBar" parent="Head/Camera3D/HUDLayer"]
-visible = false
-offset_left = 24.0
-offset_top = 621.0
-offset_right = 149.0
-offset_bottom = 635.0
+offset_left = 20.0
+offset_top = 632.0
+offset_right = 145.0
+offset_bottom = 643.0
 theme_override_styles/background = SubResource("StyleBoxFlat_wf401")
 theme_override_styles/fill = SubResource("StyleBoxFlat_bjmfh")
 step = 1.0
@@ -876,6 +875,7 @@ offset_bottom = 502.0
 focus_mode = 0
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/DeathScreen"]
 anchors_preset = 15
@@ -927,6 +927,7 @@ vertical_alignment = 1
 script = ExtResource("11_0enap")
 
 [node name="OverlayLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="RedOverlay" type="ColorRect" parent="Head/Camera3D/OverlayLayer"]
 process_priority = 10
@@ -1181,6 +1182,7 @@ metadata/_edit_use_anchors_ = true
 visible = false
 
 [node name="MinimalAlertLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="MinimalAlert" parent="Head/Camera3D/MinimalAlertLayer" instance=ExtResource("27_5o6is")]
 
