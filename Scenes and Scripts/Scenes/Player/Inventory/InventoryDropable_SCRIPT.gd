@@ -190,7 +190,12 @@ func _input(_event: InputEvent) -> void:
 				if ITEM_TYPE in InventoryManager.CONSUMABLE_ITEMS:
 					minimal_alert.hide_minimal_alert(0.1)
 					
-					# TODO: Eat items here
+					if ITEM_TYPE in InventoryManager.FOOD_ITEMS:
+						var value = InventoryManager.FOOD_ITEMS[ITEM_TYPE]
+						PlayerManager.eat(value)
+						self.queue_free()
+						slot_inside.set_populated(false)
+						
 					
 					debounce_timer = 0.2
 

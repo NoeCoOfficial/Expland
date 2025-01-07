@@ -962,6 +962,10 @@ func _on_hunger_depletion_timeout() -> void:
 		PlayerData.Hunger -= 2
 	else:
 		PlayerData.Hunger -= 4
+	
+	if PlayerData.Hunger < 0:
+		PlayerData.Hunger = 0
+		
 	update_bar("HUNGER", true, PlayerData.Hunger)
 
 func update_bar(barName : String, animate : bool, toValue):
