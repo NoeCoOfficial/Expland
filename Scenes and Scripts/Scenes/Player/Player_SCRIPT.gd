@@ -67,6 +67,7 @@ var inventory_opened_in_air := false ## Checks if the inventory UI is opened in 
 var speed : float ## The speed of the player. Used in _physics_process, this variable changes to SPRINT_SPEED, CROUCH_SPEED or WALK_SPEED depending on what input is pressed.
 var transitioning_to_menu = false
 var stamina_restoring_f0 = false
+var inventoryHand_debounce_timer = 0.2
 
 ######################################
 # Gameplay group
@@ -403,7 +404,9 @@ func _headbob(time) -> Vector3:
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP # set the y position to the sine of the time times the bob frequency times the bob amplitude
 	return pos # return the position
 
-func _process(_delta):
+func _process(delta):
+	if inventoryHand_debounce_timer > 0:
+		inventoryHand_debounce_timer -= delta
 	
 	SENSITIVITY = PlayerSettingsData.Sensitivity
 	camera.fov = PlayerSettingsData.FOV
@@ -845,7 +848,6 @@ func _on_save_and_quit_to_menu_pressed() -> void:
 	tween.tween_interval(1)
 
 func on_save_and_quit_to_menu_fade_finished():
-	var WORLD = get_node("/root/World")
 	var mainMenuScene = load("res://Scenes and Scripts/Scenes/Main Menu/MainMenu.tscn")
 	
 	get_tree().change_scene_to_packed(mainMenuScene)
