@@ -946,7 +946,6 @@ func on_sleep_cycle_hold_finished(fadeOutTime, hour : int):
 		if WORLD.has_method("set_hour"):
 			
 			WORLD.haltAllHourTweens()
-			WORLD.haltAllWeatherTweens()
 			# TASK May need to fix, if the code decides not to work (it has a mind of it's own)
 			
 			WORLD.set_hour(hour)
