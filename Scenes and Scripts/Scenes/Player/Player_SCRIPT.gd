@@ -738,7 +738,7 @@ func visually_equip(ITEM_TYPE):
 			else:
 				var item_to_unequip : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
 				$Head/Camera3D/InventoryHand/EquipAnimations.play(item_to_unequip)
-				await get_tree().create_timer(0.15).timeout
+				await get_tree().create_timer(0.16).timeout
 				$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_SWORD")
 		
 		if ITEM_TYPE == "PICKAXE":
@@ -747,7 +747,7 @@ func visually_equip(ITEM_TYPE):
 			else:
 				var item_to_unequip : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
 				$Head/Camera3D/InventoryHand/EquipAnimations.play(item_to_unequip)
-				await get_tree().create_timer(0.15).timeout
+				await get_tree().create_timer(0.16).timeout
 				$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_PICKAXE")
 		
 		if ITEM_TYPE == "AXE":
@@ -756,7 +756,7 @@ func visually_equip(ITEM_TYPE):
 			else:
 				var item_to_unequip : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
 				$Head/Camera3D/InventoryHand/EquipAnimations.play(item_to_unequip)
-				await get_tree().create_timer(0.15).timeout
+				await get_tree().create_timer(0.16).timeout
 				$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_AXE")
 
 func init_visually_equip(ITEM_TYPE : String):
