@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=66 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -31,6 +31,7 @@
 [ext_resource type="StyleBox" uid="uid://com3tix0pshhk" path="res://Resources/Styles and Themes/Styles/Default/Label/Default_Label.tres" id="21_k6ube"]
 [ext_resource type="PackedScene" uid="uid://ynckscwc0643" path="res://Scenes and Scripts/Scenes/Alert/AlertLayer.tscn" id="21_r1ny7"]
 [ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="22_7sfup"]
+[ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="24_6y28d"]
 [ext_resource type="PackedScene" uid="uid://djenc4llne53s" path="res://Scenes and Scripts/Scenes/Credits/CreditsLayer.tscn" id="24_qhsvo"]
 [ext_resource type="PackedScene" uid="uid://cq13w255wbu5l" path="res://Scenes and Scripts/Scenes/Minimal Alert/MinimalAlert.tscn" id="27_5o6is"]
 [ext_resource type="PackedScene" uid="uid://cnpgx6ef6qxqs" path="res://Assets/3D Models/Tools/Pickaxe.blend" id="32_4dvtj"]
@@ -1044,12 +1045,44 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -330.0
-offset_top = -238.0
-offset_right = 330.0
-offset_bottom = 238.0
+offset_left = -378.0
+offset_top = -276.0
+offset_right = 378.0
+offset_bottom = 276.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = ExtResource("24_6y28d")
+
+[node name="Title" type="Label" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -145.5
+offset_top = 64.0
+offset_right = 121.5
+offset_bottom = 111.0
+grow_horizontal = 2
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 40
+text = "Item Workshop"
+horizontal_alignment = 1
+
+[node name="TM" type="Label" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 104.0
+offset_top = 68.0
+offset_right = 159.0
+offset_bottom = 115.0
+grow_horizontal = 2
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 10
+text = "TM
+"
+horizontal_alignment = 1
 
 [node name="DialogueLayer" type="CanvasLayer" parent="Head/Camera3D"]
 
