@@ -181,10 +181,12 @@ func _input(_event: InputEvent) -> void:
 				
 				# Right clicked on a handheld item (see InventoryManager.gd for contents)
 				if ITEM_TYPE in InventoryManager.HANDHELD_ITEMS:
-					minimal_alert.hide_minimal_alert(0.1)
-					slot_inside.set_populated(false)
-					InventoryManager.set_hand_item(self, ITEM_TYPE)
-					debounce_timer = 0.2
+					if PlayerManager.PLAYER.get_hand_debounce_time_left() <= 0.0:
+						minimal_alert.hide_minimal_alert(0.1)
+						slot_inside.set_populated(false)
+						InventoryManager.set_hand_item(self, ITEM_TYPE)
+						
+						PlayerManager.PLAYER.start_hand_debounce_timer()
 					
 				# Right clicked on a consumable item (see InventoryManager.gd for contents)
 				if ITEM_TYPE in InventoryManager.CONSUMABLE_ITEMS:
