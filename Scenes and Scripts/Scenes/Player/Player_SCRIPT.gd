@@ -290,7 +290,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		else:
 			closeInventory()
 	
-	if Input.is_action_just_pressed("RightClick"):
+	if Input.is_action_just_pressed("RightClick") and inventoryHand_debounce_timer <= 0:
 		if InventoryManager.is_hovering_over_hand_dropable:
 			if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup:
 				if !InventoryData.HAND_ITEM_TYPE == "":
@@ -692,7 +692,7 @@ func _on_hand_dropable_detector_mouse_exited() -> void:
 	MinimalAlert.hide_minimal_alert(0.1)
 
 func set_hand_item_type(ITEM_TYPE : String):
-	
+	inventoryHand_debounce_timer = 0.2
 	if ITEM_TYPE == "":
 		visually_equip("")
 		InventoryData.HAND_ITEM_TYPE = ""
