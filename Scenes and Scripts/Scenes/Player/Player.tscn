@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=65 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/ClockIcon_SCRIPT.gd" id="2_t6toi"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Interaction/RayCast3D_SCRIPT.gd" id="3_2qtqn"]
 [ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="3_yecwp"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/CrosshairCanvas/HealthLBL_SCRIPT.gd" id="4_56i84"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/OverlayLayer/RedOverlay_SCRIPT.gd" id="7_gnu1v"]
 [ext_resource type="PackedScene" uid="uid://dhhjltxmoydio" path="res://Scenes and Scripts/Scenes/Player/Inventory/InventorySlot.tscn" id="8_ads4s"]
 [ext_resource type="FontFile" uid="uid://c4h0gd5a2e2qb" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf" id="8_cdk3a"]
@@ -524,20 +523,6 @@ grow_vertical = 2
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_606ex")
 expand_mode = 1
-
-[node name="HealthLBL" type="Label" parent="Head/Camera3D/HUDLayer"]
-anchors_preset = -1
-anchor_left = 0.00260417
-anchor_top = 0.00462963
-anchor_right = 0.0789931
-anchor_bottom = 0.0354938
-offset_right = -1.52588e-05
-offset_bottom = 1.90735e-05
-theme_override_fonts/font = ExtResource("3_yecwp")
-theme_override_font_sizes/font_size = 17
-text = "Health : 100"
-script = ExtResource("4_56i84")
-metadata/_edit_use_anchors_ = true
 
 [node name="HungerBar" type="ProgressBar" parent="Head/Camera3D/HUDLayer"]
 offset_left = 28.0

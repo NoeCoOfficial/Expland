@@ -48,10 +48,12 @@
 extends Node
 
 var transitioning_from_menu
+var ransitioningFromNewIsland = false
 
 var Current_Island_Name = "Debug"
 var Current_Game_Mode = ""
 var Current_Weather = ""
+
 
 
 func _ready() -> void:
@@ -77,7 +79,7 @@ func resetAttributes():
 	PauseManager.is_inside_credits = false
 	PauseManager.is_inside_settings = false
 	PauseManager.is_paused = false
-		
+	
 	PlayerData.GAME_STATE = "NORMAL"
 	PlayerData.Health = 100
 	PlayerData.Hunger = 100
@@ -87,6 +89,7 @@ func resetAttributes():
 	IslandManager.Current_Island_Name = ""
 	IslandManager.Current_Game_Mode = ""
 	IslandManager.Current_Weather = ""
+	IslandManager.transitioningFromNewIsland = false
 	TimeManager.CURRENT_HOUR = 9
 	TimeManager.CURRENT_DAY = 1
 	TimeManager.DAY_STATE = "DAY"
