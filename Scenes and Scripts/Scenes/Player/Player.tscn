@@ -45,15 +45,16 @@ size = Vector3(1.7, 2.07, 1.7)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7b7oy"]
 bg_color = Color(0.125911, 0.125911, 0.125911, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.374139, 0.374139, 0.374139, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
-expand_margin_left = 17.0
+expand_margin_left = 25.0
 expand_margin_top = 2.0
 expand_margin_right = 2.0
 expand_margin_bottom = 2.0
@@ -77,7 +78,7 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
-expand_margin_left = 17.0
+expand_margin_left = 25.0
 expand_margin_top = 2.0
 expand_margin_right = 2.0
 expand_margin_bottom = 2.0
@@ -457,6 +458,11 @@ one_shot = true
 autostart = true
 script = ExtResource("2_t6toi")
 
+[node name="HungerDepletion" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+script = ExtResource("2_t6toi")
+
 [node name="PickupAttractionPos" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1659, 0)
 
@@ -522,10 +528,10 @@ script = ExtResource("4_56i84")
 metadata/_edit_use_anchors_ = true
 
 [node name="HungerBar" type="ProgressBar" parent="Head/Camera3D/HUDLayer"]
-offset_left = 20.0
-offset_top = 615.0
-offset_right = 145.0
-offset_bottom = 626.0
+offset_left = 28.0
+offset_top = 600.0
+offset_right = 170.0
+offset_bottom = 618.0
 theme_override_styles/background = SubResource("StyleBoxFlat_7b7oy")
 theme_override_styles/fill = SubResource("StyleBoxFlat_1o4oy")
 step = 1.0
@@ -533,10 +539,10 @@ value = 100.0
 show_percentage = false
 
 [node name="HealthBar" type="ProgressBar" parent="Head/Camera3D/HUDLayer"]
-offset_left = 20.0
-offset_top = 632.0
-offset_right = 145.0
-offset_bottom = 643.0
+offset_left = 28.0
+offset_top = 624.0
+offset_right = 170.0
+offset_bottom = 642.0
 theme_override_styles/background = SubResource("StyleBoxFlat_wf401")
 theme_override_styles/fill = SubResource("StyleBoxFlat_bjmfh")
 step = 1.0
@@ -1217,7 +1223,6 @@ metadata/_edit_use_anchors_ = true
 visible = false
 
 [node name="MinimalAlertLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="MinimalAlert" parent="Head/Camera3D/MinimalAlertLayer" instance=ExtResource("27_5o6is")]
 
@@ -1566,6 +1571,7 @@ libraries = {
 [connection signal="timeout" from="SprintingSpeedSounds" to="." method="_on_sprinting_speed_sounds_timeout"]
 [connection signal="timeout" from="CrouchingSpeedSounds" to="." method="_on_crouching_speed_sounds_timeout"]
 [connection signal="timeout" from="AutoSaveTimer" to="." method="_on_auto_save_timer_timeout"]
+[connection signal="timeout" from="HungerDepletion" to="." method="_on_hunger_depletion_timeout"]
 [connection signal="area_entered" from="PickupObjectDetector" to="." method="_on_pickup_object_detector_area_entered"]
 [connection signal="body_entered" from="PickupObjectDetector" to="." method="_on_pickup_object_detector_body_entered"]
 [connection signal="area_entered" from="Head/Camera3D/InventoryLayer/Boundary" to="." method="_on_boundary_area_entered"]
