@@ -52,6 +52,8 @@ var SAVE_PATH = ""
 
 var GAME_STATE = "NORMAL"
 var Health := 100
+var Hunger := 100
+var Hydration := 100
 
 func saveData(Island_Name : String) -> void:
 	

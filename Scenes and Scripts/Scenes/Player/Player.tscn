@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=63 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -42,6 +42,30 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_16v4h"]
 size = Vector3(1.7, 2.07, 1.7)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7b7oy"]
+bg_color = Color(0.125911, 0.125911, 0.125911, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 17.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1o4oy"]
+bg_color = Color(0.254902, 1, 0.392157, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wf401"]
 bg_color = Color(0.125911, 0.125911, 0.125911, 1)
@@ -496,6 +520,17 @@ theme_override_font_sizes/font_size = 17
 text = "Health : 100"
 script = ExtResource("4_56i84")
 metadata/_edit_use_anchors_ = true
+
+[node name="HungerBar" type="ProgressBar" parent="Head/Camera3D/HUDLayer"]
+offset_left = 20.0
+offset_top = 615.0
+offset_right = 145.0
+offset_bottom = 626.0
+theme_override_styles/background = SubResource("StyleBoxFlat_7b7oy")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1o4oy")
+step = 1.0
+value = 100.0
+show_percentage = false
 
 [node name="HealthBar" type="ProgressBar" parent="Head/Camera3D/HUDLayer"]
 offset_left = 20.0
