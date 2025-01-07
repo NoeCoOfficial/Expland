@@ -457,6 +457,12 @@ wait_time = 60.0
 autostart = true
 script = ExtResource("2_t6toi")
 
+[node name="HandItemDebounce" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+autostart = true
+script = ExtResource("2_t6toi")
+
 [node name="ManualSaveCooldown" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
@@ -464,7 +470,7 @@ autostart = true
 script = ExtResource("2_t6toi")
 
 [node name="HungerDepletion" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 60.0
 autostart = true
 script = ExtResource("2_t6toi")
 

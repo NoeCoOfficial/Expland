@@ -789,6 +789,12 @@ func init_visually_equip(ITEM_TYPE : String):
 		$Head/Camera3D/InventoryHand/Pickaxe.visible = false
 		$Head/Camera3D/InventoryHand/Axe.visible = false
 
+func get_hand_debounce_time_left():
+	return $HandItemDebounce.time_left
+
+func start_hand_debounce_timer():
+	$HandItemDebounce.start()
+
 ######################################
 # Chest UI
 ######################################
