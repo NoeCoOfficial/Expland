@@ -345,7 +345,7 @@ func _physics_process(delta):
 	## Player movement and physics
 	
 	# Crouching
-	if !InventoryManager.inventory_open and PlayerData.GAME_STATE != "DEAD" and PlayerData.GAME_STATE != "SLEEPING" and is_on_floor() and !InventoryManager.in_chest_interface and !PauseManager.is_paused and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !PauseManager.inside_item_workshop:
+	if !InventoryManager.inventory_open and PlayerData.GAME_STATE != "DEAD" and PlayerData.GAME_STATE != "SLEEPING" and is_on_floor() and !InventoryManager.in_chest_interface and !PauseManager.is_paused and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !PauseManager.inside_can_move_item_workshop:
 		if Input.is_action_pressed("Crouch"):
 			self.scale.y = lerp(self.scale.y, 0.5, CROUCH_INTERPOLATION * delta)
 		else:
@@ -359,15 +359,15 @@ func _physics_process(delta):
 			velocity.y -= gravity * delta
 		
 		# Jumping
-		if Input.is_action_just_pressed("Jump") and !Input.is_action_pressed("Crouch") and is_on_floor() and !PauseManager.inside_item_workshop and !PauseManager.is_paused and !PauseManager.is_inside_alert and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.in_chest_interface and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface:
+		if Input.is_action_just_pressed("Jump") and !Input.is_action_pressed("Crouch") and is_on_floor() and !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and !PauseManager.is_inside_alert and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.in_chest_interface and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface:
 			velocity.y = JUMP_VELOCITY
 		
 		# Handle Speed
 		if Input.is_action_pressed("Sprint"):
-			if !Input.is_action_pressed("Crouch") and !PauseManager.inside_item_workshop and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface and !InventoryManager.in_chest_interface:
+			if !Input.is_action_pressed("Crouch") and !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface and !InventoryManager.in_chest_interface:
 				speed = SPRINT_SPEED
 				is_sprinting = true
-		elif Input.is_action_pressed("Crouch") and !PauseManager.inside_item_workshop and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface and !InventoryManager.in_chest_interface:
+		elif Input.is_action_pressed("Crouch") and !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface and !InventoryManager.in_chest_interface:
 			speed = CROUCH_SPEED
 			is_crouching = true
 		else:
@@ -379,7 +379,7 @@ func _physics_process(delta):
 		var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		
 		if is_on_floor():
-			if direction != Vector3.ZERO and !PauseManager.inside_item_workshop and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !PauseManager.is_inside_alert and !InventoryManager.in_chest_interface and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface:
+			if direction != Vector3.ZERO and !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !PauseManager.is_inside_alert and !InventoryManager.in_chest_interface and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface:
 				velocity.x = direction.x * speed
 				velocity.z = direction.z * speed
 			else:
@@ -965,6 +965,7 @@ func on_sleep_cycle_hold_finished(fadeOutTime, hour : int):
 ######################################
 
 func openItemWorkshop():
+	PauseManager.inside_can_move_item_workshop = true
 	PauseManager.inside_absolute_item_workshop = true
 	$Head/Camera3D/ItemWorkshopLayer/GreyLayer.visible = true
 	$Head/Camera3D/ItemWorkshopLayer/GreyLayer.modulate = Color(1, 1, 1, 0)
@@ -981,6 +982,7 @@ func on_item_workshop_open_finished():
 	PauseManager.inside_item_workshop = true
 
 func closeItemWorkshop():
+	PauseManager.inside_can_move_item_workshop = false
 	PauseManager.inside_item_workshop = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	

@@ -69,6 +69,7 @@ func resetAttributes():
 	# IT'S NAME AND IT'S DEFAULT HERE!
 	# VERY IMPORTANT!
 	
+	PauseManager.inside_can_move_item_workshop = false
 	PauseManager.inside_absolute_item_workshop = false
 	PauseManager.inside_item_workshop = false
 	PauseManager.is_inside_achievements_ui = false
