@@ -52,3 +52,5 @@ var is_inside_settings = false
 var is_inside_alert = false
 var is_inside_credits = false
 var is_inside_achievements_ui = false
+var inside_item_workshop = false
+var inside_absolute_item_workshop = false

@@ -69,7 +69,6 @@ var speed : float ## The speed of the player. Used in _physics_process, this var
 var transitioning_to_menu = false
 var stamina_restoring_f0 = false
 var inventoryHand_debounce_timer = 0.2
-var inside_item_workshop = false
 
 ######################################
 # Gameplay group

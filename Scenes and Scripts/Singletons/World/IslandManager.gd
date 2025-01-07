@@ -69,6 +69,14 @@ func resetAttributes():
 	# IT'S NAME AND IT'S DEFAULT HERE!
 	# VERY IMPORTANT!
 	
+	PauseManager.inside_absolute_item_workshop = false
+	PauseManager.inside_item_workshop = false
+	PauseManager.is_inside_achievements_ui = false
+	PauseManager.is_inside_alert = false
+	PauseManager.is_inside_credits = false
+	PauseManager.is_inside_settings = false
+	PauseManager.is_paused = false
+		
 	PlayerData.GAME_STATE = "NORMAL"
 	PlayerData.Health = 100
 	PlayerData.Hunger = 100
