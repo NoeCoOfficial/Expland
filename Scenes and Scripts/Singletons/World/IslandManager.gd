@@ -63,7 +63,10 @@ func set_current_island(island_name: String) -> void:
 	IslandAccessOrder.add_island(island_name)
 
 func resetAttributes():
-	# NOTE: EVERY TIME YOU ADD A NEW VALUE YOU MUST ADD IT'S NAME AND IT'S DEFAULT HERE!
+	
+	## CRITICAL
+	# EVERY NEW VALUE ASSOCIATED WITH THE ISLAND
+	# IT'S NAME AND IT'S DEFAULT HERE!
 	# VERY IMPORTANT!
 	
 	PlayerData.GAME_STATE = "NORMAL"
