@@ -200,7 +200,7 @@ var is_crouching = false
 @export var ProtectiveLayer : Control
 
 @export_subgroup("HUD")
-@export var Health_Label : Label
+@export var Health_Bar : ProgressBar
 @export var Crosshair_Rect : TextureRect
 @export var StaminaBar : ProgressBar
 
@@ -447,12 +447,12 @@ func _process(delta):
 	
 	# HUD
 	if UseHealth == false: # Check if the UseHealth variable is false
-		Health_Label.hide() # hide the health label
+		Health_Bar.hide()
 	else: 
-		Health_Label.show() # show the health label
+		Health_Bar.show()
 	
-	Health_Label.text = "Health: " + str(PlayerData.Health) # set the health label text to "Health: " + the health variable as a string	
 	
+	# TODO: Change when making crosshair setting
 	Crosshair_Rect.size = crosshair_size # set the crosshair size to the crosshair size variable
 
 ######################################
@@ -495,6 +495,7 @@ func _on_ready() -> void: # Called when the node is considered ready
 	pass
 
 func nodeSetup(): # A function to setup the nodes. Called in the _ready function
+	$Head/Camera3D/HUDLayer/HealthBar.value = PlayerData.Health
 	
 	$Head/Camera3D/DeathScreen/BlackOverlay/GetUp.self_modulate = Color(0, 0, 0, 0) # set the get up self modulate to black
 	$Head/Camera3D/DeathScreen/BlackOverlay/RandomText.self_modulate = Color(0, 0, 0, 0) # set the random text self modulate to black
@@ -524,6 +525,13 @@ func _on_crouching_speed_sounds_timeout() -> void:
 func takeDamage(DamageToTake): # A function to take damage from the player
 	if UseHealth == true: # Check if the UseHealth variable is true
 		PlayerData.Health -= DamageToTake # subtract the damage to take from the health variable
+		
+		if PlayerData.Health <= 0:
+			update_bar("HEALTH", true, 0)
+			
+		else:
+			update_bar("HEALTH", true, PlayerData.Health)
+		
 		if PlayerData.Health <= 0: # check if health = 0 or below
 			
 			resumeGame()
@@ -972,9 +980,10 @@ func _on_hunger_depletion_timeout() -> void:
 func update_bar(barName : String, animate : bool, toValue):
 	
 	if animate:
-		# TODO: Health animating
+		
 		if barName == "HEALTH":
-			pass
+			var tween = get_tree().create_tween()
+			tween.tween_property($Head/Camera3D/HUDLayer/HealthBar, "value", toValue, 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 		
 		if barName == "HUNGER":
 			var tween = get_tree().create_tween()
