@@ -927,7 +927,8 @@ func on_sleep_cycle_hold_finished(fadeOutTime, hour : int):
 	if WORLD != null:
 		if WORLD.has_method("set_hour"):
 			
-			# TODO: Halt tweens here
+			WORLD.haltAllHourTweens()
+			# TASK May needto fix, if the code decides not to work (it has a mind of it's own)
 			
 			WORLD.set_hour(hour)
 	
