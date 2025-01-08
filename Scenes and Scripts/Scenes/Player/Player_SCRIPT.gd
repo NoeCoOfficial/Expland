@@ -815,12 +815,6 @@ func closeChest():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	InventoryManager.chestNode.animate("CLOSE")
 
-func initInventoryPositionForChest():
-	pass
-
-func revertInventoryPosition():
-	pass
-
 ######################################
 # Pause functionality and layer
 ######################################
