@@ -526,6 +526,7 @@ target_position = Vector3(0, -3, 0)
 script = ExtResource("3_2qtqn")
 
 [node name="HUDLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="Crosshair" type="TextureRect" parent="Head/Camera3D/HUDLayer"]
 anchors_preset = 8
@@ -597,6 +598,7 @@ scale = Vector2(0.018711, 0.0152068)
 texture = ExtResource("8_ty1rt")
 
 [node name="InteractionLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="InteractionHUD" parent="Head/Camera3D/InteractionLayer" instance=ExtResource("16_8a1wo")]
 offset_left = -183.0
@@ -605,7 +607,6 @@ offset_right = -1107.0
 offset_bottom = -532.0
 
 [node name="ChestUILayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="GreyLayer" type="ColorRect" parent="Head/Camera3D/ChestUILayer"]
 anchors_preset = 15
@@ -615,62 +616,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.643137)
 script = ExtResource("16_wg7d4")
-metadata/_edit_use_anchors_ = true
-
-[node name="Background" type="Panel" parent="Head/Camera3D/ChestUILayer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -525.0
-offset_top = -214.0
-offset_right = -178.0
-offset_bottom = 203.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_2kg3l")
-script = SubResource("GDScript_tq46f")
-
-[node name="Background_2" type="Panel" parent="Head/Camera3D/ChestUILayer"]
-modulate = Color(0, 0, 0, 1)
-anchors_preset = -1
-anchor_left = 0.0512154
-anchor_top = 0.185185
-anchor_right = 0.337673
-anchor_bottom = 0.800926
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_xa5l0")
-script = SubResource("GDScript_tq46f")
-metadata/_edit_use_anchors_ = true
-
-[node name="Background_3" type="Panel" parent="Head/Camera3D/ChestUILayer"]
-anchors_preset = -1
-anchor_left = 0.0512153
-anchor_top = 0.185185
-anchor_right = 0.337674
-anchor_bottom = 0.29321
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_7tmhy")
-script = SubResource("GDScript_tq46f")
-metadata/_edit_use_anchors_ = true
-
-[node name="Title" type="Label" parent="Head/Camera3D/ChestUILayer"]
-anchors_preset = -1
-anchor_left = 0.0824654
-anchor_top = 0.20216
-anchor_right = 0.307291
-anchor_bottom = 0.293209
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("8_cdk3a")
-theme_override_font_sizes/font_size = 45
-text = "INVENTORY"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("9_svfxy")
 metadata/_edit_use_anchors_ = true
 
 [node name="Background2" type="Panel" parent="Head/Camera3D/ChestUILayer"]
@@ -738,7 +683,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="InventoryLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="GreyLayer" type="ColorRect" parent="Head/Camera3D/InventoryLayer"]
 anchors_preset = 15
@@ -945,6 +889,7 @@ offset_bottom = 502.0
 focus_mode = 0
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/DeathScreen"]
 anchors_preset = 15
@@ -996,6 +941,7 @@ vertical_alignment = 1
 script = ExtResource("11_0enap")
 
 [node name="OverlayLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="RedOverlay" type="ColorRect" parent="Head/Camera3D/OverlayLayer"]
 process_priority = 10
@@ -1022,6 +968,7 @@ color = Color(0, 0, 0, 1)
 script = ExtResource("8_uxqns")
 
 [node name="ItemWorkshopLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="GreyLayer" type="ColorRect" parent="Head/Camera3D/ItemWorkshopLayer"]
 visible = false
@@ -2133,6 +2080,7 @@ script = ExtResource("16_wg7d4")
 metadata/_tab_index = 3
 
 [node name="DialogueLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="DialogueInterface" parent="Head/Camera3D/DialogueLayer" instance=ExtResource("17_pkmg7")]
 visible = false
@@ -2304,21 +2252,25 @@ theme_override_font_sizes/font_size = 27
 text = "CREDITS"
 
 [node name="AchievementsLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="AchievementsUI" parent="Head/Camera3D/AchievementsLayer" instance=ExtResource("20_3vll1")]
 visible = false
 
 [node name="CreditsLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="CreditsLayer" parent="Head/Camera3D/CreditsLayer" instance=ExtResource("24_qhsvo")]
 visible = false
 
 [node name="SettingsLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="SettingsUI" parent="Head/Camera3D/SettingsLayer" instance=ExtResource("19_kj00b")]
 visible = false
 
 [node name="SaveOverlay" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="LighterBG" type="ColorRect" parent="Head/Camera3D/SaveOverlay"]
 anchors_preset = -1
@@ -2356,15 +2308,18 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="AlertLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="AlertLayer" parent="Head/Camera3D/AlertLayer" instance=ExtResource("21_r1ny7")]
 visible = false
 
 [node name="MinimalAlertLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="MinimalAlert" parent="Head/Camera3D/MinimalAlertLayer" instance=ExtResource("27_5o6is")]
 
 [node name="SleepLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/SleepLayer"]
 visible = false
@@ -2673,6 +2628,7 @@ text = "CURRENT_WEATHER = \"\""
 horizontal_alignment = 2
 
 [node name="TopLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="ProtectiveLayer" type="Control" parent="Head/Camera3D/TopLayer"]
 visible = false
