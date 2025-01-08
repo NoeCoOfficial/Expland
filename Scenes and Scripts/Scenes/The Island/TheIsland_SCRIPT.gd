@@ -51,8 +51,8 @@ extends Node
 func initializeIslandProperties(_Island_Name):
 	pass
 
-var HOUR_LENGTH = 10.0
-var SKY_TRANS_TIME = 1.0
+var HOUR_LENGTH = 120.0
+var SKY_TRANS_TIME = 20.0
 
 @onready var TheIslandEnvironment = preload("res://Resources/Environment/TheIslandWorldEnvironment.tres")
 @onready var TheIslandProceduralSkyMaterial = preload("res://Resources/Environment/TheIslandProceduralSkyMaterial.tres")
