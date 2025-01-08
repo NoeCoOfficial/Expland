@@ -846,7 +846,7 @@ func _on_credits_button_pressed() -> void:
 ######################################
 
 func saveInventory():
-	InventoryData.saveInventory(IslandManager.Current_Island_Name, $Head/Camera3D/InventoryLayer)
+	InventoryData.saveInventory(IslandManager.Current_Island_Name, InventoryLayer)
 
 func _on_save_and_quit_btn_pressed():
 	SaveManager.saveAllData()
@@ -986,6 +986,7 @@ func on_item_workshop_open_finished():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func closeItemWorkshop():
+	saveInventory()
 	PauseManager.inside_can_move_item_workshop = false
 	PauseManager.inside_item_workshop = false
 	
