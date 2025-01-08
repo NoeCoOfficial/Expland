@@ -182,6 +182,7 @@ var is_crouching = false
 @export var Slot_8_Inventory_Ref : StaticBody2D
 @export var Slot_9_Inventory_Ref : StaticBody2D
 
+
 @export_group("General Nodes")
 
 @export_subgroup("CanvasLayers")
