@@ -86,7 +86,7 @@ func _input(_event: InputEvent) -> void:
 			OS.shell_open("https://github.com/NoeCoOfficial/Expland/issues/new?assignees=&labels=&projects=&template=feedback.md")
 		
 		if Input.is_action_just_pressed("Interact") and is_hovering_over_sackcloth_bed and PlayerData.GAME_STATE != "SLEEPING":
-			if TimeManager.CURRENT_HOUR == 18 or TimeManager.CURRENT_HOUR == 19 or TimeManager.CURRENT_HOUR == 20 or TimeManager.CURRENT_HOUR == 21 or TimeManager.CURRENT_HOUR == 22 or TimeManager.CURRENT_HOUR == 23 or TimeManager.CURRENT_HOUR == 24 or TimeManager.CURRENT_HOUR == 0 or TimeManager.CURRENT_HOUR == 1 or TimeManager.CURRENT_HOUR == 2 or TimeManager.CURRENT_HOUR == 3 or TimeManager.CURRENT_HOUR == 4:
+			if TimeManager.DAY_STATE != "DAY":
 				PlayerManager.sleep()
 			else:
 				var PLAYER = get_node("/root/World/Player")
