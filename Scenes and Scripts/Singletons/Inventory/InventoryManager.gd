@@ -120,7 +120,7 @@ func create_pickup_object():
 		return
 	is_creating_pickup = true
 	var WORLD = get_node("/root/World")
-	var INVENTORY_LAYER = get_node("/root/World/Player/Head/Camera3D/InventoryLayer")
+	var INVENTORY_LAYER = get_node("/root/World/Player/Head/Camera3D/InventoryMainLayer")
 	var PICKUP_SCENE = load("res://Scenes and Scripts/Scenes/Player/Inventory/ItemPickupObject.tscn")
 	var PICKUP = PICKUP_SCENE.instantiate()
 	WORLD.add_child(PICKUP)
@@ -130,8 +130,8 @@ func create_pickup_object():
 	InventoryData.saveInventory(IslandManager.Current_Island_Name, INVENTORY_LAYER)
 
 func spawn_inventory_dropable(atPos : Vector2, ITEM_TYPE, slotToPopulate):
-	if get_node("/root/World/Player/Head/Camera3D/InventoryLayer") != null:
-		var InventoryLayer = get_node("/root/World/Player/Head/Camera3D/InventoryLayer")
+	if get_node("/root/World/Player/Head/Camera3D/InventoryMainLayer") != null:
+		var InventoryLayer = get_node("/root/World/Player/Head/Camera3D/InventoryMainLayer")
 		var NewDropable = load("res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDropable.tscn")
 		var DropableInstance = NewDropable.instantiate()
 		DropableInstance.set_ITEM_TYPE(ITEM_TYPE)
@@ -144,8 +144,8 @@ func spawn_inventory_dropable(atPos : Vector2, ITEM_TYPE, slotToPopulate):
 		return DropableInstance
 
 func spawn_inventory_dropable_from_load(atPos : Vector2, ITEM_TYPE):
-	if get_node("/root/World/Player/Head/Camera3D/InventoryLayer") != null:
-		var InventoryLayer = get_node("/root/World/Player/Head/Camera3D/InventoryLayer")
+	if get_node("/root/World/Player/Head/Camera3D/InventoryMainLayer") != null:
+		var InventoryLayer = get_node("/root/World/Player/Head/Camera3D/InventoryMainLayer")
 		var NewDropable = load("res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDropable.tscn")
 		var DropableInstance = NewDropable.instantiate()
 		DropableInstance.set_ITEM_TYPE(ITEM_TYPE)

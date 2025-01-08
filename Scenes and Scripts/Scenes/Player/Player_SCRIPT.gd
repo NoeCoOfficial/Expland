@@ -189,6 +189,7 @@ var is_crouching = false
 @export var HUDLayer : CanvasLayer
 @export var ChestUILayer : CanvasLayer
 @export var InventoryLayer : CanvasLayer
+@export var InventoryMainLayer : CanvasLayer
 
 @export_subgroup("UI")
 @export var SettingsUI : Control
