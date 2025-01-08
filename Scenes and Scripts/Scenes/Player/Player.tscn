@@ -701,6 +701,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("9_svfxy")
 
+[node name="Slot1" parent="Head/Camera3D/ChestUILayer" instance=ExtResource("8_ads4s")]
+position = Vector2(636, 175)
+
 [node name="InventoryLayer" type="CanvasLayer" parent="Head/Camera3D"]
 visible = false
 
