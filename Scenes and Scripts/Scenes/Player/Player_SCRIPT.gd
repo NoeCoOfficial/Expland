@@ -976,6 +976,10 @@ func openItemWorkshop():
 	
 	tween.tween_property($Head/Camera3D/ItemWorkshopLayer/MainLayer, "position", Vector2(0, 0), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	tween.tween_property($Head/Camera3D/ItemWorkshopLayer/GreyLayer, "modulate", Color(1, 1, 1, 1), 0.5)
+	
+	await get_tree().create_timer(0.3).timeout
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
 
 func on_item_workshop_open_finished():
 	PauseManager.inside_item_workshop = true
