@@ -800,7 +800,7 @@ func start_hand_debounce_timer():
 	$HandItemDebounce.start()
 
 ######################################
-# Chest UI
+# Chest
 ######################################
 
 func openChest():
@@ -814,6 +814,12 @@ func closeChest():
 	InventoryManager.in_chest_interface = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	InventoryManager.chestNode.animate("CLOSE")
+
+func initInventoryPositionForChest():
+	pass
+
+func revertInventoryPosition():
+	pass
 
 ######################################
 # Pause functionality and layer
