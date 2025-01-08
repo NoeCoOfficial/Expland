@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://o5vtqoux606a"
-path="res://.godot/imported/Oil.blend-a6366ed57d60ceb2f309972e0e0f5f59.scn"
+path="res://.godot/imported/OIL.blend-1dc0d3c7f3f2a7b1436c557651e3b8c5.scn"
 
 [deps]
 
-source_file="res://Assets/3D Models/Interactive/Objects/Models/Oil.blend"
-dest_files=["res://.godot/imported/Oil.blend-a6366ed57d60ceb2f309972e0e0f5f59.scn"]
+source_file="res://Assets/3D Models/Interactive/Objects/Models/OIL.blend"
+dest_files=["res://.godot/imported/OIL.blend-1dc0d3c7f3f2a7b1436c557651e3b8c5.scn"]
 
 [params]
 
