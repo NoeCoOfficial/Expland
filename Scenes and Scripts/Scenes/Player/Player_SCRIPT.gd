@@ -191,6 +191,7 @@ var is_crouching = false
 @export var InventoryLayer : CanvasLayer
 @export var InventoryMainLayer : CanvasLayer
 @export var PauseLayer : CanvasLayer
+@export var DebugLayer : CanvasLayer
 
 @export_subgroup("UI")
 @export var SettingsUI : Control
@@ -214,12 +215,11 @@ var is_crouching = false
 @export var OverlayLayer_Overlay : Control
 @export var InventoryLayer_Boundary : Area2D
 @export var InventoryLayer_BoundaryChest : Area2D
-@export var InventoryLayer_GreyLayer : Control
+@export var InventoryLayer_GreyLayer : ColorRect
 @export var ItemWorkshopLayer_MainLayer : Control
-@export var ItemWorkshopLayer_GreyLayer : Control
-@export var SaveOverlay_LighterBG : Control
-@export var SaveOverlay_DarkerBG : Control
-@export var DebugLayer : Control
+@export var ItemWorkshopLayer_GreyLayer : ColorRect
+@export var SaveOverlay_LighterBG : ColorRect
+@export var SaveOverlay_DarkerBG : ColorRect
 @export var HUDLayer_HealthBar : ProgressBar
 @export var HUDLayer_HungerBar : ProgressBar
 
