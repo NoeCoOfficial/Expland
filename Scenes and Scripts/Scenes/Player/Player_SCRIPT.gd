@@ -919,13 +919,14 @@ func spawn_minimal_alert_from_player(holdSec : float, fadeInTime : float, fadeOu
 func sleep_cycle(setSleeping : bool, incrementDay : bool, fadeInTime : float, holdTime : float, fadeOutTime : float, hour : int):
 	if setSleeping:
 		PlayerData.GAME_STATE = "SLEEPING"
-		SaveManager.saveAllData()
 	
 	if incrementDay:
 		if TimeManager.CURRENT_HOUR <= 23 and TimeManager.CURRENT_HOUR >= 18:
 			TimeManager.CURRENT_DAY += 1
 	
 	SaveManager.saveAllData()
+	
+	PlayerManager.WORLD.haltAllHourTweens()
 	
 	DayText_Label.text = "Day " + str(TimeManager.CURRENT_DAY)
 	SleepLayerBlackOverlay.modulate = Color(1, 1, 1, 0)
@@ -943,15 +944,13 @@ func sleep_cycle(setSleeping : bool, incrementDay : bool, fadeInTime : float, ho
 
 func on_sleep_cycle_hold_finished(fadeOutTime, hour : int):
 	
-	var WORLD = get_node("/root/World/")
-	
-	if WORLD != null:
-		if WORLD.has_method("set_hour"):
+	if PlayerManager.WORLD != null:
+		if PlayerManager.WORLD.has_method("set_hour"):
 			
-			WORLD.haltAllHourTweens()
+			PlayerManager.WORLD.haltAllHourTweens()
 			# TASK May need to fix, if the code decides not to work (it has a mind of it's own)
 			
-			WORLD.set_hour(hour)
+			PlayerManager.WORLD.set_hour(hour)
 	
 	PlayerData.GAME_STATE = "NORMAL"
 	PlayerData.Health += 5
