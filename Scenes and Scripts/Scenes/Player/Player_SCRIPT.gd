@@ -618,6 +618,12 @@ func showDeathScreen(): # A function to show the death screen
 ######################################
 
 func openInventory():
+	if InventoryManager.in_chest_interface:
+		$Head/Camera3D/InventoryLayer/GreyLayer.hide()
+		
+	else:
+		$Head/Camera3D/InventoryLayer/GreyLayer.show()
+	
 	$Head/Camera3D/InventoryLayer/InventoryMainLayer.show()
 	$Head/Camera3D/InventoryLayer.show() # show the inventory UI
 	Utils.center_mouse_cursor() # center the mouse cursor
@@ -628,6 +634,7 @@ func openInventory():
 	set_hand_item_type(InventoryData.HAND_ITEM_TYPE)
 
 func closeInventory():
+	$Head/Camera3D/InventoryLayer/GreyLayer.show()
 	saveInventory()
 	$Head/Camera3D/InventoryLayer/InventoryMainLayer.hide()
 	$Head/Camera3D/InventoryLayer.hide() # hide the inventory UI
@@ -814,6 +821,7 @@ func start_hand_debounce_timer():
 func openChest():
 	ChestUILayer.show()
 	InventoryManager.in_chest_interface = true
+	openInventory()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	InventoryManager.chestNode.animate("OPEN")
 
