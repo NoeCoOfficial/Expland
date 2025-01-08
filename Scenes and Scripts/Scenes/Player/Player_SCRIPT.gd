@@ -614,6 +614,7 @@ func showDeathScreen(): # A function to show the death screen
 ######################################
 
 func openInventory():
+	$Head/Camera3D/InventoryLayer/InventoryMainLayer.show()
 	$Head/Camera3D/InventoryLayer.show() # show the inventory UI
 	Utils.center_mouse_cursor() # center the mouse cursor
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # set the mouse mode to visible
@@ -624,6 +625,7 @@ func openInventory():
 
 func closeInventory():
 	saveInventory()
+	$Head/Camera3D/InventoryLayer/InventoryMainLayer.hide()
 	$Head/Camera3D/InventoryLayer.hide() # hide the inventory UI
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor
 	Utils.center_mouse_cursor() # center the mouse cursor
@@ -710,34 +712,34 @@ func set_hand_item_type(ITEM_TYPE : String):
 	if ITEM_TYPE == "":
 		visually_equip("")
 		InventoryData.HAND_ITEM_TYPE = ""
-		$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Empty"
-		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = false
-		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = false
-		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = false
+		$Head/Camera3D/InventoryLayer/InventoryMainLayer/HAND_ITEM_TYPE.text = "Empty"
+		$Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = false
+		$Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = false
+		$Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = false
 	
 	elif ITEM_TYPE == "PICKAXE":
 		visually_equip("PICKAXE")
 		InventoryData.HAND_ITEM_TYPE = "PICKAXE"
-		$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Pickaxe"
-		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = true
-		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = false
-		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = false
+		$Head/Camera3D/InventoryLayer/InventoryMainLayer/HAND_ITEM_TYPE.text = "Pickaxe"
+		$Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = true
+		$Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = false
+		$Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = false
 	
 	elif ITEM_TYPE == "AXE":
 		visually_equip("AXE")
 		InventoryData.HAND_ITEM_TYPE = "AXE"
-		$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Axe"
-		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = false
-		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = true
-		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = false
+		$Head/Camera3D/InventoryLayer/InventoryMainLayer/HAND_ITEM_TYPE.text = "Axe"
+		$Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = false
+		$Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = true
+		$Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = false
 	
 	elif ITEM_TYPE == "SWORD":
 		visually_equip("SWORD")
 		InventoryData.HAND_ITEM_TYPE = "SWORD"
-		$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Sword"
-		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = false
-		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = false
-		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = true
+		$Head/Camera3D/InventoryLayer/InventoryMainLayer/HAND_ITEM_TYPE.text = "Sword"
+		$Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = false
+		$Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = false
+		$Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = true
 
 func visually_equip(ITEM_TYPE):
 	if !ITEM_TYPE == InventoryData.HAND_ITEM_TYPE:
@@ -848,7 +850,7 @@ func _on_credits_button_pressed() -> void:
 ######################################
 
 func saveInventory():
-	InventoryData.saveInventory(IslandManager.Current_Island_Name, InventoryLayer)
+	InventoryData.saveInventory(IslandManager.Current_Island_Name, InventoryMainLayer)
 
 func _on_save_and_quit_btn_pressed():
 	SaveManager.saveAllData()

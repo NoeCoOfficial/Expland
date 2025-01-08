@@ -684,6 +684,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="InventoryLayer" type="CanvasLayer" parent="Head/Camera3D"]
+layer = 0
 
 [node name="GreyLayer" type="ColorRect" parent="Head/Camera3D/InventoryLayer"]
 anchors_preset = 15
@@ -696,7 +697,6 @@ script = ExtResource("16_wg7d4")
 metadata/_edit_use_anchors_ = true
 
 [node name="InventoryMainLayer" type="CanvasLayer" parent="Head/Camera3D/InventoryLayer"]
-layer = 2
 
 [node name="Background" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 anchors_preset = 8
