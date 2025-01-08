@@ -988,7 +988,9 @@ func on_item_workshop_open_finished():
 func closeItemWorkshop():
 	PauseManager.inside_can_move_item_workshop = false
 	PauseManager.inside_item_workshop = false
+	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
 	
 	var tween = get_tree().create_tween().set_parallel()
 	tween.connect("finished", Callable(self, "on_item_workshop_close_finished"))
