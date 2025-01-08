@@ -181,6 +181,7 @@ var is_crouching = false
 @export var Slot_7_Inventory_Ref : StaticBody2D
 @export var Slot_8_Inventory_Ref : StaticBody2D
 @export var Slot_9_Inventory_Ref : StaticBody2D
+@export var ChestMainLayer : Control
 @export var Pickaxe_Video : VideoStreamPlayer
 @export var Axe_Video : VideoStreamPlayer
 @export var Sword_Video : VideoStreamPlayer
@@ -861,13 +862,13 @@ func start_hand_debounce_timer():
 ######################################
 
 func openChest():
-	ChestUILayer.show()
+	ChestMainLayer.show()
 	InventoryManager.in_chest_interface = true
 	openInventory() # Does most of the stuff for us
 	InventoryManager.chestNode.animate("OPEN")
 
 func closeChest():
-	ChestUILayer.hide()
+	ChestMainLayer.hide()
 	InventoryManager.in_chest_interface = false
 	closeInventory() # Does most of the stuff for us
 	InventoryManager.chestNode.animate("CLOSE")
