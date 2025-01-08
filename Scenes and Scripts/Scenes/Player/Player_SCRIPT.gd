@@ -232,6 +232,29 @@ var is_crouching = false
 @export var CURRENT_HOUR_Label : Label
 @export var CURRENT_WEATHER_Label : Label
 
+@export_subgroup("Camera")
+@export var DialogueInterface : Control
+@export var DeathScreen_BlackOverlay : Control
+@export var OverlayLayer_Overlay : Control
+@export var PauseLayer : Control
+@export var InventoryLayer_Boundary : Area3D
+@export var InventoryLayer_BoundaryChest : Area3D
+@export var InventoryLayer_InventoryMainLayer : Control
+@export var InventoryLayer_GreyLayer : Control
+@export var InventoryLayer : Control
+@export var MinimalAlertLayer_MinimalAlert : Control
+@export var ItemWorkshopLayer_MainLayer : Control
+@export var ItemWorkshopLayer_GreyLayer : Control
+@export var SaveOverlay_LighterBG : Control
+@export var SaveOverlay_DarkerBG : Control
+@export var DebugLayer : Control
+@export var HUDLayer_HealthBar : ProgressBar
+@export var HUDLayer_HungerBar : ProgressBar
+
+@export_subgroup("Timers")
+@export var ManualSaveCooldown : Timer
+@export var HandItemDebounce : Timer
+
 ######################################
 # Input
 ######################################
@@ -468,31 +491,30 @@ func _process(delta):
 func _ready():
 	nodeSetup() # Call the nodeSetup function to setup the nodes
 	
-	
-	DialogueManager.DialogueInterface = $Head/Camera3D/DialogueLayer/DialogueInterface
+	DialogueManager.DialogueInterface = DialogueInterface
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Lock mouse
 	
 	if PlayerData.GAME_STATE == "DEAD": # check if the game state is dead
-		$Head/Camera3D/DeathScreen/BlackOverlay.set_self_modulate(Color(0, 0, 0, 1)) # set the black overlay's self modulate to black
-		$Head/Camera3D/OverlayLayer/Overlay.show() # show the overlay
+		DeathScreen_BlackOverlay.set_self_modulate(Color(0, 0, 0, 1)) # set the black overlay's self modulate to black
+		OverlayLayer_Overlay.show() # show the overlay
 		showDeathScreen() # call the death screen function
 	
 	if Fade_In == true: # check if the fade in variable is true
 		
-		$Head/Camera3D/OverlayLayer/Overlay.show() # show the overlay
+		OverlayLayer_Overlay.show() # show the overlay
 		
 		var tween = get_tree().create_tween()
 		tween.connect("finished", Callable(self, "on_fade_in_tween_finished"))
 		tween.tween_interval(1.5)
-		tween.tween_property($Head/Camera3D/OverlayLayer/Overlay, "self_modulate", Color(0, 0, 0, 0), Fade_In_Time) # tween the overlay's self modulate to black
-		tween.tween_property($Head/Camera3D/OverlayLayer/Overlay, "visible", false, 0) # tween the overlay's visibility to false
+		tween.tween_property(OverlayLayer_Overlay, "self_modulate", Color(0, 0, 0, 0), Fade_In_Time) # tween the overlay's self modulate to black
+		tween.tween_property(OverlayLayer_Overlay, "visible", false, 0) # tween the overlay's visibility to false
 		
 	else:
 		
-		$Head/Camera3D/OverlayLayer/Overlay.hide() # hide the overlay
+		OverlayLayer_Overlay.hide() # hide the overlay
 		
 	if !OS.has_feature("debug"):
-		$Head/Camera3D/PauseLayer/StartDebugging_Btn.hide()
+		PauseLayer.hide()
 
 func on_fade_in_tween_finished():
 	if IslandManager.Current_Game_Mode == "FREE":
@@ -502,15 +524,15 @@ func _on_ready() -> void: # Called when the node is considered ready
 	pass
 
 func nodeSetup(): # A function to setup the nodes. Called in the _ready function
-	$Head/Camera3D/HUDLayer/HealthBar.value = PlayerData.Health
+	HUDLayer_HealthBar.value = PlayerData.Health
 	
-	$Head/Camera3D/InventoryLayer.hide()
-	$Head/Camera3D/InventoryLayer/InventoryMainLayer.hide()
+	InventoryLayer.hide()
+	InventoryLayer_InventoryMainLayer.hide()
 	
-	$Head/Camera3D/DeathScreen/BlackOverlay/GetUp.self_modulate = Color(0, 0, 0, 0) # set the get up self modulate to black
-	$Head/Camera3D/DeathScreen/BlackOverlay/RandomText.self_modulate = Color(0, 0, 0, 0) # set the random text self modulate to black
-	$Head/Camera3D/DeathScreen/BlackOverlay.self_modulate = Color(0, 0, 0, 0) # set the black overlay self modulate to black
-	$Head/Camera3D/OverlayLayer/RedOverlay.self_modulate = Color(1, 0.016, 0, 0) # set the red overlay self modulate to red
+	DeathScreen_BlackOverlay.GetUp.self_modulate = Color(0, 0, 0, 0) # set the get up self modulate to black
+	DeathScreen_BlackOverlay.RandomText.self_modulate = Color(0, 0, 0, 0) # set the random text self modulate to black
+	DeathScreen_BlackOverlay.self_modulate = Color(0, 0, 0, 0) # set the black overlay self modulate to black
+	OverlayLayer_Overlay.RedOverlay.self_modulate = Color(1, 0.016, 0, 0) # set the red overlay self modulate to red
 
 ######################################
 # Walking, sprinting and crouching sounds
@@ -560,8 +582,8 @@ func takeDamage(DamageToTake): # A function to take damage from the player
 
 func takeDamageOverlay(): # Overlay when taking damage 
 	var tween = get_tree().create_tween() # create a tween
-	tween.tween_property($Head/Camera3D/OverlayLayer/RedOverlay, "self_modulate", Color(1, 0.018, 0, 0.808), 0).from(Color(1, 0.016, 0, 0)) # tween the red overlay's self modulate to red
-	tween.tween_property($Head/Camera3D/OverlayLayer/RedOverlay, "self_modulate", Color(1, 0.016, 0, 0), 0.5) # tween the red overlay's self modulate to red
+	tween.tween_property(OverlayLayer_Overlay.RedOverlay, "self_modulate", Color(1, 0.018, 0, 0.808), 0).from(Color(1, 0.016, 0, 0)) # tween the red overlay's self modulate to red
+	tween.tween_property(OverlayLayer_Overlay.RedOverlay, "self_modulate", Color(1, 0.016, 0, 0), 0.5) # tween the red overlay's self modulate to red
 
 func respawnFromDeath(): # A function to respawn the player from death
 	self.position = StartPOS # set the player's position to the start position
@@ -569,7 +591,7 @@ func respawnFromDeath(): # A function to respawn the player from death
 	
 	var tween = get_tree().create_tween() # create a tween
 
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay, "self_modulate", Color(0, 0, 0, 0), 3) # tween the black overlay's self modulate to black
+	tween.tween_property(DeathScreen_BlackOverlay, "self_modulate", Color(0, 0, 0, 0), 3) # tween the black overlay's self modulate to black
 	
 	PlayerData.GAME_STATE = "NORMAL" # set the game state to normal
 
@@ -579,39 +601,39 @@ func _on_death_screen_finished(): # A function to call when the death screen is 
 func showDeathScreen(): # A function to show the death screen 
 	randomize()  # Seed the random number generator
 	var random_index = randi() % DialogueManager.deathScreenRandomText.size() # get a random index from the random text list
-	$Head/Camera3D/DeathScreen/BlackOverlay/RandomText.text = DialogueManager.deathScreenRandomText[random_index] # set the random text to a random text from the list
+	DeathScreen_BlackOverlay.RandomText.text = DialogueManager.deathScreenRandomText[random_index] # set the random text to a random text from the list
 	
 	## Death screen animation is as follows:
 	var tween = get_tree().create_tween() # create a tween
 	tween.connect("finished", _on_death_screen_finished, 1) # connect the finished signal to the death screen finished function
 	
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay, "self_modulate", Color(0, 0, 0, 1), 0.5) # tween the black overlay's self modulate to black
+	tween.tween_property(DeathScreen_BlackOverlay, "self_modulate", Color(0, 0, 0, 1), 0.5) # tween the black overlay's self modulate to black
 	
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/RandomText, "self_modulate", Color(0, 0, 0, 0), 0) # tween the random text's self modulate to black
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/GetUp, "self_modulate", Color(0, 0, 0, 0), 0) # tween the get up's self modulate to black
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/GetUp, "visible", true, 0) # tween the get up's visibility to true
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/RandomText, "visible", true, 0) # tween the random text's visibility to true
+	tween.tween_property(DeathScreen_BlackOverlay.RandomText, "self_modulate", Color(0, 0, 0, 0), 0) # tween the random text's self modulate to black
+	tween.tween_property(DeathScreen_BlackOverlay.GetUp, "self_modulate", Color(0, 0, 0, 0), 0) # tween the get up's self modulate to black
+	tween.tween_property(DeathScreen_BlackOverlay.GetUp, "visible", true, 0) # tween the get up's visibility to true
+	tween.tween_property(DeathScreen_BlackOverlay.RandomText, "visible", true, 0) # tween the random text's visibility to true
 	
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/RandomText, "self_modulate", Color(0, 0, 0, 1), 3) # hold
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/RandomText, "self_modulate", Color(1, 1, 1, 1), 0.5) # tween the random text's self modulate to white
+	tween.tween_property(DeathScreen_BlackOverlay.RandomText, "self_modulate", Color(0, 0, 0, 1), 3) # hold
+	tween.tween_property(DeathScreen_BlackOverlay.RandomText, "self_modulate", Color(1, 1, 1, 1), 0.5) # tween the random text's self modulate to white
 	
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/RandomText, "self_modulate", Color(1, 1, 1, 1), 3) # hold
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/RandomText, "self_modulate", Color(0, 0, 0, 1), 0.5) # tween the random text's self modulate to black
+	tween.tween_property(DeathScreen_BlackOverlay.RandomText, "self_modulate", Color(1, 1, 1, 1), 3) # hold
+	tween.tween_property(DeathScreen_BlackOverlay.RandomText, "self_modulate", Color(0, 0, 0, 1), 0.5) # tween the random text's self modulate to black
 	
 	
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/GetUp, "self_modulate", Color(0, 0, 0, 1), 3) # Fade to black
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/GetUp, "self_modulate", Color(1, 1, 1, 1), 0.5) # tween the get up's self modulate to white
+	tween.tween_property(DeathScreen_BlackOverlay.GetUp, "self_modulate", Color(0, 0, 0, 1), 3) # Fade to black
+	tween.tween_property(DeathScreen_BlackOverlay.GetUp, "self_modulate", Color(1, 1, 1, 1), 0.5) # tween the get up's self modulate to white
 	
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/GetUp, "self_modulate", Color(1, 1, 1, 1), 2.6) # Fade to white
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/GetUp, "self_modulate", Color(0, 0, 0, 1), 0.5) # tween the get up's self modulate to black
+	tween.tween_property(DeathScreen_BlackOverlay.GetUp, "self_modulate", Color(1, 1, 1, 1), 2.6) # Fade to white
+	tween.tween_property(DeathScreen_BlackOverlay.GetUp, "self_modulate", Color(0, 0, 0, 1), 0.5) # tween the get up's self modulate to black
 	
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/GetUp, "visible", false, 0) # tween the get up's visibility to false
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/RandomText, "visible", false, 0) # tween the random text's visibility to false
+	tween.tween_property(DeathScreen_BlackOverlay.GetUp, "visible", false, 0) # tween the get up's visibility to false
+	tween.tween_property(DeathScreen_BlackOverlay.RandomText, "visible", false, 0) # tween the random text's visibility to false
 	
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/RandomText, "visible", false, 2) # hold
+	tween.tween_property(DeathScreen_BlackOverlay.RandomText, "visible", false, 2) # hold
 	
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay, "color", Color(1, 1, 1, 1), 0) # tween the black overlay's color to white
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay, "self_modulate", Color(1, 1, 1, 1), 3) # tween the black overlay's self modulate to white
+	tween.tween_property(DeathScreen_BlackOverlay, "color", Color(1, 1, 1, 1), 0) # tween the black overlay's color to white
+	tween.tween_property(DeathScreen_BlackOverlay, "self_modulate", Color(1, 1, 1, 1), 3) # tween the black overlay's self modulate to white
 
 ######################################
 # Inventory
@@ -620,28 +642,28 @@ func showDeathScreen(): # A function to show the death screen
 func openInventory():
 	if InventoryManager.in_chest_interface:
 		
-		$Head/Camera3D/InventoryLayer/Boundary.monitorable = false
-		$Head/Camera3D/InventoryLayer/Boundary.monitoring = false
+		InventoryLayer_Boundary.monitorable = false
+		InventoryLayer_Boundary.monitoring = false
 		
-		$Head/Camera3D/InventoryLayer/BoundaryChest.monitorable = true
-		$Head/Camera3D/InventoryLayer/BoundaryChest.monitoring = true
+		InventoryLayer_BoundaryChest.monitorable = true
+		InventoryLayer_BoundaryChest.monitoring = true
 		
-		$Head/Camera3D/InventoryLayer/InventoryMainLayer.offset.x = -291.96
-		$Head/Camera3D/InventoryLayer/GreyLayer.hide()
+		InventoryLayer_InventoryMainLayer.offset.x = -291.96
+		InventoryLayer_GreyLayer.hide()
 		
 	else:
 		
-		$Head/Camera3D/InventoryLayer/Boundary.monitorable = true
-		$Head/Camera3D/InventoryLayer/Boundary.monitoring = true
+		InventoryLayer_Boundary.monitorable = true
+		InventoryLayer_Boundary.monitoring = true
 		
-		$Head/Camera3D/InventoryLayer/BoundaryChest.monitorable = false
-		$Head/Camera3D/InventoryLayer/BoundaryChest.monitoring = false
+		InventoryLayer_BoundaryChest.monitorable = false
+		InventoryLayer_BoundaryChest.monitoring = false
 		
-		$Head/Camera3D/InventoryLayer/InventoryMainLayer.offset.x = 0
-		$Head/Camera3D/InventoryLayer/GreyLayer.show()
+		InventoryLayer_InventoryMainLayer.offset.x = 0
+		InventoryLayer_GreyLayer.show()
 	
-	$Head/Camera3D/InventoryLayer/InventoryMainLayer.show()
-	$Head/Camera3D/InventoryLayer.show() # show the inventory UI
+	InventoryLayer_InventoryMainLayer.show()
+	InventoryLayer.show() # show the inventory UI
 	Utils.center_mouse_cursor() # center the mouse cursor
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # set the mouse mode to visible
 	InventoryManager.inventory_open = true
@@ -650,15 +672,15 @@ func openInventory():
 	set_hand_item_type(InventoryData.HAND_ITEM_TYPE)
 
 func closeInventory():
-	$Head/Camera3D/InventoryLayer/GreyLayer.show()
+	InventoryLayer_GreyLayer.show()
 	saveInventory()
-	$Head/Camera3D/InventoryLayer/InventoryMainLayer.hide()
-	$Head/Camera3D/InventoryLayer.hide() # hide the inventory UI
+	InventoryLayer_InventoryMainLayer.hide()
+	InventoryLayer.hide() # hide the inventory UI
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor
 	Utils.center_mouse_cursor() # center the mouse cursor
 	InventoryManager.inventory_open = false
 	inventory_opened_in_air = false  # Reset the flag when inventory is closed
-	$Head/Camera3D/MinimalAlertLayer/MinimalAlert.hide_minimal_alert(0.1)
+	MinimalAlertLayer_MinimalAlert.hide_minimal_alert(0.1)
 
 func _on_boundary_area_entered(area):
 	if area.is_in_group("draggable"):
@@ -739,96 +761,96 @@ func set_hand_item_type(ITEM_TYPE : String):
 	if ITEM_TYPE == "":
 		visually_equip("")
 		InventoryData.HAND_ITEM_TYPE = ""
-		$Head/Camera3D/InventoryLayer/InventoryMainLayer/HAND_ITEM_TYPE.text = "Empty"
-		$Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = false
-		$Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = false
-		$Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = false
+		InventoryLayer_InventoryMainLayer.HAND_ITEM_TYPE.text = "Empty"
+		InventoryLayer_InventoryMainLayer.Hand_Dropable_Background.Pickaxe_Hand_Dropable_Video.visible = false
+		InventoryLayer_InventoryMainLayer.Hand_Dropable_Background.Axe_Hand_Dropable_Video.visible = false
+		InventoryLayer_InventoryMainLayer.Hand_Dropable_Background.Sword_Hand_Dropable_Video.visible = false
 	
 	elif ITEM_TYPE == "PICKAXE":
 		visually_equip("PICKAXE")
 		InventoryData.HAND_ITEM_TYPE = "PICKAXE"
-		$Head/Camera3D/InventoryLayer/InventoryMainLayer/HAND_ITEM_TYPE.text = "Pickaxe"
-		$Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = true
-		$Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = false
-		$Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = false
+		InventoryLayer_InventoryMainLayer.HAND_ITEM_TYPE.text = "Pickaxe"
+		InventoryLayer_InventoryMainLayer.Hand_Dropable_Background.Pickaxe_Hand_Dropable_Video.visible = true
+		InventoryLayer_InventoryMainLayer.Hand_Dropable_Background.Axe_Hand_Dropable_Video.visible = false
+		InventoryLayer_InventoryMainLayer.Hand_Dropable_Background.Sword_Hand_Dropable_Video.visible = false
 	
 	elif ITEM_TYPE == "AXE":
 		visually_equip("AXE")
 		InventoryData.HAND_ITEM_TYPE = "AXE"
-		$Head/Camera3D/InventoryLayer/InventoryMainLayer/HAND_ITEM_TYPE.text = "Axe"
-		$Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = false
-		$Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = true
-		$Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = false
+		InventoryLayer_InventoryMainLayer.HAND_ITEM_TYPE.text = "Axe"
+		InventoryLayer_InventoryMainLayer.Hand_Dropable_Background.Pickaxe_Hand_Dropable_Video.visible = false
+		InventoryLayer_InventoryMainLayer.Hand_Dropable_Background.Axe_Hand_Dropable_Video.visible = true
+		InventoryLayer_InventoryMainLayer.Hand_Dropable_Background.Sword_Hand_Dropable_Video.visible = false
 	
 	elif ITEM_TYPE == "SWORD":
 		visually_equip("SWORD")
 		InventoryData.HAND_ITEM_TYPE = "SWORD"
-		$Head/Camera3D/InventoryLayer/InventoryMainLayer/HAND_ITEM_TYPE.text = "Sword"
-		$Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = false
-		$Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = false
-		$Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = true
+		InventoryLayer_InventoryMainLayer.HAND_ITEM_TYPE.text = "Sword"
+		InventoryLayer_InventoryMainLayer.Hand_Dropable_Background.Pickaxe_Hand_Dropable_Video.visible = false
+		InventoryLayer_InventoryMainLayer.Hand_Dropable_Background.Axe_Hand_Dropable_Video.visible = false
+		InventoryLayer_InventoryMainLayer.Hand_Dropable_Background.Sword_Hand_Dropable_Video.visible = true
 
 func visually_equip(ITEM_TYPE):
 	if !ITEM_TYPE == InventoryData.HAND_ITEM_TYPE:
 		if ITEM_TYPE == "":
 			if InventoryData.HAND_ITEM_TYPE != "":
 				var anim_to_play : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
-				$Head/Camera3D/InventoryHand/EquipAnimations.play(anim_to_play)
+				InventoryLayer_InventoryMainLayer.EquipAnimations.play(anim_to_play)
 		
 		if ITEM_TYPE == "SWORD":
 			if InventoryData.HAND_ITEM_TYPE == "":
-				$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_SWORD")
+				InventoryLayer_InventoryMainLayer.EquipAnimations.play("equip_SWORD")
 			else:
 				var item_to_unequip : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
-				$Head/Camera3D/InventoryHand/EquipAnimations.play(item_to_unequip)
+				InventoryLayer_InventoryMainLayer.EquipAnimations.play(item_to_unequip)
 				await get_tree().create_timer(0.16).timeout
-				$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_SWORD")
+				InventoryLayer_InventoryMainLayer.EquipAnimations.play("equip_SWORD")
 		
 		if ITEM_TYPE == "PICKAXE":
 			if InventoryData.HAND_ITEM_TYPE == "":
-				$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_PICKAXE")
+				InventoryLayer_InventoryMainLayer.EquipAnimations.play("equip_PICKAXE")
 			else:
 				var item_to_unequip : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
-				$Head/Camera3D/InventoryHand/EquipAnimations.play(item_to_unequip)
+				InventoryLayer_InventoryMainLayer.EquipAnimations.play(item_to_unequip)
 				await get_tree().create_timer(0.16).timeout
-				$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_PICKAXE")
+				InventoryLayer_InventoryMainLayer.EquipAnimations.play("equip_PICKAXE")
 		
 		if ITEM_TYPE == "AXE":
 			if InventoryData.HAND_ITEM_TYPE == "":
-				$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_AXE")
+				InventoryLayer_InventoryMainLayer.EquipAnimations.play("equip_AXE")
 			else:
 				var item_to_unequip : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
-				$Head/Camera3D/InventoryHand/EquipAnimations.play(item_to_unequip)
+				InventoryLayer_InventoryMainLayer.EquipAnimations.play(item_to_unequip)
 				await get_tree().create_timer(0.16).timeout
-				$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_AXE")
+				InventoryLayer_InventoryMainLayer.EquipAnimations.play("equip_AXE")
 
 func init_visually_equip(ITEM_TYPE : String):
 	
 	if ITEM_TYPE == "":
-		$Head/Camera3D/InventoryHand/Pickaxe.visible = false
-		$Head/Camera3D/InventoryHand/Sword.visible = false
-		$Head/Camera3D/InventoryHand/Axe.visible = false
+		InventoryLayer_InventoryMainLayer.Pickaxe.visible = false
+		InventoryLayer_InventoryMainLayer.Sword.visible = false
+		InventoryLayer_InventoryMainLayer.Axe.visible = false
 	
 	if ITEM_TYPE == "PICKAXE":
-		$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_PICKAXE")
-		$Head/Camera3D/InventoryHand/Sword.visible = false
-		$Head/Camera3D/InventoryHand/Axe.visible = false
+		InventoryLayer_InventoryMainLayer.EquipAnimations.play("equip_PICKAXE")
+		InventoryLayer_InventoryMainLayer.Sword.visible = false
+		InventoryLayer_InventoryMainLayer.Axe.visible = false
 	
 	if ITEM_TYPE == "AXE":
-		$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_AXE")
-		$Head/Camera3D/InventoryHand/Pickaxe.visible = false
-		$Head/Camera3D/InventoryHand/Sword.visible = false
+		InventoryLayer_InventoryMainLayer.EquipAnimations.play("equip_AXE")
+		InventoryLayer_InventoryMainLayer.Pickaxe.visible = false
+		InventoryLayer_InventoryMainLayer.Sword.visible = false
 	
 	if ITEM_TYPE == "SWORD":
-		$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_SWORD")
-		$Head/Camera3D/InventoryHand/Pickaxe.visible = false
-		$Head/Camera3D/InventoryHand/Axe.visible = false
+		InventoryLayer_InventoryMainLayer.EquipAnimations.play("equip_SWORD")
+		InventoryLayer_InventoryMainLayer.Pickaxe.visible = false
+		InventoryLayer_InventoryMainLayer.Axe.visible = false
 
 func get_hand_debounce_time_left():
-	return $HandItemDebounce.time_left
+	return HandItemDebounce.time_left
 
 func start_hand_debounce_timer():
-	$HandItemDebounce.start()
+	HandItemDebounce.start()
 
 ######################################
 # Chest
@@ -851,12 +873,12 @@ func closeChest():
 ######################################
 
 func pauseGame():
-	$Head/Camera3D/PauseLayer.show()
+	PauseLayer.show()
 	PauseManager.is_paused = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # set the mouse mode to visible
 
 func resumeGame():
-	$Head/Camera3D/PauseLayer.hide()
+	PauseLayer.hide()
 	PauseManager.is_paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor
 
@@ -905,9 +927,9 @@ func on_save_and_quit_to_menu_fade_finished():
 	get_tree().change_scene_to_packed(mainMenuScene)
 
 func saveAllDataWithAnimation():
-	if $ManualSaveCooldown.time_left == 0.0:
-		$ManualSaveCooldown.wait_time = 5.0
-		$ManualSaveCooldown.start()
+	if ManualSaveCooldown.time_left == 0.0:
+		ManualSaveCooldown.wait_time = 5.0
+		ManualSaveCooldown.start()
 		SaveManager.saveAllData() # Call the save all data function from SaveManager to write all data to save files.
 		showLighterBG_SAVEOVERLAY()
 		await get_tree().create_timer(0.2).timeout
@@ -926,19 +948,19 @@ func _on_auto_save_timer_timeout(): # A function to save the player data every 6
 
 func showLighterBG_SAVEOVERLAY():
 	var tween = get_tree().create_tween()
-	tween.tween_property($Head/Camera3D/SaveOverlay/LighterBG, "position:x", 850.0, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(SaveOverlay_LighterBG, "position:x", 850.0, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func showDarkerBG_SAVEOVERLAY():
 	var tween = get_tree().create_tween()
-	tween.tween_property($Head/Camera3D/SaveOverlay/DarkerBG, "position:x", 858.0, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(SaveOverlay_DarkerBG, "position:x", 858.0, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func hideLighterBG_SAVEOVERLAY():
 	var tween = get_tree().create_tween()
-	tween.tween_property($Head/Camera3D/SaveOverlay/LighterBG, "position:x", 1700.0, 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(SaveOverlay_LighterBG, "position:x", 1700.0, 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
 
 func hideDarkerBG_SAVEOVERLAY():
 	var tween = get_tree().create_tween()
-	tween.tween_property($Head/Camera3D/SaveOverlay/DarkerBG, "position:x", 1796.0, 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(SaveOverlay_DarkerBG, "position:x", 1796.0, 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
 
 ######################################
 # User Interface
@@ -999,14 +1021,14 @@ func on_sleep_cycle_hold_finished(fadeOutTime, hour : int):
 func openItemWorkshop():
 	PauseManager.inside_can_move_item_workshop = true
 	PauseManager.inside_absolute_item_workshop = true
-	$Head/Camera3D/ItemWorkshopLayer/GreyLayer.visible = true
-	$Head/Camera3D/ItemWorkshopLayer/GreyLayer.modulate = Color(1, 1, 1, 0)
+	ItemWorkshopLayer_GreyLayer.visible = true
+	ItemWorkshopLayer_GreyLayer.modulate = Color(1, 1, 1, 0)
 	
 	var tween = get_tree().create_tween().set_parallel()
 	tween.connect("finished", Callable(self, "on_item_workshop_open_finished"))
 	
-	tween.tween_property($Head/Camera3D/ItemWorkshopLayer/MainLayer, "position", Vector2(0, 0), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-	tween.tween_property($Head/Camera3D/ItemWorkshopLayer/GreyLayer, "modulate", Color(1, 1, 1, 1), 0.5)
+	tween.tween_property(ItemWorkshopLayer_MainLayer, "position", Vector2(0, 0), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(ItemWorkshopLayer_GreyLayer, "modulate", Color(1, 1, 1, 1), 0.5)
 	
 	await get_tree().create_timer(0.3).timeout
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -1027,12 +1049,12 @@ func closeItemWorkshop():
 	var tween = get_tree().create_tween().set_parallel()
 	tween.connect("finished", Callable(self, "on_item_workshop_close_finished"))
 	
-	tween.tween_property($Head/Camera3D/ItemWorkshopLayer/MainLayer, "position", Vector2(0, 648), 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
-	tween.tween_property($Head/Camera3D/ItemWorkshopLayer/GreyLayer, "modulate", Color(1, 1, 1, 0), 0.5)
+	tween.tween_property(ItemWorkshopLayer_MainLayer, "position", Vector2(0, 648), 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(ItemWorkshopLayer_GreyLayer, "modulate", Color(1, 1, 1, 0), 0.5)
 
 func on_item_workshop_close_finished():
 	PauseManager.inside_absolute_item_workshop = false
-	$Head/Camera3D/ItemWorkshopLayer/GreyLayer.visible = false
+	ItemWorkshopLayer_GreyLayer.visible = false
 
 func on_add_item_buttons_workshop_pressed(ITEM_TYPE : String):
 	
@@ -1102,11 +1124,11 @@ func update_bar(barName : String, animate : bool, toValue):
 		
 		if barName == "HEALTH":
 			var tween = get_tree().create_tween()
-			tween.tween_property($Head/Camera3D/HUDLayer/HealthBar, "value", toValue, 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+			tween.tween_property(HUDLayer_HealthBar, "value", toValue, 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 		
 		if barName == "HUNGER":
 			var tween = get_tree().create_tween()
-			tween.tween_property($Head/Camera3D/HUDLayer/HungerBar, "value", toValue, 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+			tween.tween_property(HUDLayer_HungerBar, "value", toValue, 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 		
 		if barName == "HYDRATION":
 			pass
@@ -1118,9 +1140,9 @@ func update_bar(barName : String, animate : bool, toValue):
 func _on_start_debugging_btn_pressed() -> void:
 	if DebugManager.is_debugging:
 		DebugManager.is_debugging = false
-		$Head/Camera3D/DebugLayer.hide()
-		$Head/Camera3D/PauseLayer/StartDebugging_Btn.text = "START DEBUGGING"
+		DebugLayer.hide()
+		PauseLayer.StartDebugging_Btn.text = "START DEBUGGING"
 	else:
 		DebugManager.is_debugging = true
-		$Head/Camera3D/DebugLayer.show()
-		$Head/Camera3D/PauseLayer/StartDebugging_Btn.text = "STOP DEBUGGING"
+		DebugLayer.show()
+		PauseLayer.StartDebugging_Btn.text = "STOP DEBUGGING"
