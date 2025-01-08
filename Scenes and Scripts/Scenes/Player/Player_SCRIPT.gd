@@ -181,6 +181,11 @@ var is_crouching = false
 @export var Slot_7_Inventory_Ref : StaticBody2D
 @export var Slot_8_Inventory_Ref : StaticBody2D
 @export var Slot_9_Inventory_Ref : StaticBody2D
+@export var Pickaxe_Video : VideoStreamPlayer
+@export var Axe_Video : VideoStreamPlayer
+@export var Sword_Video : VideoStreamPlayer
+@export var EquipAnimations_Player : AnimationPlayer
+@export var HAND_ITEM_TYPE_Label : Label
 
 
 @export_group("General Nodes")
@@ -222,6 +227,9 @@ var is_crouching = false
 @export var SaveOverlay_DarkerBG : ColorRect
 @export var HUDLayer_HealthBar : ProgressBar
 @export var HUDLayer_HungerBar : ProgressBar
+@export var GetUp_Label : Label
+@export var RandomText_Label : Label
+@export var OverlayLayer_RedOverlay : ColorRect
 
 @export_subgroup("Timers")
 @export var ManualSaveCooldown : Timer
@@ -526,10 +534,10 @@ func nodeSetup(): # A function to setup the nodes. Called in the _ready function
 	InventoryLayer.hide()
 	InventoryMainLayer.hide()
 	
-	DeathScreen_BlackOverlay.GetUp.self_modulate = Color(0, 0, 0, 0) # set the get up self modulate to black
-	DeathScreen_BlackOverlay.RandomText.self_modulate = Color(0, 0, 0, 0) # set the random text self modulate to black
+	GetUp_Label.self_modulate = Color(0, 0, 0, 0) # set the get up self modulate to black
+	RandomText_Label.self_modulate = Color(0, 0, 0, 0) # set the random text self modulate to black
 	DeathScreen_BlackOverlay.self_modulate = Color(0, 0, 0, 0) # set the black overlay self modulate to black
-	OverlayLayer_Overlay.RedOverlay.self_modulate = Color(1, 0.016, 0, 0) # set the red overlay self modulate to red
+	OverlayLayer_RedOverlay.self_modulate = Color(1, 0.016, 0, 0) # set the red overlay self modulate to red
 
 ######################################
 # Walking, sprinting and crouching sounds
@@ -579,8 +587,8 @@ func takeDamage(DamageToTake): # A function to take damage from the player
 
 func takeDamageOverlay(): # Overlay when taking damage 
 	var tween = get_tree().create_tween() # create a tween
-	tween.tween_property(OverlayLayer_Overlay.RedOverlay, "self_modulate", Color(1, 0.018, 0, 0.808), 0).from(Color(1, 0.016, 0, 0)) # tween the red overlay's self modulate to red
-	tween.tween_property(OverlayLayer_Overlay.RedOverlay, "self_modulate", Color(1, 0.016, 0, 0), 0.5) # tween the red overlay's self modulate to red
+	tween.tween_property(OverlayLayer_RedOverlay, "self_modulate", Color(1, 0.018, 0, 0.808), 0).from(Color(1, 0.016, 0, 0)) # tween the red overlay's self modulate to red
+	tween.tween_property(OverlayLayer_RedOverlay, "self_modulate", Color(1, 0.016, 0, 0), 0.5) # tween the red overlay's self modulate to red
 
 func respawnFromDeath(): # A function to respawn the player from death
 	self.position = StartPOS # set the player's position to the start position
@@ -598,7 +606,7 @@ func _on_death_screen_finished(): # A function to call when the death screen is 
 func showDeathScreen(): # A function to show the death screen 
 	randomize()  # Seed the random number generator
 	var random_index = randi() % DialogueManager.deathScreenRandomText.size() # get a random index from the random text list
-	DeathScreen_BlackOverlay.RandomText.text = DialogueManager.deathScreenRandomText[random_index] # set the random text to a random text from the list
+	RandomText_Label.text = DialogueManager.deathScreenRandomText[random_index] # set the random text to a random text from the list
 	
 	## Death screen animation is as follows:
 	var tween = get_tree().create_tween() # create a tween
@@ -606,28 +614,28 @@ func showDeathScreen(): # A function to show the death screen
 	
 	tween.tween_property(DeathScreen_BlackOverlay, "self_modulate", Color(0, 0, 0, 1), 0.5) # tween the black overlay's self modulate to black
 	
-	tween.tween_property(DeathScreen_BlackOverlay.RandomText, "self_modulate", Color(0, 0, 0, 0), 0) # tween the random text's self modulate to black
-	tween.tween_property(DeathScreen_BlackOverlay.GetUp, "self_modulate", Color(0, 0, 0, 0), 0) # tween the get up's self modulate to black
-	tween.tween_property(DeathScreen_BlackOverlay.GetUp, "visible", true, 0) # tween the get up's visibility to true
-	tween.tween_property(DeathScreen_BlackOverlay.RandomText, "visible", true, 0) # tween the random text's visibility to true
+	tween.tween_property(RandomText_Label, "self_modulate", Color(0, 0, 0, 0), 0) # tween the random text's self modulate to black
+	tween.tween_property(GetUp_Label, "self_modulate", Color(0, 0, 0, 0), 0) # tween the get up's self modulate to black
+	tween.tween_property(GetUp_Label, "visible", true, 0) # tween the get up's visibility to true
+	tween.tween_property(RandomText_Label, "visible", true, 0) # tween the random text's visibility to true
 	
-	tween.tween_property(DeathScreen_BlackOverlay.RandomText, "self_modulate", Color(0, 0, 0, 1), 3) # hold
-	tween.tween_property(DeathScreen_BlackOverlay.RandomText, "self_modulate", Color(1, 1, 1, 1), 0.5) # tween the random text's self modulate to white
+	tween.tween_property(RandomText_Label, "self_modulate", Color(0, 0, 0, 1), 3) # hold
+	tween.tween_property(RandomText_Label, "self_modulate", Color(1, 1, 1, 1), 0.5) # tween the random text's self modulate to white
 	
-	tween.tween_property(DeathScreen_BlackOverlay.RandomText, "self_modulate", Color(1, 1, 1, 1), 3) # hold
-	tween.tween_property(DeathScreen_BlackOverlay.RandomText, "self_modulate", Color(0, 0, 0, 1), 0.5) # tween the random text's self modulate to black
+	tween.tween_property(RandomText_Label, "self_modulate", Color(1, 1, 1, 1), 3) # hold
+	tween.tween_property(RandomText_Label, "self_modulate", Color(0, 0, 0, 1), 0.5) # tween the random text's self modulate to black
 	
 	
-	tween.tween_property(DeathScreen_BlackOverlay.GetUp, "self_modulate", Color(0, 0, 0, 1), 3) # Fade to black
-	tween.tween_property(DeathScreen_BlackOverlay.GetUp, "self_modulate", Color(1, 1, 1, 1), 0.5) # tween the get up's self modulate to white
+	tween.tween_property(GetUp_Label, "self_modulate", Color(0, 0, 0, 1), 3) # Fade to black
+	tween.tween_property(GetUp_Label, "self_modulate", Color(1, 1, 1, 1), 0.5) # tween the get up's self modulate to white
 	
-	tween.tween_property(DeathScreen_BlackOverlay.GetUp, "self_modulate", Color(1, 1, 1, 1), 2.6) # Fade to white
-	tween.tween_property(DeathScreen_BlackOverlay.GetUp, "self_modulate", Color(0, 0, 0, 1), 0.5) # tween the get up's self modulate to black
+	tween.tween_property(GetUp_Label, "self_modulate", Color(1, 1, 1, 1), 2.6) # Fade to white
+	tween.tween_property(GetUp_Label, "self_modulate", Color(0, 0, 0, 1), 0.5) # tween the get up's self modulate to black
 	
-	tween.tween_property(DeathScreen_BlackOverlay.GetUp, "visible", false, 0) # tween the get up's visibility to false
-	tween.tween_property(DeathScreen_BlackOverlay.RandomText, "visible", false, 0) # tween the random text's visibility to false
+	tween.tween_property(GetUp_Label, "visible", false, 0) # tween the get up's visibility to false
+	tween.tween_property(RandomText_Label, "visible", false, 0) # tween the random text's visibility to false
 	
-	tween.tween_property(DeathScreen_BlackOverlay.RandomText, "visible", false, 2) # hold
+	tween.tween_property(RandomText_Label, "visible", false, 2) # hold
 	
 	tween.tween_property(DeathScreen_BlackOverlay, "color", Color(1, 1, 1, 1), 0) # tween the black overlay's color to white
 	tween.tween_property(DeathScreen_BlackOverlay, "self_modulate", Color(1, 1, 1, 1), 3) # tween the black overlay's self modulate to white
@@ -758,90 +766,90 @@ func set_hand_item_type(ITEM_TYPE : String):
 	if ITEM_TYPE == "":
 		visually_equip("")
 		InventoryData.HAND_ITEM_TYPE = ""
-		InventoryMainLayer.HAND_ITEM_TYPE.text = "Empty"
-		InventoryMainLayer.Hand_Dropable_Background.Pickaxe_Hand_Dropable_Video.visible = false
-		InventoryMainLayer.Hand_Dropable_Background.Axe_Hand_Dropable_Video.visible = false
-		InventoryMainLayer.Hand_Dropable_Background.Sword_Hand_Dropable_Video.visible = false
+		HAND_ITEM_TYPE_Label.text = "Empty"
+		Pickaxe_Video.visible = false
+		Axe_Video.visible = false
+		Sword_Video.visible = false
 	
 	elif ITEM_TYPE == "PICKAXE":
 		visually_equip("PICKAXE")
 		InventoryData.HAND_ITEM_TYPE = "PICKAXE"
-		InventoryMainLayer.HAND_ITEM_TYPE.text = "Pickaxe"
-		InventoryMainLayer.Hand_Dropable_Background.Pickaxe_Hand_Dropable_Video.visible = true
-		InventoryMainLayer.Hand_Dropable_Background.Axe_Hand_Dropable_Video.visible = false
-		InventoryMainLayer.Hand_Dropable_Background.Sword_Hand_Dropable_Video.visible = false
+		HAND_ITEM_TYPE_Label.text = "Pickaxe"
+		Pickaxe_Video.visible = true
+		Axe_Video.visible = false
+		Sword_Video.visible = false
 	
 	elif ITEM_TYPE == "AXE":
 		visually_equip("AXE")
 		InventoryData.HAND_ITEM_TYPE = "AXE"
-		InventoryMainLayer.HAND_ITEM_TYPE.text = "Axe"
-		InventoryMainLayer.Hand_Dropable_Background.Pickaxe_Hand_Dropable_Video.visible = false
-		InventoryMainLayer.Hand_Dropable_Background.Axe_Hand_Dropable_Video.visible = true
-		InventoryMainLayer.Hand_Dropable_Background.Sword_Hand_Dropable_Video.visible = false
+		HAND_ITEM_TYPE_Label.text = "Axe"
+		Pickaxe_Video.visible = false
+		Axe_Video.visible = true
+		Sword_Video.visible = false
 	
 	elif ITEM_TYPE == "SWORD":
 		visually_equip("SWORD")
 		InventoryData.HAND_ITEM_TYPE = "SWORD"
-		InventoryMainLayer.HAND_ITEM_TYPE.text = "Sword"
-		InventoryMainLayer.Hand_Dropable_Background.Pickaxe_Hand_Dropable_Video.visible = false
-		InventoryMainLayer.Hand_Dropable_Background.Axe_Hand_Dropable_Video.visible = false
-		InventoryMainLayer.Hand_Dropable_Background.Sword_Hand_Dropable_Video.visible = true
+		HAND_ITEM_TYPE_Label.text = "Sword"
+		Pickaxe_Video.visible = false
+		Axe_Video.visible = false
+		Sword_Video.visible = true
 
 func visually_equip(ITEM_TYPE):
 	if !ITEM_TYPE == InventoryData.HAND_ITEM_TYPE:
 		if ITEM_TYPE == "":
 			if InventoryData.HAND_ITEM_TYPE != "":
 				var anim_to_play : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
-				InventoryMainLayer.EquipAnimations.play(anim_to_play)
+				EquipAnimations_Player.play(anim_to_play)
 		
 		if ITEM_TYPE == "SWORD":
 			if InventoryData.HAND_ITEM_TYPE == "":
-				InventoryMainLayer.EquipAnimations.play("equip_SWORD")
+				EquipAnimations_Player.play("equip_SWORD")
 			else:
 				var item_to_unequip : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
-				InventoryMainLayer.EquipAnimations.play(item_to_unequip)
+				EquipAnimations_Player.play(item_to_unequip)
 				await get_tree().create_timer(0.16).timeout
-				InventoryMainLayer.EquipAnimations.play("equip_SWORD")
+				EquipAnimations_Player.play("equip_SWORD")
 		
 		if ITEM_TYPE == "PICKAXE":
 			if InventoryData.HAND_ITEM_TYPE == "":
-				InventoryMainLayer.EquipAnimations.play("equip_PICKAXE")
+				EquipAnimations_Player.play("equip_PICKAXE")
 			else:
 				var item_to_unequip : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
-				InventoryMainLayer.EquipAnimations.play(item_to_unequip)
+				EquipAnimations_Player.play(item_to_unequip)
 				await get_tree().create_timer(0.16).timeout
-				InventoryMainLayer.EquipAnimations.play("equip_PICKAXE")
+				EquipAnimations_Player.play("equip_PICKAXE")
 		
 		if ITEM_TYPE == "AXE":
 			if InventoryData.HAND_ITEM_TYPE == "":
-				InventoryMainLayer.EquipAnimations.play("equip_AXE")
+				EquipAnimations_Player.play("equip_AXE")
 			else:
 				var item_to_unequip : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
-				InventoryMainLayer.EquipAnimations.play(item_to_unequip)
+				EquipAnimations_Player.play(item_to_unequip)
 				await get_tree().create_timer(0.16).timeout
-				InventoryMainLayer.EquipAnimations.play("equip_AXE")
+				EquipAnimations_Player.play("equip_AXE")
 
 func init_visually_equip(ITEM_TYPE : String):
 	
 	if ITEM_TYPE == "":
-		InventoryMainLayer.Pickaxe.visible = false
-		InventoryMainLayer.Sword.visible = false
-		InventoryMainLayer.Axe.visible = false
+		Pickaxe_Video.visible = false
+		Sword_Video.visible = false
+		Axe_Video.visible = false
 	
 	if ITEM_TYPE == "PICKAXE":
-		InventoryMainLayer.EquipAnimations.play("equip_PICKAXE")
-		InventoryMainLayer.Sword.visible = false
-		InventoryMainLayer.Axe.visible = false
+		EquipAnimations_Player.play("equip_PICKAXE")
+		Sword_Video.visible = false
+		Axe_Video.visible = false
 	
 	if ITEM_TYPE == "AXE":
-		InventoryMainLayer.EquipAnimations.play("equip_AXE")
-		InventoryMainLayer.Pickaxe.visible = false
-		InventoryMainLayer.Sword.visible = false
+		EquipAnimations_Player.play("equip_AXE")
+		Pickaxe_Video.visible = false
+		Sword_Video.visible = false
 	
 	if ITEM_TYPE == "SWORD":
-		InventoryMainLayer.EquipAnimations.play("equip_SWORD")
-		InventoryMainLayer.Pickaxe.visible = false
-		InventoryMainLayer.Axe.visible = false
+		EquipAnimations_Player.play("equip_SWORD")
+		Pickaxe_Video.visible = false
+		Axe_Video.visible = false
 
 func get_hand_debounce_time_left():
 	return HandItemDebounce.time_left
