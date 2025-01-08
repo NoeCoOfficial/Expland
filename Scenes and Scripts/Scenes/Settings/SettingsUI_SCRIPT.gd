@@ -49,6 +49,8 @@
 extends Control
 
 func nodeSetup():
+	$MainLayer/SettingsTabContainer.current_tab = 0
+	
 	$GreyLayer.modulate = Color(1, 1, 1, 0)
 	
 	$MainLayer/SettingsTabContainer/General/SSCSwitch.button_pressed = PlayerSettingsData.showStartupScreen

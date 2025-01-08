@@ -78,6 +78,14 @@ const CONSUMABLE_ITEMS = [
 	
 ]
 
+const FOOD_ITEMS = {
+	"COCONUT": 20,
+	"COCONUTCAKE": 40,
+	"BERRY": 5,
+	"BLUEBERRY": 7,
+	"STRAWBERRY": 10,
+}
+
 var creatingFromInventory = false
 
 var inventory_open = false
@@ -85,8 +93,8 @@ var in_chest_interface = false
 
 var is_dragging = false
 var is_inside_boundary = false
-var item_ref: String = ""
-var item_ref_not_at_inventory: String =  ""
+var item_ref := ""
+var item_ref_not_at_inventory :=  ""
 var is_creating_pickup = false
 var is_inside_checker = false
 
@@ -151,3 +159,8 @@ func set_hand_item(dropable_to_delete, ITEM_TYPE : String):
 		spawn_inventory_dropable(dropable_to_delete.position, InventoryData.HAND_ITEM_TYPE, dropable_to_delete.get_slot_inside())
 	dropable_to_delete.queue_free()
 	PLAYER.set_hand_item_type(ITEM_TYPE)
+
+func get_hunger_restoration_value(item: String) -> int:
+	if item in FOOD_ITEMS:
+		return FOOD_ITEMS[item]
+	return 0

@@ -50,6 +50,8 @@ extends Node
 
 const SAVE_PATH = "user://saveData/global.save"
 
+# NOTE: Find a use for this and make it actually work
+
 func saveGlobal() -> void:
 	Utils.createBaseSaveFolder()
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)

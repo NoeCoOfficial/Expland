@@ -54,20 +54,21 @@ Below are the player scene's export variables. These are useful for flexibility 
 The keyword @export means that they can be accessed in the inspector panel
 
 """
+
 ######################################
 ######################################
 
 @export_category("Properties")
 
 ######################################
-# Utility group
+# Utility
 ######################################
 
-@export_group("Utility") ## A group for utility variables
-
-@export var inventory_opened_in_air := false ## Checks if the inventory UI is opened in the air (so the same velocity can be kept, used in _physics_process()
-@export var speed:float ## The speed of the player. Used in _physics_process, this variable changes to SPRINT_SPEED, CROUCH_SPEED or WALK_SPEED depending on what input is pressed.
+var inventory_opened_in_air := false ## Checks if the inventory UI is opened in the air (so the same velocity can be kept, used in _physics_process()
+var speed : float ## The speed of the player. Used in _physics_process, this variable changes to SPRINT_SPEED, CROUCH_SPEED or WALK_SPEED depending on what input is pressed.
 var transitioning_to_menu = false
+var stamina_restoring_f0 = false
+var inventoryHand_debounce_timer = 0.2
 
 ######################################
 # Gameplay group
@@ -184,7 +185,9 @@ var is_crouching = false
 @export_group("General Nodes")
 
 @export_subgroup("CanvasLayers")
+@export var HUDLayer : CanvasLayer
 @export var ChestUILayer : CanvasLayer
+@export var InventoryLayer : CanvasLayer
 
 @export_subgroup("UI")
 @export var SettingsUI : Control
@@ -198,8 +201,9 @@ var is_crouching = false
 @export var ProtectiveLayer : Control
 
 @export_subgroup("HUD")
-@export var Health_Label : Label
+@export var Health_Bar : ProgressBar
 @export var Crosshair_Rect : TextureRect
+@export var StaminaBar : ProgressBar
 
 @export_group("Debug")
 
@@ -253,7 +257,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			
 		else:
 			
-			if !DialogueManager.is_in_absolute_interface and !InventoryManager.inventory_open and !PauseManager.is_inside_alert and !InventoryManager.in_chest_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
+			if !DialogueManager.is_in_absolute_interface and !InventoryManager.inventory_open and !PauseManager.is_inside_alert and !InventoryManager.in_chest_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !PauseManager.inside_absolute_item_workshop:
 				pauseGame()
 			
 			if InventoryManager.inventory_open:
@@ -262,12 +266,15 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			if InventoryManager.in_chest_interface:
 				if !InventoryManager.chestNode.is_animating():
 					closeChest()
+			
+			if PauseManager.inside_item_workshop:
+				closeItemWorkshop()
 	
 	if Input.is_action_just_pressed("Quit") and Quit == true and OS.has_feature("debug"): # if the Quit input is pressed and the Quit variable is true
 		SaveManager.saveAllData()
 		get_tree().quit() # quit the game
 	
-	if Input.is_action_just_pressed("Reset") and Reset == true and !PauseManager.is_paused and !PauseManager.is_inside_alert and OS.has_feature("debug"):
+	if Input.is_action_just_pressed("Reset") and !PauseManager.inside_absolute_item_workshop and Reset == true and !PauseManager.is_paused and !PauseManager.is_inside_alert and OS.has_feature("debug"):
 		if PlayerData.GAME_STATE == "NORMAL" or InventoryManager.inventory_open:
 			if ResetPOS == Vector3(999, 999, 999):
 				self.position = StartPOS # set the player's position to the Start position
@@ -281,13 +288,13 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		
 		saveAllDataWithAnimation()
 	
-	if Input.is_action_just_pressed("Inventory") and !PauseManager.is_paused and !InventoryManager.in_chest_interface and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
+	if Input.is_action_just_pressed("Inventory") and !PauseManager.inside_absolute_item_workshop and !PauseManager.is_paused and !InventoryManager.in_chest_interface and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
 		if !InventoryManager.inventory_open:
 			openInventory()
 		else:
 			closeInventory()
 	
-	if Input.is_action_just_pressed("RightClick"):
+	if Input.is_action_just_pressed("RightClick") and inventoryHand_debounce_timer <= 0:
 		if InventoryManager.is_hovering_over_hand_dropable:
 			if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup:
 				if !InventoryData.HAND_ITEM_TYPE == "":
@@ -320,7 +327,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 
 func _unhandled_input(event): # A built-in function that listens for input all the time
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
-		if InventoryManager.inventory_open or PauseManager.is_paused or PauseManager.is_inside_alert or DialogueManager.is_in_interface or InventoryManager.in_chest_interface: # Check if the game state is inventory, or paused, or viewing dialogue.
+		if InventoryManager.inventory_open or PauseManager.is_paused or PauseManager.is_inside_alert or DialogueManager.is_in_interface or InventoryManager.in_chest_interface or PauseManager.inside_can_move_item_workshop: # Check if the game state is inventory, or paused, or viewing dialogue.
 			head.rotate_y(-event.relative.x * SENSITIVITY/20) # rotate the head on the y-axis
 			camera.rotate_x(-event.relative.y * SENSITIVITY/20) # rotate the camera on the x-axis
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90)) # clamp the camera rotation on the x-axis
@@ -334,13 +341,11 @@ func _unhandled_input(event): # A built-in function that listens for input all t
 ######################################
 
 func _physics_process(delta):
-	# Initialize movement state variables
-	is_walking = false
-	is_sprinting = false
-	is_crouching = false
+	
+	## Player movement and physics
 	
 	# Crouching
-	if !InventoryManager.inventory_open and PlayerData.GAME_STATE != "DEAD" and PlayerData.GAME_STATE != "SLEEPING" and is_on_floor() and !InventoryManager.in_chest_interface and !PauseManager.is_paused and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface:
+	if !InventoryManager.inventory_open and PlayerData.GAME_STATE != "DEAD" and PlayerData.GAME_STATE != "SLEEPING" and is_on_floor() and !InventoryManager.in_chest_interface and !PauseManager.is_paused and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !PauseManager.inside_can_move_item_workshop:
 		if Input.is_action_pressed("Crouch"):
 			self.scale.y = lerp(self.scale.y, 0.5, CROUCH_INTERPOLATION * delta)
 		else:
@@ -354,23 +359,27 @@ func _physics_process(delta):
 			velocity.y -= gravity * delta
 		
 		# Jumping
-		if Input.is_action_just_pressed("Jump") and !Input.is_action_pressed("Crouch") and is_on_floor() and !PauseManager.is_paused and !PauseManager.is_inside_alert and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.in_chest_interface and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface:
+		if Input.is_action_just_pressed("Jump") and !Input.is_action_pressed("Crouch") and is_on_floor() and !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and !PauseManager.is_inside_alert and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.in_chest_interface and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface:
 			velocity.y = JUMP_VELOCITY
 		
 		# Handle Speed
-		if Input.is_action_pressed("Sprint") and !Input.is_action_pressed("Crouch") and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface and !InventoryManager.in_chest_interface:
-			speed = SPRINT_SPEED
-		elif Input.is_action_pressed("Crouch") and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface and !InventoryManager.in_chest_interface:
+		if Input.is_action_pressed("Sprint"):
+			if !Input.is_action_pressed("Crouch") and !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface and !InventoryManager.in_chest_interface:
+				speed = SPRINT_SPEED
+				is_sprinting = true
+		elif Input.is_action_pressed("Crouch") and !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface and !InventoryManager.in_chest_interface:
 			speed = CROUCH_SPEED
+			is_crouching = true
 		else:
 			speed = WALK_SPEED
+			is_walking = true
 		
 		# Movement
 		var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 		var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		
 		if is_on_floor():
-			if direction != Vector3.ZERO and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !PauseManager.is_inside_alert and !InventoryManager.in_chest_interface and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface:
+			if direction != Vector3.ZERO and !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !PauseManager.is_inside_alert and !InventoryManager.in_chest_interface and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface:
 				velocity.x = direction.x * speed
 				velocity.z = direction.z * speed
 			else:
@@ -385,15 +394,6 @@ func _physics_process(delta):
 		# Check if the player is moving and on the floor
 		is_moving = velocity.length() > 0.1 and is_on_floor()
 		
-		# Update movement state variables based on the player's movement and state
-		if is_moving:
-			if Input.is_action_pressed("Sprint"):
-				is_sprinting = true
-			elif Input.is_action_pressed("Crouch"):
-				is_crouching = true
-			else:
-				is_walking = true
-			
 		# Apply view bobbing only if the player is moving
 		if is_moving:
 			Wave_Length += delta * velocity.length()
@@ -408,7 +408,9 @@ func _headbob(time) -> Vector3:
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP # set the y position to the sine of the time times the bob frequency times the bob amplitude
 	return pos # return the position
 
-func _process(_delta):
+func _process(delta):
+	if inventoryHand_debounce_timer > 0:
+		inventoryHand_debounce_timer -= delta
 	
 	SENSITIVITY = PlayerSettingsData.Sensitivity
 	camera.fov = PlayerSettingsData.FOV
@@ -449,12 +451,12 @@ func _process(_delta):
 	
 	# HUD
 	if UseHealth == false: # Check if the UseHealth variable is false
-		Health_Label.hide() # hide the health label
+		Health_Bar.hide()
 	else: 
-		Health_Label.show() # show the health label
+		Health_Bar.show()
 	
-	Health_Label.text = "Health: " + str(PlayerData.Health) # set the health label text to "Health: " + the health variable as a string	
 	
+	# TODO: Change when making crosshair setting
 	Crosshair_Rect.size = crosshair_size # set the crosshair size to the crosshair size variable
 
 ######################################
@@ -497,6 +499,7 @@ func _on_ready() -> void: # Called when the node is considered ready
 	pass
 
 func nodeSetup(): # A function to setup the nodes. Called in the _ready function
+	$Head/Camera3D/HUDLayer/HealthBar.value = PlayerData.Health
 	
 	$Head/Camera3D/DeathScreen/BlackOverlay/GetUp.self_modulate = Color(0, 0, 0, 0) # set the get up self modulate to black
 	$Head/Camera3D/DeathScreen/BlackOverlay/RandomText.self_modulate = Color(0, 0, 0, 0) # set the random text self modulate to black
@@ -526,6 +529,13 @@ func _on_crouching_speed_sounds_timeout() -> void:
 func takeDamage(DamageToTake): # A function to take damage from the player
 	if UseHealth == true: # Check if the UseHealth variable is true
 		PlayerData.Health -= DamageToTake # subtract the damage to take from the health variable
+		
+		if PlayerData.Health <= 0:
+			update_bar("HEALTH", true, 0)
+			
+		else:
+			update_bar("HEALTH", true, PlayerData.Health)
+		
 		if PlayerData.Health <= 0: # check if health = 0 or below
 			
 			resumeGame()
@@ -694,8 +704,9 @@ func _on_hand_dropable_detector_mouse_exited() -> void:
 	MinimalAlert.hide_minimal_alert(0.1)
 
 func set_hand_item_type(ITEM_TYPE : String):
-	
+	inventoryHand_debounce_timer = 0.2
 	if ITEM_TYPE == "":
+		visually_equip("")
 		InventoryData.HAND_ITEM_TYPE = ""
 		$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Empty"
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = false
@@ -703,6 +714,7 @@ func set_hand_item_type(ITEM_TYPE : String):
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = false
 	
 	elif ITEM_TYPE == "PICKAXE":
+		visually_equip("PICKAXE")
 		InventoryData.HAND_ITEM_TYPE = "PICKAXE"
 		$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Pickaxe"
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = true
@@ -710,6 +722,7 @@ func set_hand_item_type(ITEM_TYPE : String):
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = false
 	
 	elif ITEM_TYPE == "AXE":
+		visually_equip("AXE")
 		InventoryData.HAND_ITEM_TYPE = "AXE"
 		$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Axe"
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = false
@@ -717,11 +730,74 @@ func set_hand_item_type(ITEM_TYPE : String):
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = false
 	
 	elif ITEM_TYPE == "SWORD":
+		visually_equip("SWORD")
 		InventoryData.HAND_ITEM_TYPE = "SWORD"
 		$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Sword"
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = false
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = false
 		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = true
+
+func visually_equip(ITEM_TYPE):
+	if !ITEM_TYPE == InventoryData.HAND_ITEM_TYPE:
+		if ITEM_TYPE == "":
+			if InventoryData.HAND_ITEM_TYPE != "":
+				var anim_to_play : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
+				$Head/Camera3D/InventoryHand/EquipAnimations.play(anim_to_play)
+		
+		if ITEM_TYPE == "SWORD":
+			if InventoryData.HAND_ITEM_TYPE == "":
+				$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_SWORD")
+			else:
+				var item_to_unequip : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
+				$Head/Camera3D/InventoryHand/EquipAnimations.play(item_to_unequip)
+				await get_tree().create_timer(0.16).timeout
+				$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_SWORD")
+		
+		if ITEM_TYPE == "PICKAXE":
+			if InventoryData.HAND_ITEM_TYPE == "":
+				$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_PICKAXE")
+			else:
+				var item_to_unequip : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
+				$Head/Camera3D/InventoryHand/EquipAnimations.play(item_to_unequip)
+				await get_tree().create_timer(0.16).timeout
+				$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_PICKAXE")
+		
+		if ITEM_TYPE == "AXE":
+			if InventoryData.HAND_ITEM_TYPE == "":
+				$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_AXE")
+			else:
+				var item_to_unequip : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
+				$Head/Camera3D/InventoryHand/EquipAnimations.play(item_to_unequip)
+				await get_tree().create_timer(0.16).timeout
+				$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_AXE")
+
+func init_visually_equip(ITEM_TYPE : String):
+	
+	if ITEM_TYPE == "":
+		$Head/Camera3D/InventoryHand/Pickaxe.visible = false
+		$Head/Camera3D/InventoryHand/Sword.visible = false
+		$Head/Camera3D/InventoryHand/Axe.visible = false
+	
+	if ITEM_TYPE == "PICKAXE":
+		$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_PICKAXE")
+		$Head/Camera3D/InventoryHand/Sword.visible = false
+		$Head/Camera3D/InventoryHand/Axe.visible = false
+	
+	if ITEM_TYPE == "AXE":
+		$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_AXE")
+		$Head/Camera3D/InventoryHand/Pickaxe.visible = false
+		$Head/Camera3D/InventoryHand/Sword.visible = false
+	
+	if ITEM_TYPE == "SWORD":
+		$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_SWORD")
+		$Head/Camera3D/InventoryHand/Pickaxe.visible = false
+		$Head/Camera3D/InventoryHand/Axe.visible = false
+
+func get_hand_debounce_time_left():
+	return $HandItemDebounce.time_left
+
+func start_hand_debounce_timer():
+	$HandItemDebounce.start()
 
 ######################################
 # Chest UI
@@ -770,7 +846,7 @@ func _on_credits_button_pressed() -> void:
 ######################################
 
 func saveInventory():
-	InventoryData.saveInventory(IslandManager.Current_Island_Name, $Head/Camera3D/InventoryLayer)
+	InventoryData.saveInventory(IslandManager.Current_Island_Name, InventoryLayer)
 
 func _on_save_and_quit_btn_pressed():
 	SaveManager.saveAllData()
@@ -791,6 +867,10 @@ func _on_save_and_quit_to_menu_pressed() -> void:
 
 func on_save_and_quit_to_menu_fade_finished():
 	var mainMenuScene = load("res://Scenes and Scripts/Scenes/Main Menu/MainMenu.tscn")
+	
+	PlayerManager.WORLD.haltAllHourTweens()
+	PlayerManager.WORLD.haltAllWeatherTweens()
+	
 	get_tree().change_scene_to_packed(mainMenuScene)
 
 func saveAllDataWithAnimation():
@@ -839,13 +919,14 @@ func spawn_minimal_alert_from_player(holdSec : float, fadeInTime : float, fadeOu
 func sleep_cycle(setSleeping : bool, incrementDay : bool, fadeInTime : float, holdTime : float, fadeOutTime : float, hour : int):
 	if setSleeping:
 		PlayerData.GAME_STATE = "SLEEPING"
-		SaveManager.saveAllData()
 	
 	if incrementDay:
 		if TimeManager.CURRENT_HOUR <= 23 and TimeManager.CURRENT_HOUR >= 18:
 			TimeManager.CURRENT_DAY += 1
 	
 	SaveManager.saveAllData()
+	
+	PlayerManager.WORLD.haltAllHourTweens()
 	
 	DayText_Label.text = "Day " + str(TimeManager.CURRENT_DAY)
 	SleepLayerBlackOverlay.modulate = Color(1, 1, 1, 0)
@@ -863,11 +944,12 @@ func sleep_cycle(setSleeping : bool, incrementDay : bool, fadeInTime : float, ho
 
 func on_sleep_cycle_hold_finished(fadeOutTime, hour : int):
 	
-	var WORLD = get_node("/root/World/")
-	
-	if WORLD != null:
-		if WORLD.has_method("set_hour"):
-			WORLD.set_hour(hour)
+	if PlayerManager.WORLD != null:
+		if PlayerManager.WORLD.has_method("set_hour"):
+			
+			# TASK May need to fix stuff here, if the code decides not to work (it has a mind of it's own)
+			
+			PlayerManager.WORLD.set_hour(hour)
 	
 	PlayerData.GAME_STATE = "NORMAL"
 	PlayerData.Health += 5
@@ -878,6 +960,80 @@ func on_sleep_cycle_hold_finished(fadeOutTime, hour : int):
 	tween.tween_property(DayText_Label, "modulate", Color(1, 1, 1, 0), fadeOutTime / 2)
 	tween.tween_property(ProtectiveLayer, "visible", false, 0)
 	tween.tween_property(SleepLayerBlackOverlay, "modulate", Color(1, 1, 1, 0), fadeOutTime)
+	
+######################################
+# Item Workshop
+######################################
+
+func openItemWorkshop():
+	PauseManager.inside_can_move_item_workshop = true
+	PauseManager.inside_absolute_item_workshop = true
+	$Head/Camera3D/ItemWorkshopLayer/GreyLayer.visible = true
+	$Head/Camera3D/ItemWorkshopLayer/GreyLayer.modulate = Color(1, 1, 1, 0)
+	
+	var tween = get_tree().create_tween().set_parallel()
+	tween.connect("finished", Callable(self, "on_item_workshop_open_finished"))
+	
+	tween.tween_property($Head/Camera3D/ItemWorkshopLayer/MainLayer, "position", Vector2(0, 0), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property($Head/Camera3D/ItemWorkshopLayer/GreyLayer, "modulate", Color(1, 1, 1, 1), 0.5)
+	
+	await get_tree().create_timer(0.3).timeout
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+
+func on_item_workshop_open_finished():
+	PauseManager.inside_item_workshop = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func closeItemWorkshop():
+	saveInventory()
+	PauseManager.inside_can_move_item_workshop = false
+	PauseManager.inside_item_workshop = false
+	
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	
+	var tween = get_tree().create_tween().set_parallel()
+	tween.connect("finished", Callable(self, "on_item_workshop_close_finished"))
+	
+	tween.tween_property($Head/Camera3D/ItemWorkshopLayer/MainLayer, "position", Vector2(0, 648), 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property($Head/Camera3D/ItemWorkshopLayer/GreyLayer, "modulate", Color(1, 1, 1, 0), 0.5)
+
+func on_item_workshop_close_finished():
+	PauseManager.inside_absolute_item_workshop = false
+	$Head/Camera3D/ItemWorkshopLayer/GreyLayer.visible = false
+
+func on_add_item_buttons_workshop_pressed(ITEM_TYPE : String):
+	
+		var slots = [
+			Slot1_Ref,
+			Slot2_Ref,
+			Slot3_Ref,
+			Slot4_Ref,
+			Slot5_Ref,
+			Slot6_Ref,
+			Slot7_Ref,
+			Slot8_Ref,
+			Slot9_Ref,
+		]
+		
+		var free_slot = null
+		
+		# Get the free slot
+		for i in range(slots.size()):
+			if not slots[i].is_populated():
+				free_slot = slots[i]
+				break
+		
+		
+		if free_slot != null and !free_slot.is_populated():
+			
+			free_slot.set_populated(true)
+			
+			InventoryManager.spawn_inventory_dropable(free_slot.position, ITEM_TYPE, free_slot)
+		
+		else:
+			spawn_minimal_alert_from_player(2.5, 0.3, 0.3, "Can't add item to pockets, inventory full!")
 
 ######################################
 # Area and body detection
@@ -887,9 +1043,42 @@ func _on_pickup_object_detector_body_entered(body: Node3D) -> void:
 	if body.is_in_group("temp_spike"):
 		takeDamage(14)
 	
+	if body.is_in_group("item_workshop"):
+		openItemWorkshop()
+	
 	if body.is_in_group("dialogue_test"):
 		
 		DialogueManager.startDialogue(DialogueManager.testDialogue)
+
+######################################
+# Player Stats
+######################################
+
+func _on_hunger_depletion_timeout() -> void:
+	if !is_sprinting:
+		PlayerData.Hunger -= 2
+	else:
+		PlayerData.Hunger -= 4
+	
+	if PlayerData.Hunger < 0:
+		PlayerData.Hunger = 0
+		
+	update_bar("HUNGER", true, PlayerData.Hunger)
+
+func update_bar(barName : String, animate : bool, toValue):
+	
+	if animate:
+		
+		if barName == "HEALTH":
+			var tween = get_tree().create_tween()
+			tween.tween_property($Head/Camera3D/HUDLayer/HealthBar, "value", toValue, 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+		
+		if barName == "HUNGER":
+			var tween = get_tree().create_tween()
+			tween.tween_property($Head/Camera3D/HUDLayer/HungerBar, "value", toValue, 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+		
+		if barName == "HYDRATION":
+			pass
 
 ######################################
 # Debugging

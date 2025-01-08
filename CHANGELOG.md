@@ -4,6 +4,11 @@
 
 ---
 
+## Core
+
+### Changed:
+- Changed default Linux driver to Wayland instead of XWayland, which is hard to maintain (#74)
+
 ## Main Menu
 
 ### Changed:
@@ -26,12 +31,18 @@
 ### Added:
 - The ability to save and load Islands
 
+## Player
+
+### Added:
+- Nothing yet
+
 ## Inventory
 
 ### Added:
-- The ability to place tools (Sword, Pickaxe, Axe) in your hand.
+- The ability to hold items (Sword, Pickaxe, Axe) in your hand.
 - Axe pickup item
 - Sword pickup item
+- Coconut pickup item
 - Efficiency potion pickup item (currently can't obtain)
 - Haste potion pickup item (currently can't obtain)
 - Health potion pickup item (currently can't obtain)
@@ -41,6 +52,9 @@
 - Stamina potion pickup item (currently can't obtain)
 - Strength potion pickup item (currently can't obtain)
 - Yellow flower pickup item (currently can't obtain) (#46)
+
+### Fixed:
+- Fixed a bug where you could sometimes not place dropables down in empty slots (#81)
 
 ---
 

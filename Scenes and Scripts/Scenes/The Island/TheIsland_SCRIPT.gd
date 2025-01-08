@@ -51,8 +51,8 @@ extends Node
 func initializeIslandProperties(_Island_Name):
 	pass
 
-var HOUR_LENGTH = 10.0
-var SKY_TRANS_TIME = 1.0
+var HOUR_LENGTH = 120.0
+var SKY_TRANS_TIME = 20.0
 
 @onready var TheIslandEnvironment = preload("res://Resources/Environment/TheIslandWorldEnvironment.tres")
 @onready var TheIslandProceduralSkyMaterial = preload("res://Resources/Environment/TheIslandProceduralSkyMaterial.tres")
@@ -67,14 +67,6 @@ var SKY_TRANS_TIME = 1.0
 @export var Clouds : MeshInstance3D
 
 @export var Player : CharacterBody3D
-
-@export var RockPosRef : Node3D
-@export var RedFlowerPosRef : Node3D
-@export var BlueFlowerPosRef : Node3D
-@export var PinkFlowerPosRef : Node3D
-@export var BlankFlowerPosRef : Node3D
-@export var PickaxePosRef : Node3D
-@export var HealthPotionPosRef : Node3D
 
 var hour4_tween
 var hour5_tween
@@ -100,6 +92,8 @@ var DayCloudColor = Color(0.367, 0.367, 0.367)
 func _ready() -> void:
 	randomize()
 	initNodes()
+	haltAllHourTweens()
+	haltAllWeatherTweens()
 	HourTimer.wait_time = HOUR_LENGTH
 	
 	IslandManager.transitioning_from_menu = false
@@ -115,6 +109,8 @@ func _ready() -> void:
 		set_hour(6)
 	else:
 		on_ready_time_check()
+	
+	Player.init_visually_equip(InventoryData.HAND_ITEM_TYPE)
 	
 	InventoryManager.chestNode = $Chest
 	change_weather(false)
@@ -139,15 +135,6 @@ func set_dof_blur(value : bool) -> void:
 		cameraAttributesResource.dof_blur_far_enabled = true
 	else:
 		cameraAttributesResource.dof_blur_far_enabled = false
-
-func _on_pickup_item_spawn_timer_timeout() -> void:
-	InventoryManager.create_pickup_object_at_pos(RockPosRef.position, "ROCK")
-	InventoryManager.create_pickup_object_at_pos(RedFlowerPosRef.position, "REDFLOWER")
-	InventoryManager.create_pickup_object_at_pos(BlueFlowerPosRef.position, "BLUEFLOWER")
-	InventoryManager.create_pickup_object_at_pos(PinkFlowerPosRef.position, "PINKFLOWER")
-	InventoryManager.create_pickup_object_at_pos(BlankFlowerPosRef.position, "BLANKFLOWER")
-	InventoryManager.create_pickup_object_at_pos(PickaxePosRef.position, "PICKAXE")
-	InventoryManager.create_pickup_object_at_pos(HealthPotionPosRef.position, "HEALTHPOTION")
 
 func _on_auto_save_timeout() -> void:
 	if IslandManager.Current_Game_Mode == "FREE":
@@ -286,13 +273,18 @@ func rotateSun(addX : float):
 	sunRotation_tween.tween_property(IslandDirectionalLight, "rotation_degrees:x", newX, HourTimer.wait_time).from(currentX)
 
 func on_ready_time_check():
-	
-	TimeManager.CURRENT_HOUR += 1
-	
-	if TimeManager.CURRENT_HOUR == 24:
-		TimeManager.CURRENT_HOUR = 0
-	
-	set_hour(TimeManager.CURRENT_HOUR)
+	if !IslandManager.transitioningFromNewIsland:
+		TimeManager.CURRENT_HOUR += 1
+		
+		if TimeManager.CURRENT_HOUR == 24:
+			TimeManager.CURRENT_HOUR = 0
+		
+		set_hour(TimeManager.CURRENT_HOUR)
+		
+	else:
+		IslandManager.transitioningFromNewIsland = false
+		TimeManager.CURRENT_HOUR = 10
+		set_hour(10)
 
 func _on_tick() -> void:
 		TimeManager.CURRENT_HOUR += 1
