@@ -172,15 +172,15 @@ var is_crouching = false
 
 @export_group("Inventory")
 
-@export var Slot1_Ref : StaticBody2D
-@export var Slot2_Ref : StaticBody2D
-@export var Slot3_Ref : StaticBody2D
-@export var Slot4_Ref : StaticBody2D
-@export var Slot5_Ref : StaticBody2D
-@export var Slot6_Ref : StaticBody2D
-@export var Slot7_Ref : StaticBody2D
-@export var Slot8_Ref : StaticBody2D
-@export var Slot9_Ref : StaticBody2D
+@export var Slot1_Inventory_Ref : StaticBody2D
+@export var Slot2_Inventory_Ref : StaticBody2D
+@export var Slot_3_Inventory_Ref : StaticBody2D
+@export var Slot_4_Inventory_Ref : StaticBody2D
+@export var Slot_5_Inventory_Ref : StaticBody2D
+@export var Slot_6_Inventory_Ref : StaticBody2D
+@export var Slot_7_Inventory_Ref : StaticBody2D
+@export var Slot_8_Inventory_Ref : StaticBody2D
+@export var Slot_9_Inventory_Ref : StaticBody2D
 
 @export_group("General Nodes")
 
@@ -299,15 +299,15 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup:
 				if !InventoryData.HAND_ITEM_TYPE == "":
 					var slots = [
-						Slot1_Ref,
-						Slot2_Ref,
-						Slot3_Ref,
-						Slot4_Ref,
-						Slot5_Ref,
-						Slot6_Ref,
-						Slot7_Ref,
-						Slot8_Ref,
-						Slot9_Ref,
+						Slot1_Inventory_Ref,
+						Slot2_Inventory_Ref,
+						Slot_3_Inventory_Ref,
+						Slot_4_Inventory_Ref,
+						Slot_5_Inventory_Ref,
+						Slot_6_Inventory_Ref,
+						Slot_7_Inventory_Ref,
+						Slot_8_Inventory_Ref,
+						Slot_9_Inventory_Ref,
 					]
 					
 					var free_slot = null
@@ -642,15 +642,15 @@ func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 	if area.is_in_group("pickup_player_detector"):
 		
 		var slots = [
-			Slot1_Ref,
-			Slot2_Ref,
-			Slot3_Ref,
-			Slot4_Ref,
-			Slot5_Ref,
-			Slot6_Ref,
-			Slot7_Ref,
-			Slot8_Ref,
-			Slot9_Ref,
+			Slot1_Inventory_Ref,
+			Slot2_Inventory_Ref,
+			Slot_3_Inventory_Ref,
+			Slot_4_Inventory_Ref,
+			Slot_5_Inventory_Ref,
+			Slot_6_Inventory_Ref,
+			Slot_7_Inventory_Ref,
+			Slot_8_Inventory_Ref,
+			Slot_9_Inventory_Ref,
 		]
 		
 		var free_slot = null
@@ -1006,15 +1006,15 @@ func on_item_workshop_close_finished():
 func on_add_item_buttons_workshop_pressed(ITEM_TYPE : String):
 	
 		var slots = [
-			Slot1_Ref,
-			Slot2_Ref,
-			Slot3_Ref,
-			Slot4_Ref,
-			Slot5_Ref,
-			Slot6_Ref,
-			Slot7_Ref,
-			Slot8_Ref,
-			Slot9_Ref,
+			Slot1_Inventory_Ref,
+			Slot2_Inventory_Ref,
+			Slot_3_Inventory_Ref,
+			Slot_4_Inventory_Ref,
+			Slot_5_Inventory_Ref,
+			Slot_6_Inventory_Ref,
+			Slot_7_Inventory_Ref,
+			Slot_8_Inventory_Ref,
+			Slot_9_Inventory_Ref,
 		]
 		
 		var free_slot = null

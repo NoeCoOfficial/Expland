@@ -399,7 +399,7 @@ _data = {
 "unequip_SWORD": SubResource("Animation_u5xyb")
 }
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "PickupAttractionPos", "Slot1_Ref", "Slot2_Ref", "Slot3_Ref", "Slot4_Ref", "Slot5_Ref", "Slot6_Ref", "Slot7_Ref", "Slot8_Ref", "Slot9_Ref", "HUDLayer", "ChestUILayer", "InventoryLayer", "SettingsUI", "AchievementsUI", "AlertLayer", "CreditsLayer", "MinimalAlert", "TopLayerBlackOverlay", "SleepLayerBlackOverlay", "DayText_Label", "ProtectiveLayer", "Health_Bar", "Crosshair_Rect", "StaminaBar", "Inventory_Item_Ref_Label", "Is_Raycast_Colliding_Label", "Is_Inside_Settings_Label", "Is_Inventory_Open_Label", "Is_Moving_Label", "Is_Walking_Label", "Is_Sprinting_Label", "Is_Crouching_Label", "Is_In_Dialogue_Interface_Label", "Showing_Interaction_Notification_Label", "Current_Time_Label", "Current_FPS_Label", "Player_Position_Label", "Player_VelocityY_Label", "Player_VelocityY_Accurate_Label", "Is_On_Floor_Label", "Inputs_Currently_Pressing_Label", "DAY_STATE_Label", "GAME_STATE_Label", "CURRENT_DAY_Label", "CURRENT_HOUR_Label", "CURRENT_WEATHER_Label") groups=["PlayerBody"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "PickupAttractionPos", "Slot1_Inventory_Ref", "Slot2_Inventory_Ref", "Slot_3_Inventory_Ref", "Slot_4_Inventory_Ref", "Slot_5_Inventory_Ref", "Slot_6_Inventory_Ref", "Slot_7_Inventory_Ref", "Slot_8_Inventory_Ref", "Slot_9_Inventory_Ref", "HUDLayer", "ChestUILayer", "InventoryLayer", "SettingsUI", "AchievementsUI", "AlertLayer", "CreditsLayer", "MinimalAlert", "TopLayerBlackOverlay", "SleepLayerBlackOverlay", "DayText_Label", "ProtectiveLayer", "Health_Bar", "Crosshair_Rect", "StaminaBar", "Inventory_Item_Ref_Label", "Is_Raycast_Colliding_Label", "Is_Inside_Settings_Label", "Is_Inventory_Open_Label", "Is_Moving_Label", "Is_Walking_Label", "Is_Sprinting_Label", "Is_Crouching_Label", "Is_In_Dialogue_Interface_Label", "Showing_Interaction_Notification_Label", "Current_Time_Label", "Current_FPS_Label", "Player_Position_Label", "Player_VelocityY_Label", "Player_VelocityY_Accurate_Label", "Is_On_Floor_Label", "Inputs_Currently_Pressing_Label", "DAY_STATE_Label", "GAME_STATE_Label", "CURRENT_DAY_Label", "CURRENT_HOUR_Label", "CURRENT_WEATHER_Label") groups=["PlayerBody"]]
 collision_mask = 3
 script = ExtResource("1_5mhs1")
 Fade_In = true
@@ -410,15 +410,15 @@ CROUCH_INTERPOLATION = 8.0
 head = NodePath("Head")
 camera = NodePath("Head/Camera3D")
 PickupAttractionPos = NodePath("PickupAttractionPos")
-Slot1_Ref = NodePath("Head/Camera3D/InventoryLayer/Slot1")
-Slot2_Ref = NodePath("Head/Camera3D/InventoryLayer/Slot2")
-Slot3_Ref = NodePath("Head/Camera3D/InventoryLayer/Slot3")
-Slot4_Ref = NodePath("Head/Camera3D/InventoryLayer/Slot4")
-Slot5_Ref = NodePath("Head/Camera3D/InventoryLayer/Slot5")
-Slot6_Ref = NodePath("Head/Camera3D/InventoryLayer/Slot6")
-Slot7_Ref = NodePath("Head/Camera3D/InventoryLayer/Slot7")
-Slot8_Ref = NodePath("Head/Camera3D/InventoryLayer/Slot8")
-Slot9_Ref = NodePath("Head/Camera3D/InventoryLayer/Slot9")
+Slot1_Inventory_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Slot1")
+Slot2_Inventory_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Slot2")
+Slot_3_Inventory_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Slot3")
+Slot_4_Inventory_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Slot4")
+Slot_5_Inventory_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Slot5")
+Slot_6_Inventory_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Slot6")
+Slot_7_Inventory_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Slot7")
+Slot_8_Inventory_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Slot8")
+Slot_9_Inventory_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Slot9")
 HUDLayer = NodePath("Head/Camera3D/HUDLayer")
 ChestUILayer = NodePath("Head/Camera3D/ChestUILayer")
 InventoryLayer = NodePath("Head/Camera3D/InventoryLayer")
@@ -694,7 +694,10 @@ color = Color(0, 0, 0, 0.643137)
 script = ExtResource("16_wg7d4")
 metadata/_edit_use_anchors_ = true
 
-[node name="Background" type="Panel" parent="Head/Camera3D/InventoryLayer"]
+[node name="InventoryMainLayer" type="CanvasLayer" parent="Head/Camera3D/InventoryLayer"]
+layer = 2
+
+[node name="Background" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -709,7 +712,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2kg3l")
 script = SubResource("GDScript_tq46f")
 
-[node name="Background_2" type="Panel" parent="Head/Camera3D/InventoryLayer"]
+[node name="Background_2" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 modulate = Color(0, 0, 0, 1)
 anchors_preset = -1
 anchor_left = 0.28559
@@ -723,7 +726,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xa5l0")
 script = SubResource("GDScript_tq46f")
 
-[node name="Background_3" type="Panel" parent="Head/Camera3D/InventoryLayer"]
+[node name="Background_3" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 anchors_preset = -1
 anchor_left = 0.28559
 anchor_top = 0.185185
@@ -737,7 +740,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7tmhy")
 script = SubResource("GDScript_tq46f")
 
-[node name="Title" type="Label" parent="Head/Camera3D/InventoryLayer"]
+[node name="Title" type="Label" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 anchors_preset = -1
 anchor_left = 0.393229
 anchor_top = 0.20216
@@ -753,34 +756,34 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("9_svfxy")
 
-[node name="Slot1" parent="Head/Camera3D/InventoryLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
+[node name="Slot1" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
 position = Vector2(382, 246)
 
-[node name="Slot2" parent="Head/Camera3D/InventoryLayer" groups=["Slot2"] instance=ExtResource("8_ads4s")]
+[node name="Slot2" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot2"] instance=ExtResource("8_ads4s")]
 position = Vector2(488, 246)
 
-[node name="Slot3" parent="Head/Camera3D/InventoryLayer" groups=["Slot3"] instance=ExtResource("8_ads4s")]
+[node name="Slot3" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot3"] instance=ExtResource("8_ads4s")]
 position = Vector2(595, 246)
 
-[node name="Slot4" parent="Head/Camera3D/InventoryLayer" groups=["Slot4"] instance=ExtResource("8_ads4s")]
+[node name="Slot4" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot4"] instance=ExtResource("8_ads4s")]
 position = Vector2(381, 354)
 
-[node name="Slot5" parent="Head/Camera3D/InventoryLayer" groups=["Slot5"] instance=ExtResource("8_ads4s")]
+[node name="Slot5" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot5"] instance=ExtResource("8_ads4s")]
 position = Vector2(487, 354)
 
-[node name="Slot6" parent="Head/Camera3D/InventoryLayer" groups=["Slot6"] instance=ExtResource("8_ads4s")]
+[node name="Slot6" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot6"] instance=ExtResource("8_ads4s")]
 position = Vector2(594, 354)
 
-[node name="Slot7" parent="Head/Camera3D/InventoryLayer" groups=["Slot7"] instance=ExtResource("8_ads4s")]
+[node name="Slot7" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot7"] instance=ExtResource("8_ads4s")]
 position = Vector2(381, 461)
 
-[node name="Slot8" parent="Head/Camera3D/InventoryLayer" groups=["Slot8"] instance=ExtResource("8_ads4s")]
+[node name="Slot8" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot8"] instance=ExtResource("8_ads4s")]
 position = Vector2(487, 461)
 
-[node name="Slot9" parent="Head/Camera3D/InventoryLayer" groups=["Slot9"] instance=ExtResource("8_ads4s")]
+[node name="Slot9" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot9"] instance=ExtResource("8_ads4s")]
 position = Vector2(594, 461)
 
-[node name="Hand_Dropable_Background" type="Panel" parent="Head/Camera3D/InventoryLayer"]
+[node name="Hand_Dropable_Background" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 clip_children = 2
 clip_contents = true
 anchors_preset = 8
@@ -797,7 +800,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2kg3l")
 script = SubResource("GDScript_tq46f")
 
-[node name="Empty_Label" type="Label" parent="Head/Camera3D/InventoryLayer/Hand_Dropable_Background"]
+[node name="Empty_Label" type="Label" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background"]
 modulate = Color(1, 1, 1, 0.395)
 layout_mode = 1
 anchors_preset = -1
@@ -812,7 +815,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Pickaxe_Hand_Dropable_Video" type="VideoStreamPlayer" parent="Head/Camera3D/InventoryLayer/Hand_Dropable_Background"]
+[node name="Pickaxe_Hand_Dropable_Video" type="VideoStreamPlayer" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background"]
 layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
@@ -823,7 +826,7 @@ stream = ExtResource("13_cxi4r")
 autoplay = true
 loop = true
 
-[node name="Axe_Hand_Dropable_Video" type="VideoStreamPlayer" parent="Head/Camera3D/InventoryLayer/Hand_Dropable_Background"]
+[node name="Axe_Hand_Dropable_Video" type="VideoStreamPlayer" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background"]
 layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
@@ -834,7 +837,7 @@ stream = ExtResource("14_3qyxm")
 autoplay = true
 loop = true
 
-[node name="Sword_Hand_Dropable_Video" type="VideoStreamPlayer" parent="Head/Camera3D/InventoryLayer/Hand_Dropable_Background"]
+[node name="Sword_Hand_Dropable_Video" type="VideoStreamPlayer" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background"]
 layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
@@ -845,7 +848,7 @@ stream = ExtResource("15_mlct4")
 autoplay = true
 loop = true
 
-[node name="HAND_ITEM_TYPE" type="Label" parent="Head/Camera3D/InventoryLayer"]
+[node name="HAND_ITEM_TYPE" type="Label" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 offset_left = 677.0
 offset_top = 200.0
 offset_right = 807.0
@@ -856,7 +859,7 @@ text = "Empty"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HandDropableDetector" type="Button" parent="Head/Camera3D/InventoryLayer"]
+[node name="HandDropableDetector" type="Button" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 modulate = Color(1, 1, 1, 0)
 offset_left = 670.0
 offset_top = 235.0
@@ -2668,8 +2671,8 @@ libraries = {
 [connection signal="timeout" from="HungerDepletion" to="." method="_on_hunger_depletion_timeout"]
 [connection signal="area_entered" from="PickupObjectDetector" to="." method="_on_pickup_object_detector_area_entered"]
 [connection signal="body_entered" from="PickupObjectDetector" to="." method="_on_pickup_object_detector_body_entered"]
-[connection signal="mouse_entered" from="Head/Camera3D/InventoryLayer/HandDropableDetector" to="." method="_on_hand_dropable_detector_mouse_entered"]
-[connection signal="mouse_exited" from="Head/Camera3D/InventoryLayer/HandDropableDetector" to="." method="_on_hand_dropable_detector_mouse_exited"]
+[connection signal="mouse_entered" from="Head/Camera3D/InventoryLayer/InventoryMainLayer/HandDropableDetector" to="." method="_on_hand_dropable_detector_mouse_entered"]
+[connection signal="mouse_exited" from="Head/Camera3D/InventoryLayer/InventoryMainLayer/HandDropableDetector" to="." method="_on_hand_dropable_detector_mouse_exited"]
 [connection signal="area_entered" from="Head/Camera3D/InventoryLayer/Boundary" to="." method="_on_boundary_area_entered"]
 [connection signal="area_exited" from="Head/Camera3D/InventoryLayer/Boundary" to="." method="_on_boundary_area_exited"]
 [connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/ROCK/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["ROCK"]]
