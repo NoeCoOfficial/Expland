@@ -327,7 +327,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 
 func _unhandled_input(event): # A built-in function that listens for input all the time
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
-		if InventoryManager.inventory_open or PauseManager.is_paused or PauseManager.is_inside_alert or DialogueManager.is_in_interface or InventoryManager.in_chest_interface or PauseManager.inside_item_workshop: # Check if the game state is inventory, or paused, or viewing dialogue.
+		if InventoryManager.inventory_open or PauseManager.is_paused or PauseManager.is_inside_alert or DialogueManager.is_in_interface or InventoryManager.in_chest_interface or PauseManager.inside_can_move_item_workshop: # Check if the game state is inventory, or paused, or viewing dialogue.
 			head.rotate_y(-event.relative.x * SENSITIVITY/20) # rotate the head on the y-axis
 			camera.rotate_x(-event.relative.y * SENSITIVITY/20) # rotate the camera on the x-axis
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90)) # clamp the camera rotation on the x-axis
@@ -973,8 +973,6 @@ func openItemWorkshop():
 	$Head/Camera3D/ItemWorkshopLayer/GreyLayer.visible = true
 	$Head/Camera3D/ItemWorkshopLayer/GreyLayer.modulate = Color(1, 1, 1, 0)
 	
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	
 	var tween = get_tree().create_tween().set_parallel()
 	tween.connect("finished", Callable(self, "on_item_workshop_open_finished"))
 	
@@ -983,6 +981,7 @@ func openItemWorkshop():
 
 func on_item_workshop_open_finished():
 	PauseManager.inside_item_workshop = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func closeItemWorkshop():
 	PauseManager.inside_can_move_item_workshop = false
@@ -1029,7 +1028,7 @@ func on_add_item_buttons_workshop_pressed(ITEM_TYPE : String):
 			InventoryManager.spawn_inventory_dropable(free_slot.position, ITEM_TYPE, free_slot)
 		
 		else:
-			spawn_minimal_alert_from_player(3, 0.5, 0.5, "Can't add item to pockets, inventory full!")
+			spawn_minimal_alert_from_player(2.5, 0.3, 0.3, "Can't add item to pockets, inventory full!")
 
 ######################################
 # Area and body detection

@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=79 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -39,9 +39,17 @@
 [ext_resource type="Texture2D" uid="uid://da0briqsyhmau" path="res://Textures/Inventory/PINKFLOWER.png" id="28_8lpje"]
 [ext_resource type="Texture2D" uid="uid://cqvxhihjcesqw" path="res://Textures/Inventory/YELLOWFLOWER.png" id="29_p6tr0"]
 [ext_resource type="Texture2D" uid="uid://bu54o8nhdxuoh" path="res://Textures/Inventory/BLANKFLOWER.png" id="30_urpf5"]
+[ext_resource type="Texture2D" uid="uid://1dbgnxe1pe1i" path="res://Textures/Inventory/HEALTHPOTION.png" id="31_uwwqt"]
 [ext_resource type="PackedScene" uid="uid://cnpgx6ef6qxqs" path="res://Assets/3D Models/Tools/Pickaxe.blend" id="32_4dvtj"]
+[ext_resource type="Texture2D" uid="uid://o3u6sxubmrbg" path="res://Textures/Inventory/HASTEPOTION.png" id="32_35fmr"]
+[ext_resource type="Texture2D" uid="uid://dkol2o53q7rck" path="res://Textures/Inventory/LUCKPOTION.png" id="33_6u7y3"]
 [ext_resource type="PackedScene" uid="uid://duk84wfnoo2r6" path="res://Assets/3D Models/Tools/Sword.blend" id="33_pxyba"]
 [ext_resource type="PackedScene" uid="uid://boamr831x21ue" path="res://Assets/3D Models/Tools/Axe.blend" id="34_m8bs6"]
+[ext_resource type="Texture2D" uid="uid://don2d5onyupya" path="res://Textures/Inventory/EFFICIENCYPOTION.png" id="34_ngejw"]
+[ext_resource type="Texture2D" uid="uid://d0q61bcnprn5o" path="res://Textures/Inventory/NIGHTVISIONPOTION.png" id="35_csgb7"]
+[ext_resource type="Texture2D" uid="uid://mwa55qklwxe3" path="res://Textures/Inventory/REGENERATINGPOTION.png" id="36_j5dlx"]
+[ext_resource type="Texture2D" uid="uid://fj1pvfgfyamb" path="res://Textures/Inventory/STAMINAPOTION.png" id="37_2ubft"]
+[ext_resource type="Texture2D" uid="uid://bfiqh1ceg7rmt" path="res://Textures/Inventory/STRENGTHPOTION.png" id="38_1xbnu"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_w6tro"]
 
@@ -1388,11 +1396,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("22_7sfup")
 theme_override_font_sizes/font_size = 21
-current_tab = 2
+current_tab = 0
 script = ExtResource("16_wg7d4")
 
 [node name="Food" type="TabBar" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs"]
-visible = false
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("16_wg7d4")
@@ -1406,6 +1413,7 @@ script = ExtResource("16_wg7d4")
 metadata/_tab_index = 1
 
 [node name="Potions" type="TabBar" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs"]
+visible = false
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("16_wg7d4")
@@ -1448,7 +1456,7 @@ offset_left = 7.0
 offset_top = 29.0
 offset_right = 113.0
 offset_bottom = 135.0
-texture = ExtResource("26_mj8js")
+texture = ExtResource("31_uwwqt")
 expand_mode = 1
 
 [node name="AddButton" type="Button" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/HEALTHPOTION"]
@@ -1477,7 +1485,7 @@ offset_right = 116.0
 offset_bottom = 29.0
 theme = ExtResource("17_rhxkt")
 theme_override_fonts/font = ExtResource("8_cdk3a")
-text = "Red Flower"
+text = "Health Potion"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1496,7 +1504,7 @@ offset_left = 7.0
 offset_top = 29.0
 offset_right = 113.0
 offset_bottom = 135.0
-texture = ExtResource("27_t16sl")
+texture = ExtResource("32_35fmr")
 expand_mode = 1
 
 [node name="AddButton" type="Button" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/HASTEPOTION"]
@@ -1525,7 +1533,7 @@ offset_right = 116.0
 offset_bottom = 29.0
 theme = ExtResource("17_rhxkt")
 theme_override_fonts/font = ExtResource("8_cdk3a")
-text = "Blue Flower"
+text = "Haste Potion"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1544,7 +1552,7 @@ offset_left = 7.0
 offset_top = 29.0
 offset_right = 113.0
 offset_bottom = 135.0
-texture = ExtResource("28_8lpje")
+texture = ExtResource("33_6u7y3")
 expand_mode = 1
 
 [node name="AddButton" type="Button" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/LUCKPOTION"]
@@ -1573,7 +1581,7 @@ offset_right = 116.0
 offset_bottom = 29.0
 theme = ExtResource("17_rhxkt")
 theme_override_fonts/font = ExtResource("8_cdk3a")
-text = "Pink Flower"
+text = "Luck Potion"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1592,7 +1600,7 @@ offset_left = 7.0
 offset_top = 29.0
 offset_right = 113.0
 offset_bottom = 135.0
-texture = ExtResource("29_p6tr0")
+texture = ExtResource("34_ngejw")
 expand_mode = 1
 
 [node name="AddButton" type="Button" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/EFFICIENCYPOTION"]
@@ -1621,7 +1629,8 @@ offset_right = 116.0
 offset_bottom = 29.0
 theme = ExtResource("17_rhxkt")
 theme_override_fonts/font = ExtResource("8_cdk3a")
-text = "Yellow Flower"
+theme_override_font_sizes/font_size = 14
+text = "Efficiency Potion"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1640,7 +1649,7 @@ offset_left = 7.0
 offset_top = 29.0
 offset_right = 113.0
 offset_bottom = 135.0
-texture = ExtResource("30_urpf5")
+texture = ExtResource("35_csgb7")
 expand_mode = 1
 
 [node name="AddButton" type="Button" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/NIGHTVISIONPOTION"]
@@ -1669,7 +1678,8 @@ offset_right = 116.0
 offset_bottom = 29.0
 theme = ExtResource("17_rhxkt")
 theme_override_fonts/font = ExtResource("8_cdk3a")
-text = "Blank Flower"
+theme_override_font_sizes/font_size = 12
+text = "Night  Vision Potion"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1688,7 +1698,7 @@ offset_left = 7.0
 offset_top = 29.0
 offset_right = 113.0
 offset_bottom = 135.0
-texture = ExtResource("30_urpf5")
+texture = ExtResource("36_j5dlx")
 expand_mode = 1
 
 [node name="AddButton" type="Button" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/REGENERATINGPOTION2"]
@@ -1717,7 +1727,8 @@ offset_right = 116.0
 offset_bottom = 29.0
 theme = ExtResource("17_rhxkt")
 theme_override_fonts/font = ExtResource("8_cdk3a")
-text = "Blank Flower"
+theme_override_font_sizes/font_size = 12
+text = "Regenerating Potion"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1736,7 +1747,7 @@ offset_left = 7.0
 offset_top = 29.0
 offset_right = 113.0
 offset_bottom = 135.0
-texture = ExtResource("30_urpf5")
+texture = ExtResource("37_2ubft")
 expand_mode = 1
 
 [node name="AddButton" type="Button" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/STAMINAPOTION"]
@@ -1765,7 +1776,7 @@ offset_right = 116.0
 offset_bottom = 29.0
 theme = ExtResource("17_rhxkt")
 theme_override_fonts/font = ExtResource("8_cdk3a")
-text = "Blank Flower"
+text = "Stamina Potion"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1784,7 +1795,7 @@ offset_left = 7.0
 offset_top = 29.0
 offset_right = 113.0
 offset_bottom = 135.0
-texture = ExtResource("30_urpf5")
+texture = ExtResource("38_1xbnu")
 expand_mode = 1
 
 [node name="AddButton" type="Button" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/STRENGTHPOTION"]
@@ -1813,7 +1824,8 @@ offset_right = 116.0
 offset_bottom = 29.0
 theme = ExtResource("17_rhxkt")
 theme_override_fonts/font = ExtResource("8_cdk3a")
-text = "Blank Flower"
+theme_override_font_sizes/font_size = 15
+text = "Strength Potion"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -2420,14 +2432,14 @@ libraries = {
 [connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/PINKFLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["PINKFLOWER"]]
 [connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/YELLOWFLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["YELLOWFLOWER"]]
 [connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/BLANKFLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["BLANKFLOWER"]]
-[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/HEALTHPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["REDFLOWER"]]
-[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/HASTEPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["BLUEFLOWER"]]
-[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/LUCKPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["PINKFLOWER"]]
-[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/EFFICIENCYPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["YELLOWFLOWER"]]
-[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/NIGHTVISIONPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["BLANKFLOWER"]]
-[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/REGENERATINGPOTION2/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["BLANKFLOWER"]]
-[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/STAMINAPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["BLANKFLOWER"]]
-[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/STRENGTHPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["BLANKFLOWER"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/HEALTHPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["HEALTHPOTION"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/HASTEPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["HASTEPOTION"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/LUCKPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["LUCKPOTION"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/EFFICIENCYPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["EFFICIENCYPOTION"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/NIGHTVISIONPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["NIGHTVISIONPOTION"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/REGENERATINGPOTION2/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["REGENERATINGPOTION"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/STAMINAPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["STAMINAPOTION"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/STRENGTHPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["STRENGTHPOTION"]]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/Resume_Btn" to="." method="_on_resume_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/Settings_Btn" to="." method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/SaveAndQuitToMenu" to="." method="_on_save_and_quit_to_menu_pressed"]
