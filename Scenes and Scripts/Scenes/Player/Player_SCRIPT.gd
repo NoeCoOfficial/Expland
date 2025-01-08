@@ -630,6 +630,13 @@ func openInventory():
 		$Head/Camera3D/InventoryLayer/GreyLayer.hide()
 		
 	else:
+		
+		$Head/Camera3D/InventoryLayer/Boundary.monitorable = true
+		$Head/Camera3D/InventoryLayer/Boundary.monitoring = true
+		
+		$Head/Camera3D/InventoryLayer/BoundaryChest.monitorable = false
+		$Head/Camera3D/InventoryLayer/BoundaryChest.monitoring = false
+		
 		$Head/Camera3D/InventoryLayer/InventoryMainLayer.offset.x = 0
 		$Head/Camera3D/InventoryLayer/GreyLayer.show()
 	
@@ -830,14 +837,13 @@ func start_hand_debounce_timer():
 func openChest():
 	ChestUILayer.show()
 	InventoryManager.in_chest_interface = true
-	openInventory()
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	openInventory() # Does most of the stuff for us
 	InventoryManager.chestNode.animate("OPEN")
 
 func closeChest():
 	ChestUILayer.hide()
 	InventoryManager.in_chest_interface = false
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	closeInventory() # Does most of the stuff for us
 	InventoryManager.chestNode.animate("CLOSE")
 
 ######################################
