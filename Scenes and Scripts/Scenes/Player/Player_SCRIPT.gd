@@ -1000,7 +1000,36 @@ func on_item_workshop_close_finished():
 	$Head/Camera3D/ItemWorkshopLayer/GreyLayer.visible = false
 
 func on_add_item_buttons_workshop_pressed(ITEM_TYPE : String):
-	print(ITEM_TYPE)
+	
+		var slots = [
+			Slot1_Ref,
+			Slot2_Ref,
+			Slot3_Ref,
+			Slot4_Ref,
+			Slot5_Ref,
+			Slot6_Ref,
+			Slot7_Ref,
+			Slot8_Ref,
+			Slot9_Ref,
+		]
+		
+		var free_slot = null
+		
+		# Get the free slot
+		for i in range(slots.size()):
+			if not slots[i].is_populated():
+				free_slot = slots[i]
+				break
+		
+		
+		if free_slot != null and !free_slot.is_populated():
+			
+			free_slot.set_populated(true)
+			
+			InventoryManager.spawn_inventory_dropable(free_slot.position, ITEM_TYPE, free_slot)
+		
+		else:
+			spawn_minimal_alert_from_player(3, 0.5, 0.5, "Can't add item to pockets, inventory full!")
 
 ######################################
 # Area and body detection
