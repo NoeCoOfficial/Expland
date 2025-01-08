@@ -20,10 +20,14 @@
 ## The Island
 
 ### Added:
+- Functionality and saving to the Chest, with consists of 100 slots to store items
 - The all-new Item Workshop™ located in the testing area, where you can obtain any item you want!
 - Water to the lake and around The Island
 - Dynamic clouds in the sky that move
 - A very simple weather system that is yet to be improved
+
+### Fixed:
+- Minor bugs associated with sleeping
 
 ## Environment
 
