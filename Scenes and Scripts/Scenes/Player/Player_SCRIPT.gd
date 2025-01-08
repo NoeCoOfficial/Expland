@@ -619,6 +619,13 @@ func showDeathScreen(): # A function to show the death screen
 
 func openInventory():
 	if InventoryManager.in_chest_interface:
+		
+		$Head/Camera3D/InventoryLayer/Boundary.monitorable = false
+		$Head/Camera3D/InventoryLayer/Boundary.monitoring = false
+		
+		$Head/Camera3D/InventoryLayer/BoundaryChest.monitorable = true
+		$Head/Camera3D/InventoryLayer/BoundaryChest.monitoring = true
+		
 		$Head/Camera3D/InventoryLayer/InventoryMainLayer.offset.x = -291.96
 		$Head/Camera3D/InventoryLayer/GreyLayer.hide()
 		

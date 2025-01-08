@@ -177,10 +177,10 @@ corner_radius_top_right = 12
 size = Vector2(313, 648)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sl537"]
-size = Vector2(1152, 107)
+size = Vector2(538, 107)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4c0ao"]
-size = Vector2(1152, 118)
+size = Vector2(531, 118)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_47l1q"]
 size = Vector2(313, 648)
@@ -887,6 +887,20 @@ debug_color = Color(0.998937, 0, 0.128371, 0.42)
 [node name="Boundary4" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Boundary"]
 position = Vector2(995.5, 324)
 shape = SubResource("RectangleShape2D_47l1q")
+debug_color = Color(0.998937, 0, 0.128371, 0.42)
+
+[node name="BoundaryChest" type="Area2D" parent="Head/Camera3D/InventoryLayer" groups=["boundary"]]
+visible = false
+priority = 12
+
+[node name="Boundary2" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/BoundaryChest"]
+position = Vector2(269, 53.5)
+shape = SubResource("RectangleShape2D_sl537")
+debug_color = Color(0.998937, 0, 0.128371, 0.42)
+
+[node name="Boundary3" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/BoundaryChest"]
+position = Vector2(265.5, 589)
+shape = SubResource("RectangleShape2D_4c0ao")
 debug_color = Color(0.998937, 0, 0.128371, 0.42)
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
@@ -2673,6 +2687,8 @@ libraries = {
 [connection signal="mouse_exited" from="Head/Camera3D/InventoryLayer/InventoryMainLayer/HandDropableDetector" to="." method="_on_hand_dropable_detector_mouse_exited"]
 [connection signal="area_entered" from="Head/Camera3D/InventoryLayer/Boundary" to="." method="_on_boundary_area_entered"]
 [connection signal="area_exited" from="Head/Camera3D/InventoryLayer/Boundary" to="." method="_on_boundary_area_exited"]
+[connection signal="area_entered" from="Head/Camera3D/InventoryLayer/BoundaryChest" to="." method="_on_boundary_area_entered"]
+[connection signal="area_exited" from="Head/Camera3D/InventoryLayer/BoundaryChest" to="." method="_on_boundary_area_exited"]
 [connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/ROCK/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["ROCK"]]
 [connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/REDFLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["REDFLOWER"]]
 [connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/BLUEFLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["BLUEFLOWER"]]
