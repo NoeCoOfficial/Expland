@@ -1107,16 +1107,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -350.0
+offset_left = -320.0
 offset_top = -204.5
-offset_right = 350.0
+offset_right = 320.0
 offset_bottom = 204.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer"]
+[node name="HBoxContainer" type="GridContainer" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer"]
 layout_mode = 2
-theme_override_constants/separation = 130
+theme_override_constants/h_separation = 130
+theme_override_constants/v_separation = 187
+columns = 5
 
 [node name="REDFLOWER" type="Control" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/HBoxContainer"]
 layout_mode = 2
@@ -1154,6 +1156,194 @@ theme = ExtResource("17_rhxkt")
 text = "Add"
 
 [node name="ITEM_TYPE" type="Label" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/HBoxContainer/REDFLOWER"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 6.0
+offset_right = 104.0
+offset_bottom = 29.0
+theme = ExtResource("17_rhxkt")
+theme_override_fonts/font = ExtResource("8_cdk3a")
+text = "Red Flower"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="REDFLOWER2" type="Control" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Background" type="Panel" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/HBoxContainer/REDFLOWER2"]
+layout_mode = 0
+offset_right = 119.0
+offset_bottom = 177.0
+theme_override_styles/panel = ExtResource("25_8giff")
+
+[node name="ITEM_IMAGE" type="TextureRect" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/HBoxContainer/REDFLOWER2"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 29.0
+offset_right = 113.0
+offset_bottom = 135.0
+texture = ExtResource("26_mj8js")
+expand_mode = 1
+
+[node name="AddButton" type="Button" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/HBoxContainer/REDFLOWER2"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 139.0
+offset_right = 112.0
+offset_bottom = 169.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme = ExtResource("17_rhxkt")
+text = "Add"
+
+[node name="ITEM_TYPE" type="Label" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/HBoxContainer/REDFLOWER2"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 6.0
+offset_right = 104.0
+offset_bottom = 29.0
+theme = ExtResource("17_rhxkt")
+theme_override_fonts/font = ExtResource("8_cdk3a")
+text = "Red Flower"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="REDFLOWER3" type="Control" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Background" type="Panel" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/HBoxContainer/REDFLOWER3"]
+layout_mode = 0
+offset_right = 119.0
+offset_bottom = 177.0
+theme_override_styles/panel = ExtResource("25_8giff")
+
+[node name="ITEM_IMAGE" type="TextureRect" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/HBoxContainer/REDFLOWER3"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 29.0
+offset_right = 113.0
+offset_bottom = 135.0
+texture = ExtResource("26_mj8js")
+expand_mode = 1
+
+[node name="AddButton" type="Button" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/HBoxContainer/REDFLOWER3"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 139.0
+offset_right = 112.0
+offset_bottom = 169.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme = ExtResource("17_rhxkt")
+text = "Add"
+
+[node name="ITEM_TYPE" type="Label" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/HBoxContainer/REDFLOWER3"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 6.0
+offset_right = 104.0
+offset_bottom = 29.0
+theme = ExtResource("17_rhxkt")
+theme_override_fonts/font = ExtResource("8_cdk3a")
+text = "Red Flower"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="REDFLOWER4" type="Control" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Background" type="Panel" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/HBoxContainer/REDFLOWER4"]
+layout_mode = 0
+offset_right = 119.0
+offset_bottom = 177.0
+theme_override_styles/panel = ExtResource("25_8giff")
+
+[node name="ITEM_IMAGE" type="TextureRect" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/HBoxContainer/REDFLOWER4"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 29.0
+offset_right = 113.0
+offset_bottom = 135.0
+texture = ExtResource("26_mj8js")
+expand_mode = 1
+
+[node name="AddButton" type="Button" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/HBoxContainer/REDFLOWER4"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 139.0
+offset_right = 112.0
+offset_bottom = 169.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme = ExtResource("17_rhxkt")
+text = "Add"
+
+[node name="ITEM_TYPE" type="Label" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/HBoxContainer/REDFLOWER4"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 6.0
+offset_right = 104.0
+offset_bottom = 29.0
+theme = ExtResource("17_rhxkt")
+theme_override_fonts/font = ExtResource("8_cdk3a")
+text = "Red Flower"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="REDFLOWER5" type="Control" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Background" type="Panel" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/HBoxContainer/REDFLOWER5"]
+layout_mode = 0
+offset_right = 119.0
+offset_bottom = 177.0
+theme_override_styles/panel = ExtResource("25_8giff")
+
+[node name="ITEM_IMAGE" type="TextureRect" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/HBoxContainer/REDFLOWER5"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 29.0
+offset_right = 113.0
+offset_bottom = 135.0
+texture = ExtResource("26_mj8js")
+expand_mode = 1
+
+[node name="AddButton" type="Button" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/HBoxContainer/REDFLOWER5"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 139.0
+offset_right = 112.0
+offset_bottom = 169.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme = ExtResource("17_rhxkt")
+text = "Add"
+
+[node name="ITEM_TYPE" type="Label" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/HBoxContainer/REDFLOWER5"]
 layout_mode = 0
 offset_left = 18.0
 offset_top = 6.0
