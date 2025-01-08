@@ -1116,6 +1116,7 @@ grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer"]
 layout_mode = 2
+theme_override_constants/separation = 130
 
 [node name="REDFLOWER" type="Control" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/HBoxContainer"]
 layout_mode = 2
