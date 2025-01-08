@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=67 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -32,6 +32,8 @@
 [ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="22_7sfup"]
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="24_6y28d"]
 [ext_resource type="PackedScene" uid="uid://djenc4llne53s" path="res://Scenes and Scripts/Scenes/Credits/CreditsLayer.tscn" id="24_qhsvo"]
+[ext_resource type="StyleBox" uid="uid://c1a26qv61p5kw" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkgreyBGwithWhiteBorder.tres" id="25_8giff"]
+[ext_resource type="Texture2D" uid="uid://m8ohdtvo6rfr" path="res://Textures/Inventory/REDFLOWER.png" id="26_mj8js"]
 [ext_resource type="PackedScene" uid="uid://cq13w255wbu5l" path="res://Scenes and Scripts/Scenes/Minimal Alert/MinimalAlert.tscn" id="27_5o6is"]
 [ext_resource type="PackedScene" uid="uid://cnpgx6ef6qxqs" path="res://Assets/3D Models/Tools/Pickaxe.blend" id="32_4dvtj"]
 [ext_resource type="PackedScene" uid="uid://duk84wfnoo2r6" path="res://Assets/3D Models/Tools/Sword.blend" id="33_pxyba"]
@@ -1082,7 +1084,7 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -357.0
-offset_top = -215.0
+offset_top = -211.0
 offset_right = 356.0
 offset_bottom = 255.0
 grow_horizontal = 2
@@ -1097,6 +1099,43 @@ layout_mode = 2
 focus_mode = 0
 script = ExtResource("16_wg7d4")
 metadata/_tab_index = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -204.5
+offset_right = 350.0
+offset_bottom = 204.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 100
+
+[node name="REDFLOWER" type="Control" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/HFlowContainer"]
+layout_mode = 2
+
+[node name="Background" type="Panel" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/HFlowContainer/REDFLOWER"]
+layout_mode = 0
+offset_right = 119.0
+offset_bottom = 156.0
+theme_override_styles/panel = ExtResource("25_8giff")
+
+[node name="ITEM_IMAGE" type="TextureRect" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/HFlowContainer/REDFLOWER"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 5.0
+offset_right = 113.0
+offset_bottom = 111.0
+texture = ExtResource("26_mj8js")
+expand_mode = 1
 
 [node name="Consumables" type="TabBar" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer"]
 visible = false
