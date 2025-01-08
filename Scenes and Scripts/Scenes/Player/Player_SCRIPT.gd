@@ -241,7 +241,6 @@ var is_crouching = false
 @export var InventoryLayer_BoundaryChest : Area3D
 @export var InventoryLayer_InventoryMainLayer : Control
 @export var InventoryLayer_GreyLayer : Control
-@export var InventoryLayer : Control
 @export var MinimalAlertLayer_MinimalAlert : Control
 @export var ItemWorkshopLayer_MainLayer : Control
 @export var ItemWorkshopLayer_GreyLayer : Control
