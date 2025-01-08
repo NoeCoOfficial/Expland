@@ -11,12 +11,16 @@
 
 ## Main Menu
 
+### Added:
+- The ability to save and load Islands
+
 ### Changed:
-- Camera animation now loops instead of stopping when returned to original position
+- Background camera animation now loops instead of stopping when returned to original position
 
 ## The Island
 
 ### Added:
+- The all-new Item Workshop™ located in the testing area, where you can obtain any item you want!
 - Water to the lake and around The Island
 - Dynamic clouds in the sky that move
 - A very simple weather system that is yet to be improved
@@ -25,11 +29,6 @@
 
 ### Removed:
 - Removed motion blur effect (#79)
-
-## Main Menu
-
-### Added:
-- The ability to save and load Islands
 
 ## Player
 
@@ -40,18 +39,18 @@
 
 ### Added:
 - The ability to hold items (Sword, Pickaxe, Axe) in your hand.
-- Axe pickup item
-- Sword pickup item
-- Coconut pickup item
-- Efficiency potion pickup item (currently can't obtain)
-- Haste potion pickup item (currently can't obtain)
-- Health potion pickup item (currently can't obtain)
-- Luck potion pickup item (currently can't obtain)
-- Night Vision potion pickup item (currently can't obtain)
-- Regenerating potion pickup item (currently can't obtain)
-- Stamina potion pickup item (currently can't obtain)
-- Strength potion pickup item (currently can't obtain)
-- Yellow flower pickup item (currently can't obtain) (#46)
+- Axe
+- Sword
+- Coconut
+- Efficiency Potion
+- Haste Potion
+- Health Potion
+- Luck Potion
+- Night Vision Potion
+- Regenerating Potion
+- Stamina Potion
+- Strength Potion
+- Yellow flower (#46)
 
 ### Fixed:
 - Fixed a bug where you could sometimes not place dropables down in empty slots (#81)
