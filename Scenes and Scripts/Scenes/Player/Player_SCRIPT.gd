@@ -999,6 +999,9 @@ func on_item_workshop_close_finished():
 	PauseManager.inside_absolute_item_workshop = false
 	$Head/Camera3D/ItemWorkshopLayer/GreyLayer.visible = false
 
+func on_add_item_buttons_workshop_pressed(ITEM_TYPE : String):
+	print(ITEM_TYPE)
+
 ######################################
 # Area and body detection
 ######################################
