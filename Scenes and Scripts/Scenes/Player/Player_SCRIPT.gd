@@ -468,6 +468,7 @@ func _process(delta):
 func _ready():
 	nodeSetup() # Call the nodeSetup function to setup the nodes
 	
+	
 	DialogueManager.DialogueInterface = $Head/Camera3D/DialogueLayer/DialogueInterface
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Lock mouse
 	
@@ -502,6 +503,9 @@ func _on_ready() -> void: # Called when the node is considered ready
 
 func nodeSetup(): # A function to setup the nodes. Called in the _ready function
 	$Head/Camera3D/HUDLayer/HealthBar.value = PlayerData.Health
+	
+	$Head/Camera3D/InventoryLayer.hide()
+	$Head/Camera3D/InventoryLayer/InventoryMainLayer.hide()
 	
 	$Head/Camera3D/DeathScreen/BlackOverlay/GetUp.self_modulate = Color(0, 0, 0, 0) # set the get up self modulate to black
 	$Head/Camera3D/DeathScreen/BlackOverlay/RandomText.self_modulate = Color(0, 0, 0, 0) # set the random text self modulate to black
