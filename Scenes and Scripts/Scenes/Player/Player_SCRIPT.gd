@@ -262,7 +262,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			if !DialogueManager.is_in_absolute_interface and !InventoryManager.inventory_open and !PauseManager.is_inside_alert and !InventoryManager.in_chest_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !PauseManager.inside_absolute_item_workshop:
 				pauseGame()
 			
-			if InventoryManager.inventory_open:
+			if InventoryManager.inventory_open and !InventoryManager.in_chest_interface:
 				closeInventory()
 			
 			if InventoryManager.in_chest_interface:
@@ -290,7 +290,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		
 		saveAllDataWithAnimation()
 	
-	if Input.is_action_just_pressed("Inventory") and !PauseManager.inside_absolute_item_workshop and !PauseManager.is_paused and !InventoryManager.in_chest_interface and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
+	if Input.is_action_just_pressed("Inventory") and !InventoryManager.in_chest_interface and !PauseManager.inside_absolute_item_workshop and !PauseManager.is_paused and !InventoryManager.in_chest_interface and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
 		if !InventoryManager.inventory_open:
 			openInventory()
 		else:
@@ -618,6 +618,28 @@ func showDeathScreen(): # A function to show the death screen
 ######################################
 
 func openInventory():
+	if InventoryManager.in_chest_interface:
+		
+		$Head/Camera3D/InventoryLayer/Boundary.monitorable = false
+		$Head/Camera3D/InventoryLayer/Boundary.monitoring = false
+		
+		$Head/Camera3D/InventoryLayer/BoundaryChest.monitorable = true
+		$Head/Camera3D/InventoryLayer/BoundaryChest.monitoring = true
+		
+		$Head/Camera3D/InventoryLayer/InventoryMainLayer.offset.x = -291.96
+		$Head/Camera3D/InventoryLayer/GreyLayer.hide()
+		
+	else:
+		
+		$Head/Camera3D/InventoryLayer/Boundary.monitorable = true
+		$Head/Camera3D/InventoryLayer/Boundary.monitoring = true
+		
+		$Head/Camera3D/InventoryLayer/BoundaryChest.monitorable = false
+		$Head/Camera3D/InventoryLayer/BoundaryChest.monitoring = false
+		
+		$Head/Camera3D/InventoryLayer/InventoryMainLayer.offset.x = 0
+		$Head/Camera3D/InventoryLayer/GreyLayer.show()
+	
 	$Head/Camera3D/InventoryLayer/InventoryMainLayer.show()
 	$Head/Camera3D/InventoryLayer.show() # show the inventory UI
 	Utils.center_mouse_cursor() # center the mouse cursor
@@ -628,6 +650,7 @@ func openInventory():
 	set_hand_item_type(InventoryData.HAND_ITEM_TYPE)
 
 func closeInventory():
+	$Head/Camera3D/InventoryLayer/GreyLayer.show()
 	saveInventory()
 	$Head/Camera3D/InventoryLayer/InventoryMainLayer.hide()
 	$Head/Camera3D/InventoryLayer.hide() # hide the inventory UI
@@ -814,13 +837,13 @@ func start_hand_debounce_timer():
 func openChest():
 	ChestUILayer.show()
 	InventoryManager.in_chest_interface = true
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	openInventory() # Does most of the stuff for us
 	InventoryManager.chestNode.animate("OPEN")
 
 func closeChest():
 	ChestUILayer.hide()
 	InventoryManager.in_chest_interface = false
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	closeInventory() # Does most of the stuff for us
 	InventoryManager.chestNode.animate("CLOSE")
 
 ######################################

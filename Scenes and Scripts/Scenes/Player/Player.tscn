@@ -177,10 +177,10 @@ corner_radius_top_right = 12
 size = Vector2(313, 648)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sl537"]
-size = Vector2(1152, 107)
+size = Vector2(538, 107)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4c0ao"]
-size = Vector2(1152, 118)
+size = Vector2(531, 118)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_47l1q"]
 size = Vector2(313, 648)
@@ -619,68 +619,63 @@ script = ExtResource("16_wg7d4")
 metadata/_edit_use_anchors_ = true
 
 [node name="Background2" type="Panel" parent="Head/Camera3D/ChestUILayer"]
-anchors_preset = -1
-anchor_left = 0.461806
-anchor_top = 0.0709877
-anchor_right = 0.921875
-anchor_bottom = 0.927469
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -296.0
+offset_right = 559.0
+offset_bottom = 295.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2kg3l")
 script = SubResource("GDScript_tq46f")
-metadata/_edit_use_anchors_ = true
 
 [node name="Background_4" type="Panel" parent="Head/Camera3D/ChestUILayer"]
 modulate = Color(0, 0, 0, 1)
-anchors_preset = -1
-anchor_left = 0.46875
-anchor_top = 0.16821
-anchor_right = 0.914063
-anchor_bottom = 0.915123
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.0
+offset_top = -242.0
+offset_right = 550.0
+offset_bottom = 288.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xa5l0")
 script = SubResource("GDScript_tq46f")
-metadata/_edit_use_anchors_ = true
 
 [node name="Background_5" type="Panel" parent="Head/Camera3D/ChestUILayer"]
-anchors_preset = -1
-anchor_left = 0.46875
-anchor_top = 0.0864198
-anchor_right = 0.914063
-anchor_bottom = 0.200617
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -6.0
+offset_top = 37.0
+offset_right = 550.0
+offset_bottom = 111.0
 grow_horizontal = 2
-grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7tmhy")
 script = SubResource("GDScript_tq46f")
-metadata/_edit_use_anchors_ = true
 
-[node name="Title2" type="Label" parent="Head/Camera3D/ChestUILayer"]
-anchors_preset = -1
-anchor_left = 0.578125
-anchor_top = 0.108024
-anchor_right = 0.802951
-anchor_bottom = 0.199073
+[node name="Title" type="Label" parent="Head/Camera3D/ChestUILayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 134.5
+offset_top = 46.0
+offset_right = 393.5
+offset_bottom = 105.0
 grow_horizontal = 2
-grow_vertical = 2
 theme_override_fonts/font = ExtResource("8_cdk3a")
 theme_override_font_sizes/font_size = 45
 text = "CHEST"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("9_svfxy")
-metadata/_edit_use_anchors_ = true
-
-[node name="Notice" type="Label" parent="Head/Camera3D/ChestUILayer"]
-offset_left = 607.0
-offset_top = 320.0
-offset_right = 998.0
-offset_bottom = 369.0
-theme_override_fonts/font = ExtResource("3_yecwp")
-theme_override_font_sizes/font_size = 30
-text = "Nothing here yet, sorry :("
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="InventoryLayer" type="CanvasLayer" parent="Head/Camera3D"]
 visible = false
@@ -698,8 +693,6 @@ metadata/_edit_use_anchors_ = true
 [node name="InventoryMainLayer" type="CanvasLayer" parent="Head/Camera3D/InventoryLayer"]
 layer = 2
 visible = false
-offset = Vector2(-208.085, 0)
-transform = Transform2D(1, 0, 0, 1, -208.085, 0)
 
 [node name="Background" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 anchors_preset = 8
@@ -893,6 +886,20 @@ debug_color = Color(0.998937, 0, 0.128371, 0.42)
 [node name="Boundary4" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Boundary"]
 position = Vector2(995.5, 324)
 shape = SubResource("RectangleShape2D_47l1q")
+debug_color = Color(0.998937, 0, 0.128371, 0.42)
+
+[node name="BoundaryChest" type="Area2D" parent="Head/Camera3D/InventoryLayer" groups=["boundary"]]
+visible = false
+priority = 12
+
+[node name="Boundary2" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/BoundaryChest"]
+position = Vector2(269, 53.5)
+shape = SubResource("RectangleShape2D_sl537")
+debug_color = Color(0.998937, 0, 0.128371, 0.42)
+
+[node name="Boundary3" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/BoundaryChest"]
+position = Vector2(265.5, 589)
+shape = SubResource("RectangleShape2D_4c0ao")
 debug_color = Color(0.998937, 0, 0.128371, 0.42)
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
@@ -2667,6 +2674,8 @@ libraries = {
 [connection signal="mouse_exited" from="Head/Camera3D/InventoryLayer/InventoryMainLayer/HandDropableDetector" to="." method="_on_hand_dropable_detector_mouse_exited"]
 [connection signal="area_entered" from="Head/Camera3D/InventoryLayer/Boundary" to="." method="_on_boundary_area_entered"]
 [connection signal="area_exited" from="Head/Camera3D/InventoryLayer/Boundary" to="." method="_on_boundary_area_exited"]
+[connection signal="area_entered" from="Head/Camera3D/InventoryLayer/BoundaryChest" to="." method="_on_boundary_area_entered"]
+[connection signal="area_exited" from="Head/Camera3D/InventoryLayer/BoundaryChest" to="." method="_on_boundary_area_exited"]
 [connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/ROCK/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["ROCK"]]
 [connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/REDFLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["REDFLOWER"]]
 [connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/BLUEFLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["BLUEFLOWER"]]
