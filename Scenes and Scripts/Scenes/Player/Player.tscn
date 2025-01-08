@@ -1080,7 +1080,7 @@ text = "TM
 horizontal_alignment = 1
 script = ExtResource("16_wg7d4")
 
-[node name="SettingsTabContainer" type="TabContainer" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer"]
+[node name="ItemWorkshopTabs" type="TabContainer" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1095,16 +1095,17 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("22_7sfup")
 theme_override_font_sizes/font_size = 21
-current_tab = 0
+current_tab = 1
 script = ExtResource("16_wg7d4")
 
-[node name="General" type="TabBar" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer"]
+[node name="General" type="TabBar" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs"]
+visible = false
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("16_wg7d4")
 metadata/_tab_index = 0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1120,22 +1121,22 @@ grow_vertical = 2
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer"]
+[node name="GridContainer" type="GridContainer" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer"]
 layout_mode = 2
 theme_override_constants/h_separation = 130
 theme_override_constants/v_separation = 187
 columns = 5
 
-[node name="REDFLOWER" type="Control" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/GridContainer"]
+[node name="REDFLOWER" type="Control" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer"]
 layout_mode = 2
 
-[node name="Background" type="Panel" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/GridContainer/REDFLOWER"]
+[node name="Background" type="Panel" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/REDFLOWER"]
 layout_mode = 0
 offset_right = 119.0
 offset_bottom = 177.0
 theme_override_styles/panel = ExtResource("25_8giff")
 
-[node name="ITEM_IMAGE" type="TextureRect" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/GridContainer/REDFLOWER"]
+[node name="ITEM_IMAGE" type="TextureRect" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/REDFLOWER"]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 29.0
@@ -1144,7 +1145,7 @@ offset_bottom = 135.0
 texture = ExtResource("26_mj8js")
 expand_mode = 1
 
-[node name="AddButton" type="Button" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/GridContainer/REDFLOWER"]
+[node name="AddButton" type="Button" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/REDFLOWER"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -1162,7 +1163,8 @@ theme = ExtResource("17_rhxkt")
 theme_override_font_sizes/font_size = 15
 text = "Add to pockets"
 
-[node name="ITEM_TYPE" type="Label" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/GridContainer/REDFLOWER"]
+[node name="ITEM_TYPE" type="Label" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/REDFLOWER"]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 6.0
 offset_right = 116.0
@@ -1173,16 +1175,16 @@ text = "Red Flower"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BLUEFLOWER" type="Control" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/GridContainer"]
+[node name="BLUEFLOWER" type="Control" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer"]
 layout_mode = 2
 
-[node name="Background" type="Panel" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/GridContainer/BLUEFLOWER"]
+[node name="Background" type="Panel" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/BLUEFLOWER"]
 layout_mode = 0
 offset_right = 119.0
 offset_bottom = 177.0
 theme_override_styles/panel = ExtResource("25_8giff")
 
-[node name="ITEM_IMAGE" type="TextureRect" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/GridContainer/BLUEFLOWER"]
+[node name="ITEM_IMAGE" type="TextureRect" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/BLUEFLOWER"]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 29.0
@@ -1191,7 +1193,7 @@ offset_bottom = 135.0
 texture = ExtResource("27_t16sl")
 expand_mode = 1
 
-[node name="AddButton" type="Button" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/GridContainer/BLUEFLOWER"]
+[node name="AddButton" type="Button" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/BLUEFLOWER"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -1209,7 +1211,7 @@ theme = ExtResource("17_rhxkt")
 theme_override_font_sizes/font_size = 15
 text = "Add to pockets"
 
-[node name="ITEM_TYPE" type="Label" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/GridContainer/BLUEFLOWER"]
+[node name="ITEM_TYPE" type="Label" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/BLUEFLOWER"]
 layout_mode = 0
 offset_left = 3.0
 offset_top = 6.0
@@ -1221,16 +1223,16 @@ text = "Blue Flower"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PINKFLOWER" type="Control" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/GridContainer"]
+[node name="PINKFLOWER" type="Control" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer"]
 layout_mode = 2
 
-[node name="Background" type="Panel" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/GridContainer/PINKFLOWER"]
+[node name="Background" type="Panel" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/PINKFLOWER"]
 layout_mode = 0
 offset_right = 119.0
 offset_bottom = 177.0
 theme_override_styles/panel = ExtResource("25_8giff")
 
-[node name="ITEM_IMAGE" type="TextureRect" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/GridContainer/PINKFLOWER"]
+[node name="ITEM_IMAGE" type="TextureRect" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/PINKFLOWER"]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 29.0
@@ -1239,7 +1241,7 @@ offset_bottom = 135.0
 texture = ExtResource("28_8lpje")
 expand_mode = 1
 
-[node name="AddButton" type="Button" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/GridContainer/PINKFLOWER"]
+[node name="AddButton" type="Button" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/PINKFLOWER"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -1257,7 +1259,8 @@ theme = ExtResource("17_rhxkt")
 theme_override_font_sizes/font_size = 15
 text = "Add to pockets"
 
-[node name="ITEM_TYPE" type="Label" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/GridContainer/PINKFLOWER"]
+[node name="ITEM_TYPE" type="Label" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/PINKFLOWER"]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 6.0
 offset_right = 116.0
@@ -1268,16 +1271,16 @@ text = "Pink Flower"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="YELLOWFLOWER" type="Control" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/GridContainer"]
+[node name="YELLOWFLOWER" type="Control" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer"]
 layout_mode = 2
 
-[node name="Background" type="Panel" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/GridContainer/YELLOWFLOWER"]
+[node name="Background" type="Panel" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/YELLOWFLOWER"]
 layout_mode = 0
 offset_right = 119.0
 offset_bottom = 177.0
 theme_override_styles/panel = ExtResource("25_8giff")
 
-[node name="ITEM_IMAGE" type="TextureRect" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/GridContainer/YELLOWFLOWER"]
+[node name="ITEM_IMAGE" type="TextureRect" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/YELLOWFLOWER"]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 29.0
@@ -1286,7 +1289,7 @@ offset_bottom = 135.0
 texture = ExtResource("29_p6tr0")
 expand_mode = 1
 
-[node name="AddButton" type="Button" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/GridContainer/YELLOWFLOWER"]
+[node name="AddButton" type="Button" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/YELLOWFLOWER"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -1304,7 +1307,8 @@ theme = ExtResource("17_rhxkt")
 theme_override_font_sizes/font_size = 15
 text = "Add to pockets"
 
-[node name="ITEM_TYPE" type="Label" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/GridContainer/YELLOWFLOWER"]
+[node name="ITEM_TYPE" type="Label" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/YELLOWFLOWER"]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 6.0
 offset_right = 116.0
@@ -1315,16 +1319,16 @@ text = "Yellow Flower"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BLANKFLOWER" type="Control" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/GridContainer"]
+[node name="BLANKFLOWER" type="Control" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer"]
 layout_mode = 2
 
-[node name="Background" type="Panel" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/GridContainer/BLANKFLOWER"]
+[node name="Background" type="Panel" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/BLANKFLOWER"]
 layout_mode = 0
 offset_right = 119.0
 offset_bottom = 177.0
 theme_override_styles/panel = ExtResource("25_8giff")
 
-[node name="ITEM_IMAGE" type="TextureRect" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/GridContainer/BLANKFLOWER"]
+[node name="ITEM_IMAGE" type="TextureRect" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/BLANKFLOWER"]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 29.0
@@ -1333,7 +1337,7 @@ offset_bottom = 135.0
 texture = ExtResource("30_urpf5")
 expand_mode = 1
 
-[node name="AddButton" type="Button" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/GridContainer/BLANKFLOWER"]
+[node name="AddButton" type="Button" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/BLANKFLOWER"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -1351,7 +1355,8 @@ theme = ExtResource("17_rhxkt")
 theme_override_font_sizes/font_size = 15
 text = "Add to pockets"
 
-[node name="ITEM_TYPE" type="Label" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/GridContainer/BLANKFLOWER"]
+[node name="ITEM_TYPE" type="Label" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/BLANKFLOWER"]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 6.0
 offset_right = 116.0
@@ -1362,21 +1367,464 @@ text = "Blank Flower"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Consumables" type="TabBar" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer"]
+[node name="Consumables" type="TabBar" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs"]
+layout_mode = 2
+focus_mode = 0
+script = ExtResource("16_wg7d4")
+metadata/_tab_index = 1
+
+[node name="ConsumablesTabs" type="TabContainer" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33724
+anchor_top = 0.838735
+anchor_right = 0.33724
+anchor_bottom = 0.838735
+offset_left = -239.452
+offset_top = -349.172
+offset_right = 441.548
+offset_bottom = 36.8278
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("22_7sfup")
+theme_override_font_sizes/font_size = 21
+current_tab = 2
+script = ExtResource("16_wg7d4")
+
+[node name="Food" type="TabBar" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs"]
+visible = false
+layout_mode = 2
+focus_mode = 0
+script = ExtResource("16_wg7d4")
+metadata/_tab_index = 0
+
+[node name="Drink" type="TabBar" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs"]
 visible = false
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("16_wg7d4")
 metadata/_tab_index = 1
 
-[node name="Tools and Weapons" type="TabBar" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer"]
+[node name="Potions" type="TabBar" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs"]
+layout_mode = 2
+focus_mode = 0
+script = ExtResource("16_wg7d4")
+metadata/_tab_index = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -310.5
+offset_top = -170.5
+offset_right = 340.5
+offset_bottom = 209.5
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 130
+theme_override_constants/v_separation = 187
+columns = 5
+
+[node name="HEALTHPOTION" type="Control" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Background" type="Panel" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/HEALTHPOTION"]
+layout_mode = 0
+offset_right = 119.0
+offset_bottom = 177.0
+theme_override_styles/panel = ExtResource("25_8giff")
+
+[node name="ITEM_IMAGE" type="TextureRect" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/HEALTHPOTION"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 29.0
+offset_right = 113.0
+offset_bottom = 135.0
+texture = ExtResource("26_mj8js")
+expand_mode = 1
+
+[node name="AddButton" type="Button" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/HEALTHPOTION"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 139.0
+offset_right = 112.0
+offset_bottom = 169.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 15
+text = "Add to pockets"
+
+[node name="ITEM_TYPE" type="Label" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/HEALTHPOTION"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 6.0
+offset_right = 116.0
+offset_bottom = 29.0
+theme = ExtResource("17_rhxkt")
+theme_override_fonts/font = ExtResource("8_cdk3a")
+text = "Red Flower"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HASTEPOTION" type="Control" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Background" type="Panel" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/HASTEPOTION"]
+layout_mode = 0
+offset_right = 119.0
+offset_bottom = 177.0
+theme_override_styles/panel = ExtResource("25_8giff")
+
+[node name="ITEM_IMAGE" type="TextureRect" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/HASTEPOTION"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 29.0
+offset_right = 113.0
+offset_bottom = 135.0
+texture = ExtResource("27_t16sl")
+expand_mode = 1
+
+[node name="AddButton" type="Button" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/HASTEPOTION"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 139.0
+offset_right = 112.0
+offset_bottom = 169.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 15
+text = "Add to pockets"
+
+[node name="ITEM_TYPE" type="Label" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/HASTEPOTION"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 6.0
+offset_right = 116.0
+offset_bottom = 29.0
+theme = ExtResource("17_rhxkt")
+theme_override_fonts/font = ExtResource("8_cdk3a")
+text = "Blue Flower"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LUCKPOTION" type="Control" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Background" type="Panel" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/LUCKPOTION"]
+layout_mode = 0
+offset_right = 119.0
+offset_bottom = 177.0
+theme_override_styles/panel = ExtResource("25_8giff")
+
+[node name="ITEM_IMAGE" type="TextureRect" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/LUCKPOTION"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 29.0
+offset_right = 113.0
+offset_bottom = 135.0
+texture = ExtResource("28_8lpje")
+expand_mode = 1
+
+[node name="AddButton" type="Button" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/LUCKPOTION"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 139.0
+offset_right = 112.0
+offset_bottom = 169.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 15
+text = "Add to pockets"
+
+[node name="ITEM_TYPE" type="Label" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/LUCKPOTION"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 6.0
+offset_right = 116.0
+offset_bottom = 29.0
+theme = ExtResource("17_rhxkt")
+theme_override_fonts/font = ExtResource("8_cdk3a")
+text = "Pink Flower"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EFFICIENCYPOTION" type="Control" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Background" type="Panel" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/EFFICIENCYPOTION"]
+layout_mode = 0
+offset_right = 119.0
+offset_bottom = 177.0
+theme_override_styles/panel = ExtResource("25_8giff")
+
+[node name="ITEM_IMAGE" type="TextureRect" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/EFFICIENCYPOTION"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 29.0
+offset_right = 113.0
+offset_bottom = 135.0
+texture = ExtResource("29_p6tr0")
+expand_mode = 1
+
+[node name="AddButton" type="Button" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/EFFICIENCYPOTION"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 139.0
+offset_right = 112.0
+offset_bottom = 169.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 15
+text = "Add to pockets"
+
+[node name="ITEM_TYPE" type="Label" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/EFFICIENCYPOTION"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 6.0
+offset_right = 116.0
+offset_bottom = 29.0
+theme = ExtResource("17_rhxkt")
+theme_override_fonts/font = ExtResource("8_cdk3a")
+text = "Yellow Flower"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NIGHTVISIONPOTION" type="Control" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Background" type="Panel" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/NIGHTVISIONPOTION"]
+layout_mode = 0
+offset_right = 119.0
+offset_bottom = 177.0
+theme_override_styles/panel = ExtResource("25_8giff")
+
+[node name="ITEM_IMAGE" type="TextureRect" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/NIGHTVISIONPOTION"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 29.0
+offset_right = 113.0
+offset_bottom = 135.0
+texture = ExtResource("30_urpf5")
+expand_mode = 1
+
+[node name="AddButton" type="Button" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/NIGHTVISIONPOTION"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 139.0
+offset_right = 112.0
+offset_bottom = 169.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 15
+text = "Add to pockets"
+
+[node name="ITEM_TYPE" type="Label" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/NIGHTVISIONPOTION"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 6.0
+offset_right = 116.0
+offset_bottom = 29.0
+theme = ExtResource("17_rhxkt")
+theme_override_fonts/font = ExtResource("8_cdk3a")
+text = "Blank Flower"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="REGENERATINGPOTION2" type="Control" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Background" type="Panel" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/REGENERATINGPOTION2"]
+layout_mode = 0
+offset_right = 119.0
+offset_bottom = 177.0
+theme_override_styles/panel = ExtResource("25_8giff")
+
+[node name="ITEM_IMAGE" type="TextureRect" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/REGENERATINGPOTION2"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 29.0
+offset_right = 113.0
+offset_bottom = 135.0
+texture = ExtResource("30_urpf5")
+expand_mode = 1
+
+[node name="AddButton" type="Button" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/REGENERATINGPOTION2"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 139.0
+offset_right = 112.0
+offset_bottom = 169.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 15
+text = "Add to pockets"
+
+[node name="ITEM_TYPE" type="Label" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/REGENERATINGPOTION2"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 6.0
+offset_right = 116.0
+offset_bottom = 29.0
+theme = ExtResource("17_rhxkt")
+theme_override_fonts/font = ExtResource("8_cdk3a")
+text = "Blank Flower"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="STAMINAPOTION" type="Control" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Background" type="Panel" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/STAMINAPOTION"]
+layout_mode = 0
+offset_right = 119.0
+offset_bottom = 177.0
+theme_override_styles/panel = ExtResource("25_8giff")
+
+[node name="ITEM_IMAGE" type="TextureRect" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/STAMINAPOTION"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 29.0
+offset_right = 113.0
+offset_bottom = 135.0
+texture = ExtResource("30_urpf5")
+expand_mode = 1
+
+[node name="AddButton" type="Button" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/STAMINAPOTION"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 139.0
+offset_right = 112.0
+offset_bottom = 169.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 15
+text = "Add to pockets"
+
+[node name="ITEM_TYPE" type="Label" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/STAMINAPOTION"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 6.0
+offset_right = 116.0
+offset_bottom = 29.0
+theme = ExtResource("17_rhxkt")
+theme_override_fonts/font = ExtResource("8_cdk3a")
+text = "Blank Flower"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="STRENGTHPOTION" type="Control" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Background" type="Panel" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/STRENGTHPOTION"]
+layout_mode = 0
+offset_right = 119.0
+offset_bottom = 177.0
+theme_override_styles/panel = ExtResource("25_8giff")
+
+[node name="ITEM_IMAGE" type="TextureRect" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/STRENGTHPOTION"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 29.0
+offset_right = 113.0
+offset_bottom = 135.0
+texture = ExtResource("30_urpf5")
+expand_mode = 1
+
+[node name="AddButton" type="Button" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/STRENGTHPOTION"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 139.0
+offset_right = 112.0
+offset_bottom = 169.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 15
+text = "Add to pockets"
+
+[node name="ITEM_TYPE" type="Label" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/STRENGTHPOTION"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 6.0
+offset_right = 116.0
+offset_bottom = 29.0
+theme = ExtResource("17_rhxkt")
+theme_override_fonts/font = ExtResource("8_cdk3a")
+text = "Blank Flower"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tools and Weapons" type="TabBar" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs"]
 visible = false
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("16_wg7d4")
 metadata/_tab_index = 2
 
-[node name="Misc" type="TabBar" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer"]
+[node name="Misc" type="TabBar" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs"]
 visible = false
 layout_mode = 2
 focus_mode = 0
@@ -1967,11 +2415,19 @@ libraries = {
 [connection signal="area_exited" from="Head/Camera3D/InventoryLayer/Boundary" to="." method="_on_boundary_area_exited"]
 [connection signal="mouse_entered" from="Head/Camera3D/InventoryLayer/HandDropableDetector" to="." method="_on_hand_dropable_detector_mouse_entered"]
 [connection signal="mouse_exited" from="Head/Camera3D/InventoryLayer/HandDropableDetector" to="." method="_on_hand_dropable_detector_mouse_exited"]
-[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/GridContainer/REDFLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["REDFLOWER"]]
-[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/GridContainer/BLUEFLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["BLUEFLOWER"]]
-[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/GridContainer/PINKFLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["PINKFLOWER"]]
-[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/GridContainer/YELLOWFLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["YELLOWFLOWER"]]
-[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/SettingsTabContainer/General/ScrollContainer/GridContainer/BLANKFLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["BLANKFLOWER"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/REDFLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["REDFLOWER"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/BLUEFLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["BLUEFLOWER"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/PINKFLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["PINKFLOWER"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/YELLOWFLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["YELLOWFLOWER"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/BLANKFLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["BLANKFLOWER"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/HEALTHPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["REDFLOWER"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/HASTEPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["BLUEFLOWER"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/LUCKPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["PINKFLOWER"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/EFFICIENCYPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["YELLOWFLOWER"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/NIGHTVISIONPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["BLANKFLOWER"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/REGENERATINGPOTION2/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["BLANKFLOWER"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/STAMINAPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["BLANKFLOWER"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/STRENGTHPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["BLANKFLOWER"]]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/Resume_Btn" to="." method="_on_resume_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/Settings_Btn" to="." method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/SaveAndQuitToMenu" to="." method="_on_save_and_quit_to_menu_pressed"]
