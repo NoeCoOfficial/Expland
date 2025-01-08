@@ -190,6 +190,7 @@ var is_crouching = false
 @export var ChestUILayer : CanvasLayer
 @export var InventoryLayer : CanvasLayer
 @export var InventoryMainLayer : CanvasLayer
+@export var PauseLayer : CanvasLayer
 
 @export_subgroup("UI")
 @export var SettingsUI : Control
@@ -206,6 +207,25 @@ var is_crouching = false
 @export var Health_Bar : ProgressBar
 @export var Crosshair_Rect : TextureRect
 @export var StaminaBar : ProgressBar
+
+@export_subgroup("Camera")
+@export var DialogueInterface : Control
+@export var DeathScreen_BlackOverlay : Control
+@export var OverlayLayer_Overlay : Control
+@export var InventoryLayer_Boundary : Area2D
+@export var InventoryLayer_BoundaryChest : Area2D
+@export var InventoryLayer_GreyLayer : Control
+@export var ItemWorkshopLayer_MainLayer : Control
+@export var ItemWorkshopLayer_GreyLayer : Control
+@export var SaveOverlay_LighterBG : Control
+@export var SaveOverlay_DarkerBG : Control
+@export var DebugLayer : Control
+@export var HUDLayer_HealthBar : ProgressBar
+@export var HUDLayer_HungerBar : ProgressBar
+
+@export_subgroup("Timers")
+@export var ManualSaveCooldown : Timer
+@export var HandItemDebounce : Timer
 
 @export_group("Debug")
 
@@ -231,28 +251,6 @@ var is_crouching = false
 @export var CURRENT_DAY_Label : Label
 @export var CURRENT_HOUR_Label : Label
 @export var CURRENT_WEATHER_Label : Label
-
-@export_subgroup("Camera")
-@export var DialogueInterface : Control
-@export var DeathScreen_BlackOverlay : Control
-@export var OverlayLayer_Overlay : Control
-@export var PauseLayer : Control
-@export var InventoryLayer_Boundary : Area3D
-@export var InventoryLayer_BoundaryChest : Area3D
-@export var InventoryLayer_InventoryMainLayer : Control
-@export var InventoryLayer_GreyLayer : Control
-@export var MinimalAlertLayer_MinimalAlert : Control
-@export var ItemWorkshopLayer_MainLayer : Control
-@export var ItemWorkshopLayer_GreyLayer : Control
-@export var SaveOverlay_LighterBG : Control
-@export var SaveOverlay_DarkerBG : Control
-@export var DebugLayer : Control
-@export var HUDLayer_HealthBar : ProgressBar
-@export var HUDLayer_HungerBar : ProgressBar
-
-@export_subgroup("Timers")
-@export var ManualSaveCooldown : Timer
-@export var HandItemDebounce : Timer
 
 ######################################
 # Input
@@ -526,7 +524,7 @@ func nodeSetup(): # A function to setup the nodes. Called in the _ready function
 	HUDLayer_HealthBar.value = PlayerData.Health
 	
 	InventoryLayer.hide()
-	InventoryLayer_InventoryMainLayer.hide()
+	InventoryMainLayer.hide()
 	
 	DeathScreen_BlackOverlay.GetUp.self_modulate = Color(0, 0, 0, 0) # set the get up self modulate to black
 	DeathScreen_BlackOverlay.RandomText.self_modulate = Color(0, 0, 0, 0) # set the random text self modulate to black
@@ -647,7 +645,7 @@ func openInventory():
 		InventoryLayer_BoundaryChest.monitorable = true
 		InventoryLayer_BoundaryChest.monitoring = true
 		
-		InventoryLayer_InventoryMainLayer.offset.x = -291.96
+		InventoryMainLayer.offset.x = -291.96
 		InventoryLayer_GreyLayer.hide()
 		
 	else:
@@ -658,10 +656,10 @@ func openInventory():
 		InventoryLayer_BoundaryChest.monitorable = false
 		InventoryLayer_BoundaryChest.monitoring = false
 		
-		InventoryLayer_InventoryMainLayer.offset.x = 0
+		InventoryMainLayer.offset.x = 0
 		InventoryLayer_GreyLayer.show()
 	
-	InventoryLayer_InventoryMainLayer.show()
+	InventoryMainLayer.show()
 	InventoryLayer.show() # show the inventory UI
 	Utils.center_mouse_cursor() # center the mouse cursor
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # set the mouse mode to visible
@@ -673,13 +671,13 @@ func openInventory():
 func closeInventory():
 	InventoryLayer_GreyLayer.show()
 	saveInventory()
-	InventoryLayer_InventoryMainLayer.hide()
+	InventoryMainLayer.hide()
 	InventoryLayer.hide() # hide the inventory UI
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor
 	Utils.center_mouse_cursor() # center the mouse cursor
 	InventoryManager.inventory_open = false
 	inventory_opened_in_air = false  # Reset the flag when inventory is closed
-	MinimalAlertLayer_MinimalAlert.hide_minimal_alert(0.1)
+	MinimalAlert.hide_minimal_alert(0.1)
 
 func _on_boundary_area_entered(area):
 	if area.is_in_group("draggable"):
@@ -760,90 +758,90 @@ func set_hand_item_type(ITEM_TYPE : String):
 	if ITEM_TYPE == "":
 		visually_equip("")
 		InventoryData.HAND_ITEM_TYPE = ""
-		InventoryLayer_InventoryMainLayer.HAND_ITEM_TYPE.text = "Empty"
-		InventoryLayer_InventoryMainLayer.Hand_Dropable_Background.Pickaxe_Hand_Dropable_Video.visible = false
-		InventoryLayer_InventoryMainLayer.Hand_Dropable_Background.Axe_Hand_Dropable_Video.visible = false
-		InventoryLayer_InventoryMainLayer.Hand_Dropable_Background.Sword_Hand_Dropable_Video.visible = false
+		InventoryMainLayer.HAND_ITEM_TYPE.text = "Empty"
+		InventoryMainLayer.Hand_Dropable_Background.Pickaxe_Hand_Dropable_Video.visible = false
+		InventoryMainLayer.Hand_Dropable_Background.Axe_Hand_Dropable_Video.visible = false
+		InventoryMainLayer.Hand_Dropable_Background.Sword_Hand_Dropable_Video.visible = false
 	
 	elif ITEM_TYPE == "PICKAXE":
 		visually_equip("PICKAXE")
 		InventoryData.HAND_ITEM_TYPE = "PICKAXE"
-		InventoryLayer_InventoryMainLayer.HAND_ITEM_TYPE.text = "Pickaxe"
-		InventoryLayer_InventoryMainLayer.Hand_Dropable_Background.Pickaxe_Hand_Dropable_Video.visible = true
-		InventoryLayer_InventoryMainLayer.Hand_Dropable_Background.Axe_Hand_Dropable_Video.visible = false
-		InventoryLayer_InventoryMainLayer.Hand_Dropable_Background.Sword_Hand_Dropable_Video.visible = false
+		InventoryMainLayer.HAND_ITEM_TYPE.text = "Pickaxe"
+		InventoryMainLayer.Hand_Dropable_Background.Pickaxe_Hand_Dropable_Video.visible = true
+		InventoryMainLayer.Hand_Dropable_Background.Axe_Hand_Dropable_Video.visible = false
+		InventoryMainLayer.Hand_Dropable_Background.Sword_Hand_Dropable_Video.visible = false
 	
 	elif ITEM_TYPE == "AXE":
 		visually_equip("AXE")
 		InventoryData.HAND_ITEM_TYPE = "AXE"
-		InventoryLayer_InventoryMainLayer.HAND_ITEM_TYPE.text = "Axe"
-		InventoryLayer_InventoryMainLayer.Hand_Dropable_Background.Pickaxe_Hand_Dropable_Video.visible = false
-		InventoryLayer_InventoryMainLayer.Hand_Dropable_Background.Axe_Hand_Dropable_Video.visible = true
-		InventoryLayer_InventoryMainLayer.Hand_Dropable_Background.Sword_Hand_Dropable_Video.visible = false
+		InventoryMainLayer.HAND_ITEM_TYPE.text = "Axe"
+		InventoryMainLayer.Hand_Dropable_Background.Pickaxe_Hand_Dropable_Video.visible = false
+		InventoryMainLayer.Hand_Dropable_Background.Axe_Hand_Dropable_Video.visible = true
+		InventoryMainLayer.Hand_Dropable_Background.Sword_Hand_Dropable_Video.visible = false
 	
 	elif ITEM_TYPE == "SWORD":
 		visually_equip("SWORD")
 		InventoryData.HAND_ITEM_TYPE = "SWORD"
-		InventoryLayer_InventoryMainLayer.HAND_ITEM_TYPE.text = "Sword"
-		InventoryLayer_InventoryMainLayer.Hand_Dropable_Background.Pickaxe_Hand_Dropable_Video.visible = false
-		InventoryLayer_InventoryMainLayer.Hand_Dropable_Background.Axe_Hand_Dropable_Video.visible = false
-		InventoryLayer_InventoryMainLayer.Hand_Dropable_Background.Sword_Hand_Dropable_Video.visible = true
+		InventoryMainLayer.HAND_ITEM_TYPE.text = "Sword"
+		InventoryMainLayer.Hand_Dropable_Background.Pickaxe_Hand_Dropable_Video.visible = false
+		InventoryMainLayer.Hand_Dropable_Background.Axe_Hand_Dropable_Video.visible = false
+		InventoryMainLayer.Hand_Dropable_Background.Sword_Hand_Dropable_Video.visible = true
 
 func visually_equip(ITEM_TYPE):
 	if !ITEM_TYPE == InventoryData.HAND_ITEM_TYPE:
 		if ITEM_TYPE == "":
 			if InventoryData.HAND_ITEM_TYPE != "":
 				var anim_to_play : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
-				InventoryLayer_InventoryMainLayer.EquipAnimations.play(anim_to_play)
+				InventoryMainLayer.EquipAnimations.play(anim_to_play)
 		
 		if ITEM_TYPE == "SWORD":
 			if InventoryData.HAND_ITEM_TYPE == "":
-				InventoryLayer_InventoryMainLayer.EquipAnimations.play("equip_SWORD")
+				InventoryMainLayer.EquipAnimations.play("equip_SWORD")
 			else:
 				var item_to_unequip : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
-				InventoryLayer_InventoryMainLayer.EquipAnimations.play(item_to_unequip)
+				InventoryMainLayer.EquipAnimations.play(item_to_unequip)
 				await get_tree().create_timer(0.16).timeout
-				InventoryLayer_InventoryMainLayer.EquipAnimations.play("equip_SWORD")
+				InventoryMainLayer.EquipAnimations.play("equip_SWORD")
 		
 		if ITEM_TYPE == "PICKAXE":
 			if InventoryData.HAND_ITEM_TYPE == "":
-				InventoryLayer_InventoryMainLayer.EquipAnimations.play("equip_PICKAXE")
+				InventoryMainLayer.EquipAnimations.play("equip_PICKAXE")
 			else:
 				var item_to_unequip : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
-				InventoryLayer_InventoryMainLayer.EquipAnimations.play(item_to_unequip)
+				InventoryMainLayer.EquipAnimations.play(item_to_unequip)
 				await get_tree().create_timer(0.16).timeout
-				InventoryLayer_InventoryMainLayer.EquipAnimations.play("equip_PICKAXE")
+				InventoryMainLayer.EquipAnimations.play("equip_PICKAXE")
 		
 		if ITEM_TYPE == "AXE":
 			if InventoryData.HAND_ITEM_TYPE == "":
-				InventoryLayer_InventoryMainLayer.EquipAnimations.play("equip_AXE")
+				InventoryMainLayer.EquipAnimations.play("equip_AXE")
 			else:
 				var item_to_unequip : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
-				InventoryLayer_InventoryMainLayer.EquipAnimations.play(item_to_unequip)
+				InventoryMainLayer.EquipAnimations.play(item_to_unequip)
 				await get_tree().create_timer(0.16).timeout
-				InventoryLayer_InventoryMainLayer.EquipAnimations.play("equip_AXE")
+				InventoryMainLayer.EquipAnimations.play("equip_AXE")
 
 func init_visually_equip(ITEM_TYPE : String):
 	
 	if ITEM_TYPE == "":
-		InventoryLayer_InventoryMainLayer.Pickaxe.visible = false
-		InventoryLayer_InventoryMainLayer.Sword.visible = false
-		InventoryLayer_InventoryMainLayer.Axe.visible = false
+		InventoryMainLayer.Pickaxe.visible = false
+		InventoryMainLayer.Sword.visible = false
+		InventoryMainLayer.Axe.visible = false
 	
 	if ITEM_TYPE == "PICKAXE":
-		InventoryLayer_InventoryMainLayer.EquipAnimations.play("equip_PICKAXE")
-		InventoryLayer_InventoryMainLayer.Sword.visible = false
-		InventoryLayer_InventoryMainLayer.Axe.visible = false
+		InventoryMainLayer.EquipAnimations.play("equip_PICKAXE")
+		InventoryMainLayer.Sword.visible = false
+		InventoryMainLayer.Axe.visible = false
 	
 	if ITEM_TYPE == "AXE":
-		InventoryLayer_InventoryMainLayer.EquipAnimations.play("equip_AXE")
-		InventoryLayer_InventoryMainLayer.Pickaxe.visible = false
-		InventoryLayer_InventoryMainLayer.Sword.visible = false
+		InventoryMainLayer.EquipAnimations.play("equip_AXE")
+		InventoryMainLayer.Pickaxe.visible = false
+		InventoryMainLayer.Sword.visible = false
 	
 	if ITEM_TYPE == "SWORD":
-		InventoryLayer_InventoryMainLayer.EquipAnimations.play("equip_SWORD")
-		InventoryLayer_InventoryMainLayer.Pickaxe.visible = false
-		InventoryLayer_InventoryMainLayer.Axe.visible = false
+		InventoryMainLayer.EquipAnimations.play("equip_SWORD")
+		InventoryMainLayer.Pickaxe.visible = false
+		InventoryMainLayer.Axe.visible = false
 
 func get_hand_debounce_time_left():
 	return HandItemDebounce.time_left
