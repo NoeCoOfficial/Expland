@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=84 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -52,6 +52,9 @@
 [ext_resource type="Texture2D" uid="uid://mwa55qklwxe3" path="res://Textures/Inventory/REGENERATINGPOTION.png" id="36_j5dlx"]
 [ext_resource type="Texture2D" uid="uid://fj1pvfgfyamb" path="res://Textures/Inventory/STAMINAPOTION.png" id="37_2ubft"]
 [ext_resource type="Texture2D" uid="uid://bfiqh1ceg7rmt" path="res://Textures/Inventory/STRENGTHPOTION.png" id="38_1xbnu"]
+[ext_resource type="Texture2D" uid="uid://bxxnhb6vulkry" path="res://Textures/Inventory/PICKAXE.png" id="41_10o77"]
+[ext_resource type="Texture2D" uid="uid://dq8jg5iy6tfyc" path="res://Textures/Inventory/AXE.png" id="42_bm4qo"]
+[ext_resource type="Texture2D" uid="uid://dixs8s5v2su7q" path="res://Textures/Inventory/SWORD.png" id="43_0oip2"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_w6tro"]
 
@@ -1105,10 +1108,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("22_7sfup")
 theme_override_font_sizes/font_size = 21
-current_tab = 0
+current_tab = 2
 script = ExtResource("16_wg7d4")
 
 [node name="General" type="TabBar" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs"]
+visible = false
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("16_wg7d4")
@@ -1950,11 +1954,176 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Tools and Weapons" type="TabBar" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs"]
-visible = false
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("16_wg7d4")
 metadata/_tab_index = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Tools and Weapons"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -325.5
+offset_top = -204.5
+offset_right = 325.5
+offset_bottom = 204.5
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Tools and Weapons/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 130
+theme_override_constants/v_separation = 187
+columns = 5
+
+[node name="PICKAXE" type="Control" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Tools and Weapons/ScrollContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Background" type="Panel" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Tools and Weapons/ScrollContainer/GridContainer/PICKAXE"]
+layout_mode = 0
+offset_right = 119.0
+offset_bottom = 177.0
+theme_override_styles/panel = ExtResource("25_8giff")
+
+[node name="ITEM_IMAGE" type="TextureRect" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Tools and Weapons/ScrollContainer/GridContainer/PICKAXE"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 29.0
+offset_right = 113.0
+offset_bottom = 135.0
+texture = ExtResource("41_10o77")
+expand_mode = 1
+
+[node name="AddButton" type="Button" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Tools and Weapons/ScrollContainer/GridContainer/PICKAXE"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 139.0
+offset_right = 112.0
+offset_bottom = 169.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 15
+text = "Add to pockets"
+
+[node name="ITEM_TYPE" type="Label" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Tools and Weapons/ScrollContainer/GridContainer/PICKAXE"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 6.0
+offset_right = 116.0
+offset_bottom = 29.0
+theme = ExtResource("17_rhxkt")
+theme_override_fonts/font = ExtResource("8_cdk3a")
+text = "Pickaxe"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AXE" type="Control" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Tools and Weapons/ScrollContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Background" type="Panel" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Tools and Weapons/ScrollContainer/GridContainer/AXE"]
+layout_mode = 0
+offset_right = 119.0
+offset_bottom = 177.0
+theme_override_styles/panel = ExtResource("25_8giff")
+
+[node name="ITEM_IMAGE" type="TextureRect" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Tools and Weapons/ScrollContainer/GridContainer/AXE"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 29.0
+offset_right = 113.0
+offset_bottom = 135.0
+texture = ExtResource("42_bm4qo")
+expand_mode = 1
+
+[node name="AddButton" type="Button" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Tools and Weapons/ScrollContainer/GridContainer/AXE"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 139.0
+offset_right = 112.0
+offset_bottom = 169.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 15
+text = "Add to pockets"
+
+[node name="ITEM_TYPE" type="Label" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Tools and Weapons/ScrollContainer/GridContainer/AXE"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 6.0
+offset_right = 116.0
+offset_bottom = 29.0
+theme = ExtResource("17_rhxkt")
+theme_override_fonts/font = ExtResource("8_cdk3a")
+text = "Axe"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SWORD" type="Control" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Tools and Weapons/ScrollContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Background" type="Panel" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Tools and Weapons/ScrollContainer/GridContainer/SWORD"]
+layout_mode = 0
+offset_right = 119.0
+offset_bottom = 177.0
+theme_override_styles/panel = ExtResource("25_8giff")
+
+[node name="ITEM_IMAGE" type="TextureRect" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Tools and Weapons/ScrollContainer/GridContainer/SWORD"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 29.0
+offset_right = 113.0
+offset_bottom = 135.0
+texture = ExtResource("43_0oip2")
+expand_mode = 1
+
+[node name="AddButton" type="Button" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Tools and Weapons/ScrollContainer/GridContainer/SWORD"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 139.0
+offset_right = 112.0
+offset_bottom = 169.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 15
+text = "Add to pockets"
+
+[node name="ITEM_TYPE" type="Label" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Tools and Weapons/ScrollContainer/GridContainer/SWORD"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 6.0
+offset_right = 116.0
+offset_bottom = 29.0
+theme = ExtResource("17_rhxkt")
+theme_override_fonts/font = ExtResource("8_cdk3a")
+text = "Sword"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Misc" type="TabBar" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs"]
 visible = false
@@ -2547,7 +2716,7 @@ libraries = {
 [connection signal="area_exited" from="Head/Camera3D/InventoryLayer/Boundary" to="." method="_on_boundary_area_exited"]
 [connection signal="mouse_entered" from="Head/Camera3D/InventoryLayer/HandDropableDetector" to="." method="_on_hand_dropable_detector_mouse_entered"]
 [connection signal="mouse_exited" from="Head/Camera3D/InventoryLayer/HandDropableDetector" to="." method="_on_hand_dropable_detector_mouse_exited"]
-[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/ROCK/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["ROCk"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/ROCK/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["ROCK"]]
 [connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/REDFLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["REDFLOWER"]]
 [connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/BLUEFLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["BLUEFLOWER"]]
 [connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/PINKFLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["PINKFLOWER"]]
@@ -2562,6 +2731,9 @@ libraries = {
 [connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/REGENERATINGPOTION2/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["REGENERATINGPOTION"]]
 [connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/STAMINAPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["STAMINAPOTION"]]
 [connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/STRENGTHPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["STRENGTHPOTION"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Tools and Weapons/ScrollContainer/GridContainer/PICKAXE/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["PICKAXE"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Tools and Weapons/ScrollContainer/GridContainer/AXE/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["AXE"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Tools and Weapons/ScrollContainer/GridContainer/SWORD/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["SWORD"]]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/Resume_Btn" to="." method="_on_resume_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/Settings_Btn" to="." method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/SaveAndQuitToMenu" to="." method="_on_save_and_quit_to_menu_pressed"]
