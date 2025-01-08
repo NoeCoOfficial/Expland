@@ -947,8 +947,7 @@ func on_sleep_cycle_hold_finished(fadeOutTime, hour : int):
 	if PlayerManager.WORLD != null:
 		if PlayerManager.WORLD.has_method("set_hour"):
 			
-			PlayerManager.WORLD.haltAllHourTweens()
-			# TASK May need to fix, if the code decides not to work (it has a mind of it's own)
+			# TASK May need to fix stuff here, if the code decides not to work (it has a mind of it's own)
 			
 			PlayerManager.WORLD.set_hour(hour)
 	
