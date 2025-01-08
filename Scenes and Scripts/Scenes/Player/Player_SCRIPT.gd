@@ -192,7 +192,6 @@ var is_crouching = false
 
 @export_subgroup("CanvasLayers")
 @export var HUDLayer : CanvasLayer
-@export var ChestUILayer : CanvasLayer
 @export var InventoryLayer : CanvasLayer
 @export var InventoryMainLayer : CanvasLayer
 @export var PauseLayer : CanvasLayer
@@ -318,7 +317,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		
 		saveAllDataWithAnimation()
 	
-	if Input.is_action_just_pressed("Inventory") and !InventoryManager.in_chest_interface and !PauseManager.inside_absolute_item_workshop and !PauseManager.is_paused and !InventoryManager.in_chest_interface and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
+	if Input.is_action_just_pressed("Inventory") and !PauseManager.inside_absolute_item_workshop and !PauseManager.is_paused and !InventoryManager.in_chest_interface and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
 		if !InventoryManager.inventory_open:
 			openInventory()
 		else:
