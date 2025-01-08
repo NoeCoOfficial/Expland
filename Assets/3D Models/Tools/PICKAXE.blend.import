@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cnpgx6ef6qxqs"
-path="res://.godot/imported/Pickaxe.blend-97f56d71b56f0ac1c7402d3da33ff3b9.scn"
+path="res://.godot/imported/PICKAXE.blend-66adbf4d964c708bbda7ed31a17356ba.scn"
 
 [deps]
 
-source_file="res://Assets/3D Models/Tools/Pickaxe.blend"
-dest_files=["res://.godot/imported/Pickaxe.blend-97f56d71b56f0ac1c7402d3da33ff3b9.scn"]
+source_file="res://Assets/3D Models/Tools/PICKAXE.blend"
+dest_files=["res://.godot/imported/PICKAXE.blend-66adbf4d964c708bbda7ed31a17356ba.scn"]
 
 [params]
 

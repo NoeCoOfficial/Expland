@@ -395,6 +395,9 @@ func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 	$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit.editable = false
 	
 	IslandManager.transitioning_from_menu = true
+	
+	IslandManager.transitioningFromNewIsland = true
+	
 	transitioning_scene = true
 	IslandManager.set_current_island(sanitized_name)
 	IslandManager.Current_Game_Mode = "FREE"

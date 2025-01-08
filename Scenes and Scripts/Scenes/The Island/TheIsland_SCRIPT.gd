@@ -51,8 +51,8 @@ extends Node
 func initializeIslandProperties(_Island_Name):
 	pass
 
-var HOUR_LENGTH = 10.0
-var SKY_TRANS_TIME = 1.0
+var HOUR_LENGTH = 120.0
+var SKY_TRANS_TIME = 20.0
 
 @onready var TheIslandEnvironment = preload("res://Resources/Environment/TheIslandWorldEnvironment.tres")
 @onready var TheIslandProceduralSkyMaterial = preload("res://Resources/Environment/TheIslandProceduralSkyMaterial.tres")
@@ -92,6 +92,8 @@ var DayCloudColor = Color(0.367, 0.367, 0.367)
 func _ready() -> void:
 	randomize()
 	initNodes()
+	haltAllHourTweens()
+	haltAllWeatherTweens()
 	HourTimer.wait_time = HOUR_LENGTH
 	
 	IslandManager.transitioning_from_menu = false
@@ -271,13 +273,18 @@ func rotateSun(addX : float):
 	sunRotation_tween.tween_property(IslandDirectionalLight, "rotation_degrees:x", newX, HourTimer.wait_time).from(currentX)
 
 func on_ready_time_check():
-	
-	TimeManager.CURRENT_HOUR += 1
-	
-	if TimeManager.CURRENT_HOUR == 24:
-		TimeManager.CURRENT_HOUR = 0
-	
-	set_hour(TimeManager.CURRENT_HOUR)
+	if !IslandManager.transitioningFromNewIsland:
+		TimeManager.CURRENT_HOUR += 1
+		
+		if TimeManager.CURRENT_HOUR == 24:
+			TimeManager.CURRENT_HOUR = 0
+		
+		set_hour(TimeManager.CURRENT_HOUR)
+		
+	else:
+		IslandManager.transitioningFromNewIsland = false
+		TimeManager.CURRENT_HOUR = 10
+		set_hour(10)
 
 func _on_tick() -> void:
 		TimeManager.CURRENT_HOUR += 1

@@ -1,1 +1,1 @@
-- Add debounce timer when changing items in inventory hand to avoid silly glitches (0.2 seconds)
+- Fix sky color staying the same when loading new island
