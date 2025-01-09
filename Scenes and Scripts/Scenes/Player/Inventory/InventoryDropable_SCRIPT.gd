@@ -65,6 +65,7 @@ var SNAP_TIME = 0.0
 var debounce_timer = 0.2
 var can_create_pickup = true
 var is_hovering_over = false
+var is_in_chest_slot = false
 
 func _ready():
 	self.name = "Dropable"
