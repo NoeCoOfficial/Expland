@@ -153,7 +153,11 @@ func spawn_inventory_dropable_from_load(atPos : Vector2, ITEM_TYPE, is_in_chest_
 		DropableInstance.set_is_in_chest_slot(is_in_chest_slot)
 		
 		InventoryLayer.add_child(DropableInstance)
-		DropableInstance.global_position = atPos
+		
+		if DropableInstance.get_is_in_chest_slot():
+			DropableInstance.global_position = atPos
+		else:
+			DropableInstance.position = atPos
 
 func set_hand_item(dropable_to_delete, ITEM_TYPE : String):
 	var PLAYER = get_node("/root/World/Player")

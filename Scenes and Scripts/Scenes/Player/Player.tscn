@@ -645,6 +645,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="InventoryMainLayer" type="CanvasLayer" parent="Head/Camera3D/InventoryLayer"]
 layer = 2
+visible = false
 
 [node name="Background" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 anchors_preset = 8
@@ -809,6 +810,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ChestMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -887,16 +889,18 @@ offset_left = 589.0
 offset_top = 95.0
 offset_right = 1122.0
 offset_bottom = 623.0
-scroll_horizontal = 1607
 horizontal_scroll_mode = 2
 vertical_scroll_mode = 0
+script = ExtResource("16_wg7d4")
 
 [node name="GridContainer" type="HBoxContainer" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ScrollContainer"]
 layout_mode = 2
 theme_override_constants/separation = 2140
+script = ExtResource("16_wg7d4")
 
 [node name="ChestSlots" type="Control" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ScrollContainer/GridContainer"]
 layout_mode = 2
+script = ExtResource("16_wg7d4")
 
 [node name="Slot1" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ScrollContainer/GridContainer/ChestSlots" instance=ExtResource("8_ads4s")]
 position = Vector2(45, 45)
@@ -1298,8 +1302,9 @@ is_chest_slot = true
 position = Vector2(2078, 473)
 is_chest_slot = true
 
-[node name="ColorRect" type="ColorRect" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ScrollContainer/GridContainer"]
+[node name="Scrollhandler" type="ColorRect" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ScrollContainer/GridContainer"]
 layout_mode = 2
+script = ExtResource("16_wg7d4")
 
 [node name="HandDropableDetector" type="Button" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 modulate = Color(1, 1, 1, 0)
