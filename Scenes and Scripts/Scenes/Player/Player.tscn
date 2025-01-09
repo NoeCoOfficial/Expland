@@ -982,13 +982,13 @@ position = Vector2(1062, 568)
 is_chest_slot = true
 
 [node name="HandDropableDetector" type="Button" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
+modulate = Color(1, 1, 1, 0)
 offset_left = 670.0
 offset_top = 235.0
 offset_right = 812.0
 offset_bottom = 502.0
 focus_mode = 0
 button_mask = 2
-text = "skibidi"
 
 [node name="Boundary" type="Area2D" parent="Head/Camera3D/InventoryLayer" groups=["boundary"]]
 priority = 12
@@ -2443,6 +2443,7 @@ metadata/_edit_use_anchors_ = true
 visible = false
 
 [node name="MinimalAlertLayer" type="CanvasLayer" parent="Head/Camera3D"]
+layer = 10
 
 [node name="MinimalAlert" parent="Head/Camera3D/MinimalAlertLayer" instance=ExtResource("27_5o6is")]
 
