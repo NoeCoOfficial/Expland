@@ -66,7 +66,7 @@ func saveInventory(Island_Name : String, parent_node: Node) -> void:
 	# Clear the inventory_data before saving
 	inventory_data.clear()
 	print("[InventoryData] Clearing old inventory data.")
-
+	
 	# Collect data from nodes with names starting with "Dropable"
 	for child in parent_node.get_children():
 		if child.name.begins_with("Dropable"):
@@ -78,10 +78,10 @@ func saveInventory(Island_Name : String, parent_node: Node) -> void:
 				
 			}
 			inventory_data.append(drop_data)
-
+	
 	# Debugging: Ensure inventory_data contains all collected items
 	print("[InventoryData] Final inventory_data array: ", inventory_data)
-
+	
 	# Add HAND_ITEM_TYPE to the inventory data
 	var save_data = {
 		
@@ -89,7 +89,7 @@ func saveInventory(Island_Name : String, parent_node: Node) -> void:
 		"hand_item_type": HAND_ITEM_TYPE
 		
 	}
-
+	
 	# Write fresh data to the file
 	var file = FileAccess.open(INVENTORY_SAVE_PATH, FileAccess.WRITE)
 	if file:
@@ -108,7 +108,7 @@ func loadInventory(Island_Name : String) -> void:
 	if not file:
 		print("[InventoryData] File doesn't exist (" + INVENTORY_SAVE_PATH + ")")
 		return
-
+	
 	if file and not file.eof_reached():
 		var current_line = JSON.parse_string(file.get_line())
 		if not current_line or current_line == {}:
