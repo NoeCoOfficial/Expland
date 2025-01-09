@@ -134,7 +134,7 @@ func _process(delta):
 				self.z_index = 10
 				InventoryManager.item_ref = ITEM_TYPE
 		if Input.is_action_pressed("LeftClick") and InventoryManager.is_dragging:
-			position = get_global_mouse_position()
+			global_position = get_global_mouse_position()
 		
 		elif Input.is_action_just_released("LeftClick"):
 			

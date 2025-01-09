@@ -58,7 +58,7 @@ var Stamina : float = 100.0
 func init():
 	WORLD = get_node("/root/World/")
 	PLAYER = get_node("/root/World/Player/")
-	CHEST_SLOTS = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/ChestMainLayer/ScrollContainer/GridContainer/ChestSlots")
+	CHEST_SLOTS = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ScrollContainer/GridContainer/ChestSlots")
 	INVENTORY_LAYER = get_node("/root/World/Player/Head/Camera3D/InventoryLayer")
 
 func sleep():
