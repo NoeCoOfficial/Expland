@@ -49,6 +49,8 @@ extends Node
 
 var WORLD
 var PLAYER
+var INVENTORY_LAYER
+var CHEST_SLOTS
 
 var SLEEPING_UPON_ENTERED = false
 var Stamina : float = 100.0
@@ -56,6 +58,8 @@ var Stamina : float = 100.0
 func init():
 	WORLD = get_node("/root/World/")
 	PLAYER = get_node("/root/World/Player/")
+	CHEST_SLOTS = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/ChestMainLayer/ScrollContainer/GridContainer/ChestSlots")
+	INVENTORY_LAYER = get_node("/root/World/Player/Head/Camera3D/InventoryLayer")
 
 func sleep():
 	if PLAYER != null:
