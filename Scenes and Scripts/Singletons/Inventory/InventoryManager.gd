@@ -143,12 +143,13 @@ func spawn_inventory_dropable(atPos : Vector2, ITEM_TYPE, slotToPopulate):
 		
 		return DropableInstance
 
-func spawn_inventory_dropable_from_load(atPos : Vector2, ITEM_TYPE):
+func spawn_inventory_dropable_from_load(atPos : Vector2, ITEM_TYPE, is_chest_slot : bool):
 	if get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer") != null:
 		var InventoryLayer = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer")
 		var NewDropable = load("res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDropable.tscn")
 		var DropableInstance = NewDropable.instantiate()
 		DropableInstance.set_ITEM_TYPE(ITEM_TYPE)
+		DropableInstance.set_is_chest_slot
 		
 		InventoryLayer.add_child(DropableInstance)
 		DropableInstance.global_position = atPos

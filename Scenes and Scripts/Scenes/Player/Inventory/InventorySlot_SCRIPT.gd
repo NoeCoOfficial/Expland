@@ -77,7 +77,6 @@ func set_is_chest_slot(value : bool):
 func get_is_chest_slot():
 	return is_chest_slot
 
-
 func is_populated():
 	if populated:
 		return true

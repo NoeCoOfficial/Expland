@@ -270,6 +270,7 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area.is_in_group("draggable"):
 		InventoryManager.is_inside_checker = false
 
+
 func set_ITEM_TYPE(ITEM_TYPE_TEMP : String):
 	ITEM_TYPE = ITEM_TYPE_TEMP
 	ITEM_TYPE_Label.text = ITEM_TYPE.capitalize()
@@ -283,8 +284,16 @@ func set_ITEM_TYPE(ITEM_TYPE_TEMP : String):
 func get_ITEM_TYPE():
 	return ITEM_TYPE
 
+
 func get_slot_inside():
 	return slot_inside
 
 func set_slot_inside(slot):
 	slot_inside = slot
+
+
+func set_is_in_chest_slot(value : bool):
+	is_in_chest_slot = value
+
+func get_is_in_chest_slot():
+	return is_in_chest_slot
