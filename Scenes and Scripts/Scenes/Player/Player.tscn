@@ -643,7 +643,7 @@ script = ExtResource("16_wg7d4")
 metadata/_edit_use_anchors_ = true
 
 [node name="InventoryMainLayer" type="CanvasLayer" parent="Head/Camera3D/InventoryLayer"]
-layer = 2
+visible = false
 
 [node name="Background" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 anchors_preset = 8
@@ -936,6 +936,9 @@ text = "CHEST"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("9_svfxy")
+
+[node name="Slot1" parent="Head/Camera3D/InventoryLayer/ChestMainLayer" instance=ExtResource("8_ads4s")]
+position = Vector2(831, 303)
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
 
