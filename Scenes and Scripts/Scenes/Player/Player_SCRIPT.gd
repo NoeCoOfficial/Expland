@@ -858,6 +858,26 @@ func get_hand_debounce_time_left():
 func start_hand_debounce_timer():
 	HandItemDebounce.start()
 
+func hide_chest_dropables(parent_node: Node):
+	for child in parent_node.get_children():
+		# Check if the child's name starts with "Dropable"
+		if child.name.begins_with("Dropable"):
+			# Ensure the child has the method `get_is_in_chest_slot`
+			if child.has_method("get_is_in_chest_slot"):
+				if child.get_is_in_chest_slot():
+					# Set visibility to false
+					child.visible = false
+
+func show_chest_dropables(parent_node: Node):
+	for child in parent_node.get_children():
+		# Check if the child's name starts with "Dropable"
+		if child.name.begins_with("Dropable"):
+			# Ensure the child has the method `get_is_in_chest_slot`
+			if child.has_method("get_is_in_chest_slot"):
+				if child.get_is_in_chest_slot():
+					# Set visibility to false
+					child.visible = false
+
 ######################################
 # Chest
 ######################################

@@ -74,7 +74,7 @@ func saveInventory(Island_Name : String, parent_node: Node) -> void:
 				
 				"position": Utils.vector2_to_dict(child.get_slot_inside().global_position),
 				"ITEM_TYPE": child.get_ITEM_TYPE(),
-				"is_in_chest_slot": child.get_is_chest_slot(),
+				"is_in_chest_slot": child.get_is_in_chest_slot(),
 				
 			}
 			inventory_data.append(drop_data)
@@ -137,7 +137,7 @@ func loadInventory(Island_Name : String) -> void:
 				+ ", ITEM_TYPE: " 
 				+ item["ITEM_TYPE"] 
 				+ ", Is in chest slot: " 
-				+ item["is_in_chest_slot"] 
+				+ str(item["is_in_chest_slot"])
 				+ "[/font][/font_size][/center]"
 			)
 	else:

@@ -68,4 +68,7 @@ func eat(valueToIncreaseBy):
 			PlayerData.Hunger = 100
 			valueToIncreaseBy = 0
 			
-		PLAYER.update_bar("HUNGER", true, PlayerData.Hunger + valueToIncreaseBy)
+			PLAYER.update_bar("HUNGER", true, 100)
+		
+		else:
+			PLAYER.update_bar("HUNGER", true, PlayerData.Hunger + valueToIncreaseBy)

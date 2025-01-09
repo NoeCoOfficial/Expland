@@ -114,6 +114,13 @@ func _ready():
 		add_child(mouse_over_timer)
 
 func _process(delta):
+	
+	if is_in_chest_slot and InventoryManager.in_chest_interface:
+		visible = true
+		
+	if is_in_chest_slot and !InventoryManager.in_chest_interface:
+		visible = false
+	
 	if debounce_timer > 0:
 		debounce_timer -= delta
 	else:
