@@ -439,6 +439,7 @@ func _headbob(time) -> Vector3:
 	return pos # return the position
 
 func _process(delta):
+	ChestMainLayer.position.x = 0
 	if inventoryHand_debounce_timer > 0:
 		inventoryHand_debounce_timer -= delta
 	
@@ -654,7 +655,6 @@ func openInventory():
 		InventoryLayer_BoundaryChest.monitoring = true
 		
 		InventoryMainLayer.offset.x = -291.96
-		InventoryLayer_GreyLayer.hide()
 		
 	else:
 		
@@ -665,7 +665,6 @@ func openInventory():
 		InventoryLayer_BoundaryChest.monitoring = false
 		
 		InventoryMainLayer.offset.x = 0
-		InventoryLayer_GreyLayer.show()
 	
 	InventoryMainLayer.show()
 	InventoryLayer.show() # show the inventory UI

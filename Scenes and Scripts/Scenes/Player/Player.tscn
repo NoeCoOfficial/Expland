@@ -419,7 +419,7 @@ Slot_6_Inventory_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer
 Slot_7_Inventory_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Slot7")
 Slot_8_Inventory_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Slot8")
 Slot_9_Inventory_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Slot9")
-ChestMainLayer = NodePath("Head/Camera3D/InventoryLayer/ChestMainLayer")
+ChestMainLayer = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer")
 Pickaxe_Video = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video")
 Axe_Video = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video")
 Sword_Video = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video")
@@ -643,6 +643,7 @@ script = ExtResource("16_wg7d4")
 metadata/_edit_use_anchors_ = true
 
 [node name="InventoryMainLayer" type="CanvasLayer" parent="Head/Camera3D/InventoryLayer"]
+layer = 2
 visible = false
 
 [node name="Background" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
@@ -815,8 +816,85 @@ offset_right = 812.0
 offset_bottom = 502.0
 focus_mode = 0
 
-[node name="Boundary" type="Area2D" parent="Head/Camera3D/InventoryLayer" groups=["boundary"]]
+[node name="ChestMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 292.0
+offset_right = 292.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("16_wg7d4")
+
+[node name="Background2" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -296.0
+offset_right = 559.0
+offset_bottom = 295.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2kg3l")
+script = SubResource("GDScript_tq46f")
+
+[node name="Background_4" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.0
+offset_top = -242.0
+offset_right = 550.0
+offset_bottom = 288.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xa5l0")
+script = SubResource("GDScript_tq46f")
+
+[node name="Background_5" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -6.0
+offset_top = 37.0
+offset_right = 550.0
+offset_bottom = 111.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7tmhy")
+script = SubResource("GDScript_tq46f")
+
+[node name="Title" type="Label" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 134.5
+offset_top = 46.0
+offset_right = 393.5
+offset_bottom = 105.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("8_cdk3a")
+theme_override_font_sizes/font_size = 45
+text = "CHEST"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("9_svfxy")
+
+[node name="Slot1" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer" instance=ExtResource("8_ads4s")]
+position = Vector2(831, 303)
+
+[node name="Boundary" type="Area2D" parent="Head/Camera3D/InventoryLayer" groups=["boundary"]]
 priority = 12
 
 [node name="Boundary1" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Boundary"]
@@ -840,7 +918,6 @@ shape = SubResource("RectangleShape2D_47l1q")
 debug_color = Color(0.998937, 0, 0.128371, 0.42)
 
 [node name="BoundaryChest" type="Area2D" parent="Head/Camera3D/InventoryLayer" groups=["boundary"]]
-visible = false
 priority = 12
 
 [node name="Boundary2" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/BoundaryChest"]
@@ -852,93 +929,6 @@ debug_color = Color(0.998937, 0, 0.128371, 0.42)
 position = Vector2(265.5, 589)
 shape = SubResource("RectangleShape2D_4c0ao")
 debug_color = Color(0.998937, 0, 0.128371, 0.42)
-
-[node name="ChestMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer"]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("16_wg7d4")
-
-[node name="GreyLayer" type="ColorRect" parent="Head/Camera3D/InventoryLayer/ChestMainLayer"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.643137)
-script = ExtResource("16_wg7d4")
-metadata/_edit_use_anchors_ = true
-
-[node name="Background2" type="Panel" parent="Head/Camera3D/InventoryLayer/ChestMainLayer"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -14.0
-offset_top = -296.0
-offset_right = 559.0
-offset_bottom = 295.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_2kg3l")
-script = SubResource("GDScript_tq46f")
-
-[node name="Background_4" type="Panel" parent="Head/Camera3D/InventoryLayer/ChestMainLayer"]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -6.0
-offset_top = -242.0
-offset_right = 550.0
-offset_bottom = 288.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_xa5l0")
-script = SubResource("GDScript_tq46f")
-
-[node name="Background_5" type="Panel" parent="Head/Camera3D/InventoryLayer/ChestMainLayer"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -6.0
-offset_top = 37.0
-offset_right = 550.0
-offset_bottom = 111.0
-grow_horizontal = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_7tmhy")
-script = SubResource("GDScript_tq46f")
-
-[node name="Title" type="Label" parent="Head/Camera3D/InventoryLayer/ChestMainLayer"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 134.5
-offset_top = 46.0
-offset_right = 393.5
-offset_bottom = 105.0
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("8_cdk3a")
-theme_override_font_sizes/font_size = 45
-text = "CHEST"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("9_svfxy")
-
-[node name="Slot1" parent="Head/Camera3D/InventoryLayer/ChestMainLayer" instance=ExtResource("8_ads4s")]
-position = Vector2(831, 303)
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
 
