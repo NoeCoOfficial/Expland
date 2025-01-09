@@ -807,14 +807,6 @@ text = "Empty"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HandDropableDetector" type="Button" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
-modulate = Color(1, 1, 1, 0)
-offset_left = 670.0
-offset_top = 235.0
-offset_right = 812.0
-offset_bottom = 502.0
-focus_mode = 0
-
 [node name="ChestMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 layout_mode = 3
 anchors_preset = 15
@@ -988,6 +980,15 @@ is_chest_slot = true
 [node name="Slot25" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer" instance=ExtResource("8_ads4s")]
 position = Vector2(1062, 568)
 is_chest_slot = true
+
+[node name="HandDropableDetector" type="Button" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
+offset_left = 670.0
+offset_top = 235.0
+offset_right = 812.0
+offset_bottom = 502.0
+focus_mode = 0
+button_mask = 2
+text = "skibidi"
 
 [node name="Boundary" type="Area2D" parent="Head/Camera3D/InventoryLayer" groups=["boundary"]]
 priority = 12
@@ -2795,6 +2796,7 @@ libraries = {
 [connection signal="body_entered" from="PickupObjectDetector" to="." method="_on_pickup_object_detector_body_entered"]
 [connection signal="mouse_entered" from="Head/Camera3D/InventoryLayer/InventoryMainLayer/HandDropableDetector" to="." method="_on_hand_dropable_detector_mouse_entered"]
 [connection signal="mouse_exited" from="Head/Camera3D/InventoryLayer/InventoryMainLayer/HandDropableDetector" to="." method="_on_hand_dropable_detector_mouse_exited"]
+[connection signal="pressed" from="Head/Camera3D/InventoryLayer/InventoryMainLayer/HandDropableDetector" to="." method="_on_hand_detector_right_click"]
 [connection signal="area_entered" from="Head/Camera3D/InventoryLayer/Boundary" to="." method="_on_boundary_area_entered"]
 [connection signal="area_exited" from="Head/Camera3D/InventoryLayer/Boundary" to="." method="_on_boundary_area_exited"]
 [connection signal="area_entered" from="Head/Camera3D/InventoryLayer/BoundaryChest" to="." method="_on_boundary_area_entered"]

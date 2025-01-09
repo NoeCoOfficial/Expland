@@ -323,37 +323,6 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			openInventory()
 		else:
 			closeInventory()
-	
-	if Input.is_action_just_pressed("RightClick") and inventoryHand_debounce_timer <= 0:
-		if InventoryManager.is_hovering_over_hand_dropable:
-			if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup:
-				if !InventoryData.HAND_ITEM_TYPE == "":
-					var slots = [
-						Slot1_Inventory_Ref,
-						Slot2_Inventory_Ref,
-						Slot_3_Inventory_Ref,
-						Slot_4_Inventory_Ref,
-						Slot_5_Inventory_Ref,
-						Slot_6_Inventory_Ref,
-						Slot_7_Inventory_Ref,
-						Slot_8_Inventory_Ref,
-						Slot_9_Inventory_Ref,
-					]
-					
-					var free_slot = null
-					
-					# Get the free slot
-					for i in range(slots.size()):
-						if not slots[i].is_populated():
-							free_slot = slots[i]
-							break
-					
-					if free_slot != null and !free_slot.is_populated():
-						
-						InventoryManager.spawn_inventory_dropable(free_slot.position, InventoryData.HAND_ITEM_TYPE, free_slot)
-						free_slot.set_populated(true)
-						set_hand_item_type("")
-						MinimalAlert.hide_minimal_alert(0.1)
 
 func _unhandled_input(event): # A built-in function that listens for input all the time
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
@@ -759,6 +728,37 @@ func _on_hand_dropable_detector_mouse_entered() -> void:
 func _on_hand_dropable_detector_mouse_exited() -> void:
 	InventoryManager.is_hovering_over_hand_dropable = false
 	MinimalAlert.hide_minimal_alert(0.1)
+
+func _on_hand_detector_right_click() -> void:
+	if InventoryManager.is_hovering_over_hand_dropable and inventoryHand_debounce_timer <= 0:
+		if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup:
+			if !InventoryData.HAND_ITEM_TYPE == "":
+				var slots = [
+					Slot1_Inventory_Ref,
+					Slot2_Inventory_Ref,
+					Slot_3_Inventory_Ref,
+					Slot_4_Inventory_Ref,
+					Slot_5_Inventory_Ref,
+					Slot_6_Inventory_Ref,
+					Slot_7_Inventory_Ref,
+					Slot_8_Inventory_Ref,
+					Slot_9_Inventory_Ref,
+				]
+				
+				var free_slot = null
+				
+				# Get the free slot
+				for i in range(slots.size()):
+					if not slots[i].is_populated():
+						free_slot = slots[i]
+						break
+				
+				if free_slot != null and !free_slot.is_populated():
+					
+					InventoryManager.spawn_inventory_dropable(free_slot.position, InventoryData.HAND_ITEM_TYPE, free_slot)
+					free_slot.set_populated(true)
+					set_hand_item_type("")
+					MinimalAlert.hide_minimal_alert(0.1)
 
 func set_hand_item_type(ITEM_TYPE : String):
 	inventoryHand_debounce_timer = 0.2
