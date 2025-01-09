@@ -808,6 +808,15 @@ text = "Empty"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ScrollContainer" type="ScrollContainer" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
+offset_left = 1555.0
+offset_top = 85.0
+offset_right = 2091.0
+offset_bottom = 618.0
+
+[node name="GridContainer" type="GridContainer" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ScrollContainer"]
+layout_mode = 2
+
 [node name="ChestMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 layout_mode = 3
 anchors_preset = 15
@@ -818,13 +827,6 @@ offset_right = 292.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("16_wg7d4")
-
-[node name="ScrollContainer" type="ScrollContainer" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer"]
-layout_mode = 0
-offset_left = 579.0
-offset_top = 87.0
-offset_right = 1115.0
-offset_bottom = 620.0
 
 [node name="Background2" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer"]
 layout_mode = 1
