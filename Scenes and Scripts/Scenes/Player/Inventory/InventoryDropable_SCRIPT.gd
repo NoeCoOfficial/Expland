@@ -120,12 +120,12 @@ func _process(delta):
 	if draggable:
 		if Input.is_action_just_pressed("LeftClick"):
 			if mouse_over_timer.time_left == 0:
-				initialPos = global_position
+				initialPos = position
 				InventoryManager.is_dragging = true
 				self.z_index = 10
 				InventoryManager.item_ref = ITEM_TYPE
 		if Input.is_action_pressed("LeftClick") and InventoryManager.is_dragging:
-			global_position = get_global_mouse_position()
+			position = get_global_mouse_position()
 		
 		elif Input.is_action_just_released("LeftClick"):
 			
@@ -153,9 +153,9 @@ func _process(delta):
 					else:
 						if body_ref.has_method("is_populated") and body_ref.is_populated():
 							# If the slot is already populated, snap back to the original position
-							tween.tween_property(self, "global_position", initialPos, SNAP_TIME)
+							tween.tween_property(self, "position", initialPos, SNAP_TIME)
 						else:
-							tween.tween_property(self, "position", body_ref.position, SNAP_TIME)
+							tween.tween_property(self, "position", body_ref.global_position, SNAP_TIME)
 							if body_ref.has_method("set_populated"):
 								body_ref.set_populated(true)
 								if slot_inside != null:
@@ -165,7 +165,7 @@ func _process(delta):
 							else:
 								print("{LOCAL} [InventoryDropable_SCRIPT.gd] " + body_ref + " does not have method: set_populated()")
 				else:
-					tween.tween_property(self, "global_position", initialPos, SNAP_TIME)
+					tween.tween_property(self, "position", initialPos, SNAP_TIME)
 			
 			if mouse_over_timer.is_inside_tree():                          
 				mouse_over_timer.start() # Restart the timer when the item is placed down
