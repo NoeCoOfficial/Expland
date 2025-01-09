@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=85 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -172,6 +172,10 @@ corner_radius_bottom_left = 12
 bg_color = Color(0.103744, 0.103744, 0.103744, 1)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmmgy"]
+content_margin_top = 15.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cs88l"]
 size = Vector2(313, 648)
@@ -645,7 +649,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="InventoryMainLayer" type="CanvasLayer" parent="Head/Camera3D/InventoryLayer"]
 layer = 2
-visible = false
 
 [node name="Background" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 anchors_preset = 8
@@ -810,7 +813,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ChestMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -828,10 +830,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -14.0
-offset_top = -309.0
-offset_right = 559.0
-offset_bottom = 308.0
+offset_left = -13.5
+offset_top = -311.0
+offset_right = 559.5
+offset_bottom = 311.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2kg3l")
@@ -845,10 +847,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -6.0
-offset_top = -252.0
-offset_right = 550.0
-offset_bottom = 301.0
+offset_left = -5.5
+offset_top = -257.0
+offset_right = 550.5
+offset_bottom = 304.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xa5l0")
@@ -859,10 +861,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -6.0
-offset_top = 23.0
-offset_right = 550.0
-offset_bottom = 83.0
+offset_left = -5.5
+offset_top = 20.0
+offset_right = 550.5
+offset_bottom = 80.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7tmhy")
 script = SubResource("GDScript_tq46f")
@@ -873,9 +875,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = 134.5
-offset_top = 26.0
+offset_top = 21.0
 offset_right = 393.5
-offset_bottom = 85.0
+offset_bottom = 80.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("8_cdk3a")
 theme_override_font_sizes/font_size = 45
@@ -887,9 +889,10 @@ script = ExtResource("9_svfxy")
 [node name="ScrollContainer" type="ScrollContainer" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer"]
 layout_mode = 0
 offset_left = 589.0
-offset_top = 95.0
+offset_top = 80.0
 offset_right = 1122.0
-offset_bottom = 623.0
+offset_bottom = 626.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pmmgy")
 horizontal_scroll_mode = 2
 vertical_scroll_mode = 0
 script = ExtResource("16_wg7d4")
