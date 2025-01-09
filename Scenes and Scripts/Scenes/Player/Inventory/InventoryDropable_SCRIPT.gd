@@ -160,6 +160,12 @@ func _process(delta):
 							tween.tween_property(self, "global_position", body_ref.global_position, SNAP_TIME)
 							if body_ref.has_method("set_populated"):
 								body_ref.set_populated(true)
+								
+								if body_ref.get_is_chest_slot():
+									is_in_chest_slot = true
+								else:
+									is_in_chest_slot = false
+									
 								if slot_inside != null:
 									if slot_inside.has_method("set_populated"):
 										slot_inside.set_populated(false)

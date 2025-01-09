@@ -231,12 +231,14 @@ var is_crouching = false
 @export var RandomText_Label : Label
 @export var OverlayLayer_RedOverlay : ColorRect
 
+
 @export_subgroup("Timers")
 @export var ManualSaveCooldown : Timer
 @export var HandItemDebounce : Timer
 
 @export_group("Debug")
 
+@export var StartDebugging_Btn : Button
 @export var Inventory_Item_Ref_Label : Label
 @export var Is_Raycast_Colliding_Label : Label
 @export var Is_Inside_Settings_Label : Label
@@ -711,7 +713,7 @@ func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 			await get_tree().create_timer(0.1).timeout
 			
 			delete_pickup_object(PickupObject)
-			InventoryManager.spawn_inventory_dropable(free_slot.position, PickupItemType, free_slot)
+			InventoryManager.spawn_inventory_dropable(free_slot.global_position, PickupItemType, free_slot)
 			
 		else:
 			print("{LOCAL} [Player_SCRIPT.gd] No free slot available.")
@@ -755,7 +757,7 @@ func _on_hand_detector_right_click() -> void:
 				
 				if free_slot != null and !free_slot.is_populated():
 					
-					InventoryManager.spawn_inventory_dropable(free_slot.position, InventoryData.HAND_ITEM_TYPE, free_slot)
+					InventoryManager.spawn_inventory_dropable(free_slot.global_position, InventoryData.HAND_ITEM_TYPE, free_slot)
 					free_slot.set_populated(true)
 					set_hand_item_type("")
 					MinimalAlert.hide_minimal_alert(0.1)
@@ -1087,7 +1089,7 @@ func on_add_item_buttons_workshop_pressed(ITEM_TYPE : String):
 			
 			free_slot.set_populated(true)
 			
-			InventoryManager.spawn_inventory_dropable(free_slot.position, ITEM_TYPE, free_slot)
+			InventoryManager.spawn_inventory_dropable(free_slot.global_position, ITEM_TYPE, free_slot)
 		
 		else:
 			spawn_minimal_alert_from_player(2.5, 0.3, 0.3, "Can't add item to pockets, inventory full!")
@@ -1145,8 +1147,8 @@ func _on_start_debugging_btn_pressed() -> void:
 	if DebugManager.is_debugging:
 		DebugManager.is_debugging = false
 		DebugLayer.hide()
-		PauseLayer.StartDebugging_Btn.text = "START DEBUGGING"
+		StartDebugging_Btn.text = "START DEBUGGING"
 	else:
 		DebugManager.is_debugging = true
 		DebugLayer.show()
-		PauseLayer.StartDebugging_Btn.text = "STOP DEBUGGING"
+		StartDebugging_Btn.text = "STOP DEBUGGING"

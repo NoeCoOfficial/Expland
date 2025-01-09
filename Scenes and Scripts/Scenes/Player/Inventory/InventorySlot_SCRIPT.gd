@@ -71,6 +71,9 @@ func _process(_delta):
 	else:
 		is_populated_label.visible = false
 
+func get_is_chest_slot():
+	return is_chest_slot
+
 func is_populated():
 	if populated:
 		return true
