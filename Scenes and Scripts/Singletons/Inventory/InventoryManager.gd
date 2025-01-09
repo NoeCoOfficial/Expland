@@ -121,34 +121,42 @@ func create_pickup_object():
 	is_creating_pickup = true
 	var WORLD = get_node("/root/World")
 	var INVENTORY_LAYER = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer")
+	var CHEST_SLOTS = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ScrollContainer/GridContainer/ChestSlots")
 	var PICKUP_SCENE = load("res://Scenes and Scripts/Scenes/Player/Inventory/ItemPickupObject.tscn")
 	var PICKUP = PICKUP_SCENE.instantiate()
 	WORLD.add_child(PICKUP)
 	
 	is_creating_pickup = false
 	
-	InventoryData.saveInventory(IslandManager.Current_Island_Name, INVENTORY_LAYER)
+	InventoryData.saveInventory(IslandManager.Current_Island_Name, INVENTORY_LAYER, CHEST_SLOTS)
 
-func spawn_inventory_dropable(atPos : Vector2, ITEM_TYPE, slotToPopulate):
+func spawn_inventory_dropable(atPos : Vector2, ITEM_TYPE, slotToPopulate, is_in_chest_slot : bool):
 	if get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer") != null:
+		var ChestSlotsControl = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ScrollContainer/GridContainer/ChestSlots")
 		var InventoryLayer = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer")
 		var NewDropable = load("res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDropable.tscn")
 		var DropableInstance = NewDropable.instantiate()
 		DropableInstance.set_ITEM_TYPE(ITEM_TYPE)
 		
-		InventoryLayer.add_child(DropableInstance)
+		if is_in_chest_slot:
+			ChestSlotsControl.add_child(DropableInstance)
+			DropableInstance.position = atPos
+		else:
+			InventoryLayer.add_child(DropableInstance)
+			DropableInstance.global_position = atPos
+		
 		DropableInstance.global_position = atPos
 		DropableInstance.set_slot_inside(slotToPopulate)
+		DropableInstance.set_is_in_chest_slot(is_in_chest_slot)
 		slotToPopulate.set_populated(true)
 		
 		return DropableInstance
 
 func spawn_inventory_dropable_from_load(atPos : Vector2, ITEM_TYPE, is_in_chest_slot : bool):
 	if get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer") != null:
-		var ChestSlotsControl = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/ChestMainLayer/ScrollContainer/GridContainer/ChestSlots")
+		var ChestSlotsControl = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ScrollContainer/GridContainer/ChestSlots")
 		var InventoryLayer = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer")
 		var NewDropable = load("res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDropable.tscn")
-		
 		var DropableInstance = NewDropable.instantiate()
 		
 		DropableInstance.set_ITEM_TYPE(ITEM_TYPE)
@@ -163,11 +171,10 @@ func spawn_inventory_dropable_from_load(atPos : Vector2, ITEM_TYPE, is_in_chest_
 			InventoryLayer.add_child(DropableInstance)
 			DropableInstance.global_position = atPos
 
-
 func set_hand_item(dropable_to_delete, ITEM_TYPE : String):
 	var PLAYER = get_node("/root/World/Player")
 	if InventoryData.HAND_ITEM_TYPE != "":
-		spawn_inventory_dropable(dropable_to_delete.global_position, InventoryData.HAND_ITEM_TYPE, dropable_to_delete.get_slot_inside())
+		spawn_inventory_dropable(dropable_to_delete.global_position, InventoryData.HAND_ITEM_TYPE, dropable_to_delete.get_slot_inside(), false)
 	dropable_to_delete.queue_free()
 	PLAYER.set_hand_item_type(ITEM_TYPE)
 

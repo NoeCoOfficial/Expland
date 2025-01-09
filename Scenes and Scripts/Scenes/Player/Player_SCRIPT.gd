@@ -164,11 +164,13 @@ var is_crouching = false
 
 @export_category("Node references")
 
+
 @export_group("Body parts")
 
 @export var head : Node3D
 @export var camera : Camera3D
 @export var PickupAttractionPos : Node3D
+
 
 @export_group("Inventory")
 
@@ -182,6 +184,7 @@ var is_crouching = false
 @export var Slot_8_Inventory_Ref : StaticBody2D
 @export var Slot_9_Inventory_Ref : StaticBody2D
 @export var ChestMainLayer : Control
+@export var ChestSlots : Control
 @export var Pickaxe_Video : VideoStreamPlayer
 @export var Axe_Video : VideoStreamPlayer
 @export var Sword_Video : VideoStreamPlayer
@@ -713,7 +716,7 @@ func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 			await get_tree().create_timer(0.1).timeout
 			
 			delete_pickup_object(PickupObject)
-			InventoryManager.spawn_inventory_dropable(free_slot.global_position, PickupItemType, free_slot)
+			InventoryManager.spawn_inventory_dropable(free_slot.global_position, PickupItemType, free_slot, false)
 			
 		else:
 			print("{LOCAL} [Player_SCRIPT.gd] No free slot available.")
@@ -757,7 +760,7 @@ func _on_hand_detector_right_click() -> void:
 				
 				if free_slot != null and !free_slot.is_populated():
 					
-					InventoryManager.spawn_inventory_dropable(free_slot.global_position, InventoryData.HAND_ITEM_TYPE, free_slot)
+					InventoryManager.spawn_inventory_dropable(free_slot.global_position, InventoryData.HAND_ITEM_TYPE, free_slot, false)
 					free_slot.set_populated(true)
 					set_hand_item_type("")
 					MinimalAlert.hide_minimal_alert(0.1)
@@ -925,7 +928,7 @@ func _on_credits_button_pressed() -> void:
 ######################################
 
 func saveInventory():
-	InventoryData.saveInventory(IslandManager.Current_Island_Name, InventoryMainLayer)
+	InventoryData.saveInventory(IslandManager.Current_Island_Name, InventoryMainLayer, ChestSlots)
 
 func _on_save_and_quit_btn_pressed():
 	SaveManager.saveAllData()
@@ -1109,7 +1112,7 @@ func on_add_item_buttons_workshop_pressed(ITEM_TYPE : String):
 			
 			free_slot.set_populated(true)
 			
-			InventoryManager.spawn_inventory_dropable(free_slot.global_position, ITEM_TYPE, free_slot)
+			InventoryManager.spawn_inventory_dropable(free_slot.global_position, ITEM_TYPE, free_slot, false)
 		
 		else:
 			spawn_minimal_alert_from_player(2.5, 0.3, 0.3, "Can't add item to pockets, inventory full!")
