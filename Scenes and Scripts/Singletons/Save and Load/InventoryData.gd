@@ -71,8 +71,11 @@ func saveInventory(Island_Name : String, parent_node: Node) -> void:
 	for child in parent_node.get_children():
 		if child.name.begins_with("Dropable"):
 			var drop_data = {
+				
 				"position": Utils.vector2_to_dict(child.get_slot_inside().global_position),
-				"ITEM_TYPE": child.get_ITEM_TYPE()
+				"ITEM_TYPE": child.get_ITEM_TYPE(),
+				"is_chest_slot": child.get_is_chest_slot(),
+				
 			}
 			inventory_data.append(drop_data)
 
@@ -81,8 +84,10 @@ func saveInventory(Island_Name : String, parent_node: Node) -> void:
 
 	# Add HAND_ITEM_TYPE to the inventory data
 	var save_data = {
+		
 		"inventory": inventory_data,
 		"hand_item_type": HAND_ITEM_TYPE
+		
 	}
 
 	# Write fresh data to the file
@@ -118,6 +123,7 @@ func loadInventory(Island_Name : String) -> void:
 		for item in inventory_data:
 			var position = Utils.dict_to_vector2(item["position"])
 			var item_type = item["ITEM_TYPE"]
+			
 			InventoryManager.spawn_inventory_dropable_from_load(position, item_type)
 		
 		# Debugging output

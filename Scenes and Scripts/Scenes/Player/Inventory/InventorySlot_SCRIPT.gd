@@ -71,8 +71,12 @@ func _process(_delta):
 	else:
 		is_populated_label.visible = false
 
+func set_is_chest_slot(value : bool):
+	is_chest_slot = value
+
 func get_is_chest_slot():
 	return is_chest_slot
+
 
 func is_populated():
 	if populated:
@@ -87,6 +91,7 @@ func set_populated(populatedValue : bool):
 	else:
 		print("{LOCAL} [InventorySlot_SCRIPT.gd] Empty, Slot: " + str(name))
 		populated = false
+
 
 func _on_draggable_detector_area_entered(area: Area2D) -> void:
 	if area.is_in_group("draggable"):
