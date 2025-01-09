@@ -181,6 +181,7 @@ var is_crouching = false
 @export var Slot_7_Inventory_Ref : StaticBody2D
 @export var Slot_8_Inventory_Ref : StaticBody2D
 @export var Slot_9_Inventory_Ref : StaticBody2D
+@export var ChestMainLayer : Control
 @export var Pickaxe_Video : VideoStreamPlayer
 @export var Axe_Video : VideoStreamPlayer
 @export var Sword_Video : VideoStreamPlayer
@@ -192,7 +193,6 @@ var is_crouching = false
 
 @export_subgroup("CanvasLayers")
 @export var HUDLayer : CanvasLayer
-@export var ChestUILayer : CanvasLayer
 @export var InventoryLayer : CanvasLayer
 @export var InventoryMainLayer : CanvasLayer
 @export var PauseLayer : CanvasLayer
@@ -318,7 +318,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		
 		saveAllDataWithAnimation()
 	
-	if Input.is_action_just_pressed("Inventory") and !InventoryManager.in_chest_interface and !PauseManager.inside_absolute_item_workshop and !PauseManager.is_paused and !InventoryManager.in_chest_interface and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
+	if Input.is_action_just_pressed("Inventory") and !PauseManager.inside_absolute_item_workshop and !PauseManager.is_paused and !InventoryManager.in_chest_interface and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
 		if !InventoryManager.inventory_open:
 			openInventory()
 		else:
@@ -654,7 +654,6 @@ func openInventory():
 		InventoryLayer_BoundaryChest.monitoring = true
 		
 		InventoryMainLayer.offset.x = -291.96
-		InventoryLayer_GreyLayer.hide()
 		
 	else:
 		
@@ -665,7 +664,7 @@ func openInventory():
 		InventoryLayer_BoundaryChest.monitoring = false
 		
 		InventoryMainLayer.offset.x = 0
-		InventoryLayer_GreyLayer.show()
+		ChestMainLayer.hide()
 	
 	InventoryMainLayer.show()
 	InventoryLayer.show() # show the inventory UI
@@ -862,13 +861,13 @@ func start_hand_debounce_timer():
 ######################################
 
 func openChest():
-	ChestUILayer.show()
+	ChestMainLayer.show()
 	InventoryManager.in_chest_interface = true
 	openInventory() # Does most of the stuff for us
 	InventoryManager.chestNode.animate("OPEN")
 
 func closeChest():
-	ChestUILayer.hide()
+	ChestMainLayer.hide()
 	InventoryManager.in_chest_interface = false
 	closeInventory() # Does most of the stuff for us
 	InventoryManager.chestNode.animate("CLOSE")
