@@ -816,7 +816,6 @@ offset_bottom = 502.0
 focus_mode = 0
 
 [node name="ChestMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -835,9 +834,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -14.0
-offset_top = -296.0
+offset_top = -309.0
 offset_right = 559.0
-offset_bottom = 295.0
+offset_bottom = 308.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2kg3l")
@@ -852,9 +851,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -6.0
-offset_top = -242.0
+offset_top = -252.0
 offset_right = 550.0
-offset_bottom = 288.0
+offset_bottom = 301.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xa5l0")
@@ -866,9 +865,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -6.0
-offset_top = 37.0
+offset_top = 23.0
 offset_right = 550.0
-offset_bottom = 111.0
+offset_bottom = 83.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7tmhy")
 script = SubResource("GDScript_tq46f")
@@ -879,9 +878,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = 134.5
-offset_top = 46.0
+offset_top = 26.0
 offset_right = 393.5
-offset_bottom = 105.0
+offset_bottom = 85.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("8_cdk3a")
 theme_override_font_sizes/font_size = 45
@@ -891,7 +890,104 @@ vertical_alignment = 1
 script = ExtResource("9_svfxy")
 
 [node name="Slot1" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer" instance=ExtResource("8_ads4s")]
-position = Vector2(831, 303)
+position = Vector2(634, 140)
+is_chest_slot = true
+
+[node name="Slot2" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer" instance=ExtResource("8_ads4s")]
+position = Vector2(741, 140)
+is_chest_slot = true
+
+[node name="Slot3" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer" instance=ExtResource("8_ads4s")]
+position = Vector2(848, 140)
+is_chest_slot = true
+
+[node name="Slot4" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer" instance=ExtResource("8_ads4s")]
+position = Vector2(955, 140)
+is_chest_slot = true
+
+[node name="Slot5" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer" instance=ExtResource("8_ads4s")]
+position = Vector2(1062, 140)
+is_chest_slot = true
+
+[node name="Slot6" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer" instance=ExtResource("8_ads4s")]
+position = Vector2(634, 247)
+is_chest_slot = true
+
+[node name="Slot7" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer" instance=ExtResource("8_ads4s")]
+position = Vector2(741, 247)
+is_chest_slot = true
+
+[node name="Slot8" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer" instance=ExtResource("8_ads4s")]
+position = Vector2(848, 247)
+is_chest_slot = true
+
+[node name="Slot9" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer" instance=ExtResource("8_ads4s")]
+position = Vector2(955, 247)
+is_chest_slot = true
+
+[node name="Slot10" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer" instance=ExtResource("8_ads4s")]
+position = Vector2(1062, 247)
+is_chest_slot = true
+
+[node name="Slot11" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer" instance=ExtResource("8_ads4s")]
+position = Vector2(634, 354)
+is_chest_slot = true
+
+[node name="Slot12" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer" instance=ExtResource("8_ads4s")]
+position = Vector2(741, 354)
+is_chest_slot = true
+
+[node name="Slot13" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer" instance=ExtResource("8_ads4s")]
+position = Vector2(848, 354)
+is_chest_slot = true
+
+[node name="Slot14" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer" instance=ExtResource("8_ads4s")]
+position = Vector2(955, 354)
+is_chest_slot = true
+
+[node name="Slot15" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer" instance=ExtResource("8_ads4s")]
+position = Vector2(1062, 354)
+is_chest_slot = true
+
+[node name="Slot16" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer" instance=ExtResource("8_ads4s")]
+position = Vector2(634, 461)
+is_chest_slot = true
+
+[node name="Slot17" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer" instance=ExtResource("8_ads4s")]
+position = Vector2(741, 461)
+is_chest_slot = true
+
+[node name="Slot18" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer" instance=ExtResource("8_ads4s")]
+position = Vector2(848, 461)
+is_chest_slot = true
+
+[node name="Slot19" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer" instance=ExtResource("8_ads4s")]
+position = Vector2(955, 461)
+is_chest_slot = true
+
+[node name="Slot20" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer" instance=ExtResource("8_ads4s")]
+position = Vector2(1062, 461)
+is_chest_slot = true
+
+[node name="Slot21" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer" instance=ExtResource("8_ads4s")]
+position = Vector2(634, 568)
+is_chest_slot = true
+
+[node name="Slot22" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer" instance=ExtResource("8_ads4s")]
+position = Vector2(741, 568)
+is_chest_slot = true
+
+[node name="Slot23" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer" instance=ExtResource("8_ads4s")]
+position = Vector2(848, 568)
+is_chest_slot = true
+
+[node name="Slot24" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer" instance=ExtResource("8_ads4s")]
+position = Vector2(955, 568)
+is_chest_slot = true
+
+[node name="Slot25" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer" instance=ExtResource("8_ads4s")]
+position = Vector2(1062, 568)
+is_chest_slot = true
 
 [node name="Boundary" type="Area2D" parent="Head/Camera3D/InventoryLayer" groups=["boundary"]]
 priority = 12
