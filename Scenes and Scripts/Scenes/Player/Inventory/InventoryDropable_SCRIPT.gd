@@ -52,6 +52,8 @@ extends Node2D
 @export var ITEM_TYPE_Label : Label
 @export var ITEM_Sprite : Sprite2D
 
+@export var is_in_chest_slot = false
+
 @export var mouse_over_timer : Timer
 @export var populated_on_startup_timer : Timer
 
@@ -65,7 +67,6 @@ var SNAP_TIME = 0.0
 var debounce_timer = 0.2
 var can_create_pickup = true
 var is_hovering_over = false
-var is_in_chest_slot = false
 
 func _ready():
 	self.name = "Dropable"
