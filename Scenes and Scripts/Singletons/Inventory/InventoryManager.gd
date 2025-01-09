@@ -128,7 +128,7 @@ func create_pickup_object():
 	
 	is_creating_pickup = false
 	
-	InventoryData.saveInventory(IslandManager.Current_Island_Name, INVENTORY_LAYER, CHEST_SLOTS)
+	InventoryData.saveInventory(IslandManager.Current_Island_Nam, INVENTORY_LAYER, CHEST_SLOTS)
 
 func spawn_inventory_dropable(atPos : Vector2, ITEM_TYPE, slotToPopulate, is_in_chest_slot : bool):
 	if get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer") != null:

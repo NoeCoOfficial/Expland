@@ -171,6 +171,7 @@ func _process(delta):
 								
 								if body_ref.get_is_chest_slot():
 									is_in_chest_slot = true
+									
 								else:
 									is_in_chest_slot = false
 									
