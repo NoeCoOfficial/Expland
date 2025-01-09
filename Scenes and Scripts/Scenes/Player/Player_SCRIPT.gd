@@ -664,6 +664,7 @@ func openInventory():
 		InventoryLayer_BoundaryChest.monitoring = false
 		
 		InventoryMainLayer.offset.x = 0
+		ChestMainLayer.hide()
 	
 	InventoryMainLayer.show()
 	InventoryLayer.show() # show the inventory UI
