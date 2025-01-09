@@ -439,7 +439,6 @@ func _headbob(time) -> Vector3:
 	return pos # return the position
 
 func _process(delta):
-	ChestMainLayer.position.x = 0
 	if inventoryHand_debounce_timer > 0:
 		inventoryHand_debounce_timer -= delta
 	
