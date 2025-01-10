@@ -1318,6 +1318,7 @@ offset_top = 235.0
 offset_right = 812.0
 offset_bottom = 502.0
 focus_mode = 0
+action_mode = 0
 button_mask = 2
 
 [node name="Boundary" type="Area2D" parent="Head/Camera3D/InventoryLayer" groups=["boundary"]]
