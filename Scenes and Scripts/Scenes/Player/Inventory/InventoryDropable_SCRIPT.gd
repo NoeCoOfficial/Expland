@@ -115,11 +115,12 @@ func _ready():
 
 func _process(delta):
 	
-	if is_in_chest_slot and InventoryManager.in_chest_interface:
-		visible = true
-		
-	if is_in_chest_slot and !InventoryManager.in_chest_interface:
+	if is_in_chest_slot and InventoryManager.in_chest_interface and !InventoryManager.inventory_open:
 		visible = false
+		
+	else:
+		visible = true
+
 	
 	if debounce_timer > 0:
 		debounce_timer -= delta
@@ -131,6 +132,8 @@ func _process(delta):
 			if mouse_over_timer.time_left == 0:
 				initialPos = global_position
 				InventoryManager.is_dragging = true
+				if is_in_chest_slot:
+					top_level = true
 				self.z_index = 10
 				InventoryManager.item_ref = ITEM_TYPE
 		if Input.is_action_pressed("LeftClick") and InventoryManager.is_dragging:
@@ -169,16 +172,30 @@ func _process(delta):
 							if body_ref.has_method("set_populated"):
 								body_ref.set_populated(true)
 								
-								if body_ref.get_is_chest_slot():
-									is_in_chest_slot = true
-									
-								else:
-									is_in_chest_slot = false
-									
 								if slot_inside != null:
 									if slot_inside.has_method("set_populated"):
 										slot_inside.set_populated(false)
+								
 								slot_inside = body_ref
+								
+								if body_ref.get_is_chest_slot():
+									if !is_in_chest_slot:
+										is_in_chest_slot = true
+										self.queue_free()
+										InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, true)
+										top_level = false
+									else:
+										is_in_chest_slot = true
+								else:
+									
+									if is_in_chest_slot:
+										is_in_chest_slot = false
+										self.queue_free()
+										InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, false)
+										top_level = false
+									else:
+										is_in_chest_slot = false
+									
 							else:
 								print("{LOCAL} [InventoryDropable_SCRIPT.gd] " + body_ref + " does not have method: set_populated()")
 				else:
@@ -192,7 +209,7 @@ func _input(_event: InputEvent) -> void:
 	
 	if Input.is_action_just_pressed("RightClick") and debounce_timer <= 0:
 		
-		if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup and is_hovering_over:
+		if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup and is_hovering_over and !InventoryManager.is_dragging:
 			
 			if ITEM_TYPE != InventoryData.HAND_ITEM_TYPE:
 				
@@ -202,6 +219,7 @@ func _input(_event: InputEvent) -> void:
 						minimal_alert.hide_minimal_alert(0.1)
 						slot_inside.set_populated(false)
 						InventoryManager.set_hand_item(self, ITEM_TYPE)
+						InventoryManager.is_dragging = false
 						
 						PlayerManager.PLAYER.start_hand_debounce_timer()
 					
@@ -213,6 +231,7 @@ func _input(_event: InputEvent) -> void:
 						
 						var value = InventoryManager.FOOD_ITEMS[ITEM_TYPE]
 						PlayerManager.eat(value)
+						InventoryManager.is_dragging = false
 						
 						self.queue_free()
 						slot_inside.set_populated(false)
