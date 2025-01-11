@@ -129,7 +129,7 @@ func _process(delta):
 		
 	if draggable:
 		if Input.is_action_just_pressed("LeftClick"):
-			if mouse_over_timer.time_left == 0:
+			if mouse_over_timer.time_left == 0 and !InventoryManager.is_hovering_over_hand_dropable:
 				initialPos = global_position
 				InventoryManager.is_dragging = true
 				if is_in_chest_slot:
@@ -162,10 +162,22 @@ func _process(delta):
 					if body_ref == slot_inside:
 						# If the draggable is placed back into its current slot, do nothing
 						tween.tween_property(self, "global_position", body_ref.global_position, SNAP_TIME)
+						
+						if is_in_chest_slot:
+							is_in_chest_slot = true
+							self.queue_free()
+							InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, true)
+							top_level = false
+						
 					else:
 						if body_ref.has_method("is_populated") and body_ref.is_populated():
 							# If the slot is already populated, snap back to the original position
 							tween.tween_property(self, "global_position", initialPos, SNAP_TIME)
+							if is_in_chest_slot:
+								is_in_chest_slot = true
+								self.queue_free()
+								InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, true)
+								top_level = false
 							
 						else:
 							tween.tween_property(self, "global_position", body_ref.global_position, SNAP_TIME)
@@ -179,13 +191,10 @@ func _process(delta):
 								slot_inside = body_ref
 								
 								if body_ref.get_is_chest_slot():
-									if !is_in_chest_slot:
-										is_in_chest_slot = true
-										self.queue_free()
-										InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, true)
-										top_level = false
-									else:
-										is_in_chest_slot = true
+									is_in_chest_slot = true
+									self.queue_free()
+									InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, true)
+									top_level = false
 								else:
 									
 									if is_in_chest_slot:
@@ -200,6 +209,11 @@ func _process(delta):
 								print("{LOCAL} [InventoryDropable_SCRIPT.gd] " + body_ref + " does not have method: set_populated()")
 				else:
 					tween.tween_property(self, "global_position", initialPos, SNAP_TIME)
+					if is_in_chest_slot:
+						is_in_chest_slot = true
+						self.queue_free()
+						InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, true)
+						top_level = false
 			
 			if mouse_over_timer.is_inside_tree():                          
 				mouse_over_timer.start() # Restart the timer when the item is placed down
