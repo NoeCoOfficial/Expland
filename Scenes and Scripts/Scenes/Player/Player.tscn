@@ -653,8 +653,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="InventoryMainLayer" type="CanvasLayer" parent="Head/Camera3D/InventoryLayer"]
 layer = 2
-offset = Vector2(-291.96, 0)
-transform = Transform2D(1, 0, 0, 1, -291.96, 0)
 
 [node name="Background" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 anchors_preset = 8
