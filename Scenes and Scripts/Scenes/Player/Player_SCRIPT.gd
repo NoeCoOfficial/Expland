@@ -635,6 +635,8 @@ func openInventory():
 		
 		ChestCollisionBoundary1.disabled = true
 		ChestCollisionBoundary4.disabled = true
+		ChestCollisionBoundary2.position.x = 279
+		ChestCollisionBoundary3.position.x = 279
 		
 	else:
 		
@@ -643,6 +645,8 @@ func openInventory():
 		
 		ChestCollisionBoundary1.disabled = false
 		ChestCollisionBoundary4.disabled = false
+		ChestCollisionBoundary2.position.x = 576
+		ChestCollisionBoundary3.position.x = 576
 	
 	InventoryMainLayer.show()
 	InventoryLayer.show() # show the inventory UI
