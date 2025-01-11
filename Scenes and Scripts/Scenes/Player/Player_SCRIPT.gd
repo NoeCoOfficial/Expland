@@ -174,6 +174,7 @@ var is_crouching = false
 
 @export_group("Inventory")
 
+@export_subgroup("Pocket Slots")
 @export var Slot1_Inventory_Ref : StaticBody2D
 @export var Slot2_Inventory_Ref : StaticBody2D
 @export var Slot_3_Inventory_Ref : StaticBody2D
@@ -183,6 +184,11 @@ var is_crouching = false
 @export var Slot_7_Inventory_Ref : StaticBody2D
 @export var Slot_8_Inventory_Ref : StaticBody2D
 @export var Slot_9_Inventory_Ref : StaticBody2D
+
+@export_subgroup("Chest Slots")
+@export var Slot1_Chest_Ref : StaticBody2D
+
+@export_subgroup("Layers and UI")
 @export var ChestMainLayer : Control
 @export var ChestSlots : Control
 @export var Pickaxe_Video : VideoStreamPlayer
