@@ -451,7 +451,7 @@ DialogueInterface = NodePath("Head/Camera3D/DialogueLayer/DialogueInterface")
 DeathScreen_BlackOverlay = NodePath("Head/Camera3D/DeathScreen/BlackOverlay")
 OverlayLayer_Overlay = NodePath("Head/Camera3D/OverlayLayer/Overlay")
 InventoryLayer_Boundary = NodePath("Head/Camera3D/InventoryLayer/Boundary")
-InventoryLayer_BoundaryChest = NodePath("Head/Camera3D/InventoryLayer/BoundaryChest")
+InventoryLayer_BoundaryChest = NodePath("")
 InventoryLayer_GreyLayer = NodePath("Head/Camera3D/InventoryLayer/GreyLayer")
 ItemWorkshopLayer_MainLayer = NodePath("Head/Camera3D/ItemWorkshopLayer/MainLayer")
 ItemWorkshopLayer_GreyLayer = NodePath("Head/Camera3D/ItemWorkshopLayer/GreyLayer")
@@ -1342,19 +1342,6 @@ debug_color = Color(0.998937, 0, 0.128371, 0.42)
 [node name="Boundary4" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Boundary"]
 position = Vector2(995.5, 324)
 shape = SubResource("RectangleShape2D_47l1q")
-debug_color = Color(0.998937, 0, 0.128371, 0.42)
-
-[node name="BoundaryChest" type="Area2D" parent="Head/Camera3D/InventoryLayer" groups=["boundary"]]
-priority = 12
-
-[node name="Boundary2" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/BoundaryChest"]
-position = Vector2(269, 53.5)
-shape = SubResource("RectangleShape2D_sl537")
-debug_color = Color(0.998937, 0, 0.128371, 0.42)
-
-[node name="Boundary3" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/BoundaryChest"]
-position = Vector2(265.5, 589)
-shape = SubResource("RectangleShape2D_4c0ao")
 debug_color = Color(0.998937, 0, 0.128371, 0.42)
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
@@ -3131,8 +3118,6 @@ libraries = {
 [connection signal="pressed" from="Head/Camera3D/InventoryLayer/InventoryMainLayer/HandDropableDetector" to="." method="_on_hand_detector_right_click"]
 [connection signal="area_entered" from="Head/Camera3D/InventoryLayer/Boundary" to="." method="_on_boundary_area_entered"]
 [connection signal="area_exited" from="Head/Camera3D/InventoryLayer/Boundary" to="." method="_on_boundary_area_exited"]
-[connection signal="area_entered" from="Head/Camera3D/InventoryLayer/BoundaryChest" to="." method="_on_boundary_area_entered"]
-[connection signal="area_exited" from="Head/Camera3D/InventoryLayer/BoundaryChest" to="." method="_on_boundary_area_exited"]
 [connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/ROCK/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["ROCK"]]
 [connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/REDFLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["REDFLOWER"]]
 [connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/BLUEFLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["BLUEFLOWER"]]

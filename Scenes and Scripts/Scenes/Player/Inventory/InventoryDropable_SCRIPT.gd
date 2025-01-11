@@ -118,11 +118,11 @@ func _process(delta):
 	if InventoryManager.is_dragging:
 		PlayerManager.MINIMAL_ALERT_PLAYER.hide_minimal_alert(0.1)
 	
-	if is_in_chest_slot and InventoryManager.in_chest_interface and !InventoryManager.inventory_open:
-		visible = false
+	#if is_in_chest_slot and InventoryManager.in_chest_interface and !InventoryManager.inventory_open:
+	#	visible = false
 		
-	else:
-		visible = true
+	#else:
+	#	visible = true
 
 	
 	if debounce_timer > 0:

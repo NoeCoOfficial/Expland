@@ -621,21 +621,10 @@ func showDeathScreen(): # A function to show the death screen
 func openInventory():
 	if InventoryManager.in_chest_interface:
 		
-		InventoryLayer_Boundary.monitorable = false
-		InventoryLayer_Boundary.monitoring = false
-		
-		InventoryLayer_BoundaryChest.monitorable = true
-		InventoryLayer_BoundaryChest.monitoring = true
 		
 		InventoryMainLayer.offset.x = -291.96
 		
 	else:
-		
-		InventoryLayer_Boundary.monitorable = true
-		InventoryLayer_Boundary.monitoring = true
-		
-		InventoryLayer_BoundaryChest.monitorable = false
-		InventoryLayer_BoundaryChest.monitoring = false
 		
 		InventoryMainLayer.offset.x = 0
 		ChestMainLayer.hide()
