@@ -550,6 +550,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 [node name="ItemDropPosition" type="Node3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.51589)
 
+[node name="ChestItemDropPosition" type="Node3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67172, 0, 0.0232197)
+
 [node name="Camera3D" type="Camera3D" parent="Head"]
 fov = 110.0
 script = ExtResource("2_37tst")
