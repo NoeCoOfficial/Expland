@@ -51,6 +51,7 @@ var WORLD
 var PLAYER
 var INVENTORY_LAYER
 var CHEST_SLOTS
+var MINIMAL_ALERT_PLAYER
 
 var SLEEPING_UPON_ENTERED = false
 var Stamina : float = 100.0
@@ -60,6 +61,8 @@ func init():
 	PLAYER = get_node("/root/World/Player/")
 	CHEST_SLOTS = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ScrollContainer/GridContainer/ChestSlots")
 	INVENTORY_LAYER = get_node("/root/World/Player/Head/Camera3D/InventoryLayer")
+	MINIMAL_ALERT_PLAYER = get_node("/root/World/Player//Head/Camera3D/MinimalAlertLayer/MinimalAlert")
+
 
 func sleep():
 	if PLAYER != null:

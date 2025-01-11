@@ -212,13 +212,12 @@ func _process(delta):
 						self.queue_free()
 						InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, true)
 						top_level = false
+						PlayerManager.MINIMAL_ALERT_PLAYER.hide_minimal_alert(0.1)
 			
 			if mouse_over_timer.is_inside_tree():                          
 				mouse_over_timer.start() # Restart the timer when the item is placed down
 
 func _input(_event: InputEvent) -> void:
-	var minimal_alert = get_node("/root/World/Player//Head/Camera3D/MinimalAlertLayer/MinimalAlert")
-	
 	if Input.is_action_just_pressed("RightClick") and debounce_timer <= 0:
 		
 		if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup and is_hovering_over and !InventoryManager.is_dragging:
@@ -228,7 +227,7 @@ func _input(_event: InputEvent) -> void:
 				# Right clicked on a handheld item (see InventoryManager.gd for contents)
 				if ITEM_TYPE in InventoryManager.HANDHELD_ITEMS:
 					if PlayerManager.PLAYER.get_hand_debounce_time_left() <= 0.0:
-						minimal_alert.hide_minimal_alert(0.1)
+						PlayerManager.MINIMAL_ALERT_PLAYER.hide_minimal_alert(0.1)
 						slot_inside.set_populated(false)
 						InventoryManager.set_hand_item(self, ITEM_TYPE)
 						InventoryManager.is_dragging = false
@@ -237,7 +236,7 @@ func _input(_event: InputEvent) -> void:
 					
 				# Right clicked on a consumable item (see InventoryManager.gd for contents)
 				if ITEM_TYPE in InventoryManager.CONSUMABLE_ITEMS:
-					minimal_alert.hide_minimal_alert(0.1)
+					PlayerManager.MINIMAL_ALERT_PLAYER.hide_minimal_alert(0.1)
 					
 					if ITEM_TYPE in InventoryManager.FOOD_ITEMS:
 						
@@ -270,15 +269,13 @@ func _on_area_2d_mouse_entered():
 		mouse_over_timer.start()
 		scale = Vector2(1.05, 1.05)
 		
-	if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup:
+	if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup and !InventoryManager.is_dragging:
 		
 		if ITEM_TYPE in InventoryManager.HANDHELD_ITEMS:
-			var minimal_alert = get_node("/root/World/Player//Head/Camera3D/MinimalAlertLayer/MinimalAlert")
-			minimal_alert.show_minimal_alert(0.1, "Right click to hold item")
+			PlayerManager.MINIMAL_ALERT_PLAYER.show_minimal_alert(0.1, "Right click to hold item")
 		
 		if ITEM_TYPE in InventoryManager.CONSUMABLE_ITEMS:
-			var minimal_alert = get_node("/root/World/Player//Head/Camera3D/MinimalAlertLayer/MinimalAlert")
-			minimal_alert.show_minimal_alert(0.1, "Right click to consume item")
+			PlayerManager.MINIMAL_ALERT_PLAYER.show_minimal_alert(0.1, "Right click to consume item")
 
 func _on_area_2d_mouse_exited():
 	if !InventoryManager.is_dragging:
@@ -289,14 +286,13 @@ func _on_area_2d_mouse_exited():
 		
 		# Dunno why I have to do it like this but hey
 		# I don't wanna risk anything bro
+		# The code has a mind of it's own
 		
 		if ITEM_TYPE in InventoryManager.HANDHELD_ITEMS:
-			var minimal_alert = get_node("/root/World/Player//Head/Camera3D/MinimalAlertLayer/MinimalAlert")
-			minimal_alert.hide_minimal_alert(0.1)
+			PlayerManager.MINIMAL_ALERT_PLAYER.hide_minimal_alert(0.1)
 		
 		if ITEM_TYPE in InventoryManager.CONSUMABLE_ITEMS:
-			var minimal_alert = get_node("/root/World/Player//Head/Camera3D/MinimalAlertLayer/MinimalAlert")
-			minimal_alert.hide_minimal_alert(0.1)
+			PlayerManager.MINIMAL_ALERT_PLAYER.hide_minimal_alert(0.1)
 
 func _on_mouse_over_timeout():
 	draggable = true
