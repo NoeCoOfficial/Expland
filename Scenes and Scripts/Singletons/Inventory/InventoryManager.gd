@@ -174,7 +174,7 @@ func spawn_inventory_dropable_from_load(atPos : Vector2, ITEM_TYPE, is_in_chest_
 func set_hand_item(dropable_to_delete, ITEM_TYPE : String):
 	var PLAYER = get_node("/root/World/Player")
 	if InventoryData.HAND_ITEM_TYPE != "":
-		spawn_inventory_dropable(dropable_to_delete.global_position, InventoryData.HAND_ITEM_TYPE, dropable_to_delete.get_slot_inside(), false)
+		spawn_inventory_dropable(dropable_to_delete.global_position, InventoryData.HAND_ITEM_TYPE, dropable_to_delete.get_slot_inside(), dropable_to_delete.get_is_in_chest_slot())
 	dropable_to_delete.queue_free()
 	PLAYER.set_hand_item_type(ITEM_TYPE)
 
