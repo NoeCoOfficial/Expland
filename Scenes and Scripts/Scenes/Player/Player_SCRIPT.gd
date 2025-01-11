@@ -191,6 +191,10 @@ var is_crouching = false
 @export_subgroup("Layers and UI")
 @export var ChestMainLayer : Control
 @export var ChestSlots : Control
+@export var ChestCollisionBoundary1 : CollisionShape2D
+@export var ChestCollisionBoundary2 : CollisionShape2D
+@export var ChestCollisionBoundary3 : CollisionShape2D
+@export var ChestCollisionBoundary4 : CollisionShape2D
 @export var Pickaxe_Video : VideoStreamPlayer
 @export var Axe_Video : VideoStreamPlayer
 @export var Sword_Video : VideoStreamPlayer
@@ -627,13 +631,18 @@ func showDeathScreen(): # A function to show the death screen
 func openInventory():
 	if InventoryManager.in_chest_interface:
 		
-		
 		InventoryMainLayer.offset.x = -291.96
+		
+		ChestCollisionBoundary1.disabled = true
+		ChestCollisionBoundary4.disabled = true
 		
 	else:
 		
 		InventoryMainLayer.offset.x = 0
 		ChestMainLayer.hide()
+		
+		ChestCollisionBoundary1.disabled = false
+		ChestCollisionBoundary4.disabled = false
 	
 	InventoryMainLayer.show()
 	InventoryLayer.show() # show the inventory UI
