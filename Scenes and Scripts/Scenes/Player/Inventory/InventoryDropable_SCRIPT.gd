@@ -216,7 +216,7 @@ func _process(delta):
 
 func _input(_event: InputEvent) -> void:
 	# Quick switching
-	if Input.is_action_just_pressed("LeftClick"):
+	if Input.is_action_just_pressed("Inventory_QuickSwitch"):
 		if can_quick_switch and InventoryManager.in_chest_interface:
 			
 			# If it's a chest slot, we want to switch to a pocket slot
