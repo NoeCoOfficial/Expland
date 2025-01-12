@@ -47,6 +47,9 @@
 
 extends Node
 
+var POCKET_SLOTS = []
+var CHEST_SLOTS = []
+
 const HANDHELD_ITEMS = [
 	
 	"PICKAXE",

@@ -523,6 +523,19 @@ func nodeSetup(): # A function to setup the nodes. Called in the _ready function
 	DeathScreen_BlackOverlay.self_modulate = Color(0, 0, 0, 0) # set the black overlay self modulate to black
 	OverlayLayer_RedOverlay.self_modulate = Color(1, 0.016, 0, 0) # set the red overlay self modulate to red
 
+func initInventorySlots():
+	InventoryManager.POCKET_SLOTS = [
+		Slot1_Inventory_Ref,
+		Slot2_Inventory_Ref,
+		Slot_3_Inventory_Ref,
+		Slot_4_Inventory_Ref,
+		Slot_5_Inventory_Ref,
+		Slot_6_Inventory_Ref,
+		Slot_7_Inventory_Ref,
+		Slot_8_Inventory_Ref,
+		Slot_9_Inventory_Ref,
+	]
+
 ######################################
 # Walking, sprinting and crouching sounds
 ######################################
@@ -676,24 +689,12 @@ func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 	
 	if area.is_in_group("pickup_player_detector"):
 		
-		var slots = [
-			Slot1_Inventory_Ref,
-			Slot2_Inventory_Ref,
-			Slot_3_Inventory_Ref,
-			Slot_4_Inventory_Ref,
-			Slot_5_Inventory_Ref,
-			Slot_6_Inventory_Ref,
-			Slot_7_Inventory_Ref,
-			Slot_8_Inventory_Ref,
-			Slot_9_Inventory_Ref,
-		]
-		
 		var free_slot = null
 		
 		# Get the free slot
-		for i in range(slots.size()):
-			if not slots[i].is_populated():
-				free_slot = slots[i]
+		for i in range(InventoryManager.POCKET_SLOTS.size()):
+			if not InventoryManager.POCKET_SLOTS[i].is_populated():
+				free_slot = InventoryManager.POCKET_SLOTS[i]
 				break
 		
 		
@@ -742,24 +743,13 @@ func _on_hand_detector_right_click() -> void:
 	if InventoryManager.is_hovering_over_hand_dropable and inventoryHand_debounce_timer <= 0:
 		if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup:
 			if !InventoryData.HAND_ITEM_TYPE == "":
-				var slots = [
-					Slot1_Inventory_Ref,
-					Slot2_Inventory_Ref,
-					Slot_3_Inventory_Ref,
-					Slot_4_Inventory_Ref,
-					Slot_5_Inventory_Ref,
-					Slot_6_Inventory_Ref,
-					Slot_7_Inventory_Ref,
-					Slot_8_Inventory_Ref,
-					Slot_9_Inventory_Ref,
-				]
 				
 				var free_slot = null
 				
 				# Get the free slot
-				for i in range(slots.size()):
-					if not slots[i].is_populated():
-						free_slot = slots[i]
+				for i in range(InventoryManager.POCKET_SLOTS.size()):
+					if not InventoryManager.POCKET_SLOTS[i].is_populated():
+						free_slot = InventoryManager.POCKET_SLOTS[i]
 						break
 				
 				if free_slot != null and !free_slot.is_populated():
@@ -1090,36 +1080,23 @@ func on_item_workshop_close_finished():
 	ItemWorkshopLayer_GreyLayer.visible = false
 
 func on_add_item_buttons_workshop_pressed(ITEM_TYPE : String):
+	var free_slot = null
 	
-		var slots = [
-			Slot1_Inventory_Ref,
-			Slot2_Inventory_Ref,
-			Slot_3_Inventory_Ref,
-			Slot_4_Inventory_Ref,
-			Slot_5_Inventory_Ref,
-			Slot_6_Inventory_Ref,
-			Slot_7_Inventory_Ref,
-			Slot_8_Inventory_Ref,
-			Slot_9_Inventory_Ref,
-		]
+	# Get the free slot
+	for i in range(InventoryManager.POCKET_SLOTS.size()):
+		if not InventoryManager.POCKET_SLOTS[i].is_populated():
+			free_slot = InventoryManager.POCKET_SLOTS[i]
+			break
+	
+	
+	if free_slot != null and !free_slot.is_populated():
 		
-		var free_slot = null
+		free_slot.set_populated(true)
 		
-		# Get the free slot
-		for i in range(slots.size()):
-			if not slots[i].is_populated():
-				free_slot = slots[i]
-				break
-		
-		
-		if free_slot != null and !free_slot.is_populated():
-			
-			free_slot.set_populated(true)
-			
-			InventoryManager.spawn_inventory_dropable(free_slot.global_position, ITEM_TYPE, free_slot, false)
-		
-		else:
-			spawn_minimal_alert_from_player(2.5, 0.3, 0.3, "Can't add item to pockets, inventory full!")
+		InventoryManager.spawn_inventory_dropable(free_slot.global_position, ITEM_TYPE, free_slot, false)
+	
+	else:
+		spawn_minimal_alert_from_player(2.5, 0.3, 0.3, "Can't add item to pockets, inventory full!")
 
 ######################################
 # Area and body detection
