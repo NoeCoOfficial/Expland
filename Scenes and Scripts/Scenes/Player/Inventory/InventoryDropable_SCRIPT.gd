@@ -68,7 +68,6 @@ var debounce_timer = 0.2
 var can_create_pickup = true
 var is_hovering_over = false
 var can_quick_switch = false
-var pressing_ctrl = false
 
 func _ready():
 	self.name = "Dropable"
@@ -218,7 +217,7 @@ func _process(delta):
 func _input(_event: InputEvent) -> void:
 	# Quick switching
 	if Input.is_action_just_pressed("LeftClick"):
-		if can_quick_switch and pressing_ctrl and InventoryManager.in_chest_interface and debounce_timer <= 0:
+		if can_quick_switch and InventoryManager.in_chest_interface:
 			
 			# If it's a chest slot, we want to switch to a pocket slot
 			if is_in_chest_slot:
@@ -258,11 +257,6 @@ func _input(_event: InputEvent) -> void:
 			InventoryManager.is_dragging = false
 			debounce_timer = 0.2
 	
-	if Input.is_action_just_pressed("Ctrl"):
-		pressing_ctrl = true
-	
-	if Input.is_action_just_released("Ctrl"):
-		pressing_ctrl = false
 	
 	# Consuming items and handheld items
 	if Input.is_action_just_pressed("RightClick") and debounce_timer <= 0:
