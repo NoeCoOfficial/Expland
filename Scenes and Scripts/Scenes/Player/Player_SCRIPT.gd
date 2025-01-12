@@ -331,7 +331,6 @@ var is_crouching = false
 @export var DeathScreen_BlackOverlay : Control
 @export var OverlayLayer_Overlay : Control
 @export var InventoryLayer_Boundary : Area2D
-@export var InventoryLayer_BoundaryChest : Area2D
 @export var InventoryLayer_GreyLayer : ColorRect
 @export var ItemWorkshopLayer_MainLayer : Control
 @export var ItemWorkshopLayer_GreyLayer : ColorRect
