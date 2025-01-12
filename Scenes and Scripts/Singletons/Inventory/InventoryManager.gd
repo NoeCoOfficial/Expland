@@ -50,6 +50,9 @@ extends Node
 var POCKET_SLOTS = []
 var CHEST_SLOTS = []
 
+func get_free_slot(Slots : Array):
+	pass
+
 const HANDHELD_ITEMS = [
 	
 	"PICKAXE",
