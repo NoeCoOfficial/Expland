@@ -164,30 +164,151 @@ var is_crouching = false
 
 @export_category("Node references")
 
+
 @export_group("Body parts")
 
 @export var head : Node3D
 @export var camera : Camera3D
 @export var PickupAttractionPos : Node3D
 
+
 @export_group("Inventory")
 
-@export var Slot1_Ref : StaticBody2D
-@export var Slot2_Ref : StaticBody2D
-@export var Slot3_Ref : StaticBody2D
-@export var Slot4_Ref : StaticBody2D
-@export var Slot5_Ref : StaticBody2D
-@export var Slot6_Ref : StaticBody2D
-@export var Slot7_Ref : StaticBody2D
-@export var Slot8_Ref : StaticBody2D
-@export var Slot9_Ref : StaticBody2D
+@export_subgroup("Pocket Slots")
+@export var Slot1_Inventory_Ref : StaticBody2D
+@export var Slot2_Inventory_Ref : StaticBody2D
+@export var Slot3_Inventory_Ref : StaticBody2D
+@export var Slot4_Inventory_Ref : StaticBody2D
+@export var Slot5_Inventory_Ref : StaticBody2D
+@export var Slot6_Inventory_Ref : StaticBody2D
+@export var Slot7_Inventory_Ref : StaticBody2D
+@export var Slot8_Inventory_Ref : StaticBody2D
+@export var Slot9_Inventory_Ref : StaticBody2D
+
+@export_subgroup("Chest Slots")
+@export var Slot1_Chest_Ref : StaticBody2D
+@export var Slot2_Chest_Ref : StaticBody2D
+@export var Slot3_Chest_Ref : StaticBody2D
+@export var Slot4_Chest_Ref : StaticBody2D
+@export var Slot5_Chest_Ref : StaticBody2D
+@export var Slot6_Chest_Ref : StaticBody2D
+@export var Slot7_Chest_Ref : StaticBody2D
+@export var Slot8_Chest_Ref : StaticBody2D
+@export var Slot9_Chest_Ref : StaticBody2D
+@export var Slot10_Chest_Ref : StaticBody2D
+@export var Slot11_Chest_Ref : StaticBody2D
+@export var Slot12_Chest_Ref : StaticBody2D
+@export var Slot13_Chest_Ref : StaticBody2D
+@export var Slot14_Chest_Ref : StaticBody2D
+@export var Slot15_Chest_Ref : StaticBody2D
+@export var Slot16_Chest_Ref : StaticBody2D
+@export var Slot17_Chest_Ref : StaticBody2D
+@export var Slot18_Chest_Ref : StaticBody2D
+@export var Slot19_Chest_Ref : StaticBody2D
+@export var Slot20_Chest_Ref : StaticBody2D
+@export var Slot21_Chest_Ref : StaticBody2D
+@export var Slot22_Chest_Ref : StaticBody2D
+@export var Slot23_Chest_Ref : StaticBody2D
+@export var Slot24_Chest_Ref : StaticBody2D
+@export var Slot25_Chest_Ref : StaticBody2D
+@export var Slot26_Chest_Ref : StaticBody2D
+@export var Slot27_Chest_Ref : StaticBody2D
+@export var Slot28_Chest_Ref : StaticBody2D
+@export var Slot29_Chest_Ref : StaticBody2D
+@export var Slot30_Chest_Ref : StaticBody2D
+@export var Slot31_Chest_Ref : StaticBody2D
+@export var Slot32_Chest_Ref : StaticBody2D
+@export var Slot33_Chest_Ref : StaticBody2D
+@export var Slot34_Chest_Ref : StaticBody2D
+@export var Slot35_Chest_Ref : StaticBody2D
+@export var Slot36_Chest_Ref : StaticBody2D
+@export var Slot37_Chest_Ref : StaticBody2D
+@export var Slot38_Chest_Ref : StaticBody2D
+@export var Slot39_Chest_Ref : StaticBody2D
+@export var Slot40_Chest_Ref : StaticBody2D
+@export var Slot41_Chest_Ref : StaticBody2D
+@export var Slot42_Chest_Ref : StaticBody2D
+@export var Slot43_Chest_Ref : StaticBody2D
+@export var Slot44_Chest_Ref : StaticBody2D
+@export var Slot45_Chest_Ref : StaticBody2D
+@export var Slot46_Chest_Ref : StaticBody2D
+@export var Slot47_Chest_Ref : StaticBody2D
+@export var Slot48_Chest_Ref : StaticBody2D
+@export var Slot49_Chest_Ref : StaticBody2D
+@export var Slot50_Chest_Ref : StaticBody2D
+@export var Slot51_Chest_Ref : StaticBody2D
+@export var Slot52_Chest_Ref : StaticBody2D
+@export var Slot53_Chest_Ref : StaticBody2D
+@export var Slot54_Chest_Ref : StaticBody2D
+@export var Slot55_Chest_Ref : StaticBody2D
+@export var Slot56_Chest_Ref : StaticBody2D
+@export var Slot57_Chest_Ref : StaticBody2D
+@export var Slot58_Chest_Ref : StaticBody2D
+@export var Slot59_Chest_Ref : StaticBody2D
+@export var Slot60_Chest_Ref : StaticBody2D
+@export var Slot61_Chest_Ref : StaticBody2D
+@export var Slot62_Chest_Ref : StaticBody2D
+@export var Slot63_Chest_Ref : StaticBody2D
+@export var Slot64_Chest_Ref : StaticBody2D
+@export var Slot65_Chest_Ref : StaticBody2D
+@export var Slot66_Chest_Ref : StaticBody2D
+@export var Slot67_Chest_Ref : StaticBody2D
+@export var Slot68_Chest_Ref : StaticBody2D
+@export var Slot69_Chest_Ref : StaticBody2D
+@export var Slot70_Chest_Ref : StaticBody2D
+@export var Slot71_Chest_Ref : StaticBody2D
+@export var Slot72_Chest_Ref : StaticBody2D
+@export var Slot73_Chest_Ref : StaticBody2D
+@export var Slot74_Chest_Ref : StaticBody2D
+@export var Slot75_Chest_Ref : StaticBody2D
+@export var Slot76_Chest_Ref : StaticBody2D
+@export var Slot77_Chest_Ref : StaticBody2D
+@export var Slot78_Chest_Ref : StaticBody2D
+@export var Slot79_Chest_Ref : StaticBody2D
+@export var Slot80_Chest_Ref : StaticBody2D
+@export var Slot81_Chest_Ref : StaticBody2D
+@export var Slot82_Chest_Ref : StaticBody2D
+@export var Slot83_Chest_Ref : StaticBody2D
+@export var Slot84_Chest_Ref : StaticBody2D
+@export var Slot85_Chest_Ref : StaticBody2D
+@export var Slot86_Chest_Ref : StaticBody2D
+@export var Slot87_Chest_Ref : StaticBody2D
+@export var Slot88_Chest_Ref : StaticBody2D
+@export var Slot89_Chest_Ref : StaticBody2D
+@export var Slot90_Chest_Ref : StaticBody2D
+@export var Slot91_Chest_Ref : StaticBody2D
+@export var Slot92_Chest_Ref : StaticBody2D
+@export var Slot93_Chest_Ref : StaticBody2D
+@export var Slot94_Chest_Ref : StaticBody2D
+@export var Slot95_Chest_Ref : StaticBody2D
+@export var Slot96_Chest_Ref : StaticBody2D
+@export var Slot97_Chest_Ref : StaticBody2D
+@export var Slot98_Chest_Ref : StaticBody2D
+@export var Slot99_Chest_Ref : StaticBody2D
+@export var Slot100_Chest_Ref : StaticBody2D
+
+@export_subgroup("Layers and UI")
+@export var ChestMainLayer : Control
+@export var ChestSlots : Control
+@export var ChestCollisionBoundary1 : CollisionShape2D
+@export var ChestCollisionBoundary2 : CollisionShape2D
+@export var ChestCollisionBoundary3 : CollisionShape2D
+@export var ChestCollisionBoundary4 : CollisionShape2D
+@export var Pickaxe_Video : VideoStreamPlayer
+@export var Axe_Video : VideoStreamPlayer
+@export var Sword_Video : VideoStreamPlayer
+@export var EquipAnimations_Player : AnimationPlayer
+@export var HAND_ITEM_TYPE_Label : Label
+
 
 @export_group("General Nodes")
 
 @export_subgroup("CanvasLayers")
 @export var HUDLayer : CanvasLayer
-@export var ChestUILayer : CanvasLayer
 @export var InventoryLayer : CanvasLayer
+@export var InventoryMainLayer : CanvasLayer
+@export var PauseLayer : CanvasLayer
+@export var DebugLayer : CanvasLayer
 
 @export_subgroup("UI")
 @export var SettingsUI : Control
@@ -205,8 +326,30 @@ var is_crouching = false
 @export var Crosshair_Rect : TextureRect
 @export var StaminaBar : ProgressBar
 
+@export_subgroup("Camera")
+@export var DialogueInterface : Control
+@export var DeathScreen_BlackOverlay : Control
+@export var OverlayLayer_Overlay : Control
+@export var InventoryLayer_Boundary : Area2D
+@export var InventoryLayer_GreyLayer : ColorRect
+@export var ItemWorkshopLayer_MainLayer : Control
+@export var ItemWorkshopLayer_GreyLayer : ColorRect
+@export var SaveOverlay_LighterBG : ColorRect
+@export var SaveOverlay_DarkerBG : ColorRect
+@export var HUDLayer_HealthBar : ProgressBar
+@export var HUDLayer_HungerBar : ProgressBar
+@export var GetUp_Label : Label
+@export var RandomText_Label : Label
+@export var OverlayLayer_RedOverlay : ColorRect
+
+
+@export_subgroup("Timers")
+@export var ManualSaveCooldown : Timer
+@export var HandItemDebounce : Timer
+
 @export_group("Debug")
 
+@export var StartDebugging_Btn : Button
 @export var Inventory_Item_Ref_Label : Label
 @export var Is_Raycast_Colliding_Label : Label
 @export var Is_Inside_Settings_Label : Label
@@ -260,10 +403,10 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			if !DialogueManager.is_in_absolute_interface and !InventoryManager.inventory_open and !PauseManager.is_inside_alert and !InventoryManager.in_chest_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !PauseManager.inside_absolute_item_workshop:
 				pauseGame()
 			
-			if InventoryManager.inventory_open:
+			if InventoryManager.inventory_open and !InventoryManager.in_chest_interface and !InventoryManager.is_dragging:
 				closeInventory()
 			
-			if InventoryManager.in_chest_interface:
+			if InventoryManager.in_chest_interface and !InventoryManager.is_dragging:
 				if !InventoryManager.chestNode.is_animating():
 					closeChest()
 			
@@ -288,42 +431,11 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		
 		saveAllDataWithAnimation()
 	
-	if Input.is_action_just_pressed("Inventory") and !PauseManager.inside_absolute_item_workshop and !PauseManager.is_paused and !InventoryManager.in_chest_interface and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
+	if Input.is_action_just_pressed("Inventory") and !PauseManager.inside_absolute_item_workshop and !PauseManager.is_paused and !InventoryManager.in_chest_interface and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !InventoryManager.is_dragging and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
 		if !InventoryManager.inventory_open:
 			openInventory()
 		else:
 			closeInventory()
-	
-	if Input.is_action_just_pressed("RightClick") and inventoryHand_debounce_timer <= 0:
-		if InventoryManager.is_hovering_over_hand_dropable:
-			if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup:
-				if !InventoryData.HAND_ITEM_TYPE == "":
-					var slots = [
-						Slot1_Ref,
-						Slot2_Ref,
-						Slot3_Ref,
-						Slot4_Ref,
-						Slot5_Ref,
-						Slot6_Ref,
-						Slot7_Ref,
-						Slot8_Ref,
-						Slot9_Ref,
-					]
-					
-					var free_slot = null
-					
-					# Get the free slot
-					for i in range(slots.size()):
-						if not slots[i].is_populated():
-							free_slot = slots[i]
-							break
-					
-					if free_slot != null and !free_slot.is_populated():
-						
-						InventoryManager.spawn_inventory_dropable(free_slot.position, InventoryData.HAND_ITEM_TYPE, free_slot)
-						free_slot.set_populated(true)
-						set_hand_item_type("")
-						MinimalAlert.hide_minimal_alert(0.1)
 
 func _unhandled_input(event): # A built-in function that listens for input all the time
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
@@ -465,31 +577,32 @@ func _process(delta):
 
 func _ready():
 	nodeSetup() # Call the nodeSetup function to setup the nodes
+	initInventorySlots() # Link local inventory slots to singleton arrays
 	
-	DialogueManager.DialogueInterface = $Head/Camera3D/DialogueLayer/DialogueInterface
+	DialogueManager.DialogueInterface = DialogueInterface
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Lock mouse
 	
 	if PlayerData.GAME_STATE == "DEAD": # check if the game state is dead
-		$Head/Camera3D/DeathScreen/BlackOverlay.set_self_modulate(Color(0, 0, 0, 1)) # set the black overlay's self modulate to black
-		$Head/Camera3D/OverlayLayer/Overlay.show() # show the overlay
+		DeathScreen_BlackOverlay.set_self_modulate(Color(0, 0, 0, 1)) # set the black overlay's self modulate to black
+		OverlayLayer_Overlay.show() # show the overlay
 		showDeathScreen() # call the death screen function
 	
 	if Fade_In == true: # check if the fade in variable is true
 		
-		$Head/Camera3D/OverlayLayer/Overlay.show() # show the overlay
+		OverlayLayer_Overlay.show() # show the overlay
 		
 		var tween = get_tree().create_tween()
 		tween.connect("finished", Callable(self, "on_fade_in_tween_finished"))
 		tween.tween_interval(1.5)
-		tween.tween_property($Head/Camera3D/OverlayLayer/Overlay, "self_modulate", Color(0, 0, 0, 0), Fade_In_Time) # tween the overlay's self modulate to black
-		tween.tween_property($Head/Camera3D/OverlayLayer/Overlay, "visible", false, 0) # tween the overlay's visibility to false
+		tween.tween_property(OverlayLayer_Overlay, "self_modulate", Color(0, 0, 0, 0), Fade_In_Time) # tween the overlay's self modulate to black
+		tween.tween_property(OverlayLayer_Overlay, "visible", false, 0) # tween the overlay's visibility to false
 		
 	else:
 		
-		$Head/Camera3D/OverlayLayer/Overlay.hide() # hide the overlay
+		OverlayLayer_Overlay.hide() # hide the overlay
 		
 	if !OS.has_feature("debug"):
-		$Head/Camera3D/PauseLayer/StartDebugging_Btn.hide()
+		PauseLayer.hide()
 
 func on_fade_in_tween_finished():
 	if IslandManager.Current_Game_Mode == "FREE":
@@ -499,12 +612,131 @@ func _on_ready() -> void: # Called when the node is considered ready
 	pass
 
 func nodeSetup(): # A function to setup the nodes. Called in the _ready function
-	$Head/Camera3D/HUDLayer/HealthBar.value = PlayerData.Health
+	HUDLayer_HealthBar.value = PlayerData.Health
 	
-	$Head/Camera3D/DeathScreen/BlackOverlay/GetUp.self_modulate = Color(0, 0, 0, 0) # set the get up self modulate to black
-	$Head/Camera3D/DeathScreen/BlackOverlay/RandomText.self_modulate = Color(0, 0, 0, 0) # set the random text self modulate to black
-	$Head/Camera3D/DeathScreen/BlackOverlay.self_modulate = Color(0, 0, 0, 0) # set the black overlay self modulate to black
-	$Head/Camera3D/OverlayLayer/RedOverlay.self_modulate = Color(1, 0.016, 0, 0) # set the red overlay self modulate to red
+	InventoryLayer.hide()
+	InventoryMainLayer.hide()
+	
+	GetUp_Label.self_modulate = Color(0, 0, 0, 0) # set the get up self modulate to black
+	RandomText_Label.self_modulate = Color(0, 0, 0, 0) # set the random text self modulate to black
+	DeathScreen_BlackOverlay.self_modulate = Color(0, 0, 0, 0) # set the black overlay self modulate to black
+	OverlayLayer_RedOverlay.self_modulate = Color(1, 0.016, 0, 0) # set the red overlay self modulate to red
+
+func initInventorySlots():
+	InventoryManager.POCKET_SLOTS = [
+		Slot1_Inventory_Ref,
+		Slot2_Inventory_Ref,
+		Slot3_Inventory_Ref,
+		Slot4_Inventory_Ref,
+		Slot5_Inventory_Ref,
+		Slot6_Inventory_Ref,
+		Slot7_Inventory_Ref,
+		Slot8_Inventory_Ref,
+		Slot9_Inventory_Ref,
+	]
+	
+	InventoryManager.CHEST_SLOTS = [
+		Slot1_Chest_Ref,
+		Slot2_Chest_Ref,
+		Slot3_Chest_Ref,
+		Slot4_Chest_Ref,
+		Slot5_Chest_Ref,
+		Slot6_Chest_Ref,
+		Slot7_Chest_Ref,
+		Slot8_Chest_Ref,
+		Slot9_Chest_Ref,
+		Slot10_Chest_Ref,
+		Slot11_Chest_Ref,
+		Slot12_Chest_Ref,
+		Slot13_Chest_Ref,
+		Slot14_Chest_Ref,
+		Slot15_Chest_Ref,
+		Slot16_Chest_Ref,
+		Slot17_Chest_Ref,
+		Slot18_Chest_Ref,
+		Slot19_Chest_Ref,
+		Slot20_Chest_Ref,
+		Slot21_Chest_Ref,
+		Slot22_Chest_Ref,
+		Slot23_Chest_Ref,
+		Slot24_Chest_Ref,
+		Slot25_Chest_Ref,
+		Slot26_Chest_Ref,
+		Slot27_Chest_Ref,
+		Slot28_Chest_Ref,
+		Slot29_Chest_Ref,
+		Slot30_Chest_Ref,
+		Slot31_Chest_Ref,
+		Slot32_Chest_Ref,
+		Slot33_Chest_Ref,
+		Slot34_Chest_Ref,
+		Slot35_Chest_Ref,
+		Slot36_Chest_Ref,
+		Slot37_Chest_Ref,
+		Slot38_Chest_Ref,
+		Slot39_Chest_Ref,
+		Slot40_Chest_Ref,
+		Slot41_Chest_Ref,
+		Slot42_Chest_Ref,
+		Slot43_Chest_Ref,
+		Slot44_Chest_Ref,
+		Slot45_Chest_Ref,
+		Slot46_Chest_Ref,
+		Slot47_Chest_Ref,
+		Slot48_Chest_Ref,
+		Slot49_Chest_Ref,
+		Slot50_Chest_Ref,
+		Slot51_Chest_Ref,
+		Slot52_Chest_Ref,
+		Slot53_Chest_Ref,
+		Slot54_Chest_Ref,
+		Slot55_Chest_Ref,
+		Slot56_Chest_Ref,
+		Slot57_Chest_Ref,
+		Slot58_Chest_Ref,
+		Slot59_Chest_Ref,
+		Slot60_Chest_Ref,
+		Slot61_Chest_Ref,
+		Slot62_Chest_Ref,
+		Slot63_Chest_Ref,
+		Slot64_Chest_Ref,
+		Slot65_Chest_Ref,
+		Slot66_Chest_Ref,
+		Slot67_Chest_Ref,
+		Slot68_Chest_Ref,
+		Slot69_Chest_Ref,
+		Slot70_Chest_Ref,
+		Slot71_Chest_Ref,
+		Slot72_Chest_Ref,
+		Slot73_Chest_Ref,
+		Slot74_Chest_Ref,
+		Slot75_Chest_Ref,
+		Slot76_Chest_Ref,
+		Slot77_Chest_Ref,
+		Slot78_Chest_Ref,
+		Slot79_Chest_Ref,
+		Slot80_Chest_Ref,
+		Slot81_Chest_Ref,
+		Slot82_Chest_Ref,
+		Slot83_Chest_Ref,
+		Slot84_Chest_Ref,
+		Slot85_Chest_Ref,
+		Slot86_Chest_Ref,
+		Slot87_Chest_Ref,
+		Slot88_Chest_Ref,
+		Slot89_Chest_Ref,
+		Slot90_Chest_Ref,
+		Slot91_Chest_Ref,
+		Slot92_Chest_Ref,
+		Slot93_Chest_Ref,
+		Slot94_Chest_Ref,
+		Slot95_Chest_Ref,
+		Slot96_Chest_Ref,
+		Slot97_Chest_Ref,
+		Slot98_Chest_Ref,
+		Slot99_Chest_Ref,
+		Slot100_Chest_Ref
+	]
 
 ######################################
 # Walking, sprinting and crouching sounds
@@ -554,8 +786,8 @@ func takeDamage(DamageToTake): # A function to take damage from the player
 
 func takeDamageOverlay(): # Overlay when taking damage 
 	var tween = get_tree().create_tween() # create a tween
-	tween.tween_property($Head/Camera3D/OverlayLayer/RedOverlay, "self_modulate", Color(1, 0.018, 0, 0.808), 0).from(Color(1, 0.016, 0, 0)) # tween the red overlay's self modulate to red
-	tween.tween_property($Head/Camera3D/OverlayLayer/RedOverlay, "self_modulate", Color(1, 0.016, 0, 0), 0.5) # tween the red overlay's self modulate to red
+	tween.tween_property(OverlayLayer_RedOverlay, "self_modulate", Color(1, 0.018, 0, 0.808), 0).from(Color(1, 0.016, 0, 0)) # tween the red overlay's self modulate to red
+	tween.tween_property(OverlayLayer_RedOverlay, "self_modulate", Color(1, 0.016, 0, 0), 0.5) # tween the red overlay's self modulate to red
 
 func respawnFromDeath(): # A function to respawn the player from death
 	self.position = StartPOS # set the player's position to the start position
@@ -563,7 +795,7 @@ func respawnFromDeath(): # A function to respawn the player from death
 	
 	var tween = get_tree().create_tween() # create a tween
 
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay, "self_modulate", Color(0, 0, 0, 0), 3) # tween the black overlay's self modulate to black
+	tween.tween_property(DeathScreen_BlackOverlay, "self_modulate", Color(0, 0, 0, 0), 3) # tween the black overlay's self modulate to black
 	
 	PlayerData.GAME_STATE = "NORMAL" # set the game state to normal
 
@@ -573,46 +805,62 @@ func _on_death_screen_finished(): # A function to call when the death screen is 
 func showDeathScreen(): # A function to show the death screen 
 	randomize()  # Seed the random number generator
 	var random_index = randi() % DialogueManager.deathScreenRandomText.size() # get a random index from the random text list
-	$Head/Camera3D/DeathScreen/BlackOverlay/RandomText.text = DialogueManager.deathScreenRandomText[random_index] # set the random text to a random text from the list
+	RandomText_Label.text = DialogueManager.deathScreenRandomText[random_index] # set the random text to a random text from the list
 	
 	## Death screen animation is as follows:
 	var tween = get_tree().create_tween() # create a tween
 	tween.connect("finished", _on_death_screen_finished, 1) # connect the finished signal to the death screen finished function
 	
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay, "self_modulate", Color(0, 0, 0, 1), 0.5) # tween the black overlay's self modulate to black
+	tween.tween_property(DeathScreen_BlackOverlay, "self_modulate", Color(0, 0, 0, 1), 0.5) # tween the black overlay's self modulate to black
 	
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/RandomText, "self_modulate", Color(0, 0, 0, 0), 0) # tween the random text's self modulate to black
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/GetUp, "self_modulate", Color(0, 0, 0, 0), 0) # tween the get up's self modulate to black
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/GetUp, "visible", true, 0) # tween the get up's visibility to true
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/RandomText, "visible", true, 0) # tween the random text's visibility to true
+	tween.tween_property(RandomText_Label, "self_modulate", Color(0, 0, 0, 0), 0) # tween the random text's self modulate to black
+	tween.tween_property(GetUp_Label, "self_modulate", Color(0, 0, 0, 0), 0) # tween the get up's self modulate to black
+	tween.tween_property(GetUp_Label, "visible", true, 0) # tween the get up's visibility to true
+	tween.tween_property(RandomText_Label, "visible", true, 0) # tween the random text's visibility to true
 	
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/RandomText, "self_modulate", Color(0, 0, 0, 1), 3) # hold
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/RandomText, "self_modulate", Color(1, 1, 1, 1), 0.5) # tween the random text's self modulate to white
+	tween.tween_property(RandomText_Label, "self_modulate", Color(0, 0, 0, 1), 3) # hold
+	tween.tween_property(RandomText_Label, "self_modulate", Color(1, 1, 1, 1), 0.5) # tween the random text's self modulate to white
 	
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/RandomText, "self_modulate", Color(1, 1, 1, 1), 3) # hold
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/RandomText, "self_modulate", Color(0, 0, 0, 1), 0.5) # tween the random text's self modulate to black
+	tween.tween_property(RandomText_Label, "self_modulate", Color(1, 1, 1, 1), 3) # hold
+	tween.tween_property(RandomText_Label, "self_modulate", Color(0, 0, 0, 1), 0.5) # tween the random text's self modulate to black
 	
 	
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/GetUp, "self_modulate", Color(0, 0, 0, 1), 3) # Fade to black
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/GetUp, "self_modulate", Color(1, 1, 1, 1), 0.5) # tween the get up's self modulate to white
+	tween.tween_property(GetUp_Label, "self_modulate", Color(0, 0, 0, 1), 3) # Fade to black
+	tween.tween_property(GetUp_Label, "self_modulate", Color(1, 1, 1, 1), 0.5) # tween the get up's self modulate to white
 	
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/GetUp, "self_modulate", Color(1, 1, 1, 1), 2.6) # Fade to white
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/GetUp, "self_modulate", Color(0, 0, 0, 1), 0.5) # tween the get up's self modulate to black
+	tween.tween_property(GetUp_Label, "self_modulate", Color(1, 1, 1, 1), 2.6) # Fade to white
+	tween.tween_property(GetUp_Label, "self_modulate", Color(0, 0, 0, 1), 0.5) # tween the get up's self modulate to black
 	
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/GetUp, "visible", false, 0) # tween the get up's visibility to false
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/RandomText, "visible", false, 0) # tween the random text's visibility to false
+	tween.tween_property(GetUp_Label, "visible", false, 0) # tween the get up's visibility to false
+	tween.tween_property(RandomText_Label, "visible", false, 0) # tween the random text's visibility to false
 	
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay/RandomText, "visible", false, 2) # hold
+	tween.tween_property(RandomText_Label, "visible", false, 2) # hold
 	
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay, "color", Color(1, 1, 1, 1), 0) # tween the black overlay's color to white
-	tween.tween_property($Head/Camera3D/DeathScreen/BlackOverlay, "self_modulate", Color(1, 1, 1, 1), 3) # tween the black overlay's self modulate to white
+	tween.tween_property(DeathScreen_BlackOverlay, "color", Color(1, 1, 1, 1), 0) # tween the black overlay's color to white
+	tween.tween_property(DeathScreen_BlackOverlay, "self_modulate", Color(1, 1, 1, 1), 3) # tween the black overlay's self modulate to white
 
 ######################################
 # Inventory
 ######################################
 
 func openInventory():
-	$Head/Camera3D/InventoryLayer.show() # show the inventory UI
+	if InventoryManager.in_chest_interface:
+		
+		InventoryMainLayer.offset.x = -291.96
+		
+		ChestCollisionBoundary1.disabled = true
+		ChestCollisionBoundary4.disabled = true
+		
+	else:
+		
+		InventoryMainLayer.offset.x = 0
+		ChestMainLayer.hide()
+		
+		ChestCollisionBoundary1.disabled = false
+		ChestCollisionBoundary4.disabled = false
+	
+	InventoryMainLayer.show()
+	InventoryLayer.show() # show the inventory UI
 	Utils.center_mouse_cursor() # center the mouse cursor
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # set the mouse mode to visible
 	InventoryManager.inventory_open = true
@@ -621,13 +869,15 @@ func openInventory():
 	set_hand_item_type(InventoryData.HAND_ITEM_TYPE)
 
 func closeInventory():
+	InventoryLayer_GreyLayer.show()
 	saveInventory()
-	$Head/Camera3D/InventoryLayer.hide() # hide the inventory UI
+	InventoryMainLayer.hide()
+	InventoryLayer.hide() # hide the inventory UI
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor
 	Utils.center_mouse_cursor() # center the mouse cursor
 	InventoryManager.inventory_open = false
 	inventory_opened_in_air = false  # Reset the flag when inventory is closed
-	$Head/Camera3D/MinimalAlertLayer/MinimalAlert.hide_minimal_alert(0.1)
+	MinimalAlert.hide_minimal_alert(0.1)
 
 func _on_boundary_area_entered(area):
 	if area.is_in_group("draggable"):
@@ -641,26 +891,10 @@ func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 	
 	if area.is_in_group("pickup_player_detector"):
 		
-		var slots = [
-			Slot1_Ref,
-			Slot2_Ref,
-			Slot3_Ref,
-			Slot4_Ref,
-			Slot5_Ref,
-			Slot6_Ref,
-			Slot7_Ref,
-			Slot8_Ref,
-			Slot9_Ref,
-		]
-		
 		var free_slot = null
 		
 		# Get the free slot
-		for i in range(slots.size()):
-			if not slots[i].is_populated():
-				free_slot = slots[i]
-				break
-		
+		free_slot = InventoryManager.get_free_slot(InventoryManager.POCKET_SLOTS)
 		
 		if free_slot != null and !free_slot.is_populated():
 			
@@ -685,7 +919,7 @@ func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 			await get_tree().create_timer(0.1).timeout
 			
 			delete_pickup_object(PickupObject)
-			InventoryManager.spawn_inventory_dropable(free_slot.position, PickupItemType, free_slot)
+			InventoryManager.spawn_inventory_dropable(free_slot.global_position, PickupItemType, free_slot, false)
 			
 		else:
 			print("{LOCAL} [Player_SCRIPT.gd] No free slot available.")
@@ -703,116 +937,153 @@ func _on_hand_dropable_detector_mouse_exited() -> void:
 	InventoryManager.is_hovering_over_hand_dropable = false
 	MinimalAlert.hide_minimal_alert(0.1)
 
+func _on_hand_detector_right_click() -> void:
+	if InventoryManager.is_hovering_over_hand_dropable and inventoryHand_debounce_timer <= 0:
+		if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup:
+			if !InventoryData.HAND_ITEM_TYPE == "":
+				
+				var free_slot = null
+				
+				# Get the free slot
+				free_slot = InventoryManager.get_free_slot(InventoryManager.POCKET_SLOTS)
+				
+				if free_slot != null and !free_slot.is_populated():
+					
+					InventoryManager.spawn_inventory_dropable(free_slot.global_position, InventoryData.HAND_ITEM_TYPE, free_slot, false)
+					free_slot.set_populated(true)
+					set_hand_item_type("")
+					MinimalAlert.hide_minimal_alert(0.1)
+
 func set_hand_item_type(ITEM_TYPE : String):
 	inventoryHand_debounce_timer = 0.2
 	if ITEM_TYPE == "":
 		visually_equip("")
 		InventoryData.HAND_ITEM_TYPE = ""
-		$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Empty"
-		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = false
-		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = false
-		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = false
+		HAND_ITEM_TYPE_Label.text = "Empty"
+		Pickaxe_Video.visible = false
+		Axe_Video.visible = false
+		Sword_Video.visible = false
 	
 	elif ITEM_TYPE == "PICKAXE":
 		visually_equip("PICKAXE")
 		InventoryData.HAND_ITEM_TYPE = "PICKAXE"
-		$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Pickaxe"
-		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = true
-		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = false
-		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = false
+		HAND_ITEM_TYPE_Label.text = "Pickaxe"
+		Pickaxe_Video.visible = true
+		Axe_Video.visible = false
+		Sword_Video.visible = false
 	
 	elif ITEM_TYPE == "AXE":
 		visually_equip("AXE")
 		InventoryData.HAND_ITEM_TYPE = "AXE"
-		$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Axe"
-		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = false
-		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = true
-		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = false
+		HAND_ITEM_TYPE_Label.text = "Axe"
+		Pickaxe_Video.visible = false
+		Axe_Video.visible = true
+		Sword_Video.visible = false
 	
 	elif ITEM_TYPE == "SWORD":
 		visually_equip("SWORD")
 		InventoryData.HAND_ITEM_TYPE = "SWORD"
-		$Head/Camera3D/InventoryLayer/HAND_ITEM_TYPE.text = "Sword"
-		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video.visible = false
-		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video.visible = false
-		$Head/Camera3D/InventoryLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video.visible = true
+		HAND_ITEM_TYPE_Label.text = "Sword"
+		Pickaxe_Video.visible = false
+		Axe_Video.visible = false
+		Sword_Video.visible = true
 
 func visually_equip(ITEM_TYPE):
 	if !ITEM_TYPE == InventoryData.HAND_ITEM_TYPE:
 		if ITEM_TYPE == "":
 			if InventoryData.HAND_ITEM_TYPE != "":
 				var anim_to_play : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
-				$Head/Camera3D/InventoryHand/EquipAnimations.play(anim_to_play)
+				EquipAnimations_Player.play(anim_to_play)
 		
 		if ITEM_TYPE == "SWORD":
 			if InventoryData.HAND_ITEM_TYPE == "":
-				$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_SWORD")
+				EquipAnimations_Player.play("equip_SWORD")
 			else:
 				var item_to_unequip : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
-				$Head/Camera3D/InventoryHand/EquipAnimations.play(item_to_unequip)
+				EquipAnimations_Player.play(item_to_unequip)
 				await get_tree().create_timer(0.16).timeout
-				$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_SWORD")
+				EquipAnimations_Player.play("equip_SWORD")
 		
 		if ITEM_TYPE == "PICKAXE":
 			if InventoryData.HAND_ITEM_TYPE == "":
-				$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_PICKAXE")
+				EquipAnimations_Player.play("equip_PICKAXE")
 			else:
 				var item_to_unequip : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
-				$Head/Camera3D/InventoryHand/EquipAnimations.play(item_to_unequip)
+				EquipAnimations_Player.play(item_to_unequip)
 				await get_tree().create_timer(0.16).timeout
-				$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_PICKAXE")
+				EquipAnimations_Player.play("equip_PICKAXE")
 		
 		if ITEM_TYPE == "AXE":
 			if InventoryData.HAND_ITEM_TYPE == "":
-				$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_AXE")
+				EquipAnimations_Player.play("equip_AXE")
 			else:
 				var item_to_unequip : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
-				$Head/Camera3D/InventoryHand/EquipAnimations.play(item_to_unequip)
+				EquipAnimations_Player.play(item_to_unequip)
 				await get_tree().create_timer(0.16).timeout
-				$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_AXE")
+				EquipAnimations_Player.play("equip_AXE")
 
 func init_visually_equip(ITEM_TYPE : String):
 	
 	if ITEM_TYPE == "":
-		$Head/Camera3D/InventoryHand/Pickaxe.visible = false
-		$Head/Camera3D/InventoryHand/Sword.visible = false
-		$Head/Camera3D/InventoryHand/Axe.visible = false
+		Pickaxe_Video.visible = false
+		Sword_Video.visible = false
+		Axe_Video.visible = false
 	
 	if ITEM_TYPE == "PICKAXE":
-		$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_PICKAXE")
-		$Head/Camera3D/InventoryHand/Sword.visible = false
-		$Head/Camera3D/InventoryHand/Axe.visible = false
+		EquipAnimations_Player.play("equip_PICKAXE")
+		Sword_Video.visible = false
+		Axe_Video.visible = false
 	
 	if ITEM_TYPE == "AXE":
-		$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_AXE")
-		$Head/Camera3D/InventoryHand/Pickaxe.visible = false
-		$Head/Camera3D/InventoryHand/Sword.visible = false
+		EquipAnimations_Player.play("equip_AXE")
+		Pickaxe_Video.visible = false
+		Sword_Video.visible = false
 	
 	if ITEM_TYPE == "SWORD":
-		$Head/Camera3D/InventoryHand/EquipAnimations.play("equip_SWORD")
-		$Head/Camera3D/InventoryHand/Pickaxe.visible = false
-		$Head/Camera3D/InventoryHand/Axe.visible = false
+		EquipAnimations_Player.play("equip_SWORD")
+		Pickaxe_Video.visible = false
+		Axe_Video.visible = false
 
 func get_hand_debounce_time_left():
-	return $HandItemDebounce.time_left
+	return HandItemDebounce.time_left
 
 func start_hand_debounce_timer():
-	$HandItemDebounce.start()
+	HandItemDebounce.start()
+
+func hide_chest_dropables(parent_node: Node):
+	for child in parent_node.get_children():
+		# Check if the child's name starts with "Dropable"
+		if child.name.begins_with("Dropable"):
+			# Ensure the child has the method `get_is_in_chest_slot`
+			if child.has_method("get_is_in_chest_slot"):
+				if child.get_is_in_chest_slot():
+					# Set visibility to false
+					child.visible = false
+
+func show_chest_dropables(parent_node: Node):
+	for child in parent_node.get_children():
+		# Check if the child's name starts with "Dropable"
+		if child.name.begins_with("Dropable"):
+			# Ensure the child has the method `get_is_in_chest_slot`
+			if child.has_method("get_is_in_chest_slot"):
+				if child.get_is_in_chest_slot():
+					# Set visibility to false
+					child.visible = false
 
 ######################################
-# Chest UI
+# Chest
 ######################################
 
 func openChest():
-	ChestUILayer.show()
+	ChestMainLayer.show()
 	InventoryManager.in_chest_interface = true
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	openInventory() # Does most of the stuff for us
 	InventoryManager.chestNode.animate("OPEN")
 
 func closeChest():
-	ChestUILayer.hide()
+	ChestMainLayer.hide()
 	InventoryManager.in_chest_interface = false
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	closeInventory() # Does most of the stuff for us
 	InventoryManager.chestNode.animate("CLOSE")
 
 ######################################
@@ -820,12 +1091,12 @@ func closeChest():
 ######################################
 
 func pauseGame():
-	$Head/Camera3D/PauseLayer.show()
+	PauseLayer.show()
 	PauseManager.is_paused = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # set the mouse mode to visible
 
 func resumeGame():
-	$Head/Camera3D/PauseLayer.hide()
+	PauseLayer.hide()
 	PauseManager.is_paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor
 
@@ -846,7 +1117,7 @@ func _on_credits_button_pressed() -> void:
 ######################################
 
 func saveInventory():
-	InventoryData.saveInventory(IslandManager.Current_Island_Name, InventoryLayer)
+	InventoryData.saveInventory(IslandManager.Current_Island_Name, InventoryMainLayer, ChestSlots)
 
 func _on_save_and_quit_btn_pressed():
 	SaveManager.saveAllData()
@@ -874,9 +1145,9 @@ func on_save_and_quit_to_menu_fade_finished():
 	get_tree().change_scene_to_packed(mainMenuScene)
 
 func saveAllDataWithAnimation():
-	if $ManualSaveCooldown.time_left == 0.0:
-		$ManualSaveCooldown.wait_time = 5.0
-		$ManualSaveCooldown.start()
+	if ManualSaveCooldown.time_left == 0.0:
+		ManualSaveCooldown.wait_time = 5.0
+		ManualSaveCooldown.start()
 		SaveManager.saveAllData() # Call the save all data function from SaveManager to write all data to save files.
 		showLighterBG_SAVEOVERLAY()
 		await get_tree().create_timer(0.2).timeout
@@ -895,19 +1166,19 @@ func _on_auto_save_timer_timeout(): # A function to save the player data every 6
 
 func showLighterBG_SAVEOVERLAY():
 	var tween = get_tree().create_tween()
-	tween.tween_property($Head/Camera3D/SaveOverlay/LighterBG, "position:x", 850.0, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(SaveOverlay_LighterBG, "position:x", 850.0, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func showDarkerBG_SAVEOVERLAY():
 	var tween = get_tree().create_tween()
-	tween.tween_property($Head/Camera3D/SaveOverlay/DarkerBG, "position:x", 858.0, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(SaveOverlay_DarkerBG, "position:x", 858.0, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func hideLighterBG_SAVEOVERLAY():
 	var tween = get_tree().create_tween()
-	tween.tween_property($Head/Camera3D/SaveOverlay/LighterBG, "position:x", 1700.0, 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(SaveOverlay_LighterBG, "position:x", 1700.0, 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
 
 func hideDarkerBG_SAVEOVERLAY():
 	var tween = get_tree().create_tween()
-	tween.tween_property($Head/Camera3D/SaveOverlay/DarkerBG, "position:x", 1796.0, 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(SaveOverlay_DarkerBG, "position:x", 1796.0, 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
 
 ######################################
 # User Interface
@@ -968,14 +1239,14 @@ func on_sleep_cycle_hold_finished(fadeOutTime, hour : int):
 func openItemWorkshop():
 	PauseManager.inside_can_move_item_workshop = true
 	PauseManager.inside_absolute_item_workshop = true
-	$Head/Camera3D/ItemWorkshopLayer/GreyLayer.visible = true
-	$Head/Camera3D/ItemWorkshopLayer/GreyLayer.modulate = Color(1, 1, 1, 0)
+	ItemWorkshopLayer_GreyLayer.visible = true
+	ItemWorkshopLayer_GreyLayer.modulate = Color(1, 1, 1, 0)
 	
 	var tween = get_tree().create_tween().set_parallel()
 	tween.connect("finished", Callable(self, "on_item_workshop_open_finished"))
 	
-	tween.tween_property($Head/Camera3D/ItemWorkshopLayer/MainLayer, "position", Vector2(0, 0), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-	tween.tween_property($Head/Camera3D/ItemWorkshopLayer/GreyLayer, "modulate", Color(1, 1, 1, 1), 0.5)
+	tween.tween_property(ItemWorkshopLayer_MainLayer, "position", Vector2(0, 0), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(ItemWorkshopLayer_GreyLayer, "modulate", Color(1, 1, 1, 1), 0.5)
 	
 	await get_tree().create_timer(0.3).timeout
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -996,44 +1267,24 @@ func closeItemWorkshop():
 	var tween = get_tree().create_tween().set_parallel()
 	tween.connect("finished", Callable(self, "on_item_workshop_close_finished"))
 	
-	tween.tween_property($Head/Camera3D/ItemWorkshopLayer/MainLayer, "position", Vector2(0, 648), 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
-	tween.tween_property($Head/Camera3D/ItemWorkshopLayer/GreyLayer, "modulate", Color(1, 1, 1, 0), 0.5)
+	tween.tween_property(ItemWorkshopLayer_MainLayer, "position", Vector2(0, 648), 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(ItemWorkshopLayer_GreyLayer, "modulate", Color(1, 1, 1, 0), 0.5)
 
 func on_item_workshop_close_finished():
 	PauseManager.inside_absolute_item_workshop = false
-	$Head/Camera3D/ItemWorkshopLayer/GreyLayer.visible = false
+	ItemWorkshopLayer_GreyLayer.visible = false
 
 func on_add_item_buttons_workshop_pressed(ITEM_TYPE : String):
+	var free_slot = null
 	
-		var slots = [
-			Slot1_Ref,
-			Slot2_Ref,
-			Slot3_Ref,
-			Slot4_Ref,
-			Slot5_Ref,
-			Slot6_Ref,
-			Slot7_Ref,
-			Slot8_Ref,
-			Slot9_Ref,
-		]
-		
-		var free_slot = null
-		
-		# Get the free slot
-		for i in range(slots.size()):
-			if not slots[i].is_populated():
-				free_slot = slots[i]
-				break
-		
-		
-		if free_slot != null and !free_slot.is_populated():
-			
-			free_slot.set_populated(true)
-			
-			InventoryManager.spawn_inventory_dropable(free_slot.position, ITEM_TYPE, free_slot)
-		
-		else:
-			spawn_minimal_alert_from_player(2.5, 0.3, 0.3, "Can't add item to pockets, inventory full!")
+	# Get the free slot
+	free_slot = InventoryManager.get_free_slot(InventoryManager.POCKET_SLOTS)
+	
+	if free_slot != null and !free_slot.is_populated():
+		free_slot.set_populated(true)
+		InventoryManager.spawn_inventory_dropable(free_slot.global_position, ITEM_TYPE, free_slot, false)
+	else:
+		spawn_minimal_alert_from_player(2.5, 0.3, 0.3, "Can't add item to pockets, inventory full!")
 
 ######################################
 # Area and body detection
@@ -1071,11 +1322,11 @@ func update_bar(barName : String, animate : bool, toValue):
 		
 		if barName == "HEALTH":
 			var tween = get_tree().create_tween()
-			tween.tween_property($Head/Camera3D/HUDLayer/HealthBar, "value", toValue, 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+			tween.tween_property(HUDLayer_HealthBar, "value", toValue, 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 		
 		if barName == "HUNGER":
 			var tween = get_tree().create_tween()
-			tween.tween_property($Head/Camera3D/HUDLayer/HungerBar, "value", toValue, 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+			tween.tween_property(HUDLayer_HungerBar, "value", toValue, 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 		
 		if barName == "HYDRATION":
 			pass
@@ -1087,9 +1338,9 @@ func update_bar(barName : String, animate : bool, toValue):
 func _on_start_debugging_btn_pressed() -> void:
 	if DebugManager.is_debugging:
 		DebugManager.is_debugging = false
-		$Head/Camera3D/DebugLayer.hide()
-		$Head/Camera3D/PauseLayer/StartDebugging_Btn.text = "START DEBUGGING"
+		DebugLayer.hide()
+		StartDebugging_Btn.text = "START DEBUGGING"
 	else:
 		DebugManager.is_debugging = true
-		$Head/Camera3D/DebugLayer.show()
-		$Head/Camera3D/PauseLayer/StartDebugging_Btn.text = "STOP DEBUGGING"
+		DebugLayer.show()
+		StartDebugging_Btn.text = "STOP DEBUGGING"

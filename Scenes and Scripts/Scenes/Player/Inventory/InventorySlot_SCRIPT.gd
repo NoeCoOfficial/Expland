@@ -51,6 +51,7 @@ extends StaticBody2D
 @export var is_touching_draggable = false
 @export var populated = false
 @export var is_populated_label : Label
+@export var is_chest_slot = false
 
 func _ready():
 	modulate = Color(1, 1, 1, 0.05)
@@ -70,6 +71,12 @@ func _process(_delta):
 	else:
 		is_populated_label.visible = false
 
+func set_is_chest_slot(value : bool):
+	is_chest_slot = value
+
+func get_is_chest_slot():
+	return is_chest_slot
+
 func is_populated():
 	if populated:
 		return true
@@ -83,6 +90,7 @@ func set_populated(populatedValue : bool):
 	else:
 		print("{LOCAL} [InventorySlot_SCRIPT.gd] Empty, Slot: " + str(name))
 		populated = false
+
 
 func _on_draggable_detector_area_entered(area: Area2D) -> void:
 	if area.is_in_group("draggable"):
