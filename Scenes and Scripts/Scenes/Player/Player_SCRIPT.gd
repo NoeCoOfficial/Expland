@@ -893,11 +893,7 @@ func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 		var free_slot = null
 		
 		# Get the free slot
-		for i in range(InventoryManager.POCKET_SLOTS.size()):
-			if not InventoryManager.POCKET_SLOTS[i].is_populated():
-				free_slot = InventoryManager.POCKET_SLOTS[i]
-				break
-		
+		free_slot = InventoryManager.get_free_slot(InventoryManager.POCKET_SLOTS)
 		
 		if free_slot != null and !free_slot.is_populated():
 			
@@ -948,10 +944,7 @@ func _on_hand_detector_right_click() -> void:
 				var free_slot = null
 				
 				# Get the free slot
-				for i in range(InventoryManager.POCKET_SLOTS.size()):
-					if not InventoryManager.POCKET_SLOTS[i].is_populated():
-						free_slot = InventoryManager.POCKET_SLOTS[i]
-						break
+				free_slot = InventoryManager.get_free_slot(InventoryManager.POCKET_SLOTS)
 				
 				if free_slot != null and !free_slot.is_populated():
 					
@@ -1284,18 +1277,11 @@ func on_add_item_buttons_workshop_pressed(ITEM_TYPE : String):
 	var free_slot = null
 	
 	# Get the free slot
-	for i in range(InventoryManager.POCKET_SLOTS.size()):
-		if not InventoryManager.POCKET_SLOTS[i].is_populated():
-			free_slot = InventoryManager.POCKET_SLOTS[i]
-			break
-	
+	free_slot = InventoryManager.get_free_slot(InventoryManager.POCKET_SLOTS)
 	
 	if free_slot != null and !free_slot.is_populated():
-		
 		free_slot.set_populated(true)
-		
 		InventoryManager.spawn_inventory_dropable(free_slot.global_position, ITEM_TYPE, free_slot, false)
-	
 	else:
 		spawn_minimal_alert_from_player(2.5, 0.3, 0.3, "Can't add item to pockets, inventory full!")
 
