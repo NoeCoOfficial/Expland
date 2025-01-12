@@ -67,6 +67,8 @@ var SNAP_TIME = 0.0
 var debounce_timer = 0.2
 var can_create_pickup = true
 var is_hovering_over = false
+var can_quick_switch = false
+var pressing_ctrl = false
 
 func _ready():
 	self.name = "Dropable"
@@ -214,6 +216,55 @@ func _process(delta):
 				mouse_over_timer.start() # Restart the timer when the item is placed down
 
 func _input(_event: InputEvent) -> void:
+	# Quick switching
+	if Input.is_action_just_pressed("LeftClick"):
+		if can_quick_switch and pressing_ctrl and InventoryManager.in_chest_interface and debounce_timer <= 0:
+			
+			# If it's a chest slot, we want to switch to a pocket slot
+			if is_in_chest_slot:
+				
+				var free_slot = null
+				
+				# Get the free slot from pocket slots (9)
+				free_slot = InventoryManager.get_free_slot(InventoryManager.POCKET_SLOTS)
+				
+				if free_slot != null and !free_slot.is_populated():
+					free_slot.set_populated(true)
+					InventoryManager.spawn_inventory_dropable(free_slot.global_position, ITEM_TYPE, free_slot, false)
+					
+					slot_inside.set_populated(false)
+					self.queue_free()
+					InventoryManager.is_dragging = false
+				else:
+					InventoryManager.is_dragging = false
+					
+			# If it's a pocket slot, we want to switch to a chest slot
+			else:
+				var free_slot = null
+				
+				# Get the free slot from pocket slots (9)
+				free_slot = InventoryManager.get_free_slot(InventoryManager.CHEST_SLOTS)
+				
+				if free_slot != null and !free_slot.is_populated():
+					free_slot.set_populated(true)
+					InventoryManager.spawn_inventory_dropable(free_slot.global_position, ITEM_TYPE, free_slot, true)
+					
+					slot_inside.set_populated(false)
+					self.queue_free()
+					InventoryManager.is_dragging = false
+				else:
+					InventoryManager.is_dragging = false
+				
+			InventoryManager.is_dragging = false
+			debounce_timer = 0.2
+	
+	if Input.is_action_just_pressed("Ctrl"):
+		pressing_ctrl = true
+	
+	if Input.is_action_just_released("Ctrl"):
+		pressing_ctrl = false
+	
+	# Consuming items and handheld items
 	if Input.is_action_just_pressed("RightClick") and debounce_timer <= 0:
 		
 		if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup and is_hovering_over and !InventoryManager.is_dragging:
@@ -259,6 +310,7 @@ func _on_area_2d_body_exited(body):
 		is_inside_dropable = false
 
 func _on_area_2d_mouse_entered():
+	can_quick_switch = true
 	
 	if !InventoryManager.is_dragging:
 		is_hovering_over = true
@@ -274,6 +326,8 @@ func _on_area_2d_mouse_entered():
 			PlayerManager.MINIMAL_ALERT_PLAYER.show_minimal_alert(0.1, "Right click to consume item")
 
 func _on_area_2d_mouse_exited():
+	can_quick_switch = false
+	
 	if !InventoryManager.is_dragging:
 		is_hovering_over = false
 		mouse_over_timer.stop()
