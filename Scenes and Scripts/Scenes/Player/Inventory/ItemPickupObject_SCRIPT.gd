@@ -73,7 +73,10 @@ func _ready():
 	self.scale = Vector3(0.0001, 0.0001, 0.0001)
 	
 	if InventoryManager.creatingFromInventory:
-		self.global_position = get_node("/root/World/Player/Head/ItemDropPosition").global_position
+		if InventoryManager.in_chest_interface:
+			self.global_position = get_node("/root/World/Player/Head/ChestItemDropPosition").global_position
+		else:
+			self.global_position = get_node("/root/World/Player/Head/ItemDropPosition").global_position
 	
 	var tween = get_tree().create_tween()
 	

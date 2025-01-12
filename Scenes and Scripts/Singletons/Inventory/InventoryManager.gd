@@ -47,6 +47,17 @@
 
 extends Node
 
+var POCKET_SLOTS = []
+var CHEST_SLOTS = []
+
+func get_free_slot(Slots : Array):
+	var free_slot = null
+	for i in range(Slots.size()):
+		if not Slots[i].is_populated():
+			free_slot = Slots[i]
+			return free_slot
+			break
+
 const HANDHELD_ITEMS = [
 	
 	"PICKAXE",
@@ -107,10 +118,9 @@ func create_pickup_object_at_pos(position : Vector3, ITEM_TYPE):
 	
 	item_ref_not_at_inventory = ITEM_TYPE
 	
-	var WORLD = get_node("/root/World")
 	var PICKUP_SCENE = load("res://Scenes and Scripts/Scenes/Player/Inventory/ItemPickupObject.tscn")
 	var PICKUP = PICKUP_SCENE.instantiate()
-	WORLD.add_child(PICKUP)
+	PlayerManager.WORLD.add_child(PICKUP)
 	PICKUP.global_position = position
 
 func create_pickup_object():
@@ -119,12 +129,11 @@ func create_pickup_object():
 	if is_creating_pickup:
 		return
 	is_creating_pickup = true
-	var WORLD = get_node("/root/World")
 	var INVENTORY_LAYER = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer")
 	var CHEST_SLOTS = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ScrollContainer/GridContainer/ChestSlots")
 	var PICKUP_SCENE = load("res://Scenes and Scripts/Scenes/Player/Inventory/ItemPickupObject.tscn")
 	var PICKUP = PICKUP_SCENE.instantiate()
-	WORLD.add_child(PICKUP)
+	PlayerManager.WORLD.add_child(PICKUP)
 	
 	is_creating_pickup = false
 	
