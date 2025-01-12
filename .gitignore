@@ -1,14 +1,5 @@
 # Godot 4+ specific ignores
 .godot/
 
-# Save files
-.dat/
-player.save
-inventory.save
-settings.save
-
-# Ignore everything in the saveData folder
-saveData/**
-
 # Icon
 desktop.ini

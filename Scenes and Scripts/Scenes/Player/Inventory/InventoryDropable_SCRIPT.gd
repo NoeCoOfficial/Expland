@@ -52,6 +52,8 @@ extends Node2D
 @export var ITEM_TYPE_Label : Label
 @export var ITEM_Sprite : Sprite2D
 
+@export var is_in_chest_slot = false
+
 @export var mouse_over_timer : Timer
 @export var populated_on_startup_timer : Timer
 
@@ -65,6 +67,8 @@ var SNAP_TIME = 0.0
 var debounce_timer = 0.2
 var can_create_pickup = true
 var is_hovering_over = false
+var can_quick_switch = false
+var pressing_ctrl = false
 
 func _ready():
 	self.name = "Dropable"
@@ -112,6 +116,10 @@ func _ready():
 		add_child(mouse_over_timer)
 
 func _process(delta):
+	
+	if InventoryManager.is_dragging:
+		PlayerManager.MINIMAL_ALERT_PLAYER.hide_minimal_alert(0.1)
+		
 	if debounce_timer > 0:
 		debounce_timer -= delta
 	else:
@@ -119,9 +127,11 @@ func _process(delta):
 		
 	if draggable:
 		if Input.is_action_just_pressed("LeftClick"):
-			if mouse_over_timer.time_left == 0:
+			if mouse_over_timer.time_left == 0 and !InventoryManager.is_hovering_over_hand_dropable:
 				initialPos = global_position
 				InventoryManager.is_dragging = true
+				if is_in_chest_slot:
+					top_level = true
 				self.z_index = 10
 				InventoryManager.item_ref = ITEM_TYPE
 		if Input.is_action_pressed("LeftClick") and InventoryManager.is_dragging:
@@ -149,53 +159,137 @@ func _process(delta):
 				if is_inside_dropable and !InventoryManager.is_inside_checker:
 					if body_ref == slot_inside:
 						# If the draggable is placed back into its current slot, do nothing
-						tween.tween_property(self, "position", body_ref.position, SNAP_TIME)
+						tween.tween_property(self, "global_position", body_ref.global_position, SNAP_TIME)
+						
+						if is_in_chest_slot:
+							is_in_chest_slot = true
+							self.queue_free()
+							InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, true)
+							top_level = false
 					else:
 						if body_ref.has_method("is_populated") and body_ref.is_populated():
 							# If the slot is already populated, snap back to the original position
 							tween.tween_property(self, "global_position", initialPos, SNAP_TIME)
+							if is_in_chest_slot:
+								is_in_chest_slot = true
+								self.queue_free()
+								InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, true)
+								top_level = false
 						else:
-							tween.tween_property(self, "position", body_ref.position, SNAP_TIME)
+							tween.tween_property(self, "global_position", body_ref.global_position, SNAP_TIME)
 							if body_ref.has_method("set_populated"):
 								body_ref.set_populated(true)
+								
 								if slot_inside != null:
 									if slot_inside.has_method("set_populated"):
 										slot_inside.set_populated(false)
+								
 								slot_inside = body_ref
+								
+								if body_ref.get_is_chest_slot():
+									is_in_chest_slot = true
+									self.queue_free()
+									InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, true)
+									top_level = false
+								else:
+									
+									if is_in_chest_slot:
+										is_in_chest_slot = false
+										self.queue_free()
+										InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, false)
+										top_level = false
+									else:
+										is_in_chest_slot = false
+									
 							else:
 								print("{LOCAL} [InventoryDropable_SCRIPT.gd] " + body_ref + " does not have method: set_populated()")
 				else:
 					tween.tween_property(self, "global_position", initialPos, SNAP_TIME)
+					if is_in_chest_slot:
+						is_in_chest_slot = true
+						self.queue_free()
+						InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, true)
+						top_level = false
+						PlayerManager.MINIMAL_ALERT_PLAYER.hide_minimal_alert(0.1)
 			
 			if mouse_over_timer.is_inside_tree():                          
 				mouse_over_timer.start() # Restart the timer when the item is placed down
 
 func _input(_event: InputEvent) -> void:
-	var minimal_alert = get_node("/root/World/Player//Head/Camera3D/MinimalAlertLayer/MinimalAlert")
+	# Quick switching
+	if Input.is_action_just_pressed("LeftClick"):
+		if can_quick_switch and pressing_ctrl and InventoryManager.in_chest_interface and debounce_timer <= 0:
+			
+			# If it's a chest slot, we want to switch to a pocket slot
+			if is_in_chest_slot:
+				
+				var free_slot = null
+				
+				# Get the free slot from pocket slots (9)
+				free_slot = InventoryManager.get_free_slot(InventoryManager.POCKET_SLOTS)
+				
+				if free_slot != null and !free_slot.is_populated():
+					free_slot.set_populated(true)
+					InventoryManager.spawn_inventory_dropable(free_slot.global_position, ITEM_TYPE, free_slot, false)
+					
+					slot_inside.set_populated(false)
+					self.queue_free()
+					InventoryManager.is_dragging = false
+				else:
+					InventoryManager.is_dragging = false
+					
+			# If it's a pocket slot, we want to switch to a chest slot
+			else:
+				var free_slot = null
+				
+				# Get the free slot from pocket slots (9)
+				free_slot = InventoryManager.get_free_slot(InventoryManager.CHEST_SLOTS)
+				
+				if free_slot != null and !free_slot.is_populated():
+					free_slot.set_populated(true)
+					InventoryManager.spawn_inventory_dropable(free_slot.global_position, ITEM_TYPE, free_slot, true)
+					
+					slot_inside.set_populated(false)
+					self.queue_free()
+					InventoryManager.is_dragging = false
+				else:
+					InventoryManager.is_dragging = false
+				
+			InventoryManager.is_dragging = false
+			debounce_timer = 0.2
 	
+	if Input.is_action_just_pressed("Ctrl"):
+		pressing_ctrl = true
+	
+	if Input.is_action_just_released("Ctrl"):
+		pressing_ctrl = false
+	
+	# Consuming items and handheld items
 	if Input.is_action_just_pressed("RightClick") and debounce_timer <= 0:
 		
-		if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup and is_hovering_over:
+		if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup and is_hovering_over and !InventoryManager.is_dragging:
 			
 			if ITEM_TYPE != InventoryData.HAND_ITEM_TYPE:
 				
 				# Right clicked on a handheld item (see InventoryManager.gd for contents)
 				if ITEM_TYPE in InventoryManager.HANDHELD_ITEMS:
 					if PlayerManager.PLAYER.get_hand_debounce_time_left() <= 0.0:
-						minimal_alert.hide_minimal_alert(0.1)
+						PlayerManager.MINIMAL_ALERT_PLAYER.hide_minimal_alert(0.1)
 						slot_inside.set_populated(false)
 						InventoryManager.set_hand_item(self, ITEM_TYPE)
+						InventoryManager.is_dragging = false
 						
 						PlayerManager.PLAYER.start_hand_debounce_timer()
 					
 				# Right clicked on a consumable item (see InventoryManager.gd for contents)
 				if ITEM_TYPE in InventoryManager.CONSUMABLE_ITEMS:
-					minimal_alert.hide_minimal_alert(0.1)
+					PlayerManager.MINIMAL_ALERT_PLAYER.hide_minimal_alert(0.1)
 					
 					if ITEM_TYPE in InventoryManager.FOOD_ITEMS:
 						
 						var value = InventoryManager.FOOD_ITEMS[ITEM_TYPE]
 						PlayerManager.eat(value)
+						InventoryManager.is_dragging = false
 						
 						self.queue_free()
 						slot_inside.set_populated(false)
@@ -216,23 +310,24 @@ func _on_area_2d_body_exited(body):
 		is_inside_dropable = false
 
 func _on_area_2d_mouse_entered():
+	can_quick_switch = true
 	
 	if !InventoryManager.is_dragging:
 		is_hovering_over = true
 		mouse_over_timer.start()
 		scale = Vector2(1.05, 1.05)
 		
-	if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup:
+	if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup and !InventoryManager.is_dragging:
 		
 		if ITEM_TYPE in InventoryManager.HANDHELD_ITEMS:
-			var minimal_alert = get_node("/root/World/Player//Head/Camera3D/MinimalAlertLayer/MinimalAlert")
-			minimal_alert.show_minimal_alert(0.1, "Right click to hold item")
+			PlayerManager.MINIMAL_ALERT_PLAYER.show_minimal_alert(0.1, "Right click to hold item")
 		
 		if ITEM_TYPE in InventoryManager.CONSUMABLE_ITEMS:
-			var minimal_alert = get_node("/root/World/Player//Head/Camera3D/MinimalAlertLayer/MinimalAlert")
-			minimal_alert.show_minimal_alert(0.1, "Right click to consume item")
+			PlayerManager.MINIMAL_ALERT_PLAYER.show_minimal_alert(0.1, "Right click to consume item")
 
 func _on_area_2d_mouse_exited():
+	can_quick_switch = false
+	
 	if !InventoryManager.is_dragging:
 		is_hovering_over = false
 		mouse_over_timer.stop()
@@ -241,14 +336,13 @@ func _on_area_2d_mouse_exited():
 		
 		# Dunno why I have to do it like this but hey
 		# I don't wanna risk anything bro
+		# The code has a mind of it's own
 		
 		if ITEM_TYPE in InventoryManager.HANDHELD_ITEMS:
-			var minimal_alert = get_node("/root/World/Player//Head/Camera3D/MinimalAlertLayer/MinimalAlert")
-			minimal_alert.hide_minimal_alert(0.1)
+			PlayerManager.MINIMAL_ALERT_PLAYER.hide_minimal_alert(0.1)
 		
 		if ITEM_TYPE in InventoryManager.CONSUMABLE_ITEMS:
-			var minimal_alert = get_node("/root/World/Player//Head/Camera3D/MinimalAlertLayer/MinimalAlert")
-			minimal_alert.hide_minimal_alert(0.1)
+			PlayerManager.MINIMAL_ALERT_PLAYER.hide_minimal_alert(0.1)
 
 func _on_mouse_over_timeout():
 	draggable = true
@@ -260,6 +354,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area.is_in_group("draggable"):
 		InventoryManager.is_inside_checker = false
+
 
 func set_ITEM_TYPE(ITEM_TYPE_TEMP : String):
 	ITEM_TYPE = ITEM_TYPE_TEMP
@@ -274,8 +369,16 @@ func set_ITEM_TYPE(ITEM_TYPE_TEMP : String):
 func get_ITEM_TYPE():
 	return ITEM_TYPE
 
+
 func get_slot_inside():
 	return slot_inside
 
 func set_slot_inside(slot):
 	slot_inside = slot
+
+
+func set_is_in_chest_slot(value : bool):
+	is_in_chest_slot = value
+
+func get_is_in_chest_slot():
+	return is_in_chest_slot
