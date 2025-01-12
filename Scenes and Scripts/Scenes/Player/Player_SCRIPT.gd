@@ -164,24 +164,136 @@ var is_crouching = false
 
 @export_category("Node references")
 
+
 @export_group("Body parts")
 
 @export var head : Node3D
 @export var camera : Camera3D
 @export var PickupAttractionPos : Node3D
 
+
 @export_group("Inventory")
 
+@export_subgroup("Pocket Slots")
 @export var Slot1_Inventory_Ref : StaticBody2D
 @export var Slot2_Inventory_Ref : StaticBody2D
-@export var Slot_3_Inventory_Ref : StaticBody2D
-@export var Slot_4_Inventory_Ref : StaticBody2D
-@export var Slot_5_Inventory_Ref : StaticBody2D
-@export var Slot_6_Inventory_Ref : StaticBody2D
-@export var Slot_7_Inventory_Ref : StaticBody2D
-@export var Slot_8_Inventory_Ref : StaticBody2D
-@export var Slot_9_Inventory_Ref : StaticBody2D
+@export var Slot3_Inventory_Ref : StaticBody2D
+@export var Slot4_Inventory_Ref : StaticBody2D
+@export var Slot5_Inventory_Ref : StaticBody2D
+@export var Slot6_Inventory_Ref : StaticBody2D
+@export var Slot7_Inventory_Ref : StaticBody2D
+@export var Slot8_Inventory_Ref : StaticBody2D
+@export var Slot9_Inventory_Ref : StaticBody2D
+
+@export_subgroup("Chest Slots")
+@export var Slot1_Chest_Ref : StaticBody2D
+@export var Slot2_Chest_Ref : StaticBody2D
+@export var Slot3_Chest_Ref : StaticBody2D
+@export var Slot4_Chest_Ref : StaticBody2D
+@export var Slot5_Chest_Ref : StaticBody2D
+@export var Slot6_Chest_Ref : StaticBody2D
+@export var Slot7_Chest_Ref : StaticBody2D
+@export var Slot8_Chest_Ref : StaticBody2D
+@export var Slot9_Chest_Ref : StaticBody2D
+@export var Slot10_Chest_Ref : StaticBody2D
+@export var Slot11_Chest_Ref : StaticBody2D
+@export var Slot12_Chest_Ref : StaticBody2D
+@export var Slot13_Chest_Ref : StaticBody2D
+@export var Slot14_Chest_Ref : StaticBody2D
+@export var Slot15_Chest_Ref : StaticBody2D
+@export var Slot16_Chest_Ref : StaticBody2D
+@export var Slot17_Chest_Ref : StaticBody2D
+@export var Slot18_Chest_Ref : StaticBody2D
+@export var Slot19_Chest_Ref : StaticBody2D
+@export var Slot20_Chest_Ref : StaticBody2D
+@export var Slot21_Chest_Ref : StaticBody2D
+@export var Slot22_Chest_Ref : StaticBody2D
+@export var Slot23_Chest_Ref : StaticBody2D
+@export var Slot24_Chest_Ref : StaticBody2D
+@export var Slot25_Chest_Ref : StaticBody2D
+@export var Slot26_Chest_Ref : StaticBody2D
+@export var Slot27_Chest_Ref : StaticBody2D
+@export var Slot28_Chest_Ref : StaticBody2D
+@export var Slot29_Chest_Ref : StaticBody2D
+@export var Slot30_Chest_Ref : StaticBody2D
+@export var Slot31_Chest_Ref : StaticBody2D
+@export var Slot32_Chest_Ref : StaticBody2D
+@export var Slot33_Chest_Ref : StaticBody2D
+@export var Slot34_Chest_Ref : StaticBody2D
+@export var Slot35_Chest_Ref : StaticBody2D
+@export var Slot36_Chest_Ref : StaticBody2D
+@export var Slot37_Chest_Ref : StaticBody2D
+@export var Slot38_Chest_Ref : StaticBody2D
+@export var Slot39_Chest_Ref : StaticBody2D
+@export var Slot40_Chest_Ref : StaticBody2D
+@export var Slot41_Chest_Ref : StaticBody2D
+@export var Slot42_Chest_Ref : StaticBody2D
+@export var Slot43_Chest_Ref : StaticBody2D
+@export var Slot44_Chest_Ref : StaticBody2D
+@export var Slot45_Chest_Ref : StaticBody2D
+@export var Slot46_Chest_Ref : StaticBody2D
+@export var Slot47_Chest_Ref : StaticBody2D
+@export var Slot48_Chest_Ref : StaticBody2D
+@export var Slot49_Chest_Ref : StaticBody2D
+@export var Slot50_Chest_Ref : StaticBody2D
+@export var Slot51_Chest_Ref : StaticBody2D
+@export var Slot52_Chest_Ref : StaticBody2D
+@export var Slot53_Chest_Ref : StaticBody2D
+@export var Slot54_Chest_Ref : StaticBody2D
+@export var Slot55_Chest_Ref : StaticBody2D
+@export var Slot56_Chest_Ref : StaticBody2D
+@export var Slot57_Chest_Ref : StaticBody2D
+@export var Slot58_Chest_Ref : StaticBody2D
+@export var Slot59_Chest_Ref : StaticBody2D
+@export var Slot60_Chest_Ref : StaticBody2D
+@export var Slot61_Chest_Ref : StaticBody2D
+@export var Slot62_Chest_Ref : StaticBody2D
+@export var Slot63_Chest_Ref : StaticBody2D
+@export var Slot64_Chest_Ref : StaticBody2D
+@export var Slot65_Chest_Ref : StaticBody2D
+@export var Slot66_Chest_Ref : StaticBody2D
+@export var Slot67_Chest_Ref : StaticBody2D
+@export var Slot68_Chest_Ref : StaticBody2D
+@export var Slot69_Chest_Ref : StaticBody2D
+@export var Slot70_Chest_Ref : StaticBody2D
+@export var Slot71_Chest_Ref : StaticBody2D
+@export var Slot72_Chest_Ref : StaticBody2D
+@export var Slot73_Chest_Ref : StaticBody2D
+@export var Slot74_Chest_Ref : StaticBody2D
+@export var Slot75_Chest_Ref : StaticBody2D
+@export var Slot76_Chest_Ref : StaticBody2D
+@export var Slot77_Chest_Ref : StaticBody2D
+@export var Slot78_Chest_Ref : StaticBody2D
+@export var Slot79_Chest_Ref : StaticBody2D
+@export var Slot80_Chest_Ref : StaticBody2D
+@export var Slot81_Chest_Ref : StaticBody2D
+@export var Slot82_Chest_Ref : StaticBody2D
+@export var Slot83_Chest_Ref : StaticBody2D
+@export var Slot84_Chest_Ref : StaticBody2D
+@export var Slot85_Chest_Ref : StaticBody2D
+@export var Slot86_Chest_Ref : StaticBody2D
+@export var Slot87_Chest_Ref : StaticBody2D
+@export var Slot88_Chest_Ref : StaticBody2D
+@export var Slot89_Chest_Ref : StaticBody2D
+@export var Slot90_Chest_Ref : StaticBody2D
+@export var Slot91_Chest_Ref : StaticBody2D
+@export var Slot92_Chest_Ref : StaticBody2D
+@export var Slot93_Chest_Ref : StaticBody2D
+@export var Slot94_Chest_Ref : StaticBody2D
+@export var Slot95_Chest_Ref : StaticBody2D
+@export var Slot96_Chest_Ref : StaticBody2D
+@export var Slot97_Chest_Ref : StaticBody2D
+@export var Slot98_Chest_Ref : StaticBody2D
+@export var Slot99_Chest_Ref : StaticBody2D
+@export var Slot100_Chest_Ref : StaticBody2D
+
+@export_subgroup("Layers and UI")
 @export var ChestMainLayer : Control
+@export var ChestSlots : Control
+@export var ChestCollisionBoundary1 : CollisionShape2D
+@export var ChestCollisionBoundary2 : CollisionShape2D
+@export var ChestCollisionBoundary3 : CollisionShape2D
+@export var ChestCollisionBoundary4 : CollisionShape2D
 @export var Pickaxe_Video : VideoStreamPlayer
 @export var Axe_Video : VideoStreamPlayer
 @export var Sword_Video : VideoStreamPlayer
@@ -219,7 +331,6 @@ var is_crouching = false
 @export var DeathScreen_BlackOverlay : Control
 @export var OverlayLayer_Overlay : Control
 @export var InventoryLayer_Boundary : Area2D
-@export var InventoryLayer_BoundaryChest : Area2D
 @export var InventoryLayer_GreyLayer : ColorRect
 @export var ItemWorkshopLayer_MainLayer : Control
 @export var ItemWorkshopLayer_GreyLayer : ColorRect
@@ -231,12 +342,14 @@ var is_crouching = false
 @export var RandomText_Label : Label
 @export var OverlayLayer_RedOverlay : ColorRect
 
+
 @export_subgroup("Timers")
 @export var ManualSaveCooldown : Timer
 @export var HandItemDebounce : Timer
 
 @export_group("Debug")
 
+@export var StartDebugging_Btn : Button
 @export var Inventory_Item_Ref_Label : Label
 @export var Is_Raycast_Colliding_Label : Label
 @export var Is_Inside_Settings_Label : Label
@@ -290,10 +403,10 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			if !DialogueManager.is_in_absolute_interface and !InventoryManager.inventory_open and !PauseManager.is_inside_alert and !InventoryManager.in_chest_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !PauseManager.inside_absolute_item_workshop:
 				pauseGame()
 			
-			if InventoryManager.inventory_open and !InventoryManager.in_chest_interface:
+			if InventoryManager.inventory_open and !InventoryManager.in_chest_interface and !InventoryManager.is_dragging:
 				closeInventory()
 			
-			if InventoryManager.in_chest_interface:
+			if InventoryManager.in_chest_interface and !InventoryManager.is_dragging:
 				if !InventoryManager.chestNode.is_animating():
 					closeChest()
 			
@@ -318,42 +431,11 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		
 		saveAllDataWithAnimation()
 	
-	if Input.is_action_just_pressed("Inventory") and !PauseManager.inside_absolute_item_workshop and !PauseManager.is_paused and !InventoryManager.in_chest_interface and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
+	if Input.is_action_just_pressed("Inventory") and !PauseManager.inside_absolute_item_workshop and !PauseManager.is_paused and !InventoryManager.in_chest_interface and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !InventoryManager.is_dragging and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
 		if !InventoryManager.inventory_open:
 			openInventory()
 		else:
 			closeInventory()
-	
-	if Input.is_action_just_pressed("RightClick") and inventoryHand_debounce_timer <= 0:
-		if InventoryManager.is_hovering_over_hand_dropable:
-			if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup:
-				if !InventoryData.HAND_ITEM_TYPE == "":
-					var slots = [
-						Slot1_Inventory_Ref,
-						Slot2_Inventory_Ref,
-						Slot_3_Inventory_Ref,
-						Slot_4_Inventory_Ref,
-						Slot_5_Inventory_Ref,
-						Slot_6_Inventory_Ref,
-						Slot_7_Inventory_Ref,
-						Slot_8_Inventory_Ref,
-						Slot_9_Inventory_Ref,
-					]
-					
-					var free_slot = null
-					
-					# Get the free slot
-					for i in range(slots.size()):
-						if not slots[i].is_populated():
-							free_slot = slots[i]
-							break
-					
-					if free_slot != null and !free_slot.is_populated():
-						
-						InventoryManager.spawn_inventory_dropable(free_slot.position, InventoryData.HAND_ITEM_TYPE, free_slot)
-						free_slot.set_populated(true)
-						set_hand_item_type("")
-						MinimalAlert.hide_minimal_alert(0.1)
 
 func _unhandled_input(event): # A built-in function that listens for input all the time
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
@@ -495,6 +577,7 @@ func _process(delta):
 
 func _ready():
 	nodeSetup() # Call the nodeSetup function to setup the nodes
+	initInventorySlots() # Link local inventory slots to singleton arrays
 	
 	DialogueManager.DialogueInterface = DialogueInterface
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Lock mouse
@@ -538,6 +621,122 @@ func nodeSetup(): # A function to setup the nodes. Called in the _ready function
 	RandomText_Label.self_modulate = Color(0, 0, 0, 0) # set the random text self modulate to black
 	DeathScreen_BlackOverlay.self_modulate = Color(0, 0, 0, 0) # set the black overlay self modulate to black
 	OverlayLayer_RedOverlay.self_modulate = Color(1, 0.016, 0, 0) # set the red overlay self modulate to red
+
+func initInventorySlots():
+	InventoryManager.POCKET_SLOTS = [
+		Slot1_Inventory_Ref,
+		Slot2_Inventory_Ref,
+		Slot3_Inventory_Ref,
+		Slot4_Inventory_Ref,
+		Slot5_Inventory_Ref,
+		Slot6_Inventory_Ref,
+		Slot7_Inventory_Ref,
+		Slot8_Inventory_Ref,
+		Slot9_Inventory_Ref,
+	]
+	
+	InventoryManager.CHEST_SLOTS = [
+		Slot1_Chest_Ref,
+		Slot2_Chest_Ref,
+		Slot3_Chest_Ref,
+		Slot4_Chest_Ref,
+		Slot5_Chest_Ref,
+		Slot6_Chest_Ref,
+		Slot7_Chest_Ref,
+		Slot8_Chest_Ref,
+		Slot9_Chest_Ref,
+		Slot10_Chest_Ref,
+		Slot11_Chest_Ref,
+		Slot12_Chest_Ref,
+		Slot13_Chest_Ref,
+		Slot14_Chest_Ref,
+		Slot15_Chest_Ref,
+		Slot16_Chest_Ref,
+		Slot17_Chest_Ref,
+		Slot18_Chest_Ref,
+		Slot19_Chest_Ref,
+		Slot20_Chest_Ref,
+		Slot21_Chest_Ref,
+		Slot22_Chest_Ref,
+		Slot23_Chest_Ref,
+		Slot24_Chest_Ref,
+		Slot25_Chest_Ref,
+		Slot26_Chest_Ref,
+		Slot27_Chest_Ref,
+		Slot28_Chest_Ref,
+		Slot29_Chest_Ref,
+		Slot30_Chest_Ref,
+		Slot31_Chest_Ref,
+		Slot32_Chest_Ref,
+		Slot33_Chest_Ref,
+		Slot34_Chest_Ref,
+		Slot35_Chest_Ref,
+		Slot36_Chest_Ref,
+		Slot37_Chest_Ref,
+		Slot38_Chest_Ref,
+		Slot39_Chest_Ref,
+		Slot40_Chest_Ref,
+		Slot41_Chest_Ref,
+		Slot42_Chest_Ref,
+		Slot43_Chest_Ref,
+		Slot44_Chest_Ref,
+		Slot45_Chest_Ref,
+		Slot46_Chest_Ref,
+		Slot47_Chest_Ref,
+		Slot48_Chest_Ref,
+		Slot49_Chest_Ref,
+		Slot50_Chest_Ref,
+		Slot51_Chest_Ref,
+		Slot52_Chest_Ref,
+		Slot53_Chest_Ref,
+		Slot54_Chest_Ref,
+		Slot55_Chest_Ref,
+		Slot56_Chest_Ref,
+		Slot57_Chest_Ref,
+		Slot58_Chest_Ref,
+		Slot59_Chest_Ref,
+		Slot60_Chest_Ref,
+		Slot61_Chest_Ref,
+		Slot62_Chest_Ref,
+		Slot63_Chest_Ref,
+		Slot64_Chest_Ref,
+		Slot65_Chest_Ref,
+		Slot66_Chest_Ref,
+		Slot67_Chest_Ref,
+		Slot68_Chest_Ref,
+		Slot69_Chest_Ref,
+		Slot70_Chest_Ref,
+		Slot71_Chest_Ref,
+		Slot72_Chest_Ref,
+		Slot73_Chest_Ref,
+		Slot74_Chest_Ref,
+		Slot75_Chest_Ref,
+		Slot76_Chest_Ref,
+		Slot77_Chest_Ref,
+		Slot78_Chest_Ref,
+		Slot79_Chest_Ref,
+		Slot80_Chest_Ref,
+		Slot81_Chest_Ref,
+		Slot82_Chest_Ref,
+		Slot83_Chest_Ref,
+		Slot84_Chest_Ref,
+		Slot85_Chest_Ref,
+		Slot86_Chest_Ref,
+		Slot87_Chest_Ref,
+		Slot88_Chest_Ref,
+		Slot89_Chest_Ref,
+		Slot90_Chest_Ref,
+		Slot91_Chest_Ref,
+		Slot92_Chest_Ref,
+		Slot93_Chest_Ref,
+		Slot94_Chest_Ref,
+		Slot95_Chest_Ref,
+		Slot96_Chest_Ref,
+		Slot97_Chest_Ref,
+		Slot98_Chest_Ref,
+		Slot99_Chest_Ref,
+		Slot100_Chest_Ref
+	]
 
 ######################################
 # Walking, sprinting and crouching sounds
@@ -647,24 +846,18 @@ func showDeathScreen(): # A function to show the death screen
 func openInventory():
 	if InventoryManager.in_chest_interface:
 		
-		InventoryLayer_Boundary.monitorable = false
-		InventoryLayer_Boundary.monitoring = false
-		
-		InventoryLayer_BoundaryChest.monitorable = true
-		InventoryLayer_BoundaryChest.monitoring = true
-		
 		InventoryMainLayer.offset.x = -291.96
+		
+		ChestCollisionBoundary1.disabled = true
+		ChestCollisionBoundary4.disabled = true
 		
 	else:
 		
-		InventoryLayer_Boundary.monitorable = true
-		InventoryLayer_Boundary.monitoring = true
-		
-		InventoryLayer_BoundaryChest.monitorable = false
-		InventoryLayer_BoundaryChest.monitoring = false
-		
 		InventoryMainLayer.offset.x = 0
 		ChestMainLayer.hide()
+		
+		ChestCollisionBoundary1.disabled = false
+		ChestCollisionBoundary4.disabled = false
 	
 	InventoryMainLayer.show()
 	InventoryLayer.show() # show the inventory UI
@@ -698,26 +891,10 @@ func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 	
 	if area.is_in_group("pickup_player_detector"):
 		
-		var slots = [
-			Slot1_Inventory_Ref,
-			Slot2_Inventory_Ref,
-			Slot_3_Inventory_Ref,
-			Slot_4_Inventory_Ref,
-			Slot_5_Inventory_Ref,
-			Slot_6_Inventory_Ref,
-			Slot_7_Inventory_Ref,
-			Slot_8_Inventory_Ref,
-			Slot_9_Inventory_Ref,
-		]
-		
 		var free_slot = null
 		
 		# Get the free slot
-		for i in range(slots.size()):
-			if not slots[i].is_populated():
-				free_slot = slots[i]
-				break
-		
+		free_slot = InventoryManager.get_free_slot(InventoryManager.POCKET_SLOTS)
 		
 		if free_slot != null and !free_slot.is_populated():
 			
@@ -742,7 +919,7 @@ func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 			await get_tree().create_timer(0.1).timeout
 			
 			delete_pickup_object(PickupObject)
-			InventoryManager.spawn_inventory_dropable(free_slot.position, PickupItemType, free_slot)
+			InventoryManager.spawn_inventory_dropable(free_slot.global_position, PickupItemType, free_slot, false)
 			
 		else:
 			print("{LOCAL} [Player_SCRIPT.gd] No free slot available.")
@@ -759,6 +936,23 @@ func _on_hand_dropable_detector_mouse_entered() -> void:
 func _on_hand_dropable_detector_mouse_exited() -> void:
 	InventoryManager.is_hovering_over_hand_dropable = false
 	MinimalAlert.hide_minimal_alert(0.1)
+
+func _on_hand_detector_right_click() -> void:
+	if InventoryManager.is_hovering_over_hand_dropable and inventoryHand_debounce_timer <= 0:
+		if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup:
+			if !InventoryData.HAND_ITEM_TYPE == "":
+				
+				var free_slot = null
+				
+				# Get the free slot
+				free_slot = InventoryManager.get_free_slot(InventoryManager.POCKET_SLOTS)
+				
+				if free_slot != null and !free_slot.is_populated():
+					
+					InventoryManager.spawn_inventory_dropable(free_slot.global_position, InventoryData.HAND_ITEM_TYPE, free_slot, false)
+					free_slot.set_populated(true)
+					set_hand_item_type("")
+					MinimalAlert.hide_minimal_alert(0.1)
 
 func set_hand_item_type(ITEM_TYPE : String):
 	inventoryHand_debounce_timer = 0.2
@@ -856,6 +1050,26 @@ func get_hand_debounce_time_left():
 func start_hand_debounce_timer():
 	HandItemDebounce.start()
 
+func hide_chest_dropables(parent_node: Node):
+	for child in parent_node.get_children():
+		# Check if the child's name starts with "Dropable"
+		if child.name.begins_with("Dropable"):
+			# Ensure the child has the method `get_is_in_chest_slot`
+			if child.has_method("get_is_in_chest_slot"):
+				if child.get_is_in_chest_slot():
+					# Set visibility to false
+					child.visible = false
+
+func show_chest_dropables(parent_node: Node):
+	for child in parent_node.get_children():
+		# Check if the child's name starts with "Dropable"
+		if child.name.begins_with("Dropable"):
+			# Ensure the child has the method `get_is_in_chest_slot`
+			if child.has_method("get_is_in_chest_slot"):
+				if child.get_is_in_chest_slot():
+					# Set visibility to false
+					child.visible = false
+
 ######################################
 # Chest
 ######################################
@@ -903,7 +1117,7 @@ func _on_credits_button_pressed() -> void:
 ######################################
 
 func saveInventory():
-	InventoryData.saveInventory(IslandManager.Current_Island_Name, InventoryMainLayer)
+	InventoryData.saveInventory(IslandManager.Current_Island_Name, InventoryMainLayer, ChestSlots)
 
 func _on_save_and_quit_btn_pressed():
 	SaveManager.saveAllData()
@@ -1061,36 +1275,16 @@ func on_item_workshop_close_finished():
 	ItemWorkshopLayer_GreyLayer.visible = false
 
 func on_add_item_buttons_workshop_pressed(ITEM_TYPE : String):
+	var free_slot = null
 	
-		var slots = [
-			Slot1_Inventory_Ref,
-			Slot2_Inventory_Ref,
-			Slot_3_Inventory_Ref,
-			Slot_4_Inventory_Ref,
-			Slot_5_Inventory_Ref,
-			Slot_6_Inventory_Ref,
-			Slot_7_Inventory_Ref,
-			Slot_8_Inventory_Ref,
-			Slot_9_Inventory_Ref,
-		]
-		
-		var free_slot = null
-		
-		# Get the free slot
-		for i in range(slots.size()):
-			if not slots[i].is_populated():
-				free_slot = slots[i]
-				break
-		
-		
-		if free_slot != null and !free_slot.is_populated():
-			
-			free_slot.set_populated(true)
-			
-			InventoryManager.spawn_inventory_dropable(free_slot.position, ITEM_TYPE, free_slot)
-		
-		else:
-			spawn_minimal_alert_from_player(2.5, 0.3, 0.3, "Can't add item to pockets, inventory full!")
+	# Get the free slot
+	free_slot = InventoryManager.get_free_slot(InventoryManager.POCKET_SLOTS)
+	
+	if free_slot != null and !free_slot.is_populated():
+		free_slot.set_populated(true)
+		InventoryManager.spawn_inventory_dropable(free_slot.global_position, ITEM_TYPE, free_slot, false)
+	else:
+		spawn_minimal_alert_from_player(2.5, 0.3, 0.3, "Can't add item to pockets, inventory full!")
 
 ######################################
 # Area and body detection
@@ -1145,8 +1339,8 @@ func _on_start_debugging_btn_pressed() -> void:
 	if DebugManager.is_debugging:
 		DebugManager.is_debugging = false
 		DebugLayer.hide()
-		PauseLayer.StartDebugging_Btn.text = "START DEBUGGING"
+		StartDebugging_Btn.text = "START DEBUGGING"
 	else:
 		DebugManager.is_debugging = true
 		DebugLayer.show()
-		PauseLayer.StartDebugging_Btn.text = "STOP DEBUGGING"
+		StartDebugging_Btn.text = "STOP DEBUGGING"
