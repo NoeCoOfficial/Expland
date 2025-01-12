@@ -603,6 +603,8 @@ func _ready():
 		
 	if !OS.has_feature("debug"):
 		PauseLayer.hide()
+	
+	InventoryManager.is_inside_boundary = false
 
 func on_fade_in_tween_finished():
 	if IslandManager.Current_Game_Mode == "FREE":
@@ -1070,6 +1072,8 @@ func show_chest_dropables(parent_node: Node):
 					# Set visibility to false
 					child.visible = false
 
+func _on_is_inside_boundary_false_startup_timeout() -> void:
+	InventoryManager.is_inside_boundary = false
 ######################################
 # Chest
 ######################################

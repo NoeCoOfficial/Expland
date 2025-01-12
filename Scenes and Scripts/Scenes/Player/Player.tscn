@@ -605,6 +605,12 @@ script = ExtResource("2_t6toi")
 autostart = true
 script = ExtResource("2_t6toi")
 
+[node name="is_inside_boundary_false_startup" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+script = ExtResource("2_t6toi")
+
 [node name="AutoSaveTimer" type="Timer" parent="."]
 wait_time = 60.0
 autostart = true
@@ -3214,6 +3220,7 @@ libraries = {
 [connection signal="timeout" from="WalkingSpeedSounds" to="." method="_on_walking_speed_sounds_timeout"]
 [connection signal="timeout" from="SprintingSpeedSounds" to="." method="_on_sprinting_speed_sounds_timeout"]
 [connection signal="timeout" from="CrouchingSpeedSounds" to="." method="_on_crouching_speed_sounds_timeout"]
+[connection signal="timeout" from="is_inside_boundary_false_startup" to="." method="_on_is_inside_boundary_false_startup_timeout"]
 [connection signal="timeout" from="AutoSaveTimer" to="." method="_on_auto_save_timer_timeout"]
 [connection signal="timeout" from="HungerDepletion" to="." method="_on_hunger_depletion_timeout"]
 [connection signal="area_entered" from="PickupObjectDetector" to="." method="_on_pickup_object_detector_area_entered"]
