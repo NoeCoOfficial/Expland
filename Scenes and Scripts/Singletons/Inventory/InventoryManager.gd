@@ -51,12 +51,13 @@ var POCKET_SLOTS = []
 var CHEST_SLOTS = []
 
 func get_free_slot(Slots : Array):
+	print(str(Slots))
 	var free_slot = null
 	for i in range(Slots.size()):
 		if not Slots[i].is_populated():
 			free_slot = Slots[i]
-			break
 			return free_slot
+			break
 
 const HANDHELD_ITEMS = [
 	

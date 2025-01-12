@@ -577,6 +577,7 @@ func _process(delta):
 
 func _ready():
 	nodeSetup() # Call the nodeSetup function to setup the nodes
+	initInventorySlots() # Link local inventory slots to singleton arrays
 	
 	DialogueManager.DialogueInterface = DialogueInterface
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Lock mouse
