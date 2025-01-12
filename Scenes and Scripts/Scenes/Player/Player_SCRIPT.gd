@@ -881,14 +881,6 @@ func closeInventory():
 	inventory_opened_in_air = false  # Reset the flag when inventory is closed
 	MinimalAlert.hide_minimal_alert(0.1)
 
-func _on_boundary_area_entered(area):
-	if area.is_in_group("draggable"):
-		InventoryManager.is_inside_boundary = true
-
-func _on_boundary_area_exited(area):
-	if area.is_in_group("draggable"):
-		InventoryManager.is_inside_boundary = false
-
 func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 	
 	if area.is_in_group("pickup_player_detector"):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=81 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -176,18 +176,6 @@ corner_radius_top_right = 12
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmmgy"]
 content_margin_top = 15.0
 bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cs88l"]
-size = Vector2(313, 648)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sl537"]
-size = Vector2(538, 107)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4c0ao"]
-size = Vector2(531, 118)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_47l1q"]
-size = Vector2(313, 648)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_meokx"]
 bg_color = Color(0.125911, 0.125911, 0.125911, 1)
@@ -525,10 +513,10 @@ Slot99_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Che
 Slot100_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ScrollContainer/GridContainer/ChestSlots/Slot100")
 ChestMainLayer = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer")
 ChestSlots = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ScrollContainer/GridContainer/ChestSlots")
-ChestCollisionBoundary1 = NodePath("Head/Camera3D/InventoryLayer/Boundary/Boundary1")
-ChestCollisionBoundary2 = NodePath("Head/Camera3D/InventoryLayer/Boundary/Boundary2")
-ChestCollisionBoundary3 = NodePath("Head/Camera3D/InventoryLayer/Boundary/Boundary3")
-ChestCollisionBoundary4 = NodePath("Head/Camera3D/InventoryLayer/Boundary/Boundary4")
+ChestCollisionBoundary1 = NodePath("")
+ChestCollisionBoundary2 = NodePath("")
+ChestCollisionBoundary3 = NodePath("")
+ChestCollisionBoundary4 = NodePath("")
 Pickaxe_Video = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video")
 Axe_Video = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video")
 Sword_Video = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video")
@@ -554,7 +542,7 @@ StaminaBar = NodePath("Head/Camera3D/HUDLayer/StaminaBar")
 DialogueInterface = NodePath("Head/Camera3D/DialogueLayer/DialogueInterface")
 DeathScreen_BlackOverlay = NodePath("Head/Camera3D/DeathScreen/BlackOverlay")
 OverlayLayer_Overlay = NodePath("Head/Camera3D/OverlayLayer/Overlay")
-InventoryLayer_Boundary = NodePath("Head/Camera3D/InventoryLayer/Boundary")
+InventoryLayer_Boundary = NodePath("")
 InventoryLayer_GreyLayer = NodePath("Head/Camera3D/InventoryLayer/GreyLayer")
 ItemWorkshopLayer_MainLayer = NodePath("Head/Camera3D/ItemWorkshopLayer/MainLayer")
 ItemWorkshopLayer_GreyLayer = NodePath("Head/Camera3D/ItemWorkshopLayer/GreyLayer")
@@ -1431,29 +1419,6 @@ offset_bottom = 502.0
 focus_mode = 0
 action_mode = 0
 button_mask = 2
-
-[node name="Boundary" type="Area2D" parent="Head/Camera3D/InventoryLayer" groups=["boundary"]]
-priority = 12
-
-[node name="Boundary1" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Boundary"]
-position = Vector2(156.5, 324)
-shape = SubResource("RectangleShape2D_cs88l")
-debug_color = Color(0.998937, 0, 0.128371, 0.42)
-
-[node name="Boundary2" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Boundary"]
-position = Vector2(576, 53.5)
-shape = SubResource("RectangleShape2D_sl537")
-debug_color = Color(0.998937, 0, 0.128371, 0.42)
-
-[node name="Boundary3" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Boundary"]
-position = Vector2(576, 589)
-shape = SubResource("RectangleShape2D_4c0ao")
-debug_color = Color(0.998937, 0, 0.128371, 0.42)
-
-[node name="Boundary4" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/Boundary"]
-position = Vector2(995.5, 324)
-shape = SubResource("RectangleShape2D_47l1q")
-debug_color = Color(0.998937, 0, 0.128371, 0.42)
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
 
@@ -3228,8 +3193,6 @@ libraries = {
 [connection signal="mouse_entered" from="Head/Camera3D/InventoryLayer/InventoryMainLayer/HandDropableDetector" to="." method="_on_hand_dropable_detector_mouse_entered"]
 [connection signal="mouse_exited" from="Head/Camera3D/InventoryLayer/InventoryMainLayer/HandDropableDetector" to="." method="_on_hand_dropable_detector_mouse_exited"]
 [connection signal="pressed" from="Head/Camera3D/InventoryLayer/InventoryMainLayer/HandDropableDetector" to="." method="_on_hand_detector_right_click"]
-[connection signal="area_entered" from="Head/Camera3D/InventoryLayer/Boundary" to="." method="_on_boundary_area_entered"]
-[connection signal="area_exited" from="Head/Camera3D/InventoryLayer/Boundary" to="." method="_on_boundary_area_exited"]
 [connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/ROCK/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["ROCK"]]
 [connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/REDFLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["REDFLOWER"]]
 [connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/BLUEFLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["BLUEFLOWER"]]
