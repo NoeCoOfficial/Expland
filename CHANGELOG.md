@@ -20,7 +20,7 @@
 ## The Island
 
 ### Added:
-- Functionality and saving to the Chest, with consists of 100 slots to store items
+- Functionality and saving to the Chest, with consists of 25 slots to store items
 - The all-new Item Workshop™ located in the testing area, where you can obtain any item you want!
 - Water to the lake and around The Island
 - Dynamic clouds in the sky that move
@@ -43,6 +43,8 @@
 
 ### Added:
 - The ability to hold items (Sword, Pickaxe, Axe) in your hand.
+- The ability to quickly drop items while hovering over them (Key X)
+- The ability to quickly switch items from pockets to chest slots and vice versa while hovering over them (Key Q)
 - Axe
 - Sword
 - Coconut
