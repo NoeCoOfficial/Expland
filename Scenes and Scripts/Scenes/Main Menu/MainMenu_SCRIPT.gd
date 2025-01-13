@@ -470,6 +470,8 @@ func _on_delete_island_yes_pressed() -> void:
 	Utils.delete_free_mode_island(Island_To_Delete)
 	IslandAccessOrder.remove_island(Island_To_Delete)
 	
+	if IslandManager.FreeMode_Island_Count == 0:
+		$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup/NoSavedIslandsNotice.visible = true
 	
 	$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup.showPopup()
 	

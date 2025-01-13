@@ -210,6 +210,7 @@ func _cleanup_screenshot_thread():
 		screenshot_thread = null
 
 func delete_free_mode_island(Island_Name: String) -> void:
+	IslandManager.FreeMode_Island_Count -= 1
 	# Ensure no other thread is running
 	if delete_island_thread:
 		delete_island_thread.wait_to_finish()
