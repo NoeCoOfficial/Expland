@@ -62,6 +62,9 @@ func loadIslands() -> void:
 			folder_name = dir.get_next()
 		dir.list_dir_end()
 		
+		print("Number of island folders found: ", folders.size())
+		IslandManager.FreeMode_Island_Count = folders.size()
+		
 		var ordered_folders = []
 		for island_name in IslandAccessOrder.island_access_order:
 			for folder in folders:
@@ -74,9 +77,30 @@ func loadIslands() -> void:
 			$NoSavedIslandsNotice.visible = true
 		else:
 			$NoSavedIslandsNotice.visible = false
+		
+		# Populate the UI with the folders
+		for folder in ordered_folders:
+			print_rich("[color=red]Detected folder: %s[/color]" % folder["name"])
+			
+			var island_save_element = load("res://Scenes and Scripts/Scenes/Main Menu/IslandSaveElement/IslandSaveElement.tscn").instantiate()
+			$ScrollContainer/VBoxContainer.add_child(island_save_element)
+			island_save_element.name = "IslandSaveElement"
+			
+			var image_path = "user://saveData/Free Mode/Islands/%s/island.png" % folder["name"]
+			if not FileAccess.file_exists(image_path):
+				image_path = ""
+			island_save_element.initializeProperties(folder["name"], image_path)
 
 func showPopup():
 	visible = true
+	
+	var vbox_container = $ScrollContainer/VBoxContainer
+	if vbox_container.get_child_count() == 0:
+		print(str(vbox_container.get_child_count()))
+		$NoSavedIslandsNotice.visible = true
+	else:
+		print(str(vbox_container.get_child_count()))
+		$NoSavedIslandsNotice.visible = false
 
 func loadAndShow() -> void:
 	visible = true
@@ -103,7 +127,7 @@ func loadAndShow() -> void:
 			$NoSavedIslandsNotice.visible = true
 		else:
 			$NoSavedIslandsNotice.visible = false
-
+		
 		# Populate the UI with the folders
 		for folder in ordered_folders:
 			print_rich("[color=red]Detected folder: %s[/color]" % folder["name"])
