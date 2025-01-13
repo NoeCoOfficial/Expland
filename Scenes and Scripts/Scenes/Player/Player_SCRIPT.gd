@@ -211,81 +211,6 @@ var is_crouching = false
 @export var Slot23_Chest_Ref : StaticBody2D
 @export var Slot24_Chest_Ref : StaticBody2D
 @export var Slot25_Chest_Ref : StaticBody2D
-@export var Slot26_Chest_Ref : StaticBody2D
-@export var Slot27_Chest_Ref : StaticBody2D
-@export var Slot28_Chest_Ref : StaticBody2D
-@export var Slot29_Chest_Ref : StaticBody2D
-@export var Slot30_Chest_Ref : StaticBody2D
-@export var Slot31_Chest_Ref : StaticBody2D
-@export var Slot32_Chest_Ref : StaticBody2D
-@export var Slot33_Chest_Ref : StaticBody2D
-@export var Slot34_Chest_Ref : StaticBody2D
-@export var Slot35_Chest_Ref : StaticBody2D
-@export var Slot36_Chest_Ref : StaticBody2D
-@export var Slot37_Chest_Ref : StaticBody2D
-@export var Slot38_Chest_Ref : StaticBody2D
-@export var Slot39_Chest_Ref : StaticBody2D
-@export var Slot40_Chest_Ref : StaticBody2D
-@export var Slot41_Chest_Ref : StaticBody2D
-@export var Slot42_Chest_Ref : StaticBody2D
-@export var Slot43_Chest_Ref : StaticBody2D
-@export var Slot44_Chest_Ref : StaticBody2D
-@export var Slot45_Chest_Ref : StaticBody2D
-@export var Slot46_Chest_Ref : StaticBody2D
-@export var Slot47_Chest_Ref : StaticBody2D
-@export var Slot48_Chest_Ref : StaticBody2D
-@export var Slot49_Chest_Ref : StaticBody2D
-@export var Slot50_Chest_Ref : StaticBody2D
-@export var Slot51_Chest_Ref : StaticBody2D
-@export var Slot52_Chest_Ref : StaticBody2D
-@export var Slot53_Chest_Ref : StaticBody2D
-@export var Slot54_Chest_Ref : StaticBody2D
-@export var Slot55_Chest_Ref : StaticBody2D
-@export var Slot56_Chest_Ref : StaticBody2D
-@export var Slot57_Chest_Ref : StaticBody2D
-@export var Slot58_Chest_Ref : StaticBody2D
-@export var Slot59_Chest_Ref : StaticBody2D
-@export var Slot60_Chest_Ref : StaticBody2D
-@export var Slot61_Chest_Ref : StaticBody2D
-@export var Slot62_Chest_Ref : StaticBody2D
-@export var Slot63_Chest_Ref : StaticBody2D
-@export var Slot64_Chest_Ref : StaticBody2D
-@export var Slot65_Chest_Ref : StaticBody2D
-@export var Slot66_Chest_Ref : StaticBody2D
-@export var Slot67_Chest_Ref : StaticBody2D
-@export var Slot68_Chest_Ref : StaticBody2D
-@export var Slot69_Chest_Ref : StaticBody2D
-@export var Slot70_Chest_Ref : StaticBody2D
-@export var Slot71_Chest_Ref : StaticBody2D
-@export var Slot72_Chest_Ref : StaticBody2D
-@export var Slot73_Chest_Ref : StaticBody2D
-@export var Slot74_Chest_Ref : StaticBody2D
-@export var Slot75_Chest_Ref : StaticBody2D
-@export var Slot76_Chest_Ref : StaticBody2D
-@export var Slot77_Chest_Ref : StaticBody2D
-@export var Slot78_Chest_Ref : StaticBody2D
-@export var Slot79_Chest_Ref : StaticBody2D
-@export var Slot80_Chest_Ref : StaticBody2D
-@export var Slot81_Chest_Ref : StaticBody2D
-@export var Slot82_Chest_Ref : StaticBody2D
-@export var Slot83_Chest_Ref : StaticBody2D
-@export var Slot84_Chest_Ref : StaticBody2D
-@export var Slot85_Chest_Ref : StaticBody2D
-@export var Slot86_Chest_Ref : StaticBody2D
-@export var Slot87_Chest_Ref : StaticBody2D
-@export var Slot88_Chest_Ref : StaticBody2D
-@export var Slot89_Chest_Ref : StaticBody2D
-@export var Slot90_Chest_Ref : StaticBody2D
-@export var Slot91_Chest_Ref : StaticBody2D
-@export var Slot92_Chest_Ref : StaticBody2D
-@export var Slot93_Chest_Ref : StaticBody2D
-@export var Slot94_Chest_Ref : StaticBody2D
-@export var Slot95_Chest_Ref : StaticBody2D
-@export var Slot96_Chest_Ref : StaticBody2D
-@export var Slot97_Chest_Ref : StaticBody2D
-@export var Slot98_Chest_Ref : StaticBody2D
-@export var Slot99_Chest_Ref : StaticBody2D
-@export var Slot100_Chest_Ref : StaticBody2D
 
 @export_subgroup("Layers and UI")
 @export var ChestMainLayer : Control
@@ -328,7 +253,6 @@ var is_crouching = false
 @export var DialogueInterface : Control
 @export var DeathScreen_BlackOverlay : Control
 @export var OverlayLayer_Overlay : Control
-@export var InventoryLayer_Boundary : Area2D
 @export var InventoryLayer_GreyLayer : ColorRect
 @export var ItemWorkshopLayer_MainLayer : Control
 @export var ItemWorkshopLayer_GreyLayer : ColorRect
@@ -661,81 +585,6 @@ func initInventorySlots():
 		Slot23_Chest_Ref,
 		Slot24_Chest_Ref,
 		Slot25_Chest_Ref,
-		Slot26_Chest_Ref,
-		Slot27_Chest_Ref,
-		Slot28_Chest_Ref,
-		Slot29_Chest_Ref,
-		Slot30_Chest_Ref,
-		Slot31_Chest_Ref,
-		Slot32_Chest_Ref,
-		Slot33_Chest_Ref,
-		Slot34_Chest_Ref,
-		Slot35_Chest_Ref,
-		Slot36_Chest_Ref,
-		Slot37_Chest_Ref,
-		Slot38_Chest_Ref,
-		Slot39_Chest_Ref,
-		Slot40_Chest_Ref,
-		Slot41_Chest_Ref,
-		Slot42_Chest_Ref,
-		Slot43_Chest_Ref,
-		Slot44_Chest_Ref,
-		Slot45_Chest_Ref,
-		Slot46_Chest_Ref,
-		Slot47_Chest_Ref,
-		Slot48_Chest_Ref,
-		Slot49_Chest_Ref,
-		Slot50_Chest_Ref,
-		Slot51_Chest_Ref,
-		Slot52_Chest_Ref,
-		Slot53_Chest_Ref,
-		Slot54_Chest_Ref,
-		Slot55_Chest_Ref,
-		Slot56_Chest_Ref,
-		Slot57_Chest_Ref,
-		Slot58_Chest_Ref,
-		Slot59_Chest_Ref,
-		Slot60_Chest_Ref,
-		Slot61_Chest_Ref,
-		Slot62_Chest_Ref,
-		Slot63_Chest_Ref,
-		Slot64_Chest_Ref,
-		Slot65_Chest_Ref,
-		Slot66_Chest_Ref,
-		Slot67_Chest_Ref,
-		Slot68_Chest_Ref,
-		Slot69_Chest_Ref,
-		Slot70_Chest_Ref,
-		Slot71_Chest_Ref,
-		Slot72_Chest_Ref,
-		Slot73_Chest_Ref,
-		Slot74_Chest_Ref,
-		Slot75_Chest_Ref,
-		Slot76_Chest_Ref,
-		Slot77_Chest_Ref,
-		Slot78_Chest_Ref,
-		Slot79_Chest_Ref,
-		Slot80_Chest_Ref,
-		Slot81_Chest_Ref,
-		Slot82_Chest_Ref,
-		Slot83_Chest_Ref,
-		Slot84_Chest_Ref,
-		Slot85_Chest_Ref,
-		Slot86_Chest_Ref,
-		Slot87_Chest_Ref,
-		Slot88_Chest_Ref,
-		Slot89_Chest_Ref,
-		Slot90_Chest_Ref,
-		Slot91_Chest_Ref,
-		Slot92_Chest_Ref,
-		Slot93_Chest_Ref,
-		Slot94_Chest_Ref,
-		Slot95_Chest_Ref,
-		Slot96_Chest_Ref,
-		Slot97_Chest_Ref,
-		Slot98_Chest_Ref,
-		Slot99_Chest_Ref,
-		Slot100_Chest_Ref
 	]
 
 ######################################
@@ -847,12 +696,22 @@ func openInventory():
 	if InventoryManager.in_chest_interface:
 		
 		InventoryMainLayer.offset.x = -291.96
+		PocketsCollisionBoundary.set_deferred("monitorable", false)
+		PocketsCollisionBoundary.set_deferred("monitoring", false)
 		
+		ChestCollisionBoundary.set_deferred("monitorable", true)
+		ChestCollisionBoundary.set_deferred("monitoring", true)
 		
 	else:
 		
 		InventoryMainLayer.offset.x = 0
 		ChestMainLayer.hide()
+		
+		PocketsCollisionBoundary.set_deferred("monitorable", true)
+		PocketsCollisionBoundary.set_deferred("monitoring", true)
+		
+		ChestCollisionBoundary.set_deferred("monitorable", false)
+		ChestCollisionBoundary.set_deferred("monitoring", false)
 	
 	InventoryMainLayer.show()
 	InventoryLayer.show() # show the inventory UI
@@ -873,6 +732,23 @@ func closeInventory():
 	InventoryManager.inventory_open = false
 	inventory_opened_in_air = false  # Reset the flag when inventory is closed
 	MinimalAlert.hide_minimal_alert(0.1)
+
+func _on_pockets_boundary_area_entered(area: Area2D) -> void:
+	if area.is_in_group("draggable"):
+		InventoryManager.is_inside_boundary = true
+
+func _on_pockets_boundary_area_exited(area: Area2D) -> void:
+	if area.is_in_group("draggable"):
+		InventoryManager.is_inside_boundary = false
+
+
+func _on_chest_boundary_area_entered(area: Area2D) -> void:
+	if area.is_in_group("draggable"):
+		InventoryManager.is_inside_boundary = true
+
+func _on_chest_boundary_area_exited(area: Area2D) -> void:
+	if area.is_in_group("draggable"):
+		InventoryManager.is_inside_boundary = false
 
 func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 	
