@@ -253,7 +253,6 @@ var is_crouching = false
 @export var DialogueInterface : Control
 @export var DeathScreen_BlackOverlay : Control
 @export var OverlayLayer_Overlay : Control
-@export var InventoryLayer_Boundary : Area2D
 @export var InventoryLayer_GreyLayer : ColorRect
 @export var ItemWorkshopLayer_MainLayer : Control
 @export var ItemWorkshopLayer_GreyLayer : ColorRect
@@ -697,12 +696,22 @@ func openInventory():
 	if InventoryManager.in_chest_interface:
 		
 		InventoryMainLayer.offset.x = -291.96
+		PocketsCollisionBoundary.set_deferred("monitorable", false)
+		PocketsCollisionBoundary.set_deferred("monitoring", false)
 		
+		ChestCollisionBoundary.set_deferred("monitorable", true)
+		ChestCollisionBoundary.set_deferred("monitoring", true)
 		
 	else:
 		
 		InventoryMainLayer.offset.x = 0
 		ChestMainLayer.hide()
+		
+		PocketsCollisionBoundary.set_deferred("monitorable", true)
+		PocketsCollisionBoundary.set_deferred("monitoring", true)
+		
+		ChestCollisionBoundary.set_deferred("monitorable", false)
+		ChestCollisionBoundary.set_deferred("monitoring", false)
 	
 	InventoryMainLayer.show()
 	InventoryLayer.show() # show the inventory UI
@@ -723,6 +732,23 @@ func closeInventory():
 	InventoryManager.inventory_open = false
 	inventory_opened_in_air = false  # Reset the flag when inventory is closed
 	MinimalAlert.hide_minimal_alert(0.1)
+
+func _on_pockets_boundary_area_entered(area: Area2D) -> void:
+	if area.is_in_group("draggable"):
+		InventoryManager.is_inside_boundary = true
+
+func _on_pockets_boundary_area_exited(area: Area2D) -> void:
+	if area.is_in_group("draggable"):
+		InventoryManager.is_inside_boundary = false
+
+
+func _on_chest_boundary_area_entered(area: Area2D) -> void:
+	if area.is_in_group("draggable"):
+		InventoryManager.is_inside_boundary = true
+
+func _on_chest_boundary_area_exited(area: Area2D) -> void:
+	if area.is_in_group("draggable"):
+		InventoryManager.is_inside_boundary = false
 
 func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 	

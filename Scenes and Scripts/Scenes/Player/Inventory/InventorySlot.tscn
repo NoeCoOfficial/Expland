@@ -43,6 +43,7 @@ shape = SubResource("RectangleShape2D_5hbs3")
 shape = SubResource("RectangleShape2D_q5yu5")
 
 [node name="is_populated" type="Label" parent="."]
+visible = false
 offset_left = 62.0
 offset_top = -23.0
 offset_right = 107.0
