@@ -93,14 +93,6 @@ func loadIslands() -> void:
 
 func showPopup():
 	visible = true
-	
-	var vbox_container = $ScrollContainer/VBoxContainer
-	if vbox_container.get_child_count() == 0:
-		print(str(vbox_container.get_child_count()))
-		$NoSavedIslandsNotice.visible = true
-	else:
-		print(str(vbox_container.get_child_count()))
-		$NoSavedIslandsNotice.visible = false
 
 func loadAndShow() -> void:
 	visible = true
@@ -121,6 +113,9 @@ func loadAndShow() -> void:
 				if folder["name"] == island_name:
 					ordered_folders.append(folder)
 					break
+		
+		print("Number of island folders found: ", folders.size())
+		IslandManager.FreeMode_Island_Count = folders.size()
 		
 		# Check if ordered_folders is empty and set the label visibility
 		if ordered_folders.size() == 0:
