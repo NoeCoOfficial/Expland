@@ -387,7 +387,7 @@ _data = {
 "unequip_SWORD": SubResource("Animation_u5xyb")
 }
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "PickupAttractionPos", "Slot1_Inventory_Ref", "Slot2_Inventory_Ref", "Slot3_Inventory_Ref", "Slot4_Inventory_Ref", "Slot5_Inventory_Ref", "Slot6_Inventory_Ref", "Slot7_Inventory_Ref", "Slot8_Inventory_Ref", "Slot9_Inventory_Ref", "Slot1_Chest_Ref", "Slot2_Chest_Ref", "Slot3_Chest_Ref", "Slot4_Chest_Ref", "Slot5_Chest_Ref", "Slot6_Chest_Ref", "Slot7_Chest_Ref", "Slot8_Chest_Ref", "Slot9_Chest_Ref", "Slot10_Chest_Ref", "Slot11_Chest_Ref", "Slot12_Chest_Ref", "Slot13_Chest_Ref", "Slot14_Chest_Ref", "Slot15_Chest_Ref", "Slot16_Chest_Ref", "Slot17_Chest_Ref", "Slot18_Chest_Ref", "Slot19_Chest_Ref", "Slot20_Chest_Ref", "Slot21_Chest_Ref", "Slot22_Chest_Ref", "Slot23_Chest_Ref", "Slot24_Chest_Ref", "Slot25_Chest_Ref", "Slot26_Chest_Ref", "Slot27_Chest_Ref", "Slot28_Chest_Ref", "Slot29_Chest_Ref", "Slot30_Chest_Ref", "Slot31_Chest_Ref", "Slot32_Chest_Ref", "Slot33_Chest_Ref", "Slot34_Chest_Ref", "Slot35_Chest_Ref", "Slot36_Chest_Ref", "Slot37_Chest_Ref", "Slot38_Chest_Ref", "Slot39_Chest_Ref", "Slot40_Chest_Ref", "Slot41_Chest_Ref", "Slot42_Chest_Ref", "Slot43_Chest_Ref", "Slot44_Chest_Ref", "Slot45_Chest_Ref", "Slot46_Chest_Ref", "Slot47_Chest_Ref", "Slot48_Chest_Ref", "Slot49_Chest_Ref", "Slot50_Chest_Ref", "Slot51_Chest_Ref", "Slot52_Chest_Ref", "Slot53_Chest_Ref", "Slot54_Chest_Ref", "Slot55_Chest_Ref", "Slot56_Chest_Ref", "Slot57_Chest_Ref", "Slot58_Chest_Ref", "Slot59_Chest_Ref", "Slot60_Chest_Ref", "Slot61_Chest_Ref", "Slot62_Chest_Ref", "Slot63_Chest_Ref", "Slot64_Chest_Ref", "Slot65_Chest_Ref", "Slot66_Chest_Ref", "Slot67_Chest_Ref", "Slot68_Chest_Ref", "Slot69_Chest_Ref", "Slot70_Chest_Ref", "Slot71_Chest_Ref", "Slot72_Chest_Ref", "Slot73_Chest_Ref", "Slot74_Chest_Ref", "Slot75_Chest_Ref", "Slot76_Chest_Ref", "Slot77_Chest_Ref", "Slot78_Chest_Ref", "Slot79_Chest_Ref", "Slot80_Chest_Ref", "Slot81_Chest_Ref", "Slot82_Chest_Ref", "Slot83_Chest_Ref", "Slot84_Chest_Ref", "Slot85_Chest_Ref", "Slot86_Chest_Ref", "Slot87_Chest_Ref", "Slot88_Chest_Ref", "Slot89_Chest_Ref", "Slot90_Chest_Ref", "Slot91_Chest_Ref", "Slot92_Chest_Ref", "Slot93_Chest_Ref", "Slot94_Chest_Ref", "Slot95_Chest_Ref", "Slot96_Chest_Ref", "Slot97_Chest_Ref", "Slot98_Chest_Ref", "Slot99_Chest_Ref", "Slot100_Chest_Ref", "ChestMainLayer", "ChestSlots", "Pickaxe_Video", "Axe_Video", "Sword_Video", "EquipAnimations_Player", "HAND_ITEM_TYPE_Label", "HUDLayer", "InventoryLayer", "InventoryMainLayer", "PauseLayer", "DebugLayer", "SettingsUI", "AchievementsUI", "AlertLayer", "CreditsLayer", "MinimalAlert", "TopLayerBlackOverlay", "SleepLayerBlackOverlay", "DayText_Label", "ProtectiveLayer", "Health_Bar", "Crosshair_Rect", "StaminaBar", "DialogueInterface", "DeathScreen_BlackOverlay", "OverlayLayer_Overlay", "InventoryLayer_GreyLayer", "ItemWorkshopLayer_MainLayer", "ItemWorkshopLayer_GreyLayer", "SaveOverlay_LighterBG", "SaveOverlay_DarkerBG", "HUDLayer_HealthBar", "HUDLayer_HungerBar", "GetUp_Label", "RandomText_Label", "OverlayLayer_RedOverlay", "ManualSaveCooldown", "HandItemDebounce", "StartDebugging_Btn", "Inventory_Item_Ref_Label", "Is_Raycast_Colliding_Label", "Is_Inside_Settings_Label", "Is_Inventory_Open_Label", "Is_Moving_Label", "Is_Walking_Label", "Is_Sprinting_Label", "Is_Crouching_Label", "Is_In_Dialogue_Interface_Label", "Showing_Interaction_Notification_Label", "Current_Time_Label", "Current_FPS_Label", "Player_Position_Label", "Player_VelocityY_Label", "Player_VelocityY_Accurate_Label", "Is_On_Floor_Label", "Inputs_Currently_Pressing_Label", "DAY_STATE_Label", "GAME_STATE_Label", "CURRENT_DAY_Label", "CURRENT_HOUR_Label", "CURRENT_WEATHER_Label") groups=["PlayerBody"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "PickupAttractionPos", "Slot1_Inventory_Ref", "Slot2_Inventory_Ref", "Slot3_Inventory_Ref", "Slot4_Inventory_Ref", "Slot5_Inventory_Ref", "Slot6_Inventory_Ref", "Slot7_Inventory_Ref", "Slot8_Inventory_Ref", "Slot9_Inventory_Ref", "Slot1_Chest_Ref", "Slot2_Chest_Ref", "Slot3_Chest_Ref", "Slot4_Chest_Ref", "Slot5_Chest_Ref", "Slot6_Chest_Ref", "Slot7_Chest_Ref", "Slot8_Chest_Ref", "Slot9_Chest_Ref", "Slot10_Chest_Ref", "Slot11_Chest_Ref", "Slot12_Chest_Ref", "Slot13_Chest_Ref", "Slot14_Chest_Ref", "Slot15_Chest_Ref", "Slot16_Chest_Ref", "Slot17_Chest_Ref", "Slot18_Chest_Ref", "Slot19_Chest_Ref", "Slot20_Chest_Ref", "Slot21_Chest_Ref", "Slot22_Chest_Ref", "Slot23_Chest_Ref", "Slot24_Chest_Ref", "Slot25_Chest_Ref", "ChestMainLayer", "ChestSlots", "Pickaxe_Video", "Axe_Video", "Sword_Video", "EquipAnimations_Player", "HAND_ITEM_TYPE_Label", "HUDLayer", "InventoryLayer", "InventoryMainLayer", "PauseLayer", "DebugLayer", "SettingsUI", "AchievementsUI", "AlertLayer", "CreditsLayer", "MinimalAlert", "TopLayerBlackOverlay", "SleepLayerBlackOverlay", "DayText_Label", "ProtectiveLayer", "Health_Bar", "Crosshair_Rect", "StaminaBar", "DialogueInterface", "DeathScreen_BlackOverlay", "OverlayLayer_Overlay", "InventoryLayer_GreyLayer", "ItemWorkshopLayer_MainLayer", "ItemWorkshopLayer_GreyLayer", "SaveOverlay_LighterBG", "SaveOverlay_DarkerBG", "HUDLayer_HealthBar", "HUDLayer_HungerBar", "GetUp_Label", "RandomText_Label", "OverlayLayer_RedOverlay", "ManualSaveCooldown", "HandItemDebounce", "StartDebugging_Btn", "Inventory_Item_Ref_Label", "Is_Raycast_Colliding_Label", "Is_Inside_Settings_Label", "Is_Inventory_Open_Label", "Is_Moving_Label", "Is_Walking_Label", "Is_Sprinting_Label", "Is_Crouching_Label", "Is_In_Dialogue_Interface_Label", "Showing_Interaction_Notification_Label", "Current_Time_Label", "Current_FPS_Label", "Player_Position_Label", "Player_VelocityY_Label", "Player_VelocityY_Accurate_Label", "Is_On_Floor_Label", "Inputs_Currently_Pressing_Label", "DAY_STATE_Label", "GAME_STATE_Label", "CURRENT_DAY_Label", "CURRENT_HOUR_Label", "CURRENT_WEATHER_Label") groups=["PlayerBody"]]
 collision_mask = 3
 script = ExtResource("1_5mhs1")
 Fade_In = true
@@ -432,81 +432,6 @@ Slot22_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Che
 Slot23_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot23")
 Slot24_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot24")
 Slot25_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot25")
-Slot26_Chest_Ref = NodePath("")
-Slot27_Chest_Ref = NodePath("")
-Slot28_Chest_Ref = NodePath("")
-Slot29_Chest_Ref = NodePath("")
-Slot30_Chest_Ref = NodePath("")
-Slot31_Chest_Ref = NodePath("")
-Slot32_Chest_Ref = NodePath("")
-Slot33_Chest_Ref = NodePath("")
-Slot34_Chest_Ref = NodePath("")
-Slot35_Chest_Ref = NodePath("")
-Slot36_Chest_Ref = NodePath("")
-Slot37_Chest_Ref = NodePath("")
-Slot38_Chest_Ref = NodePath("")
-Slot39_Chest_Ref = NodePath("")
-Slot40_Chest_Ref = NodePath("")
-Slot41_Chest_Ref = NodePath("")
-Slot42_Chest_Ref = NodePath("")
-Slot43_Chest_Ref = NodePath("")
-Slot44_Chest_Ref = NodePath("")
-Slot45_Chest_Ref = NodePath("")
-Slot46_Chest_Ref = NodePath("")
-Slot47_Chest_Ref = NodePath("")
-Slot48_Chest_Ref = NodePath("")
-Slot49_Chest_Ref = NodePath("")
-Slot50_Chest_Ref = NodePath("")
-Slot51_Chest_Ref = NodePath("")
-Slot52_Chest_Ref = NodePath("")
-Slot53_Chest_Ref = NodePath("")
-Slot54_Chest_Ref = NodePath("")
-Slot55_Chest_Ref = NodePath("")
-Slot56_Chest_Ref = NodePath("")
-Slot57_Chest_Ref = NodePath("")
-Slot58_Chest_Ref = NodePath("")
-Slot59_Chest_Ref = NodePath("")
-Slot60_Chest_Ref = NodePath("")
-Slot61_Chest_Ref = NodePath("")
-Slot62_Chest_Ref = NodePath("")
-Slot63_Chest_Ref = NodePath("")
-Slot64_Chest_Ref = NodePath("")
-Slot65_Chest_Ref = NodePath("")
-Slot66_Chest_Ref = NodePath("")
-Slot67_Chest_Ref = NodePath("")
-Slot68_Chest_Ref = NodePath("")
-Slot69_Chest_Ref = NodePath("")
-Slot70_Chest_Ref = NodePath("")
-Slot71_Chest_Ref = NodePath("")
-Slot72_Chest_Ref = NodePath("")
-Slot73_Chest_Ref = NodePath("")
-Slot74_Chest_Ref = NodePath("")
-Slot75_Chest_Ref = NodePath("")
-Slot76_Chest_Ref = NodePath("")
-Slot77_Chest_Ref = NodePath("")
-Slot78_Chest_Ref = NodePath("")
-Slot79_Chest_Ref = NodePath("")
-Slot80_Chest_Ref = NodePath("")
-Slot81_Chest_Ref = NodePath("")
-Slot82_Chest_Ref = NodePath("")
-Slot83_Chest_Ref = NodePath("")
-Slot84_Chest_Ref = NodePath("")
-Slot85_Chest_Ref = NodePath("")
-Slot86_Chest_Ref = NodePath("")
-Slot87_Chest_Ref = NodePath("")
-Slot88_Chest_Ref = NodePath("")
-Slot89_Chest_Ref = NodePath("")
-Slot90_Chest_Ref = NodePath("")
-Slot91_Chest_Ref = NodePath("")
-Slot92_Chest_Ref = NodePath("")
-Slot93_Chest_Ref = NodePath("")
-Slot94_Chest_Ref = NodePath("")
-Slot95_Chest_Ref = NodePath("")
-Slot96_Chest_Ref = NodePath("")
-Slot97_Chest_Ref = NodePath("")
-Slot98_Chest_Ref = NodePath("")
-Slot99_Chest_Ref = NodePath("")
-Slot100_Chest_Ref = NodePath("")
 ChestMainLayer = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer")
 ChestSlots = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots")
 Pickaxe_Video = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video")
@@ -740,6 +665,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="InventoryMainLayer" type="CanvasLayer" parent="Head/Camera3D/InventoryLayer"]
 layer = 2
+offset = Vector2(-291.96, 0)
+transform = Transform2D(1, 0, 0, 1, -291.96, 0)
 
 [node name="Background" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 anchors_preset = 8
@@ -1095,6 +1022,9 @@ offset_bottom = 502.0
 focus_mode = 0
 action_mode = 0
 button_mask = 2
+
+[node name="ChestBoundary" type="Area2D" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
+position = Vector2(291.96, 0)
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
 

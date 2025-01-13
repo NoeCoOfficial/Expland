@@ -130,7 +130,7 @@ func create_pickup_object():
 		return
 	is_creating_pickup = true
 	var INVENTORY_LAYER = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer")
-	var CHEST_SLOTS = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ScrollContainer/GridContainer/ChestSlots")
+	var CHEST_SLOTS = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots")
 	var PICKUP_SCENE = load("res://Scenes and Scripts/Scenes/Player/Inventory/ItemPickupObject.tscn")
 	var PICKUP = PICKUP_SCENE.instantiate()
 	PlayerManager.WORLD.add_child(PICKUP)
@@ -141,7 +141,7 @@ func create_pickup_object():
 
 func spawn_inventory_dropable(atPos : Vector2, ITEM_TYPE, slotToPopulate, is_in_chest_slot : bool):
 	if get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer") != null:
-		var ChestSlotsControl = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ScrollContainer/GridContainer/ChestSlots")
+		var ChestSlotsControl = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots")
 		var InventoryLayer = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer")
 		var NewDropable = load("res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDropable.tscn")
 		var DropableInstance = NewDropable.instantiate()
@@ -163,7 +163,7 @@ func spawn_inventory_dropable(atPos : Vector2, ITEM_TYPE, slotToPopulate, is_in_
 
 func spawn_inventory_dropable_from_load(atPos : Vector2, ITEM_TYPE, is_in_chest_slot : bool):
 	if get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer") != null:
-		var ChestSlotsControl = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ScrollContainer/GridContainer/ChestSlots")
+		var ChestSlotsControl = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots")
 		var InventoryLayer = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer")
 		var NewDropable = load("res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDropable.tscn")
 		var DropableInstance = NewDropable.instantiate()
