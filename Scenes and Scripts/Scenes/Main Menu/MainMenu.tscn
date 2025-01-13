@@ -770,6 +770,7 @@ visible = false
 visible = false
 
 [node name="FreeModeIslandPopup" type="CanvasLayer" parent="Camera3D/MainLayer"]
+visible = false
 
 [node name="GreyLayer" type="ColorRect" parent="Camera3D/MainLayer/FreeModeIslandPopup"]
 anchors_preset = 15
@@ -911,6 +912,7 @@ caret_blink = true
 metadata/_edit_use_anchors_ = true
 
 [node name="LoadIslandPopup" type="Control" parent="Camera3D/MainLayer/FreeModeIslandPopup"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
