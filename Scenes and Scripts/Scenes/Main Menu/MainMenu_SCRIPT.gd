@@ -91,6 +91,7 @@ func _ready() -> void:
 	
 	PlayerSettingsData.loadSettings()
 	IslandAccessOrder.load_order()
+	$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup.loadIslands()
 	
 	Utils.set_center_offset($Camera3D/MainLayer/PlayButton)
 	Utils.set_center_offset($Camera3D/MainLayer/PlayButtonTrigger)
@@ -446,7 +447,7 @@ func _on_new_island_button_pressed() -> void:
 	$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup.show()
 
 func _on_load_island_button_pressed() -> void:
-	$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup.loadAndShow()
+	$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup.showPopup()
 	is_in_load_island_interface = true
 	is_in_free_mode_island_popup = false
 

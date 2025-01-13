@@ -50,6 +50,34 @@ extends Control
 func _ready() -> void:
 	visible = false
 
+func loadIslands() -> void:
+	var dir = DirAccess.open("user://saveData/Free Mode/Islands/")
+	if dir:
+		var folders = []
+		dir.list_dir_begin()
+		var folder_name = dir.get_next()
+		while folder_name != "":
+			if dir.current_is_dir() and folder_name != "." and folder_name != "..":
+				folders.append({"name": folder_name})
+			folder_name = dir.get_next()
+		dir.list_dir_end()
+		
+		var ordered_folders = []
+		for island_name in IslandAccessOrder.island_access_order:
+			for folder in folders:
+				if folder["name"] == island_name:
+					ordered_folders.append(folder)
+					break
+		
+		# Check if ordered_folders is empty and set the label visibility
+		if ordered_folders.size() == 0:
+			$NoSavedIslandsNotice.visible = true
+		else:
+			$NoSavedIslandsNotice.visible = false
+
+func showPopup():
+	visible = true
+
 func loadAndShow() -> void:
 	visible = true
 	var dir = DirAccess.open("user://saveData/Free Mode/Islands/")
