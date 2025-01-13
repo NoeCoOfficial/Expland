@@ -68,6 +68,7 @@ var debounce_timer = 0.2
 var can_create_pickup = true
 var is_hovering_over = false
 var can_quick_switch = false
+var can_quick_drop = false
 
 func _ready():
 	self.name = "Dropable"
@@ -215,6 +216,14 @@ func _process(delta):
 				mouse_over_timer.start() # Restart the timer when the item is placed down
 
 func _input(_event: InputEvent) -> void:
+	# Quick Dropping
+	if Input.is_action_just_pressed("Inventory_QuickDrop"):
+		if can_quick_drop and !InventoryManager.is_dragging:
+			InventoryManager.item_ref = ITEM_TYPE
+			InventoryManager.create_pickup_object()
+			slot_inside.set_populated(false)
+			self.queue_free()
+			
 	# Quick switching
 	if Input.is_action_just_pressed("Inventory_QuickSwitch"):
 		if can_quick_switch and InventoryManager.in_chest_interface and !InventoryManager.is_dragging:
@@ -305,7 +314,8 @@ func _on_area_2d_body_exited(body):
 
 func _on_area_2d_mouse_entered():
 	can_quick_switch = true
-	
+	can_quick_drop = true
+
 	if !InventoryManager.is_dragging:
 		is_hovering_over = true
 		mouse_over_timer.start()
@@ -321,7 +331,8 @@ func _on_area_2d_mouse_entered():
 
 func _on_area_2d_mouse_exited():
 	can_quick_switch = false
-	
+	can_quick_drop = false
+
 	if !InventoryManager.is_dragging:
 		is_hovering_over = false
 		mouse_over_timer.stop()
