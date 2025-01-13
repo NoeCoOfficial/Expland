@@ -865,7 +865,7 @@ func openInventory():
 
 func closeInventory():
 	InventoryLayer_GreyLayer.show()
-	saveInventory()
+	#saveInventory()
 	InventoryMainLayer.hide()
 	InventoryLayer.hide() # hide the inventory UI
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor
@@ -1247,7 +1247,7 @@ func on_item_workshop_open_finished():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func closeItemWorkshop():
-	saveInventory()
+	#saveInventory()
 	PauseManager.inside_can_move_item_workshop = false
 	PauseManager.inside_item_workshop = false
 	
