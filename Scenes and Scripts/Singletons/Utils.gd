@@ -48,6 +48,7 @@
 extends Node
 
 var screenshot_thread: Thread
+var delete_island_thread: Thread
 
 func format_number(n: int) -> String: # A function for formatting numbers easily. Must be an integer!
 	if n >= 1_000: # if the number is greater than or equal to 1,000
@@ -188,7 +189,7 @@ func take_screenshot_in_thread(save_path: String):
 		else:
 			print_rich("[color=orange][Utils] Failed to start screenshot save thread[/color]")
 	else:
-		print_rich("[color=orange][Utils] Failed to capture image from viewport.[/color]")
+		print_rich("[color=red][Utils] Failed to capture image from viewport.[/color]")
 
 # Function that runs on the thread for saving
 func _save_image_thread(image: Image, save_path: String):
@@ -197,6 +198,7 @@ func _save_image_thread(image: Image, save_path: String):
 		print_rich("[color=orange][Utils] Screenshot saved to: [/color]", save_path)
 	else:
 		print_rich("[color=orange][Utils] Failed to save screenshot.[/color]")
+	
 	
 	# Signal the main thread that the task is complete (if needed)
 	call_deferred("_cleanup_screenshot_thread")
@@ -208,6 +210,23 @@ func _cleanup_screenshot_thread():
 		screenshot_thread = null
 
 func delete_free_mode_island(Island_Name: String) -> void:
+	IslandManager.FreeMode_Island_Count -= 1
+	# Ensure no other thread is running
+	if delete_island_thread:
+		delete_island_thread.wait_to_finish()
+		delete_island_thread = null
+	
+	# Start the thread for deleting the island folder
+	delete_island_thread = Thread.new()
+	var callable = Callable(self, "_delete_free_mode_island_in_thread").bind(Island_Name)
+	var result = delete_island_thread.start(callable)
+	
+	if result == OK:
+		print_rich("[color=orange][Utils] Delete island thread started[/color]")
+	else:
+		print_rich("[color=orange][Utils] Failed to start island delete thread[/color]")
+
+func _delete_free_mode_island_in_thread(Island_Name : String):
 	var full_dir = "user://saveData/Free Mode/Islands/" + Island_Name
 	OS.move_to_trash(ProjectSettings.globalize_path(full_dir))
 

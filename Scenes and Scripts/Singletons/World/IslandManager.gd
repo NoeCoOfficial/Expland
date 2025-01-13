@@ -49,12 +49,11 @@ extends Node
 
 var transitioning_from_menu
 var transitioningFromNewIsland = false
+var FreeMode_Island_Count : int
 
 var Current_Island_Name = "Debug"
 var Current_Game_Mode = ""
 var Current_Weather = ""
-
-
 
 func _ready() -> void:
 	if !OS.has_feature("debug"):

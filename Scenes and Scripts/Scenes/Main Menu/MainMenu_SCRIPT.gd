@@ -59,6 +59,7 @@ var is_in_free_mode_create_island = false
 var is_in_load_island_interface = false
 
 var is_in_delete_popup = false
+var island_element_to_free
 
 var is_tweening = false
 
@@ -91,6 +92,7 @@ func _ready() -> void:
 	
 	PlayerSettingsData.loadSettings()
 	IslandAccessOrder.load_order()
+	$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup.loadIslands()
 	
 	Utils.set_center_offset($Camera3D/MainLayer/PlayButton)
 	Utils.set_center_offset($Camera3D/MainLayer/PlayButtonTrigger)
@@ -158,7 +160,6 @@ func _input(_event: InputEvent) -> void:
 			if is_in_load_island_interface:
 				$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup.visible = false
 				$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandOrLoadIslandPopup.show()
-				$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup.clearOldElements()
 				FreeModeIslandPopupLayer.visible = true
 				is_in_load_island_interface = false
 				is_in_free_mode_island_popup = true
@@ -446,11 +447,18 @@ func _on_new_island_button_pressed() -> void:
 	$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup.show()
 
 func _on_load_island_button_pressed() -> void:
-	$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup.loadAndShow()
+	$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup.showPopup()
 	is_in_load_island_interface = true
 	is_in_free_mode_island_popup = false
+	
+	var vbox_container = $Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup/ScrollContainer/VBoxContainer
+	if vbox_container.get_child_count() == 0:
+		$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup/NoSavedIslandsNotice.visible = true
+	else:
+		$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup/NoSavedIslandsNotice.visible = false
 
-func ShowDeletePopup(Island_Name):
+func ShowDeletePopup(Island_Name, element_to_free):
+	island_element_to_free = element_to_free
 	is_in_load_island_interface = false
 	is_in_delete_popup = true
 	$Camera3D/MainLayer/DeleteIslandPopup/DeleteIslandPopupMain.showDeleteIslandPopup(Island_Name)
@@ -458,11 +466,14 @@ func ShowDeletePopup(Island_Name):
 func _on_delete_island_yes_pressed() -> void:
 	var Island_To_Delete = $Camera3D/MainLayer/DeleteIslandPopup/DeleteIslandPopupMain.getIslandToDelete()
 	
+	island_element_to_free.queue_free()
 	Utils.delete_free_mode_island(Island_To_Delete)
 	IslandAccessOrder.remove_island(Island_To_Delete)
 	
-	$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup.clearOldElements()
-	$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup.loadAndShow()
+	if IslandManager.FreeMode_Island_Count == 0:
+		$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup/NoSavedIslandsNotice.visible = true
+	
+	$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup.showPopup()
 	
 	$Camera3D/MainLayer/DeleteIslandPopup.visible = false
 	$Camera3D/MainLayer/DeleteIslandPopup.hide()
