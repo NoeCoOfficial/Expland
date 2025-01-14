@@ -155,11 +155,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("6_28g6n")
 theme_override_font_sizes/font_size = 21
-current_tab = 1
+current_tab = 0
 script = ExtResource("2_vw753")
 
 [node name="General" type="TabBar" parent="MainLayer/SettingsTabContainer"]
-visible = false
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("2_vw753")
@@ -190,7 +189,38 @@ theme_override_font_sizes/font_size = 17
 text = "Show startup screen"
 vertical_alignment = 1
 
+[node name="AutosaveIntervalLabel" type="Label" parent="MainLayer/SettingsTabContainer/General"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0346668
+anchor_top = 0.0172414
+anchor_right = 0.306668
+anchor_bottom = 0.096059
+offset_left = 22.0001
+offset_top = 41.0
+offset_right = 49.9999
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("4_m5nwd")
+theme_override_font_sizes/font_size = 17
+text = "Autosave Interval"
+vertical_alignment = 1
+
+[node name="AutosaveIntervalSpinBox" type="SpinBox" parent="MainLayer/SettingsTabContainer/General"]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 48.0
+offset_right = 243.0
+offset_bottom = 80.0
+theme = ExtResource("4_m5nwd")
+min_value = 60.0
+max_value = 999.0
+value = 60.0
+suffix = "sec"
+
 [node name="Graphics" type="TabBar" parent="MainLayer/SettingsTabContainer"]
+visible = false
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("2_vw753")
