@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=90 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -217,6 +217,44 @@ Button/styles/hover = SubResource("StyleBoxFlat_meokx")
 Button/styles/normal = ExtResource("20_b68th")
 Button/styles/pressed = SubResource("StyleBoxFlat_8tgxn")
 Label/styles/normal = ExtResource("21_k6ube")
+
+[sub_resource type="Animation" id="Animation_wpbcy"]
+resource_name = "spin"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LoadingIcon:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-6.28319, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_p5ohr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LoadingIcon:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4x2pf"]
+_data = {
+"RESET": SubResource("Animation_p5ohr"),
+"spin": SubResource("Animation_wpbcy")
+}
 
 [sub_resource type="Animation" id="Animation_6vnpu"]
 length = 0.001
@@ -531,13 +569,13 @@ autostart = true
 script = ExtResource("2_t6toi")
 
 [node name="is_inside_boundary_false_startup" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.3
 one_shot = true
 autostart = true
 script = ExtResource("2_t6toi")
 
 [node name="AutoSaveTimer" type="Timer" parent="."]
-wait_time = 60.0
+wait_time = 10.0
 autostart = true
 script = ExtResource("2_t6toi")
 
@@ -2546,23 +2584,57 @@ offset_right = -8.0
 offset_bottom = 48.0
 grow_horizontal = 0
 
-[node name="LoadingIcon" type="TextureRect" parent="Head/Camera3D/AutosaveLayer/AutosaveMainLayer"]
+[node name="Saving" type="Control" parent="Head/Camera3D/AutosaveLayer/AutosaveMainLayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -29.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 34.5)
+
+[node name="SpinningAnimation" type="AnimationPlayer" parent="Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving"]
+libraries = {
+"": SubResource("AnimationLibrary_4x2pf")
+}
+
+[node name="LoadingIcon" type="TextureRect" parent="Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -9.0
-offset_top = -9.0
-offset_right = 9.0
-offset_bottom = 9.0
+offset_left = -12.5
+offset_top = 8.5
+offset_right = 12.5
+offset_bottom = 33.5
 grow_horizontal = 2
 grow_vertical = 2
+rotation = 6.28319
+pivot_offset = Vector2(12.5, 12.5)
 texture = ExtResource("52_xwypu")
 expand_mode = 1
 
-[node name="SpinningAnimation" type="AnimationPlayer" parent="Head/Camera3D/AutosaveLayer/AutosaveMainLayer"]
+[node name="SavingLabel" type="Label" parent="Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -8.5
+offset_right = 22.0
+offset_bottom = 5.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 12
+text = "Saving..."
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="DebugLayer" type="CanvasLayer" parent="Head/Camera3D"]
 visible = false

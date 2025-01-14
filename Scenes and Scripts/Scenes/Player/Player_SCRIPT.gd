@@ -503,6 +503,7 @@ func _ready():
 	
 	DialogueManager.DialogueInterface = DialogueInterface
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Lock mouse
+	$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving/SpinningAnimation.play(&"spin")
 	
 	if PlayerData.GAME_STATE == "DEAD": # check if the game state is dead
 		DeathScreen_BlackOverlay.set_self_modulate(Color(0, 0, 0, 1)) # set the black overlay's self modulate to black
@@ -1024,7 +1025,21 @@ func saveAllDataWithAnimation():
 		hideLighterBG_SAVEOVERLAY()
 
 func _on_auto_save_timer_timeout(): # A function to save the player data every 60 seconds (or how long the timer goes for)
+	Autosave_showSaving()
 	SaveManager.saveAllData() # Saves everything
+
+func Autosave_showSaving():
+	$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving.scale = Vector2(0.83, 0.83)
+	$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving.modulate = Color(1, 1, 1, 0)
+	
+	var tween = get_tree().create_tween().set_parallel()
+	tween.connect("finished", Callable(self, "Autosave_showSaved"))
+	tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving, "modulate", Color(1, 1, 1, 1), 0.2)
+	tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving, "scale", Vector2(1.0, 1.0), 0.2)
+	tween.tween_interval(4.0)
+
+func Autosave_showSaved():
+	pass
 
 ######################################
 # Save overlay animation
