@@ -292,7 +292,7 @@ var is_crouching = false
 @export var DAY_STATE_Label : Label
 @export var GAME_STATE_Label : Label
 @export var CURRENT_DAY_Label : Label
-@export var CURRENT_HOUR_Label : Label
+@export var CURRENT_TIME_Label : Label
 @export var CURRENT_WEATHER_Label : Label
 
 ######################################
@@ -477,7 +477,7 @@ func _process(delta):
 	DAY_STATE_Label.text = "DAY_STATE = " + TimeManager.DAY_STATE
 	GAME_STATE_Label.text = "GAME_STATE = " + PlayerData.GAME_STATE
 	CURRENT_DAY_Label.text = "CURRENT_DAY = " + str(TimeManager.CURRENT_DAY)
-	CURRENT_HOUR_Label.text = "CURRENT_HOUR = " + str(TimeManager.CURRENT_HOUR)
+	CURRENT_TIME_Label.text = "CURRENT_TIME = " + str(TimeManager.CURRENT_TIME)
 	
 	CURRENT_WEATHER_Label.text = "CURRENT_WEATHER = " + IslandManager.Current_Weather
 	
@@ -1005,9 +1005,6 @@ func _on_save_and_quit_to_menu_pressed() -> void:
 func on_save_and_quit_to_menu_fade_finished():
 	var mainMenuScene = load("res://Scenes and Scripts/Scenes/Main Menu/MainMenu.tscn")
 	
-	PlayerManager.WORLD.haltAllHourTweens()
-	PlayerManager.WORLD.haltAllWeatherTweens()
-	
 	get_tree().change_scene_to_packed(mainMenuScene)
 
 func saveAllDataWithAnimation():
@@ -1082,17 +1079,16 @@ func hideDarkerBG_SAVEOVERLAY():
 func spawn_minimal_alert_from_player(holdSec : float, fadeInTime : float, fadeOutTime : float, message : String):
 	MinimalAlert.spawn_minimal_alert(holdSec, fadeInTime, fadeOutTime, message)
 
-func sleep_cycle(setSleeping : bool, incrementDay : bool, fadeInTime : float, holdTime : float, fadeOutTime : float, hour : int):
+func sleep_cycle(setSleeping : bool, incrementDay : bool, fadeInTime : float, holdTime : float, fadeOutTime : float, time : int):
 	if setSleeping:
 		PlayerData.GAME_STATE = "SLEEPING"
 	
 	if incrementDay:
-		if TimeManager.CURRENT_HOUR <= 23 and TimeManager.CURRENT_HOUR >= 18:
+		if TimeManager.CURRENT_TIME <= 23 and TimeManager.CURRENT_TIME >= 18:
 			TimeManager.CURRENT_DAY += 1
 	
 	SaveManager.saveAllData()
 	
-	PlayerManager.WORLD.haltAllHourTweens()
 	
 	DayText_Label.text = "Day " + str(TimeManager.CURRENT_DAY)
 	SleepLayerBlackOverlay.modulate = Color(1, 1, 1, 0)
@@ -1106,16 +1102,16 @@ func sleep_cycle(setSleeping : bool, incrementDay : bool, fadeInTime : float, ho
 	
 	await get_tree().create_timer(fadeInTime + holdTime).timeout
 	
-	on_sleep_cycle_hold_finished(fadeOutTime, hour)
+	on_sleep_cycle_hold_finished(fadeOutTime, time)
 
-func on_sleep_cycle_hold_finished(fadeOutTime, hour : int):
+func on_sleep_cycle_hold_finished(fadeOutTime, time : int):
 	
 	if PlayerManager.WORLD != null:
-		if PlayerManager.WORLD.has_method("set_hour"):
+		if PlayerManager.WORLD.has_method("set_time"):
 			
 			# TASK May need to fix stuff here, if the code decides not to work (it has a mind of it's own)
 			
-			PlayerManager.WORLD.set_hour(hour)
+			PlayerManager.WORLD.set_time(time)
 	
 	PlayerData.GAME_STATE = "NORMAL"
 	PlayerData.Health += 5
