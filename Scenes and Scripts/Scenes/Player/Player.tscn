@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=91 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -56,6 +56,7 @@
 [ext_resource type="Texture2D" uid="uid://dq8jg5iy6tfyc" path="res://Textures/Inventory/AXE.png" id="42_bm4qo"]
 [ext_resource type="Texture2D" uid="uid://dixs8s5v2su7q" path="res://Textures/Inventory/SWORD.png" id="43_0oip2"]
 [ext_resource type="Texture2D" uid="uid://64jg78rc6wkb" path="res://Textures/Icons/Loading_Icon.png" id="52_xwypu"]
+[ext_resource type="Texture2D" uid="uid://cliv00fuliseq" path="res://Textures/Icons/TickGreen_Icon.png" id="53_i3m63"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_w6tro"]
 
@@ -2585,6 +2586,8 @@ offset_bottom = 48.0
 grow_horizontal = 0
 
 [node name="Saving" type="Control" parent="Head/Camera3D/AutosaveLayer/AutosaveMainLayer"]
+visible = false
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2630,9 +2633,60 @@ offset_right = 22.0
 offset_bottom = 5.5
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(21.5, 7)
 theme = ExtResource("17_rhxkt")
 theme_override_font_sizes/font_size = 12
 text = "Saving..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Saved" type="Control" parent="Head/Camera3D/AutosaveLayer/AutosaveMainLayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -29.0
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 34.5)
+
+[node name="TickIcon" type="TextureRect" parent="Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = 7.0
+offset_right = 14.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 6.28319
+pivot_offset = Vector2(14, 14)
+texture = ExtResource("53_i3m63")
+expand_mode = 1
+
+[node name="SavedLabel" type="Label" parent="Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -8.5
+offset_right = 21.0
+offset_bottom = 5.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(21.5, 7)
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 12
+text = "Saved"
 horizontal_alignment = 1
 vertical_alignment = 1
 

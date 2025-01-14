@@ -1029,6 +1029,8 @@ func _on_auto_save_timer_timeout(): # A function to save the player data every 6
 	SaveManager.saveAllData() # Saves everything
 
 func Autosave_showSaving():
+	$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved.visible = false
+	$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving.visible = true
 	$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving.scale = Vector2(0.83, 0.83)
 	$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving.modulate = Color(1, 1, 1, 0)
 	
@@ -1039,7 +1041,18 @@ func Autosave_showSaving():
 	tween.tween_interval(4.0)
 
 func Autosave_showSaved():
-	pass
+	$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved.visible = true
+	$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved.scale = Vector2(0.83, 0.83)
+	$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved.modulate = Color(1, 1, 1, 0)
+	
+	var tween = get_tree().create_tween().set_parallel()
+	tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving, "modulate", Color(1, 1, 1, 0), 0.2)
+	tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving, "scale", Vector2(0.83, 0.83), 0.2)
+	tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved, "modulate", Color(1, 1, 1, 1), 0.2).set_delay(0.2)
+	tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved, "scale", Vector2(1.0, 1.0), 0.2).set_delay(0.2)
+	
+	tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved, "modulate", Color(1, 1, 1, 0), 0.2).set_delay(3.2)
+	tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved, "scale", Vector2(0.83, 0.83), 0.2).set_delay(3.2)
 
 ######################################
 # Save overlay animation
