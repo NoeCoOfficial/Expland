@@ -126,3 +126,6 @@ func get_weighted_random_weather():
 		cumulative += weights[i]
 		if random_value < cumulative:
 			return options[i]
+
+func set_time(minute : int):
+	pass
