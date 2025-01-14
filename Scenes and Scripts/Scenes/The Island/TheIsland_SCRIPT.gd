@@ -136,11 +136,6 @@ func set_dof_blur(value : bool) -> void:
 	else:
 		cameraAttributesResource.dof_blur_far_enabled = false
 
-func _on_auto_save_timeout() -> void:
-	if IslandManager.Current_Game_Mode == "FREE":
-		Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
-		SaveManager.saveAllData()
-
 func get_weighted_random_weather():
 	var weights = [60, 10, 10, 20]
 	
@@ -292,7 +287,6 @@ func _on_tick() -> void:
 		if TimeManager.CURRENT_HOUR > 23:
 			TimeManager.CURRENT_HOUR = 0
 		
-		SaveManager.saveAllData()
 		print("Next hour: " + str(TimeManager.CURRENT_HOUR))
 		
 		

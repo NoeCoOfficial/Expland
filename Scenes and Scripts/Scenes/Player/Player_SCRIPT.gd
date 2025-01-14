@@ -350,7 +350,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 	
 	if Input.is_action_just_pressed("SaveGame") and OS.has_feature("debug") and IslandManager.Current_Game_Mode == "FREE":
 		Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
-		
+		SaveManager.saveAllData()
 		saveAllDataWithAnimation()
 	
 	if Input.is_action_just_pressed("Inventory") and !PauseManager.inside_absolute_item_workshop and !PauseManager.is_paused and !InventoryManager.in_chest_interface and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !InventoryManager.is_dragging and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
@@ -629,7 +629,6 @@ func takeDamage(DamageToTake): # A function to take damage from the player
 			
 			showDeathScreen() # call the death screen function 
 			
-			SaveManager.saveAllData()
 			
 		else:
 			takeDamageOverlay() # call the take damage overlay function
@@ -1026,7 +1025,6 @@ func saveAllDataWithAnimation():
 
 func _on_auto_save_timer_timeout(): # A function to save the player data every 60 seconds (or how long the timer goes for)
 	Autosave_showSaving()
-	SaveManager.saveAllData() # Saves everything
 
 func Autosave_showSaving():
 	$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved.visible = false
@@ -1041,6 +1039,9 @@ func Autosave_showSaving():
 	tween.tween_interval(4.0)
 
 func Autosave_showSaved():
+	SaveManager.saveAllData() # Saves everything
+	Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png") # Take island screenshot
+	
 	$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved.visible = true
 	$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved.scale = Vector2(0.83, 0.83)
 	$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved.modulate = Color(1, 1, 1, 0)
