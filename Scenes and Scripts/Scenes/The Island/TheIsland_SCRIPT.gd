@@ -70,6 +70,7 @@ var SunsetColor = Color(0.98, 0.729, 0.312)
 
 var NightCloudColor = Color(0, 0, 0)
 var DayCloudColor = Color(0.367, 0.367, 0.367)
+Color(0.311, 0.463, 0.682)
 
 func _ready() -> void:
 	randomize()
