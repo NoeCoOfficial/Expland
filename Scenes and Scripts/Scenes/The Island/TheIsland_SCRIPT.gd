@@ -125,7 +125,4 @@ func get_weighted_random_weather():
 	for i in options.size():
 		cumulative += weights[i]
 		if random_value < cumulative:
-			if TimeManager.CURRENT_HOUR != 18 or TimeManager.CURRENT_HOUR != 4:
-				return options[i]
-			else:
-				return 1
+			return options[i]
