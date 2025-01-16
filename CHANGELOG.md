@@ -26,6 +26,9 @@
 - Dynamic clouds in the sky that move
 - A very simple weather system that is yet to be improved
 
+### Changed:
+- Revamped the entire Day/Night cycle system, making it more optimized and less buggy. Also the sunrise is beautiful
+
 ### Fixed:
 - Minor bugs associated with sleeping
 
