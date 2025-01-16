@@ -272,6 +272,8 @@ var is_crouching = false
 @export_group("Debug")
 
 @export var StartDebugging_Btn : Button
+@export var SetTime_SpinBox : SpinBox
+@export var SetTime_Button : Button
 @export var Inventory_Item_Ref_Label : Label
 @export var Is_Raycast_Colliding_Label : Label
 @export var Is_Inside_Settings_Label : Label
@@ -458,6 +460,18 @@ func _process(delta):
 	var seconds = time_now["second"]
 	var time_string = str(hours).pad_zeros(2) + ":" + str(minutes).pad_zeros(2) + ":" + str(seconds).pad_zeros(2)
 	
+	if DebugManager.is_debugging:
+		SetTime_SpinBox.show()
+		SetTime_Button.show()
+		DebugLayer.show()
+		StartDebugging_Btn.text = "STOP DEBUGGING"
+		
+	else:
+		SetTime_SpinBox.hide()
+		SetTime_Button.hide()
+		DebugLayer.hide()
+		StartDebugging_Btn.text = "START DEBUGGING"
+	
 	Inventory_Item_Ref_Label.text = "item_ref = " + InventoryManager.item_ref
 	Is_Raycast_Colliding_Label.text = "RayCast colliding? " + str(InteractionManager.is_colliding)
 	Is_Inside_Settings_Label.text = "is_inside_settings = " + str(PauseManager.is_inside_settings)
@@ -478,7 +492,6 @@ func _process(delta):
 	GAME_STATE_Label.text = "GAME_STATE = " + PlayerData.GAME_STATE
 	CURRENT_DAY_Label.text = "CURRENT_DAY = " + str(TimeManager.CURRENT_DAY)
 	CURRENT_TIME_Label.text = "CURRENT_TIME = " + str(TimeManager.CURRENT_TIME)
-	
 	CURRENT_WEATHER_Label.text = "CURRENT_WEATHER = " + IslandManager.Current_Weather
 	
 	## END DEBUGGING
@@ -1021,7 +1034,8 @@ func saveAllDataWithAnimation():
 		hideLighterBG_SAVEOVERLAY()
 
 func _on_auto_save_timer_timeout(): # A function to save the player data every 60 seconds (or how long the timer goes for)
-	Autosave_showSaving()
+	if !PauseManager.is_paused:
+		Autosave_showSaving()
 
 func Autosave_showSaving():
 	$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved.visible = false
@@ -1229,9 +1243,9 @@ func update_bar(barName : String, animate : bool, toValue):
 func _on_start_debugging_btn_pressed() -> void:
 	if DebugManager.is_debugging:
 		DebugManager.is_debugging = false
-		DebugLayer.hide()
-		StartDebugging_Btn.text = "START DEBUGGING"
 	else:
 		DebugManager.is_debugging = true
-		DebugLayer.show()
-		StartDebugging_Btn.text = "STOP DEBUGGING"
+
+func _on_set_time_button_pressed() -> void:
+	TimeManager.CURRENT_TIME = SetTime_SpinBox.value
+	PlayerManager.WORLD.set_time(SetTime_SpinBox.value)
