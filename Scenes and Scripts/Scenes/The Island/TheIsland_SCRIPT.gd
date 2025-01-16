@@ -54,6 +54,8 @@ func initializeIslandProperties(_Island_Name):
 var SKY_TRANS_TIME = 20.0
 
 @export var DayNightCycle : AnimationPlayer
+@export var Tick : Timer
+
 @export var RainParticles : CPUParticles3D
 @export var Clouds : MeshInstance3D
 
@@ -83,6 +85,7 @@ func _ready() -> void:
 		set_time(360)
 	else:
 		set_time(TimeManager.CURRENT_TIME)
+	Tick.start()
 	
 	Player.init_visually_equip(InventoryData.HAND_ITEM_TYPE)
 	
