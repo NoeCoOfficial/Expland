@@ -142,6 +142,7 @@ func set_time(minute : int):
 		TimeManager.DAY_STATE = "NIGHT"
 	else:
 		TimeManager.DAY_STATE = "DAY"
+	
 	# Since the animation goes for 2880 seconds and there are 
 	# 1440 "minutes" in a day, we need to multiply the value by 2
 	DayNightCycle.seek(minute * 2)
