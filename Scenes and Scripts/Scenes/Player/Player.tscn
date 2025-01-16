@@ -2486,6 +2486,7 @@ offset_right = 95.12
 offset_bottom = 584.0
 theme = ExtResource("17_rhxkt")
 max_value = 1440.0
+update_on_text_changed = true
 
 [node name="SetTime_Button" type="Button" parent="Head/Camera3D/PauseLayer"]
 offset_left = 102.0
