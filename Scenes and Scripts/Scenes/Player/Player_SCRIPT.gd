@@ -1098,11 +1098,10 @@ func sleep_cycle(setSleeping : bool, incrementDay : bool, fadeInTime : float, ho
 		PlayerData.GAME_STATE = "SLEEPING"
 	
 	if incrementDay:
-		if TimeManager.CURRENT_TIME <= 23 and TimeManager.CURRENT_TIME >= 18:
+		if TimeManager.CURRENT_TIME <= 1440 and TimeManager.CURRENT_TIME >= 1080:
 			TimeManager.CURRENT_DAY += 1
 	
 	SaveManager.saveAllData()
-	
 	
 	DayText_Label.text = "Day " + str(TimeManager.CURRENT_DAY)
 	SleepLayerBlackOverlay.modulate = Color(1, 1, 1, 0)
@@ -1122,9 +1121,6 @@ func on_sleep_cycle_hold_finished(fadeOutTime, time : int):
 	
 	if PlayerManager.WORLD != null:
 		if PlayerManager.WORLD.has_method("set_time"):
-			
-			# TASK May need to fix stuff here, if the code decides not to work (it has a mind of it's own)
-			
 			PlayerManager.WORLD.set_time(time)
 	
 	PlayerData.GAME_STATE = "NORMAL"
@@ -1134,8 +1130,8 @@ func on_sleep_cycle_hold_finished(fadeOutTime, time : int):
 	
 	var tween = get_tree().create_tween().set_parallel()
 	tween.tween_property(DayText_Label, "modulate", Color(1, 1, 1, 0), fadeOutTime / 2)
-	tween.tween_property(ProtectiveLayer, "visible", false, 0)
-	tween.tween_property(SleepLayerBlackOverlay, "modulate", Color(1, 1, 1, 0), fadeOutTime)
+	tween.tween_property(ProtectiveLayer, "visible", false, 0).set_delay(1.0)
+	tween.tween_property(SleepLayerBlackOverlay, "modulate", Color(1, 1, 1, 0), fadeOutTime).set_delay(1.0)
 	
 ######################################
 # Item Workshop
