@@ -63,7 +63,6 @@ func init():
 	INVENTORY_LAYER = get_node("/root/World/Player/Head/Camera3D/InventoryLayer")
 	MINIMAL_ALERT_PLAYER = get_node("/root/World/Player//Head/Camera3D/MinimalAlertLayer/MinimalAlert")
 
-
 func sleep():
 	if PLAYER != null:
 		PLAYER.sleep_cycle(true, true, 2.0, 5.0, 2.0, 360)
