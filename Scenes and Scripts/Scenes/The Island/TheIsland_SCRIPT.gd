@@ -131,8 +131,17 @@ func get_weighted_random_weather():
 func set_time(minute : int):
 	if !DayNightCycle.is_playing():
 		DayNightCycle.play(&"cycle")
+		
+	else:
+		DayNightCycle.stop()
+		DayNightCycle.play(&"cycle")
 	
 	TimeManager.CURRENT_TIME = minute
+	
+	
+	# TODO: COMPLETE SLEEPING SYSTEM WITH NEW D/N Cycle
+	if TimeManager.CURRENT_TIME >= 1140:
+		pass
 	
 	# Since the animation goes for 2880 seconds and there are 
 	# 1440 "minutes" in a day, we need to multiply the value by 2
@@ -140,3 +149,5 @@ func set_time(minute : int):
 
 func _on_tick() -> void:
 	TimeManager.CURRENT_TIME += 1
+	if TimeManager.CURRENT_TIME >= 1440:
+		TimeManager.CURRENT_TIME = 0

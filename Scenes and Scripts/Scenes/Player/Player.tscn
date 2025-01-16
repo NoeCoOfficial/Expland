@@ -2492,6 +2492,7 @@ offset_left = 102.0
 offset_top = 554.0
 offset_right = 179.0
 offset_bottom = 585.0
+focus_mode = 0
 theme = ExtResource("17_rhxkt")
 text = "Set time"
 
