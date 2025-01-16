@@ -29,9 +29,6 @@
 ### Changed:
 - Revamped the entire Day/Night cycle system, making it more optimized and less buggy. Also the sunrise is beautiful
 
-### Fixed:
-- Minor bugs associated with sleeping
-
 ## Environment
 
 ### Removed:
