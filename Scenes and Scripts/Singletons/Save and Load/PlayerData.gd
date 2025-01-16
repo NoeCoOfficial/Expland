@@ -77,7 +77,7 @@ func saveData(Island_Name : String) -> void:
 	if player:
 		var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 		var data = {
-			"CURRENT_HOUR" : TimeManager.CURRENT_HOUR,
+			"CURRENT_TIME" : TimeManager.CURRENT_TIME,
 			"CURRENT_DAY" : TimeManager.CURRENT_DAY,
 			"GAME_STATE" : GAME_STATE,
 			"Health" : Health,
@@ -117,7 +117,7 @@ func loadData(Island_Name : String, withOutput : bool) -> void:
 		
 		if current_line:
 			
-			TimeManager.CURRENT_HOUR = current_line["CURRENT_HOUR"]
+			TimeManager.CURRENT_TIME = current_line["CURRENT_TIME"]
 			TimeManager.CURRENT_DAY = current_line["CURRENT_DAY"]
 			
 			Health = current_line["Health"]
@@ -140,7 +140,7 @@ func loadData(Island_Name : String, withOutput : bool) -> void:
 				if withOutput:
 					print_rich("[center][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf][font_size=30]-- PLAYER DATA HAS BEEN LOADED --[/font_size][/font][/center]")
 				
-					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Current hour: " + str(TimeManager.CURRENT_HOUR) + "[/font][/font_size][/center]")
+					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Current time: " + str(TimeManager.CURRENT_TIME) + "[/font][/font_size][/center]")
 					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Health: " + str(Health) + "[/font][/font_size][/center]")
 					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Game State: " + GAME_STATE + "[/font][/font_size][/center]")
 					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Player Position: " + str(player.position) + "[/font][/font_size][/center]")

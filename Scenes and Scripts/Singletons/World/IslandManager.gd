@@ -89,7 +89,7 @@ func resetAttributes():
 	IslandManager.Current_Game_Mode = ""
 	IslandManager.Current_Weather = ""
 	IslandManager.transitioningFromNewIsland = false
-	TimeManager.CURRENT_HOUR = 9
+	TimeManager.CURRENT_TIME = 600
 	TimeManager.CURRENT_DAY = 1
 	TimeManager.DAY_STATE = "DAY"
 	
