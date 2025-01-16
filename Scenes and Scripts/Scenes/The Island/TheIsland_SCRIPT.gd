@@ -76,13 +76,13 @@ func _ready() -> void:
 	PlayerManager.init()
 	set_dof_blur(PlayerSettingsData.DOFBlur)
 	
-	"""
+	
+	
 	if PlayerData.GAME_STATE == "SLEEPING":
 		PlayerData.GAME_STATE = "NORMAL"
-		set_hour(6)
+		set_time(360)
 	else:
-		on_ready_time_check()
-	"""
+		set_time(TimeManager.CURRENT_TIME)
 	
 	Player.init_visually_equip(InventoryData.HAND_ITEM_TYPE)
 	
@@ -134,3 +134,6 @@ func set_time(minute : int):
 	# Since the animation goes for 2880 seconds and there are 
 	# 1440 "minutes" in a day, we need to multiply the value by 2
 	DayNightCycle.seek(minute * 2)
+
+func _on_tick() -> void:
+	TimeManager.CURRENT_TIME += 1

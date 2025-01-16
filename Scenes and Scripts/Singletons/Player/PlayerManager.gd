@@ -66,7 +66,7 @@ func init():
 
 func sleep():
 	if PLAYER != null:
-		PLAYER.sleep_cycle(true, true, 2.0, 5.0, 2.0, 6)
+		PLAYER.sleep_cycle(true, true, 2.0, 5.0, 2.0, 360)
 
 func eat(valueToIncreaseBy):
 	if PLAYER != null:
