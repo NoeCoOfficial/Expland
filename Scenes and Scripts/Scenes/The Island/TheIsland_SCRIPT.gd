@@ -138,16 +138,21 @@ func set_time(minute : int):
 	
 	TimeManager.CURRENT_TIME = minute
 	
-	
-	# TODO: COMPLETE SLEEPING SYSTEM WITH NEW D/N Cycle
-	if TimeManager.CURRENT_TIME >= 1140:
-		pass
-	
+	if TimeManager.CURRENT_TIME >= 1140 or TimeManager.CURRENT_TIME < 360:
+		TimeManager.DAY_STATE = "NIGHT"
+	else:
+		TimeManager.DAY_STATE = "DAY"
 	# Since the animation goes for 2880 seconds and there are 
 	# 1440 "minutes" in a day, we need to multiply the value by 2
 	DayNightCycle.seek(minute * 2)
 
 func _on_tick() -> void:
 	TimeManager.CURRENT_TIME += 1
+	
 	if TimeManager.CURRENT_TIME >= 1440:
 		TimeManager.CURRENT_TIME = 0
+	
+	if TimeManager.CURRENT_TIME >= 1140 or TimeManager.CURRENT_TIME < 360:
+		TimeManager.DAY_STATE = "NIGHT"
+	else:
+		TimeManager.DAY_STATE = "DAY"
