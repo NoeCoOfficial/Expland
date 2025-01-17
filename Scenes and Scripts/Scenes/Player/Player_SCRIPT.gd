@@ -967,6 +967,60 @@ func closeChest():
 
 #endregion
 
+#region Item Workshop
+
+func openItemWorkshop():
+	PauseManager.inside_can_move_item_workshop = true
+	PauseManager.inside_absolute_item_workshop = true
+	ItemWorkshopLayer_GreyLayer.visible = true
+	ItemWorkshopLayer_GreyLayer.modulate = Color(1, 1, 1, 0)
+	
+	var tween = get_tree().create_tween().set_parallel()
+	tween.connect("finished", Callable(self, "on_item_workshop_open_finished"))
+	
+	tween.tween_property(ItemWorkshopLayer_MainLayer, "position", Vector2(0, 0), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(ItemWorkshopLayer_GreyLayer, "modulate", Color(1, 1, 1, 1), 0.5)
+	
+	await get_tree().create_timer(0.3).timeout
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+
+func on_item_workshop_open_finished():
+	PauseManager.inside_item_workshop = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func closeItemWorkshop():
+	#saveInventory()
+	PauseManager.inside_can_move_item_workshop = false
+	PauseManager.inside_item_workshop = false
+	
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	
+	var tween = get_tree().create_tween().set_parallel()
+	tween.connect("finished", Callable(self, "on_item_workshop_close_finished"))
+	
+	tween.tween_property(ItemWorkshopLayer_MainLayer, "position", Vector2(0, 648), 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(ItemWorkshopLayer_GreyLayer, "modulate", Color(1, 1, 1, 0), 0.5)
+
+func on_item_workshop_close_finished():
+	PauseManager.inside_absolute_item_workshop = false
+	ItemWorkshopLayer_GreyLayer.visible = false
+
+func on_add_item_buttons_workshop_pressed(ITEM_TYPE : String):
+	var free_slot = null
+	
+	# Get the free slot
+	free_slot = InventoryManager.get_free_slot(InventoryManager.POCKET_SLOTS)
+	
+	if free_slot != null and !free_slot.is_populated():
+		free_slot.set_populated(true)
+		InventoryManager.spawn_inventory_dropable(free_slot.global_position, ITEM_TYPE, free_slot, false)
+	else:
+		spawn_minimal_alert_from_player(2.5, 0.3, 0.3, "Can't add item to pockets, inventory full!")
+
+#endregion
+
 #region Pausing
 
 func pauseGame():
@@ -1137,60 +1191,6 @@ func on_sleep_cycle_hold_finished(fadeOutTime, time : int):
 	tween.tween_property(DayText_Label, "modulate", Color(1, 1, 1, 0), fadeOutTime / 2)
 	tween.tween_property(ProtectiveLayer, "visible", false, 0).set_delay(1.0)
 	tween.tween_property(SleepLayerBlackOverlay, "modulate", Color(1, 1, 1, 0), fadeOutTime).set_delay(1.0)
-
-#endregion
-
-#region Item Workshop
-
-func openItemWorkshop():
-	PauseManager.inside_can_move_item_workshop = true
-	PauseManager.inside_absolute_item_workshop = true
-	ItemWorkshopLayer_GreyLayer.visible = true
-	ItemWorkshopLayer_GreyLayer.modulate = Color(1, 1, 1, 0)
-	
-	var tween = get_tree().create_tween().set_parallel()
-	tween.connect("finished", Callable(self, "on_item_workshop_open_finished"))
-	
-	tween.tween_property(ItemWorkshopLayer_MainLayer, "position", Vector2(0, 0), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-	tween.tween_property(ItemWorkshopLayer_GreyLayer, "modulate", Color(1, 1, 1, 1), 0.5)
-	
-	await get_tree().create_timer(0.3).timeout
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-
-
-func on_item_workshop_open_finished():
-	PauseManager.inside_item_workshop = true
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-
-func closeItemWorkshop():
-	#saveInventory()
-	PauseManager.inside_can_move_item_workshop = false
-	PauseManager.inside_item_workshop = false
-	
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
-	
-	var tween = get_tree().create_tween().set_parallel()
-	tween.connect("finished", Callable(self, "on_item_workshop_close_finished"))
-	
-	tween.tween_property(ItemWorkshopLayer_MainLayer, "position", Vector2(0, 648), 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
-	tween.tween_property(ItemWorkshopLayer_GreyLayer, "modulate", Color(1, 1, 1, 0), 0.5)
-
-func on_item_workshop_close_finished():
-	PauseManager.inside_absolute_item_workshop = false
-	ItemWorkshopLayer_GreyLayer.visible = false
-
-func on_add_item_buttons_workshop_pressed(ITEM_TYPE : String):
-	var free_slot = null
-	
-	# Get the free slot
-	free_slot = InventoryManager.get_free_slot(InventoryManager.POCKET_SLOTS)
-	
-	if free_slot != null and !free_slot.is_populated():
-		free_slot.set_populated(true)
-		InventoryManager.spawn_inventory_dropable(free_slot.global_position, ITEM_TYPE, free_slot, false)
-	else:
-		spawn_minimal_alert_from_player(2.5, 0.3, 0.3, "Can't add item to pockets, inventory full!")
 
 #endregion
 
