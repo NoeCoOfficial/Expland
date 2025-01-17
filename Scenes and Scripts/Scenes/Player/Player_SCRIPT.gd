@@ -730,7 +730,18 @@ func openInventory():
 		
 		ChestCollisionBoundary.set_deferred("monitorable", true)
 		ChestCollisionBoundary.set_deferred("monitoring", true)
+	
+	elif InventoryManager.is_in_workbench_interface:
 		
+		InventoryMainLayer.offset.x = -291.96
+		
+		# TODO: Add dropable boundary for workbench layer
+		#PocketsCollisionBoundary.set_deferred("monitorable", false)
+		#PocketsCollisionBoundary.set_deferred("monitoring", false)
+		
+		#ChestCollisionBoundary.set_deferred("monitorable", true)
+		#ChestCollisionBoundary.set_deferred("monitoring", true)
+	
 	else:
 		
 		InventoryMainLayer.offset.x = 0
@@ -989,7 +1000,9 @@ func closeChest():
 #region Workbench
 
 func openWorkbench():
-	pass
+	WorkbenchMainLayer.show()
+	InventoryManager.is_in_workbench_interface = true
+	openInventory() # Does most of the stuff for us
 
 func closeWorkbench():
 	pass
