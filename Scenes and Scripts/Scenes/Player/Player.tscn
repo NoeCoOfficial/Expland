@@ -219,6 +219,21 @@ Button/styles/normal = ExtResource("20_b68th")
 Button/styles/pressed = SubResource("StyleBoxFlat_8tgxn")
 Label/styles/normal = ExtResource("21_k6ube")
 
+[sub_resource type="Animation" id="Animation_p5ohr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LoadingIcon:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [6.28319]
+}
+
 [sub_resource type="Animation" id="Animation_wpbcy"]
 resource_name = "spin"
 length = 1.5
@@ -234,21 +249,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [-6.28319, 6.28319]
-}
-
-[sub_resource type="Animation" id="Animation_p5ohr"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("LoadingIcon:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [6.28319]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4x2pf"]
@@ -445,7 +445,7 @@ _data = {
 "unequip_SWORD": SubResource("Animation_u5xyb")
 }
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "PickupAttractionPos", "Slot1_Inventory_Ref", "Slot2_Inventory_Ref", "Slot3_Inventory_Ref", "Slot4_Inventory_Ref", "Slot5_Inventory_Ref", "Slot6_Inventory_Ref", "Slot7_Inventory_Ref", "Slot8_Inventory_Ref", "Slot9_Inventory_Ref", "Slot1_Chest_Ref", "Slot2_Chest_Ref", "Slot3_Chest_Ref", "Slot4_Chest_Ref", "Slot5_Chest_Ref", "Slot6_Chest_Ref", "Slot7_Chest_Ref", "Slot8_Chest_Ref", "Slot9_Chest_Ref", "Slot10_Chest_Ref", "Slot11_Chest_Ref", "Slot12_Chest_Ref", "Slot13_Chest_Ref", "Slot14_Chest_Ref", "Slot15_Chest_Ref", "Slot16_Chest_Ref", "Slot17_Chest_Ref", "Slot18_Chest_Ref", "Slot19_Chest_Ref", "Slot20_Chest_Ref", "Slot21_Chest_Ref", "Slot22_Chest_Ref", "Slot23_Chest_Ref", "Slot24_Chest_Ref", "Slot25_Chest_Ref", "ChestMainLayer", "ChestSlots", "PocketsCollisionBoundary", "ChestCollisionBoundary", "Pickaxe_Video", "Axe_Video", "Sword_Video", "EquipAnimations_Player", "HAND_ITEM_TYPE_Label", "HUDLayer", "InventoryLayer", "InventoryMainLayer", "PauseLayer", "DebugLayer", "SettingsUI", "AchievementsUI", "AlertLayer", "CreditsLayer", "MinimalAlert", "TopLayerBlackOverlay", "SleepLayerBlackOverlay", "DayText_Label", "ProtectiveLayer", "Health_Bar", "Crosshair_Rect", "StaminaBar", "DialogueInterface", "DeathScreen_BlackOverlay", "OverlayLayer_Overlay", "InventoryLayer_GreyLayer", "ItemWorkshopLayer_MainLayer", "ItemWorkshopLayer_GreyLayer", "SaveOverlay_LighterBG", "SaveOverlay_DarkerBG", "HUDLayer_HealthBar", "HUDLayer_HungerBar", "GetUp_Label", "RandomText_Label", "OverlayLayer_RedOverlay", "ManualSaveCooldown", "HandItemDebounce", "StartDebugging_Btn", "Inventory_Item_Ref_Label", "Is_Raycast_Colliding_Label", "Is_Inside_Settings_Label", "Is_Inventory_Open_Label", "Is_Moving_Label", "Is_Walking_Label", "Is_Sprinting_Label", "Is_Crouching_Label", "Is_In_Dialogue_Interface_Label", "Showing_Interaction_Notification_Label", "Current_Time_Label", "Current_FPS_Label", "Player_Position_Label", "Player_VelocityY_Label", "Player_VelocityY_Accurate_Label", "Is_On_Floor_Label", "Inputs_Currently_Pressing_Label", "DAY_STATE_Label", "GAME_STATE_Label", "CURRENT_DAY_Label", "CURRENT_HOUR_Label", "CURRENT_WEATHER_Label") groups=["PlayerBody"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "PickupAttractionPos", "Slot1_Inventory_Ref", "Slot2_Inventory_Ref", "Slot3_Inventory_Ref", "Slot4_Inventory_Ref", "Slot5_Inventory_Ref", "Slot6_Inventory_Ref", "Slot7_Inventory_Ref", "Slot8_Inventory_Ref", "Slot9_Inventory_Ref", "Slot1_Chest_Ref", "Slot2_Chest_Ref", "Slot3_Chest_Ref", "Slot4_Chest_Ref", "Slot5_Chest_Ref", "Slot6_Chest_Ref", "Slot7_Chest_Ref", "Slot8_Chest_Ref", "Slot9_Chest_Ref", "Slot10_Chest_Ref", "Slot11_Chest_Ref", "Slot12_Chest_Ref", "Slot13_Chest_Ref", "Slot14_Chest_Ref", "Slot15_Chest_Ref", "Slot16_Chest_Ref", "Slot17_Chest_Ref", "Slot18_Chest_Ref", "Slot19_Chest_Ref", "Slot20_Chest_Ref", "Slot21_Chest_Ref", "Slot22_Chest_Ref", "Slot23_Chest_Ref", "Slot24_Chest_Ref", "Slot25_Chest_Ref", "ChestMainLayer", "ChestSlots", "PocketsCollisionBoundary", "ChestCollisionBoundary", "Pickaxe_Video", "Axe_Video", "Sword_Video", "EquipAnimations_Player", "HAND_ITEM_TYPE_Label", "HUDLayer", "InventoryLayer", "InventoryMainLayer", "PauseLayer", "DebugLayer", "SettingsUI", "AchievementsUI", "AlertLayer", "CreditsLayer", "MinimalAlert", "TopLayerBlackOverlay", "SleepLayerBlackOverlay", "DayText_Label", "ProtectiveLayer", "Health_Bar", "Crosshair_Rect", "StaminaBar", "DialogueInterface", "DeathScreen_BlackOverlay", "OverlayLayer_Overlay", "InventoryLayer_GreyLayer", "ItemWorkshopLayer_MainLayer", "ItemWorkshopLayer_GreyLayer", "SaveOverlay_LighterBG", "SaveOverlay_DarkerBG", "HUDLayer_HealthBar", "HUDLayer_HungerBar", "GetUp_Label", "RandomText_Label", "OverlayLayer_RedOverlay", "ManualSaveCooldown", "HandItemDebounce", "AutoSaveTimer", "StartDebugging_Btn", "SetTime_SpinBox", "SetTime_Button", "Inventory_Item_Ref_Label", "Is_Raycast_Colliding_Label", "Is_Inside_Settings_Label", "Is_Inventory_Open_Label", "Is_Moving_Label", "Is_Walking_Label", "Is_Sprinting_Label", "Is_Crouching_Label", "Is_In_Dialogue_Interface_Label", "Showing_Interaction_Notification_Label", "Current_Time_Label", "Current_FPS_Label", "Player_Position_Label", "Player_VelocityY_Label", "Player_VelocityY_Accurate_Label", "Is_On_Floor_Label", "Inputs_Currently_Pressing_Label", "DAY_STATE_Label", "GAME_STATE_Label", "CURRENT_DAY_Label", "CURRENT_TIME_Label", "CURRENT_WEATHER_Label") groups=["PlayerBody"]]
 collision_mask = 3
 script = ExtResource("1_5mhs1")
 Fade_In = true
@@ -531,7 +531,10 @@ RandomText_Label = NodePath("Head/Camera3D/DeathScreen/BlackOverlay/RandomText")
 OverlayLayer_RedOverlay = NodePath("Head/Camera3D/OverlayLayer/RedOverlay")
 ManualSaveCooldown = NodePath("ManualSaveCooldown")
 HandItemDebounce = NodePath("HandItemDebounce")
+AutoSaveTimer = NodePath("AutoSaveTimer")
 StartDebugging_Btn = NodePath("Head/Camera3D/PauseLayer/StartDebugging_Btn")
+SetTime_SpinBox = NodePath("Head/Camera3D/PauseLayer/SetTime_SpinBox")
+SetTime_Button = NodePath("Head/Camera3D/PauseLayer/SetTime_Button")
 Inventory_Item_Ref_Label = NodePath("Head/Camera3D/DebugLayer/item_ref_LBL")
 Is_Raycast_Colliding_Label = NodePath("Head/Camera3D/DebugLayer/is_raycast_colliding")
 Is_Inside_Settings_Label = NodePath("Head/Camera3D/DebugLayer/is_inside_settings")
@@ -552,7 +555,7 @@ Inputs_Currently_Pressing_Label = NodePath("Head/Camera3D/DebugLayer/Inputs_curr
 DAY_STATE_Label = NodePath("Head/Camera3D/DebugLayer/DAY_STATE")
 GAME_STATE_Label = NodePath("Head/Camera3D/DebugLayer/GAME_STATE")
 CURRENT_DAY_Label = NodePath("Head/Camera3D/DebugLayer/CURRENT_DAY")
-CURRENT_HOUR_Label = NodePath("Head/Camera3D/DebugLayer/CURRENT_HOUR")
+CURRENT_TIME_Label = NodePath("Head/Camera3D/DebugLayer/CURRENT_TIME")
 CURRENT_WEATHER_Label = NodePath("Head/Camera3D/DebugLayer/CURRENT_WEATHER")
 
 [node name="WalkingSpeedSounds" type="Timer" parent="."]
@@ -2477,6 +2480,24 @@ theme_override_fonts/font = ExtResource("22_7sfup")
 theme_override_font_sizes/font_size = 27
 text = "CREDITS"
 
+[node name="SetTime_SpinBox" type="SpinBox" parent="Head/Camera3D/PauseLayer"]
+offset_left = 18.0
+offset_top = 553.0
+offset_right = 95.12
+offset_bottom = 584.0
+theme = ExtResource("17_rhxkt")
+max_value = 1440.0
+update_on_text_changed = true
+
+[node name="SetTime_Button" type="Button" parent="Head/Camera3D/PauseLayer"]
+offset_left = 102.0
+offset_top = 554.0
+offset_right = 179.0
+offset_bottom = 585.0
+focus_mode = 0
+theme = ExtResource("17_rhxkt")
+text = "Set time"
+
 [node name="AchievementsLayer" type="CanvasLayer" parent="Head/Camera3D"]
 
 [node name="AchievementsUI" parent="Head/Camera3D/AchievementsLayer" instance=ExtResource("20_3vll1")]
@@ -2692,6 +2713,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="DebugLayer" type="CanvasLayer" parent="Head/Camera3D"]
+layer = 128
 visible = false
 
 [node name="item_ref_LBL" type="Label" parent="Head/Camera3D/DebugLayer"]
@@ -2938,7 +2960,7 @@ theme = ExtResource("17_rhxkt")
 text = "CURRENT_DAY = #"
 horizontal_alignment = 2
 
-[node name="CURRENT_HOUR" type="Label" parent="Head/Camera3D/DebugLayer"]
+[node name="CURRENT_TIME" type="Label" parent="Head/Camera3D/DebugLayer"]
 self_modulate = Color(1, 1, 1, 0.466667)
 anchors_preset = 1
 anchor_left = 1.0
@@ -3039,3 +3061,4 @@ libraries = {
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/StartDebugging_Btn" to="." method="_on_start_debugging_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/AchievementsButton" to="." method="_on_achievements_button_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="Head/Camera3D/PauseLayer/SetTime_Button" to="." method="_on_set_time_button_pressed"]

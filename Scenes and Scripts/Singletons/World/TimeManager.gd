@@ -47,6 +47,6 @@
 
 extends Node
 
-var CURRENT_HOUR = 9 # Starting time is 10am.
+var CURRENT_TIME = 600 # Starting time is 10am.
 var CURRENT_DAY = 1
 var DAY_STATE = "DAY"

@@ -54,20 +54,21 @@ const SAVE_PATH = "user://saveData/settings.save"
 # General
 ######################################
 
-var showStartupScreen = true
+var showStartupScreen : bool = true
+var autosaveInterval : int = 60
 
 ######################################
 # Graphics
 ######################################
 
-var DOFBlur = true
+var DOFBlur : bool = true
 
 ######################################
 # Video
 ######################################
 
-var FOV = 110
-var Sensitivity = 0.001
+var FOV : int = 110
+var Sensitivity : float = 0.001
 
 ######################################
 # Audio
@@ -88,6 +89,7 @@ func saveSettings() -> void:
 		
 		# General
 		"show_startup_screen" : showStartupScreen,
+		"autosave_interval" : autosaveInterval,
 		
 		# Graphics
 		"dof_blur" : DOFBlur,
@@ -123,6 +125,7 @@ func loadSettings() -> void:
 				
 				# General
 				showStartupScreen = current_line["show_startup_screen"]
+				autosaveInterval = current_line["autosave_interval"]
 				
 				# Graphics
 				DOFBlur = current_line["dof_blur"]
@@ -139,6 +142,7 @@ func loadSettings() -> void:
 				print_rich("[center][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf][font_size=30]-- PLAYER SETTINGS HAVE BEEN LOADED --[/font_size][/font][/center]")
 				
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Show startup screen: "+str(showStartupScreen)+"[/font][/font_size][/center]")
+				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Autosave Interval: "+str(autosaveInterval)+"[/font][/font_size][/center]")
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]DOF Blur: "+str(DOFBlur)+"[/font][/font_size][/center]")
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]FOV: "+str(FOV)+"[/font][/font_size][/center]")
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Master Volume: "+str(Master_Volume)+"[/font][/font_size][/center]")
@@ -148,6 +152,10 @@ func loadSettings() -> void:
 ######################################
 # Setting values
 ######################################
+
+func set_autosave_interval(value : int):
+	if PlayerManager.PLAYER != null:
+		PlayerManager.PLAYER.setAutosaveInterval(value)
 
 func set_dof_blur(value : bool) -> void:
 	if get_node("/root/World") != null:
