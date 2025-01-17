@@ -82,6 +82,7 @@ func _process(_delta: float) -> void:
 	$MainLayer/SettingsTabContainer/Sound/MusicValue.text = str(int(PlayerSettingsData.music_Volume * 100))
 	$MainLayer/SettingsTabContainer/Sound/SFXValue.text = str(int(PlayerSettingsData.sfx_Volume * 100))
 
+
 func openSettings(animationTime : float):
 	PlayerSettingsData.loadSettings()
 	PauseManager.is_inside_settings = true
@@ -93,7 +94,6 @@ func openSettings(animationTime : float):
 	
 	tween.tween_property($MainLayer, "scale", Vector2(1.0, 1.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	tween.tween_property($GreyLayer, "modulate", Color(1, 1, 1, 1), animationTime)
-
 
 func closeSettings(animationTime : float):
 	PauseManager.is_inside_settings = false
@@ -109,6 +109,7 @@ func closeSettings(animationTime : float):
 	
 	self.visible = false
 
+
 func _on_exit_settings_button_pressed() -> void:
 	closeSettings(0.5)
 
@@ -117,7 +118,6 @@ func _on_fov_slider_value_changed(value: float) -> void:
 
 func _on_sensitivity_slider_value_changed(value: float) -> void:
 	PlayerSettingsData.Sensitivity = value / 10
-
 
 func _on_master_slider_value_changed(value: float) -> void:
 	PlayerSettingsData.Master_Volume = value
@@ -142,3 +142,6 @@ func _on_ssc_switch_toggled(toggled_on: bool) -> void:
 		PlayerSettingsData.showStartupScreen = true
 	else:
 		PlayerSettingsData.showStartupScreen = false
+
+func _on_autosave_interval_spin_box_value_changed(value: float) -> void:
+	pass # Replace with function body.

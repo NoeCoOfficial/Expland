@@ -537,6 +537,7 @@ script = ExtResource("2_vw753")
 
 [connection signal="pressed" from="MainLayer/SaveSettings" to="." method="_on_save_settings_pressed"]
 [connection signal="toggled" from="MainLayer/SettingsTabContainer/General/SSCSwitch" to="." method="_on_ssc_switch_toggled"]
+[connection signal="value_changed" from="MainLayer/SettingsTabContainer/General/AutosaveIntervalSpinBox" to="." method="_on_autosave_interval_spin_box_value_changed"]
 [connection signal="toggled" from="MainLayer/SettingsTabContainer/Graphics/DOFBlurSwitch" to="." method="_on_dof_blur_switch_toggled"]
 [connection signal="toggled" from="MainLayer/SettingsTabContainer/Graphics/PrettyShadowsSwitch" to="." method="_on_dof_blur_switch_toggled"]
 [connection signal="value_changed" from="MainLayer/SettingsTabContainer/Video/FOVSlider" to="." method="_on_fov_slider_value_changed"]
