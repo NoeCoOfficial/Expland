@@ -901,7 +901,7 @@ offset_left = 281.0
 offset_right = 292.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("16_wg7d4")
+mouse_filter = 1
 
 [node name="Background2" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer"]
 layout_mode = 1
@@ -1074,6 +1074,16 @@ is_chest_slot = true
 [node name="Slot25" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
 position = Vector2(473, 473)
 is_chest_slot = true
+
+[node name="ConstructingMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
+layout_mode = 3
+anchor_left = 0.243924
+anchor_right = 1.24392
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="HandDropableDetector" type="Button" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 modulate = Color(1, 1, 1, 0)
