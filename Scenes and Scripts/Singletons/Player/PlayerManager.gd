@@ -47,11 +47,11 @@
 
 extends Node
 
-var WORLD
-var PLAYER
-var INVENTORY_LAYER
-var CHEST_SLOTS
-var MINIMAL_ALERT_PLAYER
+var WORLD = null
+var PLAYER = null
+var INVENTORY_LAYER = null
+var CHEST_SLOTS = null
+var MINIMAL_ALERT_PLAYER = null
 
 var SLEEPING_UPON_ENTERED = false
 var Stamina : float = 100.0

@@ -154,7 +154,8 @@ func loadSettings() -> void:
 ######################################
 
 func set_autosave_interval(value : int):
-	PlayerManager.PLAYER.setAutosaveInterval(value)
+	if PlayerManager.PLAYER != null:
+		PlayerManager.PLAYER.setAutosaveInterval(value)
 
 func set_dof_blur(value : bool) -> void:
 	if get_node("/root/World") != null:
