@@ -46,3 +46,7 @@
 # ============================================================= #
 
 extends Node
+
+const RECIPES = {
+	["WOOD", "WOOD", "IRON", "IRON"] : "PICKAXE"
+}
