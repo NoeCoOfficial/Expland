@@ -181,8 +181,6 @@ var is_crouching = false
 @export var Slot9_Inventory_Ref : StaticBody2D
 
 @export_subgroup("Layers and UI")
-@export var ChestMainLayer : Control
-@export var ChestSlots : Control
 @export var PocketsCollisionBoundary : Area2D
 @export var ChestCollisionBoundary : Area2D
 @export var Pickaxe_Video : VideoStreamPlayer
@@ -191,8 +189,14 @@ var is_crouching = false
 @export var EquipAnimations_Player : AnimationPlayer
 @export var HAND_ITEM_TYPE_Label : Label
 
+
 @export_group("Chest")
 
+@export_subgroup("Layers and UI")
+@export var ChestMainLayer : Control
+@export var ChestSlots : Control
+
+@export_subgroup("Slots")
 @export var Slot1_Chest_Ref : StaticBody2D
 @export var Slot2_Chest_Ref : StaticBody2D
 @export var Slot3_Chest_Ref : StaticBody2D
@@ -222,6 +226,11 @@ var is_crouching = false
 
 @export_group("Workbench")
 
+@export_subgroup("Layers and UI")
+@export var WorkbenchMainLayer : Control
+@export var WorkbenchSlots : Control
+
+@export_subgroup("Slots")
 @export var Slot1_Workbench_Ref : StaticBody2D
 @export var Slot2_Workbench_Ref : StaticBody2D
 @export var Slot3_Workbench_Ref : StaticBody2D
@@ -974,6 +983,16 @@ func closeChest():
 	InventoryManager.in_chest_interface = false
 	closeInventory() # Does most of the stuff for us
 	InventoryManager.chestNode.animate("CLOSE")
+
+#endregion
+
+#region Workbench
+
+func openWorkbench():
+	pass
+
+func closeWorkbench():
+	pass
 
 #endregion
 
