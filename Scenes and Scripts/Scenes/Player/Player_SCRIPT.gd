@@ -551,6 +551,7 @@ func _on_ready() -> void: # Called when the node is considered ready
 
 func nodeSetup(): # A function to setup the nodes. Called in the _ready function
 	HUDLayer_HealthBar.value = PlayerData.Health
+	setAutosaveInterval(PlayerSettingsData.autosaveInterval)
 	
 	InventoryLayer.hide()
 	InventoryMainLayer.hide()
