@@ -729,7 +729,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="InventoryMainLayer" type="CanvasLayer" parent="Head/Camera3D/InventoryLayer"]
 layer = 2
-visible = false
 
 [node name="Background" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 anchors_preset = 8
