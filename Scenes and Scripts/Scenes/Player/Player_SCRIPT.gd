@@ -180,7 +180,19 @@ var is_crouching = false
 @export var Slot8_Inventory_Ref : StaticBody2D
 @export var Slot9_Inventory_Ref : StaticBody2D
 
-@export_subgroup("Chest Slots")
+@export_subgroup("Layers and UI")
+@export var ChestMainLayer : Control
+@export var ChestSlots : Control
+@export var PocketsCollisionBoundary : Area2D
+@export var ChestCollisionBoundary : Area2D
+@export var Pickaxe_Video : VideoStreamPlayer
+@export var Axe_Video : VideoStreamPlayer
+@export var Sword_Video : VideoStreamPlayer
+@export var EquipAnimations_Player : AnimationPlayer
+@export var HAND_ITEM_TYPE_Label : Label
+
+@export_group("Chest")
+
 @export var Slot1_Chest_Ref : StaticBody2D
 @export var Slot2_Chest_Ref : StaticBody2D
 @export var Slot3_Chest_Ref : StaticBody2D
@@ -207,16 +219,14 @@ var is_crouching = false
 @export var Slot24_Chest_Ref : StaticBody2D
 @export var Slot25_Chest_Ref : StaticBody2D
 
-@export_subgroup("Layers and UI")
-@export var ChestMainLayer : Control
-@export var ChestSlots : Control
-@export var PocketsCollisionBoundary : Area2D
-@export var ChestCollisionBoundary : Area2D
-@export var Pickaxe_Video : VideoStreamPlayer
-@export var Axe_Video : VideoStreamPlayer
-@export var Sword_Video : VideoStreamPlayer
-@export var EquipAnimations_Player : AnimationPlayer
-@export var HAND_ITEM_TYPE_Label : Label
+
+@export_group("Workbench")
+
+@export var Slot1_Workbench_Ref : StaticBody2D
+@export var Slot2_Workbench_Ref : StaticBody2D
+@export var Slot3_Workbench_Ref : StaticBody2D
+@export var Slot4_Workbench_Ref : StaticBody2D
+@export var Slot5_Workbench_Ref : StaticBody2D
 
 
 @export_group("General Nodes")
