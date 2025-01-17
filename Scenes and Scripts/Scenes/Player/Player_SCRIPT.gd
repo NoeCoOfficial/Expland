@@ -755,6 +755,7 @@ func openInventory():
 	
 	InventoryMainLayer.show()
 	InventoryLayer.show() # show the inventory UI
+	
 	Utils.center_mouse_cursor() # center the mouse cursor
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # set the mouse mode to visible
 	InventoryManager.inventory_open = true
@@ -764,9 +765,10 @@ func openInventory():
 
 func closeInventory():
 	InventoryLayer_GreyLayer.show()
-	#saveInventory()
+	
 	InventoryMainLayer.hide()
 	InventoryLayer.hide() # hide the inventory UI
+	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor
 	Utils.center_mouse_cursor() # center the mouse cursor
 	InventoryManager.inventory_open = false
@@ -1005,7 +1007,9 @@ func openWorkbench():
 	openInventory() # Does most of the stuff for us
 
 func closeWorkbench():
-	pass
+	WorkbenchMainLayer.hide()
+	InventoryManager.is_in_workbench_interface = false
+	closeInventory() # Does most of the stuff for us
 
 #endregion
 
