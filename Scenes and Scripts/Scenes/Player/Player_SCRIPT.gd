@@ -1033,7 +1033,7 @@ func saveAllDataWithAnimation():
 		await get_tree().create_timer(0.2).timeout
 		hideLighterBG_SAVEOVERLAY()
 
-func _on_auto_save_timer_timeout(): # A function to save the player data every 60 seconds (or how long the timer goes for)
+func _on_auto_save_timer_timeout(): # A function to save the player data every x seconds
 	if !PauseManager.is_paused:
 		Autosave_showSaving()
 
@@ -1065,6 +1065,9 @@ func Autosave_showSaved():
 	
 	tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved, "modulate", Color(1, 1, 1, 0), 0.2).set_delay(3.2)
 	tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved, "scale", Vector2(0.83, 0.83), 0.2).set_delay(3.2)
+
+func setAutosaveInterval(value : int):
+	pass
 
 ######################################
 # Save overlay animation
