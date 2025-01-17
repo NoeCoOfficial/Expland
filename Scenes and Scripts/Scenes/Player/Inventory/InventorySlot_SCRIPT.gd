@@ -79,6 +79,14 @@ func set_is_chest_slot(value : bool):
 func get_is_chest_slot():
 	return is_chest_slot
 
+
+func set_is_workbench_slot(value : bool):
+	is_workbench_slot = value
+
+func get_is_workbench_slot():
+	return is_workbench_slot
+
+
 func is_populated():
 	if populated:
 		return true
