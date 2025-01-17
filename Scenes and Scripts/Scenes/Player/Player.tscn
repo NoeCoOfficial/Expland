@@ -1149,6 +1149,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("9_svfxy")
 
+[node name="WorkbenchSlots" type="Control" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer"]
+layout_mode = 1
+anchor_left = 0.742188
+anchor_top = 0.216049
+anchor_right = 0.742188
+anchor_bottom = 0.216049
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
 [node name="HandDropableDetector" type="Button" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 modulate = Color(1, 1, 1, 0)
 offset_left = 670.0
