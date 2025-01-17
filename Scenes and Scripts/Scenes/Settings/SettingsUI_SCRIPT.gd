@@ -54,9 +54,8 @@ func nodeSetup():
 	$GreyLayer.modulate = Color(1, 1, 1, 0)
 	
 	$MainLayer/SettingsTabContainer/General/SSCSwitch.button_pressed = PlayerSettingsData.showStartupScreen
-	
+	$MainLayer/SettingsTabContainer/General/AutosaveIntervalSpinBox.value = PlayerSettingsData.autosaveInterval
 	$MainLayer/SettingsTabContainer/Graphics/DOFBlurSwitch.button_pressed = PlayerSettingsData.DOFBlur
-	
 	$MainLayer/SettingsTabContainer/Video/FOVSlider.value = PlayerSettingsData.FOV
 	$MainLayer/SettingsTabContainer/Video/SENSITIVITYSlider.value = PlayerSettingsData.Sensitivity * 10
 	$MainLayer/SettingsTabContainer/Sound/MasterSlider.value = PlayerSettingsData.Master_Volume
@@ -64,6 +63,8 @@ func nodeSetup():
 	$MainLayer/SettingsTabContainer/Sound/SFXSlider.value = PlayerSettingsData.sfx_Volume
 
 func _ready() -> void:
+	PlayerSettingsData.loadSettings()
+	
 	if !OS.has_feature("debug"):
 		$SaveSettings.hide()
 	
@@ -71,7 +72,6 @@ func _ready() -> void:
 	$MainLayer.scale = Vector2(0.0, 0.0)
 	self.visible = false
 	
-	PlayerSettingsData.loadSettings()
 	nodeSetup()
 
 func _process(_delta: float) -> void:
@@ -144,4 +144,4 @@ func _on_ssc_switch_toggled(toggled_on: bool) -> void:
 		PlayerSettingsData.showStartupScreen = false
 
 func _on_autosave_interval_spin_box_value_changed(value: float) -> void:
-	pass # Replace with function body.
+	PlayerSettingsData.autosaveInterval = value
