@@ -37,7 +37,7 @@
 ## Player
 
 ### Added:
-- Nothing yet
+- An autosave feature (interval can be changed in settings)
 
 ## Inventory
 
