@@ -1069,7 +1069,7 @@ func Autosave_showSaved():
 	tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved, "scale", Vector2(0.83, 0.83), 0.2).set_delay(3.2)
 
 func setAutosaveInterval(value : int):
-	pass
+	AutoSaveTimer.wait_time = value
 
 ######################################
 # Save overlay animation
