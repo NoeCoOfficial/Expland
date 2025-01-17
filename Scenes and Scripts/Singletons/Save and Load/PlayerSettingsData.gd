@@ -54,20 +54,21 @@ const SAVE_PATH = "user://saveData/settings.save"
 # General
 ######################################
 
-var showStartupScreen = true
+var showStartupScreen : bool = true
+var autosaveInterval : int = 60
 
 ######################################
 # Graphics
 ######################################
 
-var DOFBlur = true
+var DOFBlur : bool = true
 
 ######################################
 # Video
 ######################################
 
-var FOV = 110
-var Sensitivity = 0.001
+var FOV : int = 110
+var Sensitivity : float = 0.001
 
 ######################################
 # Audio
