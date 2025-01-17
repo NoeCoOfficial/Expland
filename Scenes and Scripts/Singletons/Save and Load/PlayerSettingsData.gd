@@ -89,6 +89,7 @@ func saveSettings() -> void:
 		
 		# General
 		"show_startup_screen" : showStartupScreen,
+		"autosave_interval" : autosaveInterval,
 		
 		# Graphics
 		"dof_blur" : DOFBlur,
@@ -124,6 +125,7 @@ func loadSettings() -> void:
 				
 				# General
 				showStartupScreen = current_line["show_startup_screen"]
+				autosaveInterval = current_line["autosave_interval"]
 				
 				# Graphics
 				DOFBlur = current_line["dof_blur"]
