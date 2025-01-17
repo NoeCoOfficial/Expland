@@ -893,6 +893,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ChestMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -954,9 +955,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 134.5
+offset_left = 149.5
 offset_top = 21.0
-offset_right = 393.5
+offset_right = 408.5
 offset_bottom = 80.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("8_cdk3a")
@@ -1075,7 +1076,7 @@ is_chest_slot = true
 position = Vector2(473, 473)
 is_chest_slot = true
 
-[node name="ConstructingMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
+[node name="WorkbenchMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 layout_mode = 3
 anchor_left = 0.243924
 anchor_right = 1.24392
@@ -1084,6 +1085,69 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="Background2" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.5
+offset_top = -311.0
+offset_right = 576.5
+offset_bottom = 311.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2kg3l")
+script = SubResource("GDScript_tq46f")
+
+[node name="Background_4" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.5
+offset_top = -257.0
+offset_right = 569.5
+offset_bottom = 304.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xa5l0")
+script = SubResource("GDScript_tq46f")
+
+[node name="Background_5" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -10.5
+offset_top = 20.0
+offset_right = 569.5
+offset_bottom = 80.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7tmhy")
+script = SubResource("GDScript_tq46f")
+
+[node name="Title" type="Label" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 149.5
+offset_top = 21.0
+offset_right = 408.5
+offset_bottom = 80.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("8_cdk3a")
+theme_override_font_sizes/font_size = 45
+text = "Workbench"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("9_svfxy")
 
 [node name="HandDropableDetector" type="Button" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 modulate = Color(1, 1, 1, 0)
