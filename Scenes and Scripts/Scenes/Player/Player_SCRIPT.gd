@@ -264,10 +264,11 @@ var is_crouching = false
 @export var RandomText_Label : Label
 @export var OverlayLayer_RedOverlay : ColorRect
 
-
 @export_subgroup("Timers")
 @export var ManualSaveCooldown : Timer
 @export var HandItemDebounce : Timer
+@export var AutoSaveTimer : Timer
+
 
 @export_group("Debug")
 
