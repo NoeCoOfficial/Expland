@@ -217,6 +217,7 @@ theme = ExtResource("4_m5nwd")
 min_value = 60.0
 max_value = 999.0
 value = 60.0
+update_on_text_changed = true
 suffix = "sec"
 
 [node name="Graphics" type="TabBar" parent="MainLayer/SettingsTabContainer"]
