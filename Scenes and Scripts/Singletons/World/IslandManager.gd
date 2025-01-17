@@ -96,6 +96,7 @@ func resetAttributes():
 	InventoryManager.creatingFromInventory = false
 	InventoryManager.inventory_open = false
 	InventoryManager.in_chest_interface = false
+	InventoryManager.is_in_workbench_interface = false
 	InventoryManager.is_dragging = false
 	InventoryManager.is_inside_boundary = false
 	InventoryManager.item_ref = ""
