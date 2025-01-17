@@ -52,6 +52,7 @@ extends StaticBody2D
 @export var populated = false
 @export var is_populated_label : Label
 @export var is_chest_slot = false
+@export var is_workbench_slot = false
 
 func _ready():
 	modulate = Color(1, 1, 1, 0.05)
