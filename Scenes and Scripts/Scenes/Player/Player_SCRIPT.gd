@@ -735,7 +735,6 @@ func openInventory():
 		
 		InventoryMainLayer.offset.x = -291.96
 		
-		# TODO: Add dropable boundary for workbench layer
 		#PocketsCollisionBoundary.set_deferred("monitorable", false)
 		#PocketsCollisionBoundary.set_deferred("monitoring", false)
 		
