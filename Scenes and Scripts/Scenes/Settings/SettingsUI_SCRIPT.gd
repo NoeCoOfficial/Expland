@@ -54,9 +54,8 @@ func nodeSetup():
 	$GreyLayer.modulate = Color(1, 1, 1, 0)
 	
 	$MainLayer/SettingsTabContainer/General/SSCSwitch.button_pressed = PlayerSettingsData.showStartupScreen
-	
+	$MainLayer/SettingsTabContainer/General/AutosaveIntervalSpinBox.value = PlayerSettingsData.autosaveInterval
 	$MainLayer/SettingsTabContainer/Graphics/DOFBlurSwitch.button_pressed = PlayerSettingsData.DOFBlur
-	
 	$MainLayer/SettingsTabContainer/Video/FOVSlider.value = PlayerSettingsData.FOV
 	$MainLayer/SettingsTabContainer/Video/SENSITIVITYSlider.value = PlayerSettingsData.Sensitivity * 10
 	$MainLayer/SettingsTabContainer/Sound/MasterSlider.value = PlayerSettingsData.Master_Volume
@@ -64,6 +63,8 @@ func nodeSetup():
 	$MainLayer/SettingsTabContainer/Sound/SFXSlider.value = PlayerSettingsData.sfx_Volume
 
 func _ready() -> void:
+	PlayerSettingsData.loadSettings()
+	
 	if !OS.has_feature("debug"):
 		$SaveSettings.hide()
 	
@@ -71,7 +72,6 @@ func _ready() -> void:
 	$MainLayer.scale = Vector2(0.0, 0.0)
 	self.visible = false
 	
-	PlayerSettingsData.loadSettings()
 	nodeSetup()
 
 func _process(_delta: float) -> void:
@@ -81,6 +81,7 @@ func _process(_delta: float) -> void:
 	$MainLayer/SettingsTabContainer/Sound/MasterValue.text = str(int(PlayerSettingsData.Master_Volume * 100))
 	$MainLayer/SettingsTabContainer/Sound/MusicValue.text = str(int(PlayerSettingsData.music_Volume * 100))
 	$MainLayer/SettingsTabContainer/Sound/SFXValue.text = str(int(PlayerSettingsData.sfx_Volume * 100))
+
 
 func openSettings(animationTime : float):
 	PlayerSettingsData.loadSettings()
@@ -93,7 +94,6 @@ func openSettings(animationTime : float):
 	
 	tween.tween_property($MainLayer, "scale", Vector2(1.0, 1.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	tween.tween_property($GreyLayer, "modulate", Color(1, 1, 1, 1), animationTime)
-
 
 func closeSettings(animationTime : float):
 	PauseManager.is_inside_settings = false
@@ -109,6 +109,7 @@ func closeSettings(animationTime : float):
 	
 	self.visible = false
 
+
 func _on_exit_settings_button_pressed() -> void:
 	closeSettings(0.5)
 
@@ -117,7 +118,6 @@ func _on_fov_slider_value_changed(value: float) -> void:
 
 func _on_sensitivity_slider_value_changed(value: float) -> void:
 	PlayerSettingsData.Sensitivity = value / 10
-
 
 func _on_master_slider_value_changed(value: float) -> void:
 	PlayerSettingsData.Master_Volume = value
@@ -142,3 +142,7 @@ func _on_ssc_switch_toggled(toggled_on: bool) -> void:
 		PlayerSettingsData.showStartupScreen = true
 	else:
 		PlayerSettingsData.showStartupScreen = false
+
+func _on_autosave_interval_spin_box_value_changed(value: float) -> void:
+	PlayerSettingsData.autosaveInterval = value
+	PlayerSettingsData.set_autosave_interval(value)

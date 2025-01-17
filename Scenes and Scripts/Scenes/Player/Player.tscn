@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=91 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -56,6 +56,7 @@
 [ext_resource type="Texture2D" uid="uid://dq8jg5iy6tfyc" path="res://Textures/Inventory/AXE.png" id="42_bm4qo"]
 [ext_resource type="Texture2D" uid="uid://dixs8s5v2su7q" path="res://Textures/Inventory/SWORD.png" id="43_0oip2"]
 [ext_resource type="Texture2D" uid="uid://64jg78rc6wkb" path="res://Textures/Icons/Loading_Icon.png" id="52_xwypu"]
+[ext_resource type="Texture2D" uid="uid://cliv00fuliseq" path="res://Textures/Icons/TickGreen_Icon.png" id="53_i3m63"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_w6tro"]
 
@@ -217,6 +218,44 @@ Button/styles/hover = SubResource("StyleBoxFlat_meokx")
 Button/styles/normal = ExtResource("20_b68th")
 Button/styles/pressed = SubResource("StyleBoxFlat_8tgxn")
 Label/styles/normal = ExtResource("21_k6ube")
+
+[sub_resource type="Animation" id="Animation_p5ohr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LoadingIcon:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_wpbcy"]
+resource_name = "spin"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LoadingIcon:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-6.28319, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4x2pf"]
+_data = {
+"RESET": SubResource("Animation_p5ohr"),
+"spin": SubResource("Animation_wpbcy")
+}
 
 [sub_resource type="Animation" id="Animation_6vnpu"]
 length = 0.001
@@ -406,7 +445,7 @@ _data = {
 "unequip_SWORD": SubResource("Animation_u5xyb")
 }
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "PickupAttractionPos", "Slot1_Inventory_Ref", "Slot2_Inventory_Ref", "Slot3_Inventory_Ref", "Slot4_Inventory_Ref", "Slot5_Inventory_Ref", "Slot6_Inventory_Ref", "Slot7_Inventory_Ref", "Slot8_Inventory_Ref", "Slot9_Inventory_Ref", "Slot1_Chest_Ref", "Slot2_Chest_Ref", "Slot3_Chest_Ref", "Slot4_Chest_Ref", "Slot5_Chest_Ref", "Slot6_Chest_Ref", "Slot7_Chest_Ref", "Slot8_Chest_Ref", "Slot9_Chest_Ref", "Slot10_Chest_Ref", "Slot11_Chest_Ref", "Slot12_Chest_Ref", "Slot13_Chest_Ref", "Slot14_Chest_Ref", "Slot15_Chest_Ref", "Slot16_Chest_Ref", "Slot17_Chest_Ref", "Slot18_Chest_Ref", "Slot19_Chest_Ref", "Slot20_Chest_Ref", "Slot21_Chest_Ref", "Slot22_Chest_Ref", "Slot23_Chest_Ref", "Slot24_Chest_Ref", "Slot25_Chest_Ref", "ChestMainLayer", "ChestSlots", "PocketsCollisionBoundary", "ChestCollisionBoundary", "Pickaxe_Video", "Axe_Video", "Sword_Video", "EquipAnimations_Player", "HAND_ITEM_TYPE_Label", "HUDLayer", "InventoryLayer", "InventoryMainLayer", "PauseLayer", "DebugLayer", "SettingsUI", "AchievementsUI", "AlertLayer", "CreditsLayer", "MinimalAlert", "TopLayerBlackOverlay", "SleepLayerBlackOverlay", "DayText_Label", "ProtectiveLayer", "Health_Bar", "Crosshair_Rect", "StaminaBar", "DialogueInterface", "DeathScreen_BlackOverlay", "OverlayLayer_Overlay", "InventoryLayer_GreyLayer", "ItemWorkshopLayer_MainLayer", "ItemWorkshopLayer_GreyLayer", "SaveOverlay_LighterBG", "SaveOverlay_DarkerBG", "HUDLayer_HealthBar", "HUDLayer_HungerBar", "GetUp_Label", "RandomText_Label", "OverlayLayer_RedOverlay", "ManualSaveCooldown", "HandItemDebounce", "StartDebugging_Btn", "Inventory_Item_Ref_Label", "Is_Raycast_Colliding_Label", "Is_Inside_Settings_Label", "Is_Inventory_Open_Label", "Is_Moving_Label", "Is_Walking_Label", "Is_Sprinting_Label", "Is_Crouching_Label", "Is_In_Dialogue_Interface_Label", "Showing_Interaction_Notification_Label", "Current_Time_Label", "Current_FPS_Label", "Player_Position_Label", "Player_VelocityY_Label", "Player_VelocityY_Accurate_Label", "Is_On_Floor_Label", "Inputs_Currently_Pressing_Label", "DAY_STATE_Label", "GAME_STATE_Label", "CURRENT_DAY_Label", "CURRENT_HOUR_Label", "CURRENT_WEATHER_Label") groups=["PlayerBody"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "PickupAttractionPos", "Slot1_Inventory_Ref", "Slot2_Inventory_Ref", "Slot3_Inventory_Ref", "Slot4_Inventory_Ref", "Slot5_Inventory_Ref", "Slot6_Inventory_Ref", "Slot7_Inventory_Ref", "Slot8_Inventory_Ref", "Slot9_Inventory_Ref", "Slot1_Chest_Ref", "Slot2_Chest_Ref", "Slot3_Chest_Ref", "Slot4_Chest_Ref", "Slot5_Chest_Ref", "Slot6_Chest_Ref", "Slot7_Chest_Ref", "Slot8_Chest_Ref", "Slot9_Chest_Ref", "Slot10_Chest_Ref", "Slot11_Chest_Ref", "Slot12_Chest_Ref", "Slot13_Chest_Ref", "Slot14_Chest_Ref", "Slot15_Chest_Ref", "Slot16_Chest_Ref", "Slot17_Chest_Ref", "Slot18_Chest_Ref", "Slot19_Chest_Ref", "Slot20_Chest_Ref", "Slot21_Chest_Ref", "Slot22_Chest_Ref", "Slot23_Chest_Ref", "Slot24_Chest_Ref", "Slot25_Chest_Ref", "ChestMainLayer", "ChestSlots", "PocketsCollisionBoundary", "ChestCollisionBoundary", "Pickaxe_Video", "Axe_Video", "Sword_Video", "EquipAnimations_Player", "HAND_ITEM_TYPE_Label", "HUDLayer", "InventoryLayer", "InventoryMainLayer", "PauseLayer", "DebugLayer", "SettingsUI", "AchievementsUI", "AlertLayer", "CreditsLayer", "MinimalAlert", "TopLayerBlackOverlay", "SleepLayerBlackOverlay", "DayText_Label", "ProtectiveLayer", "Health_Bar", "Crosshair_Rect", "StaminaBar", "DialogueInterface", "DeathScreen_BlackOverlay", "OverlayLayer_Overlay", "InventoryLayer_GreyLayer", "ItemWorkshopLayer_MainLayer", "ItemWorkshopLayer_GreyLayer", "SaveOverlay_LighterBG", "SaveOverlay_DarkerBG", "HUDLayer_HealthBar", "HUDLayer_HungerBar", "GetUp_Label", "RandomText_Label", "OverlayLayer_RedOverlay", "ManualSaveCooldown", "HandItemDebounce", "AutoSaveTimer", "StartDebugging_Btn", "SetTime_SpinBox", "SetTime_Button", "Inventory_Item_Ref_Label", "Is_Raycast_Colliding_Label", "Is_Inside_Settings_Label", "Is_Inventory_Open_Label", "Is_Moving_Label", "Is_Walking_Label", "Is_Sprinting_Label", "Is_Crouching_Label", "Is_In_Dialogue_Interface_Label", "Showing_Interaction_Notification_Label", "Current_Time_Label", "Current_FPS_Label", "Player_Position_Label", "Player_VelocityY_Label", "Player_VelocityY_Accurate_Label", "Is_On_Floor_Label", "Inputs_Currently_Pressing_Label", "DAY_STATE_Label", "GAME_STATE_Label", "CURRENT_DAY_Label", "CURRENT_TIME_Label", "CURRENT_WEATHER_Label") groups=["PlayerBody"]]
 collision_mask = 3
 script = ExtResource("1_5mhs1")
 Fade_In = true
@@ -492,7 +531,10 @@ RandomText_Label = NodePath("Head/Camera3D/DeathScreen/BlackOverlay/RandomText")
 OverlayLayer_RedOverlay = NodePath("Head/Camera3D/OverlayLayer/RedOverlay")
 ManualSaveCooldown = NodePath("ManualSaveCooldown")
 HandItemDebounce = NodePath("HandItemDebounce")
+AutoSaveTimer = NodePath("AutoSaveTimer")
 StartDebugging_Btn = NodePath("Head/Camera3D/PauseLayer/StartDebugging_Btn")
+SetTime_SpinBox = NodePath("Head/Camera3D/PauseLayer/SetTime_SpinBox")
+SetTime_Button = NodePath("Head/Camera3D/PauseLayer/SetTime_Button")
 Inventory_Item_Ref_Label = NodePath("Head/Camera3D/DebugLayer/item_ref_LBL")
 Is_Raycast_Colliding_Label = NodePath("Head/Camera3D/DebugLayer/is_raycast_colliding")
 Is_Inside_Settings_Label = NodePath("Head/Camera3D/DebugLayer/is_inside_settings")
@@ -513,7 +555,7 @@ Inputs_Currently_Pressing_Label = NodePath("Head/Camera3D/DebugLayer/Inputs_curr
 DAY_STATE_Label = NodePath("Head/Camera3D/DebugLayer/DAY_STATE")
 GAME_STATE_Label = NodePath("Head/Camera3D/DebugLayer/GAME_STATE")
 CURRENT_DAY_Label = NodePath("Head/Camera3D/DebugLayer/CURRENT_DAY")
-CURRENT_HOUR_Label = NodePath("Head/Camera3D/DebugLayer/CURRENT_HOUR")
+CURRENT_TIME_Label = NodePath("Head/Camera3D/DebugLayer/CURRENT_TIME")
 CURRENT_WEATHER_Label = NodePath("Head/Camera3D/DebugLayer/CURRENT_WEATHER")
 
 [node name="WalkingSpeedSounds" type="Timer" parent="."]
@@ -531,13 +573,13 @@ autostart = true
 script = ExtResource("2_t6toi")
 
 [node name="is_inside_boundary_false_startup" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.3
 one_shot = true
 autostart = true
 script = ExtResource("2_t6toi")
 
 [node name="AutoSaveTimer" type="Timer" parent="."]
-wait_time = 60.0
+wait_time = 30.0
 autostart = true
 script = ExtResource("2_t6toi")
 
@@ -2438,6 +2480,24 @@ theme_override_fonts/font = ExtResource("22_7sfup")
 theme_override_font_sizes/font_size = 27
 text = "CREDITS"
 
+[node name="SetTime_SpinBox" type="SpinBox" parent="Head/Camera3D/PauseLayer"]
+offset_left = 18.0
+offset_top = 553.0
+offset_right = 95.12
+offset_bottom = 584.0
+theme = ExtResource("17_rhxkt")
+max_value = 1440.0
+update_on_text_changed = true
+
+[node name="SetTime_Button" type="Button" parent="Head/Camera3D/PauseLayer"]
+offset_left = 102.0
+offset_top = 554.0
+offset_right = 179.0
+offset_bottom = 585.0
+focus_mode = 0
+theme = ExtResource("17_rhxkt")
+text = "Set time"
+
 [node name="AchievementsLayer" type="CanvasLayer" parent="Head/Camera3D"]
 
 [node name="AchievementsUI" parent="Head/Camera3D/AchievementsLayer" instance=ExtResource("20_3vll1")]
@@ -2546,25 +2606,114 @@ offset_right = -8.0
 offset_bottom = 48.0
 grow_horizontal = 0
 
-[node name="LoadingIcon" type="TextureRect" parent="Head/Camera3D/AutosaveLayer/AutosaveMainLayer"]
+[node name="Saving" type="Control" parent="Head/Camera3D/AutosaveLayer/AutosaveMainLayer"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -29.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 34.5)
+
+[node name="SpinningAnimation" type="AnimationPlayer" parent="Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving"]
+libraries = {
+"": SubResource("AnimationLibrary_4x2pf")
+}
+
+[node name="LoadingIcon" type="TextureRect" parent="Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -9.0
-offset_top = -9.0
-offset_right = 9.0
-offset_bottom = 9.0
+offset_left = -12.5
+offset_top = 8.5
+offset_right = 12.5
+offset_bottom = 33.5
 grow_horizontal = 2
 grow_vertical = 2
+rotation = 6.28319
+pivot_offset = Vector2(12.5, 12.5)
 texture = ExtResource("52_xwypu")
 expand_mode = 1
 
-[node name="SpinningAnimation" type="AnimationPlayer" parent="Head/Camera3D/AutosaveLayer/AutosaveMainLayer"]
+[node name="SavingLabel" type="Label" parent="Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -8.5
+offset_right = 22.0
+offset_bottom = 5.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(21.5, 7)
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 12
+text = "Saving..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Saved" type="Control" parent="Head/Camera3D/AutosaveLayer/AutosaveMainLayer"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -29.0
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 34.5)
+
+[node name="TickIcon" type="TextureRect" parent="Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = 7.0
+offset_right = 14.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 6.28319
+pivot_offset = Vector2(14, 14)
+texture = ExtResource("53_i3m63")
+expand_mode = 1
+
+[node name="SavedLabel" type="Label" parent="Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -8.5
+offset_right = 21.0
+offset_bottom = 5.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(21.5, 7)
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 12
+text = "Saved"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="DebugLayer" type="CanvasLayer" parent="Head/Camera3D"]
+layer = 128
 visible = false
 
 [node name="item_ref_LBL" type="Label" parent="Head/Camera3D/DebugLayer"]
@@ -2811,7 +2960,7 @@ theme = ExtResource("17_rhxkt")
 text = "CURRENT_DAY = #"
 horizontal_alignment = 2
 
-[node name="CURRENT_HOUR" type="Label" parent="Head/Camera3D/DebugLayer"]
+[node name="CURRENT_TIME" type="Label" parent="Head/Camera3D/DebugLayer"]
 self_modulate = Color(1, 1, 1, 0.466667)
 anchors_preset = 1
 anchor_left = 1.0
@@ -2912,3 +3061,4 @@ libraries = {
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/StartDebugging_Btn" to="." method="_on_start_debugging_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/AchievementsButton" to="." method="_on_achievements_button_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="Head/Camera3D/PauseLayer/SetTime_Button" to="." method="_on_set_time_button_pressed"]

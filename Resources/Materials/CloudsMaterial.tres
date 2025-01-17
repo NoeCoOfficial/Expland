@@ -25,6 +25,6 @@ shader_parameter/cloud_movement_speed = 0.515
 shader_parameter/cloudMovementMagnitude = 0.0
 shader_parameter/LightCorrection = 0.5
 shader_parameter/cloud_alpha = 4.0
-shader_parameter/cloud_color = Color(0.366595, 0.366595, 0.366595, 1)
+shader_parameter/cloud_color = Color(0, 0, 0, 1)
 shader_parameter/cloud_noise_texture = ExtResource("2_2xgpd")
 shader_parameter/detail_noise_texture = ExtResource("3_etnta")
