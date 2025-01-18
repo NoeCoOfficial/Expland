@@ -736,7 +736,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="InventoryMainLayer" type="CanvasLayer" parent="Head/Camera3D/InventoryLayer"]
 layer = 2
-visible = false
 
 [node name="Background" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 anchors_preset = 8
@@ -901,16 +900,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ChestMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
-visible = false
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
+anchor_left = 0.243924
+anchor_right = 1.25347
 anchor_bottom = 1.0
-offset_left = 281.0
-offset_right = 292.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Background2" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer"]
 layout_mode = 1
@@ -1085,11 +1082,11 @@ position = Vector2(473, 473)
 is_chest_slot = true
 
 [node name="WorkbenchMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
-visible = false
 layout_mode = 3
 anchor_left = 0.243924
+anchor_top = 1.54321
 anchor_right = 1.24392
-anchor_bottom = 1.0
+anchor_bottom = 2.54321
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
