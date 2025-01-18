@@ -1,5 +1,5 @@
 # ============================================================= #
-# CameraIcon_SCRIPT.gd
+# Workbench_Finalized_StaticBody3D_SCRIPT.gd
 # ============================================================= #
 #                       COPYRIGHT NOTICE                        #
 #                           Noe Co.                             #
@@ -45,5 +45,11 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-@icon("res://Textures/Icons/Script Icons/32x32/tools.png")
-extends Node
+extends StaticBody3D
+
+
+func on_raycast_hit_workbench():
+	InteractionManager.is_hovering_over_workbench = true
+
+func on_raycast_exit_workbench():
+	InteractionManager.is_hovering_over_workbench = false
