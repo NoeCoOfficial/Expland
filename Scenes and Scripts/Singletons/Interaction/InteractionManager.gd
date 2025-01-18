@@ -98,5 +98,5 @@ func _input(_event: InputEvent) -> void:
 				PlayerManager.PLAYER.openChest()
 			
 		if Input.is_action_just_pressed("Interact") and is_hovering_over_workbench:
-			PlayerManager.PLAYER.openChest()
+			PlayerManager.PLAYER.openWorkbench()
 			
