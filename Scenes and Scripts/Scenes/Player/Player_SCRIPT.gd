@@ -349,6 +349,9 @@ func _input(_event): # A built-in function that listens for input using the inpu
 				if !InventoryManager.chestNode.is_animating():
 					closeChest()
 			
+			if InventoryManager.is_in_workbench_interface and !InventoryManager.is_dragging:
+				closeWorkbench()
+			
 			if PauseManager.inside_item_workshop:
 				closeItemWorkshop()
 	
