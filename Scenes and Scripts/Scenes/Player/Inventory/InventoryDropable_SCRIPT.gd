@@ -131,7 +131,7 @@ func _process(delta):
 			if mouse_over_timer.time_left == 0 and !InventoryManager.is_hovering_over_hand_dropable:
 				initialPos = global_position
 				InventoryManager.is_dragging = true
-				if is_in_chest_slot:
+				if is_in_chest_slot or is_workshop_dropable:
 					top_level = true
 				self.z_index = 10
 				InventoryManager.item_ref = ITEM_TYPE
@@ -166,6 +166,12 @@ func _process(delta):
 							is_in_chest_slot = true
 							self.queue_free()
 							InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, true)
+							top_level = false
+						
+						elif is_workshop_dropable:
+							is_in_chest_slot = true
+							self.queue_free()
+							InventoryManager.spawn_workshop_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside)
 							top_level = false
 					else:
 						if body_ref.has_method("is_populated") and body_ref.is_populated():
