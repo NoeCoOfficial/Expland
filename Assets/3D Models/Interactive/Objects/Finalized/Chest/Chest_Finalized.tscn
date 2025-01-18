@@ -59,6 +59,7 @@ wait_time = 0.2
 transform = Transform3D(1, 0, 0, 0, -0.521861, 0.00816223, 0, -0.00220359, -1.933, 0.587934, 0.719454, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="4" node_paths=PackedStringArray("root")]
+collision_layer = 3
 script = ExtResource("2_ha2tq")
 root = NodePath("..")
 

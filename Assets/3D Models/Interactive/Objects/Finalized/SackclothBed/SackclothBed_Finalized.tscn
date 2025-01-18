@@ -10,7 +10,7 @@ points = PackedVector3Array(1.70159, 0.411032, 0.767976, -1.58815, -0.36, -0.722
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="22"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.369905, 0.369904, -0.26164)
-collision_mask = 3
+collision_layer = 3
 script = ExtResource("2_h6dgk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]

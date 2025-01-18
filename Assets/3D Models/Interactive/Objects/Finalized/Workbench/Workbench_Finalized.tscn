@@ -25,6 +25,7 @@ transform = Transform3D(-1.44279e-09, 0.0330071, 0.0190567, -0.0381133, -1.66599
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="14"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.559277, 0.313583, 0.378239)
+collision_layer = 3
 script = ExtResource("6_kpogc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
