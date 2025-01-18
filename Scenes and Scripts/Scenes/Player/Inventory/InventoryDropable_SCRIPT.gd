@@ -207,6 +207,13 @@ func _process(delta):
 									self.queue_free()
 									InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, true)
 									top_level = false
+								
+								elif body_ref.get_is_workbench_slot():
+									is_workshop_dropable = true
+									self.queue_free()
+									InventoryManager.spawn_workshop_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside)
+									top_level = false
+									
 								else:
 									
 									if is_in_chest_slot:
@@ -214,20 +221,36 @@ func _process(delta):
 										self.queue_free()
 										InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, false)
 										top_level = false
+									
+									elif is_workshop_dropable:
+										is_workshop_dropable = false
+										self.queue_free()
+										InventoryManager.spawn_workshop_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside)
+										top_level = false
+									
 									else:
+										is_workshop_dropable = false
 										is_in_chest_slot = false
 									
 							else:
 								print("{LOCAL} [InventoryDropable_SCRIPT.gd] " + body_ref + " does not have method: set_populated()")
 				else:
 					tween.tween_property(self, "global_position", initialPos, SNAP_TIME)
+					
 					if is_in_chest_slot:
 						is_in_chest_slot = true
 						self.queue_free()
 						InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, true)
 						top_level = false
 						PlayerManager.MINIMAL_ALERT_PLAYER.hide_minimal_alert(0.1)
-			
+					
+					elif is_workshop_dropable:
+						is_workshop_dropable = true
+						self.queue_free()
+						InventoryManager.spawn_workshop_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside)
+						top_level = false
+						PlayerManager.MINIMAL_ALERT_PLAYER.hide_minimal_alert(0.1)
+						
 			if mouse_over_timer.is_inside_tree():                          
 				mouse_over_timer.start() # Restart the timer when the item is placed down
 
@@ -261,7 +284,11 @@ func _input(_event: InputEvent) -> void:
 					InventoryManager.is_dragging = false
 				else:
 					InventoryManager.is_dragging = false
-					
+			
+			# If it's a pocket slot, we want to switch to a chest slot
+			elif is_workshop_dropable:
+				pass
+			
 			# If it's a pocket slot, we want to switch to a chest slot
 			else:
 				var free_slot = null
