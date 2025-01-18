@@ -144,5 +144,5 @@ func _on_ssc_switch_toggled(toggled_on: bool) -> void:
 		PlayerSettingsData.showStartupScreen = false
 
 func _on_autosave_interval_spin_box_value_changed(value: float) -> void:
-	PlayerSettingsData.autosaveInterval = value
-	PlayerSettingsData.set_autosave_interval(value)
+	PlayerSettingsData.autosaveInterval = int(value)
+	PlayerSettingsData.set_autosave_interval(int(value))
