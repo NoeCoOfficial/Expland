@@ -53,6 +53,7 @@ extends Node2D
 @export var ITEM_Sprite : Sprite2D
 
 @export var is_in_chest_slot = false
+@export var is_workshop_dropable = false
 
 @export var mouse_over_timer : Timer
 @export var populated_on_startup_timer : Timer
