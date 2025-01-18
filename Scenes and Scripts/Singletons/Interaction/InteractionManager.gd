@@ -76,7 +76,7 @@ func despawn_interaction_notification():
 			print("[InteractionManager] Despawned interaction notification")
 
 func _input(_event: InputEvent) -> void:
-	if !PlayerData.GAME_STATE == "SLEEPING" and !PlayerData.GAME_STATE == "DEAD" and !InventoryManager.inventory_open and !PauseManager.is_paused:
+	if !PlayerData.GAME_STATE == "SLEEPING" and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !InventoryManager.inventory_open and !PauseManager.is_paused:
 		if Input.is_action_just_pressed("Interact") and is_hovering_over_test_obj:
 			pass
 		
@@ -89,12 +89,15 @@ func _input(_event: InputEvent) -> void:
 		if Input.is_action_just_pressed("Interact") and is_hovering_over_sackcloth_bed and PlayerData.GAME_STATE != "SLEEPING":
 			if TimeManager.DAY_STATE != "DAY":
 				PlayerManager.sleep()
+				despawn_interaction_notification()
 			else:
-				var PLAYER = get_node("/root/World/Player")
-				PLAYER.spawn_minimal_alert_from_player(2.0, 0.1, 0.5, "You can only sleep at night.")
+				PlayerManager.PLAYER.spawn_minimal_alert_from_player(2.0, 0.1, 0.5, "You can only sleep at night.")
 		
 		if Input.is_action_just_pressed("Interact") and is_hovering_over_chest:
 			if !InventoryManager.chestNode.is_animating() and !InventoryManager.in_chest_interface:
-				var PLAYER = get_node("/root/World/Player")
-				PLAYER.openChest()
+				PlayerManager.PLAYER.openChest()
+			
+		if Input.is_action_just_pressed("Interact") and is_hovering_over_chest:
+			if !InventoryManager.chestNode.is_animating() and !InventoryManager.in_chest_interface:
+				PlayerManager.PLAYER.openChest()
 			
