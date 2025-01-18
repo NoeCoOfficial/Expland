@@ -70,9 +70,13 @@ func _physics_process(_delta: float) -> void:
 			elif previous_collider and previous_collider.has_method("on_raycast_hit_sackcloth_bed"):
 				previous_collider.on_raycast_hit_sackcloth_bed()
 				InteractionManager.despawn_interaction_notification()
-		
+			
 			elif previous_collider and previous_collider.has_method("on_raycast_hit_chest"):
 				previous_collider.on_raycast_hit_chest()
+				InteractionManager.despawn_interaction_notification()
+			
+			elif previous_collider and previous_collider.has_method("on_raycast_hit_workbench"):
+				previous_collider.on_raycast_hit_workbench()
 				InteractionManager.despawn_interaction_notification()
 			
 			
@@ -96,6 +100,10 @@ func _physics_process(_delta: float) -> void:
 			elif collider and collider.has_method("on_raycast_hit_chest"):
 				InteractionManager.spawn_interaction_notification("F", "Open")
 				collider.on_raycast_hit_chest()
+			
+			elif collider and collider.has_method("on_raycast_hit_workbench"):
+				InteractionManager.spawn_interaction_notification("F", "Construct")
+				collider.on_raycast_hit_workbench()
 			
 			previous_collider = collider
 		
@@ -121,6 +129,10 @@ func _physics_process(_delta: float) -> void:
 		
 		elif previous_collider and previous_collider.has_method("on_raycast_exit_chest"):
 			previous_collider.on_raycast_exit_chest()
+			InteractionManager.despawn_interaction_notification()
+		
+		elif previous_collider and previous_collider.has_method("on_raycast_exit_workbench"):
+			previous_collider.on_raycast_exit_workbench()
 			InteractionManager.despawn_interaction_notification()
 		
 		previous_collider = null
