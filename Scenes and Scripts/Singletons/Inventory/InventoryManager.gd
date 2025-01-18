@@ -56,7 +56,7 @@ func get_free_slot(Slots : Array):
 		if not Slots[i].is_populated():
 			free_slot = Slots[i]
 			return free_slot
-			break
+			#break
 
 const HANDHELD_ITEMS = [
 	
@@ -130,8 +130,6 @@ func create_pickup_object():
 	if is_creating_pickup:
 		return
 	is_creating_pickup = true
-	var INVENTORY_LAYER = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer")
-	var CHEST_SLOTS = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots")
 	var PICKUP_SCENE = load("res://Scenes and Scripts/Scenes/Player/Inventory/ItemPickupObject.tscn")
 	var PICKUP = PICKUP_SCENE.instantiate()
 	PlayerManager.WORLD.add_child(PICKUP)
@@ -155,7 +153,7 @@ func spawn_inventory_dropable(atPos : Vector2, ITEM_TYPE, slotToPopulate, is_in_
 			InventoryLayer.add_child(DropableInstance)
 			DropableInstance.global_position = atPos
 		
-		DropableInstance.global_position = atPos
+		#DropableInstance.global_position = atPos
 		DropableInstance.set_slot_inside(slotToPopulate)
 		DropableInstance.set_is_in_chest_slot(is_in_chest_slot)
 		slotToPopulate.set_populated(true)
@@ -180,6 +178,22 @@ func spawn_inventory_dropable_from_load(atPos : Vector2, ITEM_TYPE, is_in_chest_
 		else:
 			InventoryLayer.add_child(DropableInstance)
 			DropableInstance.global_position = atPos
+
+func spawn_workshop_dropable(atPos : Vector2, ITEM_TYPE, slotToPopulate):
+	if get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer") != null:
+		var WorkbenchSlots = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots")
+		var NewDropable = load("res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDropable.tscn")
+		var DropableInstance = NewDropable.instantiate()
+		DropableInstance.set_ITEM_TYPE(ITEM_TYPE)
+	
+		WorkbenchSlots.add_child(DropableInstance)
+		DropableInstance.position = atPos
+	
+		DropableInstance.set_slot_inside(slotToPopulate)
+		DropableInstance.set_is_workshop_dropable(true)
+		slotToPopulate.set_populated(true)
+		
+		return DropableInstance
 
 func set_hand_item(dropable_to_delete, ITEM_TYPE : String):
 	var PLAYER = get_node("/root/World/Player")

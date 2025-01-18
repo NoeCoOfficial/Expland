@@ -394,3 +394,10 @@ func set_is_in_chest_slot(value : bool):
 
 func get_is_in_chest_slot():
 	return is_in_chest_slot
+
+
+func set_is_workshop_dropable(value : bool):
+	is_workshop_dropable = value
+
+func get_is_workshop_dropable():
+	return is_workshop_dropable
