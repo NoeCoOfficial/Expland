@@ -991,6 +991,10 @@ func openChest():
 	ChestMainLayer.show()
 	InventoryManager.in_chest_interface = true
 	openInventory() # Does most of the stuff for us
+	
+	WorkbenchMainLayer.position.y = 1000
+	ChestMainLayer.position.y = 0
+	
 	InventoryManager.chestNode.animate("OPEN")
 
 func closeChest():
@@ -1005,6 +1009,10 @@ func closeChest():
 
 func openWorkbench():
 	WorkbenchMainLayer.show()
+	
+	WorkbenchMainLayer.position.y = 0
+	ChestMainLayer.position.y = 1000
+	
 	InventoryManager.is_in_workbench_interface = true
 	openInventory() # Does most of the stuff for us
 
