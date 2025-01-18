@@ -153,7 +153,7 @@ func spawn_inventory_dropable(atPos : Vector2, ITEM_TYPE, slotToPopulate, is_in_
 			InventoryLayer.add_child(DropableInstance)
 			DropableInstance.global_position = atPos
 		
-		#DropableInstance.global_position = atPos
+		DropableInstance.global_position = atPos
 		DropableInstance.set_slot_inside(slotToPopulate)
 		DropableInstance.set_is_in_chest_slot(is_in_chest_slot)
 		slotToPopulate.set_populated(true)

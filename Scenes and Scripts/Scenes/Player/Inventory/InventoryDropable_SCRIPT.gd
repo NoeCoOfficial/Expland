@@ -169,19 +169,28 @@ func _process(delta):
 							top_level = false
 						
 						elif is_workshop_dropable:
-							is_in_chest_slot = true
+							is_workshop_dropable = true
 							self.queue_free()
 							InventoryManager.spawn_workshop_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside)
 							top_level = false
+						
 					else:
 						if body_ref.has_method("is_populated") and body_ref.is_populated():
 							# If the slot is already populated, snap back to the original position
 							tween.tween_property(self, "global_position", initialPos, SNAP_TIME)
+							
 							if is_in_chest_slot:
 								is_in_chest_slot = true
 								self.queue_free()
 								InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, true)
 								top_level = false
+							
+							elif is_workshop_dropable:
+								is_workshop_dropable = true
+								self.queue_free()
+								InventoryManager.spawn_workshop_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside)
+								top_level = false
+							
 						else:
 							tween.tween_property(self, "global_position", body_ref.global_position, SNAP_TIME)
 							if body_ref.has_method("set_populated"):
