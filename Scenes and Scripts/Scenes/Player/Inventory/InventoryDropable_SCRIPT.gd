@@ -120,7 +120,7 @@ func _process(delta):
 	
 	if InventoryManager.is_dragging:
 		PlayerManager.MINIMAL_ALERT_PLAYER.hide_minimal_alert(0.1)
-		
+	
 	if debounce_timer > 0:
 		debounce_timer -= delta
 	else:
