@@ -285,26 +285,57 @@ func _input(_event: InputEvent) -> void:
 				else:
 					InventoryManager.is_dragging = false
 			
-			# If it's a pocket slot, we want to switch to a chest slot
+			# If it's a workshop slot, we want to switch to a pocket slot
 			elif is_workshop_dropable:
-				pass
-			
-			# If it's a pocket slot, we want to switch to a chest slot
-			else:
+				
 				var free_slot = null
 				
 				# Get the free slot from pocket slots (9)
-				free_slot = InventoryManager.get_free_slot(InventoryManager.CHEST_SLOTS)
+				free_slot = InventoryManager.get_free_slot(InventoryManager.POCKET_SLOTS)
 				
 				if free_slot != null and !free_slot.is_populated():
 					free_slot.set_populated(true)
-					InventoryManager.spawn_inventory_dropable(free_slot.global_position, ITEM_TYPE, free_slot, true)
+					InventoryManager.spawn_inventory_dropable(free_slot.global_position, ITEM_TYPE, free_slot, false)
 					
 					slot_inside.set_populated(false)
 					self.queue_free()
 					InventoryManager.is_dragging = false
 				else:
 					InventoryManager.is_dragging = false
+			
+			# If it's a pocket slot, we want to switch to either a chest or workshop slot
+			else:
+				if InventoryManager.in_chest_interface:
+					var free_slot = null
+					
+					# Get the free slot from pocket slots (9)
+					free_slot = InventoryManager.get_free_slot(InventoryManager.CHEST_SLOTS)
+					
+					if free_slot != null and !free_slot.is_populated():
+						free_slot.set_populated(true)
+						InventoryManager.spawn_inventory_dropable(free_slot.global_position, ITEM_TYPE, free_slot, true)
+						
+						slot_inside.set_populated(false)
+						self.queue_free()
+						InventoryManager.is_dragging = false
+					else:
+						InventoryManager.is_dragging = false
+					
+				elif InventoryManager.is_in_workbench_interface:
+					var free_slot = null
+					
+					# Get the free slot from pocket slots (9)
+					free_slot = InventoryManager.get_free_slot(InventoryManager.WORKSHOP_SLOTS)
+					
+					if free_slot != null and !free_slot.is_populated():
+						free_slot.set_populated(true)
+						InventoryManager.spawn_inventory_dropable(free_slot.global_position, ITEM_TYPE, free_slot, true)
+						
+						slot_inside.set_populated(false)
+						self.queue_free()
+						InventoryManager.is_dragging = false
+					else:
+						InventoryManager.is_dragging = false
 				
 			InventoryManager.is_dragging = false
 			debounce_timer = 0.2
