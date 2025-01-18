@@ -1,4 +1,1 @@
-- Add dropable boundary for workbench layer
-- Raycast functionality to 3D workbench, with open and close UI
-- Mouse sensitivity drop when in workbench UI
-- "Exit" input adjustments based on workbench UI
+- Create dropable variable is_workshop_dropable + functionality

@@ -339,7 +339,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			
 		else:
 			
-			if !DialogueManager.is_in_absolute_interface and !InventoryManager.inventory_open and !PauseManager.is_inside_alert and !InventoryManager.in_chest_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !PauseManager.inside_absolute_item_workshop:
+			if !DialogueManager.is_in_absolute_interface and !InventoryManager.inventory_open and !PauseManager.is_inside_alert and !InventoryManager.is_in_workbench_interface and !InventoryManager.in_chest_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !PauseManager.inside_absolute_item_workshop:
 				pauseGame()
 			
 			if InventoryManager.inventory_open and !InventoryManager.in_chest_interface and !InventoryManager.is_dragging:
@@ -725,7 +725,7 @@ func showDeathScreen(): # A function to show the death screen
 #region Inventory
 
 func openInventory():
-	if InventoryManager.in_chest_interface:
+	if InventoryManager.in_chest_interface or InventoryManager.is_in_workbench_interface:
 		
 		InventoryMainLayer.offset.x = -291.96
 		PocketsCollisionBoundary.set_deferred("monitorable", false)
@@ -733,16 +733,6 @@ func openInventory():
 		
 		ChestCollisionBoundary.set_deferred("monitorable", true)
 		ChestCollisionBoundary.set_deferred("monitoring", true)
-	
-	elif InventoryManager.is_in_workbench_interface:
-		
-		InventoryMainLayer.offset.x = -291.96
-		
-		#PocketsCollisionBoundary.set_deferred("monitorable", false)
-		#PocketsCollisionBoundary.set_deferred("monitoring", false)
-		
-		#ChestCollisionBoundary.set_deferred("monitorable", true)
-		#ChestCollisionBoundary.set_deferred("monitoring", true)
 	
 	else:
 		
