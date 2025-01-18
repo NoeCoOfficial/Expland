@@ -619,6 +619,14 @@ func initInventorySlots():
 		Slot24_Chest_Ref,
 		Slot25_Chest_Ref,
 	]
+	
+	InventoryManager.WORKSHOP_SLOTS = [
+		Slot1_Workbench_Ref,
+		Slot2_Workbench_Ref,
+		Slot3_Workbench_Ref,
+		Slot4_Workbench_Ref,
+		Slot5_Workbench_Ref,
+	]
 
 #endregion
 
