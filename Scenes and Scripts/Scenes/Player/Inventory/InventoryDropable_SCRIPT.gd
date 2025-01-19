@@ -74,8 +74,6 @@ var can_quick_drop = false
 func _ready():
 	self.name = "Dropable"
 	self.z_index = 0
-	#if is_workshop_dropable:
-	#	self.top_level = true
 	
 	ITEM_TYPE_Label.text = ITEM_TYPE.capitalize()
 	
