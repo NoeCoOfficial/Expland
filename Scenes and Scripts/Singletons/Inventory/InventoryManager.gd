@@ -189,6 +189,7 @@ func spawn_workshop_dropable(atPos : Vector2, ITEM_TYPE, slotToPopulate):
 	
 		WorkbenchSlots.add_child(DropableInstance)
 		DropableInstance.position = atPos
+		DropableInstance.top_level = true
 	
 		DropableInstance.set_slot_inside(slotToPopulate)
 		DropableInstance.set_is_workshop_dropable(true)
