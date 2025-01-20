@@ -37,12 +37,16 @@
 ## Player
 
 ### Added:
+- Health value is now a bar
+- Added a hunger bar
+- Added stamina
 - An autosave feature (interval can be changed in settings)
 
 ## Inventory
 
 ### Added:
-- The ability to hold items (Sword, Pickaxe, Axe) in your hand.
+- The ability to hold items (Sword, Pickaxe, Axe) in your hand
+- The ability to eat items
 - The ability to quickly drop items while hovering over them (Key X)
 - The ability to quickly switch items from pockets to chest slots and vice versa while hovering over them (Key Q)
 - Axe
