@@ -1,12 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://bbc10j8mbwjbn"]
+[gd_scene load_steps=5 format=3 uid="uid://bbc10j8mbwjbn"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Audio/AudioNotification_SCRIPT.gd" id="1_xl5m5"]
+[ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="2_7hn7g"]
+[ext_resource type="Texture2D" uid="uid://d3wid2ugl75bf" path="res://Textures/Icons/MusicWhite_Icon.png" id="3_qfyvc"]
+[ext_resource type="FontFile" uid="uid://b2o44xwqnsb5k" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf" id="4_xlxhp"]
 
 [node name="AudioNotification" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -955.0
+offset_bottom = -560.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xl5m5")
@@ -247,3 +252,52 @@ points = PackedVector2Array(29, 0.550003, 53, 0.55)
 width = 2.9
 default_color = Color(0.141176, 0.141176, 0.141176, 1)
 begin_cap_mode = 2
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.0
+offset_top = -44.5
+offset_right = 61.0
+offset_bottom = -21.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_7hn7g")
+theme_override_font_sizes/font_size = 13
+text = "Now playing"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MusicWhiteIcon" type="Sprite2D" parent="."]
+position = Vector2(62.25, 10.8558)
+scale = Vector2(0.0273279, 0.0273279)
+texture = ExtResource("3_qfyvc")
+
+[node name="MusicWhiteIcon2" type="Sprite2D" parent="."]
+position = Vector2(151.25, 10.8558)
+scale = Vector2(0.0273279, 0.0273279)
+texture = ExtResource("3_qfyvc")
+
+[node name="SongName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = -20.5
+offset_right = 69.0
+offset_bottom = 2.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_7hn7g")
+theme_override_fonts/font = ExtResource("4_xlxhp")
+theme_override_font_sizes/font_size = 15
+text = "What Is This Place"
+horizontal_alignment = 1
+vertical_alignment = 1
