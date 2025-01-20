@@ -140,6 +140,7 @@ var inventoryHand_debounce_timer = 0.2
 @export var WALK_SPEED = 5.0 ## The normal speed at which the player moves.
 @export var SPRINT_SPEED = 8.0 ## The speed of the player when the user is pressing/holding the Sprint input.
 @export var JUMP_VELOCITY = 4.5 ## How much velocity the player has when jumping. The more this value is, the higher the player can jump.
+var is_movement_input_active = false
 var is_moving = false
 var is_walking = false
 var is_sprinting = false
@@ -401,7 +402,7 @@ func _unhandled_input(event): # A built-in function that listens for input all t
 
 func _physics_process(delta):
 	## Player stamina
-	if is_sprinting:
+	if is_sprinting and is_movement_input_active:
 		if !stamina_restoring_from_0:
 			PlayerManager.Stamina -= STAMINA_DECREMENT
 			if PlayerManager.Stamina <= 0.0:
@@ -463,6 +464,7 @@ func _physics_process(delta):
 		
 		# Movement
 		var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+		is_movement_input_active = input_dir != Vector2.ZERO
 		var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		
 		if is_on_floor():
