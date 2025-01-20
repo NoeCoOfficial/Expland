@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dvh658edbkjrn"]
+[gd_scene load_steps=11 format=3 uid="uid://dvh658edbkjrn"]
 
 [ext_resource type="PackedScene" uid="uid://bxy2ihf8ehq18" path="res://Assets/3D Models/Interactive/Objects/Models/Chest.blend" id="1_5yx1o"]
 [ext_resource type="Script" path="res://Assets/3D Models/Interactive/Objects/Finalized/Chest/Chest_Finalized_SCRIPT.gd" id="2_f51ac"]
 [ext_resource type="Script" path="res://Assets/3D Models/Interactive/Objects/Finalized/Chest/Chest_Finalized_StaticBody3D_SCRIPT.gd" id="2_ha2tq"]
+[ext_resource type="FontFile" uid="uid://c4h0gd5a2e2qb" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf" id="4_xn6ko"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nm63g"]
 size = Vector3(1, 1, 2.29813)
@@ -49,8 +50,12 @@ _data = {
 "open": SubResource("Animation_ye7vl")
 }
 
-[node name="Chest" instance=ExtResource("1_5yx1o")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_r3ipb"]
+size = Vector3(7, 7, 7)
+
+[node name="Chest" node_paths=PackedStringArray("BillboardLabel") instance=ExtResource("1_5yx1o")]
 script = ExtResource("2_f51ac")
+BillboardLabel = NodePath("BillboardLabel")
 
 [node name="DebounceTimer" type="Timer" parent="." index="0"]
 wait_time = 0.2
@@ -72,5 +77,20 @@ libraries = {
 "": SubResource("AnimationLibrary_g6lga")
 }
 
+[node name="BillboardLabel" type="Label3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.54988, 0)
+billboard = 1
+shaded = true
+text = "Chest"
+font = ExtResource("4_xn6ko")
+font_size = 50
+
+[node name="BillboardLabelDetection" type="Area3D" parent="." index="7"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BillboardLabelDetection" index="0"]
+shape = SubResource("BoxShape3D_r3ipb")
+
 [connection signal="timeout" from="DebounceTimer" to="." method="_on_debounce_timer_timeout"]
 [connection signal="animation_finished" from="OpenAndCloseAnim" to="." method="_on_anim_finished"]
+[connection signal="body_entered" from="BillboardLabelDetection" to="." method="_on_billboard_label_detection_body_entered"]
+[connection signal="body_exited" from="BillboardLabelDetection" to="." method="_on_billboard_label_detection_body_exited"]

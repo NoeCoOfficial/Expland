@@ -1,18 +1,23 @@
-[gd_scene load_steps=52 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=58 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="PackedScene" uid="uid://jb61th5px5nt" path="res://Assets/3D Models/Tests/Island/Island 2.blend" id="2_0llf6"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/LightbulbIcon_SCRIPT.gd" id="2_j6ch4"]
 [ext_resource type="Texture2D" uid="uid://dhp1lqdlclos" path="res://Textures/Icons/Expland_TextWHITE_Icon.png" id="2_numx3"]
 [ext_resource type="PackedScene" uid="uid://d0uinxy2wgtd3" path="res://Assets/3D Models/Trees/Normal/Models/Tree1.blend" id="3_hbjgs"]
+[ext_resource type="AudioStream" uid="uid://bm2yify34oc5g" path="res://Audio/Music/What Is This Place.mp3" id="3_uiwyk"]
 [ext_resource type="PackedScene" uid="uid://cdbylnsm71dkk" path="res://Assets/3D Models/Trees/Normal/Models/Tree3.blend" id="4_drkdx"]
+[ext_resource type="AudioStream" uid="uid://dpg36vjqvglo0" path="res://Audio/Music/One Ray Of Light.mp3" id="4_em1nm"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="4_grlcg"]
 [ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="5_dfh28"]
+[ext_resource type="AudioStream" uid="uid://da66033dolhtt" path="res://Audio/Music/Far Dreams.mp3" id="5_g70r4"]
 [ext_resource type="PackedScene" uid="uid://ckktuiw4a367o" path="res://Assets/3D Models/Rocks/Rock2_Broken.blend" id="5_mxq5r"]
+[ext_resource type="AudioStream" uid="uid://cktch4busr0n6" path="res://Audio/Music/Ear Bleed.mp3" id="6_bx4fe"]
 [ext_resource type="PackedScene" uid="uid://b5d0ah73v2doj" path="res://Assets/3D Models/Rocks/Rock5_Mossy.blend" id="6_lssvk"]
 [ext_resource type="Texture2D" uid="uid://fih3i4yk6pip" path="res://Textures/Icons/PlayBtn_Icon.png" id="6_ve3ie"]
 [ext_resource type="Texture2D" uid="uid://cfe0w5hyb6fyc" path="res://Textures/Icons/SettingsCog_Icon.png" id="7_7tdx1"]
 [ext_resource type="PackedScene" uid="uid://bq7v171b1atvm" path="res://Assets/3D Models/Rocks/Rock7_Rough.blend" id="7_jmxkd"]
+[ext_resource type="AudioStream" uid="uid://uws1k05ns22p" path="res://Audio/Music/A New Beginning.mp3" id="7_tm5hi"]
 [ext_resource type="PackedScene" uid="uid://c855wuotwp7n7" path="res://Assets/3D Models/Grass/Grass1.blend" id="8_0bg8c"]
 [ext_resource type="Texture2D" uid="uid://cwskjvl8pplog" path="res://Textures/Icons/Exit_Icon.png" id="8_rn1to"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/IgnoreMouseFilter.gd" id="8_tu6ba"]
@@ -114,6 +119,15 @@ sky = SubResource("Sky_7v7qm")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_o1dfw"]
+shuffle = true
+stream_count = 5
+stream_0 = ExtResource("3_uiwyk")
+stream_1 = ExtResource("4_em1nm")
+stream_2 = ExtResource("5_g70r4")
+stream_3 = ExtResource("6_bx4fe")
+stream_4 = ExtResource("7_tm5hi")
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pdfov"]
 bg_color = Color(0.125911, 0.125911, 0.125911, 1)
 border_width_left = 2
@@ -191,6 +205,9 @@ script = ExtResource("2_j6ch4")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_v4n35")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamPlaylist_o1dfw")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.0364183, 0, -0.999336, 0, 1, 0, 0.999336, 0, 0.0364183, -62.5013, 6.30089, -14.5163)

@@ -56,7 +56,7 @@ extends StaticBody2D
 @export var is_workbench_slot = false
 
 func _ready():
-	modulate = Color(1, 1, 1, 0.05)
+	modulate = Color(1, 1, 1, 0.2)
 
 func _process(_delta):
 	if InventoryManager.is_dragging:

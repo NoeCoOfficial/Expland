@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cktch4busr0n6"
+path="res://.godot/imported/Ear Bleed.mp3-c785161e4ff9bb01f36b535c91409ded.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/Ear Bleed.mp3"
+dest_files=["res://.godot/imported/Ear Bleed.mp3-c785161e4ff9bb01f36b535c91409ded.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
