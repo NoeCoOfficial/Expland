@@ -401,6 +401,24 @@ func _unhandled_input(event): # A built-in function that listens for input all t
 
 func _physics_process(delta):
 	
+	## Player stamina
+	
+	if is_sprinting:
+		if !stamina_restoring_from_0:
+			PlayerManager.Stamina -= STAMINA_DECREMENT
+			if PlayerManager.Stamina <= 0.0:
+				PlayerManager.Stamina = 0.0
+				stamina_restoring_from_0 = true
+	else:
+		if !stamina_restoring_from_0:
+			PlayerManager.Stamina += STAMINA_INCREMENT
+	
+	if stamina_restoring_from_0:
+		PlayerManager.Stamina += STAMINA_INCREMENT
+		if PlayerManager.Stamina >= 50.0:
+			PlayerManager.Stamina = 50.0
+			stamina_restoring_from_0 = false
+	
 	## Player movement and physics
 	
 	# Crouching
