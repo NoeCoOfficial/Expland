@@ -39,8 +39,8 @@
 ### Added:
 - Health value is now a bar
 - Added a hunger bar
-- Added stamina
-- An autosave feature (interval can be changed in settings)
+- Introduced a stamina bar to monitor player endurance
+- Implemented an autosave feature with customizable intervals in the settings
 
 ## Inventory
 
