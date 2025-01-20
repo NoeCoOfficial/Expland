@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbc10j8mbwjbn"]
+
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Audio/AudioNotification_SCRIPT.gd" id="1_xl5m5"]
+
+[node name="AudioNotification" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xl5m5")
