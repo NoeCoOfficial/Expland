@@ -444,13 +444,23 @@ func _physics_process(delta):
 			if !Input.is_action_pressed("Crouch") and !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface and !InventoryManager.in_chest_interface:
 				speed = SPRINT_SPEED
 				is_sprinting = true
+				is_crouching = false
+				is_walking = false
 		elif Input.is_action_pressed("Crouch") and !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface and !InventoryManager.in_chest_interface:
 			speed = CROUCH_SPEED
 			is_crouching = true
+			is_sprinting = false
+			is_walking = false
 		else:
 			speed = WALK_SPEED
-			is_walking = true
-		
+			if is_moving:
+				is_walking = true
+				is_sprinting = false
+				is_crouching = false
+			else:
+				is_walking = false
+				is_sprinting = false
+				is_crouching = false
 		# Movement
 		var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 		var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
@@ -491,6 +501,7 @@ func _process(delta):
 	
 	SENSITIVITY = PlayerSettingsData.Sensitivity
 	camera.fov = PlayerSettingsData.FOV
+	StaminaBar.value = PlayerManager.Stamina
 	
 	## DEBUGGING
 	
