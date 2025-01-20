@@ -62,7 +62,6 @@ extends CharacterBody3D # Inheritance
 var inventory_opened_in_air := false ## Checks if the inventory UI is opened in the air (so the same velocity can be kept, used in _physics_process()
 var speed : float ## The speed of the player. Used in _physics_process, this variable changes to SPRINT_SPEED, CROUCH_SPEED or WALK_SPEED depending on what input is pressed.
 var transitioning_to_menu = false
-var stamina_restoring_f0 = false
 var inventoryHand_debounce_timer = 0.2
 
 ######################################
@@ -102,7 +101,7 @@ var inventoryHand_debounce_timer = 0.2
 @export var Quit := true ## Whether or not the player can use the Quit input to quit the game (Normally Ctrl+Shift+Q) (will be OFF for final game.)
 
 ######################################
-# Input group
+# Visual group
 ######################################
 
 @export_group("Visual") ## A group for visual/camera variables
@@ -153,6 +152,12 @@ var is_crouching = false
 
 @export_subgroup("Gravity") ## A subgroup for gravity variables.
 @export var gravity = 12.0 ## Was originally 9.8 (Earth's gravitational pull) but I felt it to be too unrealistic. This is the gravity of the player. The higher this value is, the faster the player falls.
+
+@export_subgroup("Stamina")
+@export var STAMINA_DECREMENT : float
+@export var STAMINA_INCREMENT : float
+@export var STAMINA_MIN_ENERGY : float
+var stamina_restoring_f0 = false
 
 ######################################
 ######################################
