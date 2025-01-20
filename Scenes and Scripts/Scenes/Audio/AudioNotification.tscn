@@ -10,3 +10,240 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xl5m5")
+
+[node name="LightBG" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 193.0
+offset_bottom = 88.0
+
+[node name="BG" type="ColorRect" parent="LightBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.274611
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.254902, 0.254902, 0.254902, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BG2" type="ColorRect" parent="LightBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.165803
+anchor_right = 0.891192
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.254902, 0.254902, 0.254902, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BG3" type="ColorRect" parent="LightBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0259067
+anchor_top = 0.0227273
+anchor_right = 0.787565
+anchor_bottom = 0.659091
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.137056, 0.125)
+color = Color(0.254902, 0.254902, 0.254902, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BG4" type="ColorRect" parent="LightBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.150259
+anchor_top = 0.522727
+anchor_right = 0.911917
+anchor_bottom = 4.25
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.137056, 0.125)
+color = Color(0.254902, 0.254902, 0.254902, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BG5" type="ColorRect" parent="LightBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0880829
+anchor_top = 0.0227273
+anchor_right = 0.849741
+anchor_bottom = 3.75
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.137056, 0.125)
+color = Color(0.254902, 0.254902, 0.254902, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BG6" type="ColorRect" parent="LightBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0569948
+anchor_top = 0.284091
+anchor_right = 0.818653
+anchor_bottom = 5.45455
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.328699
+scale = Vector2(0.137056, 0.125)
+color = Color(0.254902, 0.254902, 0.254902, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BG7" type="ColorRect" parent="LightBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0259067
+anchor_top = 0.0909091
+anchor_right = 0.787565
+anchor_bottom = 5.26136
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.328699
+scale = Vector2(0.137056, 0.125)
+color = Color(0.254902, 0.254902, 0.254902, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Angle" type="Line2D" parent="LightBG"]
+position = Vector2(1.385, 3.51)
+points = PackedVector2Array(2.615, -1.51, 28.615, 82.49)
+width = 2.9
+default_color = Color(0.254902, 0.254902, 0.254902, 1)
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Border" type="Line2D" parent="LightBG"]
+position = Vector2(7.11, 0.9)
+points = PackedVector2Array(-3, 0.55, 53, 0.55)
+width = 2.9
+default_color = Color(0.254902, 0.254902, 0.254902, 1)
+begin_cap_mode = 2
+
+[node name="Border2" type="Line2D" parent="LightBG"]
+position = Vector2(1.215, 86)
+points = PackedVector2Array(29, 0.550003, 53, 0.55)
+width = 2.9
+default_color = Color(0.254902, 0.254902, 0.254902, 1)
+begin_cap_mode = 2
+
+[node name="DarkBG" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 4.0
+offset_right = 197.0
+offset_bottom = 88.0
+
+[node name="BG" type="ColorRect" parent="DarkBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.274611
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.141176, 0.141176, 0.141176, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BG2" type="ColorRect" parent="DarkBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.165803
+anchor_right = 0.891192
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.141176, 0.141176, 0.141176, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BG3" type="ColorRect" parent="DarkBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0259067
+anchor_top = 0.0227273
+anchor_right = 0.787565
+anchor_bottom = 0.659091
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.137056, 0.125)
+color = Color(0.141176, 0.141176, 0.141176, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BG4" type="ColorRect" parent="DarkBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.150259
+anchor_top = 0.522727
+anchor_right = 0.911917
+anchor_bottom = 4.25
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.137056, 0.125)
+color = Color(0.141176, 0.141176, 0.141176, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BG5" type="ColorRect" parent="DarkBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0880829
+anchor_top = 0.0227273
+anchor_right = 0.849741
+anchor_bottom = 3.75
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.137056, 0.125)
+color = Color(0.141176, 0.141176, 0.141176, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BG6" type="ColorRect" parent="DarkBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0569948
+anchor_top = 0.284091
+anchor_right = 0.818653
+anchor_bottom = 5.45455
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.328699
+scale = Vector2(0.137056, 0.125)
+color = Color(0.141176, 0.141176, 0.141176, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BG7" type="ColorRect" parent="DarkBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0259067
+anchor_top = 0.0909091
+anchor_right = 0.787565
+anchor_bottom = 5.26136
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.328699
+scale = Vector2(0.137056, 0.125)
+color = Color(0.141176, 0.141176, 0.141176, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Angle" type="Line2D" parent="DarkBG"]
+position = Vector2(1.385, 3.51)
+points = PackedVector2Array(2.615, -1.51, 28.615, 82.49)
+width = 2.9
+default_color = Color(0.141176, 0.141176, 0.141176, 1)
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Border" type="Line2D" parent="DarkBG"]
+position = Vector2(7.11, 0.9)
+points = PackedVector2Array(-3, 0.55, 53, 0.55)
+width = 2.9
+default_color = Color(0.141176, 0.141176, 0.141176, 1)
+begin_cap_mode = 2
+
+[node name="Border2" type="Line2D" parent="DarkBG"]
+position = Vector2(1.215, 86)
+points = PackedVector2Array(29, 0.550003, 53, 0.55)
+width = 2.9
+default_color = Color(0.141176, 0.141176, 0.141176, 1)
+begin_cap_mode = 2
