@@ -157,7 +157,7 @@ var is_crouching = false
 @export var STAMINA_DECREMENT : float
 @export var STAMINA_INCREMENT : float
 @export var STAMINA_MIN_ENERGY : float
-var stamina_restoring_f0 = false
+var stamina_restoring_from_0 = false
 
 ######################################
 ######################################
