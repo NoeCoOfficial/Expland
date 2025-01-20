@@ -62,7 +62,6 @@ extends CharacterBody3D # Inheritance
 var inventory_opened_in_air := false ## Checks if the inventory UI is opened in the air (so the same velocity can be kept, used in _physics_process()
 var speed : float ## The speed of the player. Used in _physics_process, this variable changes to SPRINT_SPEED, CROUCH_SPEED or WALK_SPEED depending on what input is pressed.
 var transitioning_to_menu = false
-var stamina_restoring_f0 = false
 var inventoryHand_debounce_timer = 0.2
 
 ######################################
@@ -102,7 +101,7 @@ var inventoryHand_debounce_timer = 0.2
 @export var Quit := true ## Whether or not the player can use the Quit input to quit the game (Normally Ctrl+Shift+Q) (will be OFF for final game.)
 
 ######################################
-# Input group
+# Visual group
 ######################################
 
 @export_group("Visual") ## A group for visual/camera variables
@@ -141,6 +140,7 @@ var inventoryHand_debounce_timer = 0.2
 @export var WALK_SPEED = 5.0 ## The normal speed at which the player moves.
 @export var SPRINT_SPEED = 8.0 ## The speed of the player when the user is pressing/holding the Sprint input.
 @export var JUMP_VELOCITY = 4.5 ## How much velocity the player has when jumping. The more this value is, the higher the player can jump.
+var is_movement_input_active = false
 var is_moving = false
 var is_walking = false
 var is_sprinting = false
@@ -153,6 +153,12 @@ var is_crouching = false
 
 @export_subgroup("Gravity") ## A subgroup for gravity variables.
 @export var gravity = 12.0 ## Was originally 9.8 (Earth's gravitational pull) but I felt it to be too unrealistic. This is the gravity of the player. The higher this value is, the faster the player falls.
+
+@export_subgroup("Stamina")
+@export var STAMINA_DECREMENT : float
+@export var STAMINA_INCREMENT : float
+@export var STAMINA_MIN_ENERGY : float
+var stamina_restoring_from_0 = false
 
 ######################################
 ######################################
@@ -395,11 +401,31 @@ func _unhandled_input(event): # A built-in function that listens for input all t
 #region Process
 
 func _physics_process(delta):
+	## Player stamina
+	if is_sprinting and is_movement_input_active:
+		if !stamina_restoring_from_0:
+			PlayerManager.Stamina -= STAMINA_DECREMENT
+			if PlayerManager.Stamina <= 0.0:
+				PlayerManager.Stamina = 0.0
+				stamina_restoring_from_0 = true
+				speed = WALK_SPEED
+				is_walking = true
+				is_sprinting = false
+				is_crouching = false
+	else:
+		if !stamina_restoring_from_0 and PlayerManager.Stamina < 100.0:
+			PlayerManager.Stamina += STAMINA_INCREMENT
+			if PlayerManager.Stamina >= 100.0:
+				PlayerManager.Stamina = 100.0
+	
+	if stamina_restoring_from_0:
+		PlayerManager.Stamina += STAMINA_INCREMENT
+		if PlayerManager.Stamina >= 50.0:
+			PlayerManager.Stamina = 50.0
+			stamina_restoring_from_0 = false
 	
 	## Player movement and physics
-	
-	# Crouching
-	if !InventoryManager.inventory_open and PlayerData.GAME_STATE != "DEAD" and PlayerData.GAME_STATE != "SLEEPING" and is_on_floor() and !InventoryManager.in_chest_interface and !PauseManager.is_paused and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !PauseManager.inside_can_move_item_workshop:
+	if !InventoryManager.inventory_open and PlayerData.GAME_STATE not in ["DEAD", "SLEEPING"] and is_on_floor() and !InventoryManager.in_chest_interface and !PauseManager.is_paused and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !PauseManager.inside_can_move_item_workshop:
 		if Input.is_action_pressed("Crouch"):
 			self.scale.y = lerp(self.scale.y, 0.5, CROUCH_INTERPOLATION * delta)
 		else:
@@ -417,19 +443,28 @@ func _physics_process(delta):
 			velocity.y = JUMP_VELOCITY
 		
 		# Handle Speed
-		if Input.is_action_pressed("Sprint"):
-			if !Input.is_action_pressed("Crouch") and !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface and !InventoryManager.in_chest_interface:
-				speed = SPRINT_SPEED
-				is_sprinting = true
-		elif Input.is_action_pressed("Crouch") and !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface and !InventoryManager.in_chest_interface:
-			speed = CROUCH_SPEED
-			is_crouching = true
+		if Input.is_action_pressed("Sprint") and !Input.is_action_pressed("Crouch"):
+			if !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface and !InventoryManager.in_chest_interface:
+				if !stamina_restoring_from_0:
+					speed = SPRINT_SPEED
+					is_sprinting = true
+					is_crouching = false
+					is_walking = false
+		elif Input.is_action_pressed("Crouch"):
+			if !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface and !InventoryManager.in_chest_interface:
+				speed = CROUCH_SPEED
+				is_crouching = true
+				is_sprinting = false
+				is_walking = false
 		else:
 			speed = WALK_SPEED
 			is_walking = true
+			is_sprinting = false
+			is_crouching = false
 		
 		# Movement
 		var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+		is_movement_input_active = input_dir != Vector2.ZERO
 		var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		
 		if is_on_floor():
@@ -468,6 +503,7 @@ func _process(delta):
 	
 	SENSITIVITY = PlayerSettingsData.Sensitivity
 	camera.fov = PlayerSettingsData.FOV
+	StaminaBar.value = PlayerManager.Stamina
 	
 	## DEBUGGING
 	
