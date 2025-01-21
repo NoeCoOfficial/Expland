@@ -265,7 +265,6 @@ var stamina_restoring_from_0 = false
 @export var ProtectiveLayer : Control
 
 @export_subgroup("HUD")
-@export var Health_Bar : ProgressBar
 @export var Crosshair_Rect : TextureRect
 @export var StaminaBar : ProgressBar
 
@@ -552,9 +551,9 @@ func _process(delta):
 	
 	# HUD
 	if UseHealth == false: # Check if the UseHealth variable is false
-		Health_Bar.hide()
+		HUDLayer_HealthBar.hide()
 	else: 
-		Health_Bar.show()
+		HUDLayer_HealthBar.show()
 	
 	
 	# TODO: Change when making crosshair setting
@@ -565,7 +564,6 @@ func _process(delta):
 #region On startup
 
 func _ready():
-	nodeSetup() # Call the nodeSetup function to setup the nodes
 	initInventorySlots() # Link local inventory slots to singleton arrays
 	
 	DialogueManager.DialogueInterface = DialogueInterface
@@ -604,6 +602,7 @@ func _on_ready() -> void: # Called when the node is considered ready
 	pass
 
 func nodeSetup(): # A function to setup the nodes. Called in the _ready function
+	HUDLayer_HungerBar.value = PlayerData.Hunger
 	HUDLayer_HealthBar.value = PlayerData.Health
 	setAutosaveInterval(PlayerSettingsData.autosaveInterval)
 	
@@ -1291,7 +1290,8 @@ func _on_pickup_object_detector_body_entered(body: Node3D) -> void:
 		takeDamage(14)
 	
 	if body.is_in_group("item_workshop"):
-		openItemWorkshop()
+		if !PauseManager.is_paused and !InventoryManager.inventory_open:
+			openItemWorkshop()
 	
 	if body.is_in_group("dialogue_test"):
 		

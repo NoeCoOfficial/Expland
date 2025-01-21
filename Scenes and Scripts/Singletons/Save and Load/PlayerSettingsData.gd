@@ -62,6 +62,7 @@ var autosaveInterval : int = 60
 ######################################
 
 var DOFBlur : bool = true
+var PrettyShadows : bool = false
 
 ######################################
 # Video
@@ -93,6 +94,7 @@ func saveSettings() -> void:
 		
 		# Graphics
 		"dof_blur" : DOFBlur,
+		"pretty_shadows" : PrettyShadows,
 		
 		# Video
 		"FOV" : FOV,
@@ -129,6 +131,7 @@ func loadSettings() -> void:
 				
 				# Graphics
 				DOFBlur = current_line["dof_blur"]
+				PrettyShadows = current_line["pretty_shadows"]
 				
 				# Video
 				FOV = current_line["FOV"]
@@ -144,6 +147,7 @@ func loadSettings() -> void:
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Show startup screen: "+str(showStartupScreen)+"[/font][/font_size][/center]")
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Autosave Interval: "+str(autosaveInterval)+"[/font][/font_size][/center]")
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]DOF Blur: "+str(DOFBlur)+"[/font][/font_size][/center]")
+				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Pretty shadows: "+str(PrettyShadows)+"[/font][/font_size][/center]")
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]FOV: "+str(FOV)+"[/font][/font_size][/center]")
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Master Volume: "+str(Master_Volume)+"[/font][/font_size][/center]")
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Music Volume: "+str(music_Volume)+"[/font][/font_size][/center]")
@@ -177,3 +181,24 @@ func set_dof_blur(value : bool) -> void:
 					printerr("[PlayerSettingsData] Could not find set_dof_blur() method in world node.")
 	else:
 		printerr("[PlayerSettingsData] World node (/root/World) is null. Can't call set_dof_blur().")
+
+func set_pretty_shadows(value : bool) -> void:
+	if get_node("/root/World") != null:
+			if value:
+				PrettyShadows = true
+				var world = get_node("/root/World")
+				
+				if world.has_method("set_pretty_shadows"):
+					world.set_pretty_shadows(value)
+				else:
+					printerr("[PlayerSettingsData] Could not find set_pretty_shadows() method in world node.")
+			else:
+				PrettyShadows = false
+				var world = get_node("/root/World")
+				
+				if world.has_method("set_pretty_shadows"):
+					world.set_pretty_shadows(value)
+				else:
+					printerr("[PlayerSettingsData] Could not find set_pretty_shadows() method in world node.")
+	else:
+		printerr("[PlayerSettingsData] World node (/root/World) is null. Can't call set_pretty_shadows().")
