@@ -53,6 +53,7 @@ func nodeSetup():
 	
 	$GreyLayer.modulate = Color(1, 1, 1, 0)
 	
+	$MainLayer/SettingsTabContainer/Graphics/PrettyShadowsSwitch.button_pressed = PlayerSettingsData.PrettyShadows
 	$MainLayer/SettingsTabContainer/General/SSCSwitch.button_pressed = PlayerSettingsData.showStartupScreen
 	$MainLayer/SettingsTabContainer/General/AutosaveIntervalSpinBox.value = PlayerSettingsData.autosaveInterval
 	$MainLayer/SettingsTabContainer/Graphics/DOFBlurSwitch.button_pressed = PlayerSettingsData.DOFBlur
@@ -146,3 +147,9 @@ func _on_ssc_switch_toggled(toggled_on: bool) -> void:
 func _on_autosave_interval_spin_box_value_changed(value: float) -> void:
 	PlayerSettingsData.autosaveInterval = int(value)
 	PlayerSettingsData.set_autosave_interval(int(value))
+
+func _on_pretty_shadows_switch_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		PlayerSettingsData.set_pretty_shadows(true)
+	else:
+		PlayerSettingsData.set_pretty_shadows(false)

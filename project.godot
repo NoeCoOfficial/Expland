@@ -47,6 +47,7 @@ ConstructingManager="*res://Scenes and Scripts/Singletons/Constructing/Construct
 InventoryManager="*res://Scenes and Scripts/Singletons/Inventory/InventoryManager.gd"
 InputManager="*res://Scenes and Scripts/Singletons/Input/InputManager.gd"
 InteractionManager="*res://Scenes and Scripts/Singletons/Interaction/InteractionManager.gd"
+AudioManager="*res://Scenes and Scripts/Singletons/Audio/AudioManager.gd"
 TerrainManager="*res://Scenes and Scripts/Singletons/World/TerrainManager.gd"
 Utils="*res://Scenes and Scripts/Singletons/Utils.gd"
 SmoothMovements="*res://Scenes and Scripts/Singletons/SmoothMovements.gd"
