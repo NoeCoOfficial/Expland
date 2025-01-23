@@ -420,7 +420,7 @@ offset_bottom = 116.0
 theme = ExtResource("2_7hn7g")
 theme_override_fonts/font = ExtResource("7_vmdvx")
 theme_override_font_sizes/font_size = 30
-text = "F"
+text = "K"
 horizontal_alignment = 1
 vertical_alignment = 1
 
