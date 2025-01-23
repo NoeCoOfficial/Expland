@@ -364,65 +364,75 @@ offset_top = 42.0
 offset_right = 115.0
 offset_bottom = 70.0
 
-[node name="Pause1" type="Line2D" parent="PauseBtnIcon"]
-position = Vector2(-97, -42)
-points = PackedVector2Array(113, 46, 113, 65)
-width = 5.195
-begin_cap_mode = 2
-end_cap_mode = 2
+[node name="K Key Container" type="Control" parent="PauseBtnIcon"]
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 28.0
+offset_right = 53.0
+offset_bottom = 80.0
+scale = Vector2(0.311712, 0.311712)
 
-[node name="BackgroundKEY" type="Button" parent="PauseBtnIcon/Pause1"]
+[node name="BackgroundKEY" type="Button" parent="PauseBtnIcon/K Key Container"]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0016129
 anchor_top = 0.00224733
 anchor_right = 0.0016129
 anchor_bottom = 0.00224733
-offset_left = 58.0
-offset_top = 70.0
-offset_right = 110.0
-offset_bottom = 122.0
+offset_left = -0.0838708
+offset_top = -0.116861
+offset_right = 51.9161
+offset_bottom = 51.8831
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_4gcdt")
 
-[node name="BackgroundKEY2" type="Button" parent="PauseBtnIcon/Pause1"]
-offset_left = 60.0
-offset_top = 72.0
-offset_right = 108.0
-offset_bottom = 120.0
+[node name="BackgroundKEY2" type="Button" parent="PauseBtnIcon/K Key Container"]
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 50.0
+offset_bottom = 50.0
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_qs4gu")
 
-[node name="BackgroundKEY3" type="Button" parent="PauseBtnIcon/Pause1"]
+[node name="BackgroundKEY3" type="Button" parent="PauseBtnIcon/K Key Container"]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.000967703
 anchor_right = 0.000967703
-offset_left = 64.0
-offset_top = 76.0
-offset_right = 104.0
-offset_bottom = 116.0
+offset_left = 5.94968
+offset_top = 6.0
+offset_right = 45.9497
+offset_bottom = 46.0
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_pq0us")
 
-[node name="BackgroundKEY4" type="Button" parent="PauseBtnIcon/Pause1"]
-offset_left = 66.0
-offset_top = 78.0
-offset_right = 102.0
-offset_bottom = 114.0
+[node name="BackgroundKEY4" type="Button" parent="PauseBtnIcon/K Key Container"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 44.0
+offset_bottom = 44.0
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_66xhl")
 
-[node name="KEY" type="Label" parent="PauseBtnIcon/Pause1"]
+[node name="KEY" type="Label" parent="PauseBtnIcon/K Key Container"]
 modulate = Color(0.796243, 0.796243, 0.796243, 1)
-offset_left = 69.0
-offset_top = 81.0
-offset_right = 99.0
-offset_bottom = 116.0
+offset_left = 11.0
+offset_top = 11.0
+offset_right = 41.0
+offset_bottom = 46.0
 theme = ExtResource("2_7hn7g")
 theme_override_fonts/font = ExtResource("7_vmdvx")
 theme_override_font_sizes/font_size = 30
 text = "K"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Pause1" type="Line2D" parent="PauseBtnIcon"]
+position = Vector2(-97, -42)
+points = PackedVector2Array(113, 46, 113, 65)
+width = 5.195
+begin_cap_mode = 2
+end_cap_mode = 2
 
 [node name="Pause2" type="Line2D" parent="PauseBtnIcon"]
 position = Vector2(-110, -41)
