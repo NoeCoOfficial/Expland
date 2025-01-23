@@ -427,6 +427,132 @@ text = "K"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="J Key Container" type="Control" parent="PauseBtnIcon"]
+anchors_preset = 0
+offset_left = -30.0
+offset_top = 28.0
+offset_right = 22.0
+offset_bottom = 80.0
+scale = Vector2(0.311712, 0.311712)
+
+[node name="BackgroundKEY" type="Button" parent="PauseBtnIcon/J Key Container"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0016129
+anchor_top = 0.00224733
+anchor_right = 0.0016129
+anchor_bottom = 0.00224733
+offset_left = -0.0838708
+offset_top = -0.116861
+offset_right = 51.9161
+offset_bottom = 51.8831
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_4gcdt")
+
+[node name="BackgroundKEY2" type="Button" parent="PauseBtnIcon/J Key Container"]
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 50.0
+offset_bottom = 50.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qs4gu")
+
+[node name="BackgroundKEY3" type="Button" parent="PauseBtnIcon/J Key Container"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.000967703
+anchor_right = 0.000967703
+offset_left = 5.94968
+offset_top = 6.0
+offset_right = 45.9497
+offset_bottom = 46.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_pq0us")
+
+[node name="BackgroundKEY4" type="Button" parent="PauseBtnIcon/J Key Container"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 44.0
+offset_bottom = 44.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_66xhl")
+
+[node name="KEY" type="Label" parent="PauseBtnIcon/J Key Container"]
+modulate = Color(0.796243, 0.796243, 0.796243, 1)
+offset_left = 9.837
+offset_top = 11.0
+offset_right = 39.837
+offset_bottom = 46.0
+theme = ExtResource("2_7hn7g")
+theme_override_fonts/font = ExtResource("7_vmdvx")
+theme_override_font_sizes/font_size = 30
+text = "J"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="L Key Container" type="Control" parent="PauseBtnIcon"]
+anchors_preset = 0
+offset_left = 34.0
+offset_top = 28.0
+offset_right = 86.0
+offset_bottom = 80.0
+scale = Vector2(0.311712, 0.311712)
+
+[node name="BackgroundKEY" type="Button" parent="PauseBtnIcon/L Key Container"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0016129
+anchor_top = 0.00224733
+anchor_right = 0.0016129
+anchor_bottom = 0.00224733
+offset_left = -0.0838708
+offset_top = -0.116861
+offset_right = 51.9161
+offset_bottom = 51.8831
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_4gcdt")
+
+[node name="BackgroundKEY2" type="Button" parent="PauseBtnIcon/L Key Container"]
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 50.0
+offset_bottom = 50.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qs4gu")
+
+[node name="BackgroundKEY3" type="Button" parent="PauseBtnIcon/L Key Container"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.000967703
+anchor_right = 0.000967703
+offset_left = 5.94968
+offset_top = 6.0
+offset_right = 45.9497
+offset_bottom = 46.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_pq0us")
+
+[node name="BackgroundKEY4" type="Button" parent="PauseBtnIcon/L Key Container"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 44.0
+offset_bottom = 44.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_66xhl")
+
+[node name="KEY" type="Label" parent="PauseBtnIcon/L Key Container"]
+modulate = Color(0.796243, 0.796243, 0.796243, 1)
+offset_left = 9.837
+offset_top = 11.0
+offset_right = 39.837
+offset_bottom = 46.0
+theme = ExtResource("2_7hn7g")
+theme_override_fonts/font = ExtResource("7_vmdvx")
+theme_override_font_sizes/font_size = 30
+text = "L"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Pause1" type="Line2D" parent="PauseBtnIcon"]
 position = Vector2(-97, -42)
 points = PackedVector2Array(113, 46, 113, 65)
