@@ -366,9 +366,9 @@ offset_bottom = 70.0
 
 [node name="K Key Container" type="Control" parent="PauseBtnIcon"]
 anchors_preset = 0
-offset_left = 1.0
+offset_left = 1.48
 offset_top = 28.0
-offset_right = 53.0
+offset_right = 53.48
 offset_bottom = 80.0
 scale = Vector2(0.311712, 0.311712)
 
