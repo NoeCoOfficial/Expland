@@ -76,7 +76,6 @@ var is_tweening = false
 ######################################
 
 func _ready() -> void:
-	$Music.volume_db = -80
 	PlayerSettingsData.loadSettings()
 	AudioManager.init($Music)
 	PauseManager.is_paused = false
