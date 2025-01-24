@@ -292,7 +292,13 @@ width = 2.9
 default_color = Color(0.141176, 0.141176, 0.141176, 1)
 begin_cap_mode = 2
 
-[node name="Title" type="Label" parent="."]
+[node name="Elements" type="Control" parent="."]
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Label" parent="Elements"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -311,17 +317,17 @@ text = "Now playing"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MusicWhiteIcon" type="Sprite2D" parent="."]
+[node name="MusicWhiteIcon" type="Sprite2D" parent="Elements"]
 position = Vector2(62.25, 10.8558)
 scale = Vector2(0.0273279, 0.0273279)
 texture = ExtResource("3_qfyvc")
 
-[node name="MusicWhiteIcon2" type="Sprite2D" parent="."]
+[node name="MusicWhiteIcon2" type="Sprite2D" parent="Elements"]
 position = Vector2(151.25, 10.8558)
 scale = Vector2(0.0273279, 0.0273279)
 texture = ExtResource("3_qfyvc")
 
-[node name="SongName" type="Label" parent="."]
+[node name="SongName" type="Label" parent="Elements"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -341,38 +347,52 @@ text = "What Is This Place"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PlayBtnIcon" type="Sprite2D" parent="."]
+[node name="PlayBtnIcon" type="Sprite2D" parent="Elements"]
 position = Vector2(107, 55)
 scale = Vector2(0.0112818, 0.0112818)
 texture = ExtResource("5_w5aau")
 
-[node name="SideArrowIcon" type="Sprite2D" parent="."]
+[node name="SideArrowIcon" type="Sprite2D" parent="Elements"]
 position = Vector2(140, 55)
 scale = Vector2(0.0199328, 0.0199328)
 texture = ExtResource("6_myn3j")
 
-[node name="SideArrowIcon2" type="Sprite2D" parent="."]
+[node name="SideArrowIcon2" type="Sprite2D" parent="Elements"]
 position = Vector2(72, 55)
 scale = Vector2(0.0199328, 0.0199328)
 texture = ExtResource("6_myn3j")
 flip_h = true
 
-[node name="PauseBtnIcon" type="Control" parent="."]
+[node name="PauseBtnIcon" type="Control" parent="Elements"]
 anchors_preset = 0
 offset_left = 96.0
 offset_top = 42.0
 offset_right = 115.0
 offset_bottom = 70.0
 
-[node name="K Key Container" type="Control" parent="PauseBtnIcon"]
+[node name="Pause1" type="Line2D" parent="Elements/PauseBtnIcon"]
+position = Vector2(-97, -42)
+points = PackedVector2Array(113, 46, 113, 65)
+width = 5.195
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Pause2" type="Line2D" parent="Elements/PauseBtnIcon"]
+position = Vector2(-110, -41)
+points = PackedVector2Array(113, 45, 113, 64)
+width = 5.195
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="K Key Container" type="Control" parent="Elements"]
 anchors_preset = 0
-offset_left = 1.48
-offset_top = 28.0
-offset_right = 53.48
-offset_bottom = 80.0
+offset_left = 97.48
+offset_top = 70.0
+offset_right = 149.48
+offset_bottom = 122.0
 scale = Vector2(0.311712, 0.311712)
 
-[node name="BackgroundKEY" type="Button" parent="PauseBtnIcon/K Key Container"]
+[node name="BackgroundKEY" type="Button" parent="Elements/K Key Container"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0016129
@@ -386,7 +406,7 @@ offset_bottom = 51.8831
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_4gcdt")
 
-[node name="BackgroundKEY2" type="Button" parent="PauseBtnIcon/K Key Container"]
+[node name="BackgroundKEY2" type="Button" parent="Elements/K Key Container"]
 offset_left = 2.0
 offset_top = 2.0
 offset_right = 50.0
@@ -394,7 +414,7 @@ offset_bottom = 50.0
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_qs4gu")
 
-[node name="BackgroundKEY3" type="Button" parent="PauseBtnIcon/K Key Container"]
+[node name="BackgroundKEY3" type="Button" parent="Elements/K Key Container"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.000967703
@@ -406,7 +426,7 @@ offset_bottom = 46.0
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_pq0us")
 
-[node name="BackgroundKEY4" type="Button" parent="PauseBtnIcon/K Key Container"]
+[node name="BackgroundKEY4" type="Button" parent="Elements/K Key Container"]
 offset_left = 8.0
 offset_top = 8.0
 offset_right = 44.0
@@ -414,7 +434,7 @@ offset_bottom = 44.0
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_66xhl")
 
-[node name="KEY" type="Label" parent="PauseBtnIcon/K Key Container"]
+[node name="KEY" type="Label" parent="Elements/K Key Container"]
 modulate = Color(0.796243, 0.796243, 0.796243, 1)
 offset_left = 11.0
 offset_top = 11.0
@@ -427,15 +447,15 @@ text = "K"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="J Key Container" type="Control" parent="PauseBtnIcon"]
+[node name="J Key Container" type="Control" parent="Elements"]
 anchors_preset = 0
-offset_left = -30.0
-offset_top = 28.0
-offset_right = 22.0
-offset_bottom = 80.0
+offset_left = 66.0
+offset_top = 70.0
+offset_right = 118.0
+offset_bottom = 122.0
 scale = Vector2(0.311712, 0.311712)
 
-[node name="BackgroundKEY" type="Button" parent="PauseBtnIcon/J Key Container"]
+[node name="BackgroundKEY" type="Button" parent="Elements/J Key Container"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0016129
@@ -449,7 +469,7 @@ offset_bottom = 51.8831
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_4gcdt")
 
-[node name="BackgroundKEY2" type="Button" parent="PauseBtnIcon/J Key Container"]
+[node name="BackgroundKEY2" type="Button" parent="Elements/J Key Container"]
 offset_left = 2.0
 offset_top = 2.0
 offset_right = 50.0
@@ -457,7 +477,7 @@ offset_bottom = 50.0
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_qs4gu")
 
-[node name="BackgroundKEY3" type="Button" parent="PauseBtnIcon/J Key Container"]
+[node name="BackgroundKEY3" type="Button" parent="Elements/J Key Container"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.000967703
@@ -469,7 +489,7 @@ offset_bottom = 46.0
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_pq0us")
 
-[node name="BackgroundKEY4" type="Button" parent="PauseBtnIcon/J Key Container"]
+[node name="BackgroundKEY4" type="Button" parent="Elements/J Key Container"]
 offset_left = 8.0
 offset_top = 8.0
 offset_right = 44.0
@@ -477,7 +497,7 @@ offset_bottom = 44.0
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_66xhl")
 
-[node name="KEY" type="Label" parent="PauseBtnIcon/J Key Container"]
+[node name="KEY" type="Label" parent="Elements/J Key Container"]
 modulate = Color(0.796243, 0.796243, 0.796243, 1)
 offset_left = 9.837
 offset_top = 11.0
@@ -490,15 +510,15 @@ text = "J"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="L Key Container" type="Control" parent="PauseBtnIcon"]
+[node name="L Key Container" type="Control" parent="Elements"]
 anchors_preset = 0
-offset_left = 34.0
-offset_top = 28.0
-offset_right = 86.0
-offset_bottom = 80.0
+offset_left = 130.0
+offset_top = 70.0
+offset_right = 182.0
+offset_bottom = 122.0
 scale = Vector2(0.311712, 0.311712)
 
-[node name="BackgroundKEY" type="Button" parent="PauseBtnIcon/L Key Container"]
+[node name="BackgroundKEY" type="Button" parent="Elements/L Key Container"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0016129
@@ -512,7 +532,7 @@ offset_bottom = 51.8831
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_4gcdt")
 
-[node name="BackgroundKEY2" type="Button" parent="PauseBtnIcon/L Key Container"]
+[node name="BackgroundKEY2" type="Button" parent="Elements/L Key Container"]
 offset_left = 2.0
 offset_top = 2.0
 offset_right = 50.0
@@ -520,7 +540,7 @@ offset_bottom = 50.0
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_qs4gu")
 
-[node name="BackgroundKEY3" type="Button" parent="PauseBtnIcon/L Key Container"]
+[node name="BackgroundKEY3" type="Button" parent="Elements/L Key Container"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.000967703
@@ -532,7 +552,7 @@ offset_bottom = 46.0
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_pq0us")
 
-[node name="BackgroundKEY4" type="Button" parent="PauseBtnIcon/L Key Container"]
+[node name="BackgroundKEY4" type="Button" parent="Elements/L Key Container"]
 offset_left = 8.0
 offset_top = 8.0
 offset_right = 44.0
@@ -540,7 +560,7 @@ offset_bottom = 44.0
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_66xhl")
 
-[node name="KEY" type="Label" parent="PauseBtnIcon/L Key Container"]
+[node name="KEY" type="Label" parent="Elements/L Key Container"]
 modulate = Color(0.796243, 0.796243, 0.796243, 1)
 offset_left = 9.837
 offset_top = 11.0
@@ -552,17 +572,3 @@ theme_override_font_sizes/font_size = 30
 text = "L"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Pause1" type="Line2D" parent="PauseBtnIcon"]
-position = Vector2(-97, -42)
-points = PackedVector2Array(113, 46, 113, 65)
-width = 5.195
-begin_cap_mode = 2
-end_cap_mode = 2
-
-[node name="Pause2" type="Line2D" parent="PauseBtnIcon"]
-position = Vector2(-110, -41)
-points = PackedVector2Array(113, 45, 113, 64)
-width = 5.195
-begin_cap_mode = 2
-end_cap_mode = 2
