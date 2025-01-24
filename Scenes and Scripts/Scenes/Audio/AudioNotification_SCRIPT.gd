@@ -51,4 +51,7 @@ extends Control
 
 func spawnAudioNotification(songName : String):
 	$SongName.text = songName
-	
+	var tween = get_tree().create_tween().set_parallel()
+	tween.tween_property($LightBG, "position:x", -193, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property($DarkBG, "position:x", -189, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.2)
+	tween.tween_property($Elements, "position:x", -193, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.2)
