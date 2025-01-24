@@ -485,3 +485,6 @@ func _on_delete_island_no_pressed() -> void:
 	$Camera3D/MainLayer/DeleteIslandPopup.hide()
 	is_in_delete_popup = false
 	is_in_load_island_interface = true
+
+func _on_music_finished() -> void:
+	pass # Replace with function body.

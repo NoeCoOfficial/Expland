@@ -121,6 +121,7 @@ glow_enabled = true
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_o1dfw"]
 shuffle = true
+fade_time = 0.58
 stream_count = 5
 stream_0 = ExtResource("3_uiwyk")
 stream_1 = ExtResource("4_em1nm")
@@ -206,7 +207,7 @@ script = ExtResource("2_j6ch4")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_v4n35")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamPlaylist_o1dfw")
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -1184,6 +1185,7 @@ gravity = Vector3(0, -60, 0)
 initial_velocity_min = 47.09
 initial_velocity_max = 47.09
 
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]
 [connection signal="button_down" from="Camera3D/MainLayer/PlayButtonTrigger" to="." method="_on_play_button_trigger_button_down"]
 [connection signal="button_up" from="Camera3D/MainLayer/PlayButtonTrigger" to="." method="_on_play_button_trigger_button_up"]
 [connection signal="mouse_entered" from="Camera3D/MainLayer/PlayButtonTrigger" to="." method="_on_play_button_trigger_mouse_entered"]
