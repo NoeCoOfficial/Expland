@@ -14,10 +14,17 @@
 ### Changed:
 - Changed default Linux driver to Wayland instead of XWayland, which is hard to maintain (#74)
 
+## Settings
+
+### Added:
+- Pretty shadows option
+- Autosave interval option
+
 ## Main Menu
 
 ### Added:
 - Added the ability to save and load Islands
+- Background music with interactive controls
 
 ### Changed:
 - Background camera animation now loops instead of stopping when returned to original position
@@ -29,7 +36,9 @@
 - The all-new Item Workshop™ located in the testing area, where you can obtain any item you want!
 - Water to the lake and around The Island
 - Dynamic clouds in the sky that move
+- Background music with interactive controls
 - A very simple weather system that is yet to be improved
+- Background music with interactive controls
 
 ### Changed:
 - Revamped the entire Day/Night cycle system, making it more optimized and less buggy. Also the sunrise is beautiful
