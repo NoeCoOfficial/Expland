@@ -4,6 +4,11 @@
 
 ---
 
+## General
+
+### Added:
+- Background music to both the Main Menu and The Island with and interactive controls
+
 ## Core
 
 ### Changed:
@@ -12,7 +17,7 @@
 ## Main Menu
 
 ### Added:
-- The ability to save and load Islands
+- Added the ability to save and load Islands
 
 ### Changed:
 - Background camera animation now loops instead of stopping when returned to original position
