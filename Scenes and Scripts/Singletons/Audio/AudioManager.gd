@@ -54,9 +54,15 @@ var Current_Playlist : Node
 var NotificationNode : Node
 
 func initNew(PlaylistNode : Node, Start : bool, fade : bool, showNotification : bool):
+	PREVIOUS_SONGS.clear()
+	IN_FRONT_SONGS.clear()
 	Current_Playlist = PlaylistNode
 	if Start:
 		Current_Playlist.Start(fade, showNotification)
 
 func initNotificaton(Notification_Node : Node):
 	NotificationNode = Notification_Node
+
+func clearSongs():
+	PREVIOUS_SONGS.clear()
+	IN_FRONT_SONGS.clear()
