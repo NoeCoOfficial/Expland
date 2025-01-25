@@ -47,12 +47,14 @@
 
 extends Node
 
+var songs : Array
+var currently_playing_song : AudioStreamPlayer
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	songs = self.get_children()
 
+func Toggle(paused : bool, fade : bool, showNotification : bool):
+	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func Next(paused : bool, fade : bool, showNotification : bool):
 	pass

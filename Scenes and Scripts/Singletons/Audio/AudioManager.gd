@@ -47,16 +47,8 @@
 
 extends Node
 
+const FADE_TIME = 0.8
 var AudioStreamTarget = null
 
 func init(AudioStreamNode : Node):
 	AudioStreamTarget = AudioStreamNode
-
-func Toggle(play : bool = false):
-	pass
-
-func Next():
-	pass
-
-func Previous():
-	pass
