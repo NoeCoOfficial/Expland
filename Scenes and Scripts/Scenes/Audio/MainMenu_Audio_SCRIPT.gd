@@ -60,13 +60,16 @@ func Next(fade : bool, showNotification : bool):
 	var nextSong
 	var fadetween = get_tree().create_tween()
 	if currently_playing_song:
-		fadetween.tween_property(currently_playing_song, "volume_db", -80, AudioManager.FADE_TIME)
-		await get_tree().create_timer(AudioManager.FADE_TIME).timeout
-		currently_playing_song.stop()
+		if fade:
+			fadetween.tween_property(currently_playing_song, "volume_db", -80, AudioManager.FADE_TIME)
+			await get_tree().create_timer(AudioManager.FADE_TIME).timeout
+			currently_playing_song.stop()
+		else:
+			currently_playing_song.stop()
 	
 	AudioManager.PREVIOUS_SONGS.append(currently_playing_song)
 	if !AudioManager.IN_FRONT_SONGS.is_empty(): # If there are songs yet to be played in front
-		nextSong = AudioManager.IN_FRONT_SONGS[AudioManager.IN_FRONT_SONGS.size()]
+		nextSong = AudioManager.IN_FRONT_SONGS.pop_back()
 	else: # If there are no songs yet to be played
 		randomize()
 		while true:
@@ -78,7 +81,24 @@ func Next(fade : bool, showNotification : bool):
 	currently_playing_song.play()
 
 func Previous(fade : bool, showNotification : bool):
-	pass
+	if AudioManager.PREVIOUS_SONGS.is_empty():
+		return
+		
+	var previousSong
+	var fadetween = get_tree().create_tween()
+	if currently_playing_song:
+		if fade:
+			fadetween.tween_property(currently_playing_song, "volume_db", -80, AudioManager.FADE_TIME)
+			await get_tree().create_timer(AudioManager.FADE_TIME).timeout
+			currently_playing_song.stop()
+		else:
+			currently_playing_song.stop()
+	
+	AudioManager.IN_FRONT_SONGS.append(currently_playing_song)
+	previousSong = AudioManager.PREVIOUS_SONGS.pop_back()
+	
+	currently_playing_song = previousSong
+	currently_playing_song.play()
 
 func StartSong(song : Node, fade : bool, showNotification : bool):
 	pass
