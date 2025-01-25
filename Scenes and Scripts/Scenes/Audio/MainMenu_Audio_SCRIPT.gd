@@ -47,6 +47,7 @@
 
 extends Node
 
+var VOLUME_DB : float = -10.0
 var songs : Array
 var currently_playing_song : AudioStreamPlayer
 
@@ -61,10 +62,10 @@ func _input(_event: InputEvent) -> void:
 			Toggle(true, true)
 	
 	if Input.is_action_just_pressed("audio_Next"):
-		Next(false, true)
+		Next(AudioManager.CAN_FADE, true)
 	
 	if Input.is_action_just_pressed("audio_Prev"):
-		Previous(false, true)
+		Previous(AudioManager.CAN_FADE, true)
 
 func Toggle(pause : bool, showNotification : bool):
 	
@@ -105,6 +106,12 @@ func Next(fade : bool, showNotification : bool):
 	
 	currently_playing_song = nextSong
 	currently_playing_song.play()
+	startFadeTimer(currently_playing_song.stream.get_length())
+	
+	if fade:
+		currently_playing_song.volume_db = -80
+		var fadetween = get_tree().create_tween()
+		fadetween.tween_property(currently_playing_song, "volume_db", VOLUME_DB, AudioManager.FADE_TIME)
 	
 	if showNotification:
 		if !AudioManager.NotificationOnScreen:
@@ -132,6 +139,12 @@ func Previous(fade : bool, showNotification : bool):
 	
 	currently_playing_song = previousSong
 	currently_playing_song.play()
+	startFadeTimer(currently_playing_song.stream.get_length())
+	
+	if fade:
+		currently_playing_song.volume_db = -80
+		var fadetween = get_tree().create_tween()
+		fadetween.tween_property(currently_playing_song, "volume_db", VOLUME_DB, AudioManager.FADE_TIME)
 	
 	if showNotification:
 		if !AudioManager.NotificationOnScreen:
@@ -152,6 +165,12 @@ func Start(fade : bool, showNotification : bool):
 	
 	currently_playing_song = nextSong
 	currently_playing_song.play()
+	startFadeTimer(currently_playing_song.stream.get_length())
+	
+	if fade:
+		currently_playing_song.volume_db = -80
+		var fadetween = get_tree().create_tween()
+		fadetween.tween_property(currently_playing_song, "volume_db", VOLUME_DB, AudioManager.FADE_TIME)
 	
 	if showNotification:
 		if !AudioManager.NotificationOnScreen:
@@ -163,15 +182,23 @@ func Stop(song : Node, fade : bool):
 	pass
 
 func FadeIn(song : Node):
-	pass
+	var fadetween = get_tree().create_tween()
+	fadetween.tween_property(song, "volume_db", VOLUME_DB, AudioManager.FADE_TIME)
 
 func FadeOut(song : Node):
-	pass
-
+	var fadetween = get_tree().create_tween()
+	fadetween.tween_property(song, "volume_db", -80, AudioManager.FADE_TIME)
 
 func get_currently_playing_song_node():
 	return currently_playing_song
 
-
 func _on_songs_finished() -> void:
-	Next(false, true)
+	Next(AudioManager.CAN_FADE, true)
+
+func startFadeTimer(lengthOfSong : float):
+	$FadeTimer.stop()
+	$FadeTimer.wait_time = lengthOfSong - AudioManager.FADE_TIME
+	$FadeTimer.start()
+
+func _on_fade_timer_timeout() -> void:
+	FadeOut(currently_playing_song)

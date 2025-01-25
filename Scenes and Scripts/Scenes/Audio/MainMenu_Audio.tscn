@@ -11,24 +11,33 @@
 [node name="MainMenu_Audio" type="Node"]
 script = ExtResource("1_4kkeg")
 
+[node name="FadeTimer" type="Timer" parent="."]
+
 [node name="One Ray Of Light" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_b74ic")
+volume_db = -10.0
 
 [node name="A New Beginning" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_enq60")
+volume_db = -10.0
 
 [node name="Far Dreams" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_c37cp")
+volume_db = -10.0
 
 [node name="Lunch" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_ekosr")
+volume_db = -10.0
 
 [node name="Get Out Of Here" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_7vld5")
+volume_db = -10.0
 
 [node name="What Is This Place" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_pqcbc")
+volume_db = -10.0
 
+[connection signal="timeout" from="FadeTimer" to="." method="_on_fade_timer_timeout"]
 [connection signal="finished" from="One Ray Of Light" to="." method="_on_songs_finished"]
 [connection signal="finished" from="A New Beginning" to="." method="_on_songs_finished"]
 [connection signal="finished" from="Far Dreams" to="." method="_on_songs_finished"]
