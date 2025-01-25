@@ -49,6 +49,7 @@ extends Node
 
 var POCKET_SLOTS = []
 var CHEST_SLOTS = []
+var WORKSHOP_SLOTS = []
 
 func get_free_slot(Slots : Array):
 	var free_slot = null
@@ -56,7 +57,7 @@ func get_free_slot(Slots : Array):
 		if not Slots[i].is_populated():
 			free_slot = Slots[i]
 			return free_slot
-			break
+			#break
 
 const HANDHELD_ITEMS = [
 	
@@ -101,6 +102,7 @@ var creatingFromInventory = false
 
 var inventory_open = false
 var in_chest_interface = false
+var is_in_workbench_interface = false
 
 var is_dragging = false
 var is_inside_boundary = false
@@ -129,8 +131,6 @@ func create_pickup_object():
 	if is_creating_pickup:
 		return
 	is_creating_pickup = true
-	var INVENTORY_LAYER = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer")
-	var CHEST_SLOTS = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots")
 	var PICKUP_SCENE = load("res://Scenes and Scripts/Scenes/Player/Inventory/ItemPickupObject.tscn")
 	var PICKUP = PICKUP_SCENE.instantiate()
 	PlayerManager.WORLD.add_child(PICKUP)
@@ -180,10 +180,31 @@ func spawn_inventory_dropable_from_load(atPos : Vector2, ITEM_TYPE, is_in_chest_
 			InventoryLayer.add_child(DropableInstance)
 			DropableInstance.global_position = atPos
 
+func spawn_workshop_dropable(atPos : Vector2, ITEM_TYPE, slotToPopulate):
+	if get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer") != null:
+		var WorkbenchSlots = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots")
+		var NewDropable = load("res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDropable.tscn")
+		var DropableInstance = NewDropable.instantiate()
+		DropableInstance.set_ITEM_TYPE(ITEM_TYPE)
+	
+		WorkbenchSlots.add_child(DropableInstance)
+		DropableInstance.position = atPos
+		DropableInstance.top_level = true
+	
+		DropableInstance.set_slot_inside(slotToPopulate)
+		DropableInstance.set_is_workshop_dropable(true)
+		slotToPopulate.set_populated(true)
+		
+		return DropableInstance
+
 func set_hand_item(dropable_to_delete, ITEM_TYPE : String):
 	var PLAYER = get_node("/root/World/Player")
 	if InventoryData.HAND_ITEM_TYPE != "":
-		spawn_inventory_dropable(dropable_to_delete.global_position, InventoryData.HAND_ITEM_TYPE, dropable_to_delete.get_slot_inside(), dropable_to_delete.get_is_in_chest_slot())
+		if !dropable_to_delete.get_is_workshop_dropable():
+			spawn_inventory_dropable(dropable_to_delete.global_position, InventoryData.HAND_ITEM_TYPE, dropable_to_delete.get_slot_inside(), dropable_to_delete.get_is_in_chest_slot())
+		else:
+			spawn_workshop_dropable(dropable_to_delete.global_position, InventoryData.HAND_ITEM_TYPE, dropable_to_delete.get_slot_inside())
+			
 	dropable_to_delete.queue_free()
 	PLAYER.set_hand_item_type(ITEM_TYPE)
 
