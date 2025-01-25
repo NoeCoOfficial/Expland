@@ -56,5 +56,14 @@ func _ready() -> void:
 func Toggle(paused : bool, fade : bool, showNotification : bool):
 	pass
 
-func Next(paused : bool, fade : bool, showNotification : bool):
+func Next(currently_playing_song : Node, fade : bool, showNotification : bool):
+	pass
+
+func Previous(currently_playing_song : Node, fade : bool, showNotification : bool):
+	pass
+
+func Start(song : Node, fade : bool, showNotification : bool):
+	pass
+
+func Stop(song : Node, fade : bool):
 	pass
