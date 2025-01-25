@@ -56,10 +56,19 @@ func _ready() -> void:
 func Toggle(paused : bool, fade : bool, showNotification : bool):
 	pass
 
-func Next(currently_playing_song : Node, fade : bool, showNotification : bool):
-	pass
+func Next(fade : bool, showNotification : bool):
+	var nextSong
+	var fadetween = get_tree().create_tween()
+	if currently_playing_song:
+		fadetween.tween_property(currently_playing_song, "volume_db", -80, AudioManager.FADE_TIME)
+		await get_tree().create_timer(AudioManager.FADE_TIME).timeout
+		currently_playing_song.stop()
+	
+	AudioManager.PREVIOUS_SONGS.append(currently_playing_song)
+	if !AudioManager.IN_FRONT_SONGS.is_empty():
+		nextSong = AudioManager.IN_FRONT_SONGS[AudioManager.IN_FRONT_SONGS.size()]
 
-func Previous(currently_playing_song : Node, fade : bool, showNotification : bool):
+func Previous(fade : bool, showNotification : bool):
 	pass
 
 func StartSong(song : Node, fade : bool, showNotification : bool):
@@ -78,5 +87,5 @@ func FadeOut(song : Node):
 	pass
 
 
-func get_currently_playing_song():
+func get_currently_playing_song_node():
 	return currently_playing_song
