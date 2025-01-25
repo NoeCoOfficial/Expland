@@ -62,7 +62,10 @@ func Next(currently_playing_song : Node, fade : bool, showNotification : bool):
 func Previous(currently_playing_song : Node, fade : bool, showNotification : bool):
 	pass
 
-func Start(song : Node, fade : bool, showNotification : bool):
+func StartSong(song : Node, fade : bool, showNotification : bool):
+	pass
+
+func Start(fade : bool, showNotification : bool):
 	pass
 
 func Stop(song : Node, fade : bool):

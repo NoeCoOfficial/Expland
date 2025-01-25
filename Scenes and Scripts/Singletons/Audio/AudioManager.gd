@@ -48,7 +48,15 @@
 extends Node
 
 const FADE_TIME = 0.8
-var AudioStreamTarget = null
+var PREVIOUS_SONGS = []
+var IN_FRONT_SONGS = []
+var Current_Playlist : Node
+var NotificationNode : Node
 
-func init(AudioStreamNode : Node):
-	AudioStreamTarget = AudioStreamNode
+func initNew(PlaylistNode : Node, Start : bool, fade : bool, showNotification : bool):
+	Current_Playlist = PlaylistNode
+	if Start:
+		Current_Playlist.Start(fade, showNotification)
+
+func initNotificaton(Notification_Node : Node):
+	NotificationNode = Notification_Node
