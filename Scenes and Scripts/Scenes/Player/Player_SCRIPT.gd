@@ -62,7 +62,6 @@ extends CharacterBody3D # Inheritance
 var inventory_opened_in_air := false ## Checks if the inventory UI is opened in the air (so the same velocity can be kept, used in _physics_process()
 var speed : float ## The speed of the player. Used in _physics_process, this variable changes to SPRINT_SPEED, CROUCH_SPEED or WALK_SPEED depending on what input is pressed.
 var transitioning_to_menu = false
-var stamina_restoring_f0 = false
 var inventoryHand_debounce_timer = 0.2
 
 ######################################
@@ -102,7 +101,7 @@ var inventoryHand_debounce_timer = 0.2
 @export var Quit := true ## Whether or not the player can use the Quit input to quit the game (Normally Ctrl+Shift+Q) (will be OFF for final game.)
 
 ######################################
-# Input group
+# Visual group
 ######################################
 
 @export_group("Visual") ## A group for visual/camera variables
@@ -141,6 +140,7 @@ var inventoryHand_debounce_timer = 0.2
 @export var WALK_SPEED = 5.0 ## The normal speed at which the player moves.
 @export var SPRINT_SPEED = 8.0 ## The speed of the player when the user is pressing/holding the Sprint input.
 @export var JUMP_VELOCITY = 4.5 ## How much velocity the player has when jumping. The more this value is, the higher the player can jump.
+var is_movement_input_active = false
 var is_moving = false
 var is_walking = false
 var is_sprinting = false
@@ -153,6 +153,12 @@ var is_crouching = false
 
 @export_subgroup("Gravity") ## A subgroup for gravity variables.
 @export var gravity = 12.0 ## Was originally 9.8 (Earth's gravitational pull) but I felt it to be too unrealistic. This is the gravity of the player. The higher this value is, the faster the player falls.
+
+@export_subgroup("Stamina")
+@export var STAMINA_DECREMENT : float
+@export var STAMINA_INCREMENT : float
+@export var STAMINA_MIN_ENERGY : float
+var stamina_restoring_from_0 = false
 
 ######################################
 ######################################
@@ -180,7 +186,23 @@ var is_crouching = false
 @export var Slot8_Inventory_Ref : StaticBody2D
 @export var Slot9_Inventory_Ref : StaticBody2D
 
-@export_subgroup("Chest Slots")
+@export_subgroup("Layers and UI")
+@export var PocketsCollisionBoundary : Area2D
+@export var ChestCollisionBoundary : Area2D
+@export var Pickaxe_Video : VideoStreamPlayer
+@export var Axe_Video : VideoStreamPlayer
+@export var Sword_Video : VideoStreamPlayer
+@export var EquipAnimations_Player : AnimationPlayer
+@export var HAND_ITEM_TYPE_Label : Label
+
+
+@export_group("Chest")
+
+@export_subgroup("Layers and UI")
+@export var ChestMainLayer : Control
+@export var ChestSlots : Control
+
+@export_subgroup("Slots")
 @export var Slot1_Chest_Ref : StaticBody2D
 @export var Slot2_Chest_Ref : StaticBody2D
 @export var Slot3_Chest_Ref : StaticBody2D
@@ -207,16 +229,19 @@ var is_crouching = false
 @export var Slot24_Chest_Ref : StaticBody2D
 @export var Slot25_Chest_Ref : StaticBody2D
 
+
+@export_group("Workbench")
+
 @export_subgroup("Layers and UI")
-@export var ChestMainLayer : Control
-@export var ChestSlots : Control
-@export var PocketsCollisionBoundary : Area2D
-@export var ChestCollisionBoundary : Area2D
-@export var Pickaxe_Video : VideoStreamPlayer
-@export var Axe_Video : VideoStreamPlayer
-@export var Sword_Video : VideoStreamPlayer
-@export var EquipAnimations_Player : AnimationPlayer
-@export var HAND_ITEM_TYPE_Label : Label
+@export var WorkbenchMainLayer : Control
+@export var WorkbenchSlots : Control
+
+@export_subgroup("Slots")
+@export var Slot1_Workbench_Ref : StaticBody2D
+@export var Slot2_Workbench_Ref : StaticBody2D
+@export var Slot3_Workbench_Ref : StaticBody2D
+@export var Slot4_Workbench_Ref : StaticBody2D
+@export var Slot5_Workbench_Ref : StaticBody2D
 
 
 @export_group("General Nodes")
@@ -240,7 +265,6 @@ var is_crouching = false
 @export var ProtectiveLayer : Control
 
 @export_subgroup("HUD")
-@export var Health_Bar : ProgressBar
 @export var Crosshair_Rect : TextureRect
 @export var StaminaBar : ProgressBar
 
@@ -320,7 +344,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			
 		else:
 			
-			if !DialogueManager.is_in_absolute_interface and !InventoryManager.inventory_open and !PauseManager.is_inside_alert and !InventoryManager.in_chest_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !PauseManager.inside_absolute_item_workshop:
+			if !DialogueManager.is_in_absolute_interface and !InventoryManager.inventory_open and !PauseManager.is_inside_alert and !InventoryManager.is_in_workbench_interface and !InventoryManager.in_chest_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !PauseManager.inside_absolute_item_workshop:
 				pauseGame()
 			
 			if InventoryManager.inventory_open and !InventoryManager.in_chest_interface and !InventoryManager.is_dragging:
@@ -329,6 +353,9 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			if InventoryManager.in_chest_interface and !InventoryManager.is_dragging:
 				if !InventoryManager.chestNode.is_animating():
 					closeChest()
+			
+			if InventoryManager.is_in_workbench_interface and !InventoryManager.is_dragging:
+				closeWorkbench()
 			
 			if PauseManager.inside_item_workshop:
 				closeItemWorkshop()
@@ -373,11 +400,31 @@ func _unhandled_input(event): # A built-in function that listens for input all t
 #region Process
 
 func _physics_process(delta):
+	## Player stamina
+	if is_sprinting and is_movement_input_active:
+		if !stamina_restoring_from_0:
+			PlayerManager.Stamina -= STAMINA_DECREMENT
+			if PlayerManager.Stamina <= 0.0:
+				PlayerManager.Stamina = 0.0
+				stamina_restoring_from_0 = true
+				speed = WALK_SPEED
+				is_walking = true
+				is_sprinting = false
+				is_crouching = false
+	else:
+		if !stamina_restoring_from_0 and PlayerManager.Stamina < 100.0:
+			PlayerManager.Stamina += STAMINA_INCREMENT
+			if PlayerManager.Stamina >= 100.0:
+				PlayerManager.Stamina = 100.0
+	
+	if stamina_restoring_from_0:
+		PlayerManager.Stamina += STAMINA_INCREMENT
+		if PlayerManager.Stamina >= 50.0:
+			PlayerManager.Stamina = 50.0
+			stamina_restoring_from_0 = false
 	
 	## Player movement and physics
-	
-	# Crouching
-	if !InventoryManager.inventory_open and PlayerData.GAME_STATE != "DEAD" and PlayerData.GAME_STATE != "SLEEPING" and is_on_floor() and !InventoryManager.in_chest_interface and !PauseManager.is_paused and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !PauseManager.inside_can_move_item_workshop:
+	if !InventoryManager.inventory_open and PlayerData.GAME_STATE not in ["DEAD", "SLEEPING"] and is_on_floor() and !InventoryManager.in_chest_interface and !PauseManager.is_paused and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !PauseManager.inside_can_move_item_workshop:
 		if Input.is_action_pressed("Crouch"):
 			self.scale.y = lerp(self.scale.y, 0.5, CROUCH_INTERPOLATION * delta)
 		else:
@@ -395,19 +442,28 @@ func _physics_process(delta):
 			velocity.y = JUMP_VELOCITY
 		
 		# Handle Speed
-		if Input.is_action_pressed("Sprint"):
-			if !Input.is_action_pressed("Crouch") and !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface and !InventoryManager.in_chest_interface:
-				speed = SPRINT_SPEED
-				is_sprinting = true
-		elif Input.is_action_pressed("Crouch") and !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface and !InventoryManager.in_chest_interface:
-			speed = CROUCH_SPEED
-			is_crouching = true
+		if Input.is_action_pressed("Sprint") and !Input.is_action_pressed("Crouch"):
+			if !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface and !InventoryManager.in_chest_interface:
+				if !stamina_restoring_from_0:
+					speed = SPRINT_SPEED
+					is_sprinting = true
+					is_crouching = false
+					is_walking = false
+		elif Input.is_action_pressed("Crouch"):
+			if !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface and !InventoryManager.in_chest_interface:
+				speed = CROUCH_SPEED
+				is_crouching = true
+				is_sprinting = false
+				is_walking = false
 		else:
 			speed = WALK_SPEED
 			is_walking = true
+			is_sprinting = false
+			is_crouching = false
 		
 		# Movement
 		var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+		is_movement_input_active = input_dir != Vector2.ZERO
 		var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		
 		if is_on_floor():
@@ -446,6 +502,7 @@ func _process(delta):
 	
 	SENSITIVITY = PlayerSettingsData.Sensitivity
 	camera.fov = PlayerSettingsData.FOV
+	StaminaBar.value = PlayerManager.Stamina
 	
 	## DEBUGGING
 	
@@ -494,9 +551,9 @@ func _process(delta):
 	
 	# HUD
 	if UseHealth == false: # Check if the UseHealth variable is false
-		Health_Bar.hide()
+		HUDLayer_HealthBar.hide()
 	else: 
-		Health_Bar.show()
+		HUDLayer_HealthBar.show()
 	
 	
 	# TODO: Change when making crosshair setting
@@ -507,7 +564,6 @@ func _process(delta):
 #region On startup
 
 func _ready():
-	nodeSetup() # Call the nodeSetup function to setup the nodes
 	initInventorySlots() # Link local inventory slots to singleton arrays
 	
 	DialogueManager.DialogueInterface = DialogueInterface
@@ -546,6 +602,7 @@ func _on_ready() -> void: # Called when the node is considered ready
 	pass
 
 func nodeSetup(): # A function to setup the nodes. Called in the _ready function
+	HUDLayer_HungerBar.value = PlayerData.Hunger
 	HUDLayer_HealthBar.value = PlayerData.Health
 	setAutosaveInterval(PlayerSettingsData.autosaveInterval)
 	
@@ -596,6 +653,14 @@ func initInventorySlots():
 		Slot23_Chest_Ref,
 		Slot24_Chest_Ref,
 		Slot25_Chest_Ref,
+	]
+	
+	InventoryManager.WORKSHOP_SLOTS = [
+		Slot1_Workbench_Ref,
+		Slot2_Workbench_Ref,
+		Slot3_Workbench_Ref,
+		Slot4_Workbench_Ref,
+		Slot5_Workbench_Ref,
 	]
 
 #endregion
@@ -703,7 +768,7 @@ func showDeathScreen(): # A function to show the death screen
 #region Inventory
 
 func openInventory():
-	if InventoryManager.in_chest_interface:
+	if InventoryManager.in_chest_interface or InventoryManager.is_in_workbench_interface:
 		
 		InventoryMainLayer.offset.x = -291.96
 		PocketsCollisionBoundary.set_deferred("monitorable", false)
@@ -711,7 +776,7 @@ func openInventory():
 		
 		ChestCollisionBoundary.set_deferred("monitorable", true)
 		ChestCollisionBoundary.set_deferred("monitoring", true)
-		
+	
 	else:
 		
 		InventoryMainLayer.offset.x = 0
@@ -725,6 +790,7 @@ func openInventory():
 	
 	InventoryMainLayer.show()
 	InventoryLayer.show() # show the inventory UI
+	
 	Utils.center_mouse_cursor() # center the mouse cursor
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # set the mouse mode to visible
 	InventoryManager.inventory_open = true
@@ -734,9 +800,10 @@ func openInventory():
 
 func closeInventory():
 	InventoryLayer_GreyLayer.show()
-	#saveInventory()
+	
 	InventoryMainLayer.hide()
 	InventoryLayer.hide() # hide the inventory UI
+	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor
 	Utils.center_mouse_cursor() # center the mouse cursor
 	InventoryManager.inventory_open = false
@@ -957,6 +1024,10 @@ func openChest():
 	ChestMainLayer.show()
 	InventoryManager.in_chest_interface = true
 	openInventory() # Does most of the stuff for us
+	
+	WorkbenchMainLayer.position.y = 1000
+	ChestMainLayer.position.y = 0
+	
 	InventoryManager.chestNode.animate("OPEN")
 
 func closeChest():
@@ -964,6 +1035,78 @@ func closeChest():
 	InventoryManager.in_chest_interface = false
 	closeInventory() # Does most of the stuff for us
 	InventoryManager.chestNode.animate("CLOSE")
+
+#endregion
+
+#region Workbench
+
+func openWorkbench():
+	WorkbenchMainLayer.show()
+	
+	WorkbenchMainLayer.position.y = 0
+	ChestMainLayer.position.y = 1000
+	
+	InventoryManager.is_in_workbench_interface = true
+	openInventory() # Does most of the stuff for us
+
+func closeWorkbench():
+	WorkbenchMainLayer.hide()
+	InventoryManager.is_in_workbench_interface = false
+	closeInventory() # Does most of the stuff for us
+
+#endregion
+
+#region Item Workshop
+
+func openItemWorkshop():
+	PauseManager.inside_can_move_item_workshop = true
+	PauseManager.inside_absolute_item_workshop = true
+	ItemWorkshopLayer_GreyLayer.visible = true
+	ItemWorkshopLayer_GreyLayer.modulate = Color(1, 1, 1, 0)
+	
+	var tween = get_tree().create_tween().set_parallel()
+	tween.connect("finished", Callable(self, "on_item_workshop_open_finished"))
+	
+	tween.tween_property(ItemWorkshopLayer_MainLayer, "position", Vector2(0, 0), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(ItemWorkshopLayer_GreyLayer, "modulate", Color(1, 1, 1, 1), 0.5)
+	
+	await get_tree().create_timer(0.3).timeout
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+
+func on_item_workshop_open_finished():
+	PauseManager.inside_item_workshop = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func closeItemWorkshop():
+	#saveInventory()
+	PauseManager.inside_can_move_item_workshop = false
+	PauseManager.inside_item_workshop = false
+	
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	
+	var tween = get_tree().create_tween().set_parallel()
+	tween.connect("finished", Callable(self, "on_item_workshop_close_finished"))
+	
+	tween.tween_property(ItemWorkshopLayer_MainLayer, "position", Vector2(0, 648), 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(ItemWorkshopLayer_GreyLayer, "modulate", Color(1, 1, 1, 0), 0.5)
+
+func on_item_workshop_close_finished():
+	PauseManager.inside_absolute_item_workshop = false
+	ItemWorkshopLayer_GreyLayer.visible = false
+
+func on_add_item_buttons_workshop_pressed(ITEM_TYPE : String):
+	var free_slot = null
+	
+	# Get the free slot
+	free_slot = InventoryManager.get_free_slot(InventoryManager.POCKET_SLOTS)
+	
+	if free_slot != null and !free_slot.is_populated():
+		free_slot.set_populated(true)
+		InventoryManager.spawn_inventory_dropable(free_slot.global_position, ITEM_TYPE, free_slot, false)
+	else:
+		spawn_minimal_alert_from_player(2.5, 0.3, 0.3, "Can't add item to pockets, inventory full!")
 
 #endregion
 
@@ -1140,60 +1283,6 @@ func on_sleep_cycle_hold_finished(fadeOutTime, time : int):
 
 #endregion
 
-#region Item Workshop
-
-func openItemWorkshop():
-	PauseManager.inside_can_move_item_workshop = true
-	PauseManager.inside_absolute_item_workshop = true
-	ItemWorkshopLayer_GreyLayer.visible = true
-	ItemWorkshopLayer_GreyLayer.modulate = Color(1, 1, 1, 0)
-	
-	var tween = get_tree().create_tween().set_parallel()
-	tween.connect("finished", Callable(self, "on_item_workshop_open_finished"))
-	
-	tween.tween_property(ItemWorkshopLayer_MainLayer, "position", Vector2(0, 0), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-	tween.tween_property(ItemWorkshopLayer_GreyLayer, "modulate", Color(1, 1, 1, 1), 0.5)
-	
-	await get_tree().create_timer(0.3).timeout
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-
-
-func on_item_workshop_open_finished():
-	PauseManager.inside_item_workshop = true
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-
-func closeItemWorkshop():
-	#saveInventory()
-	PauseManager.inside_can_move_item_workshop = false
-	PauseManager.inside_item_workshop = false
-	
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
-	
-	var tween = get_tree().create_tween().set_parallel()
-	tween.connect("finished", Callable(self, "on_item_workshop_close_finished"))
-	
-	tween.tween_property(ItemWorkshopLayer_MainLayer, "position", Vector2(0, 648), 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
-	tween.tween_property(ItemWorkshopLayer_GreyLayer, "modulate", Color(1, 1, 1, 0), 0.5)
-
-func on_item_workshop_close_finished():
-	PauseManager.inside_absolute_item_workshop = false
-	ItemWorkshopLayer_GreyLayer.visible = false
-
-func on_add_item_buttons_workshop_pressed(ITEM_TYPE : String):
-	var free_slot = null
-	
-	# Get the free slot
-	free_slot = InventoryManager.get_free_slot(InventoryManager.POCKET_SLOTS)
-	
-	if free_slot != null and !free_slot.is_populated():
-		free_slot.set_populated(true)
-		InventoryManager.spawn_inventory_dropable(free_slot.global_position, ITEM_TYPE, free_slot, false)
-	else:
-		spawn_minimal_alert_from_player(2.5, 0.3, 0.3, "Can't add item to pockets, inventory full!")
-
-#endregion
-
 #region Area and body detection
 
 func _on_pickup_object_detector_body_entered(body: Node3D) -> void:
@@ -1201,7 +1290,8 @@ func _on_pickup_object_detector_body_entered(body: Node3D) -> void:
 		takeDamage(14)
 	
 	if body.is_in_group("item_workshop"):
-		openItemWorkshop()
+		if !PauseManager.is_paused and !InventoryManager.inventory_open:
+			openItemWorkshop()
 	
 	if body.is_in_group("dialogue_test"):
 		

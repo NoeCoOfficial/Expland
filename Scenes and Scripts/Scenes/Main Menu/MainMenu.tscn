@@ -1,10 +1,11 @@
-[gd_scene load_steps=52 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=54 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="PackedScene" uid="uid://jb61th5px5nt" path="res://Assets/3D Models/Tests/Island/Island 2.blend" id="2_0llf6"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/LightbulbIcon_SCRIPT.gd" id="2_j6ch4"]
 [ext_resource type="Texture2D" uid="uid://dhp1lqdlclos" path="res://Textures/Icons/Expland_TextWHITE_Icon.png" id="2_numx3"]
 [ext_resource type="PackedScene" uid="uid://d0uinxy2wgtd3" path="res://Assets/3D Models/Trees/Normal/Models/Tree1.blend" id="3_hbjgs"]
+[ext_resource type="PackedScene" uid="uid://4y07lcegxyxt" path="res://Scenes and Scripts/Scenes/Audio/MainMenu_Audio.tscn" id="3_wxdrf"]
 [ext_resource type="PackedScene" uid="uid://cdbylnsm71dkk" path="res://Assets/3D Models/Trees/Normal/Models/Tree3.blend" id="4_drkdx"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="4_grlcg"]
 [ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="5_dfh28"]
@@ -38,6 +39,7 @@
 [ext_resource type="PackedScene" uid="uid://cq13w255wbu5l" path="res://Scenes and Scripts/Scenes/Minimal Alert/MinimalAlert.tscn" id="27_7myre"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/Custom Popups/LoadIslandPopup_SCRIPT.gd" id="27_ro0wj"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/Custom Popups/DeleteIslandPopupMain_SCRIPT.gd" id="29_37xid"]
+[ext_resource type="PackedScene" uid="uid://bbc10j8mbwjbn" path="res://Scenes and Scripts/Scenes/Audio/AudioNotification.tscn" id="31_xncp6"]
 
 [sub_resource type="Animation" id="Animation_6cyol"]
 length = 0.001
@@ -191,6 +193,8 @@ script = ExtResource("2_j6ch4")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_v4n35")
+
+[node name="MainMenu_Audio" parent="." instance=ExtResource("3_wxdrf")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.0364183, 0, -0.999336, 0, 1, 0, 0.999336, 0, 0.0364183, -62.5013, 6.30089, -14.5163)
@@ -483,15 +487,6 @@ grow_horizontal = 0
 theme = ExtResource("4_grlcg")
 theme_override_font_sizes/font_size = 26
 text = "v0.6.0"
-
-[node name="FadeOut" type="ColorRect" parent="Camera3D/MainLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-script = ExtResource("8_tu6ba")
 
 [node name="GreyLayer" type="ColorRect" parent="Camera3D/MainLayer"]
 visible = false
@@ -1090,7 +1085,26 @@ theme_override_styles/normal = ExtResource("24_r2ree")
 text = "Yes"
 metadata/_edit_use_anchors_ = true
 
+[node name="AudioNotificationLayer" type="CanvasLayer" parent="Camera3D/MainLayer"]
+layer = 10
+
+[node name="AudioNotification" parent="Camera3D/MainLayer/AudioNotificationLayer" instance=ExtResource("31_xncp6")]
+offset_left = 1152.0
+offset_top = 459.0
+offset_right = 197.0
+offset_bottom = -101.0
+
 [node name="TopLayer" type="CanvasLayer" parent="Camera3D/MainLayer"]
+layer = 128
+
+[node name="FadeOut" type="ColorRect" parent="Camera3D/MainLayer/TopLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("8_tu6ba")
 
 [node name="TransitionFadeOut" type="ColorRect" parent="Camera3D/MainLayer/TopLayer"]
 visible = false

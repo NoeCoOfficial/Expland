@@ -77,8 +77,7 @@ func _ready() -> void:
 	
 	PlayerManager.init()
 	set_dof_blur(PlayerSettingsData.DOFBlur)
-	
-	
+	set_pretty_shadows(PlayerSettingsData.PrettyShadows)
 	
 	if PlayerData.GAME_STATE == "SLEEPING":
 		PlayerData.GAME_STATE = "NORMAL"
@@ -87,6 +86,7 @@ func _ready() -> void:
 		set_time(TimeManager.CURRENT_TIME)
 	Tick.start()
 	
+	Player.nodeSetup()
 	Player.init_visually_equip(InventoryData.HAND_ITEM_TYPE)
 	
 	InventoryManager.chestNode = $Chest
@@ -109,6 +109,14 @@ func set_dof_blur(value : bool) -> void:
 		cameraAttributesResource.dof_blur_far_enabled = true
 	else:
 		cameraAttributesResource.dof_blur_far_enabled = false
+
+func set_pretty_shadows(value : bool) -> void:
+	var WorldEnv = load("res://Resources/Environment/TheIslandWorldEnvironment.tres")
+	
+	if value:
+		WorldEnv.sdfgi_enabled = true
+	else:
+		WorldEnv.sdfgi_enabled = false
 
 func get_weighted_random_weather():
 	var weights = [60, 10, 10, 20]
