@@ -168,7 +168,3 @@ func _on_tick() -> void:
 		TimeManager.DAY_STATE = "NIGHT"
 	else:
 		TimeManager.DAY_STATE = "DAY"
-
-
-func _on_music_finished() -> void:
-	pass # Replace with function body.

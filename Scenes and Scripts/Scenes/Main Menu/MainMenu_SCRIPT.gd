@@ -77,7 +77,6 @@ var is_tweening = false
 
 func _ready() -> void:
 	PlayerSettingsData.loadSettings()
-	AudioManager.init($Music)
 	PauseManager.is_paused = false
 	
 	
@@ -87,10 +86,10 @@ func _ready() -> void:
 		if PlayerSettingsData.showStartupScreen:
 			call_deferred("change_to_startup_notice")
 			
-		else:
-			$Music.play()
-	else:
-		$Music.play()
+		#else:
+			#$Music.play()
+	#else:
+		#$Music.play()
 
 	
 	$Camera3D/MainLayer/GreyLayerGamemodeLayer.hide()
@@ -120,7 +119,7 @@ func _ready() -> void:
 	$Camera3D/MainLayer/ProtectiveLayer.visible = false
 
 func change_to_startup_notice() -> void:
-	$Music.stop()
+	#$Music.stop()
 	get_tree().change_scene_to_packed(StartupNotice)
 
 func fadeOut(node):
@@ -429,8 +428,8 @@ func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 	tween.tween_interval(1)
 
 func goToIsland(island_name : String, _gamemode : String):
-	var fadeout = get_tree().create_tween()
-	fadeout.tween_property($Music, "volume_db", -80, 2)
+	#var fadeout = get_tree().create_tween()
+	#fadeout.tween_property($Music, "volume_db", -80, 2)
 	transitioning_scene = true
 	IslandManager.transitioning_from_menu = true
 	IslandManager.set_current_island(island_name)
