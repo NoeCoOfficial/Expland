@@ -358,12 +358,12 @@ position = Vector2(107, 55)
 scale = Vector2(0.0112818, 0.0112818)
 texture = ExtResource("5_w5aau")
 
-[node name="SideArrowIcon" type="Sprite2D" parent="Elements"]
+[node name="NextBtnIcon" type="Sprite2D" parent="Elements"]
 position = Vector2(140, 55)
 scale = Vector2(0.0199328, 0.0199328)
 texture = ExtResource("6_myn3j")
 
-[node name="SideArrowIcon2" type="Sprite2D" parent="Elements"]
+[node name="PreviousBtnIcon" type="Sprite2D" parent="Elements"]
 position = Vector2(72, 55)
 scale = Vector2(0.0199328, 0.0199328)
 texture = ExtResource("6_myn3j")

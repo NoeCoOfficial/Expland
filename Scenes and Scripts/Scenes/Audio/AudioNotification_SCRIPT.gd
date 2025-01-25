@@ -59,6 +59,11 @@ func spawnAudioNotification(paused: bool, songName : String):
 	
 	$Elements/SongName.text = songName
 	
+	if AudioManager.PREVIOUS_SONGS.is_empty():
+		$Elements/PreviousBtnIcon.hide()
+	else:
+		$Elements/PreviousBtnIcon.show()
+	
 	if paused:
 		$Elements/PauseBtnIcon.visible = false
 		$Elements/PlayBtnIcon.visible = true
@@ -81,6 +86,11 @@ func despawnAudioNotification():
 func updateNotification(paused : bool, songName : String):
 	$DespawnTimer.start()
 	$Elements/SongName.text = songName
+	
+	if AudioManager.PREVIOUS_SONGS.is_empty():
+		$Elements/PreviousBtnIcon.hide()
+	else:
+		$Elements/PreviousBtnIcon.show()
 	
 	if paused:
 		$Elements/PauseBtnIcon.visible = false
