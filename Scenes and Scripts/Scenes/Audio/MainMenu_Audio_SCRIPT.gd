@@ -65,8 +65,17 @@ func Next(fade : bool, showNotification : bool):
 		currently_playing_song.stop()
 	
 	AudioManager.PREVIOUS_SONGS.append(currently_playing_song)
-	if !AudioManager.IN_FRONT_SONGS.is_empty():
+	if !AudioManager.IN_FRONT_SONGS.is_empty(): # If there are songs yet to be played in front
 		nextSong = AudioManager.IN_FRONT_SONGS[AudioManager.IN_FRONT_SONGS.size()]
+	else: # If there are no songs yet to be played
+		randomize()
+		while true:
+			nextSong = songs[randi() % songs.size()]
+			if nextSong != currently_playing_song:
+				break
+	
+	currently_playing_song = nextSong
+	currently_playing_song.play()
 
 func Previous(fade : bool, showNotification : bool):
 	pass
