@@ -61,8 +61,10 @@ func spawnAudioNotification(paused: bool, songName : String):
 	
 	if AudioManager.PREVIOUS_SONGS.is_empty():
 		$Elements/PreviousBtnIcon.hide()
+		$"Elements/J Key Container".hide()
 	else:
 		$Elements/PreviousBtnIcon.show()
+		$"Elements/J Key Container".show()
 	
 	if paused:
 		$Elements/PauseBtnIcon.visible = false
@@ -89,8 +91,10 @@ func updateNotification(paused : bool, songName : String):
 	
 	if AudioManager.PREVIOUS_SONGS.is_empty():
 		$Elements/PreviousBtnIcon.hide()
+		$"Elements/J Key Container".hide()
 	else:
 		$Elements/PreviousBtnIcon.show()
+		$"Elements/J Key Container".show()
 	
 	if paused:
 		$Elements/PauseBtnIcon.visible = false
