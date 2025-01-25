@@ -76,8 +76,8 @@ var is_tweening = false
 ######################################
 
 func _ready() -> void:
-	AudioManager.initNew($MainMenu_Audio, false, false, true)
-	AudioManager.initNotificaton($Camera3D/MainLayer/AudioNotification)
+	AudioManager.initNotificaton($Camera3D/MainLayer/AudioNotificationLayer/AudioNotification)
+	AudioManager.initNew($MainMenu_Audio, true, false, true)
 	PlayerSettingsData.loadSettings()
 	PauseManager.is_paused = false
 	
@@ -129,7 +129,7 @@ func fadeOut(node):
 	tween.tween_property(node, "modulate", Color(0, 0, 0, 0), 5)
 
 func onStartup():
-	fadeOut($Camera3D/MainLayer/FadeOut)
+	fadeOut($Camera3D/MainLayer/TopLayer/FadeOut)
 	$Camera3D/MainLayer/Version_LBL.visible = true
 	
 	var tween = get_tree().create_tween().set_parallel()

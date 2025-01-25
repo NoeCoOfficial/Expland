@@ -124,6 +124,8 @@ func Start(fade : bool, showNotification : bool):
 	randomize()
 	while true:
 		nextSong = songs[randi() % songs.size()]
+		if nextSong != currently_playing_song:
+			break
 	
 	currently_playing_song = nextSong
 	currently_playing_song.play()

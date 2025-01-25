@@ -488,15 +488,6 @@ theme = ExtResource("4_grlcg")
 theme_override_font_sizes/font_size = 26
 text = "v0.6.0"
 
-[node name="FadeOut" type="ColorRect" parent="Camera3D/MainLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-script = ExtResource("8_tu6ba")
-
 [node name="GreyLayer" type="ColorRect" parent="Camera3D/MainLayer"]
 visible = false
 anchors_preset = 15
@@ -1094,13 +1085,26 @@ theme_override_styles/normal = ExtResource("24_r2ree")
 text = "Yes"
 metadata/_edit_use_anchors_ = true
 
-[node name="AudioNotification" parent="Camera3D/MainLayer" instance=ExtResource("31_xncp6")]
-offset_left = 1155.0
+[node name="AudioNotificationLayer" type="CanvasLayer" parent="Camera3D/MainLayer"]
+layer = 10
+
+[node name="AudioNotification" parent="Camera3D/MainLayer/AudioNotificationLayer" instance=ExtResource("31_xncp6")]
+offset_left = 1152.0
 offset_top = 459.0
-offset_right = 200.0
+offset_right = 197.0
 offset_bottom = -101.0
 
 [node name="TopLayer" type="CanvasLayer" parent="Camera3D/MainLayer"]
+layer = 128
+
+[node name="FadeOut" type="ColorRect" parent="Camera3D/MainLayer/TopLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("8_tu6ba")
 
 [node name="TransitionFadeOut" type="ColorRect" parent="Camera3D/MainLayer/TopLayer"]
 visible = false
