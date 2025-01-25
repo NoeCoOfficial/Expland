@@ -53,23 +53,40 @@ var currently_playing_song : AudioStreamPlayer
 func _ready() -> void:
 	songs = self.get_children()
 
-func _input(event: InputEvent) -> void:
-	pass
-
-func Toggle(paused : bool, fade : bool, showNotification : bool):
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("audio_Toggle"):
+		if AudioManager.is_paused:
+			Toggle(false, true)
+		else:
+			Toggle(true, true)
 	
-	if paused:
+	if Input.is_action_just_pressed("audio_Next"):
+		Next(false, true)
+	
+	if Input.is_action_just_pressed("audio_Prev"):
+		Previous(false, true)
+
+func Toggle(pause : bool, showNotification : bool):
+	
+	if pause:
 		currently_playing_song.stream_paused = true
 		AudioManager.is_paused = true
 	else:
 		currently_playing_song.stream_paused = false
 		AudioManager.is_paused = false
+	
+	if showNotification:
+		if !AudioManager.NotificationOnScreen:
+			AudioManager.NotificationNode.spawnAudioNotification(AudioManager.is_paused, currently_playing_song.name)
+		else:
+			AudioManager.NotificationNode.updateNotification(AudioManager.is_paused, currently_playing_song.name)
 
 func Next(fade : bool, showNotification : bool):
 	var nextSong
-	var fadetween = get_tree().create_tween()
+	
 	if currently_playing_song:
 		if fade:
+			var fadetween = get_tree().create_tween()
 			fadetween.tween_property(currently_playing_song, "volume_db", -80, AudioManager.FADE_TIME)
 			await get_tree().create_timer(AudioManager.FADE_TIME).timeout
 			currently_playing_song.stop()
@@ -90,17 +107,20 @@ func Next(fade : bool, showNotification : bool):
 	currently_playing_song.play()
 	
 	if showNotification:
-		AudioManager.NotificationNode.spawnAudioNotification(AudioManager.is_paused, currently_playing_song.name)
+		if !AudioManager.NotificationOnScreen:
+			AudioManager.NotificationNode.spawnAudioNotification(AudioManager.is_paused, currently_playing_song.name)
+		else:
+			AudioManager.NotificationNode.updateNotification(AudioManager.is_paused, currently_playing_song.name)
 
 
 func Previous(fade : bool, showNotification : bool):
 	if AudioManager.PREVIOUS_SONGS.is_empty():
 		return
-		
+	
 	var previousSong
-	var fadetween = get_tree().create_tween()
 	if currently_playing_song:
 		if fade:
+			var fadetween = get_tree().create_tween()
 			fadetween.tween_property(currently_playing_song, "volume_db", -80, AudioManager.FADE_TIME)
 			await get_tree().create_timer(AudioManager.FADE_TIME).timeout
 			currently_playing_song.stop()
@@ -114,7 +134,10 @@ func Previous(fade : bool, showNotification : bool):
 	currently_playing_song.play()
 	
 	if showNotification:
-		AudioManager.NotificationNode.spawnAudioNotification(AudioManager.is_paused, currently_playing_song.name)
+		if !AudioManager.NotificationOnScreen:
+			AudioManager.NotificationNode.spawnAudioNotification(AudioManager.is_paused, currently_playing_song.name)
+		else:
+			AudioManager.NotificationNode.updateNotification(AudioManager.is_paused, currently_playing_song.name)
 
 func StartSong(song : Node, fade : bool, showNotification : bool):
 	pass
@@ -129,8 +152,12 @@ func Start(fade : bool, showNotification : bool):
 	
 	currently_playing_song = nextSong
 	currently_playing_song.play()
+	
 	if showNotification:
-		AudioManager.NotificationNode.spawnAudioNotification(AudioManager.is_paused, currently_playing_song.name)
+		if !AudioManager.NotificationOnScreen:
+			AudioManager.NotificationNode.spawnAudioNotification(AudioManager.is_paused, currently_playing_song.name)
+		else:
+			AudioManager.NotificationNode.updateNotification(AudioManager.is_paused, currently_playing_song.name)
 
 func Stop(song : Node, fade : bool):
 	pass
@@ -144,3 +171,7 @@ func FadeOut(song : Node):
 
 func get_currently_playing_song_node():
 	return currently_playing_song
+
+
+func _on_songs_finished() -> void:
+	Next(false, true)

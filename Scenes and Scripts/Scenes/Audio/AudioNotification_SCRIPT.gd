@@ -56,14 +56,16 @@ func spawnAudioNotification(paused: bool, songName : String):
 		animation.kill()
 	animation = get_tree().create_tween().set_parallel()
 	$DespawnTimer.start()
+	
 	$Elements/SongName.text = songName
 	
 	if paused:
-		$Elements/PauseBtnIcon.visible = true
-		$Elements/PlayBtnIcon.visible = false
-	else:
 		$Elements/PauseBtnIcon.visible = false
 		$Elements/PlayBtnIcon.visible = true
+	else:
+		$Elements/PauseBtnIcon.visible = true
+		$Elements/PlayBtnIcon.visible = false
+	
 	
 	animation.tween_property($LightBG, "position:x", -193, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	animation.tween_property($DarkBG, "position:x", -189, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.2)
@@ -77,13 +79,15 @@ func despawnAudioNotification():
 	animation.tween_property($Elements, "position:x", 0, 0.7).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO)
 
 func updateNotification(paused : bool, songName : String):
+	$DespawnTimer.start()
 	$Elements/SongName.text = songName
+	
 	if paused:
-		$Elements/PauseBtnIcon.visible = true
-		$Elements/PlayBtnIcon.visible = false
-	else:
 		$Elements/PauseBtnIcon.visible = false
 		$Elements/PlayBtnIcon.visible = true
+	else:
+		$Elements/PauseBtnIcon.visible = true
+		$Elements/PlayBtnIcon.visible = false
 
 func resetDespawnTimer():
 	$DespawnTimer.stop()
