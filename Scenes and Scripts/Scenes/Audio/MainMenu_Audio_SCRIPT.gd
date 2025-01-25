@@ -52,7 +52,10 @@ var songs : Array
 var currently_playing_song : AudioStreamPlayer
 
 func _ready() -> void:
-	songs = self.get_children()
+	songs = []
+	for child in get_children():
+		if child is AudioStreamPlayer:
+			songs.append(child)
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("audio_Toggle"):
