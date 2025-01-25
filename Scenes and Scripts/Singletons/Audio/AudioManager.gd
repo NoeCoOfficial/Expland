@@ -46,3 +46,27 @@
 # ============================================================= #
 
 extends Node
+
+const FADE_TIME : float = 0.8
+var PREVIOUS_SONGS : Array = []
+var IN_FRONT_SONGS : Array = []
+var is_paused = false
+var Current_Playlist : Node
+var NotificationNode : Node
+var NotificationOnScreen : bool = false
+
+func initNew(PlaylistNode : Node, Start : bool, fade : bool, showNotification : bool):
+	if !PREVIOUS_SONGS.is_empty():
+		PREVIOUS_SONGS.clear()
+	if !IN_FRONT_SONGS.is_empty():
+		IN_FRONT_SONGS.clear()
+	Current_Playlist = PlaylistNode
+	if Start:
+		Current_Playlist.Start(fade, showNotification)
+
+func initNotificaton(Notification_Node : Node):
+	NotificationNode = Notification_Node
+
+func clearSongs():
+	PREVIOUS_SONGS.clear()
+	IN_FRONT_SONGS.clear()

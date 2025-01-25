@@ -48,12 +48,50 @@
 @icon("res://Textures/Icons/Script Icons/32x32/sound.png")
 extends Control
 
+var animation
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func spawnAudioNotification(paused: bool, songName : String):
+	AudioManager.NotificationOnScreen = true
+	if animation:
+		animation.kill()
+	animation = get_tree().create_tween().set_parallel()
+	$DespawnTimer.start()
+	
+	$Elements/SongName.text = songName
+	
+	if paused:
+		$Elements/PauseBtnIcon.visible = false
+		$Elements/PlayBtnIcon.visible = true
+	else:
+		$Elements/PauseBtnIcon.visible = true
+		$Elements/PlayBtnIcon.visible = false
+	
+	
+	animation.tween_property($LightBG, "position:x", -193, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	animation.tween_property($DarkBG, "position:x", -189, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.2)
+	animation.tween_property($Elements, "position:x", -193, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.2)
 
+func despawnAudioNotification():
+	AudioManager.NotificationOnScreen = false
+	animation = get_tree().create_tween().set_parallel()
+	animation.tween_property($LightBG, "position:x", 0, 0.7).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO).set_delay(0.2)
+	animation.tween_property($DarkBG, "position:x", 0, 0.7).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO)
+	animation.tween_property($Elements, "position:x", 0, 0.7).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func updateNotification(paused : bool, songName : String):
+	$DespawnTimer.start()
+	$Elements/SongName.text = songName
+	
+	if paused:
+		$Elements/PauseBtnIcon.visible = false
+		$Elements/PlayBtnIcon.visible = true
+	else:
+		$Elements/PauseBtnIcon.visible = true
+		$Elements/PlayBtnIcon.visible = false
+
+func resetDespawnTimer():
+	$DespawnTimer.stop()
+	$DespawnTimer.start()
+
+func _on_despawn_timer_timeout() -> void:
+	despawnAudioNotification()

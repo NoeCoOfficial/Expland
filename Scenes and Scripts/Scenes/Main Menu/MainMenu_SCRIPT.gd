@@ -76,12 +76,23 @@ var is_tweening = false
 ######################################
 
 func _ready() -> void:
+	AudioManager.initNotificaton($Camera3D/MainLayer/AudioNotificationLayer/AudioNotification)
+	AudioManager.initNew($MainMenu_Audio, true, false, true)
+	PlayerSettingsData.loadSettings()
 	PauseManager.is_paused = false
+	
+	
 	if Global.is_first_time_in_menu:
 		Global.is_first_time_in_menu = false
 		
-		if PlayerSettingsData.showStartupScreen == true:
+		if PlayerSettingsData.showStartupScreen:
 			call_deferred("change_to_startup_notice")
+			
+		#else:
+			#$Music.play()
+	#else:
+		#$Music.play()
+
 	
 	$Camera3D/MainLayer/GreyLayerGamemodeLayer.hide()
 	$Camera3D/MainLayer/GreyLayerGamemodeLayer.modulate = Color(1, 1, 1, 0)
@@ -90,8 +101,8 @@ func _ready() -> void:
 	
 	IslandManager.resetAttributes()
 	
-	PlayerSettingsData.loadSettings()
 	IslandAccessOrder.load_order()
+	
 	$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup.loadIslands()
 	
 	Utils.set_center_offset($Camera3D/MainLayer/PlayButton)
@@ -110,6 +121,7 @@ func _ready() -> void:
 	$Camera3D/MainLayer/ProtectiveLayer.visible = false
 
 func change_to_startup_notice() -> void:
+	#$Music.stop()
 	get_tree().change_scene_to_packed(StartupNotice)
 
 func fadeOut(node):
@@ -117,7 +129,7 @@ func fadeOut(node):
 	tween.tween_property(node, "modulate", Color(0, 0, 0, 0), 5)
 
 func onStartup():
-	fadeOut($Camera3D/MainLayer/FadeOut)
+	fadeOut($Camera3D/MainLayer/TopLayer/FadeOut)
 	$Camera3D/MainLayer/Version_LBL.visible = true
 	
 	var tween = get_tree().create_tween().set_parallel()
@@ -418,6 +430,8 @@ func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 	tween.tween_interval(1)
 
 func goToIsland(island_name : String, _gamemode : String):
+	#var fadeout = get_tree().create_tween()
+	#fadeout.tween_property($Music, "volume_db", -80, 2)
 	transitioning_scene = true
 	IslandManager.transitioning_from_menu = true
 	IslandManager.set_current_island(island_name)
