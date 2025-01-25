@@ -76,7 +76,8 @@ var is_tweening = false
 ######################################
 
 func _ready() -> void:
-	AudioManager.initNew($MainMenu_Audio, false, false, false)
+	AudioManager.initNew($MainMenu_Audio, true, false, true)
+	AudioManager.initNotificaton($Camera3D/MainLayer/AudioNotification)
 	PlayerSettingsData.loadSettings()
 	PauseManager.is_paused = false
 	

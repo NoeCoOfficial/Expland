@@ -48,22 +48,25 @@
 @icon("res://Textures/Icons/Script Icons/32x32/sound.png")
 extends Control
 
+var animation = get_tree().create_tween()
+
 func spawnAudioNotification(paused: bool, songName : String):
+	animation.kill()
+	animation = get_tree().create_tween()
+	$DespawnTimer.start()
 	$SongName.text = songName
 	if paused:
 		pass
 	else:
 		pass
-	var tween = get_tree().create_tween().set_parallel()
-	tween.tween_property($LightBG, "position:x", -193, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-	tween.tween_property($DarkBG, "position:x", -189, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.2)
-	tween.tween_property($Elements, "position:x", -193, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.2)
+	animation.tween_property($LightBG, "position:x", -193, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	animation.tween_property($DarkBG, "position:x", -189, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.2)
+	animation.tween_property($Elements, "position:x", -193, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.2)
 
 func despawnAudioNotification():
-	var tween = get_tree().create_tween().set_parallel()
-	tween.tween_property($LightBG, "position:x", 0, 1).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO).set_delay(0.2)
-	tween.tween_property($DarkBG, "position:x", 0, 1).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO)
-	tween.tween_property($Elements, "position:x", 0, 1).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO)
+	animation.tween_property($LightBG, "position:x", 0, 1).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO).set_delay(0.2)
+	animation.tween_property($DarkBG, "position:x", 0, 1).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO)
+	animation.tween_property($Elements, "position:x", 0, 1).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO)
 
 func updateNotification(paused : bool, songName : String):
 	$SongName.text = songName
@@ -71,3 +74,10 @@ func updateNotification(paused : bool, songName : String):
 		pass
 	else:
 		pass
+
+func resetDespawnTimer():
+	$DespawnTimer.stop()
+	$DespawnTimer.start()
+
+func _on_despawn_timer_timeout() -> void:
+	despawnAudioNotification()

@@ -55,6 +55,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xl5m5")
 
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 5.0
+
 [node name="LightBG" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 0
@@ -583,3 +586,5 @@ theme_override_font_sizes/font_size = 30
 text = "L"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]
