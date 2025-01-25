@@ -57,6 +57,7 @@ script = ExtResource("1_xl5m5")
 
 [node name="DespawnTimer" type="Timer" parent="."]
 wait_time = 5.0
+one_shot = true
 
 [node name="LightBG" type="Control" parent="."]
 layout_mode = 1

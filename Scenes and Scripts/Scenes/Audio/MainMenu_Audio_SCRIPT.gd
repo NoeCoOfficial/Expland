@@ -53,8 +53,17 @@ var currently_playing_song : AudioStreamPlayer
 func _ready() -> void:
 	songs = self.get_children()
 
-func Toggle(paused : bool, fade : bool, showNotification : bool):
+func _input(event: InputEvent) -> void:
 	pass
+
+func Toggle(paused : bool, fade : bool, showNotification : bool):
+	
+	if paused:
+		currently_playing_song.stream_paused = true
+		AudioManager.is_paused = true
+	else:
+		currently_playing_song.stream_paused = false
+		AudioManager.is_paused = false
 
 func Next(fade : bool, showNotification : bool):
 	var nextSong
@@ -79,6 +88,10 @@ func Next(fade : bool, showNotification : bool):
 	
 	currently_playing_song = nextSong
 	currently_playing_song.play()
+	
+	if showNotification:
+		AudioManager.NotificationNode.spawnAudioNotification(AudioManager.is_paused, currently_playing_song.name)
+
 
 func Previous(fade : bool, showNotification : bool):
 	if AudioManager.PREVIOUS_SONGS.is_empty():
@@ -99,12 +112,23 @@ func Previous(fade : bool, showNotification : bool):
 	
 	currently_playing_song = previousSong
 	currently_playing_song.play()
+	
+	if showNotification:
+		AudioManager.NotificationNode.spawnAudioNotification(AudioManager.is_paused, currently_playing_song.name)
 
 func StartSong(song : Node, fade : bool, showNotification : bool):
 	pass
 
 func Start(fade : bool, showNotification : bool):
-	pass
+	var nextSong
+	randomize()
+	while true:
+		nextSong = songs[randi() % songs.size()]
+	
+	currently_playing_song = nextSong
+	currently_playing_song.play()
+	if showNotification:
+		AudioManager.NotificationNode.spawnAudioNotification(AudioManager.is_paused, currently_playing_song.name)
 
 func Stop(song : Node, fade : bool):
 	pass

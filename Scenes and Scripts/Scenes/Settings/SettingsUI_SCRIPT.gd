@@ -115,7 +115,7 @@ func _on_exit_settings_button_pressed() -> void:
 	closeSettings(0.5)
 
 func _on_fov_slider_value_changed(value: float) -> void:
-	PlayerSettingsData.FOV = value
+	PlayerSettingsData.FOV = int(value)
 
 func _on_sensitivity_slider_value_changed(value: float) -> void:
 	PlayerSettingsData.Sensitivity = value / 10

@@ -48,9 +48,10 @@
 @icon("res://Textures/Icons/Script Icons/32x32/sound.png")
 extends Control
 
-var animation = get_tree().create_tween()
+var animation
 
 func spawnAudioNotification(paused: bool, songName : String):
+	AudioManager.NotificationOnScreen = true
 	animation.kill()
 	animation = get_tree().create_tween()
 	$DespawnTimer.start()
@@ -68,6 +69,7 @@ func spawnAudioNotification(paused: bool, songName : String):
 	animation.tween_property($Elements, "position:x", -193, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.2)
 
 func despawnAudioNotification():
+	AudioManager.NotificationOnScreen = false
 	animation.tween_property($LightBG, "position:x", 0, 1).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO).set_delay(0.2)
 	animation.tween_property($DarkBG, "position:x", 0, 1).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO)
 	animation.tween_property($Elements, "position:x", 0, 1).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO)
