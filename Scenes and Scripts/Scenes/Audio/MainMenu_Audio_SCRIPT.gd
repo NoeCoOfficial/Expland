@@ -67,3 +67,13 @@ func Start(song : Node, fade : bool, showNotification : bool):
 
 func Stop(song : Node, fade : bool):
 	pass
+
+func FadeIn(song : Node):
+	pass
+
+func FadeOut(song : Node):
+	pass
+
+
+func get_currently_playing_song():
+	return currently_playing_song
