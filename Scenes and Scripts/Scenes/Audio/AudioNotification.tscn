@@ -409,6 +409,7 @@ focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_4gcdt")
 
 [node name="BackgroundKEY2" type="Button" parent="Elements/K Key Container"]
+layout_mode = 0
 offset_left = 2.0
 offset_top = 2.0
 offset_right = 50.0
@@ -429,6 +430,7 @@ focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_pq0us")
 
 [node name="BackgroundKEY4" type="Button" parent="Elements/K Key Container"]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 8.0
 offset_right = 44.0
@@ -438,6 +440,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_66xhl")
 
 [node name="KEY" type="Label" parent="Elements/K Key Container"]
 modulate = Color(0.796243, 0.796243, 0.796243, 1)
+layout_mode = 0
 offset_left = 11.0
 offset_top = 11.0
 offset_right = 41.0
@@ -472,6 +475,7 @@ focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_4gcdt")
 
 [node name="BackgroundKEY2" type="Button" parent="Elements/J Key Container"]
+layout_mode = 0
 offset_left = 2.0
 offset_top = 2.0
 offset_right = 50.0
@@ -492,6 +496,7 @@ focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_pq0us")
 
 [node name="BackgroundKEY4" type="Button" parent="Elements/J Key Container"]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 8.0
 offset_right = 44.0
@@ -501,6 +506,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_66xhl")
 
 [node name="KEY" type="Label" parent="Elements/J Key Container"]
 modulate = Color(0.796243, 0.796243, 0.796243, 1)
+layout_mode = 0
 offset_left = 9.837
 offset_top = 11.0
 offset_right = 39.837
@@ -535,6 +541,7 @@ focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_4gcdt")
 
 [node name="BackgroundKEY2" type="Button" parent="Elements/L Key Container"]
+layout_mode = 0
 offset_left = 2.0
 offset_top = 2.0
 offset_right = 50.0
@@ -555,6 +562,7 @@ focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_pq0us")
 
 [node name="BackgroundKEY4" type="Button" parent="Elements/L Key Container"]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 8.0
 offset_right = 44.0
@@ -564,6 +572,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_66xhl")
 
 [node name="KEY" type="Label" parent="Elements/L Key Container"]
 modulate = Color(0.796243, 0.796243, 0.796243, 1)
+layout_mode = 0
 offset_left = 9.837
 offset_top = 11.0
 offset_right = 39.837

@@ -47,11 +47,12 @@
 
 extends Node
 
-const FADE_TIME = 0.8
-var PREVIOUS_SONGS = []
-var IN_FRONT_SONGS = []
+const FADE_TIME : float = 0.8
+var PREVIOUS_SONGS : Array = []
+var IN_FRONT_SONGS : Array = []
 var Current_Playlist : Node
 var NotificationNode : Node
+var NotificationOnScreen : bool = false
 
 func initNew(PlaylistNode : Node, Start : bool, fade : bool, showNotification : bool):
 	PREVIOUS_SONGS.clear()
