@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://4y07lcegxyxt"]
+
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Audio/MainMenu_Audio_SCRIPT.gd" id="1_4kkeg"]
+
+[node name="MainMenu_Audio" type="Node"]
+script = ExtResource("1_4kkeg")
+
+[node name="One Ray Of Light" type="AudioStreamPlayer" parent="."]
+
+[node name="A New Beginning" type="AudioStreamPlayer" parent="."]
+
+[node name="Far Dreams" type="AudioStreamPlayer" parent="."]
+
+[node name="Lunch" type="AudioStreamPlayer" parent="."]
+
+[node name="We\'re Going To Escape This Place" type="AudioStreamPlayer" parent="."]
