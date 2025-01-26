@@ -63,6 +63,8 @@ var RESERVED_SONGS = [
 @export var MORNING_SONGS : Array[AudioStreamPlayer]
 
 func _ready() -> void:
+	AudioManager.ISLAND_NIGHT_SONGS = NIGHT_SONGS
+	AudioManager.ISLAND_MORNING_SONGS = MORNING_SONGS
 	songs = []
 	for child in get_children():
 		if child is AudioStreamPlayer:

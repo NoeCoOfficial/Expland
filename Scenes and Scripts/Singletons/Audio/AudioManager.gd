@@ -58,6 +58,7 @@ var NotificationNode : Node
 var NotificationOnScreen : bool = false
 
 var ISLAND_NIGHT_SONGS = []
+var ISLAND_MORNING_SONGS = []
 
 func initNew(PlaylistNode : Node, Start : bool, fade : bool, showNotification : bool):
 	if !PREVIOUS_SONGS.is_empty():

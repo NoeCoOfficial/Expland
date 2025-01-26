@@ -200,7 +200,7 @@ func _input(_event: InputEvent) -> void:
 # Process
 ######################################
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if OS.has_feature("debug"):
 		fade_timer_time_left_label.text = str(int(AudioManager.FADE_TIMER_TIME_LEFT))
 
