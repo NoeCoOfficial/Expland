@@ -169,10 +169,11 @@ vertex_color_use_as_albedo = true
 material = SubResource("StandardMaterial3D_eda5c")
 curve = SubResource("Curve_myn2q")
 
-[node name="MainMenu" type="Node3D" node_paths=PackedStringArray("FreeModeIslandPopupLayer", "TextEditNewIslandName")]
+[node name="MainMenu" type="Node3D" node_paths=PackedStringArray("FreeModeIslandPopupLayer", "TextEditNewIslandName", "fade_timer_time_left_label")]
 script = ExtResource("1_8n1c6")
 FreeModeIslandPopupLayer = NodePath("Camera3D/MainLayer/FreeModeIslandPopup")
 TextEditNewIslandName = NodePath("Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit")
+fade_timer_time_left_label = NodePath("Camera3D/MainLayer/AudioNotificationLayer/fade_timer_time_left")
 
 [node name="CameraAnim" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1088,11 +1089,26 @@ metadata/_edit_use_anchors_ = true
 [node name="AudioNotificationLayer" type="CanvasLayer" parent="Camera3D/MainLayer"]
 layer = 10
 
-[node name="time_left" type="Label" parent="Camera3D/MainLayer/AudioNotificationLayer"]
-offset_left = 992.095
-offset_top = 88.588
-offset_right = 1032.1
-offset_bottom = 111.588
+[node name="fade_timer_time_left_title" type="Label" parent="Camera3D/MainLayer/AudioNotificationLayer"]
+modulate = Color(1, 1, 1, 0.789)
+offset_left = 967.0
+offset_top = 48.0
+offset_right = 1146.0
+offset_bottom = 71.0
+theme_override_fonts/font = ExtResource("5_dfh28")
+text = "Audio fade timer time left"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="fade_timer_time_left" type="Label" parent="Camera3D/MainLayer/AudioNotificationLayer"]
+modulate = Color(1, 1, 1, 0.789)
+offset_left = 1103.0
+offset_top = 67.0
+offset_right = 1143.0
+offset_bottom = 90.0
+theme_override_fonts/font = ExtResource("5_dfh28")
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="AudioNotification" parent="Camera3D/MainLayer/AudioNotificationLayer" instance=ExtResource("31_xncp6")]
 offset_left = 1152.0

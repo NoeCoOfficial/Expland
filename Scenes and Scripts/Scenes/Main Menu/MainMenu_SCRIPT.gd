@@ -70,6 +70,7 @@ var is_tweening = false
 @export_group("Node references")
 @export var FreeModeIslandPopupLayer : CanvasLayer
 @export var TextEditNewIslandName : LineEdit
+@export var fade_timer_time_left_label : Label
 
 ######################################
 # Startup
@@ -124,6 +125,10 @@ func fadeOut(node):
 	tween.tween_property(node, "modulate", Color(0, 0, 0, 0), 5)
 
 func onStartup():
+	if !OS.has_feature("debug"):
+		$Camera3D/MainLayer/AudioNotificationLayer/fade_timer_time_left.hide()
+		$Camera3D/MainLayer/AudioNotificationLayer/fade_timer_time_left_title.hide()
+		
 	fadeOut($Camera3D/MainLayer/TopLayer/FadeOut)
 	$Camera3D/MainLayer/Version_LBL.visible = true
 	
@@ -196,7 +201,8 @@ func _input(_event: InputEvent) -> void:
 ######################################
 
 func _process(delta: float) -> void:
-	$Camera3D/MainLayer/AudioNotificationLayer/time_left.text = str(AudioManager.FADE_TIMER_TIME_LEFT)
+	if OS.has_feature("debug"):
+		fade_timer_time_left_label.text = str(int(AudioManager.FADE_TIMER_TIME_LEFT))
 
 ######################################
 # PlayButton animations and functions
