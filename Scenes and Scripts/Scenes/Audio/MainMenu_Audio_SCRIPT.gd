@@ -57,6 +57,9 @@ func _ready() -> void:
 		if child is AudioStreamPlayer:
 			songs.append(child)
 
+func _process(delta: float) -> void:
+	AudioManager.FADE_TIMER_TIME_LEFT = $FadeTimer.time_left
+
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("audio_Toggle"):
 		if AudioManager.is_paused:
@@ -181,6 +184,10 @@ func FadeOut(song : Node):
 	fadetween.connect("finished", Callable(self, "FadeOutFinished").bind(song))
 	fadetween.tween_property(song, "volume_db", -80, AudioManager.FADE_TIME)
 
+func audibleOnlyFadeOut(song):
+	var fadetween = get_tree().create_tween()
+	fadetween.tween_property(song, "volume_db", -80, AudioManager.FADE_TIME)
+
 func get_currently_playing_song_node():
 	return currently_playing_song
 
@@ -193,7 +200,7 @@ func startFadeTimer(lengthOfSong : float):
 	$FadeTimer.start()
 
 func FadeOutFinished(song):
-	pass
+	song.stop()
 
 func _on_fade_timer_timeout() -> void:
-	FadeOut(currently_playing_song)
+	audibleOnlyFadeOut(currently_playing_song)

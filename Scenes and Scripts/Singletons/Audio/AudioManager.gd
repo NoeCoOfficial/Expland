@@ -49,6 +49,7 @@ extends Node
 
 var FADE_TIME : float = 0.3
 var CAN_FADE : bool = true
+var FADE_TIMER_TIME_LEFT : float = 0.0
 var PREVIOUS_SONGS : Array = []
 var IN_FRONT_SONGS : Array = []
 var is_paused = false

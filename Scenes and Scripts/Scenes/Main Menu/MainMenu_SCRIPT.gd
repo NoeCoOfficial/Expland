@@ -77,7 +77,7 @@ var is_tweening = false
 
 func _ready() -> void:
 	AudioManager.initNotificaton($Camera3D/MainLayer/AudioNotificationLayer/AudioNotification)
-	AudioManager.initNew($MainMenu_Audio, true, true, true)
+	AudioManager.initNew($MainMenu_Audio, true, false, true)
 	PlayerSettingsData.loadSettings()
 	PauseManager.is_paused = false
 	
@@ -87,11 +87,6 @@ func _ready() -> void:
 		
 		if PlayerSettingsData.showStartupScreen:
 			call_deferred("change_to_startup_notice")
-			
-		#else:
-			#$Music.play()
-	#else:
-		#$Music.play()
 
 	
 	$Camera3D/MainLayer/GreyLayerGamemodeLayer.hide()
@@ -195,6 +190,13 @@ func _input(_event: InputEvent) -> void:
 				$Camera3D/MainLayer/DeleteIslandPopup.hide()
 				is_in_delete_popup = false
 				is_in_load_island_interface = true
+
+######################################
+# Process
+######################################
+
+func _process(delta: float) -> void:
+	$Camera3D/MainLayer/AudioNotificationLayer/time_left.text = str(AudioManager.FADE_TIMER_TIME_LEFT)
 
 ######################################
 # PlayButton animations and functions

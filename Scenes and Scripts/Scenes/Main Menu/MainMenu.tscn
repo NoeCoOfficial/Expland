@@ -1088,6 +1088,12 @@ metadata/_edit_use_anchors_ = true
 [node name="AudioNotificationLayer" type="CanvasLayer" parent="Camera3D/MainLayer"]
 layer = 10
 
+[node name="time_left" type="Label" parent="Camera3D/MainLayer/AudioNotificationLayer"]
+offset_left = 992.095
+offset_top = 88.588
+offset_right = 1032.1
+offset_bottom = 111.588
+
 [node name="AudioNotification" parent="Camera3D/MainLayer/AudioNotificationLayer" instance=ExtResource("31_xncp6")]
 offset_left = 1152.0
 offset_top = 459.0
