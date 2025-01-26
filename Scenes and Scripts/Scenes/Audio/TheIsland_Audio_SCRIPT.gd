@@ -51,6 +51,8 @@ var VOLUME_DB : float = -10.0
 var songs : Array
 var currently_playing_song : AudioStreamPlayer
 
+var canOperate : bool = true
+
 var RESERVED_SONGS = [
 	"Ear Bleed",
 	"Midnight Murmurs",
@@ -74,17 +76,23 @@ func _process(_delta: float) -> void:
 	AudioManager.FADE_TIMER_TIME_LEFT = $FadeTimer.time_left
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("audio_Toggle"):
+	if Input.is_action_just_pressed("audio_Toggle") and canOperate:
 		if AudioManager.is_paused:
 			Toggle(false, true)
 		else:
 			Toggle(true, true)
+		canOperate = false
+		$DebounceTimer.start()
 	
-	if Input.is_action_just_pressed("audio_Next"):
+	if Input.is_action_just_pressed("audio_Next") and canOperate:
 		Next(AudioManager.CAN_FADE, true)
+		canOperate = false
+		$DebounceTimer.start()
 	
-	if Input.is_action_just_pressed("audio_Prev"):
+	if Input.is_action_just_pressed("audio_Prev") and canOperate:
 		Previous(AudioManager.CAN_FADE, true)
+		canOperate = false
+		$DebounceTimer.start()
 
 func Toggle(pause : bool, showNotification : bool):
 	
@@ -102,63 +110,65 @@ func Toggle(pause : bool, showNotification : bool):
 			AudioManager.NotificationNode.updateNotification(AudioManager.is_paused, currently_playing_song.name)
 
 func Next(fade : bool, showNotification : bool):
-	var nextSong
-	
-	if currently_playing_song:
+	if !AudioManager.is_paused:
+		var nextSong
+		
+		if currently_playing_song:
+			if fade:
+				FadeOut(currently_playing_song)
+			else:
+				currently_playing_song.stop()
+		
+		AudioManager.PREVIOUS_SONGS.append(currently_playing_song)
+		if !AudioManager.IN_FRONT_SONGS.is_empty():
+			nextSong = AudioManager.IN_FRONT_SONGS.pop_back()
+		else:
+			randomize()
+			while true:
+				nextSong = songs[randi() % songs.size()]
+				if nextSong != currently_playing_song and nextSong.name not in RESERVED_SONGS:
+					break
+		
+		currently_playing_song = nextSong
+		currently_playing_song.play()
+		startFadeTimer(currently_playing_song.stream.get_length())
+		
 		if fade:
-			FadeOut(currently_playing_song)
-		else:
-			currently_playing_song.stop()
-	
-	AudioManager.PREVIOUS_SONGS.append(currently_playing_song)
-	if !AudioManager.IN_FRONT_SONGS.is_empty():
-		nextSong = AudioManager.IN_FRONT_SONGS.pop_back()
-	else:
-		randomize()
-		while true:
-			nextSong = songs[randi() % songs.size()]
-			if nextSong != currently_playing_song and nextSong.name not in RESERVED_SONGS:
-				break
-	
-	currently_playing_song = nextSong
-	currently_playing_song.play()
-	startFadeTimer(currently_playing_song.stream.get_length())
-	
-	if fade:
-		FadeIn(currently_playing_song)
-	
-	if showNotification:
-		if !AudioManager.NotificationOnScreen:
-			AudioManager.NotificationNode.spawnAudioNotification(AudioManager.is_paused, currently_playing_song.name)
-		else:
-			AudioManager.NotificationNode.updateNotification(AudioManager.is_paused, currently_playing_song.name)
+			FadeIn(currently_playing_song)
+		
+		if showNotification:
+			if !AudioManager.NotificationOnScreen:
+				AudioManager.NotificationNode.spawnAudioNotification(AudioManager.is_paused, currently_playing_song.name)
+			else:
+				AudioManager.NotificationNode.updateNotification(AudioManager.is_paused, currently_playing_song.name)
 
 func Previous(fade : bool, showNotification : bool):
-	if AudioManager.PREVIOUS_SONGS.is_empty():
-		return
-	
-	var previousSong
-	if currently_playing_song:
+	if !AudioManager.is_paused:
+		if AudioManager.PREVIOUS_SONGS.is_empty():
+			return
+		
+		var previousSong
+		if currently_playing_song:
+			if fade:
+				FadeOut(currently_playing_song)
+			else:
+				currently_playing_song.stop()
+		
+		AudioManager.IN_FRONT_SONGS.append(currently_playing_song)
+		previousSong = AudioManager.PREVIOUS_SONGS.pop_back()
+		
+		currently_playing_song = previousSong
+		currently_playing_song.play()
+		startFadeTimer(currently_playing_song.stream.get_length())
+		
 		if fade:
-			FadeOut(currently_playing_song)
-		else:
-			currently_playing_song.stop()
-	
-	AudioManager.IN_FRONT_SONGS.append(currently_playing_song)
-	previousSong = AudioManager.PREVIOUS_SONGS.pop_back()
-	
-	currently_playing_song = previousSong
-	currently_playing_song.play()
-	startFadeTimer(currently_playing_song.stream.get_length())
-	
-	if fade:
-		FadeIn(currently_playing_song)
-	
-	if showNotification:
-		if !AudioManager.NotificationOnScreen:
-			AudioManager.NotificationNode.spawnAudioNotification(AudioManager.is_paused, currently_playing_song.name)
-		else:
-			AudioManager.NotificationNode.updateNotification(AudioManager.is_paused, currently_playing_song.name)
+			FadeIn(currently_playing_song)
+		
+		if showNotification:
+			if !AudioManager.NotificationOnScreen:
+				AudioManager.NotificationNode.spawnAudioNotification(AudioManager.is_paused, currently_playing_song.name)
+			else:
+				AudioManager.NotificationNode.updateNotification(AudioManager.is_paused, currently_playing_song.name)
 
 # TODO
 #func StartSong(song : Node, fade : bool, showNotification : bool):
@@ -219,3 +229,6 @@ func FadeOutFinished(song):
 
 func _on_fade_timer_timeout() -> void:
 	audibleOnlyFadeOut(currently_playing_song)
+
+func _on_debounce_timer_timeout() -> void:
+	canOperate = true

@@ -19,6 +19,10 @@ MORNING_SONGS = [NodePath("A New Beginning")]
 
 [node name="FadeTimer" type="Timer" parent="."]
 
+[node name="DebounceTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
 [node name="One Ray Of Light" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_gro8j")
 volume_db = -10.0
@@ -60,6 +64,7 @@ stream = ExtResource("7_m2jtv")
 volume_db = -10.0
 
 [connection signal="timeout" from="FadeTimer" to="." method="_on_fade_timer_timeout"]
+[connection signal="timeout" from="DebounceTimer" to="." method="_on_debounce_timer_timeout"]
 [connection signal="finished" from="One Ray Of Light" to="." method="_on_songs_finished"]
 [connection signal="finished" from="Unfamiliar Lights" to="." method="_on_songs_finished"]
 [connection signal="finished" from="Ear Bleed" to="." method="_on_songs_finished"]

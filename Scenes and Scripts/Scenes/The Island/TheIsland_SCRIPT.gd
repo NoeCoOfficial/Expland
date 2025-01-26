@@ -70,6 +70,7 @@ func _ready() -> void:
 	randomize()
 	initNodes()
 	
+	
 	IslandManager.transitioning_from_menu = false
 	
 	PlayerData.loadData(IslandManager.Current_Island_Name, true)
@@ -92,7 +93,8 @@ func _ready() -> void:
 	InventoryManager.chestNode = $Chest
 
 func _on_ready() -> void:
-	pass
+	AudioManager.initNotificaton(PlayerManager.AudioNotification)
+	AudioManager.initNew($TheIsland_Audio, true, false, true)
 
 func _process(_delta: float) -> void:
 	RainParticles.position.x = Player.position.x
@@ -139,7 +141,6 @@ func get_weighted_random_weather():
 func set_time(minute : int):
 	if !DayNightCycle.is_playing():
 		DayNightCycle.play(&"cycle")
-		
 	else:
 		DayNightCycle.stop()
 		DayNightCycle.play(&"cycle")
@@ -148,6 +149,9 @@ func set_time(minute : int):
 	
 	if TimeManager.CURRENT_TIME >= 1140 or TimeManager.CURRENT_TIME < 360:
 		TimeManager.DAY_STATE = "NIGHT"
+	elif TimeManager.CURRENT_TIME >= 300 and TimeManager.CURRENT_TIME < 420:
+		TimeManager.DAY_STATE = "DAY"
+		append_random_songs(AudioManager.ISLAND_MORNING_SONGS)
 	else:
 		TimeManager.DAY_STATE = "DAY"
 	
@@ -166,5 +170,14 @@ func _on_tick() -> void:
 	
 	if TimeManager.CURRENT_TIME >= 1140 or TimeManager.CURRENT_TIME < 360:
 		TimeManager.DAY_STATE = "NIGHT"
+		if TimeManager.CURRENT_TIME in [19 * 60, 20 * 60, 21 * 60, 22 * 60, 23 * 60]:
+			append_random_songs(AudioManager.ISLAND_NIGHT_SONGS)
 	else:
 		TimeManager.DAY_STATE = "DAY"
+
+func append_random_songs(song_array: Array):
+	var shuffled_songs = song_array.duplicate()
+	shuffled_songs.shuffle()
+	var num_songs_to_append = randi() % shuffled_songs.size() + 1
+	for i in range(num_songs_to_append):
+		AudioManager.IN_FRONT_SONGS.append(shuffled_songs[i])

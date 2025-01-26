@@ -13,6 +13,10 @@ script = ExtResource("1_4kkeg")
 
 [node name="FadeTimer" type="Timer" parent="."]
 
+[node name="DebounceTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
 [node name="One Ray Of Light" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_b74ic")
 volume_db = -10.0
@@ -38,6 +42,7 @@ stream = ExtResource("7_pqcbc")
 volume_db = -10.0
 
 [connection signal="timeout" from="FadeTimer" to="." method="_on_fade_timer_timeout"]
+[connection signal="timeout" from="DebounceTimer" to="." method="_on_debounce_timer_timeout"]
 [connection signal="finished" from="One Ray Of Light" to="." method="_on_songs_finished"]
 [connection signal="finished" from="A New Beginning" to="." method="_on_songs_finished"]
 [connection signal="finished" from="Far Dreams" to="." method="_on_songs_finished"]

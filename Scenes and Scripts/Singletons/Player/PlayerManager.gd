@@ -53,6 +53,8 @@ var INVENTORY_LAYER = null
 var CHEST_SLOTS = null
 var MINIMAL_ALERT_PLAYER = null
 
+var AudioNotification
+
 var SLEEPING_UPON_ENTERED = false
 var Stamina : float = 100.0
 

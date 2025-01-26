@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=92 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -55,6 +55,7 @@
 [ext_resource type="Texture2D" uid="uid://bxxnhb6vulkry" path="res://Textures/Inventory/PICKAXE.png" id="41_10o77"]
 [ext_resource type="Texture2D" uid="uid://dq8jg5iy6tfyc" path="res://Textures/Inventory/AXE.png" id="42_bm4qo"]
 [ext_resource type="Texture2D" uid="uid://dixs8s5v2su7q" path="res://Textures/Inventory/SWORD.png" id="43_0oip2"]
+[ext_resource type="PackedScene" uid="uid://bbc10j8mbwjbn" path="res://Scenes and Scripts/Scenes/Audio/AudioNotification.tscn" id="50_wwm5q"]
 [ext_resource type="Texture2D" uid="uid://64jg78rc6wkb" path="res://Textures/Icons/Loading_Icon.png" id="52_xwypu"]
 [ext_resource type="Texture2D" uid="uid://cliv00fuliseq" path="res://Textures/Icons/TickGreen_Icon.png" id="53_i3m63"]
 
@@ -2625,6 +2626,14 @@ visible = false
 
 [node name="SettingsUI" parent="Head/Camera3D/SettingsLayer" instance=ExtResource("19_kj00b")]
 visible = false
+
+[node name="AudioNotificationLayer" type="CanvasLayer" parent="Head/Camera3D"]
+
+[node name="AudioNotification" parent="Head/Camera3D/AudioNotificationLayer" instance=ExtResource("50_wwm5q")]
+offset_left = 1152.0
+offset_top = 459.0
+offset_right = 197.0
+offset_bottom = -101.0
 
 [node name="SaveOverlay" type="CanvasLayer" parent="Head/Camera3D"]
 
