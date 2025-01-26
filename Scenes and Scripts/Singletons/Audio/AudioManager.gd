@@ -47,7 +47,7 @@
 
 extends Node
 
-const FADE_TIME : float = 0.8
+var FADE_TIME : float = 0.8
 var CAN_FADE : bool = true
 var PREVIOUS_SONGS : Array = []
 var IN_FRONT_SONGS : Array = []
