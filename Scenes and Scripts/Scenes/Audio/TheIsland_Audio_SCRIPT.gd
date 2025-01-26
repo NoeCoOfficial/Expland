@@ -51,6 +51,13 @@ var VOLUME_DB : float = -10.0
 var songs : Array
 var currently_playing_song : AudioStreamPlayer
 
+var RESERVED_SONGS = [
+	"Ear Bleed",
+	"Midnight Murmurs",
+	"Before Dark",
+	"Unfamiliar Lights"
+]
+
 func _ready() -> void:
 	songs = []
 	for child in get_children():
