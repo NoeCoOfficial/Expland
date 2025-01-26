@@ -105,13 +105,13 @@ func Next(fade : bool, showNotification : bool):
 			currently_playing_song.stop()
 	
 	AudioManager.PREVIOUS_SONGS.append(currently_playing_song)
-	if !AudioManager.IN_FRONT_SONGS.is_empty(): # If there are songs yet to be played in front
+	if !AudioManager.IN_FRONT_SONGS.is_empty():
 		nextSong = AudioManager.IN_FRONT_SONGS.pop_back()
-	else: # If there are no songs yet to be played
+	else:
 		randomize()
 		while true:
 			nextSong = songs[randi() % songs.size()]
-			if nextSong != currently_playing_song:
+			if nextSong != currently_playing_song and nextSong.name not in RESERVED_SONGS:
 				break
 	
 	currently_playing_song = nextSong
@@ -163,7 +163,7 @@ func Start(fade : bool, showNotification : bool):
 	randomize()
 	while true:
 		nextSong = songs[randi() % songs.size()]
-		if nextSong != currently_playing_song:
+		if nextSong != currently_playing_song and nextSong.name not in RESERVED_SONGS:
 			break
 	
 	currently_playing_song = nextSong
