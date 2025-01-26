@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://5fjl3bhlrc02"]
+
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Audio/TheIsland_Audio_SCRIPT.gd" id="1_ltd34"]
+[ext_resource type="AudioStream" uid="uid://dpg36vjqvglo0" path="res://Audio/Music/One Ray Of Light.mp3" id="2_gro8j"]
+[ext_resource type="AudioStream" uid="uid://uws1k05ns22p" path="res://Audio/Music/A New Beginning.mp3" id="3_2pg3e"]
+[ext_resource type="AudioStream" uid="uid://da66033dolhtt" path="res://Audio/Music/Far Dreams.mp3" id="4_ektdl"]
+[ext_resource type="AudioStream" uid="uid://cgcnbamgom8tx" path="res://Audio/Music/Lunch.mp3" id="5_urj36"]
+[ext_resource type="AudioStream" uid="uid://cvre8a3c7vhts" path="res://Audio/Music/Get Out Of Here.mp3" id="6_af67j"]
+[ext_resource type="AudioStream" uid="uid://bm2yify34oc5g" path="res://Audio/Music/What Is This Place.mp3" id="7_m2jtv"]
+
+[node name="TheIsland_Audio" type="Node"]
+script = ExtResource("1_ltd34")
+
+[node name="FadeTimer" type="Timer" parent="."]
+
+[node name="One Ray Of Light" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_gro8j")
+volume_db = -10.0
+
+[node name="A New Beginning" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_2pg3e")
+volume_db = -10.0
+
+[node name="Far Dreams" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ektdl")
+volume_db = -10.0
+
+[node name="Lunch" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_urj36")
+volume_db = -10.0
+
+[node name="Get Out Of Here" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_af67j")
+volume_db = -10.0
+
+[node name="What Is This Place" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_m2jtv")
+volume_db = -10.0
+
+[connection signal="timeout" from="FadeTimer" to="." method="_on_fade_timer_timeout"]
+[connection signal="finished" from="One Ray Of Light" to="." method="_on_songs_finished"]
+[connection signal="finished" from="A New Beginning" to="." method="_on_songs_finished"]
+[connection signal="finished" from="Far Dreams" to="." method="_on_songs_finished"]
+[connection signal="finished" from="Lunch" to="." method="_on_songs_finished"]
+[connection signal="finished" from="Get Out Of Here" to="." method="_on_songs_finished"]
+[connection signal="finished" from="What Is This Place" to="." method="_on_songs_finished"]
