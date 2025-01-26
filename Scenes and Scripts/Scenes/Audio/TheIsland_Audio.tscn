@@ -12,8 +12,10 @@
 [ext_resource type="AudioStream" uid="uid://cvre8a3c7vhts" path="res://Audio/Music/Get Out Of Here.mp3" id="6_af67j"]
 [ext_resource type="AudioStream" uid="uid://bm2yify34oc5g" path="res://Audio/Music/What Is This Place.mp3" id="7_m2jtv"]
 
-[node name="TheIsland_Audio" type="Node"]
+[node name="TheIsland_Audio" type="Node" node_paths=PackedStringArray("NIGHT_SONGS", "MORNING_SONGS")]
 script = ExtResource("1_ltd34")
+NIGHT_SONGS = [NodePath("Ear Bleed"), NodePath("Midnight Murmurs"), NodePath("Before Dark"), NodePath("Unfamiliar Lights")]
+MORNING_SONGS = [NodePath("A New Beginning")]
 
 [node name="FadeTimer" type="Timer" parent="."]
 

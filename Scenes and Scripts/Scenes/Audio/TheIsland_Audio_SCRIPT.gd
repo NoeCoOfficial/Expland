@@ -55,8 +55,12 @@ var RESERVED_SONGS = [
 	"Ear Bleed",
 	"Midnight Murmurs",
 	"Before Dark",
-	"Unfamiliar Lights"
+	"Unfamiliar Lights",
+	"A New Beginning",
 ]
+
+@export var NIGHT_SONGS : Array[AudioStreamPlayer]
+@export var MORNING_SONGS : Array[AudioStreamPlayer]
 
 func _ready() -> void:
 	songs = []
