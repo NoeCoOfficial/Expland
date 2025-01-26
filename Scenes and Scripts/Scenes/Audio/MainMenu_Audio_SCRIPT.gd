@@ -57,7 +57,7 @@ func _ready() -> void:
 		if child is AudioStreamPlayer:
 			songs.append(child)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	AudioManager.FADE_TIMER_TIME_LEFT = $FadeTimer.time_left
 
 func _input(_event: InputEvent) -> void:
@@ -147,8 +147,9 @@ func Previous(fade : bool, showNotification : bool):
 		else:
 			AudioManager.NotificationNode.updateNotification(AudioManager.is_paused, currently_playing_song.name)
 
-func StartSong(song : Node, fade : bool, showNotification : bool):
-	pass
+# TODO
+#func StartSong(song : Node, fade : bool, showNotification : bool):
+#	pass
 
 func Start(fade : bool, showNotification : bool):
 	var nextSong
@@ -171,8 +172,9 @@ func Start(fade : bool, showNotification : bool):
 		else:
 			AudioManager.NotificationNode.updateNotification(AudioManager.is_paused, currently_playing_song.name)
 
-func Stop(song : Node, fade : bool):
-	pass
+# TODO
+#func Stop(song : Node, fade : bool):
+#	pass
 
 func FadeIn(song : Node):
 	song.volume_db = -80
