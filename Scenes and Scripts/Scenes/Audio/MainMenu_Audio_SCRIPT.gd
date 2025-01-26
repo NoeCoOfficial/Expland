@@ -50,7 +50,6 @@ extends Node
 var VOLUME_DB : float = -10.0
 var songs : Array
 var currently_playing_song : AudioStreamPlayer
-var active_fade_tween : Tween
 
 func _ready() -> void:
 	songs = []
@@ -72,6 +71,7 @@ func _input(_event: InputEvent) -> void:
 		Previous(AudioManager.CAN_FADE, true)
 
 func Toggle(pause : bool, showNotification : bool):
+	
 	if pause:
 		currently_playing_song.stream_paused = true
 		AudioManager.is_paused = true
@@ -95,9 +95,9 @@ func Next(fade : bool, showNotification : bool):
 			currently_playing_song.stop()
 	
 	AudioManager.PREVIOUS_SONGS.append(currently_playing_song)
-	if !AudioManager.IN_FRONT_SONGS.is_empty():
+	if !AudioManager.IN_FRONT_SONGS.is_empty(): # If there are songs yet to be played in front
 		nextSong = AudioManager.IN_FRONT_SONGS.pop_back()
-	else:
+	else: # If there are no songs yet to be played
 		randomize()
 		while true:
 			nextSong = songs[randi() % songs.size()]
@@ -173,20 +173,13 @@ func Stop(song : Node, fade : bool):
 
 func FadeIn(song : Node):
 	song.volume_db = -80
-	var fade_tween = get_tree().create_tween()  # Create a new local tween
-	fade_tween.tween_property(song, "volume_db", VOLUME_DB, AudioManager.FADE_TIME)
+	var fadetween = get_tree().create_tween()
+	fadetween.tween_property(song, "volume_db", VOLUME_DB, AudioManager.FADE_TIME)
 
 func FadeOut(song : Node):
-	if active_fade_tween:
-		active_fade_tween.stop()  # Stop any active fade-out tween
-	var fade_tween = get_tree().create_tween()  # Create a new local tween
-	active_fade_tween = fade_tween
-	fade_tween.tween_property(song, "volume_db", -80, AudioManager.FADE_TIME)
-	fade_tween.connect("finished", Callable(self, "_on_fadeout_finished").bind(song))
-
-func _on_fadeout_finished(song):
-	song.stop()
-	active_fade_tween = null  # Clear the active fade-out tween
+	var fadetween = get_tree().create_tween()
+	fadetween.connect("finished", Callable(self, "FadeOutFinished").bind(song))
+	fadetween.tween_property(song, "volume_db", -80, AudioManager.FADE_TIME)
 
 func get_currently_playing_song_node():
 	return currently_playing_song
@@ -198,6 +191,9 @@ func startFadeTimer(lengthOfSong : float):
 	$FadeTimer.stop()
 	$FadeTimer.wait_time = lengthOfSong - AudioManager.FADE_TIME
 	$FadeTimer.start()
+
+func FadeOutFinished(song):
+	pass
 
 func _on_fade_timer_timeout() -> void:
 	FadeOut(currently_playing_song)
