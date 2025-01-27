@@ -206,11 +206,17 @@ func audibleOnlyFadeOut(song):
 	var fadetween = get_tree().create_tween()
 	fadetween.tween_property(song, "volume_db", -80, AudioManager.FADE_TIME)
 
+func audibleOnlyFadeOutAllSongs():
+	for song in songs:
+		var fadetween = get_tree().create_tween()
+		fadetween.tween_property(song, "volume_db", -80, AudioManager.FADE_TIME)
+
 func get_currently_playing_song_node():
 	return currently_playing_song
 
 func _on_songs_finished() -> void:
-	Next(AudioManager.CAN_FADE, true)
+	if !Global.main_menu_transitioning_scene:
+		Next(AudioManager.CAN_FADE, true)
 
 func startFadeTimer(lengthOfSong : float):
 	$FadeTimer.stop()

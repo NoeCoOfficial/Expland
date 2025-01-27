@@ -422,7 +422,8 @@ func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 	
 	IslandManager.transitioningFromNewIsland = true
 	
-	Global.main_menu_Global.main_menu_transitioning_scene = true
+	Global.main_menu_transitioning_scene = true
+	$MainMenu_Audio.audibleOnlyFadeOutAllSongs()
 	IslandManager.set_current_island(sanitized_name)
 	IslandManager.Current_Game_Mode = "FREE"
 	
@@ -441,9 +442,8 @@ func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 	tween.tween_interval(1)
 
 func goToIsland(island_name : String, _gamemode : String):
-	#var fadeout = get_tree().create_tween()
-	#fadeout.tween_property($Music, "volume_db", -80, 2)
 	Global.main_menu_transitioning_scene = true
+	$MainMenu_Audio.audibleOnlyFadeOutAllSongs()
 	IslandManager.transitioning_from_menu = true
 	IslandManager.set_current_island(island_name)
 	IslandManager.Current_Game_Mode = "FREE"

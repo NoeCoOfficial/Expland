@@ -1147,6 +1147,7 @@ func _on_save_and_quit_btn_pressed():
 	get_tree().quit()
 
 func _on_save_and_quit_to_menu_pressed() -> void:
+	AudioManager.Current_Playlist.audibleOnlyFadeOutAllSongs()
 	SaveManager.saveAllData()
 	transitioning_to_menu = true
 	

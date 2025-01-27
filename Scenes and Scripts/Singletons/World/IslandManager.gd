@@ -114,5 +114,5 @@ func resetAttributes():
 	InteractionManager.is_hovering_over_sackcloth_bed = false
 	InteractionManager.is_hovering_over_chest = false
 
-	# May need to reset TerrainManager variables here in future
+	# NOTE: May need to reset TerrainManager variables here in future
 	

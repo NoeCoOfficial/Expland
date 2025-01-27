@@ -70,7 +70,6 @@ func _ready() -> void:
 	randomize()
 	initNodes()
 	
-	
 	IslandManager.transitioning_from_menu = false
 	
 	PlayerData.loadData(IslandManager.Current_Island_Name, true)
