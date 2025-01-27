@@ -76,6 +76,9 @@
 - Strength Potion
 - Yellow flower (#46)
 
+### Changed:
+- The slot texture to a dashed rounded square
+
 ### Fixed:
 - Fixed a bug where you could sometimes not place dropables down in empty slots (#81)
 
