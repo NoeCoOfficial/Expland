@@ -47,6 +47,8 @@
 
 extends Control
 
+var loadIslandsThread : Thread
+
 func _ready() -> void:
 	visible = false
 
