@@ -47,7 +47,7 @@
 
 extends Control
 
-var loadIslandsThread : Thread
+@export var NoSavedIslandsNotice : Label
 
 func _ready() -> void:
 	visible = false
@@ -76,16 +76,16 @@ func loadIslands() -> void:
 		
 		# Check if ordered_folders is empty and set the label visibility
 		if ordered_folders.size() == 0:
-			$NoSavedIslandsNotice.visible = true
+			NoSavedIslandsNotice.call_deferred("set_visible", true)
 		else:
-			$NoSavedIslandsNotice.visible = false
+			NoSavedIslandsNotice.call_deferred("set_visible", false)
 		
 		# Populate the UI with the folders
 		for folder in ordered_folders:
 			print_rich("[color=red]Detected folder: %s[/color]" % folder["name"])
 			
 			var island_save_element = load("res://Scenes and Scripts/Scenes/Main Menu/IslandSaveElement/IslandSaveElement.tscn").instantiate()
-			$ScrollContainer/VBoxContainer.add_child(island_save_element)
+			$ScrollContainer/VBoxContainer.call_deferred("add_child", island_save_element)
 			island_save_element.name = "IslandSaveElement"
 			
 			var image_path = "user://saveData/Free Mode/Islands/%s/island.png" % folder["name"]

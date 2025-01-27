@@ -907,7 +907,7 @@ drag_and_drop_selection_enabled = false
 caret_blink = true
 metadata/_edit_use_anchors_ = true
 
-[node name="LoadIslandPopup" type="Control" parent="Camera3D/MainLayer/FreeModeIslandPopup"]
+[node name="LoadIslandPopup" type="Control" parent="Camera3D/MainLayer/FreeModeIslandPopup" node_paths=PackedStringArray("NoSavedIslandsNotice")]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -916,6 +916,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("27_ro0wj")
+NoSavedIslandsNotice = NodePath("NoSavedIslandsNotice")
 metadata/_edit_use_anchors_ = true
 
 [node name="LoadIslandPopupBG" type="Panel" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup"]
@@ -1203,6 +1204,7 @@ gravity = Vector3(0, -60, 0)
 initial_velocity_min = 47.09
 initial_velocity_max = 47.09
 
+[connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="button_down" from="Camera3D/MainLayer/PlayButtonTrigger" to="." method="_on_play_button_trigger_button_down"]
 [connection signal="button_up" from="Camera3D/MainLayer/PlayButtonTrigger" to="." method="_on_play_button_trigger_button_up"]
 [connection signal="mouse_entered" from="Camera3D/MainLayer/PlayButtonTrigger" to="." method="_on_play_button_trigger_mouse_entered"]

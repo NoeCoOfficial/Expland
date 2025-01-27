@@ -48,19 +48,16 @@
 @icon("res://Textures/Icons/Script Icons/32x32/main_menu.png")
 extends Node3D
 
-var transitioning_scene = false
+var loadIslandThread : Thread
 
+var transitioning_scene = false
 var is_in_gamemode_select = false
 var is_in_absolute_gamemode_select = false
-
 var is_in_free_mode_island_popup = false
 var is_in_free_mode_create_island = false
-
 var is_in_load_island_interface = false
-
 var is_in_delete_popup = false
 var island_element_to_free
-
 var is_tweening = false
 
 @onready var StartupNotice = preload("res://Scenes and Scripts/Scenes/Startup Notice/StartupNotice.tscn")
@@ -82,7 +79,6 @@ func _ready() -> void:
 	PlayerSettingsData.loadSettings()
 	PauseManager.is_paused = false
 	
-	
 	if Global.is_first_time_in_menu:
 		Global.is_first_time_in_menu = false
 		
@@ -102,7 +98,9 @@ func _ready() -> void:
 	
 	IslandAccessOrder.load_order()
 	
-	$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup.loadIslands()
+	loadIslandThread = Thread.new()
+	var callable = Callable($Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup, "loadIslands")
+	loadIslandThread.start(callable)
 	
 	Utils.set_center_offset($Camera3D/MainLayer/PlayButton)
 	Utils.set_center_offset($Camera3D/MainLayer/PlayButtonTrigger)
@@ -126,6 +124,9 @@ func change_to_startup_notice() -> void:
 func fadeOut(node):
 	var tween = get_tree().create_tween()
 	tween.tween_property(node, "modulate", Color(0, 0, 0, 0), 3)
+
+func _on_ready() -> void:
+	pass
 
 func onStartup():
 	if !OS.has_feature("debug"):
@@ -510,3 +511,10 @@ func _on_delete_island_no_pressed() -> void:
 	$Camera3D/MainLayer/DeleteIslandPopup.hide()
 	is_in_delete_popup = false
 	is_in_load_island_interface = true
+
+######################################
+# Other
+######################################
+
+func _exit_tree() -> void:
+	loadIslandThread.wait_to_finish()
