@@ -165,6 +165,7 @@ func Previous(fade : bool, showNotification : bool):
 #	pass
 
 func Start(fade : bool, showNotification : bool):
+	AudioManager.is_paused = false
 	var nextSong
 	randomize()
 	while true:
@@ -209,7 +210,7 @@ func audibleOnlyFadeOut(song):
 func audibleOnlyFadeOutAllSongs():
 	for song in songs:
 		var fadetween = get_tree().create_tween()
-		fadetween.tween_property(song, "volume_db", -80, AudioManager.FADE_TIME)
+		fadetween.tween_property(song, "volume_db", -80, 5)
 
 func get_currently_playing_song_node():
 	return currently_playing_song

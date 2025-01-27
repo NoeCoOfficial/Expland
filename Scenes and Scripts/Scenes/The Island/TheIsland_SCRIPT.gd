@@ -69,8 +69,11 @@ var transCloudy_tween
 func _ready() -> void:
 	randomize()
 	initNodes()
-	
+
+	AudioManager.NotificationOnScreen = false
 	IslandManager.transitioning_from_menu = false
+	Global.main_menu_transitioning_scene = false
+	Global.the_island_transitioning_scene = false
 	
 	PlayerData.loadData(IslandManager.Current_Island_Name, true)
 	InventoryData.loadInventory(IslandManager.Current_Island_Name)

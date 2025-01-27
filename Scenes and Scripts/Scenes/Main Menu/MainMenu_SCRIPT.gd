@@ -73,10 +73,13 @@ var is_tweening = false
 ######################################
 
 func _ready() -> void:
+	AudioManager.NotificationOnScreen = false
 	AudioManager.initNotificaton($Camera3D/MainLayer/AudioNotificationLayer/AudioNotification)
 	AudioManager.initNew($MainMenu_Audio, false, false, true)
 	PlayerSettingsData.loadSettings()
 	PauseManager.is_paused = false
+	Global.main_menu_transitioning_scene = false
+	Global.the_island_transitioning_scene = false
 	
 	if Global.is_first_time_in_menu:
 		Global.is_first_time_in_menu = false
