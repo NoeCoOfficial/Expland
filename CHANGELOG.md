@@ -28,6 +28,7 @@
 
 ### Changed:
 - Background camera animation now loops instead of stopping when returned to original position
+- Black screen fade out time is now 3 seconds, not 5
 
 ## The Island
 
