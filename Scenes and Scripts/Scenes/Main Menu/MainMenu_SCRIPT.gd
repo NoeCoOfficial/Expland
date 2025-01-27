@@ -518,3 +518,9 @@ func _on_delete_island_no_pressed() -> void:
 
 func _exit_tree() -> void:
 	loadIslandThread.wait_to_finish()
+
+func _on_tree_entered() -> void:
+	Global.is_in_main_menu = true
+
+func _on_tree_exited() -> void:
+	Global.is_in_main_menu = false

@@ -138,6 +138,23 @@ func _on_dof_blur_switch_toggled(toggled_on: bool) -> void:
 			PlayerSettingsData.set_dof_blur(true)
 		else:
 			PlayerSettingsData.set_dof_blur(false)
+	else:
+		if toggled_on:
+			PlayerSettingsData.DOFBlur = true
+		else:
+			PlayerSettingsData.DOFBlur = false
+
+func _on_pretty_shadows_switch_toggled(toggled_on: bool) -> void:
+	if !Global.is_in_main_menu:
+		if toggled_on:
+			PlayerSettingsData.set_pretty_shadows(true)
+		else:
+			PlayerSettingsData.set_pretty_shadows(false)
+	else:
+		if toggled_on:
+			PlayerSettingsData.PrettyShadows = true
+		else:
+			PlayerSettingsData.PrettyShadows = false
 
 func _on_ssc_switch_toggled(toggled_on: bool) -> void:
 	if toggled_on:
@@ -148,10 +165,3 @@ func _on_ssc_switch_toggled(toggled_on: bool) -> void:
 func _on_autosave_interval_spin_box_value_changed(value: float) -> void:
 	PlayerSettingsData.autosaveInterval = int(value)
 	PlayerSettingsData.set_autosave_interval(int(value))
-
-func _on_pretty_shadows_switch_toggled(toggled_on: bool) -> void:
-	if !Global.is_in_main_menu:
-		if toggled_on:
-			PlayerSettingsData.set_pretty_shadows(true)
-		else:
-			PlayerSettingsData.set_pretty_shadows(false)
