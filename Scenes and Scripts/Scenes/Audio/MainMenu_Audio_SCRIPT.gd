@@ -63,23 +63,24 @@ func _process(_delta: float) -> void:
 	AudioManager.FADE_TIMER_TIME_LEFT = $FadeTimer.time_left
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("audio_Toggle") and canOperate:
-		if AudioManager.is_paused:
-			Toggle(false, true)
-		else:
-			Toggle(true, true)
-		canOperate = false
-		$DebounceTimer.start()
-	
-	if Input.is_action_just_pressed("audio_Next") and canOperate:
-		Next(AudioManager.CAN_FADE, true)
-		canOperate = false
-		$DebounceTimer.start()
-	
-	if Input.is_action_just_pressed("audio_Prev") and canOperate:
-		Previous(AudioManager.CAN_FADE, true)
-		canOperate = false
-		$DebounceTimer.start()
+	if !Global.main_menu_transitioning_scene:
+		if Input.is_action_just_pressed("audio_Toggle") and canOperate:
+			if AudioManager.is_paused:
+				Toggle(false, true)
+			else:
+				Toggle(true, true)
+			canOperate = false
+			$DebounceTimer.start()
+		
+		if Input.is_action_just_pressed("audio_Next") and canOperate:
+			Next(AudioManager.CAN_FADE, true)
+			canOperate = false
+			$DebounceTimer.start()
+		
+		if Input.is_action_just_pressed("audio_Prev") and canOperate:
+			Previous(AudioManager.CAN_FADE, true)
+			canOperate = false
+			$DebounceTimer.start()
 
 func Toggle(pause : bool, showNotification : bool):
 	
@@ -198,6 +199,9 @@ func FadeOut(song : Node):
 	fadetween.connect("finished", Callable(self, "FadeOutFinished").bind(song))
 	fadetween.tween_property(song, "volume_db", -80, AudioManager.FADE_TIME)
 
+func FadeOutFinished(song):
+	song.stop()
+
 func audibleOnlyFadeOut(song):
 	var fadetween = get_tree().create_tween()
 	fadetween.tween_property(song, "volume_db", -80, AudioManager.FADE_TIME)
@@ -212,9 +216,6 @@ func startFadeTimer(lengthOfSong : float):
 	$FadeTimer.stop()
 	$FadeTimer.wait_time = lengthOfSong - AudioManager.FADE_TIME
 	$FadeTimer.start()
-
-func FadeOutFinished(song):
-	song.stop()
 
 func _on_fade_timer_timeout() -> void:
 	audibleOnlyFadeOut(currently_playing_song)
