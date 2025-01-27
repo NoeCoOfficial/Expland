@@ -48,3 +48,4 @@
 extends Node
 
 var is_first_time_in_menu = true
+var is_in_main_menu = true

@@ -26,42 +26,52 @@ one_shot = true
 [node name="One Ray Of Light" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_gro8j")
 volume_db = -10.0
+bus = &"music"
 
 [node name="Unfamiliar Lights" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_65yup")
 volume_db = -10.0
+bus = &"music"
 
 [node name="Ear Bleed" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_2og64")
 volume_db = -10.0
+bus = &"music"
 
 [node name="Midnight Murmurs" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_s6kbn")
 volume_db = -10.0
+bus = &"music"
 
 [node name="Before Dark" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_saswi")
 volume_db = -10.0
+bus = &"music"
 
 [node name="A New Beginning" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_2pg3e")
 volume_db = -10.0
+bus = &"music"
 
 [node name="Far Dreams" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ektdl")
 volume_db = -10.0
+bus = &"music"
 
 [node name="Lunch" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_urj36")
 volume_db = -10.0
+bus = &"music"
 
 [node name="Get Out Of Here" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_af67j")
 volume_db = -10.0
+bus = &"music"
 
 [node name="What Is This Place" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_m2jtv")
 volume_db = -10.0
+bus = &"music"
 
 [connection signal="timeout" from="FadeTimer" to="." method="_on_fade_timer_timeout"]
 [connection signal="timeout" from="DebounceTimer" to="." method="_on_debounce_timer_timeout"]
