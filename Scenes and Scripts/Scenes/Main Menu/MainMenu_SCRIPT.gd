@@ -50,7 +50,6 @@ extends Node3D
 
 var loadIslandThread : Thread
 
-var transitioning_scene = false
 var is_in_gamemode_select = false
 var is_in_absolute_gamemode_select = false
 var is_in_free_mode_island_popup = false
@@ -158,7 +157,7 @@ func onStartup():
 ######################################
 
 func _input(_event: InputEvent) -> void:
-	if !transitioning_scene:
+	if !Global.main_menu_transitioning_scene:
 		if Input.is_action_just_pressed("Exit") and !is_tweening:  # Check if not tweening
 			if is_in_gamemode_select and !is_in_free_mode_island_popup and !is_in_free_mode_create_island and !is_in_load_island_interface and !is_in_delete_popup:
 				deSpawnGameModeMenu()
@@ -228,7 +227,7 @@ func _on_play_button_trigger_button_down() -> void:
 	tween.tween_property($Camera3D/MainLayer/PlayButton, "scale", Vector2(1.05, 1.05), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func _on_play_button_trigger_button_up() -> void:
-	if !transitioning_scene:
+	if !Global.main_menu_transitioning_scene:
 		var tween = get_tree().create_tween().set_parallel()
 		tween.tween_property($Camera3D/MainLayer/PlayButtonTrigger, "scale", Vector2(1.0, 1.0), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 		tween.tween_property($Camera3D/MainLayer/PlayButton, "scale", Vector2(1.0, 1.0), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
@@ -259,7 +258,7 @@ func on_spawn_game_mode_menu_tween_finished():
 	is_tweening = false  # Set tweening flag to false
 
 func deSpawnGameModeMenu():
-	if !transitioning_scene and !is_tweening:  # Check if not tweening
+	if !Global.main_menu_transitioning_scene and !is_tweening:  # Check if not tweening
 		is_in_absolute_gamemode_select = false
 		is_in_gamemode_select = false
 		is_tweening = true  # Set tweening flag to true
@@ -423,7 +422,7 @@ func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 	
 	IslandManager.transitioningFromNewIsland = true
 	
-	transitioning_scene = true
+	Global.main_menu_Global.main_menu_transitioning_scene = true
 	IslandManager.set_current_island(sanitized_name)
 	IslandManager.Current_Game_Mode = "FREE"
 	
@@ -444,7 +443,7 @@ func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 func goToIsland(island_name : String, _gamemode : String):
 	#var fadeout = get_tree().create_tween()
 	#fadeout.tween_property($Music, "volume_db", -80, 2)
-	transitioning_scene = true
+	Global.main_menu_transitioning_scene = true
 	IslandManager.transitioning_from_menu = true
 	IslandManager.set_current_island(island_name)
 	IslandManager.Current_Game_Mode = "FREE"
