@@ -28,6 +28,7 @@
 
 ### Changed:
 - Background camera animation now loops instead of stopping when returned to original position
+- Black screen fade out time is now 3 seconds, not 5
 
 ## The Island
 
@@ -75,6 +76,9 @@
 - Stamina Potion
 - Strength Potion
 - Yellow flower (#46)
+
+### Changed:
+- The slot texture to a dashed rounded square
 
 ### Fixed:
 - Fixed a bug where you could sometimes not place dropables down in empty slots (#81)

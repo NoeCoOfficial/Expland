@@ -122,13 +122,13 @@ func change_to_startup_notice() -> void:
 
 func fadeOut(node):
 	var tween = get_tree().create_tween()
-	tween.tween_property(node, "modulate", Color(0, 0, 0, 0), 5)
+	tween.tween_property(node, "modulate", Color(0, 0, 0, 0), 3)
 
 func onStartup():
 	if !OS.has_feature("debug"):
 		$Camera3D/MainLayer/AudioNotificationLayer/fade_timer_time_left.hide()
 		$Camera3D/MainLayer/AudioNotificationLayer/fade_timer_time_left_title.hide()
-		
+	
 	fadeOut($Camera3D/MainLayer/TopLayer/FadeOut)
 	$Camera3D/MainLayer/Version_LBL.visible = true
 	

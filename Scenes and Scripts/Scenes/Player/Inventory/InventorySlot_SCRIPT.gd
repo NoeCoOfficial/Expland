@@ -59,7 +59,7 @@ func _ready():
 	modulate = Color(1, 1, 1, 0.2)
 
 func _process(_delta):
-	if InventoryManager.is_dragging:
+	if InventoryManager.is_dragging and !populated:
 		visible = true
 	else:
 		visible = false

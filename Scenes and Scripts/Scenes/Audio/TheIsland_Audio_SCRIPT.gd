@@ -97,9 +97,11 @@ func _input(_event: InputEvent) -> void:
 func Toggle(pause : bool, showNotification : bool):
 	
 	if pause:
+		$FadeTimer.set_paused(true)
 		currently_playing_song.stream_paused = true
 		AudioManager.is_paused = true
 	else:
+		$FadeTimer.set_paused(false)
 		currently_playing_song.stream_paused = false
 		AudioManager.is_paused = false
 	
