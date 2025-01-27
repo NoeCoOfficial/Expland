@@ -78,7 +78,7 @@ var is_tweening = false
 
 func _ready() -> void:
 	AudioManager.initNotificaton($Camera3D/MainLayer/AudioNotificationLayer/AudioNotification)
-	AudioManager.initNew($MainMenu_Audio, !Global.is_first_time_in_menu, false, true)
+	AudioManager.initNew($MainMenu_Audio, false, false, true)
 	PlayerSettingsData.loadSettings()
 	PauseManager.is_paused = false
 	
@@ -88,7 +88,10 @@ func _ready() -> void:
 		
 		if PlayerSettingsData.showStartupScreen:
 			call_deferred("change_to_startup_notice")
-
+		else:
+			$MainMenu_Audio.Start(false, true)
+	else:
+		$MainMenu_Audio.Start(false, true)
 	
 	$Camera3D/MainLayer/GreyLayerGamemodeLayer.hide()
 	$Camera3D/MainLayer/GreyLayerGamemodeLayer.modulate = Color(1, 1, 1, 0)
