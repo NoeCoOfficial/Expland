@@ -44,6 +44,7 @@
 ### Changed:
 - Revamped the entire Day/Night cycle system, making it more optimized and less buggy. Also the sunrise is beautiful
 - Refined Tree1 wind swaying animation
+- Refined PineTree1 wind swaying animation
 
 ## Environment
 
