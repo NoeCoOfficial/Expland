@@ -1240,83 +1240,6 @@ position = Vector2(1000, 324)
 shape = SubResource("RectangleShape2D_b78jw")
 debug_color = Color(0.92549, 0, 0.109804, 0.396078)
 
-[node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
-
-[node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/DeathScreen"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-script = ExtResource("9_g6nwl")
-
-[node name="RandomText" type="Label" parent="Head/Camera3D/DeathScreen/BlackOverlay"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -233.0
-offset_top = -29.5
-offset_right = 233.0
-offset_bottom = 29.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_yecwp")
-theme_override_font_sizes/font_size = 30
-text = "What have you done?"
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("10_6w37c")
-
-[node name="GetUp" type="Label" parent="Head/Camera3D/DeathScreen/BlackOverlay"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -140.0
-offset_top = -29.5
-offset_right = 140.0
-offset_bottom = 29.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_yecwp")
-theme_override_font_sizes/font_size = 30
-text = "Get Up."
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("11_0enap")
-
-[node name="OverlayLayer" type="CanvasLayer" parent="Head/Camera3D"]
-
-[node name="RedOverlay" type="ColorRect" parent="Head/Camera3D/OverlayLayer"]
-process_priority = 10
-editor_description = "A Multipurpose overlay."
-z_as_relative = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 0.016, 0, 0.808)
-script = ExtResource("7_gnu1v")
-
-[node name="Overlay" type="ColorRect" parent="Head/Camera3D/OverlayLayer"]
-process_priority = 10
-editor_description = "A Multipurpose overlay."
-z_as_relative = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-script = ExtResource("8_uxqns")
-
 [node name="ItemWorkshopLayer" type="CanvasLayer" parent="Head/Camera3D"]
 
 [node name="GreyLayer" type="ColorRect" parent="Head/Camera3D/ItemWorkshopLayer"]
@@ -2433,6 +2356,91 @@ metadata/_tab_index = 3
 [node name="DialogueInterface" parent="Head/Camera3D/DialogueLayer" instance=ExtResource("17_pkmg7")]
 visible = false
 
+[node name="AudioNotificationLayer" type="CanvasLayer" parent="Head/Camera3D"]
+
+[node name="AudioNotification" parent="Head/Camera3D/AudioNotificationLayer" instance=ExtResource("50_wwm5q")]
+offset_left = 1152.0
+offset_top = 459.0
+offset_right = 197.0
+offset_bottom = -101.0
+
+[node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
+
+[node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/DeathScreen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("9_g6nwl")
+
+[node name="RandomText" type="Label" parent="Head/Camera3D/DeathScreen/BlackOverlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -233.0
+offset_top = -29.5
+offset_right = 233.0
+offset_bottom = 29.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_yecwp")
+theme_override_font_sizes/font_size = 30
+text = "What have you done?"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("10_6w37c")
+
+[node name="GetUp" type="Label" parent="Head/Camera3D/DeathScreen/BlackOverlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -29.5
+offset_right = 140.0
+offset_bottom = 29.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_yecwp")
+theme_override_font_sizes/font_size = 30
+text = "Get Up."
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("11_0enap")
+
+[node name="OverlayLayer" type="CanvasLayer" parent="Head/Camera3D"]
+
+[node name="RedOverlay" type="ColorRect" parent="Head/Camera3D/OverlayLayer"]
+process_priority = 10
+editor_description = "A Multipurpose overlay."
+z_as_relative = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.016, 0, 0.808)
+script = ExtResource("7_gnu1v")
+
+[node name="Overlay" type="ColorRect" parent="Head/Camera3D/OverlayLayer"]
+process_priority = 10
+editor_description = "A Multipurpose overlay."
+z_as_relative = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("8_uxqns")
+
 [node name="PauseLayer" type="CanvasLayer" parent="Head/Camera3D"]
 visible = false
 
@@ -2631,14 +2639,6 @@ visible = false
 
 [node name="SettingsUI" parent="Head/Camera3D/SettingsLayer" instance=ExtResource("19_kj00b")]
 visible = false
-
-[node name="AudioNotificationLayer" type="CanvasLayer" parent="Head/Camera3D"]
-
-[node name="AudioNotification" parent="Head/Camera3D/AudioNotificationLayer" instance=ExtResource("50_wwm5q")]
-offset_left = 1152.0
-offset_top = 459.0
-offset_right = 197.0
-offset_bottom = -101.0
 
 [node name="SaveOverlay" type="CanvasLayer" parent="Head/Camera3D"]
 

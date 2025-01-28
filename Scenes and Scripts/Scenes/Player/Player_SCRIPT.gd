@@ -1027,6 +1027,7 @@ func _on_is_inside_boundary_false_inventory_debounce_timeout() -> void:
 
 func openChest():
 	ChestMainLayer.show()
+	$Head/Camera3D/AudioNotificationLayer.layer = 15
 	InventoryManager.in_chest_interface = true
 	openInventory() # Does most of the stuff for us
 	
@@ -1037,6 +1038,7 @@ func openChest():
 
 func closeChest():
 	ChestMainLayer.hide()
+	$Head/Camera3D/AudioNotificationLayer.layer = 1
 	InventoryManager.in_chest_interface = false
 	closeInventory() # Does most of the stuff for us
 	InventoryManager.chestNode.animate("CLOSE")
@@ -1047,7 +1049,7 @@ func closeChest():
 
 func openWorkbench():
 	WorkbenchMainLayer.show()
-	
+	$Head/Camera3D/AudioNotificationLayer.layer = 15
 	WorkbenchMainLayer.position.y = 0
 	ChestMainLayer.position.y = 1000
 	
@@ -1056,6 +1058,7 @@ func openWorkbench():
 
 func closeWorkbench():
 	WorkbenchMainLayer.hide()
+	$Head/Camera3D/AudioNotificationLayer.layer = 1
 	InventoryManager.is_in_workbench_interface = false
 	closeInventory() # Does most of the stuff for us
 
@@ -1084,7 +1087,6 @@ func on_item_workshop_open_finished():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func closeItemWorkshop():
-	#saveInventory()
 	PauseManager.inside_can_move_item_workshop = false
 	PauseManager.inside_item_workshop = false
 	
@@ -1119,11 +1121,13 @@ func on_add_item_buttons_workshop_pressed(ITEM_TYPE : String):
 
 func pauseGame():
 	PauseLayer.show()
+	$Head/Camera3D/AudioNotificationLayer.layer = 15
 	PauseManager.is_paused = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # set the mouse mode to visible
 
 func resumeGame():
 	PauseLayer.hide()
+	$Head/Camera3D/AudioNotificationLayer.layer = 1
 	PauseManager.is_paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor
 
