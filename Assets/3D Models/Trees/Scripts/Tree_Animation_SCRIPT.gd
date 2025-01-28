@@ -1,5 +1,5 @@
 # ============================================================= #
-# PineTree1_Animation_Hitbox_SCRIPT.gd
+# Tree_Animation_SCRIPT.gd
 # ============================================================= #
 #                       COPYRIGHT NOTICE                        #
 #                           Noe Co.                             #

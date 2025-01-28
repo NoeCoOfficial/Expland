@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dsti02es4bfwp"]
 
-[ext_resource type="Script" path="res://Assets/3D Models/Trees/Pine/Animation and Hitbox/PineTree1/PineTree1_Animation_Hitbox_SCRIPT.gd" id="1_qaygg"]
+[ext_resource type="Script" path="res://Assets/3D Models/Trees/Scripts/Tree_Animation_SCRIPT.gd" id="1_qaygg"]
 [ext_resource type="PackedScene" uid="uid://cwu1exk1sgj4t" path="res://Assets/3D Models/Trees/Pine/Models/PineTree1.blend" id="1_qd1ka"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_hhvs7"]
@@ -54,7 +54,7 @@ tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Circle:rotation")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1.104),
@@ -66,7 +66,7 @@ tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("Circle_001:rotation")
-tracks/1/interp = 1
+tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.471),
@@ -78,22 +78,22 @@ tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/path = NodePath("Circle_002:rotation")
-tracks/2/interp = 1
+tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0.001, 0.917),
 "transitions": PackedFloat32Array(1.31951, 1.6245),
 "update": 0,
-"values": [Vector3(-0.117731, -1.90299, -0.00367434), Vector3(-0.0698132, -1.89892, 0.00698132)]
+"values": [Vector3(-0.117731, -1.90299, -0.00367434), Vector3(-0.122173, -1.90241, -0.0174533)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/path = NodePath("Circle_003:rotation")
-tracks/3/interp = 1
+tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.002, 0.466),
+"times": PackedFloat32Array(0.002, 1.027),
 "transitions": PackedFloat32Array(0.466516, 0.482968),
 "update": 0,
 "values": [Vector3(0, 0, 0.0174533), Vector3(0.0174533, 0, 0.0174533)]
@@ -102,7 +102,7 @@ tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/path = NodePath("Circle_004:rotation")
-tracks/4/interp = 1
+tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.763),
@@ -135,10 +135,10 @@ transform = Transform3D(-1.14918, 7.93574e-08, 2.48196, 0.0333375, 3.87288, 0.01
 transform = Transform3D(-0.865652, 0.265105, -2.2055, -0.00967366, 2.39686, 0.275948, 2.50579, 0.100836, -0.760848, -0.208852, 5.53089, -0.00858164)
 
 [node name="Circle_003" parent="." index="4"]
-transform = Transform3D(2.13786, -0.0477415, 0, 0.0373165, 2.73511, -0.00173724, 3.4214e-05, 0.00250771, 1.89477, 0.0342205, 6.69972, -0.149977)
+transform = Transform3D(2.13786, -0.0477416, 0, 0.037315, 2.735, -0.0169781, 0.000334376, 0.024508, 1.89469, 0.0342205, 6.69972, -0.149977)
 
 [node name="Circle_004" parent="." index="5"]
-transform = Transform3D(-0.528061, -0.0223636, 1.14428, -0.0196591, 1.78474, 0.00961036, -1.29125, -0.0180267, -0.468106, -0.0333171, 8.25276, 0.0119055)
+transform = Transform3D(-0.527235, -0.0318958, 1.14447, -0.034629, 1.78435, 0.0113307, -1.29127, -0.0348288, -0.467599, -0.0333171, 8.25276, 0.0119055)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
 libraries = {

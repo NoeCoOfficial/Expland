@@ -1,6 +1,6 @@
 [gd_scene load_steps=41 format=4 uid="uid://b0j1gyp7i41i7"]
 
-[ext_resource type="Script" path="res://Assets/3D Models/Trees/Normal/Animation and Hitbox/Tree1/Tree1_Animation_Hitbox_SCRIPT.gd" id="1_ulfnv"]
+[ext_resource type="Script" path="res://Assets/3D Models/Trees/Scripts/Tree_Animation_SCRIPT.gd" id="1_uss81"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s4mpv"]
 resource_name = "Material.005"
@@ -418,7 +418,7 @@ _data = {
 }
 
 [node name="Tree1" type="Node3D"]
-script = ExtResource("1_ulfnv")
+script = ExtResource("1_uss81")
 
 [node name="Icosphere" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.991433, -2.77862, -1.65591, 2.63097, 1.45378, -0.305263, 0.793265, -1.34891, 3.08202, -0.241052, 20.4854, 7.06221)
