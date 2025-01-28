@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://ebqmro758fob"]
 
 [ext_resource type="PackedScene" uid="uid://djhsxwsljjufa" path="res://Assets/3D Models/Interactive/Objects/Models/Workbench.blend" id="1_oy301"]
-[ext_resource type="PackedScene" uid="uid://cnpgx6ef6qxqs" path="res://Assets/3D Models/Tools/PICKAXE.blend" id="2_m1a1u"]
+[ext_resource type="PackedScene" uid="uid://cnpgx6ef6qxqs" path="res://Assets/3D Models/Tools/Pickaxe.blend" id="2_m1a1u"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/ToolIcon_SCRIPT.gd" id="2_u7l1s"]
 [ext_resource type="PackedScene" uid="uid://djyb6igkuqwxa" path="res://Assets/3D Models/Interactive/Objects/Models/Ruler.blend" id="3_mg2il"]
 [ext_resource type="PackedScene" uid="uid://bregerrxnv3r1" path="res://Assets/3D Models/Interactive/Objects/Models/Pencil.blend" id="4_sncye"]
