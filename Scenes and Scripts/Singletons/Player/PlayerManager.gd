@@ -72,11 +72,10 @@ func sleep():
 func eat(valueToIncreaseBy):
 	if PLAYER != null:
 		
-		if valueToIncreaseBy + PlayerData.Hunger >= 100:
-			PlayerData.Hunger = 100
-			valueToIncreaseBy = 0
-			
-			PLAYER.update_bar("HUNGER", true, 100)
+		var final_hunger_value = valueToIncreaseBy + PlayerData.Hunger
 		
-		else:
-			PLAYER.update_bar("HUNGER", true, PlayerData.Hunger + valueToIncreaseBy)
+		if final_hunger_value >= 100:
+			final_hunger_value = 100
+		
+		PlayerData.Hunger = final_hunger_value
+		PLAYER.update_bar("HUNGER", true, PlayerData.Hunger)
