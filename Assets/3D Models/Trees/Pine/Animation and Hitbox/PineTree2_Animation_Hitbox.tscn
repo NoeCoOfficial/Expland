@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1yduglvo05vb"]
+
+[ext_resource type="PackedScene" uid="uid://dhh4fpm6bmtxb" path="res://Assets/3D Models/Trees/Pine/Models/PineTree2.blend" id="1_v37lp"]
+[ext_resource type="Script" path="res://Assets/3D Models/Trees/Scripts/Tree_Animation_SCRIPT.gd" id="2_6xnp8"]
+
+[node name="PineTree2" instance=ExtResource("1_v37lp")]
+script = ExtResource("2_6xnp8")
