@@ -73,12 +73,12 @@ func _input(_event: InputEvent) -> void:
 			$DebounceTimer.start()
 		
 		if Input.is_action_just_pressed("audio_Next") and canOperate:
-			Next(AudioManager.CAN_FADE, true)
+			Next(false, true)
 			canOperate = false
 			$DebounceTimer.start()
 		
 		if Input.is_action_just_pressed("audio_Prev") and canOperate:
-			Previous(AudioManager.CAN_FADE, true)
+			Previous(false, true)
 			canOperate = false
 			$DebounceTimer.start()
 
