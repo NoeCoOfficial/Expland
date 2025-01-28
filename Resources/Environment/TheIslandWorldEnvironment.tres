@@ -12,4 +12,5 @@ tonemap_mode = 2
 ssao_power = 9.74701
 ssao_detail = 2.21
 ssao_horizon = 0.59
+sdfgi_enabled = true
 glow_enabled = true

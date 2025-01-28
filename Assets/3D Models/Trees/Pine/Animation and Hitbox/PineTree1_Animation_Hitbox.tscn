@@ -57,10 +57,10 @@ tracks/0/path = NodePath("Circle:rotation")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.104),
+"times": PackedFloat32Array(0.002, 0.786),
 "transitions": PackedFloat32Array(2.46229, 1.7411),
 "update": 0,
-"values": [Vector3(0, 0, 0.00872665), Vector3(0, 0, -0.00872665)]
+"values": [Vector3(0, 0, 0.00872665), Vector3(0, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -69,10 +69,10 @@ tracks/1/path = NodePath("Circle_001:rotation")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.471),
+"times": PackedFloat32Array(0, 0.348),
 "transitions": PackedFloat32Array(1.31951, 0.574349),
 "update": 0,
-"values": [Vector3(-0.00451826, 1.96013, 0.0110123), Vector3(0.0174533, 1.95826, -0.015708)]
+"values": [Vector3(-0.00451826, 1.96013, 0.0110123), Vector3(-0.00698132, 1.95826, 0.00523599)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -81,7 +81,7 @@ tracks/2/path = NodePath("Circle_002:rotation")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.001, 0.917),
+"times": PackedFloat32Array(0.001, 0.439),
 "transitions": PackedFloat32Array(1.31951, 1.6245),
 "update": 0,
 "values": [Vector3(-0.117731, -1.90299, -0.00367434), Vector3(-0.122173, -1.90241, -0.0174533)]
@@ -93,7 +93,7 @@ tracks/3/path = NodePath("Circle_003:rotation")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.002, 1.027),
+"times": PackedFloat32Array(0.002, 1.074),
 "transitions": PackedFloat32Array(0.466516, 0.482968),
 "update": 0,
 "values": [Vector3(0, 0, 0.0174533), Vector3(0.0174533, 0, 0.0174533)]
@@ -135,10 +135,10 @@ transform = Transform3D(-1.14918, 7.93574e-08, 2.48196, 0.0333375, 3.87288, 0.01
 transform = Transform3D(-0.865652, 0.265105, -2.2055, -0.00967366, 2.39686, 0.275948, 2.50579, 0.100836, -0.760848, -0.208852, 5.53089, -0.00858164)
 
 [node name="Circle_003" parent="." index="4"]
-transform = Transform3D(2.13786, -0.0477416, 0, 0.037315, 2.735, -0.0169781, 0.000334376, 0.024508, 1.89469, 0.0342205, 6.69972, -0.149977)
+transform = Transform3D(2.13786, -0.0477415, 0, 0.0373101, 2.73464, -0.0350796, 0.000690875, 0.0506376, 1.89444, 0.0342205, 6.69972, -0.149977)
 
 [node name="Circle_004" parent="." index="5"]
-transform = Transform3D(-0.527235, -0.0318958, 1.14447, -0.034629, 1.78435, 0.0113307, -1.29127, -0.0348288, -0.467599, -0.0333171, 8.25276, 0.0119055)
+transform = Transform3D(-0.528121, -0.0216256, 1.14426, -0.0185008, 1.78477, 0.00947724, -1.29124, -0.0167271, -0.468143, -0.0333171, 8.25276, 0.0119055)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
 libraries = {
