@@ -769,6 +769,7 @@ func showDeathScreen(): # A function to show the death screen
 #region Inventory
 
 func openInventory():
+	$is_inside_boundary_false_inventory_debounce.start()
 	if InventoryManager.in_chest_interface or InventoryManager.is_in_workbench_interface:
 		
 		InventoryMainLayer.offset.x = -291.96
@@ -1015,6 +1016,9 @@ func show_chest_dropables(parent_node: Node):
 					child.visible = false
 
 func _on_is_inside_boundary_false_startup_timeout() -> void:
+	InventoryManager.is_inside_boundary = false
+
+func _on_is_inside_boundary_false_inventory_debounce_timeout() -> void:
 	InventoryManager.is_inside_boundary = false
 
 #endregion
