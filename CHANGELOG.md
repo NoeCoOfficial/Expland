@@ -49,6 +49,7 @@
 - Revamped the entire Day/Night cycle system, making it more optimized and less buggy. Also the sunset is beautiful
 - Refined Tree1 wind swaying animation
 - Refined PineTree1 wind swaying animation
+- Refined collision shape of red spike next to orange dev texture boxes so collision is less laggy
 
 ## Environment
 
