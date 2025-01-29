@@ -42,7 +42,13 @@
 - Background music with interactive controls
 - Added wind swaying animation to Tree2
 - Added wind swaying animation to Tree3
-- Added wind swaying animation to Tree4
+- Added wind swaying animation and collision to Tree4
+- Added wind swaying animation and collision to Tree5
+- Added wind swaying animation and collision to Tree6
+- Added wind swaying animation and collision to Tree7
+- Added wind swaying animation and collision to Tree8
+- Added wind swaying animation and collision to Tree9
+- Added wind swaying animation and collision to Tree10
 - Added PineTree2 model with wind swaying animation
 - Added PineTree3 model with wind swaying animation
 - Added PineTree4 model with wind swaying animation
