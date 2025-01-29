@@ -289,7 +289,7 @@ _data = {
 "wind": SubResource("Animation_gcqk5")
 }
 
-[node name="Tree2Hitbox" type="Node3D"]
+[node name="Tree2" type="Node3D"]
 script = ExtResource("1_dinl5")
 
 [node name="Plane" type="MeshInstance3D" parent="."]
