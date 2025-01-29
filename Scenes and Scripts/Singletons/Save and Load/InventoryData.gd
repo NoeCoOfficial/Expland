@@ -158,3 +158,7 @@ func loadInventory(Island_Name : String) -> void:
 		push_warning("[InventoryData] Failed to parse JSON data from file.")
 	
 	file.close()
+
+func clearInventory(parent_node : Node):
+	inventory_data.clear()
+	HAND_ITEM_TYPE = ""

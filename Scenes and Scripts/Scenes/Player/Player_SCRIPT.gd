@@ -696,6 +696,10 @@ func takeDamage(DamageToTake): # A function to take damage from the player
 		
 		if PlayerData.Health <= 0: # check if health = 0 or below
 			
+			
+			PlayerData.GAME_STATE = "DEAD" # set the player data's game state to dead
+			PlayerData.Health = 0 # set the health to 0
+			
 			resumeGame()
 			closeInventory()
 			closeChest()
@@ -708,12 +712,9 @@ func takeDamage(DamageToTake): # A function to take damage from the player
 			MinimalAlert.hide_minimal_alert(0.1)
 			AudioManager.Current_Playlist.audibleOnlyFadeOutAllSongs()
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # lock mouse
-			
-			PlayerData.GAME_STATE = "DEAD" # set the player data's game state to dead
-			PlayerData.Health = 0 # set the health to 0
+			InventoryData.clearInventory(InventoryMainLayer)
 			
 			showDeathScreen() # call the death screen function 
-			
 			
 		else:
 			takeDamageOverlay() # call the take damage overlay function
@@ -726,7 +727,9 @@ func takeDamageOverlay(): # Overlay when taking damage
 func respawnFromDeath(): # A function to respawn the player from death
 	self.position = StartPOS # set the player's position to the start position
 	PlayerData.Health = MaxHealth # set the health to the max health
+	PlayerData.Hunger = 100
 	update_bar("HEALTH", true, PlayerData.Health)
+	update_bar("HUNGER", true, PlayerData.Hunger)
 	
 	var tween = get_tree().create_tween() # create a tween
 
