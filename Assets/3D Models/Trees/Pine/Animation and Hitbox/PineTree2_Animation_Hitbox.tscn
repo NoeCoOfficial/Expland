@@ -81,7 +81,7 @@ tracks/2/path = NodePath("Circle_002:rotation")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.001, 0.439),
+"times": PackedFloat32Array(0.001, 0.868),
 "transitions": PackedFloat32Array(1.31951, 1.6245),
 "update": 0,
 "values": [Vector3(-0.117731, -1.90299, -0.00367434), Vector3(-0.122173, -1.90241, -0.0174533)]
@@ -135,10 +135,10 @@ transform = Transform3D(-1.14918, 7.93574e-08, 2.48196, 0.0333375, 3.87288, 0.01
 transform = Transform3D(-0.865652, 0.265105, -2.20551, -0.00967366, 2.39686, 0.27595, 2.50579, 0.100836, -0.760852, -0.208852, 5.53089, -0.00858164)
 
 [node name="Circle_003" parent="." index="4"]
-transform = Transform3D(1.98946, -0.0444276, 0, 0.0347204, 2.54483, -0.0320888, 0.00063197, 0.0463203, 1.76296, 0.0508388, 6.68221, -0.0451188)
+transform = Transform3D(1.98946, -0.0444275, 0, 0.0347262, 2.54525, -2.76129e-07, 5.4382e-09, 3.98592e-07, 1.76325, 0.0508388, 6.68221, -0.0451188)
 
 [node name="Circle_004" parent="." index="5"]
-transform = Transform3D(-0.526374, -0.040776, 1.14465, -0.048599, 1.78379, 0.0129366, -1.29117, -0.0505174, -0.467127, -0.0980563, 7.77653, -0.150862)
+transform = Transform3D(-0.529607, 3.74036e-08, 1.14383, 0.0153638, 1.78484, 0.0055862, -1.29067, 0.0212462, -0.469285, -0.0980563, 7.77653, -0.150862)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
 libraries = {

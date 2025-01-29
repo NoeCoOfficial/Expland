@@ -1,0 +1,138 @@
+[gd_scene load_steps=6 format=3 uid="uid://dibnl8o04l6p2"]
+
+[ext_resource type="PackedScene" uid="uid://d22xrpdo83kd6" path="res://Assets/3D Models/Trees/Pine/Models/PineTree3.blend" id="1_ihiic"]
+[ext_resource type="Script" path="res://Assets/3D Models/Trees/Scripts/Tree_Animation_SCRIPT.gd" id="2_fuxkc"]
+
+[sub_resource type="Animation" id="Animation_y7tjd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Circle:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0.00872665)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Circle_001:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.00451826, 1.96013, 0.0110123)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Circle_002:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.117731, -1.90299, -0.00367434)]
+}
+
+[sub_resource type="Animation" id="Animation_eclyc"]
+resource_name = "wind"
+length = 1.5
+loop_mode = 1
+step = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Circle:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.002, 0.786),
+"transitions": PackedFloat32Array(2.46229, 1.7411),
+"update": 0,
+"values": [Vector3(0, 0, 0.00872665), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Circle_001:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.348),
+"transitions": PackedFloat32Array(1.31951, 0.574349),
+"update": 0,
+"values": [Vector3(-0.00451826, 1.96013, 0.0110123), Vector3(-0.00698132, 1.95826, 0.00523599)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Circle_002:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.001, 0.868),
+"transitions": PackedFloat32Array(1.31951, 1.6245),
+"update": 0,
+"values": [Vector3(-0.117731, -1.90299, -0.00367434), Vector3(-0.122173, -1.90241, -0.0174533)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Circle_003:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.002, 1.074),
+"transitions": PackedFloat32Array(0.466516, 0.482968),
+"update": 0,
+"values": [Vector3(0, 0, 0.0174533), Vector3(0.0174533, 0, 0.0174533)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Circle_004:rotation")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.763),
+"transitions": PackedFloat32Array(2.73208, 1.93187),
+"update": 0,
+"values": [Vector3(-0.00451826, 1.96013, 0.0110123), Vector3(-0.010472, 1.95826, -0.0349066)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jcqct"]
+_data = {
+"RESET": SubResource("Animation_y7tjd"),
+"wind": SubResource("Animation_eclyc")
+}
+
+[node name="PineTree3" instance=ExtResource("1_ihiic")]
+script = ExtResource("2_fuxkc")
+
+[node name="Circle" parent="." index="1"]
+transform = Transform3D(3.69481, -0.0293551, 0, 0.0322442, 3.36376, 0, 0, 0, 3.27432, -0.157261, 2.15982, 0.0704203)
+
+[node name="Circle_001" parent="." index="2"]
+transform = Transform3D(-1.14918, 7.93574e-08, 2.48196, 0.0333375, 3.87288, 0.0121214, -2.8006, 0.0461016, -1.01829, 0.00232995, 3.70586, -0.0228727)
+
+[node name="Circle_002" parent="." index="3"]
+transform = Transform3D(-0.865653, 0.265105, -2.20551, -0.00967366, 2.39686, 0.275949, 2.50579, 0.100836, -0.760851, -0.208852, 5.53089, -0.00858164)
+
+[node name="Circle_003" parent="." index="4"]
+transform = Transform3D(2.13786, -0.0477415, 0, 0.0373164, 2.73511, 0.00213447, -4.20372e-05, -0.00308111, 1.89477, 0.0342205, 6.69972, -0.149977)
+
+[node name="Circle_004" parent="." index="5"]
+transform = Transform3D(-0.529608, 3.17515e-06, 1.14383, 0.0153687, 1.78484, 0.00558564, -1.29067, 0.0212517, -0.469285, -0.00116653, 8.25276, 0.00403193)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
+libraries = {
+"": SubResource("AnimationLibrary_jcqct")
+}
