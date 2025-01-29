@@ -40,6 +40,7 @@
 - Background music with interactive controls
 - A very simple weather system that is yet to be improved
 - Background music with interactive controls
+- Added wind swaying animation to Tree2
 - Added PineTree2 model with wind swaying animation
 - Added PineTree3 model with wind swaying animation
 - Added PineTree4 model with wind swaying animation
@@ -47,7 +48,7 @@
 
 ### Changed:
 - Revamped the entire Day/Night cycle system, making it more optimized and less buggy. Also the sunset is beautiful
-- Refined Tree1 wind swaying animation
+- Refined Tree1 wind swaying animation and collision shape
 - Refined PineTree1 wind swaying animation
 - Refined collision shape of red spike next to orange dev texture boxes so collision is less laggy
 
