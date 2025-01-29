@@ -76,7 +76,7 @@ func _process(_delta: float) -> void:
 	AudioManager.FADE_TIMER_TIME_LEFT = $FadeTimer.time_left
 
 func _input(_event: InputEvent) -> void:
-	if !Global.the_island_transitioning_scene:
+	if !Global.the_island_transitioning_scene and !PlayerData.GAME_STATE == "DEAD":
 		if Input.is_action_just_pressed("audio_Toggle") and canOperate:
 			if AudioManager.is_paused:
 				Toggle(false, true)
@@ -221,6 +221,11 @@ func audibleOnlyFadeOutAllSongs():
 	for song in songs:
 		var fadetween = get_tree().create_tween()
 		fadetween.tween_property(song, "volume_db", -80, 3)
+
+func audibleOnlyFadeInAllSongs():
+	for song in songs:
+		var fadetween = get_tree().create_tween()
+		fadetween.tween_property(song, "volume_db", VOLUME_DB, 3)
 
 func get_currently_playing_song_node():
 	return currently_playing_song
