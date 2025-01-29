@@ -459,10 +459,10 @@ tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.4349, 2.4007, 3.36667, 4.26667, 5),
-"transitions": PackedFloat32Array(1, 1.8025, 0.659754, 1, 0.784582, 1),
+"times": PackedFloat32Array(0, 0.866667, 2.6, 5),
+"transitions": PackedFloat32Array(1, 1.8025, 0.659754, 1),
 "update": 0,
-"values": [Vector3(0.00349066, 0, 0.00523599), Vector3(0.00349066, 0, 0.00698132), Vector3(-0.010472, 0, -0.010472), Vector3(0.00349066, 0, 0.00523599), Vector3(0.010472, 0, 0.00523599), Vector3(0.00349066, 0, 0.00523599)]
+"values": [Vector3(0.00349066, 0, 0.00523599), Vector3(0.00349066, 0, 0.00698132), Vector3(0, 0, 0), Vector3(0.00349066, 0, 0.00523599)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nn5d1"]
