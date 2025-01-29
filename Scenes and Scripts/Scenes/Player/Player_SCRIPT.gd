@@ -1086,15 +1086,12 @@ func openItemWorkshop():
 	tween.connect("finished", Callable(self, "on_item_workshop_open_finished"))
 	
 	tween.tween_property(ItemWorkshopLayer_MainLayer, "position", Vector2(0, 0), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-	tween.tween_property(ItemWorkshopLayer_GreyLayer, "modulate", Color(1, 1, 1, 1), 0.5)
+	tween.tween_property(ItemWorkshopLayer_GreyLayer, "modulate", Color(1, 1, 1, 1), 0.0)
 	
-	await get_tree().create_timer(0.3).timeout
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-
 
 func on_item_workshop_open_finished():
 	PauseManager.inside_item_workshop = true
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func closeItemWorkshop():
 	PauseManager.inside_can_move_item_workshop = false
@@ -1102,12 +1099,11 @@ func closeItemWorkshop():
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
-	
 	var tween = get_tree().create_tween().set_parallel()
 	tween.connect("finished", Callable(self, "on_item_workshop_close_finished"))
 	
 	tween.tween_property(ItemWorkshopLayer_MainLayer, "position", Vector2(0, 648), 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
-	tween.tween_property(ItemWorkshopLayer_GreyLayer, "modulate", Color(1, 1, 1, 0), 0.5)
+	tween.tween_property(ItemWorkshopLayer_GreyLayer, "modulate", Color(1, 1, 1, 0), 0.0)
 
 func on_item_workshop_close_finished():
 	PauseManager.inside_absolute_item_workshop = false
@@ -1219,7 +1215,7 @@ func hideDarkerBG_SAVEOVERLAY():
 #region Autosave
 
 func _on_auto_save_timer_timeout(): # A function to save the player data every x seconds
-	if !PauseManager.is_paused:
+	if !PauseManager.is_paused and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !transitioning_to_menu:
 		Autosave_showSaving()
 
 func Autosave_showSaving():
@@ -1333,6 +1329,10 @@ func _on_hunger_depletion_timeout() -> void:
 		PlayerData.Hunger = 0
 		
 	update_bar("HUNGER", true, PlayerData.Hunger)
+
+func _on_health_depleting_from_hunger_timeout() -> void:
+	if PlayerData.Hunger <= 0:
+		takeDamage(10)
 
 func update_bar(barName : String, animate : bool, toValue):
 	
