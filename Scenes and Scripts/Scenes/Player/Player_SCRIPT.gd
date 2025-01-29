@@ -717,6 +717,7 @@ func takeDamageOverlay(): # Overlay when taking damage
 func respawnFromDeath(): # A function to respawn the player from death
 	self.position = StartPOS # set the player's position to the start position
 	PlayerData.Health = MaxHealth # set the health to the max health
+	update_bar("HEALTH", true, PlayerData.Health)
 	
 	var tween = get_tree().create_tween() # create a tween
 
