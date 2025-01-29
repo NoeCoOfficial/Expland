@@ -698,6 +698,15 @@ func takeDamage(DamageToTake): # A function to take damage from the player
 			
 			resumeGame()
 			closeInventory()
+			closeChest()
+			closeItemWorkshop()
+			closeWorkbench()
+			SettingsUI.closeSettings(0.5)
+			AlertLayer.despawnAlert(0.5)
+			AchievementsUI.despawnAchievements(0.5)
+			CreditsLayer.despawnCredits(0.5)
+			MinimalAlert.hide_minimal_alert(0.1)
+			AudioManager.Current_Playlist.audibleOnlyFadeOutAllSongs()
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # lock mouse
 			
 			PlayerData.GAME_STATE = "DEAD" # set the player data's game state to dead
@@ -722,14 +731,14 @@ func respawnFromDeath(): # A function to respawn the player from death
 	var tween = get_tree().create_tween() # create a tween
 
 	tween.tween_property(DeathScreen_BlackOverlay, "self_modulate", Color(0, 0, 0, 0), 3) # tween the black overlay's self modulate to black
-	
+	AudioManager.Current_Playlist.audibleOnlyFadeInAllSongs()
 	PlayerData.GAME_STATE = "NORMAL" # set the game state to normal
 
 func _on_death_screen_finished(): # A function to call when the death screen is finished 
 	respawnFromDeath() # call the respawn from death function
 
 func showDeathScreen(): # A function to show the death screen 
-	randomize()  # Seed the random number generator
+	randomize()  # seed the random number generator
 	var random_index = randi() % DialogueManager.deathScreenRandomText.size() # get a random index from the random text list
 	RandomText_Label.text = DialogueManager.deathScreenRandomText[random_index] # set the random text to a random text from the list
 	
