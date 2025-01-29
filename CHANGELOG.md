@@ -41,6 +41,7 @@
 - A very simple weather system that is yet to be improved
 - Background music with interactive controls
 - Added PineTree2 model with wind swaying animation
+- Added PineTree3 model with wind swaying animation
 
 ### Changed:
 - Revamped the entire Day/Night cycle system, making it more optimized and less buggy. Also the sunrise is beautiful
