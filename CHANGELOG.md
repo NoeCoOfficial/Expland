@@ -40,25 +40,13 @@
 - Background music with interactive controls
 - A very simple weather system that is yet to be improved
 - Background music with interactive controls
-- Added wind swaying animation to Tree2
-- Added wind swaying animation to Tree3
-- Added wind swaying animation and collision to Tree4
-- Added wind swaying animation and collision to Tree5
-- Added wind swaying animation and collision to Tree6
-- Added wind swaying animation and collision to Tree7
-- Added wind swaying animation and collision to Tree8
-- Added wind swaying animation and collision to Tree9
-- Added wind swaying animation and collision to Tree10
 - Added PineTree2 model with wind swaying animation
 - Added PineTree3 model with wind swaying animation
-- Added PineTree4 model with wind swaying animation
-- Added PineTree5 model with wind swaying animation
 
 ### Changed:
-- Revamped the entire Day/Night cycle system, making it more optimized and less buggy. Also the sunset is beautiful
-- Refined Tree1 wind swaying animation and collision shape
+- Revamped the entire Day/Night cycle system, making it more optimized and less buggy. Also the sunrise is beautiful
+- Refined Tree1 wind swaying animation
 - Refined PineTree1 wind swaying animation
-- Refined collision shape of red spike next to orange dev texture boxes so collision is less laggy
 
 ## Environment
 
@@ -72,6 +60,9 @@
 - Added a hunger bar
 - Introduced a stamina bar to monitor player endurance
 - Implemented an autosave feature with customizable intervals in the settings
+
+### Changed:
+- Inventory clears upon dying
 
 ## Inventory
 

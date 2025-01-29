@@ -210,12 +210,7 @@ func audibleOnlyFadeOut(song):
 func audibleOnlyFadeOutAllSongs():
 	for song in songs:
 		var fadetween = get_tree().create_tween()
-		fadetween.tween_property(song, "volume_db", -80, 3)
-
-func audibleOnlyFadeInAllSongs():
-	for song in songs:
-		var fadetween = get_tree().create_tween()
-		fadetween.tween_property(song, "volume_db", VOLUME_DB, 3)
+		fadetween.tween_property(song, "volume_db", -80, 4)
 
 func get_currently_playing_song_node():
 	return currently_playing_song
