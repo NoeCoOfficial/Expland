@@ -194,6 +194,11 @@ audio_Prev={
 ]
 }
 
+[layer_names]
+
+3d_render/layer_1="Default"
+3d_render/layer_2="Hand"
+
 [rendering]
 
 textures/vram_compression/import_s3tc_bptc=true

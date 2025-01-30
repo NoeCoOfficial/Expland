@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=93 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/ClockIcon_SCRIPT.gd" id="2_t6toi"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Interaction/RayCast3D_SCRIPT.gd" id="3_2qtqn"]
 [ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="3_yecwp"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/HandViewportLayer/HandViewportLayer_SCRIPT.gd" id="5_jxn2w"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/OverlayLayer/RedOverlay_SCRIPT.gd" id="7_gnu1v"]
 [ext_resource type="PackedScene" uid="uid://dhhjltxmoydio" path="res://Scenes and Scripts/Scenes/Player/Inventory/InventorySlot.tscn" id="8_ads4s"]
 [ext_resource type="FontFile" uid="uid://c4h0gd5a2e2qb" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf" id="8_cdk3a"]
@@ -654,6 +655,21 @@ script = ExtResource("2_37tst")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.0158332)
 target_position = Vector3(0, -3, 0)
 script = ExtResource("3_2qtqn")
+
+[node name="HandViewportLayer" type="CanvasLayer" parent="Head/Camera3D"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Head/Camera3D/HandViewportLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="Head/Camera3D/HandViewportLayer/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+script = ExtResource("5_jxn2w")
 
 [node name="HUDLayer" type="CanvasLayer" parent="Head/Camera3D"]
 
