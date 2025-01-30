@@ -197,6 +197,10 @@ environment = SubResource("Environment_v4n35")
 
 [node name="MainMenu_Audio" parent="." instance=ExtResource("3_wxdrf")]
 
+[node name="Checks_Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.0364183, 0, -0.999336, 0, 1, 0, 0.999336, 0, 0.0364183, -62.5013, 6.30089, -14.5163)
 
@@ -1207,6 +1211,7 @@ initial_velocity_max = 47.09
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
+[connection signal="timeout" from="Checks_Timer" to="." method="_on_checks_timer_timeout"]
 [connection signal="button_down" from="Camera3D/MainLayer/PlayButtonTrigger" to="." method="_on_play_button_trigger_button_down"]
 [connection signal="button_up" from="Camera3D/MainLayer/PlayButtonTrigger" to="." method="_on_play_button_trigger_button_up"]
 [connection signal="mouse_entered" from="Camera3D/MainLayer/PlayButtonTrigger" to="." method="_on_play_button_trigger_mouse_entered"]

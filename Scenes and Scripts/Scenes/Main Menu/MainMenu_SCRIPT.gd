@@ -81,6 +81,7 @@ func _ready() -> void:
 	Global.main_menu_transitioning_scene = false
 	Global.the_island_transitioning_scene = false
 	
+	"""
 	if Global.is_first_time_in_menu:
 		Global.is_first_time_in_menu = false
 		
@@ -90,7 +91,7 @@ func _ready() -> void:
 			$MainMenu_Audio.Start(false, true)
 	else:
 		$MainMenu_Audio.Start(false, true)
-	
+	"""
 	$Camera3D/MainLayer/GreyLayerGamemodeLayer.hide()
 	$Camera3D/MainLayer/GreyLayerGamemodeLayer.modulate = Color(1, 1, 1, 0)
 	
@@ -526,3 +527,15 @@ func _on_tree_entered() -> void:
 
 func _on_tree_exited() -> void:
 	Global.is_in_main_menu = false
+
+
+func _on_checks_timer_timeout() -> void:
+	if Global.is_first_time_in_menu:
+		Global.is_first_time_in_menu = false
+		
+		if PlayerSettingsData.showStartupScreen:
+			call_deferred("change_to_startup_notice")
+		else:
+			$MainMenu_Audio.Start(false, true)
+	else:
+		$MainMenu_Audio.Start(false, true)
