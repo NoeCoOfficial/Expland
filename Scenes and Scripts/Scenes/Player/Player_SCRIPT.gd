@@ -1090,7 +1090,7 @@ func openItemWorkshop():
 	tween.connect("finished", Callable(self, "on_item_workshop_open_finished"))
 	
 	tween.tween_property(ItemWorkshopLayer_MainLayer, "position", Vector2(0, 0), 0).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-	tween.tween_property(ItemWorkshopLayer_GreyLayer, "modulate", Color(1, 1, 1, 1), 0.3)
+	tween.tween_property(ItemWorkshopLayer_GreyLayer, "modulate", Color(1, 1, 1, 1), 0)
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
@@ -1107,7 +1107,7 @@ func closeItemWorkshop():
 	tween.connect("finished", Callable(self, "on_item_workshop_close_finished"))
 	
 	tween.tween_property(ItemWorkshopLayer_MainLayer, "position", Vector2(0, 648), 0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
-	tween.tween_property(ItemWorkshopLayer_GreyLayer, "modulate", Color(1, 1, 1, 0), 0.3)
+	tween.tween_property(ItemWorkshopLayer_GreyLayer, "modulate", Color(1, 1, 1, 0), 0)
 
 func on_item_workshop_close_finished():
 	PauseManager.inside_absolute_item_workshop = false
