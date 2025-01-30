@@ -648,6 +648,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.51589)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67172, 0, 0.0232197)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
+cull_mask = 1048573
 fov = 110.0
 script = ExtResource("2_37tst")
 
@@ -3188,6 +3189,7 @@ layers = 2
 
 [node name="Axe" parent="Head/Camera3D/InventoryHand" instance=ExtResource("34_m8bs6")]
 transform = Transform3D(5.47076e-09, 0.125156, -0.0335356, 0.126747, -0.00696443, -0.0259916, -0.0269085, -0.0328045, -0.122428, -0.114748, -0.0949782, -0.579574)
+visible = false
 
 [node name="Icosphere" parent="Head/Camera3D/InventoryHand/Axe" index="0"]
 layers = 2
