@@ -1,5 +1,5 @@
 # ============================================================= #
-# HandViewportLayer_SCRIPT.gd
+# GlobalTransformCamera_SCRIPT.gd
 # ============================================================= #
 #                       COPYRIGHT NOTICE                        #
 #                           Noe Co.                             #
@@ -45,14 +45,9 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-extends SubViewport
+extends Camera3D
 
-var screen_size : Vector2
-
-func _ready() -> void:
-	screen_size = get_window().size
-	size = screen_size
+@export var MAIN_CAMERA : Camera3D
 
 func _process(_delta: float) -> void:
-	screen_size = get_window().size
-	size = screen_size
+	global_transform = MAIN_CAMERA.global_transform

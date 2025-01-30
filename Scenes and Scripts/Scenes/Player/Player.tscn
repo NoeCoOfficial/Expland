@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=94 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Interaction/RayCast3D_SCRIPT.gd" id="3_2qtqn"]
 [ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="3_yecwp"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/HandViewportLayer/HandViewportLayer_SCRIPT.gd" id="5_jxn2w"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/HandViewportLayer/GlobalTransformCamera_SCRIPT.gd" id="6_7vj0k"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/OverlayLayer/RedOverlay_SCRIPT.gd" id="7_gnu1v"]
 [ext_resource type="PackedScene" uid="uid://dhhjltxmoydio" path="res://Scenes and Scripts/Scenes/Player/Inventory/InventorySlot.tscn" id="8_ads4s"]
 [ext_resource type="FontFile" uid="uid://c4h0gd5a2e2qb" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf" id="8_cdk3a"]
@@ -671,6 +672,13 @@ metadata/_edit_use_anchors_ = true
 transparent_bg = true
 handle_input_locally = false
 script = ExtResource("5_jxn2w")
+
+[node name="Camera3D" type="Camera3D" parent="Head/Camera3D/HandViewportLayer/SubViewportContainer/SubViewport" node_paths=PackedStringArray("MAIN_CAMERA")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65626, 0)
+cull_mask = 1048574
+fov = 110.0
+script = ExtResource("6_7vj0k")
+MAIN_CAMERA = NodePath("../../../..")
 
 [node name="HUDLayer" type="CanvasLayer" parent="Head/Camera3D"]
 
