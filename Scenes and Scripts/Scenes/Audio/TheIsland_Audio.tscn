@@ -20,7 +20,7 @@ MORNING_SONGS = [NodePath("A New Beginning")]
 [node name="FadeTimer" type="Timer" parent="."]
 
 [node name="DebounceTimer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.2
 one_shot = true
 
 [node name="One Ray Of Light" type="AudioStreamPlayer" parent="."]
