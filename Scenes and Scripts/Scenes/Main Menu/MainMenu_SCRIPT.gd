@@ -528,7 +528,6 @@ func _on_tree_entered() -> void:
 func _on_tree_exited() -> void:
 	Global.is_in_main_menu = false
 
-
 func _on_checks_timer_timeout() -> void:
 	if Global.is_first_time_in_menu:
 		Global.is_first_time_in_menu = false
