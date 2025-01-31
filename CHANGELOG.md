@@ -36,6 +36,16 @@
 - Water to the lake and around The Island
 - Dynamic clouds in the sky that move
 - A very simple weather system that is yet to be improved
+- Added Tree2 wind swaying animation
+- Added Tree3 wind swaying animation
+- Added Tree4 wind swaying animation
+- Added Tree5 wind swaying animation
+- Added Tree6 wind swaying animation
+- Added Tree7 wind swaying animation
+- Added Tree8 wind swaying animation
+- Added Tree9 wind swaying animation
+- Added Tree10 wind swaying animation
+
 - Added PineTree2 model with wind swaying animation
 - Added PineTree3 model with wind swaying animation
 - Added PineTree4 model with wind swaying animation
