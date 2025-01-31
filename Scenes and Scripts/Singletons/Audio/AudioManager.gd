@@ -56,6 +56,7 @@ var is_paused = false
 var Current_Playlist : Node
 var NotificationNode : Node
 var NotificationOnScreen : bool = false
+var canOperate_textField : bool = true
 
 var ISLAND_NIGHT_SONGS = []
 var ISLAND_MORNING_SONGS = []

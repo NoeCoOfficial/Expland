@@ -1236,5 +1236,7 @@ initial_velocity_max = 47.09
 [connection signal="pressed" from="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandOrLoadIslandPopup/NewIslandButton" to="." method="_on_new_island_button_pressed"]
 [connection signal="pressed" from="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandOrLoadIslandPopup/LoadIslandButton" to="." method="_on_load_island_button_pressed"]
 [connection signal="pressed" from="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Free_ModeInPopupNewIslandButton" to="." method="_on_free_mode_in_popup_new_island_button_pressed"]
+[connection signal="focus_entered" from="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit" to="." method="_on_island_name_text_edit_focus_entered"]
+[connection signal="focus_exited" from="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit" to="." method="_on_island_name_text_edit_focus_exited"]
 [connection signal="pressed" from="Camera3D/MainLayer/DeleteIslandPopup/DeleteIslandPopupMain/DeleteIsland_No" to="." method="_on_delete_island_no_pressed"]
 [connection signal="pressed" from="Camera3D/MainLayer/DeleteIslandPopup/DeleteIslandPopupMain/DeleteIsland_Yes" to="." method="_on_delete_island_yes_pressed"]

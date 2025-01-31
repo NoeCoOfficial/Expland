@@ -71,6 +71,7 @@ func _ready() -> void:
 	initNodes()
 
 	AudioManager.NotificationOnScreen = false
+	AudioManager.canOperate_textField = true
 	IslandManager.transitioning_from_menu = false
 	Global.main_menu_transitioning_scene = false
 	Global.the_island_transitioning_scene = false

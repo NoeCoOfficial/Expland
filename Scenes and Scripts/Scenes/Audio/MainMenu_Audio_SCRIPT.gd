@@ -63,7 +63,7 @@ func _process(_delta: float) -> void:
 	AudioManager.FADE_TIMER_TIME_LEFT = $FadeTimer.time_left
 
 func _input(_event: InputEvent) -> void:
-	if !Global.main_menu_transitioning_scene:
+	if !Global.main_menu_transitioning_scene and AudioManager.canOperate_textField:
 		if Input.is_action_just_pressed("audio_Toggle") and canOperate:
 			if AudioManager.is_paused:
 				Toggle(false, true)

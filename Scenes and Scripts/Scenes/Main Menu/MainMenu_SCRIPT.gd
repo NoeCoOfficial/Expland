@@ -76,6 +76,7 @@ func _ready() -> void:
 	AudioManager.NotificationOnScreen = false
 	AudioManager.initNotificaton($Camera3D/MainLayer/AudioNotificationLayer/AudioNotification)
 	AudioManager.initNew($MainMenu_Audio, false, false, true)
+	AudioManager.canOperate_textField = true
 	PlayerSettingsData.loadSettings()
 	PauseManager.is_paused = false
 	Global.main_menu_transitioning_scene = false
@@ -538,3 +539,15 @@ func _on_checks_timer_timeout() -> void:
 			$MainMenu_Audio.Start(false, true)
 	else:
 		$MainMenu_Audio.Start(false, true)
+
+func _on_island_name_text_edit_focus_entered() -> void:
+	AudioManager.canOperate_textField = false
+
+func _on_island_name_text_edit_focus_exited() -> void:
+	AudioManager.canOperate_textField = true
+
+func _on_load_island_element_text_edit_focus_entered() -> void:
+	AudioManager.canOperate_textField = false
+
+func _on_load_island_element_text_edit_focus_exited() -> void:
+	AudioManager.canOperate_textField = true

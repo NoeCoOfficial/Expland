@@ -206,3 +206,10 @@ func _on_edit_btn_pressed() -> void:
 func _on_delete_btn_pressed() -> void:
 	var main_menu = get_node("/root/MainMenu")
 	main_menu.ShowDeletePopup(current_name_submitted, self)
+
+
+func _on_island_name_text_edit_focus_entered() -> void:
+	AudioManager.canOperate_textField = false
+
+func _on_island_name_text_edit_focus_exited() -> void:
+	AudioManager.canOperate_textField = true
