@@ -49,12 +49,11 @@ extends Node
 
 var transitioning_from_menu
 var transitioningFromNewIsland = false
+var FreeMode_Island_Count : int
 
 var Current_Island_Name = "Debug"
 var Current_Game_Mode = ""
 var Current_Weather = ""
-
-
 
 func _ready() -> void:
 	if !OS.has_feature("debug"):
@@ -90,13 +89,14 @@ func resetAttributes():
 	IslandManager.Current_Game_Mode = ""
 	IslandManager.Current_Weather = ""
 	IslandManager.transitioningFromNewIsland = false
-	TimeManager.CURRENT_HOUR = 9
+	TimeManager.CURRENT_TIME = 600
 	TimeManager.CURRENT_DAY = 1
 	TimeManager.DAY_STATE = "DAY"
 	
 	InventoryManager.creatingFromInventory = false
 	InventoryManager.inventory_open = false
 	InventoryManager.in_chest_interface = false
+	InventoryManager.is_in_workbench_interface = false
 	InventoryManager.is_dragging = false
 	InventoryManager.is_inside_boundary = false
 	InventoryManager.item_ref = ""
@@ -114,5 +114,5 @@ func resetAttributes():
 	InteractionManager.is_hovering_over_sackcloth_bed = false
 	InteractionManager.is_hovering_over_chest = false
 
-	# May need to reset TerrainManager variables here in future
+	# NOTE: May need to reset TerrainManager variables here in future
 	

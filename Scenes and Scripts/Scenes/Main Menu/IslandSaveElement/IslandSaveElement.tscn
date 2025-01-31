@@ -144,6 +144,8 @@ anchors_preset = 0
 offset_right = 373.0
 offset_bottom = 98.0
 
+[connection signal="focus_entered" from="Island_Name_TextEdit" to="." method="_on_island_name_text_edit_focus_entered"]
+[connection signal="focus_exited" from="Island_Name_TextEdit" to="." method="_on_island_name_text_edit_focus_exited"]
 [connection signal="text_submitted" from="Island_Name_TextEdit" to="." method="_on_island_name_text_edit_text_submitted"]
 [connection signal="pressed" from="Continue_Btn" to="." method="_on_continue_btn_pressed"]
 [connection signal="pressed" from="Info_Btn" to="." method="_on_info_btn_pressed"]

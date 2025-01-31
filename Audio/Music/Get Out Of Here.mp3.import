@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cvre8a3c7vhts"
+path="res://.godot/imported/Get Out Of Here.mp3-0ecea6a1fc40e5700ce3be004aa7f27b.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/Get Out Of Here.mp3"
+dest_files=["res://.godot/imported/Get Out Of Here.mp3-0ecea6a1fc40e5700ce3be004aa7f27b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

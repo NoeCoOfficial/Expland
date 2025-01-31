@@ -95,7 +95,7 @@ func _on_continue_btn_pressed() -> void:
 	var invalid_chars = ["/", "\\", "|", "*", "<", ">", "\"", "?", ":", "+", "\t", "\n", "\r"]
 	var sanitized_name = ""
 	var has_valid_char = false
-		
+	
 	for character in text:
 		if character not in invalid_chars:
 			sanitized_name += character
@@ -205,4 +205,11 @@ func _on_edit_btn_pressed() -> void:
 
 func _on_delete_btn_pressed() -> void:
 	var main_menu = get_node("/root/MainMenu")
-	main_menu.ShowDeletePopup(current_name_submitted)
+	main_menu.ShowDeletePopup(current_name_submitted, self)
+
+
+func _on_island_name_text_edit_focus_entered() -> void:
+	AudioManager.canOperate_textField = false
+
+func _on_island_name_text_edit_focus_exited() -> void:
+	AudioManager.canOperate_textField = true

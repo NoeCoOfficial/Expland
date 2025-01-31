@@ -1,6 +1,6 @@
 <h1 align="center">Expland Changelog</h1>
 
-# v0.6.0 (unreleased)
+# v0.6.0 (released)
 
 ---
 
@@ -8,41 +8,79 @@
 
 ### Changed:
 - Changed default Linux driver to Wayland instead of XWayland, which is hard to maintain (#74)
+- Changed save file location, so save files are not in the same folder as the executable
+
+### Fixed:
+- Fixed being able to pause the game while dead
+
+## Settings
+
+### Added:
+- Pretty shadows option
+- Autosave interval option
 
 ## Main Menu
 
 ### Added:
-- The ability to save and load Islands
+- You can now create Island save files with names, load save files, rename the save files, and delete them
 
 ### Changed:
 - Background camera animation now loops instead of stopping when returned to original position
+- Black screen fade-out time is now 3 seconds instead of 5
 
 ## The Island
 
 ### Added:
-- Functionality and saving to the Chest, with consists of 25 slots to store items
+- Functionality and saving to the Chest, which consists of 25 slots to store items
 - The all-new Item Workshop™ located in the testing area, where you can obtain any item you want!
 - Water to the lake and around The Island
 - Dynamic clouds in the sky that move
 - A very simple weather system that is yet to be improved
+- Added Tree2 wind swaying animation
+- Added Tree3 wind swaying animation
+- Added Tree4 wind swaying animation
+- Added Tree5 wind swaying animation
+- Added Tree6 wind swaying animation
+- Added Tree7 wind swaying animation
+- Added Tree8 wind swaying animation
+- Added Tree9 wind swaying animation
+- Added Tree10 wind swaying animation
+- Added PineTree2 model with wind swaying animation
+- Added PineTree3 model with wind swaying animation
+- Added PineTree4 model with wind swaying animation
+- Added PineTree5 model with wind swaying animation
 
-### Fixed:
-- Minor bugs associated with sleeping
+### Changed:
+- Revamped the entire Day/Night cycle system, making it more optimized and less buggy. Also, the sunrise is beautiful
+- Refined Tree1 wind swaying animation
+- Refined PineTree1 wind swaying animation
 
 ## Environment
 
 ### Removed:
 - Removed motion blur effect (#79)
 
+## Audio
+
+### Added:
+- Background music to both the Main Menu and The Island with interactive controls
+
 ## Player
 
 ### Added:
-- Nothing yet
+- Health value is now a bar
+- Added a hunger bar
+- Introduced a stamina bar to monitor player endurance
+- Implemented an autosave feature with customizable intervals in the settings
+
+### Changed:
+- Inventory clears upon dying
 
 ## Inventory
 
 ### Added:
-- The ability to hold items (Sword, Pickaxe, Axe) in your hand.
+- The ability to hold items (Sword, Pickaxe, Axe) in your hand
+- The ability to eat items
 - The ability to quickly drop items while hovering over them (Key X)
 - The ability to quickly switch items from pockets to chest slots and vice versa while hovering over them (Key Q)
 - Axe
@@ -57,6 +95,9 @@
 - Stamina Potion
 - Strength Potion
 - Yellow flower (#46)
+
+### Changed:
+- The slot texture to a dashed rounded square
 
 ### Fixed:
 - Fixed a bug where you could sometimes not place dropables down in empty slots (#81)

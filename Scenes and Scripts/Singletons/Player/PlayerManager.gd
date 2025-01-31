@@ -47,11 +47,13 @@
 
 extends Node
 
-var WORLD
-var PLAYER
-var INVENTORY_LAYER
-var CHEST_SLOTS
-var MINIMAL_ALERT_PLAYER
+var WORLD = null
+var PLAYER = null
+var INVENTORY_LAYER = null
+var CHEST_SLOTS = null
+var MINIMAL_ALERT_PLAYER = null
+
+var AudioNotification
 
 var SLEEPING_UPON_ENTERED = false
 var Stamina : float = 100.0
@@ -63,19 +65,17 @@ func init():
 	INVENTORY_LAYER = get_node("/root/World/Player/Head/Camera3D/InventoryLayer")
 	MINIMAL_ALERT_PLAYER = get_node("/root/World/Player//Head/Camera3D/MinimalAlertLayer/MinimalAlert")
 
-
 func sleep():
 	if PLAYER != null:
-		PLAYER.sleep_cycle(true, true, 2.0, 5.0, 2.0, 6)
+		PLAYER.sleep_cycle(true, true, 2.0, 5.0, 2.0, 360)
 
 func eat(valueToIncreaseBy):
 	if PLAYER != null:
 		
-		if valueToIncreaseBy + PlayerData.Hunger >= 100:
-			PlayerData.Hunger = 100
-			valueToIncreaseBy = 0
-			
-			PLAYER.update_bar("HUNGER", true, 100)
+		var final_hunger_value = valueToIncreaseBy + PlayerData.Hunger
 		
-		else:
-			PLAYER.update_bar("HUNGER", true, PlayerData.Hunger + valueToIncreaseBy)
+		if final_hunger_value >= 100:
+			final_hunger_value = 100
+		
+		PlayerData.Hunger = final_hunger_value
+		PLAYER.update_bar("HUNGER", true, PlayerData.Hunger)

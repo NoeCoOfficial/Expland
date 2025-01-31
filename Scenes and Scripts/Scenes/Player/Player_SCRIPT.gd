@@ -48,12 +48,7 @@
 @icon("res://Textures/Icons/Script Icons/32x32/character.png") # Give the node an icon (so it looks cool)
 extends CharacterBody3D # Inheritance
 
-"""
-
-Below are the player scene's export variables. These are useful for flexibility between maps/levels and referencing nodes.
-The keyword @export means that they can be accessed in the inspector panel
-
-"""
+#region Export variables
 
 ######################################
 ######################################
@@ -67,7 +62,6 @@ The keyword @export means that they can be accessed in the inspector panel
 var inventory_opened_in_air := false ## Checks if the inventory UI is opened in the air (so the same velocity can be kept, used in _physics_process()
 var speed : float ## The speed of the player. Used in _physics_process, this variable changes to SPRINT_SPEED, CROUCH_SPEED or WALK_SPEED depending on what input is pressed.
 var transitioning_to_menu = false
-var stamina_restoring_f0 = false
 var inventoryHand_debounce_timer = 0.2
 
 ######################################
@@ -107,7 +101,7 @@ var inventoryHand_debounce_timer = 0.2
 @export var Quit := true ## Whether or not the player can use the Quit input to quit the game (Normally Ctrl+Shift+Q) (will be OFF for final game.)
 
 ######################################
-# Input group
+# Visual group
 ######################################
 
 @export_group("Visual") ## A group for visual/camera variables
@@ -146,6 +140,7 @@ var inventoryHand_debounce_timer = 0.2
 @export var WALK_SPEED = 5.0 ## The normal speed at which the player moves.
 @export var SPRINT_SPEED = 8.0 ## The speed of the player when the user is pressing/holding the Sprint input.
 @export var JUMP_VELOCITY = 4.5 ## How much velocity the player has when jumping. The more this value is, the higher the player can jump.
+var is_movement_input_active = false
 var is_moving = false
 var is_walking = false
 var is_sprinting = false
@@ -158,6 +153,12 @@ var is_crouching = false
 
 @export_subgroup("Gravity") ## A subgroup for gravity variables.
 @export var gravity = 12.0 ## Was originally 9.8 (Earth's gravitational pull) but I felt it to be too unrealistic. This is the gravity of the player. The higher this value is, the faster the player falls.
+
+@export_subgroup("Stamina")
+@export var STAMINA_DECREMENT : float
+@export var STAMINA_INCREMENT : float
+@export var STAMINA_MIN_ENERGY : float
+var stamina_restoring_from_0 = false
 
 ######################################
 ######################################
@@ -185,7 +186,23 @@ var is_crouching = false
 @export var Slot8_Inventory_Ref : StaticBody2D
 @export var Slot9_Inventory_Ref : StaticBody2D
 
-@export_subgroup("Chest Slots")
+@export_subgroup("Layers and UI")
+@export var PocketsCollisionBoundary : Area2D
+@export var ChestCollisionBoundary : Area2D
+@export var Pickaxe_Video : VideoStreamPlayer
+@export var Axe_Video : VideoStreamPlayer
+@export var Sword_Video : VideoStreamPlayer
+@export var EquipAnimations_Player : AnimationPlayer
+@export var HAND_ITEM_TYPE_Label : Label
+
+
+@export_group("Chest")
+
+@export_subgroup("Layers and UI")
+@export var ChestMainLayer : Control
+@export var ChestSlots : Control
+
+@export_subgroup("Slots")
 @export var Slot1_Chest_Ref : StaticBody2D
 @export var Slot2_Chest_Ref : StaticBody2D
 @export var Slot3_Chest_Ref : StaticBody2D
@@ -212,16 +229,19 @@ var is_crouching = false
 @export var Slot24_Chest_Ref : StaticBody2D
 @export var Slot25_Chest_Ref : StaticBody2D
 
+
+@export_group("Workbench")
+
 @export_subgroup("Layers and UI")
-@export var ChestMainLayer : Control
-@export var ChestSlots : Control
-@export var PocketsCollisionBoundary : Area2D
-@export var ChestCollisionBoundary : Area2D
-@export var Pickaxe_Video : VideoStreamPlayer
-@export var Axe_Video : VideoStreamPlayer
-@export var Sword_Video : VideoStreamPlayer
-@export var EquipAnimations_Player : AnimationPlayer
-@export var HAND_ITEM_TYPE_Label : Label
+@export var WorkbenchMainLayer : Control
+@export var WorkbenchSlots : Control
+
+@export_subgroup("Slots")
+@export var Slot1_Workbench_Ref : StaticBody2D
+@export var Slot2_Workbench_Ref : StaticBody2D
+@export var Slot3_Workbench_Ref : StaticBody2D
+@export var Slot4_Workbench_Ref : StaticBody2D
+@export var Slot5_Workbench_Ref : StaticBody2D
 
 
 @export_group("General Nodes")
@@ -245,7 +265,6 @@ var is_crouching = false
 @export var ProtectiveLayer : Control
 
 @export_subgroup("HUD")
-@export var Health_Bar : ProgressBar
 @export var Crosshair_Rect : TextureRect
 @export var StaminaBar : ProgressBar
 
@@ -264,14 +283,17 @@ var is_crouching = false
 @export var RandomText_Label : Label
 @export var OverlayLayer_RedOverlay : ColorRect
 
-
 @export_subgroup("Timers")
 @export var ManualSaveCooldown : Timer
 @export var HandItemDebounce : Timer
+@export var AutoSaveTimer : Timer
+
 
 @export_group("Debug")
 
 @export var StartDebugging_Btn : Button
+@export var SetTime_SpinBox : SpinBox
+@export var SetTime_Button : Button
 @export var Inventory_Item_Ref_Label : Label
 @export var Is_Raycast_Colliding_Label : Label
 @export var Is_Inside_Settings_Label : Label
@@ -292,12 +314,12 @@ var is_crouching = false
 @export var DAY_STATE_Label : Label
 @export var GAME_STATE_Label : Label
 @export var CURRENT_DAY_Label : Label
-@export var CURRENT_HOUR_Label : Label
+@export var CURRENT_TIME_Label : Label
 @export var CURRENT_WEATHER_Label : Label
 
-######################################
-# Input
-######################################
+#endregion
+
+#region Input
 
 func _input(_event): # A built-in function that listens for input using the input map
 	
@@ -322,7 +344,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			
 		else:
 			
-			if !DialogueManager.is_in_absolute_interface and !InventoryManager.inventory_open and !PauseManager.is_inside_alert and !InventoryManager.in_chest_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !PauseManager.inside_absolute_item_workshop:
+			if !DialogueManager.is_in_absolute_interface and !InventoryManager.inventory_open and !PauseManager.is_inside_alert and !InventoryManager.is_in_workbench_interface and !InventoryManager.in_chest_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !PauseManager.inside_absolute_item_workshop:
 				pauseGame()
 			
 			if InventoryManager.inventory_open and !InventoryManager.in_chest_interface and !InventoryManager.is_dragging:
@@ -331,6 +353,9 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			if InventoryManager.in_chest_interface and !InventoryManager.is_dragging:
 				if !InventoryManager.chestNode.is_animating():
 					closeChest()
+			
+			if InventoryManager.is_in_workbench_interface and !InventoryManager.is_dragging:
+				closeWorkbench()
 			
 			if PauseManager.inside_item_workshop:
 				closeItemWorkshop()
@@ -350,7 +375,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 	
 	if Input.is_action_just_pressed("SaveGame") and OS.has_feature("debug") and IslandManager.Current_Game_Mode == "FREE":
 		Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
-		
+		SaveManager.saveAllData()
 		saveAllDataWithAnimation()
 	
 	if Input.is_action_just_pressed("Inventory") and !PauseManager.inside_absolute_item_workshop and !PauseManager.is_paused and !InventoryManager.in_chest_interface and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !InventoryManager.is_dragging and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
@@ -370,16 +395,36 @@ func _unhandled_input(event): # A built-in function that listens for input all t
 			camera.rotate_x(-event.relative.y * SENSITIVITY) # rotate the camera on the x-axis
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90)) # clamp the camera rotation on the x-axis
 
-######################################
-# Process functions
-######################################
+#endregion
+
+#region Process
 
 func _physics_process(delta):
+	## Player stamina
+	if is_sprinting and is_movement_input_active:
+		if !stamina_restoring_from_0:
+			PlayerManager.Stamina -= STAMINA_DECREMENT
+			if PlayerManager.Stamina <= 0.0:
+				PlayerManager.Stamina = 0.0
+				stamina_restoring_from_0 = true
+				speed = WALK_SPEED
+				is_walking = true
+				is_sprinting = false
+				is_crouching = false
+	else:
+		if !stamina_restoring_from_0 and PlayerManager.Stamina < 100.0:
+			PlayerManager.Stamina += STAMINA_INCREMENT
+			if PlayerManager.Stamina >= 100.0:
+				PlayerManager.Stamina = 100.0
+	
+	if stamina_restoring_from_0:
+		PlayerManager.Stamina += STAMINA_INCREMENT
+		if PlayerManager.Stamina >= 50.0:
+			PlayerManager.Stamina = 50.0
+			stamina_restoring_from_0 = false
 	
 	## Player movement and physics
-	
-	# Crouching
-	if !InventoryManager.inventory_open and PlayerData.GAME_STATE != "DEAD" and PlayerData.GAME_STATE != "SLEEPING" and is_on_floor() and !InventoryManager.in_chest_interface and !PauseManager.is_paused and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !PauseManager.inside_can_move_item_workshop:
+	if !InventoryManager.inventory_open and PlayerData.GAME_STATE not in ["DEAD", "SLEEPING"] and is_on_floor() and !InventoryManager.in_chest_interface and !PauseManager.is_paused and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !PauseManager.inside_can_move_item_workshop:
 		if Input.is_action_pressed("Crouch"):
 			self.scale.y = lerp(self.scale.y, 0.5, CROUCH_INTERPOLATION * delta)
 		else:
@@ -397,19 +442,28 @@ func _physics_process(delta):
 			velocity.y = JUMP_VELOCITY
 		
 		# Handle Speed
-		if Input.is_action_pressed("Sprint"):
-			if !Input.is_action_pressed("Crouch") and !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface and !InventoryManager.in_chest_interface:
-				speed = SPRINT_SPEED
-				is_sprinting = true
-		elif Input.is_action_pressed("Crouch") and !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface and !InventoryManager.in_chest_interface:
-			speed = CROUCH_SPEED
-			is_crouching = true
+		if Input.is_action_pressed("Sprint") and !Input.is_action_pressed("Crouch"):
+			if !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface and !InventoryManager.in_chest_interface:
+				if !stamina_restoring_from_0:
+					speed = SPRINT_SPEED
+					is_sprinting = true
+					is_crouching = false
+					is_walking = false
+		elif Input.is_action_pressed("Crouch"):
+			if !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface and !InventoryManager.in_chest_interface:
+				speed = CROUCH_SPEED
+				is_crouching = true
+				is_sprinting = false
+				is_walking = false
 		else:
 			speed = WALK_SPEED
 			is_walking = true
+			is_sprinting = false
+			is_crouching = false
 		
 		# Movement
 		var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+		is_movement_input_active = input_dir != Vector2.ZERO
 		var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		
 		if is_on_floor():
@@ -448,6 +502,7 @@ func _process(delta):
 	
 	SENSITIVITY = PlayerSettingsData.Sensitivity
 	camera.fov = PlayerSettingsData.FOV
+	StaminaBar.value = PlayerManager.Stamina
 	
 	## DEBUGGING
 	
@@ -457,6 +512,18 @@ func _process(delta):
 	var minutes = time_now["minute"]
 	var seconds = time_now["second"]
 	var time_string = str(hours).pad_zeros(2) + ":" + str(minutes).pad_zeros(2) + ":" + str(seconds).pad_zeros(2)
+	
+	if DebugManager.is_debugging:
+		SetTime_SpinBox.show()
+		SetTime_Button.show()
+		DebugLayer.show()
+		StartDebugging_Btn.text = "STOP DEBUGGING"
+		
+	else:
+		SetTime_SpinBox.hide()
+		SetTime_Button.hide()
+		DebugLayer.hide()
+		StartDebugging_Btn.text = "START DEBUGGING"
 	
 	Inventory_Item_Ref_Label.text = "item_ref = " + InventoryManager.item_ref
 	Is_Raycast_Colliding_Label.text = "RayCast colliding? " + str(InteractionManager.is_colliding)
@@ -477,32 +544,32 @@ func _process(delta):
 	DAY_STATE_Label.text = "DAY_STATE = " + TimeManager.DAY_STATE
 	GAME_STATE_Label.text = "GAME_STATE = " + PlayerData.GAME_STATE
 	CURRENT_DAY_Label.text = "CURRENT_DAY = " + str(TimeManager.CURRENT_DAY)
-	CURRENT_HOUR_Label.text = "CURRENT_HOUR = " + str(TimeManager.CURRENT_HOUR)
-	
+	CURRENT_TIME_Label.text = "CURRENT_TIME = " + str(TimeManager.CURRENT_TIME)
 	CURRENT_WEATHER_Label.text = "CURRENT_WEATHER = " + IslandManager.Current_Weather
 	
 	## END DEBUGGING
 	
 	# HUD
 	if UseHealth == false: # Check if the UseHealth variable is false
-		Health_Bar.hide()
+		HUDLayer_HealthBar.hide()
 	else: 
-		Health_Bar.show()
+		HUDLayer_HealthBar.show()
 	
 	
 	# TODO: Change when making crosshair setting
 	Crosshair_Rect.size = crosshair_size # set the crosshair size to the crosshair size variable
 
-######################################
-# On startup
-######################################
+#endregion
+
+#region On startup
 
 func _ready():
-	nodeSetup() # Call the nodeSetup function to setup the nodes
 	initInventorySlots() # Link local inventory slots to singleton arrays
 	
+	PlayerManager.AudioNotification = $Head/Camera3D/AudioNotificationLayer/AudioNotification
 	DialogueManager.DialogueInterface = DialogueInterface
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Lock mouse
+	$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving/SpinningAnimation.play(&"spin")
 	
 	if PlayerData.GAME_STATE == "DEAD": # check if the game state is dead
 		DeathScreen_BlackOverlay.set_self_modulate(Color(0, 0, 0, 1)) # set the black overlay's self modulate to black
@@ -536,7 +603,9 @@ func _on_ready() -> void: # Called when the node is considered ready
 	pass
 
 func nodeSetup(): # A function to setup the nodes. Called in the _ready function
+	HUDLayer_HungerBar.value = PlayerData.Hunger
 	HUDLayer_HealthBar.value = PlayerData.Health
+	setAutosaveInterval(PlayerSettingsData.autosaveInterval)
 	
 	InventoryLayer.hide()
 	InventoryMainLayer.hide()
@@ -586,10 +655,18 @@ func initInventorySlots():
 		Slot24_Chest_Ref,
 		Slot25_Chest_Ref,
 	]
+	
+	InventoryManager.WORKSHOP_SLOTS = [
+		Slot1_Workbench_Ref,
+		Slot2_Workbench_Ref,
+		Slot3_Workbench_Ref,
+		Slot4_Workbench_Ref,
+		Slot5_Workbench_Ref,
+	]
 
-######################################
-# Walking, sprinting and crouching sounds
-######################################
+#endregion
+
+#region Walking, sprinting and crouching sounds
 
 func _on_walking_speed_sounds_timeout() -> void:
 	if is_walking:
@@ -603,9 +680,9 @@ func _on_crouching_speed_sounds_timeout() -> void:
 	if is_crouching:
 		pass
 
-######################################
-# Health and dying
-######################################
+#endregion
+
+#region Health and dying management
 
 func takeDamage(DamageToTake): # A function to take damage from the player
 	if UseHealth == true: # Check if the UseHealth variable is true
@@ -619,16 +696,26 @@ func takeDamage(DamageToTake): # A function to take damage from the player
 		
 		if PlayerData.Health <= 0: # check if health = 0 or below
 			
-			resumeGame()
-			closeInventory()
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # lock mouse
 			
 			PlayerData.GAME_STATE = "DEAD" # set the player data's game state to dead
 			PlayerData.Health = 0 # set the health to 0
 			
-			showDeathScreen() # call the death screen function 
+			resumeGame()
+			closeInventory()
+			closeChest()
+			closeItemWorkshop()
+			closeWorkbench()
+			SettingsUI.closeSettings(0.5)
+			AlertLayer.despawnAlert(0.5)
+			AchievementsUI.despawnAchievements(0.5)
+			CreditsLayer.despawnCredits(0.5)
+			MinimalAlert.hide_minimal_alert(0.1)
+			AudioManager.Current_Playlist.audibleOnlyFadeOutAllSongs()
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # lock mouse
+			set_hand_item_type("")
+			InventoryData.clearInventory(InventoryMainLayer)
 			
-			SaveManager.saveAllData()
+			showDeathScreen() # call the death screen function 
 			
 		else:
 			takeDamageOverlay() # call the take damage overlay function
@@ -641,18 +728,21 @@ func takeDamageOverlay(): # Overlay when taking damage
 func respawnFromDeath(): # A function to respawn the player from death
 	self.position = StartPOS # set the player's position to the start position
 	PlayerData.Health = MaxHealth # set the health to the max health
+	PlayerData.Hunger = 100
+	update_bar("HEALTH", true, PlayerData.Health)
+	update_bar("HUNGER", true, PlayerData.Hunger)
 	
 	var tween = get_tree().create_tween() # create a tween
 
 	tween.tween_property(DeathScreen_BlackOverlay, "self_modulate", Color(0, 0, 0, 0), 3) # tween the black overlay's self modulate to black
-	
+	AudioManager.Current_Playlist.audibleOnlyFadeInAllSongs()
 	PlayerData.GAME_STATE = "NORMAL" # set the game state to normal
 
 func _on_death_screen_finished(): # A function to call when the death screen is finished 
 	respawnFromDeath() # call the respawn from death function
 
 func showDeathScreen(): # A function to show the death screen 
-	randomize()  # Seed the random number generator
+	randomize()  # seed the random number generator
 	var random_index = randi() % DialogueManager.deathScreenRandomText.size() # get a random index from the random text list
 	RandomText_Label.text = DialogueManager.deathScreenRandomText[random_index] # set the random text to a random text from the list
 	
@@ -688,12 +778,13 @@ func showDeathScreen(): # A function to show the death screen
 	tween.tween_property(DeathScreen_BlackOverlay, "color", Color(1, 1, 1, 1), 0) # tween the black overlay's color to white
 	tween.tween_property(DeathScreen_BlackOverlay, "self_modulate", Color(1, 1, 1, 1), 3) # tween the black overlay's self modulate to white
 
-######################################
-# Inventory
-######################################
+#endregion
+
+#region Inventory
 
 func openInventory():
-	if InventoryManager.in_chest_interface:
+	$is_inside_boundary_false_inventory_debounce.start()
+	if InventoryManager.in_chest_interface or InventoryManager.is_in_workbench_interface:
 		
 		InventoryMainLayer.offset.x = -291.96
 		PocketsCollisionBoundary.set_deferred("monitorable", false)
@@ -701,7 +792,7 @@ func openInventory():
 		
 		ChestCollisionBoundary.set_deferred("monitorable", true)
 		ChestCollisionBoundary.set_deferred("monitoring", true)
-		
+	
 	else:
 		
 		InventoryMainLayer.offset.x = 0
@@ -715,6 +806,7 @@ func openInventory():
 	
 	InventoryMainLayer.show()
 	InventoryLayer.show() # show the inventory UI
+	
 	Utils.center_mouse_cursor() # center the mouse cursor
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # set the mouse mode to visible
 	InventoryManager.inventory_open = true
@@ -724,14 +816,16 @@ func openInventory():
 
 func closeInventory():
 	InventoryLayer_GreyLayer.show()
-	#saveInventory()
+	
 	InventoryMainLayer.hide()
 	InventoryLayer.hide() # hide the inventory UI
+	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor
 	Utils.center_mouse_cursor() # center the mouse cursor
 	InventoryManager.inventory_open = false
 	inventory_opened_in_air = false  # Reset the flag when inventory is closed
 	MinimalAlert.hide_minimal_alert(0.1)
+
 
 func _on_pockets_boundary_area_entered(area: Area2D) -> void:
 	if area.is_in_group("draggable"):
@@ -749,6 +843,8 @@ func _on_chest_boundary_area_entered(area: Area2D) -> void:
 func _on_chest_boundary_area_exited(area: Area2D) -> void:
 	if area.is_in_group("draggable"):
 		InventoryManager.is_inside_boundary = false
+		
+
 
 func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
 	
@@ -936,171 +1032,53 @@ func show_chest_dropables(parent_node: Node):
 func _on_is_inside_boundary_false_startup_timeout() -> void:
 	InventoryManager.is_inside_boundary = false
 
-######################################
-# Chest
-######################################
+func _on_is_inside_boundary_false_inventory_debounce_timeout() -> void:
+	InventoryManager.is_inside_boundary = false
+
+#endregion
+
+#region Chest
 
 func openChest():
 	ChestMainLayer.show()
+	$Head/Camera3D/AudioNotificationLayer.layer = 15
 	InventoryManager.in_chest_interface = true
 	openInventory() # Does most of the stuff for us
+	
+	WorkbenchMainLayer.position.y = 1000
+	ChestMainLayer.position.y = 0
+	
 	InventoryManager.chestNode.animate("OPEN")
 
 func closeChest():
 	ChestMainLayer.hide()
+	$Head/Camera3D/AudioNotificationLayer.layer = 1
 	InventoryManager.in_chest_interface = false
 	closeInventory() # Does most of the stuff for us
 	InventoryManager.chestNode.animate("CLOSE")
 
-######################################
-# Pause functionality and layer
-######################################
+#endregion
 
-func pauseGame():
-	PauseLayer.show()
-	PauseManager.is_paused = true
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # set the mouse mode to visible
+#region Workbench
 
-func resumeGame():
-	PauseLayer.hide()
-	PauseManager.is_paused = false
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor
-
-func _on_resume_btn_pressed():
-	resumeGame()
-
-func _on_settings_btn_pressed():
-	SettingsUI.openSettings(0.5)
-
-func _on_achievements_button_pressed() -> void:
-	AchievementsUI.spawnAchievements(0.5)
-
-func _on_credits_button_pressed() -> void:
-	CreditsLayer.spawnCredits(0.5)
-
-######################################
-# Saving
-######################################
-
-func saveInventory():
-	InventoryData.saveInventory(IslandManager.Current_Island_Name, InventoryMainLayer, ChestSlots)
-
-func _on_save_and_quit_btn_pressed():
-	SaveManager.saveAllData()
-	get_tree().quit()
-
-func _on_save_and_quit_to_menu_pressed() -> void:
-	SaveManager.saveAllData()
-	transitioning_to_menu = true
+func openWorkbench():
+	WorkbenchMainLayer.show()
+	$Head/Camera3D/AudioNotificationLayer.layer = 15
+	WorkbenchMainLayer.position.y = 0
+	ChestMainLayer.position.y = 1000
 	
-	SleepLayerBlackOverlay.modulate = Color(1, 1, 1, 0)
-	SleepLayerBlackOverlay.visible = true
-	
-	var tween = get_tree().create_tween()
-	tween.connect("finished", Callable(self, "on_save_and_quit_to_menu_fade_finished"))
-	
-	tween.tween_property(SleepLayerBlackOverlay, "modulate", Color(1, 1, 1, 1), 1)
-	tween.tween_interval(1)
+	InventoryManager.is_in_workbench_interface = true
+	openInventory() # Does most of the stuff for us
 
-func on_save_and_quit_to_menu_fade_finished():
-	var mainMenuScene = load("res://Scenes and Scripts/Scenes/Main Menu/MainMenu.tscn")
-	
-	PlayerManager.WORLD.haltAllHourTweens()
-	PlayerManager.WORLD.haltAllWeatherTweens()
-	
-	get_tree().change_scene_to_packed(mainMenuScene)
+func closeWorkbench():
+	WorkbenchMainLayer.hide()
+	$Head/Camera3D/AudioNotificationLayer.layer = 1
+	InventoryManager.is_in_workbench_interface = false
+	closeInventory() # Does most of the stuff for us
 
-func saveAllDataWithAnimation():
-	if ManualSaveCooldown.time_left == 0.0:
-		ManualSaveCooldown.wait_time = 5.0
-		ManualSaveCooldown.start()
-		SaveManager.saveAllData() # Call the save all data function from SaveManager to write all data to save files.
-		showLighterBG_SAVEOVERLAY()
-		await get_tree().create_timer(0.2).timeout
-		showDarkerBG_SAVEOVERLAY()
-		await get_tree().create_timer(3.0).timeout
-		hideDarkerBG_SAVEOVERLAY() 
-		await get_tree().create_timer(0.2).timeout
-		hideLighterBG_SAVEOVERLAY()
+#endregion
 
-func _on_auto_save_timer_timeout(): # A function to save the player data every 60 seconds (or how long the timer goes for)
-	SaveManager.saveAllData() # Saves everything
-
-######################################
-# Save overlay animation
-######################################
-
-func showLighterBG_SAVEOVERLAY():
-	var tween = get_tree().create_tween()
-	tween.tween_property(SaveOverlay_LighterBG, "position:x", 850.0, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-
-func showDarkerBG_SAVEOVERLAY():
-	var tween = get_tree().create_tween()
-	tween.tween_property(SaveOverlay_DarkerBG, "position:x", 858.0, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-
-func hideLighterBG_SAVEOVERLAY():
-	var tween = get_tree().create_tween()
-	tween.tween_property(SaveOverlay_LighterBG, "position:x", 1700.0, 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
-
-func hideDarkerBG_SAVEOVERLAY():
-	var tween = get_tree().create_tween()
-	tween.tween_property(SaveOverlay_DarkerBG, "position:x", 1796.0, 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
-
-######################################
-# User Interface
-######################################
-
-func spawn_minimal_alert_from_player(holdSec : float, fadeInTime : float, fadeOutTime : float, message : String):
-	MinimalAlert.spawn_minimal_alert(holdSec, fadeInTime, fadeOutTime, message)
-
-func sleep_cycle(setSleeping : bool, incrementDay : bool, fadeInTime : float, holdTime : float, fadeOutTime : float, hour : int):
-	if setSleeping:
-		PlayerData.GAME_STATE = "SLEEPING"
-	
-	if incrementDay:
-		if TimeManager.CURRENT_HOUR <= 23 and TimeManager.CURRENT_HOUR >= 18:
-			TimeManager.CURRENT_DAY += 1
-	
-	SaveManager.saveAllData()
-	
-	PlayerManager.WORLD.haltAllHourTweens()
-	
-	DayText_Label.text = "Day " + str(TimeManager.CURRENT_DAY)
-	SleepLayerBlackOverlay.modulate = Color(1, 1, 1, 0)
-	SleepLayerBlackOverlay.visible = true
-	ProtectiveLayer.visible = true
-	
-	var tween = get_tree().create_tween()
-	tween.tween_property(SleepLayerBlackOverlay, "modulate", Color(1, 1, 1, 1), fadeInTime)
-	tween.tween_interval(1.0)
-	tween.tween_property(DayText_Label, "modulate", Color(1, 1, 1, 1), 1.0)
-	
-	await get_tree().create_timer(fadeInTime + holdTime).timeout
-	
-	on_sleep_cycle_hold_finished(fadeOutTime, hour)
-
-func on_sleep_cycle_hold_finished(fadeOutTime, hour : int):
-	
-	if PlayerManager.WORLD != null:
-		if PlayerManager.WORLD.has_method("set_hour"):
-			
-			# TASK May need to fix stuff here, if the code decides not to work (it has a mind of it's own)
-			
-			PlayerManager.WORLD.set_hour(hour)
-	
-	PlayerData.GAME_STATE = "NORMAL"
-	PlayerData.Health += 5
-	if PlayerData.Health > MaxHealth:
-		PlayerData.Health = MaxHealth
-	
-	var tween = get_tree().create_tween().set_parallel()
-	tween.tween_property(DayText_Label, "modulate", Color(1, 1, 1, 0), fadeOutTime / 2)
-	tween.tween_property(ProtectiveLayer, "visible", false, 0)
-	tween.tween_property(SleepLayerBlackOverlay, "modulate", Color(1, 1, 1, 0), fadeOutTime)
-	
-######################################
-# Item Workshop
-######################################
+#region Item Workshop
 
 func openItemWorkshop():
 	PauseManager.inside_can_move_item_workshop = true
@@ -1111,30 +1089,25 @@ func openItemWorkshop():
 	var tween = get_tree().create_tween().set_parallel()
 	tween.connect("finished", Callable(self, "on_item_workshop_open_finished"))
 	
-	tween.tween_property(ItemWorkshopLayer_MainLayer, "position", Vector2(0, 0), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-	tween.tween_property(ItemWorkshopLayer_GreyLayer, "modulate", Color(1, 1, 1, 1), 0.5)
+	tween.tween_property(ItemWorkshopLayer_MainLayer, "position", Vector2(0, 0), 0).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(ItemWorkshopLayer_GreyLayer, "modulate", Color(1, 1, 1, 1), 0)
 	
-	await get_tree().create_timer(0.3).timeout
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-
 
 func on_item_workshop_open_finished():
 	PauseManager.inside_item_workshop = true
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func closeItemWorkshop():
-	#saveInventory()
 	PauseManager.inside_can_move_item_workshop = false
 	PauseManager.inside_item_workshop = false
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
-	
 	var tween = get_tree().create_tween().set_parallel()
 	tween.connect("finished", Callable(self, "on_item_workshop_close_finished"))
 	
-	tween.tween_property(ItemWorkshopLayer_MainLayer, "position", Vector2(0, 648), 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
-	tween.tween_property(ItemWorkshopLayer_GreyLayer, "modulate", Color(1, 1, 1, 0), 0.5)
+	tween.tween_property(ItemWorkshopLayer_MainLayer, "position", Vector2(0, 648), 0).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(ItemWorkshopLayer_GreyLayer, "modulate", Color(1, 1, 1, 0), 0)
 
 func on_item_workshop_close_finished():
 	PauseManager.inside_absolute_item_workshop = false
@@ -1152,24 +1125,203 @@ func on_add_item_buttons_workshop_pressed(ITEM_TYPE : String):
 	else:
 		spawn_minimal_alert_from_player(2.5, 0.3, 0.3, "Can't add item to pockets, inventory full!")
 
-######################################
-# Area and body detection
-######################################
+#endregion
+
+#region Pausing
+
+func pauseGame():
+	PauseLayer.show()
+	$Head/Camera3D/AudioNotificationLayer.layer = 15
+	PauseManager.is_paused = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # set the mouse mode to visible
+
+func resumeGame():
+	PauseLayer.hide()
+	$Head/Camera3D/AudioNotificationLayer.layer = 1
+	PauseManager.is_paused = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor
+
+func _on_resume_btn_pressed():
+	resumeGame()
+
+func _on_settings_btn_pressed():
+	SettingsUI.openSettings(0.5)
+
+func _on_achievements_button_pressed() -> void:
+	AchievementsUI.spawnAchievements(0.5)
+
+func _on_credits_button_pressed() -> void:
+	CreditsLayer.spawnCredits(0.5)
+
+#endregion
+
+#region Saving
+
+func saveInventory():
+	InventoryData.saveInventory(IslandManager.Current_Island_Name, InventoryMainLayer, ChestSlots)
+
+func _on_save_and_quit_btn_pressed():
+	SaveManager.saveAllData()
+	get_tree().quit()
+
+func _on_save_and_quit_to_menu_pressed() -> void:
+	SaveManager.saveAllData()
+	transitioning_to_menu = true
+	Global.the_island_transitioning_scene = true
+	AudioManager.Current_Playlist.audibleOnlyFadeOutAllSongs()
+	
+	$Head/Camera3D/SleepLayer.layer = 100
+	SleepLayerBlackOverlay.modulate = Color(1, 1, 1, 0)
+	SleepLayerBlackOverlay.visible = true
+	
+	var tween = get_tree().create_tween()
+	tween.connect("finished", Callable(self, "on_save_and_quit_to_menu_fade_finished"))
+	
+	tween.tween_property(SleepLayerBlackOverlay, "modulate", Color(1, 1, 1, 1), 1)
+	tween.tween_interval(1)
+
+func on_save_and_quit_to_menu_fade_finished():
+	var mainMenuScene = load("res://Scenes and Scripts/Scenes/Main Menu/MainMenu.tscn")
+	
+	get_tree().change_scene_to_packed(mainMenuScene)
+
+func saveAllDataWithAnimation():
+	if ManualSaveCooldown.time_left == 0.0:
+		ManualSaveCooldown.wait_time = 5.0
+		ManualSaveCooldown.start()
+		SaveManager.saveAllData() # Call the save all data function from SaveManager to write all data to save files.
+		showLighterBG_SAVEOVERLAY()
+		await get_tree().create_timer(0.2).timeout
+		showDarkerBG_SAVEOVERLAY()
+		await get_tree().create_timer(3.0).timeout
+		hideDarkerBG_SAVEOVERLAY() 
+		await get_tree().create_timer(0.2).timeout
+		hideLighterBG_SAVEOVERLAY()
+
+func showLighterBG_SAVEOVERLAY():
+	var tween = get_tree().create_tween()
+	tween.tween_property(SaveOverlay_LighterBG, "position:x", 850.0, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+
+func showDarkerBG_SAVEOVERLAY():
+	var tween = get_tree().create_tween()
+	tween.tween_property(SaveOverlay_DarkerBG, "position:x", 858.0, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+
+func hideLighterBG_SAVEOVERLAY():
+	var tween = get_tree().create_tween()
+	tween.tween_property(SaveOverlay_LighterBG, "position:x", 1700.0, 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
+
+func hideDarkerBG_SAVEOVERLAY():
+	var tween = get_tree().create_tween()
+	tween.tween_property(SaveOverlay_DarkerBG, "position:x", 1796.0, 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
+
+#endregion
+
+#region Autosave
+
+func _on_auto_save_timer_timeout(): # A function to save the player data every x seconds
+	if !PauseManager.is_paused and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !transitioning_to_menu:
+		Autosave_showSaving()
+
+func Autosave_showSaving():
+	$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved.visible = false
+	$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving.visible = true
+	$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving.scale = Vector2(0.83, 0.83)
+	$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving.modulate = Color(1, 1, 1, 0)
+	
+	var tween = get_tree().create_tween().set_parallel()
+	tween.connect("finished", Callable(self, "Autosave_showSaved"))
+	tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving, "modulate", Color(1, 1, 1, 1), 0.2)
+	tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving, "scale", Vector2(1.0, 1.0), 0.2)
+	tween.tween_interval(4.0)
+
+func Autosave_showSaved():
+	SaveManager.saveAllData() # Saves everything
+	Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png") # Take island screenshot
+	
+	$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved.visible = true
+	$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved.scale = Vector2(0.83, 0.83)
+	$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved.modulate = Color(1, 1, 1, 0)
+	
+	var tween = get_tree().create_tween().set_parallel()
+	tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving, "modulate", Color(1, 1, 1, 0), 0.2)
+	tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving, "scale", Vector2(0.83, 0.83), 0.2)
+	tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved, "modulate", Color(1, 1, 1, 1), 0.2).set_delay(0.2)
+	tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved, "scale", Vector2(1.0, 1.0), 0.2).set_delay(0.2)
+	
+	tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved, "modulate", Color(1, 1, 1, 0), 0.2).set_delay(3.2)
+	tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved, "scale", Vector2(0.83, 0.83), 0.2).set_delay(3.2)
+
+func setAutosaveInterval(value : int):
+	AutoSaveTimer.stop()
+	AutoSaveTimer.wait_time = value
+	AutoSaveTimer.start()
+
+#endregion
+
+#region User Interface
+
+func spawn_minimal_alert_from_player(holdSec : float, fadeInTime : float, fadeOutTime : float, message : String):
+	MinimalAlert.spawn_minimal_alert(holdSec, fadeInTime, fadeOutTime, message)
+
+func sleep_cycle(setSleeping : bool, incrementDay : bool, fadeInTime : float, holdTime : float, fadeOutTime : float, time : int):
+	if setSleeping:
+		PlayerData.GAME_STATE = "SLEEPING"
+	
+	if incrementDay:
+		if TimeManager.CURRENT_TIME < 1440 and TimeManager.CURRENT_TIME >= 1080:
+			TimeManager.CURRENT_DAY += 1
+	
+	SaveManager.saveAllData()
+	
+	DayText_Label.text = "Day " + str(TimeManager.CURRENT_DAY)
+	SleepLayerBlackOverlay.modulate = Color(1, 1, 1, 0)
+	SleepLayerBlackOverlay.visible = true
+	ProtectiveLayer.visible = true
+	
+	var tween = get_tree().create_tween()
+	tween.tween_property(SleepLayerBlackOverlay, "modulate", Color(1, 1, 1, 1), fadeInTime)
+	tween.tween_interval(1.0)
+	tween.tween_property(DayText_Label, "modulate", Color(1, 1, 1, 1), 1.0)
+	
+	await get_tree().create_timer(fadeInTime + holdTime).timeout
+	
+	on_sleep_cycle_hold_finished(fadeOutTime, time)
+
+func on_sleep_cycle_hold_finished(fadeOutTime, time : int):
+	
+	if PlayerManager.WORLD != null:
+		if PlayerManager.WORLD.has_method("set_time"):
+			PlayerManager.WORLD.set_time(time)
+	
+	PlayerData.GAME_STATE = "NORMAL"
+	PlayerData.Health += 5
+	if PlayerData.Health > MaxHealth:
+		PlayerData.Health = MaxHealth
+	
+	var tween = get_tree().create_tween().set_parallel()
+	tween.tween_property(DayText_Label, "modulate", Color(1, 1, 1, 0), fadeOutTime / 2)
+	tween.tween_property(ProtectiveLayer, "visible", false, 0).set_delay(1.0)
+	tween.tween_property(SleepLayerBlackOverlay, "modulate", Color(1, 1, 1, 0), fadeOutTime).set_delay(1.0)
+
+#endregion
+
+#region Area and body detection
 
 func _on_pickup_object_detector_body_entered(body: Node3D) -> void:
 	if body.is_in_group("temp_spike"):
 		takeDamage(14)
 	
 	if body.is_in_group("item_workshop"):
-		openItemWorkshop()
+		if !PauseManager.is_paused and !InventoryManager.inventory_open:
+			openItemWorkshop()
 	
 	if body.is_in_group("dialogue_test"):
 		
 		DialogueManager.startDialogue(DialogueManager.testDialogue)
 
-######################################
-# Player Stats
-######################################
+#endregion
+
+#region Player Stats
 
 func _on_hunger_depletion_timeout() -> void:
 	if !is_sprinting:
@@ -1181,6 +1333,10 @@ func _on_hunger_depletion_timeout() -> void:
 		PlayerData.Hunger = 0
 		
 	update_bar("HUNGER", true, PlayerData.Hunger)
+
+func _on_health_depleting_from_hunger_timeout() -> void:
+	if PlayerData.Hunger <= 0:
+		takeDamage(10)
 
 func update_bar(barName : String, animate : bool, toValue):
 	
@@ -1197,16 +1353,18 @@ func update_bar(barName : String, animate : bool, toValue):
 		if barName == "HYDRATION":
 			pass
 
-######################################
-# Debugging
-######################################
+#endregion
+
+#region Debugging
 
 func _on_start_debugging_btn_pressed() -> void:
 	if DebugManager.is_debugging:
 		DebugManager.is_debugging = false
-		DebugLayer.hide()
-		StartDebugging_Btn.text = "START DEBUGGING"
 	else:
 		DebugManager.is_debugging = true
-		DebugLayer.show()
-		StartDebugging_Btn.text = "STOP DEBUGGING"
+
+func _on_set_time_button_pressed() -> void:
+	TimeManager.CURRENT_TIME = SetTime_SpinBox.value
+	PlayerManager.WORLD.set_time(SetTime_SpinBox.value)
+
+#endregion
