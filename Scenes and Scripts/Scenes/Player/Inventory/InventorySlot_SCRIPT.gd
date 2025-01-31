@@ -48,15 +48,18 @@
 @icon("res://Textures/Icons/Script Icons/32x32/ui_inventory.png")
 extends StaticBody2D
 
-@export var is_touching_draggable = false
-@export var populated = false
 @export var is_populated_label : Label
 
+@export var is_touching_draggable = false
+@export var populated = false
+@export var is_chest_slot = false
+@export var is_workbench_slot = false
+
 func _ready():
-	modulate = Color(1, 1, 1, 0.05)
+	modulate = Color(1, 1, 1, 0.2)
 
 func _process(_delta):
-	if InventoryManager.is_dragging:
+	if !populated:
 		visible = true
 	else:
 		visible = false
@@ -69,6 +72,20 @@ func _process(_delta):
 			is_populated_label.text = "Empty"
 	else:
 		is_populated_label.visible = false
+
+func set_is_chest_slot(value : bool):
+	is_chest_slot = value
+
+func get_is_chest_slot():
+	return is_chest_slot
+
+
+func set_is_workbench_slot(value : bool):
+	is_workbench_slot = value
+
+func get_is_workbench_slot():
+	return is_workbench_slot
+
 
 func is_populated():
 	if populated:
@@ -84,11 +101,15 @@ func set_populated(populatedValue : bool):
 		print("{LOCAL} [InventorySlot_SCRIPT.gd] Empty, Slot: " + str(name))
 		populated = false
 
+
 func _on_draggable_detector_area_entered(area: Area2D) -> void:
 	if area.is_in_group("draggable"):
 		if $AlreadyPopulatedChecker.time_left > 0.0:
 			set_populated(true)
 		else:
+			if !populated:
+				InventoryManager.is_inside_checker = false
+				
 			is_touching_draggable = true
 
 func _on_draggable_detector_area_exited(area: Area2D) -> void:

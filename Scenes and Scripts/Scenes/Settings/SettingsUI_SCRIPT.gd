@@ -48,15 +48,15 @@
 @icon("res://Textures/Icons/Script Icons/32x32/settings_gear.png")
 extends Control
 
-
 func nodeSetup():
+	$MainLayer/SettingsTabContainer.current_tab = 0
+	
 	$GreyLayer.modulate = Color(1, 1, 1, 0)
 	
+	$MainLayer/SettingsTabContainer/Graphics/PrettyShadowsSwitch.button_pressed = PlayerSettingsData.PrettyShadows
 	$MainLayer/SettingsTabContainer/General/SSCSwitch.button_pressed = PlayerSettingsData.showStartupScreen
-	
-	$MainLayer/SettingsTabContainer/Graphics/MotionBlurSwitch.button_pressed = PlayerSettingsData.MotionBlur
+	$MainLayer/SettingsTabContainer/General/AutosaveIntervalSpinBox.value = PlayerSettingsData.autosaveInterval
 	$MainLayer/SettingsTabContainer/Graphics/DOFBlurSwitch.button_pressed = PlayerSettingsData.DOFBlur
-
 	$MainLayer/SettingsTabContainer/Video/FOVSlider.value = PlayerSettingsData.FOV
 	$MainLayer/SettingsTabContainer/Video/SENSITIVITYSlider.value = PlayerSettingsData.Sensitivity * 10
 	$MainLayer/SettingsTabContainer/Sound/MasterSlider.value = PlayerSettingsData.Master_Volume
@@ -64,6 +64,8 @@ func nodeSetup():
 	$MainLayer/SettingsTabContainer/Sound/SFXSlider.value = PlayerSettingsData.sfx_Volume
 
 func _ready() -> void:
+	PlayerSettingsData.loadSettings()
+	
 	if !OS.has_feature("debug"):
 		$SaveSettings.hide()
 	
@@ -71,7 +73,6 @@ func _ready() -> void:
 	$MainLayer.scale = Vector2(0.0, 0.0)
 	self.visible = false
 	
-	PlayerSettingsData.loadSettings()
 	nodeSetup()
 
 func _process(_delta: float) -> void:
@@ -81,6 +82,7 @@ func _process(_delta: float) -> void:
 	$MainLayer/SettingsTabContainer/Sound/MasterValue.text = str(int(PlayerSettingsData.Master_Volume * 100))
 	$MainLayer/SettingsTabContainer/Sound/MusicValue.text = str(int(PlayerSettingsData.music_Volume * 100))
 	$MainLayer/SettingsTabContainer/Sound/SFXValue.text = str(int(PlayerSettingsData.sfx_Volume * 100))
+
 
 func openSettings(animationTime : float):
 	PlayerSettingsData.loadSettings()
@@ -93,7 +95,6 @@ func openSettings(animationTime : float):
 	
 	tween.tween_property($MainLayer, "scale", Vector2(1.0, 1.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	tween.tween_property($GreyLayer, "modulate", Color(1, 1, 1, 1), animationTime)
-
 
 func closeSettings(animationTime : float):
 	PauseManager.is_inside_settings = false
@@ -109,15 +110,15 @@ func closeSettings(animationTime : float):
 	
 	self.visible = false
 
+
 func _on_exit_settings_button_pressed() -> void:
 	closeSettings(0.5)
 
 func _on_fov_slider_value_changed(value: float) -> void:
-	PlayerSettingsData.FOV = value
+	PlayerSettingsData.FOV = int(value)
 
 func _on_sensitivity_slider_value_changed(value: float) -> void:
 	PlayerSettingsData.Sensitivity = value / 10
-
 
 func _on_master_slider_value_changed(value: float) -> void:
 	PlayerSettingsData.Master_Volume = value
@@ -131,20 +132,36 @@ func _on_sfx_slider_value_changed(value: float) -> void:
 func _on_save_settings_pressed() -> void:
 	PlayerSettingsData.saveSettings()
 
-func _on_motion_blur_switch_toggled(toggled_on: bool) -> void:
-	if toggled_on:
-		PlayerSettingsData.set_motion_blur(true)
-	else:
-		PlayerSettingsData.set_motion_blur(false)
-
 func _on_dof_blur_switch_toggled(toggled_on: bool) -> void:
-	if toggled_on:
-		PlayerSettingsData.set_dof_blur(true)
+	if !Global.is_in_main_menu:
+		if toggled_on:
+			PlayerSettingsData.set_dof_blur(true)
+		else:
+			PlayerSettingsData.set_dof_blur(false)
 	else:
-		PlayerSettingsData.set_dof_blur(false)
+		if toggled_on:
+			PlayerSettingsData.DOFBlur = true
+		else:
+			PlayerSettingsData.DOFBlur = false
+
+func _on_pretty_shadows_switch_toggled(toggled_on: bool) -> void:
+	if !Global.is_in_main_menu:
+		if toggled_on:
+			PlayerSettingsData.set_pretty_shadows(true)
+		else:
+			PlayerSettingsData.set_pretty_shadows(false)
+	else:
+		if toggled_on:
+			PlayerSettingsData.PrettyShadows = true
+		else:
+			PlayerSettingsData.PrettyShadows = false
 
 func _on_ssc_switch_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		PlayerSettingsData.showStartupScreen = true
 	else:
 		PlayerSettingsData.showStartupScreen = false
+
+func _on_autosave_interval_spin_box_value_changed(value: float) -> void:
+	PlayerSettingsData.autosaveInterval = int(value)
+	PlayerSettingsData.set_autosave_interval(int(value))

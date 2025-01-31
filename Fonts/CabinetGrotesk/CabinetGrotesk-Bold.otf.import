@@ -15,9 +15,10 @@ dest_files=["res://.godot/imported/CabinetGrotesk-Bold.otf-7e2850c13e5cfbd8018db
 Rendering=null
 antialiasing=1
 generate_mipmaps=false
+disable_embedded_bitmaps=true
 multichannel_signed_distance_field=true
 msdf_pixel_range=8
-msdf_size=48
+msdf_size=250
 allow_system_fallback=true
 force_autohinter=false
 hinting=1
@@ -26,8 +27,14 @@ oversampling=0.0
 Fallbacks=null
 fallbacks=[]
 Compress=null
-compress=true
-preload=[]
+compress=false
+preload=[{
+"chars": [],
+"glyphs": [],
+"name": "New Configuration",
+"size": Vector2i(16, 0),
+"variation_embolden": 0.0
+}]
 language_support={}
 script_support={}
 opentype_features={}

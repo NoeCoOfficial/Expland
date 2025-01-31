@@ -48,7 +48,9 @@
 @icon("res://Textures/Icons/Script Icons/32x32/settings_save.png")
 extends Node
 
-const SAVE_PATH = "res://saveData/global.save"
+const SAVE_PATH = "user://saveData/global.save"
+
+# NOTE: Find a use for this and make it actually work
 
 func saveGlobal() -> void:
 	Utils.createBaseSaveFolder()
@@ -79,8 +81,7 @@ func loadGlobal() -> void:
 			#	showStartupScreen = current_line["show_startup_screen"]
 				
 				# Graphics
-			#	MotionBlur = current_line["motion_blur"]
-			#	DOFBlur = current_line["dof_blur"]
+				# DOFBlur = current_line["dof_blur"]
 				
 				# Video
 			#	FOV = current_line["FOV"]

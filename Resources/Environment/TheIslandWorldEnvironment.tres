@@ -9,4 +9,7 @@ sky_material = ExtResource("1_h7ow7")
 background_mode = 2
 sky = SubResource("Sky_dyd4c")
 tonemap_mode = 2
+ssao_power = 9.74701
+ssao_detail = 2.21
+ssao_horizon = 0.59
 glow_enabled = true

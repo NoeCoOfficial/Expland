@@ -34,6 +34,7 @@ A special thanks to everyone who has supported us throughout the development of 
 - Kai Steele
 - Dylan Wilson
 - Evan Banks
+- amacd_
 
 ## 🛠 Special Thanks
 

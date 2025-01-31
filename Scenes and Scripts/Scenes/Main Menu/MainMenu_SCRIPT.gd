@@ -48,16 +48,15 @@
 @icon("res://Textures/Icons/Script Icons/32x32/main_menu.png")
 extends Node3D
 
-var transitioning_scene = false
+var loadIslandThread : Thread
 
 var is_in_gamemode_select = false
 var is_in_absolute_gamemode_select = false
-
 var is_in_free_mode_island_popup = false
 var is_in_free_mode_create_island = false
-
 var is_in_load_island_interface = false
-
+var is_in_delete_popup = false
+var island_element_to_free
 var is_tweening = false
 
 @onready var StartupNotice = preload("res://Scenes and Scripts/Scenes/Startup Notice/StartupNotice.tscn")
@@ -67,26 +66,45 @@ var is_tweening = false
 @export_group("Node references")
 @export var FreeModeIslandPopupLayer : CanvasLayer
 @export var TextEditNewIslandName : LineEdit
+@export var fade_timer_time_left_label : Label
 
 ######################################
 # Startup
 ######################################
 
 func _ready() -> void:
+	AudioManager.NotificationOnScreen = false
+	AudioManager.initNotificaton($Camera3D/MainLayer/AudioNotificationLayer/AudioNotification)
+	AudioManager.initNew($MainMenu_Audio, false, false, true)
+	AudioManager.canOperate_textField = true
+	PlayerSettingsData.loadSettings()
 	PauseManager.is_paused = false
+	Global.main_menu_transitioning_scene = false
+	Global.the_island_transitioning_scene = false
+	
+	"""
 	if Global.is_first_time_in_menu:
 		Global.is_first_time_in_menu = false
 		
-		if PlayerSettingsData.showStartupScreen == true:
+		if PlayerSettingsData.showStartupScreen:
 			call_deferred("change_to_startup_notice")
-	
+		else:
+			$MainMenu_Audio.Start(false, true)
+	else:
+		$MainMenu_Audio.Start(false, true)
+	"""
 	$Camera3D/MainLayer/GreyLayerGamemodeLayer.hide()
 	$Camera3D/MainLayer/GreyLayerGamemodeLayer.modulate = Color(1, 1, 1, 0)
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
-	PlayerSettingsData.loadSettings()
+	IslandManager.resetAttributes()
+	
 	IslandAccessOrder.load_order()
+	
+	loadIslandThread = Thread.new()
+	var callable = Callable($Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup, "loadIslands")
+	loadIslandThread.start(callable)
 	
 	Utils.set_center_offset($Camera3D/MainLayer/PlayButton)
 	Utils.set_center_offset($Camera3D/MainLayer/PlayButtonTrigger)
@@ -96,22 +114,30 @@ func _ready() -> void:
 	
 	Utils.set_center_offset($Camera3D/MainLayer/QuitButton)
 	Utils.set_center_offset($Camera3D/MainLayer/QuitButtonTrigger)
-
+	
 	await get_tree().create_timer(1).timeout
 	onStartup()
-
+	
 	await get_tree().create_timer(2).timeout
 	$Camera3D/MainLayer/ProtectiveLayer.visible = false
 
 func change_to_startup_notice() -> void:
+	#$Music.stop()
 	get_tree().change_scene_to_packed(StartupNotice)
 
 func fadeOut(node):
 	var tween = get_tree().create_tween()
-	tween.tween_property(node, "modulate", Color(0, 0, 0, 0), 5)
+	tween.tween_property(node, "modulate", Color(0, 0, 0, 0), 3)
+
+func _on_ready() -> void:
+	pass
 
 func onStartup():
-	fadeOut($Camera3D/MainLayer/FadeOut)
+	if !OS.has_feature("debug"):
+		$Camera3D/MainLayer/AudioNotificationLayer/fade_timer_time_left.hide()
+		$Camera3D/MainLayer/AudioNotificationLayer/fade_timer_time_left_title.hide()
+	
+	fadeOut($Camera3D/MainLayer/TopLayer/FadeOut)
 	$Camera3D/MainLayer/Version_LBL.visible = true
 	
 	var tween = get_tree().create_tween().set_parallel()
@@ -136,9 +162,9 @@ func onStartup():
 ######################################
 
 func _input(_event: InputEvent) -> void:
-	if !transitioning_scene:
+	if !Global.main_menu_transitioning_scene:
 		if Input.is_action_just_pressed("Exit") and !is_tweening:  # Check if not tweening
-			if is_in_gamemode_select and !is_in_free_mode_island_popup and !is_in_free_mode_create_island and !is_in_load_island_interface:
+			if is_in_gamemode_select and !is_in_free_mode_island_popup and !is_in_free_mode_create_island and !is_in_load_island_interface and !is_in_delete_popup:
 				deSpawnGameModeMenu()
 			
 		if Input.is_action_just_pressed("Exit"):
@@ -154,7 +180,6 @@ func _input(_event: InputEvent) -> void:
 			if is_in_load_island_interface:
 				$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup.visible = false
 				$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandOrLoadIslandPopup.show()
-				$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup.clearOldElements()
 				FreeModeIslandPopupLayer.visible = true
 				is_in_load_island_interface = false
 				is_in_free_mode_island_popup = true
@@ -172,6 +197,20 @@ func _input(_event: InputEvent) -> void:
 				is_in_free_mode_create_island = false
 				is_in_gamemode_select = false
 				is_in_absolute_gamemode_select = false
+			
+			elif is_in_delete_popup:
+				$Camera3D/MainLayer/DeleteIslandPopup.visible = false
+				$Camera3D/MainLayer/DeleteIslandPopup.hide()
+				is_in_delete_popup = false
+				is_in_load_island_interface = true
+
+######################################
+# Process
+######################################
+
+func _process(_delta: float) -> void:
+	if OS.has_feature("debug"):
+		fade_timer_time_left_label.text = str(int(AudioManager.FADE_TIMER_TIME_LEFT))
 
 ######################################
 # PlayButton animations and functions
@@ -193,7 +232,7 @@ func _on_play_button_trigger_button_down() -> void:
 	tween.tween_property($Camera3D/MainLayer/PlayButton, "scale", Vector2(1.05, 1.05), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func _on_play_button_trigger_button_up() -> void:
-	if !transitioning_scene:
+	if !Global.main_menu_transitioning_scene:
 		var tween = get_tree().create_tween().set_parallel()
 		tween.tween_property($Camera3D/MainLayer/PlayButtonTrigger, "scale", Vector2(1.0, 1.0), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 		tween.tween_property($Camera3D/MainLayer/PlayButton, "scale", Vector2(1.0, 1.0), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
@@ -224,7 +263,7 @@ func on_spawn_game_mode_menu_tween_finished():
 	is_tweening = false  # Set tweening flag to false
 
 func deSpawnGameModeMenu():
-	if !transitioning_scene and !is_tweening:  # Check if not tweening
+	if !Global.main_menu_transitioning_scene and !is_tweening:  # Check if not tweening
 		is_in_absolute_gamemode_select = false
 		is_in_gamemode_select = false
 		is_tweening = true  # Set tweening flag to true
@@ -338,7 +377,7 @@ func _on_new_island_name_text_input(event: InputEventKey) -> void:
 func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 	var text_edit = $Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit
 	var text = text_edit.text
-	var invalid_chars = ["/", "\\", "|", "*", "<", ">", "\"", "?", ":", "+", " ", "\t", "\n", "\r"]
+	var invalid_chars = ["/", "\\", "|", "*", "<", ">", "\"", "?", ":", "+", "\t", "\n", "\r"]
 	var sanitized_name = ""
 	var has_valid_char = false
 	
@@ -363,18 +402,18 @@ func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 	
 	if not has_valid_char:
 		$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit.text = ""
-		print("Invalid Island name: Name cannot be empty or consist only of spaces and invalid characters.")
+		print("Invalid Island name: Name cannot be empty, consist only of spaces or have invalid characters.")
 		$Camera3D/MainLayer/FreeModeIslandPopup/MinimalAlert.spawn_minimal_alert(4, 0.5, 0.5, "Island name cannot be empty, contain only spaces, or contain invalid characters.")
 		return
 	
 	# Check if the sanitized name already exists
-	var dir = DirAccess.open("res://saveData/Free Mode/Islands/")
+	var dir = DirAccess.open("user://saveData/Free Mode/Islands/")
 	if dir:
 		dir.list_dir_begin()
 		var folder_name = dir.get_next()
 		while folder_name != "":
 			if dir.current_is_dir() and folder_name != "." and folder_name != "..":
-				if folder_name == sanitized_name:
+				if folder_name.to_lower() == sanitized_name.to_lower():
 					print("Island name already exists: ", sanitized_name)
 					$Camera3D/MainLayer/FreeModeIslandPopup/MinimalAlert.spawn_minimal_alert(4, 0.5, 0.5, "Island name already exists. Please choose a different name.")
 					return
@@ -384,7 +423,12 @@ func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 	print("Valid island name: ", sanitized_name)
 	$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit.editable = false
 	
-	transitioning_scene = true
+	IslandManager.transitioning_from_menu = true
+	
+	IslandManager.transitioningFromNewIsland = true
+	
+	Global.main_menu_transitioning_scene = true
+	$MainMenu_Audio.audibleOnlyFadeOutAllSongs()
 	IslandManager.set_current_island(sanitized_name)
 	IslandManager.Current_Game_Mode = "FREE"
 	
@@ -402,6 +446,27 @@ func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 	tween.tween_property($Camera3D/MainLayer/TopLayer/TransitionFadeOut, "modulate", Color(1, 1, 1, 1), 1)
 	tween.tween_interval(1)
 
+func goToIsland(island_name : String, _gamemode : String):
+	Global.main_menu_transitioning_scene = true
+	$MainMenu_Audio.audibleOnlyFadeOutAllSongs()
+	IslandManager.transitioning_from_menu = true
+	IslandManager.set_current_island(island_name)
+	IslandManager.Current_Game_Mode = "FREE"
+	
+	Utils.createBaseSaveFolder()
+	Utils.createIslandSaveFolder(island_name, IslandManager.Current_Game_Mode)
+	
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	$Camera3D/MainLayer/TopLayer/TransitionFadeOut.modulate = Color(1, 1, 1, 0)
+	$Camera3D/MainLayer/TopLayer/TransitionFadeOut.visible = true
+	
+	var tween = get_tree().create_tween()
+	tween.connect("finished", Callable(self, "on_free_mode_fade_finished"))
+		
+	tween.tween_property($Camera3D/MainLayer/TopLayer/TransitionFadeOut, "modulate", Color(1, 1, 1, 1), 1)
+	tween.tween_interval(1)
+
 func on_free_mode_fade_finished():
 	get_tree().change_scene_to_packed(world)
 
@@ -412,6 +477,77 @@ func _on_new_island_button_pressed() -> void:
 	$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup.show()
 
 func _on_load_island_button_pressed() -> void:
-	$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup.loadAndShow()
+	$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup.showPopup()
 	is_in_load_island_interface = true
 	is_in_free_mode_island_popup = false
+	
+	var vbox_container = $Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup/ScrollContainer/VBoxContainer
+	if vbox_container.get_child_count() == 0:
+		$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup/NoSavedIslandsNotice.visible = true
+	else:
+		$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup/NoSavedIslandsNotice.visible = false
+
+func ShowDeletePopup(Island_Name, element_to_free):
+	island_element_to_free = element_to_free
+	is_in_load_island_interface = false
+	is_in_delete_popup = true
+	$Camera3D/MainLayer/DeleteIslandPopup/DeleteIslandPopupMain.showDeleteIslandPopup(Island_Name)
+
+func _on_delete_island_yes_pressed() -> void:
+	var Island_To_Delete = $Camera3D/MainLayer/DeleteIslandPopup/DeleteIslandPopupMain.getIslandToDelete()
+	
+	island_element_to_free.queue_free()
+	Utils.delete_free_mode_island(Island_To_Delete)
+	IslandAccessOrder.remove_island(Island_To_Delete)
+	
+	if IslandManager.FreeMode_Island_Count == 0:
+		$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup/NoSavedIslandsNotice.visible = true
+	
+	$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup.showPopup()
+	
+	$Camera3D/MainLayer/DeleteIslandPopup.visible = false
+	$Camera3D/MainLayer/DeleteIslandPopup.hide()
+	is_in_delete_popup = false
+	is_in_load_island_interface = true
+
+func _on_delete_island_no_pressed() -> void:
+	$Camera3D/MainLayer/DeleteIslandPopup.visible = false
+	$Camera3D/MainLayer/DeleteIslandPopup.hide()
+	is_in_delete_popup = false
+	is_in_load_island_interface = true
+
+######################################
+# Other
+######################################
+
+func _exit_tree() -> void:
+	loadIslandThread.wait_to_finish()
+
+func _on_tree_entered() -> void:
+	Global.is_in_main_menu = true
+
+func _on_tree_exited() -> void:
+	Global.is_in_main_menu = false
+
+func _on_checks_timer_timeout() -> void:
+	if Global.is_first_time_in_menu:
+		Global.is_first_time_in_menu = false
+		
+		if PlayerSettingsData.showStartupScreen:
+			call_deferred("change_to_startup_notice")
+		else:
+			$MainMenu_Audio.Start(false, true)
+	else:
+		$MainMenu_Audio.Start(false, true)
+
+func _on_island_name_text_edit_focus_entered() -> void:
+	AudioManager.canOperate_textField = false
+
+func _on_island_name_text_edit_focus_exited() -> void:
+	AudioManager.canOperate_textField = true
+
+func _on_load_island_element_text_edit_focus_entered() -> void:
+	AudioManager.canOperate_textField = false
+
+func _on_load_island_element_text_edit_focus_exited() -> void:
+	AudioManager.canOperate_textField = true

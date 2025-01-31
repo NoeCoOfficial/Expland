@@ -1,0 +1,30 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://b53wf3cs61c28"]
+
+[ext_resource type="Shader" path="res://Resources/Shaders/Clouds.gdshader" id="1_f4qm5"]
+[ext_resource type="NoiseTexture3D" uid="uid://lbs4einhyocw" path="res://Resources/Noise/CloudNoiseTexture.tres" id="2_2xgpd"]
+[ext_resource type="NoiseTexture3D" uid="uid://ciw1u6bl4rvgo" path="res://Resources/Noise/DetailNoiseTexture.tres" id="3_etnta"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_f4qm5")
+shader_parameter/CloudNoiseUVTiling = 2.0
+shader_parameter/CloudNoiseTilingMagnitude = 0.225
+shader_parameter/cloud_threshold = 0.141
+shader_parameter/cloud_threshold_multiplier = 4.291
+shader_parameter/GPUKiller = 225
+shader_parameter/GPUSaver = 0.41
+shader_parameter/cloud_scroll_speed = 0.0
+shader_parameter/minBounds = Vector3(-4096, 256, -4096)
+shader_parameter/maxBounds = Vector3(4096, 576, 4096)
+shader_parameter/DetailNoiseInfluenceOnFinalResult = 51.373
+shader_parameter/detail_scroll_speed = -10.0
+shader_parameter/DetailNoiseUVTiling = 2.0
+shader_parameter/light_direction = Vector3(2.075, -0.23, 0.5)
+shader_parameter/cloud_movement_direction = Vector3(0.0001, -0.0001, 0.0001)
+shader_parameter/cloud_movement_speed = 0.515
+shader_parameter/cloudMovementMagnitude = 0.0
+shader_parameter/LightCorrection = 0.5
+shader_parameter/cloud_alpha = 4.0
+shader_parameter/cloud_color = Color(0, 0, 0, 1)
+shader_parameter/cloud_noise_texture = ExtResource("2_2xgpd")
+shader_parameter/detail_noise_texture = ExtResource("3_etnta")

@@ -1,0 +1,591 @@
+[gd_scene load_steps=12 format=3 uid="uid://bbc10j8mbwjbn"]
+
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Audio/AudioNotification_SCRIPT.gd" id="1_xl5m5"]
+[ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="2_7hn7g"]
+[ext_resource type="Texture2D" uid="uid://d3wid2ugl75bf" path="res://Textures/Icons/MusicWhite_Icon.png" id="3_qfyvc"]
+[ext_resource type="FontFile" uid="uid://b2o44xwqnsb5k" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf" id="4_xlxhp"]
+[ext_resource type="Texture2D" uid="uid://fih3i4yk6pip" path="res://Textures/Icons/PlayBtn_Icon.png" id="5_w5aau"]
+[ext_resource type="Texture2D" uid="uid://sirauob061k7" path="res://Textures/Icons/SideArrow_Icon.png" id="6_myn3j"]
+[ext_resource type="FontFile" uid="uid://c4h0gd5a2e2qb" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf" id="7_vmdvx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4gcdt"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 12
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qs4gu"]
+bg_color = Color(0.187176, 0.187176, 0.187176, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 12
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pq0us"]
+bg_color = Color(0.347817, 0.347817, 0.347817, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 12
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_66xhl"]
+bg_color = Color(0.277528, 0.277528, 0.277528, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 12
+anti_aliasing = false
+
+[node name="AudioNotification" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -955.0
+offset_bottom = -560.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xl5m5")
+
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="LightBG" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 193.0
+offset_bottom = 88.0
+
+[node name="BG" type="ColorRect" parent="LightBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.274611
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.254902, 0.254902, 0.254902, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BG2" type="ColorRect" parent="LightBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.165803
+anchor_right = 0.891192
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.254902, 0.254902, 0.254902, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BG3" type="ColorRect" parent="LightBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0259067
+anchor_top = 0.0227273
+anchor_right = 0.787565
+anchor_bottom = 0.659091
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.137056, 0.125)
+color = Color(0.254902, 0.254902, 0.254902, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BG4" type="ColorRect" parent="LightBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.150259
+anchor_top = 0.522727
+anchor_right = 0.911917
+anchor_bottom = 4.25
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.137056, 0.125)
+color = Color(0.254902, 0.254902, 0.254902, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BG5" type="ColorRect" parent="LightBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0880829
+anchor_top = 0.0227273
+anchor_right = 0.849741
+anchor_bottom = 3.75
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.137056, 0.125)
+color = Color(0.254902, 0.254902, 0.254902, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BG6" type="ColorRect" parent="LightBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0569948
+anchor_top = 0.284091
+anchor_right = 0.818653
+anchor_bottom = 5.45455
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.328699
+scale = Vector2(0.137056, 0.125)
+color = Color(0.254902, 0.254902, 0.254902, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BG7" type="ColorRect" parent="LightBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0259067
+anchor_top = 0.0909091
+anchor_right = 0.787565
+anchor_bottom = 5.26136
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.328699
+scale = Vector2(0.137056, 0.125)
+color = Color(0.254902, 0.254902, 0.254902, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Angle" type="Line2D" parent="LightBG"]
+position = Vector2(1.385, 3.51)
+points = PackedVector2Array(2.615, -1.51, 28.615, 82.49)
+width = 2.9
+default_color = Color(0.254902, 0.254902, 0.254902, 1)
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Border" type="Line2D" parent="LightBG"]
+position = Vector2(7.11, 0.9)
+points = PackedVector2Array(-3, 0.55, 53, 0.55)
+width = 2.9
+default_color = Color(0.254902, 0.254902, 0.254902, 1)
+begin_cap_mode = 2
+
+[node name="Border2" type="Line2D" parent="LightBG"]
+position = Vector2(1.215, 86)
+points = PackedVector2Array(29, 0.550003, 53, 0.55)
+width = 2.9
+default_color = Color(0.254902, 0.254902, 0.254902, 1)
+begin_cap_mode = 2
+
+[node name="DarkBG" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 4.0
+offset_right = 197.0
+offset_bottom = 88.0
+
+[node name="BG" type="ColorRect" parent="DarkBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.274611
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.141176, 0.141176, 0.141176, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BG2" type="ColorRect" parent="DarkBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.165803
+anchor_right = 0.891192
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.141176, 0.141176, 0.141176, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BG3" type="ColorRect" parent="DarkBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0259067
+anchor_top = 0.0227273
+anchor_right = 0.787565
+anchor_bottom = 0.659091
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.137056, 0.125)
+color = Color(0.141176, 0.141176, 0.141176, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BG4" type="ColorRect" parent="DarkBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.150259
+anchor_top = 0.522727
+anchor_right = 0.911917
+anchor_bottom = 4.25
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.137056, 0.125)
+color = Color(0.141176, 0.141176, 0.141176, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BG5" type="ColorRect" parent="DarkBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0880829
+anchor_top = 0.0227273
+anchor_right = 0.849741
+anchor_bottom = 3.75
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.137056, 0.125)
+color = Color(0.141176, 0.141176, 0.141176, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BG6" type="ColorRect" parent="DarkBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0569948
+anchor_top = 0.284091
+anchor_right = 0.818653
+anchor_bottom = 5.45455
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.328699
+scale = Vector2(0.137056, 0.125)
+color = Color(0.141176, 0.141176, 0.141176, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BG7" type="ColorRect" parent="DarkBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0259067
+anchor_top = 0.0909091
+anchor_right = 0.787565
+anchor_bottom = 5.26136
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.328699
+scale = Vector2(0.137056, 0.125)
+color = Color(0.141176, 0.141176, 0.141176, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Angle" type="Line2D" parent="DarkBG"]
+position = Vector2(1.385, 3.51)
+points = PackedVector2Array(2.615, -1.51, 28.615, 82.49)
+width = 2.9
+default_color = Color(0.141176, 0.141176, 0.141176, 1)
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Border" type="Line2D" parent="DarkBG"]
+position = Vector2(7.11, 0.9)
+points = PackedVector2Array(-3, 0.55, 53, 0.55)
+width = 2.9
+default_color = Color(0.141176, 0.141176, 0.141176, 1)
+begin_cap_mode = 2
+
+[node name="Border2" type="Line2D" parent="DarkBG"]
+position = Vector2(1.215, 86)
+points = PackedVector2Array(29, 0.550003, 53, 0.55)
+width = 2.9
+default_color = Color(0.141176, 0.141176, 0.141176, 1)
+begin_cap_mode = 2
+
+[node name="Elements" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Elements"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.0
+offset_top = -44.5
+offset_right = 61.0
+offset_bottom = -21.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_7hn7g")
+theme_override_font_sizes/font_size = 13
+text = "Now playing"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MusicWhiteIcon" type="Sprite2D" parent="Elements"]
+position = Vector2(62.25, 10.8558)
+scale = Vector2(0.0273279, 0.0273279)
+texture = ExtResource("3_qfyvc")
+
+[node name="MusicWhiteIcon2" type="Sprite2D" parent="Elements"]
+position = Vector2(151.25, 10.8558)
+scale = Vector2(0.0273279, 0.0273279)
+texture = ExtResource("3_qfyvc")
+
+[node name="SongName" type="Label" parent="Elements"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.0
+offset_top = -25.5
+offset_right = 91.0
+offset_bottom = -2.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_7hn7g")
+theme_override_fonts/font = ExtResource("4_xlxhp")
+theme_override_font_sizes/font_size = 13
+text = "SongName"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayBtnIcon" type="Sprite2D" parent="Elements"]
+position = Vector2(107, 55)
+scale = Vector2(0.0112818, 0.0112818)
+texture = ExtResource("5_w5aau")
+
+[node name="NextBtnIcon" type="Sprite2D" parent="Elements"]
+position = Vector2(140, 55)
+scale = Vector2(0.0199328, 0.0199328)
+texture = ExtResource("6_myn3j")
+
+[node name="PreviousBtnIcon" type="Sprite2D" parent="Elements"]
+position = Vector2(72, 55)
+scale = Vector2(0.0199328, 0.0199328)
+texture = ExtResource("6_myn3j")
+flip_h = true
+
+[node name="PauseBtnIcon" type="Control" parent="Elements"]
+anchors_preset = 0
+offset_left = 96.0
+offset_top = 42.0
+offset_right = 115.0
+offset_bottom = 70.0
+
+[node name="Pause1" type="Line2D" parent="Elements/PauseBtnIcon"]
+position = Vector2(-97, -42)
+points = PackedVector2Array(113, 46, 113, 65)
+width = 5.195
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Pause2" type="Line2D" parent="Elements/PauseBtnIcon"]
+position = Vector2(-110, -41)
+points = PackedVector2Array(113, 45, 113, 64)
+width = 5.195
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="K Key Container" type="Control" parent="Elements"]
+anchors_preset = 0
+offset_left = 97.48
+offset_top = 70.0
+offset_right = 149.48
+offset_bottom = 122.0
+scale = Vector2(0.311712, 0.311712)
+
+[node name="BackgroundKEY" type="Button" parent="Elements/K Key Container"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0016129
+anchor_top = 0.00224733
+anchor_right = 0.0016129
+anchor_bottom = 0.00224733
+offset_left = -0.0838708
+offset_top = -0.116861
+offset_right = 51.9161
+offset_bottom = 51.8831
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_4gcdt")
+
+[node name="BackgroundKEY2" type="Button" parent="Elements/K Key Container"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 50.0
+offset_bottom = 50.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qs4gu")
+
+[node name="BackgroundKEY3" type="Button" parent="Elements/K Key Container"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.000967703
+anchor_right = 0.000967703
+offset_left = 5.94968
+offset_top = 6.0
+offset_right = 45.9497
+offset_bottom = 46.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_pq0us")
+
+[node name="BackgroundKEY4" type="Button" parent="Elements/K Key Container"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 44.0
+offset_bottom = 44.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_66xhl")
+
+[node name="KEY" type="Label" parent="Elements/K Key Container"]
+modulate = Color(0.796243, 0.796243, 0.796243, 1)
+layout_mode = 0
+offset_left = 11.0
+offset_top = 11.0
+offset_right = 41.0
+offset_bottom = 46.0
+theme = ExtResource("2_7hn7g")
+theme_override_fonts/font = ExtResource("7_vmdvx")
+theme_override_font_sizes/font_size = 30
+text = "K"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="J Key Container" type="Control" parent="Elements"]
+anchors_preset = 0
+offset_left = 66.0
+offset_top = 70.0
+offset_right = 118.0
+offset_bottom = 122.0
+scale = Vector2(0.311712, 0.311712)
+
+[node name="BackgroundKEY" type="Button" parent="Elements/J Key Container"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0016129
+anchor_top = 0.00224733
+anchor_right = 0.0016129
+anchor_bottom = 0.00224733
+offset_left = -0.0838708
+offset_top = -0.116861
+offset_right = 51.9161
+offset_bottom = 51.8831
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_4gcdt")
+
+[node name="BackgroundKEY2" type="Button" parent="Elements/J Key Container"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 50.0
+offset_bottom = 50.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qs4gu")
+
+[node name="BackgroundKEY3" type="Button" parent="Elements/J Key Container"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.000967703
+anchor_right = 0.000967703
+offset_left = 5.94968
+offset_top = 6.0
+offset_right = 45.9497
+offset_bottom = 46.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_pq0us")
+
+[node name="BackgroundKEY4" type="Button" parent="Elements/J Key Container"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 44.0
+offset_bottom = 44.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_66xhl")
+
+[node name="KEY" type="Label" parent="Elements/J Key Container"]
+modulate = Color(0.796243, 0.796243, 0.796243, 1)
+layout_mode = 0
+offset_left = 9.837
+offset_top = 11.0
+offset_right = 39.837
+offset_bottom = 46.0
+theme = ExtResource("2_7hn7g")
+theme_override_fonts/font = ExtResource("7_vmdvx")
+theme_override_font_sizes/font_size = 30
+text = "J"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="L Key Container" type="Control" parent="Elements"]
+anchors_preset = 0
+offset_left = 130.0
+offset_top = 70.0
+offset_right = 182.0
+offset_bottom = 122.0
+scale = Vector2(0.311712, 0.311712)
+
+[node name="BackgroundKEY" type="Button" parent="Elements/L Key Container"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0016129
+anchor_top = 0.00224733
+anchor_right = 0.0016129
+anchor_bottom = 0.00224733
+offset_left = -0.0838708
+offset_top = -0.116861
+offset_right = 51.9161
+offset_bottom = 51.8831
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_4gcdt")
+
+[node name="BackgroundKEY2" type="Button" parent="Elements/L Key Container"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 50.0
+offset_bottom = 50.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qs4gu")
+
+[node name="BackgroundKEY3" type="Button" parent="Elements/L Key Container"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.000967703
+anchor_right = 0.000967703
+offset_left = 5.94968
+offset_top = 6.0
+offset_right = 45.9497
+offset_bottom = 46.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_pq0us")
+
+[node name="BackgroundKEY4" type="Button" parent="Elements/L Key Container"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 44.0
+offset_bottom = 44.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_66xhl")
+
+[node name="KEY" type="Label" parent="Elements/L Key Container"]
+modulate = Color(0.796243, 0.796243, 0.796243, 1)
+layout_mode = 0
+offset_left = 9.837
+offset_top = 11.0
+offset_right = 39.837
+offset_bottom = 46.0
+theme = ExtResource("2_7hn7g")
+theme_override_fonts/font = ExtResource("7_vmdvx")
+theme_override_font_sizes/font_size = 30
+text = "L"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

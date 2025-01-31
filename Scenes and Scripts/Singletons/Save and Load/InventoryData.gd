@@ -50,41 +50,65 @@ extends Node
 var INVENTORY_SAVE_PATH = ""
 
 var inventory_data = []
+var HAND_ITEM_TYPE : String = ""
 
-func saveInventory(Island_Name : String, parent_node: Node) -> void:
+func saveInventory(Island_Name : String, parent_node: Node, chest_parent_node: Node) -> void:
 	
 	if IslandManager.Current_Game_Mode == "FREE":
 		Utils.createIslandSaveFolder(Island_Name, "FREE")
-		INVENTORY_SAVE_PATH = "res://saveData/Free Mode/Islands/" + Island_Name + "/inventory.save"
+		INVENTORY_SAVE_PATH = "user://saveData/Free Mode/Islands/" + Island_Name + "/inventory.save"
 		
 	elif IslandManager.Current_Game_Mode == "STORY":
 		Utils.createIslandSaveFolder(Island_Name, "STORY")
-		INVENTORY_SAVE_PATH = "res://saveData/Story Mode/Islands/" + Island_Name + "/inventory.save"
+		INVENTORY_SAVE_PATH = "user://saveData/Story Mode/Islands/" + Island_Name + "/inventory.save"
 		
-	elif IslandManager.Current_Game_Mode == "STORY":
-		Utils.createIslandSaveFolder(Island_Name, "STORY")
-		INVENTORY_SAVE_PATH = "res://saveData/Parkour Mode/Runs/" + Island_Name + "/inventory.save"
-	
 	# Clear the inventory_data before saving
 	inventory_data.clear()
 	print("[InventoryData] Clearing old inventory data.")
 
-	# Collect data from nodes with names starting with "Dropable"
+	# Collect data from nodes with names starting with "Dropable" in parent_node
 	for child in parent_node.get_children():
 		if child.name.begins_with("Dropable"):
 			var drop_data = {
-				"position": Utils.vector2_to_dict(child.get_slot_inside().position),
-				"ITEM_TYPE": child.get_ITEM_TYPE()
+				"ITEM_TYPE": child.get_ITEM_TYPE(),
+				"is_in_chest_slot": child.get_is_in_chest_slot(),
 			}
+			
+			if child.get_is_in_chest_slot():
+				drop_data["position"] = Utils.vector2_to_dict(child.get_slot_inside().position)
+			else:
+				drop_data["position"] = Utils.vector2_to_dict(child.get_slot_inside().global_position)
+			
+			inventory_data.append(drop_data)
+
+	# Collect data from nodes with names starting with "Dropable" in chest_parent_node
+	for child in chest_parent_node.get_children():
+		if child.name.begins_with("Dropable"):
+			var drop_data = {
+				"ITEM_TYPE": child.get_ITEM_TYPE(),
+				"is_in_chest_slot": child.get_is_in_chest_slot(),
+			}
+			
+			if child.get_is_in_chest_slot():
+				drop_data["position"] = Utils.vector2_to_dict(child.get_slot_inside().position)
+			else:
+				drop_data["position"] = Utils.vector2_to_dict(child.get_slot_inside().global_position)
+			
 			inventory_data.append(drop_data)
 
 	# Debugging: Ensure inventory_data contains all collected items
 	print("[InventoryData] Final inventory_data array: ", inventory_data)
 
+	# Add HAND_ITEM_TYPE to the inventory data
+	var save_data = {
+		"inventory": inventory_data,
+		"hand_item_type": HAND_ITEM_TYPE
+	}
+
 	# Write fresh data to the file
 	var file = FileAccess.open(INVENTORY_SAVE_PATH, FileAccess.WRITE)
 	if file:
-		var json_data = JSON.stringify(inventory_data)
+		var json_data = JSON.stringify(save_data)
 		file.store_line(json_data)
 		file.close()
 		print("[InventoryData] --Saved Inventory Data--")
@@ -93,26 +117,30 @@ func saveInventory(Island_Name : String, parent_node: Node) -> void:
 
 func loadInventory(Island_Name : String) -> void:
 	Utils.createIslandSaveFolder(Island_Name, "FREE")
-	INVENTORY_SAVE_PATH = "res://saveData/Free Mode/Islands/" + Island_Name + "/inventory.save"
+	INVENTORY_SAVE_PATH = "user://saveData/Free Mode/Islands/" + Island_Name + "/inventory.save"
 	
 	var file = FileAccess.open(INVENTORY_SAVE_PATH, FileAccess.READ)
 	if not file:
-		push_warning("[InventoryData] File doesn't exist (" + INVENTORY_SAVE_PATH + ")")
+		print("[InventoryData] File doesn't exist (" + INVENTORY_SAVE_PATH + ")")
 		return
-
+	
 	if file and not file.eof_reached():
 		var current_line = JSON.parse_string(file.get_line())
-		if not current_line or current_line == []:
+		if not current_line or current_line == {}:
 			print("[InventoryData] No inventory data to load.")
 			return
 		
-		inventory_data = current_line  # Update the in-memory inventory data
+		# Update the in-memory inventory data and HAND_ITEM_TYPE
+		inventory_data = current_line["inventory"]
+		HAND_ITEM_TYPE = current_line["hand_item_type"]
 		
 		# Spawn inventory items based on loaded data
 		for item in inventory_data:
 			var position = Utils.dict_to_vector2(item["position"])
 			var item_type = item["ITEM_TYPE"]
-			InventoryManager.spawn_inventory_dropable_from_load(position, item_type)
+			var is_in_chest_slot = item["is_in_chest_slot"]
+			
+			InventoryManager.spawn_inventory_dropable_from_load(position, item_type, is_in_chest_slot)
 		
 		# Debugging output
 		print_rich("[center][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf][font_size=30]-- INVENTORY DATA LOADED --[/font_size][/font][/center]")
@@ -122,9 +150,21 @@ func loadInventory(Island_Name : String) -> void:
 				+ str(Utils.dict_to_vector2(item["position"])) 
 				+ ", ITEM_TYPE: " 
 				+ item["ITEM_TYPE"] 
+				+ ", Is in chest slot: " 
+				+ str(item["is_in_chest_slot"])
 				+ "[/font][/font_size][/center]"
 			)
 	else:
 		push_warning("[InventoryData] Failed to parse JSON data from file.")
 	
 	file.close()
+
+func clearInventory(parent_node : Node):
+	inventory_data.clear()
+	HAND_ITEM_TYPE = ""
+	
+	for child in parent_node.get_children():
+		if child.name.begins_with("Dropable"):
+			child.queue_free()
+		elif child.name.begins_with("Slot"):
+			child.set_populated(false)

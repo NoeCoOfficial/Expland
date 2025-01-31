@@ -48,27 +48,28 @@
 @icon("res://Textures/Icons/Script Icons/32x32/settings_save.png")
 extends Node
 
-const SAVE_PATH = "res://saveData/settings.save"
+const SAVE_PATH = "user://saveData/settings.save"
 
 ######################################
 # General
 ######################################
 
-var showStartupScreen = true
+var showStartupScreen : bool = true
+var autosaveInterval : int = 60
 
 ######################################
 # Graphics
 ######################################
 
-var MotionBlur = true
-var DOFBlur = true
+var DOFBlur : bool = true
+var PrettyShadows : bool = false
 
 ######################################
 # Video
 ######################################
 
-var FOV = 110
-var Sensitivity = 0.001
+var FOV : int = 110
+var Sensitivity : float = 0.001
 
 ######################################
 # Audio
@@ -89,10 +90,11 @@ func saveSettings() -> void:
 		
 		# General
 		"show_startup_screen" : showStartupScreen,
+		"autosave_interval" : autosaveInterval,
 		
 		# Graphics
-		"motion_blur" : MotionBlur,
 		"dof_blur" : DOFBlur,
+		"pretty_shadows" : PrettyShadows,
 		
 		# Video
 		"FOV" : FOV,
@@ -125,10 +127,11 @@ func loadSettings() -> void:
 				
 				# General
 				showStartupScreen = current_line["show_startup_screen"]
+				autosaveInterval = current_line["autosave_interval"]
 				
 				# Graphics
-				MotionBlur = current_line["motion_blur"]
 				DOFBlur = current_line["dof_blur"]
+				PrettyShadows = current_line["pretty_shadows"]
 				
 				# Video
 				FOV = current_line["FOV"]
@@ -142,8 +145,9 @@ func loadSettings() -> void:
 				print_rich("[center][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf][font_size=30]-- PLAYER SETTINGS HAVE BEEN LOADED --[/font_size][/font][/center]")
 				
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Show startup screen: "+str(showStartupScreen)+"[/font][/font_size][/center]")
+				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Autosave Interval: "+str(autosaveInterval)+"[/font][/font_size][/center]")
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]DOF Blur: "+str(DOFBlur)+"[/font][/font_size][/center]")
-				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Motion Blur: "+str(MotionBlur)+"[/font][/font_size][/center]")
+				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Pretty shadows: "+str(PrettyShadows)+"[/font][/font_size][/center]")
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]FOV: "+str(FOV)+"[/font][/font_size][/center]")
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Master Volume: "+str(Master_Volume)+"[/font][/font_size][/center]")
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Music Volume: "+str(music_Volume)+"[/font][/font_size][/center]")
@@ -153,26 +157,9 @@ func loadSettings() -> void:
 # Setting values
 ######################################
 
-func set_motion_blur(value : bool) -> void:
-	if get_node("/root/World") != null:
-		if value:
-			MotionBlur = true
-			var world = get_node("/root/World")
-			
-			if world.has_method("set_motion_blur"):
-				world.set_motion_blur(value)
-			else:
-				printerr("[PlayerSettingsData] Could not find set_motion_blur() method in world node.")
-		else:
-			MotionBlur = false
-			var world = get_node("/root/World")
-			
-			if world.has_method("set_motion_blur"):
-				world.set_motion_blur(value)
-			else:
-				printerr("[PlayerSettingsData] Could not find set_motion_blur() method in world node.")
-	else:
-		printerr("[PlayerSettingsData] World node (/root/World) is null. Can't call set_motion_blur().")
+func set_autosave_interval(value : int):
+	if PlayerManager.PLAYER != null:
+		PlayerManager.PLAYER.setAutosaveInterval(value)
 
 func set_dof_blur(value : bool) -> void:
 	if get_node("/root/World") != null:
@@ -194,3 +181,24 @@ func set_dof_blur(value : bool) -> void:
 					printerr("[PlayerSettingsData] Could not find set_dof_blur() method in world node.")
 	else:
 		printerr("[PlayerSettingsData] World node (/root/World) is null. Can't call set_dof_blur().")
+
+func set_pretty_shadows(value : bool) -> void:
+	if get_node("/root/World") != null:
+			if value:
+				PrettyShadows = true
+				var world = get_node("/root/World")
+				
+				if world.has_method("set_pretty_shadows"):
+					world.set_pretty_shadows(value)
+				else:
+					printerr("[PlayerSettingsData] Could not find set_pretty_shadows() method in world node.")
+			else:
+				PrettyShadows = false
+				var world = get_node("/root/World")
+				
+				if world.has_method("set_pretty_shadows"):
+					world.set_pretty_shadows(value)
+				else:
+					printerr("[PlayerSettingsData] Could not find set_pretty_shadows() method in world node.")
+	else:
+		printerr("[PlayerSettingsData] World node (/root/World) is null. Can't call set_pretty_shadows().")

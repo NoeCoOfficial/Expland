@@ -52,20 +52,22 @@ var SAVE_PATH = ""
 
 var GAME_STATE = "NORMAL"
 var Health := 100
+var Hunger := 100
+var Hydration := 100
 
 func saveData(Island_Name : String) -> void:
 	
 	if IslandManager.Current_Game_Mode == "FREE":
 		Utils.createIslandSaveFolder(Island_Name, "FREE")
-		SAVE_PATH = "res://saveData/Free Mode/Islands/" + Island_Name + "/player.save"
+		SAVE_PATH = "user://saveData/Free Mode/Islands/" + Island_Name + "/player.save"
 		
 	elif IslandManager.Current_Game_Mode == "STORY":
 		Utils.createIslandSaveFolder(Island_Name, "STORY")
-		SAVE_PATH = "res://saveData/Story Mode/Islands/" + Island_Name + "/player.save"
+		SAVE_PATH = "user://saveData/Story Mode/Islands/" + Island_Name + "/player.save"
 		
 	elif IslandManager.Current_Game_Mode == "STORY":
 		Utils.createIslandSaveFolder(Island_Name, "STORY")
-		SAVE_PATH = "res://saveData/Parkour Mode/Runs/" + Island_Name + "/player.save"
+		SAVE_PATH = "user://saveData/Parkour Mode/Runs/" + Island_Name + "/player.save"
 	
 	
 	var player = get_node("/root/World/Player")
@@ -75,10 +77,11 @@ func saveData(Island_Name : String) -> void:
 	if player:
 		var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 		var data = {
-			"CURRENT_HOUR" : TimeManager.CURRENT_HOUR,
+			"CURRENT_TIME" : TimeManager.CURRENT_TIME,
 			"CURRENT_DAY" : TimeManager.CURRENT_DAY,
 			"GAME_STATE" : GAME_STATE,
 			"Health" : Health,
+			"Hunger" : Hunger,
 			"Position" : Utils.vector3_to_dict(player.position),
 			"HeadRotationY" : playerHead.rotation_degrees.y,
 			"CameraRotationX" : playerCamera.rotation_degrees.x,
@@ -95,15 +98,15 @@ func loadData(Island_Name : String, withOutput : bool) -> void:
 	
 	if IslandManager.Current_Game_Mode == "FREE":
 		Utils.createIslandSaveFolder(Island_Name, "FREE")
-		SAVE_PATH = "res://saveData/Free Mode/Islands/" + Island_Name + "/player.save"
+		SAVE_PATH = "user://saveData/Free Mode/Islands/" + Island_Name + "/player.save"
 		
 	elif IslandManager.Current_Game_Mode == "STORY":
 		Utils.createIslandSaveFolder(Island_Name, "STORY")
-		SAVE_PATH = "res://saveData/Story Mode/Islands/" + Island_Name + "/player.save"
+		SAVE_PATH = "user://saveData/Story Mode/Islands/" + Island_Name + "/player.save"
 		
 	elif IslandManager.Current_Game_Mode == "STORY":
 		Utils.createIslandSaveFolder(Island_Name, "STORY")
-		SAVE_PATH = "res://saveData/Parkour Mode/Runs/" + Island_Name + "/player.save"
+		SAVE_PATH = "user://saveData/Parkour Mode/Runs/" + Island_Name + "/player.save"
 	
 	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
 	if not file:
@@ -115,10 +118,11 @@ func loadData(Island_Name : String, withOutput : bool) -> void:
 		
 		if current_line:
 			
-			TimeManager.CURRENT_HOUR = current_line["CURRENT_HOUR"]
+			TimeManager.CURRENT_TIME = current_line["CURRENT_TIME"]
 			TimeManager.CURRENT_DAY = current_line["CURRENT_DAY"]
 			
 			Health = current_line["Health"]
+			Hunger = current_line["Hunger"]
 			GAME_STATE = current_line["GAME_STATE"]
 			
 			var player = get_node("/root/World/Player")
@@ -138,8 +142,9 @@ func loadData(Island_Name : String, withOutput : bool) -> void:
 				if withOutput:
 					print_rich("[center][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf][font_size=30]-- PLAYER DATA HAS BEEN LOADED --[/font_size][/font][/center]")
 				
-					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Current hour: " + str(TimeManager.CURRENT_HOUR) + "[/font][/font_size][/center]")
+					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Current time: " + str(TimeManager.CURRENT_TIME) + "[/font][/font_size][/center]")
 					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Health: " + str(Health) + "[/font][/font_size][/center]")
+					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Hunger: " + str(Hunger) + "[/font][/font_size][/center]")
 					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Game State: " + GAME_STATE + "[/font][/font_size][/center]")
 					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Player Position: " + str(player.position) + "[/font][/font_size][/center]")
 					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Head Y-Axis Rotation: " + str(playerHead.rotation_degrees.y) + "[/font][/font_size][/center]")

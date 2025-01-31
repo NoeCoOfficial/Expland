@@ -1,0 +1,22 @@
+[gd_resource type="NoiseTexture3D" load_steps=3 format=3 uid="uid://ciw1u6bl4rvgo"]
+
+[sub_resource type="Gradient" id="Gradient_drckq"]
+offsets = PackedFloat32Array(0.309051, 0.671082)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vskvr"]
+noise_type = 2
+seed = 77
+frequency = 0.0295
+fractal_type = 2
+fractal_lacunarity = 3.54
+fractal_weighted_strength = 0.29
+
+[resource]
+width = 128
+height = 128
+depth = 128
+seamless = true
+seamless_blend_skirt = 0.058
+normalize = false
+color_ramp = SubResource("Gradient_drckq")
+noise = SubResource("FastNoiseLite_vskvr")

@@ -16,6 +16,7 @@ config/description="Expland
 config/version="0.6.0"
 config/tags=PackedStringArray("3d", "noeco", "official")
 run/main_scene="res://Scenes and Scripts/Scenes/Main Menu/MainMenu.tscn"
+config/use_custom_user_dir=true
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
@@ -42,9 +43,11 @@ PauseManager="*res://Scenes and Scripts/Singletons/Pause/PauseManager.gd"
 TimeManager="*res://Scenes and Scripts/Singletons/World/TimeManager.gd"
 DialogueManager="*res://Scenes and Scripts/Singletons/Dialogue/DialogueManager.gd"
 AchievementsManager="*res://Scenes and Scripts/Singletons/Achievements/AchievementsManager.gd"
+ConstructingManager="*res://Scenes and Scripts/Singletons/Constructing/ConstructingManager.gd"
 InventoryManager="*res://Scenes and Scripts/Singletons/Inventory/InventoryManager.gd"
 InputManager="*res://Scenes and Scripts/Singletons/Input/InputManager.gd"
 InteractionManager="*res://Scenes and Scripts/Singletons/Interaction/InteractionManager.gd"
+AudioManager="*res://Scenes and Scripts/Singletons/Audio/AudioManager.gd"
 TerrainManager="*res://Scenes and Scripts/Singletons/World/TerrainManager.gd"
 Utils="*res://Scenes and Scripts/Singletons/Utils.gd"
 SmoothMovements="*res://Scenes and Scripts/Singletons/SmoothMovements.gd"
@@ -52,6 +55,7 @@ SmoothMovements="*res://Scenes and Scripts/Singletons/SmoothMovements.gd"
 [display]
 
 window/stretch/mode="canvas_items"
+display_server/driver.linuxbsd="wayland"
 
 [editor]
 
@@ -61,7 +65,7 @@ movie_writer/fps=120
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/SphynxMotionBlurToolkit/plugin.cfg")
+enabled=PackedStringArray("res://addons/SphynxMotionBlurToolkit/plugin.cfg", "res://addons/anthonyec.camera_preview/plugin.cfg")
 
 [file_customization]
 
@@ -82,7 +86,6 @@ Jump={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":67,"key_label":0,"unicode":99,"location":0,"echo":false,"script":null)
-, Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":2,"canceled":false,"pressed":false,"double_click":false,"script":null)
 ]
 }
 move_forward={
@@ -135,6 +138,16 @@ Crouch={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194326,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
+Inventory_QuickSwitch={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":81,"key_label":0,"unicode":113,"location":0,"echo":false,"script":null)
+]
+}
+Inventory_QuickDrop={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":88,"key_label":0,"unicode":120,"location":0,"echo":false,"script":null)
+]
+}
 SaveGame={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":84,"key_label":0,"unicode":116,"location":0,"echo":false,"script":null)
@@ -165,6 +178,26 @@ Debug={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":47,"key_label":0,"unicode":47,"location":0,"echo":false,"script":null)
 ]
 }
+audio_Toggle={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":75,"key_label":0,"unicode":107,"location":0,"echo":false,"script":null)
+]
+}
+audio_Next={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":76,"key_label":0,"unicode":108,"location":0,"echo":false,"script":null)
+]
+}
+audio_Prev={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":74,"key_label":0,"unicode":106,"location":0,"echo":false,"script":null)
+]
+}
+
+[layer_names]
+
+3d_render/layer_1="Default"
+3d_render/layer_2="Hand"
 
 [rendering]
 
