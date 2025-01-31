@@ -1,18 +1,20 @@
 <h1 align="center">Expland Changelog</h1>
 
-# v0.6.0 (unreleased)
+# v0.6.0 (released)
 
----
 
 ## General
 
 ### Added:
-- Background music to both the Main Menu and The Island with and interactive controls
+- Background music to both the Main Menu and The Island with interactive controls
 
 ## Core
 
 ### Changed:
 - Changed default Linux driver to Wayland instead of XWayland, which is hard to maintain (#74)
+
+### Fixed:
+- Fixed being able to pause the game while dead
 
 ## Settings
 
@@ -23,28 +25,27 @@
 ## Main Menu
 
 ### Added:
-- Added the ability to save and load Islands
+- You can now create Island save files with names, load save files, rename the save files, and delete them
 - Background music with interactive controls
 
 ### Changed:
 - Background camera animation now loops instead of stopping when returned to original position
-- Black screen fade out time is now 3 seconds, not 5
+- Black screen fade-out time is now 3 seconds instead of 5
 
 ## The Island
 
 ### Added:
-- Functionality and saving to the Chest, with consists of 25 slots to store items
+- Functionality and saving to the Chest, which consists of 25 slots to store items
 - The all-new Item Workshop™ located in the testing area, where you can obtain any item you want!
 - Water to the lake and around The Island
 - Dynamic clouds in the sky that move
 - Background music with interactive controls
 - A very simple weather system that is yet to be improved
-- Background music with interactive controls
 - Added PineTree2 model with wind swaying animation
 - Added PineTree3 model with wind swaying animation
 
 ### Changed:
-- Revamped the entire Day/Night cycle system, making it more optimized and less buggy. Also the sunrise is beautiful
+- Revamped the entire Day/Night cycle system, making it more optimized and less buggy. Also, the sunrise is beautiful
 - Refined Tree1 wind swaying animation
 - Refined PineTree1 wind swaying animation
 
@@ -63,6 +64,11 @@
 
 ### Changed:
 - Inventory clears upon dying
+
+## System
+
+### Changed:
+- Changed save file location, so save files are not in the same folder as the executable
 
 ## Inventory
 
