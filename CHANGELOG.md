@@ -2,16 +2,13 @@
 
 # v0.6.0 (released)
 
-
-## General
-
-### Added:
-- Background music to both the Main Menu and The Island with interactive controls
+---
 
 ## Core
 
 ### Changed:
 - Changed default Linux driver to Wayland instead of XWayland, which is hard to maintain (#74)
+- Changed save file location, so save files are not in the same folder as the executable
 
 ### Fixed:
 - Fixed being able to pause the game while dead
@@ -54,6 +51,11 @@
 ### Removed:
 - Removed motion blur effect (#79)
 
+## Audio
+
+### Added:
+- Background music to both the Main Menu and The Island with interactive controls
+
 ## Player
 
 ### Added:
@@ -64,11 +66,6 @@
 
 ### Changed:
 - Inventory clears upon dying
-
-## System
-
-### Changed:
-- Changed save file location, so save files are not in the same folder as the executable
 
 ## Inventory
 
