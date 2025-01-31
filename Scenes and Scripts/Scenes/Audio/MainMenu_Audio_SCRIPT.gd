@@ -202,6 +202,7 @@ func FadeOut(song : Node):
 
 func FadeOutFinished(song):
 	song.stop()
+	song.volume_db = VOLUME_DB
 
 func audibleOnlyFadeOut(song):
 	var fadetween = get_tree().create_tween()

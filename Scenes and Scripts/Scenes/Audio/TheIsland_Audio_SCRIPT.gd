@@ -240,6 +240,7 @@ func startFadeTimer(lengthOfSong : float):
 
 func FadeOutFinished(song):
 	song.stop()
+	song.volume_db = VOLUME_DB
 
 func _on_fade_timer_timeout() -> void:
 	audibleOnlyFadeOut(currently_playing_song)
