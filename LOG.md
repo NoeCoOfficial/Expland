@@ -11,3 +11,5 @@
 [4/1/2025] sebashtioon - I am gonna be back on tomorrow, can't wait to fry my brain with all the logic!!!
 
 [7/1/2025] sebashtioon - Oops I missed some days... but made a TON of progress, can't wait for v0.6.0.
+
+[26/1/2025] sebashtioon - My bad for not keeping logs yall... the chest is coming and also music! Awesome
