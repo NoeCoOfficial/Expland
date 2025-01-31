@@ -8,10 +8,7 @@
 
 ### Changed:
 - Changed default Linux driver to Wayland instead of XWayland, which is hard to maintain (#74)
-- Changed save file location, so save files are not in the same folder as the executable
-
-### Fixed:
-- Fixed being able to pause the game while dead
+- Changed save file location, so save files are not in the same folder as the executable.
 
 ## Settings
 
@@ -75,6 +72,9 @@
 
 ### Changed:
 - Inventory clears upon dying
+
+### Fixed:
+- Fixed being able to pause the game while dead
 
 ## Inventory
 
