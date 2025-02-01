@@ -217,6 +217,9 @@ func _process(delta):
 									InventoryManager.spawn_workshop_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside)
 									top_level = false
 									
+									var slot_name_as_string : String = slot_inside.name[-1]
+									CraftingManager.bindCraftingItem(ITEM_TYPE, int(slot_name_as_string) - 1)
+									
 								else:
 									
 									if is_in_chest_slot:
@@ -230,6 +233,9 @@ func _process(delta):
 										self.queue_free()
 										InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, false)
 										top_level = false
+										
+										var slot_name_as_string : String = slot_inside.name[-1]
+										CraftingManager.unbindCraftingItem(int(slot_name_as_string) - 1)
 									
 									else:
 										is_workshop_dropable = false
@@ -303,6 +309,10 @@ func _input(_event: InputEvent) -> void:
 						slot_inside.set_populated(false)
 						self.queue_free()
 						InventoryManager.is_dragging = false
+						
+						var slot_name_as_string : String = slot_inside.name[-1]
+						CraftingManager.unbindCraftingItem(int(slot_name_as_string) - 1)
+						
 					else:
 						InventoryManager.is_dragging = false
 				
@@ -337,6 +347,10 @@ func _input(_event: InputEvent) -> void:
 							slot_inside.set_populated(false)
 							self.queue_free()
 							InventoryManager.is_dragging = false
+							
+							var slot_name_as_string : String = slot_inside.name[-1]
+							CraftingManager.bindCraftingItem(ITEM_TYPE, int(slot_name_as_string) - 1)
+							
 						else:
 							InventoryManager.is_dragging = false
 					
