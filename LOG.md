@@ -13,3 +13,5 @@
 [7/1/2025] sebashtioon - Oops I missed some days... but made a TON of progress, can't wait for v0.6.0.
 
 [26/1/2025] sebashtioon - My bad for not keeping logs yall... the chest is coming and also music! Awesome
+
+[1/2/2025] sebashtioon - yoo wassup!!! v0.6.0 released yesterday. We hope you like it :D
