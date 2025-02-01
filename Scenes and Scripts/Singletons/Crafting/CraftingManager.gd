@@ -1,5 +1,5 @@
 # ============================================================= #
-# ConstructingManager.gd [AUTOLOAD]
+# CraftingManager.gd [AUTOLOAD]
 # ============================================================= #
 #                       COPYRIGHT NOTICE                        #
 #                           Noe Co.                             #

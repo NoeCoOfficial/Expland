@@ -102,7 +102,7 @@ func _physics_process(_delta: float) -> void:
 				collider.on_raycast_hit_chest()
 			
 			elif collider and collider.has_method("on_raycast_hit_workbench"):
-				InteractionManager.spawn_interaction_notification("F", "Construct")
+				InteractionManager.spawn_interaction_notification("F", "Craft")
 				collider.on_raycast_hit_workbench()
 			
 			previous_collider = collider

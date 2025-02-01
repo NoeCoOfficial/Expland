@@ -43,8 +43,8 @@ PauseManager="*res://Scenes and Scripts/Singletons/Pause/PauseManager.gd"
 TimeManager="*res://Scenes and Scripts/Singletons/World/TimeManager.gd"
 DialogueManager="*res://Scenes and Scripts/Singletons/Dialogue/DialogueManager.gd"
 AchievementsManager="*res://Scenes and Scripts/Singletons/Achievements/AchievementsManager.gd"
-ConstructingManager="*res://Scenes and Scripts/Singletons/Constructing/ConstructingManager.gd"
 InventoryManager="*res://Scenes and Scripts/Singletons/Inventory/InventoryManager.gd"
+CraftingManager="*res://Scenes and Scripts/Singletons/Crafting/CraftingManager.gd"
 InputManager="*res://Scenes and Scripts/Singletons/Input/InputManager.gd"
 InteractionManager="*res://Scenes and Scripts/Singletons/Interaction/InteractionManager.gd"
 AudioManager="*res://Scenes and Scripts/Singletons/Audio/AudioManager.gd"
@@ -55,6 +55,7 @@ SmoothMovements="*res://Scenes and Scripts/Singletons/SmoothMovements.gd"
 [display]
 
 window/size/mode=4
+window/size/resizable=false
 window/stretch/mode="canvas_items"
 display_server/driver.linuxbsd="wayland"
 
