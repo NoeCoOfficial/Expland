@@ -47,8 +47,18 @@
 
 extends Node
 
+var CURRENT_CRAFTING_ITEMS = [
+	"",
+	"",
+	"",
+	"",
+	""
+]
+
 const RECIPES = {
 	
 	["WOOD", "WOOD", "IRON", "IRON"] : "PICKAXE"
-	
 }
+
+func bindCraftingItem(ITEM_TYPE : String, index : int):
+	pass

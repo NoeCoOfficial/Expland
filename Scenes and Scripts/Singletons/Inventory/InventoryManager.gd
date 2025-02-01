@@ -195,8 +195,8 @@ func spawn_workshop_dropable(atPos : Vector2, ITEM_TYPE, slotToPopulate):
 		DropableInstance.set_is_workshop_dropable(true)
 		slotToPopulate.set_populated(true)
 		
-		var slot_name_as_string : String = slotToPopulate.name
-		slotToPopulate.bindWorkshopSlot(ITEM_TYPE, int(slot_name_as_string[-1]))
+		var slot_name_as_string : String = slotToPopulate.name[-1]
+		CraftingManager.bindCraftingItem(ITEM_TYPE, int(slot_name_as_string) - 1)
 		
 		return DropableInstance
 
