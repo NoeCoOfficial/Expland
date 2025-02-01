@@ -438,7 +438,7 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 		InventoryManager.is_inside_checker = false
 
 
-func bindWorkshopSlot(ITEM_TYPE : String):
+func bindWorkshopSlot(ITEM_TYPE_TEMP : String):
 	pass
 
 func set_ITEM_TYPE(ITEM_TYPE_TEMP : String):
