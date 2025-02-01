@@ -322,7 +322,6 @@ func _input(_event: InputEvent) -> void:
 						self.queue_free()
 						InventoryManager.is_dragging = false
 						
-						
 					else:
 						InventoryManager.is_dragging = false
 				
