@@ -4,7 +4,7 @@
 
 ---
 
-<text>
+yellow flower text inside inventory is now "Yellow Flower" instead of "Yellowflower"
 
 ---
 
