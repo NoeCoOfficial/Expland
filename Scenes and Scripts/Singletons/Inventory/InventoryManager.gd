@@ -195,6 +195,9 @@ func spawn_workshop_dropable(atPos : Vector2, ITEM_TYPE, slotToPopulate):
 		DropableInstance.set_is_workshop_dropable(true)
 		slotToPopulate.set_populated(true)
 		
+		var slot_name_as_string : String = slotToPopulate.name
+		slotToPopulate.bindWorkshopSlot(ITEM_TYPE, int(slot_name_as_string[-1]))
+		
 		return DropableInstance
 
 func set_hand_item(dropable_to_delete, ITEM_TYPE : String):
