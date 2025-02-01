@@ -194,6 +194,7 @@ func _process(delta):
 								top_level = false
 							
 						else:
+							# If the slot is not populated, snap to the new slot
 							tween.tween_property(self, "global_position", body_ref.global_position, SNAP_TIME)
 							if body_ref.has_method("set_populated"):
 								body_ref.set_populated(true)
@@ -215,6 +216,7 @@ func _process(delta):
 									self.queue_free()
 									InventoryManager.spawn_workshop_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside)
 									top_level = false
+									bindWorkshopSlot(ITEM_TYPE)
 									
 								else:
 									
@@ -435,6 +437,9 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area.is_in_group("draggable"):
 		InventoryManager.is_inside_checker = false
 
+
+func bindWorkshopSlot(ITEM_TYPE : String):
+	pass
 
 func set_ITEM_TYPE(ITEM_TYPE_TEMP : String):
 	ITEM_TYPE = ITEM_TYPE_TEMP
