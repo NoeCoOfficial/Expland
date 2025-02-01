@@ -60,5 +60,8 @@ const RECIPES = {
 	["WOOD", "WOOD", "IRON", "IRON"] : "PICKAXE"
 }
 
-func bindCraftingItem(ITEM_TYPE : String, index : int):
-	pass
+func bindCraftingItem(ITEM_TYPE : String, atIndex : int):
+	CURRENT_CRAFTING_ITEMS[atIndex] = ITEM_TYPE
+
+func unbindCraftingItem(atIndex : int):
+	CURRENT_CRAFTING_ITEMS[atIndex] = ""
