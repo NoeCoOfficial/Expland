@@ -137,7 +137,6 @@ func create_pickup_object():
 	
 	is_creating_pickup = false
 	
-	#InventoryData.saveInventory(IslandManager.Current_Island_Name, INVENTORY_LAYER, CHEST_SLOTS)
 
 func spawn_inventory_dropable(atPos : Vector2, ITEM_TYPE, slotToPopulate, is_in_chest_slot : bool):
 	if get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer") != null:
@@ -194,9 +193,6 @@ func spawn_workshop_dropable(atPos : Vector2, ITEM_TYPE, slotToPopulate):
 		DropableInstance.set_slot_inside(slotToPopulate)
 		DropableInstance.set_is_workshop_dropable(true)
 		slotToPopulate.set_populated(true)
-		
-		var slot_name_as_string : String = slotToPopulate.name[-1]
-		CraftingManager.bindCraftingItem(ITEM_TYPE, int(slot_name_as_string) - 1)
 		
 		return DropableInstance
 
