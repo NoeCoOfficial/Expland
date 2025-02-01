@@ -256,6 +256,7 @@ func _process(delta):
 					elif is_workshop_dropable:
 						is_workshop_dropable = true
 						
+						
 						self.queue_free()
 						InventoryManager.spawn_workshop_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside)
 						top_level = false
