@@ -48,11 +48,11 @@
 extends Node
 
 var CURRENT_CRAFTING_ITEMS = [
-	"",
-	"",
-	"",
-	"",
-	""
+	"NULL",
+	"NULL",
+	"NULL",
+	"NULL",
+	"NULL"
 ]
 
 const RECIPES = {
@@ -64,4 +64,4 @@ func bindCraftingItem(ITEM_TYPE : String, atIndex : int):
 	CURRENT_CRAFTING_ITEMS[atIndex] = ITEM_TYPE
 
 func unbindCraftingItem(atIndex : int):
-	CURRENT_CRAFTING_ITEMS[atIndex] = ""
+	CURRENT_CRAFTING_ITEMS[atIndex] = "NULL"
