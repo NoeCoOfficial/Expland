@@ -213,13 +213,15 @@ func _process(delta):
 								
 								elif body_ref.get_is_workbench_slot():
 									is_workshop_dropable = true
-									self.queue_free()
-									InventoryManager.spawn_workshop_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside)
-									top_level = false
 									
 									var slot_inside_name_as_string = String(slot_inside.name)
 									var slot_index = slot_inside_name_as_string[-1]
 									CraftingManager.bindCraftingItem(ITEM_TYPE, int(slot_index) - 1)
+									
+									self.queue_free()
+									InventoryManager.spawn_workshop_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside)
+									top_level = false
+									
 									
 								else:
 									
@@ -231,13 +233,15 @@ func _process(delta):
 									
 									elif is_workshop_dropable:
 										is_workshop_dropable = false
-										self.queue_free()
-										InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, false)
-										top_level = false
 										
 										var slot_inside_name_as_string = String(slot_inside.name)
 										var slot_index = slot_inside_name_as_string[-1]
 										CraftingManager.unbindCraftingItem(int(slot_index) - 1)
+										
+										self.queue_free()
+										InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, false)
+										top_level = false
+										
 									
 									else:
 										is_workshop_dropable = false
@@ -306,15 +310,17 @@ func _input(_event: InputEvent) -> void:
 					
 					if free_slot != null and !free_slot.is_populated():
 						free_slot.set_populated(true)
+						
+						var slot_inside_name_as_string = String(slot_inside.name)
+						var slot_index = slot_inside_name_as_string[-1]
+						CraftingManager.unbindCraftingItem(int(slot_index) - 1)
+						
 						InventoryManager.spawn_inventory_dropable(free_slot.global_position, ITEM_TYPE, free_slot, false)
 						
 						slot_inside.set_populated(false)
 						self.queue_free()
 						InventoryManager.is_dragging = false
 						
-						var slot_inside_name_as_string = String(slot_inside.name)
-						var slot_index = slot_inside_name_as_string[-1]
-						CraftingManager.unbindCraftingItem(int(slot_index) - 1)
 						
 					else:
 						InventoryManager.is_dragging = false
