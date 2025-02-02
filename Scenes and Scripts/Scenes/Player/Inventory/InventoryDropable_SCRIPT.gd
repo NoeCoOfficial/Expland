@@ -232,7 +232,7 @@ func _process(delta):
 									
 									elif is_workshop_dropable: # If the draggable was in a workshop slot
 										is_workshop_dropable = false
-										
+										CraftingManager.unbindCraftingItem(int(String(slot_inside.name)[-1]) - 1)
 										self.queue_free()
 										InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, false)
 										top_level = false
