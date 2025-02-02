@@ -1078,7 +1078,7 @@ func closeWorkbench():
 	closeInventory() # Does most of the stuff for us
 
 func _on_craft_button_pressed() -> void:
-	pass # Replace with function body.
+	SignalBus.pressed_craft.emit()
 
 #endregion
 
