@@ -750,7 +750,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="InventoryMainLayer" type="CanvasLayer" parent="Head/Camera3D/InventoryLayer"]
 layer = 2
-visible = false
 
 [node name="Background" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 anchors_preset = 8
@@ -1098,7 +1097,6 @@ position = Vector2(473, 473)
 is_chest_slot = true
 
 [node name="WorkbenchMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
-visible = false
 layout_mode = 3
 anchor_left = 0.243924
 anchor_top = 1.54321
@@ -1200,6 +1198,21 @@ is_workbench_slot = true
 [node name="Slot5" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots" instance=ExtResource("8_ads4s")]
 position = Vector2(214, 0)
 is_workbench_slot = true
+
+[node name="CraftButton" type="Button" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.743
+anchor_top = 0.396
+anchor_right = 0.743
+anchor_bottom = 0.396
+offset_left = -92.9331
+offset_top = -27.6082
+offset_right = 94.0669
+offset_bottom = 27.3918
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 37
+text = "CRAFT"
 
 [node name="HandDropableDetector" type="Button" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 modulate = Color(1, 1, 1, 0)
