@@ -194,7 +194,7 @@ func spawn_workshop_dropable(atPos : Vector2, ITEM_TYPE, slotToPopulate):
 		DropableInstance.set_is_workshop_dropable(true)
 		slotToPopulate.set_populated(true)
 		
-		CraftingManager.bindCraftingItem(ITEM_TYPE, int(String(slotToPopulate.name)[-1]))
+		CraftingManager.bindCraftingItem(ITEM_TYPE, int(String(slotToPopulate.name)[-1]) - 1)
 		
 		return DropableInstance
 
@@ -204,7 +204,7 @@ func set_hand_item(dropable_to_delete, ITEM_TYPE : String):
 		if !dropable_to_delete.get_is_workshop_dropable():
 			spawn_inventory_dropable(dropable_to_delete.global_position, InventoryData.HAND_ITEM_TYPE, dropable_to_delete.get_slot_inside(), dropable_to_delete.get_is_in_chest_slot())
 		else:
-			CraftingManager.bindCraftingItem(ITEM_TYPE, int(String(dropable_to_delete.get_slot_inside().name)[-1]))
+			CraftingManager.bindCraftingItem(ITEM_TYPE, int(String(dropable_to_delete.get_slot_inside().name)[-1]) - 1)
 			spawn_workshop_dropable(dropable_to_delete.global_position, InventoryData.HAND_ITEM_TYPE, dropable_to_delete.get_slot_inside())
 	
 	dropable_to_delete.queue_free()

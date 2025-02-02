@@ -307,6 +307,7 @@ func _input(_event: InputEvent) -> void:
 					if free_slot != null and !free_slot.is_populated():
 						free_slot.set_populated(true)
 						
+						CraftingManager.unbindCraftingItem(int(String(slot_inside.name)[-1]) - 1)
 						
 						InventoryManager.spawn_inventory_dropable(free_slot.global_position, ITEM_TYPE, free_slot, false)
 						
@@ -336,6 +337,7 @@ func _input(_event: InputEvent) -> void:
 							InventoryManager.is_dragging = false
 						
 					elif InventoryManager.is_in_workbench_interface:
+						
 						var free_slot = null
 						
 						# Get the free slot from workshop slots (5)
@@ -344,6 +346,8 @@ func _input(_event: InputEvent) -> void:
 						if free_slot != null and !free_slot.is_populated():
 							free_slot.set_populated(true)
 							InventoryManager.spawn_workshop_dropable(free_slot.global_position, ITEM_TYPE, free_slot)
+							
+							CraftingManager.bindCraftingItem(ITEM_TYPE, int(String(free_slot.name)[-1]) - 1)
 							
 							slot_inside.set_populated(false)
 							self.queue_free()
