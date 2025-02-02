@@ -6,6 +6,8 @@
 
 yellow flower text inside inventory is now "Yellow Flower" instead of "Yellowflower"
 fixed a bug where you could close the workbench by pressing "E", then being able to open it again by pressing "E"
+fixed 3d inventory pickup items noclipping through the ground
+
 
 ---
 
