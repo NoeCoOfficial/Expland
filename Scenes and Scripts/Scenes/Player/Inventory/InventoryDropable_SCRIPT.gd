@@ -205,39 +205,38 @@ func _process(delta):
 								
 								slot_inside = body_ref
 								
-								if body_ref.get_is_chest_slot():
+								if body_ref.get_is_chest_slot(): # If the slot is a chest slot
 									is_in_chest_slot = true
 									self.queue_free()
 									InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, true)
 									top_level = false
 								
-								elif body_ref.get_is_workbench_slot():
+								elif body_ref.get_is_workbench_slot(): # If the slot is a workshop slot
 									is_workshop_dropable = true
-									
 									
 									self.queue_free()
 									InventoryManager.spawn_workshop_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside)
 									top_level = false
 									
 									
-								else:
+								else: # If the slot is a pocket slot
 									
-									if is_in_chest_slot:
+									if is_in_chest_slot: # If the draggable was in a chest slot
 										is_in_chest_slot = false
 										self.queue_free()
 										InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, false)
 										top_level = false
 									
-									elif is_workshop_dropable:
+									elif is_workshop_dropable: # If the draggable was in a workshop slot
 										is_workshop_dropable = false
 										
-										
+										CraftingManager.unbindCraftingItem(int(String(body_ref.name)[-1]) - 1)
 										self.queue_free()
 										InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, false)
 										top_level = false
 										
 									
-									else:
+									else: # If the draggable was in a pocket slot
 										is_workshop_dropable = false
 										is_in_chest_slot = false
 									
