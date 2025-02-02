@@ -75,7 +75,7 @@ func Craft():
 	var crafted_item = runCraftingChecks()
 	if crafted_item != "":
 		print("Crafted item: ", crafted_item)
-		# Add logic to give the crafted item to the player
+		SignalBus.spawn_crafted_item.emit(crafted_item)
 	else:
 		print("No matching recipe found.")
 
