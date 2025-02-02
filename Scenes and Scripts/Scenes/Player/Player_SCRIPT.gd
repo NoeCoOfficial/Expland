@@ -589,9 +589,10 @@ func _ready():
 	else:
 		
 		OverlayLayer_Overlay.hide() # hide the overlay
-		
+	
 	if !OS.has_feature("debug"):
 		PauseLayer.hide()
+		StartDebugging_Btn.hide()
 	
 	InventoryManager.is_inside_boundary = false
 
