@@ -564,6 +564,8 @@ func _process(delta):
 #region On startup
 
 func _ready():
+	SignalBus.spawn_crafted_item.connect(Craft)
+	
 	initInventorySlots() # Link local inventory slots to singleton arrays
 	
 	PlayerManager.AudioNotification = $Head/Camera3D/AudioNotificationLayer/AudioNotification
@@ -1079,6 +1081,9 @@ func closeWorkbench():
 
 func _on_craft_button_pressed() -> void:
 	SignalBus.pressed_craft.emit()
+
+func Craft():
+	pass
 
 #endregion
 
