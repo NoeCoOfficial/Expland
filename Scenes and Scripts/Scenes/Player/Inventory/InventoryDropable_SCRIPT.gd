@@ -203,6 +203,9 @@ func _process(delta):
 									if slot_inside.has_method("set_populated"):
 										slot_inside.set_populated(false)
 								
+								if is_workshop_dropable:
+									CraftingManager.unbindCraftingItem(int(String(slot_inside.name)[-1]) - 1)
+								
 								slot_inside = body_ref
 								
 								if body_ref.get_is_chest_slot(): # If the slot is a chest slot
@@ -230,7 +233,6 @@ func _process(delta):
 									elif is_workshop_dropable: # If the draggable was in a workshop slot
 										is_workshop_dropable = false
 										
-										CraftingManager.unbindCraftingItem(int(String(body_ref.name)[-1]) - 1)
 										self.queue_free()
 										InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, false)
 										top_level = false
