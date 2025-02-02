@@ -1060,7 +1060,7 @@ func closeChest():
 
 #endregion
 
-#region Workbench
+#region Workbench and crafting
 
 func openWorkbench():
 	WorkbenchMainLayer.show()
@@ -1076,6 +1076,9 @@ func closeWorkbench():
 	$Head/Camera3D/AudioNotificationLayer.layer = 1
 	InventoryManager.is_in_workbench_interface = false
 	closeInventory() # Does most of the stuff for us
+
+func _on_craft_button_pressed() -> void:
+	pass # Replace with function body.
 
 #endregion
 
