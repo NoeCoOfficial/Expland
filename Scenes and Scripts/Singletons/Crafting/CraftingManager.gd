@@ -57,8 +57,8 @@ var CURRENT_CRAFTING_ITEMS = [
 
 const RECIPES = [
 	
-	["PICKAXE", ["ROCK", "ROCK", "ROCK", "ROCK"]],
-	["SWORD", ["WOOD", "WOOD", "DIAMOND", "TITANIUM"]],
+	["PICKAXE", ["ROCK", "ROCK", "ROCK", "ROCK", "ROCK"]],
+	["SWORD", ["WOOD", "WOOD", "DIAMOND", "TITANIUM", "SKIBIDI"]],
 	
 ]
 

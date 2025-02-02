@@ -1210,6 +1210,7 @@ offset_left = -92.9331
 offset_top = -27.6082
 offset_right = 94.0669
 offset_bottom = 27.3918
+focus_mode = 0
 theme = ExtResource("17_rhxkt")
 theme_override_font_sizes/font_size = 37
 text = "CRAFT"
