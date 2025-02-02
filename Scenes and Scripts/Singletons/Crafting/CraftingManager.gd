@@ -55,13 +55,29 @@ var CURRENT_CRAFTING_ITEMS = [
 	""
 ]
 
-const RECIPES = {
+const RECIPES = [
 	
-	["WOOD", "WOOD", "IRON", "IRON"] : "PICKAXE"
-}
+	["PICKAXE", ["WOODPLANK", "WOODPLANK", "IRON", "IRON"]],
+	["SWORD", ["WOOD", "WOOD", "DIAMOND", "TITANIUM"]],
+	
+]
+
+func _ready() -> void:
+	SignalBus.connect("pressed_craft", Craft)
 
 func bindCraftingItem(ITEM_TYPE : String, atIndex : int):
 	CURRENT_CRAFTING_ITEMS[atIndex] = ITEM_TYPE
 
 func unbindCraftingItem(atIndex : int):
 	CURRENT_CRAFTING_ITEMS[atIndex] = ""
+
+func Craft():
+	pass
+
+func runCraftingChecks():
+	# Check if CURRENT_CRAFTING_ITEMS matches any of the recipes in RECIPES
+		# If found a matching recipe:
+			# break loop and return the item to craft, which is the item attatchde to the recipe.
+		# If not found matching recipe:
+			# break loop and return null.
+	pass
