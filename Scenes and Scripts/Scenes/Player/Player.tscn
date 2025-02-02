@@ -750,6 +750,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="InventoryMainLayer" type="CanvasLayer" parent="Head/Camera3D/InventoryLayer"]
 layer = 2
+visible = false
 
 [node name="Background" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 anchors_preset = 8
@@ -1171,6 +1172,7 @@ vertical_alignment = 1
 script = ExtResource("9_svfxy")
 
 [node name="WorkbenchSlots" type="Control" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer"]
+visible = false
 layout_mode = 1
 anchor_left = 0.742188
 anchor_top = 0.243827
