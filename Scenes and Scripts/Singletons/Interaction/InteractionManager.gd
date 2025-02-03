@@ -102,4 +102,4 @@ func _input(_event: InputEvent) -> void:
 			PlayerManager.PLAYER.openWorkbench()
 		
 		if Input.is_action_just_pressed("Interact") and is_hovering_over_explorer_note:
-			ExplorerNotesManager.viewcloseup()
+			ExplorerNotesManager.viewCloseUp(ExplorerNotesManager.CurrentlyInteracting_ID)
