@@ -462,7 +462,7 @@ camera = NodePath("Head/Camera3D")
 PickupAttractionPos = NodePath("PickupAttractionPos")
 Slot1_Inventory_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Slot1")
 Slot2_Inventory_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Slot2")
-Slot3_Inventory_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Slot3")
+Slot3_Inventory_Ref = NodePath("")
 Slot4_Inventory_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Slot4")
 Slot5_Inventory_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Slot5")
 Slot6_Inventory_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Slot6")
@@ -800,23 +800,28 @@ anchor_top = 0.20216
 anchor_right = 0.618055
 anchor_bottom = 0.293209
 offset_left = -6.0
+offset_top = -1.0
 offset_right = -6.0
+offset_bottom = -1.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("8_cdk3a")
 theme_override_font_sizes/font_size = 45
-text = "INVENTORY"
+text = "POCKETS"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("9_svfxy")
 
 [node name="Slot1" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
-position = Vector2(382, 246)
+position = Vector2(362, 244)
 
 [node name="Slot2" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot2"] instance=ExtResource("8_ads4s")]
-position = Vector2(488, 246)
+position = Vector2(430, 244)
 
-[node name="Slot3" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot3"] instance=ExtResource("8_ads4s")]
-position = Vector2(595, 246)
+[node name="Slot3" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
+position = Vector2(498, 244)
+
+[node name="Slot10" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot2"] instance=ExtResource("8_ads4s")]
+position = Vector2(566, 244)
 
 [node name="Slot4" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot4"] instance=ExtResource("8_ads4s")]
 position = Vector2(381, 354)

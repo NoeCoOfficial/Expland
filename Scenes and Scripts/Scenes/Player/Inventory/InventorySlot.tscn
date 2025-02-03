@@ -5,10 +5,10 @@
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="3_x0xu3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5hbs3"]
-size = Vector2(26, 26)
+size = Vector2(32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5yu5"]
-size = Vector2(26, 26)
+size = Vector2(32, 32)
 
 [node name="InventorySlot" type="StaticBody2D" node_paths=PackedStringArray("is_populated_label") groups=["slot"]]
 script = ExtResource("1_bxl3d")
@@ -19,19 +19,19 @@ wait_time = 0.05
 one_shot = true
 autostart = true
 
-[node name="ColorRect" type="TextureRect" parent="."]
+[node name="Texture" type="TextureRect" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -30.0
-offset_top = -30.0
-offset_right = 60.0
-offset_bottom = 60.0
+offset_left = -35.0
+offset_top = -35.0
+offset_right = 55.0
+offset_bottom = 55.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.66, 0.66)
+scale = Vector2(0.78, 0.78)
 texture = ExtResource("2_2mtlq")
 expand_mode = 1
 
