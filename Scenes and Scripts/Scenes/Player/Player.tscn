@@ -736,6 +736,7 @@ offset_right = -1107.0
 offset_bottom = -571.0
 
 [node name="InventoryLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="GreyLayer" type="ColorRect" parent="Head/Camera3D/InventoryLayer"]
 anchors_preset = 15
@@ -749,6 +750,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="InventoryMainLayer" type="CanvasLayer" parent="Head/Camera3D/InventoryLayer"]
 layer = 2
+visible = false
 
 [node name="Background" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 anchors_preset = 8
@@ -1096,6 +1098,7 @@ position = Vector2(473, 473)
 is_chest_slot = true
 
 [node name="WorkbenchMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
+visible = false
 layout_mode = 3
 anchor_left = 0.243924
 anchor_top = 1.54321
