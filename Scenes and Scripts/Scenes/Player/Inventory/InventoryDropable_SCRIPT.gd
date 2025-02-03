@@ -371,7 +371,8 @@ func _input(_event: InputEvent) -> void:
 				# Right clicked on a handheld item (see InventoryManager.gd for contents)
 				if ITEM_TYPE in InventoryManager.HANDHELD_ITEMS:
 					if PlayerManager.PLAYER.get_hand_debounce_time_left() <= 0.0:
-						CraftingManager.unbindCraftingItem(int(String(slot_inside.name)[-1]) - 1)
+						if is_workshop_dropable:
+							CraftingManager.unbindCraftingItem(int(String(slot_inside.name)[-1]) - 1)
 						PlayerManager.MINIMAL_ALERT_PLAYER.hide_minimal_alert(0.1)
 						slot_inside.set_populated(false)
 						InventoryManager.set_hand_item(self, ITEM_TYPE)

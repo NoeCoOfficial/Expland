@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://dble54a2rl76q"]
+
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/The Island/Explorer Note/ExplorerNote_SCRIPT.gd" id="1_etueb"]
+[ext_resource type="PackedScene" uid="uid://c21pv7qtyb57x" path="res://Assets/3D Models/Environment/OldPaper.blend" id="2_uieki"]
+[ext_resource type="Texture2D" uid="uid://dhp1lqdlclos" path="res://Textures/Icons/Expland_TextWHITE_Icon.png" id="3_er0yf"]
+[ext_resource type="PackedScene" uid="uid://dcc3turii63vs" path="res://Assets/3D Models/Environment/RustyNail.blend" id="4_1mdey"]
+
+[node name="ExplorerNote" type="Node3D"]
+script = ExtResource("1_etueb")
+
+[node name="OldPaper" parent="." instance=ExtResource("2_uieki")]
+
+[node name="Decal" type="Decal" parent="."]
+transform = Transform3D(-2.89785e-08, 0, 0.66295, 0, 0.66295, 0, -0.66295, 0, -2.89785e-08, 0, 0.0579189, 0)
+size = Vector3(2, 0.298035, 2)
+texture_albedo = ExtResource("3_er0yf")
+lower_fade = 1.04466
+
+[node name="RustyNail" parent="." instance=ExtResource("4_1mdey")]
+transform = Transform3D(1.62311, 0, 0, 0, 1.62194, -0.0616849, 0, 0.0616849, 1.62194, -0.810205, -0.423762, 0.000464082)

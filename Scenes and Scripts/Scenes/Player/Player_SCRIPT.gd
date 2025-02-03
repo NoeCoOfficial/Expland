@@ -1082,7 +1082,7 @@ func closeWorkbench():
 func _on_craft_button_pressed() -> void:
 	SignalBus.pressed_craft.emit()
 
-func Craft():
+func Craft(ITEM_TYPE : String):
 	pass
 
 #endregion

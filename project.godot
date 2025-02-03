@@ -55,7 +55,6 @@ SmoothMovements="*res://Scenes and Scripts/Singletons/SmoothMovements.gd"
 
 [display]
 
-window/size/resizable=false
 window/stretch/mode="canvas_items"
 display_server/driver.linuxbsd="wayland"
 
