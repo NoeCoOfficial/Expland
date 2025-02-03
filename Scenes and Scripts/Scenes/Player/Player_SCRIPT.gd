@@ -636,6 +636,14 @@ func initInventorySlots():
 		Slot7_Inventory_Ref,
 		Slot8_Inventory_Ref,
 		Slot9_Inventory_Ref,
+		Slot10_Inventory_Ref,
+		Slot11_Inventory_Ref,
+		Slot12_Inventory_Ref,
+		Slot13_Inventory_Ref,
+		Slot14_Inventory_Ref,
+		Slot15_Inventory_Ref,
+		Slot16_Inventory_Ref,
+
 	]
 	
 	InventoryManager.CHEST_SLOTS = [
