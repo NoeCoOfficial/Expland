@@ -1,5 +1,5 @@
 # ============================================================= #
-# InteractionManager.gd [AUTOLOAD]
+# ExplorerNote_StaticBody3D_SCRIPT.gd
 # ============================================================= #
 #                       COPYRIGHT NOTICE                        #
 #                           Noe Co.                             #
@@ -45,59 +45,12 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-extends Node
+extends StaticBody3D
 
-var is_notification_on_screen = false
-var is_colliding = false
+@export var root : Node3D
 
-var is_hovering_over_email_noeco = false
-var is_hovering_over_feedback_github = false
-var is_hovering_over_test_obj = false
-var is_hovering_over_sackcloth_bed = false
-var is_hovering_over_chest = false
-var is_hovering_over_workbench = false
-var is_hovering_over_explorer_note = false
+func on_raycast_hit_chest():
+	InteractionManager.is_hovering_over_explorer_note = true
 
-func spawn_interaction_notification(KEY : String, MESSAGE : String):
-	if !is_notification_on_screen:
-		var interaction_node = get_node("/root/World/Player/Head/Camera3D/InteractionLayer/InteractionHUD")
-		if interaction_node.has_method("ShowNotification"):
-			interaction_node.ShowNotification(KEY, MESSAGE)
-			is_notification_on_screen = true
-			print("[InteractionManager] Spawned interaction notification")
-			print("Key: " + KEY)
-			print("Message: " + MESSAGE)
-
-func despawn_interaction_notification():
-	if is_notification_on_screen:
-		var interaction_node = get_node("/root/World/Player/Head/Camera3D/InteractionLayer/InteractionHUD")
-		if interaction_node.has_method("HideNotification"):
-			interaction_node.HideNotification()
-			is_notification_on_screen = false
-			print("[InteractionManager] Despawned interaction notification")
-
-func _input(_event: InputEvent) -> void:
-	if !PlayerData.GAME_STATE == "SLEEPING" and !InventoryManager.in_chest_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !InventoryManager.is_in_workbench_interface and !InventoryManager.inventory_open and !PauseManager.is_paused:
-		if Input.is_action_just_pressed("Interact") and is_hovering_over_test_obj:
-			pass
-		
-		if Input.is_action_just_pressed("Interact") and is_hovering_over_email_noeco:
-			OS.shell_open("https://mail.google.com/mail/?view=cm&fs=1&to=noeco.official@gmail.com")
-		
-		if Input.is_action_just_pressed("Interact") and is_hovering_over_feedback_github:
-			OS.shell_open("https://github.com/NoeCoOfficial/Expland/issues/new?assignees=&labels=&projects=&template=feedback.md")
-		
-		if Input.is_action_just_pressed("Interact") and is_hovering_over_sackcloth_bed and PlayerData.GAME_STATE != "SLEEPING":
-			if TimeManager.DAY_STATE != "DAY":
-				PlayerManager.sleep()
-				despawn_interaction_notification()
-			else:
-				PlayerManager.PLAYER.spawn_minimal_alert_from_player(2.0, 0.1, 0.5, "You can only sleep at night.")
-		
-		if Input.is_action_just_pressed("Interact") and is_hovering_over_chest:
-			if !InventoryManager.chestNode.is_animating():
-				PlayerManager.PLAYER.openChest()
-			
-		if Input.is_action_just_pressed("Interact") and is_hovering_over_workbench:
-			PlayerManager.PLAYER.openWorkbench()
-			
+func on_raycast_exit_chest():
+	InteractionManager.is_hovering_over_explorer_note = false

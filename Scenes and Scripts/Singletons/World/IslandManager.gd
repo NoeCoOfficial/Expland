@@ -113,6 +113,8 @@ func resetAttributes():
 	InteractionManager.is_hovering_over_test_obj = false
 	InteractionManager.is_hovering_over_sackcloth_bed = false
 	InteractionManager.is_hovering_over_chest = false
+	InteractionManager.is_hovering_over_workbench = false
+	InteractionManager.is_hovering_over_explorer_note = false
 
 	# NOTE: May need to reset TerrainManager variables here in future
 	
