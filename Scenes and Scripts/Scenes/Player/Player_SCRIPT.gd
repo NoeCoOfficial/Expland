@@ -185,6 +185,13 @@ var stamina_restoring_from_0 = false
 @export var Slot7_Inventory_Ref : StaticBody2D
 @export var Slot8_Inventory_Ref : StaticBody2D
 @export var Slot9_Inventory_Ref : StaticBody2D
+@export var Slot10_Inventory_Ref : StaticBody2D
+@export var Slot11_Inventory_Ref : StaticBody2D
+@export var Slot12_Inventory_Ref : StaticBody2D
+@export var Slot13_Inventory_Ref : StaticBody2D
+@export var Slot14_Inventory_Ref : StaticBody2D
+@export var Slot15_Inventory_Ref : StaticBody2D
+@export var Slot16_Inventory_Ref : StaticBody2D
 
 @export_subgroup("Layers and UI")
 @export var PocketsCollisionBoundary : Area2D
