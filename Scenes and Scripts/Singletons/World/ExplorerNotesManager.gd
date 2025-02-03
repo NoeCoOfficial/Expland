@@ -46,3 +46,10 @@
 # ============================================================= #
 
 extends Node
+
+const EXPLORER_NOTES = [
+	"PLACHOLDER",
+	"EXPLAND_TEXT_TEST",
+]
+
+var COLLECTED_NOTES = []
