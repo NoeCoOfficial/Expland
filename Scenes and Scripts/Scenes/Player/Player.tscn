@@ -1432,6 +1432,7 @@ shape = SubResource("RectangleShape2D_fv14n")
 debug_color = Color(0.92549, 0, 0.109804, 0.396078)
 
 [node name="WorkbenchBoundary" type="Area2D" parent="Head/Camera3D/InventoryLayer"]
+position = Vector2(152, 0)
 
 [node name="Boundary1" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/WorkbenchBoundary"]
 position = Vector2(576, 53)

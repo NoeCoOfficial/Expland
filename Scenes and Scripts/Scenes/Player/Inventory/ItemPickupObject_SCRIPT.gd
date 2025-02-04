@@ -73,7 +73,7 @@ func _ready():
 	self.scale = Vector3(0.0001, 0.0001, 0.0001)
 	
 	if InventoryManager.creatingFromInventory:
-		if InventoryManager.in_chest_interface:
+		if InventoryManager.in_chest_interface or InventoryManager.is_in_workbench_interface:
 			self.global_position = get_node("/root/World/Player/Head/ChestItemDropPosition").global_position
 		else:
 			self.global_position = get_node("/root/World/Player/Head/ItemDropPosition").global_position
