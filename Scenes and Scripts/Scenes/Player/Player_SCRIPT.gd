@@ -272,7 +272,10 @@ var stamina_restoring_from_0 = false
 @export var Slot3_Workbench_Ref : StaticBody2D
 @export var Slot4_Workbench_Ref : StaticBody2D
 @export var Slot5_Workbench_Ref : StaticBody2D
-
+@export var Slot6_Workbench_Ref : StaticBody2D
+@export var Slot7_Workbench_Ref : StaticBody2D
+@export var Slot8_Workbench_Ref : StaticBody2D
+@export var Slot9_Workbench_Ref : StaticBody2D
 
 @export_group("General Nodes")
 

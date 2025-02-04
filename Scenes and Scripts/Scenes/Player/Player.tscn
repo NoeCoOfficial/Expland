@@ -536,10 +536,10 @@ Slot49_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Che
 WorkbenchMainLayer = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer")
 WorkbenchSlots = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots")
 Slot1_Workbench_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots/Slot1")
-Slot2_Workbench_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots/Slot2")
-Slot3_Workbench_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots/Slot3")
-Slot4_Workbench_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots/Slot4")
-Slot5_Workbench_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots/Slot5")
+Slot2_Workbench_Ref = NodePath("")
+Slot3_Workbench_Ref = NodePath("")
+Slot4_Workbench_Ref = NodePath("")
+Slot5_Workbench_Ref = NodePath("")
 HUDLayer = NodePath("Head/Camera3D/HUDLayer")
 InventoryLayer = NodePath("Head/Camera3D/InventoryLayer")
 InventoryMainLayer = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer")
@@ -1245,7 +1245,6 @@ position = Vector2(498, 493)
 is_chest_slot = true
 
 [node name="WorkbenchMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
-visible = false
 layout_mode = 3
 anchor_left = 0.243924
 anchor_top = 1.54321
@@ -1263,10 +1262,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -18.5
+offset_left = 134.002
 offset_top = -311.0
-offset_right = 576.5
-offset_bottom = 311.0
+offset_right = 431.002
+offset_bottom = 97.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2kg3l")
@@ -1280,10 +1279,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -10.5
-offset_top = -257.0
-offset_right = 569.5
-offset_bottom = 304.0
+offset_left = 140.002
+offset_top = -262.0
+offset_right = 425.002
+offset_bottom = 90.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xa5l0")
@@ -1294,9 +1293,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -10.5
+offset_left = 140.002
 offset_top = 20.0
-offset_right = 569.5
+offset_right = 425.002
 offset_bottom = 80.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7tmhy")
@@ -1308,13 +1307,13 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = 149.5
-offset_top = 21.0
+offset_top = 24.0
 offset_right = 408.5
-offset_bottom = 80.0
+offset_bottom = 83.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("8_cdk3a")
-theme_override_font_sizes/font_size = 45
-text = "Workbench"
+theme_override_font_sizes/font_size = 35
+text = "WORKBENCH"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("9_svfxy")
@@ -1330,22 +1329,39 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Slot1" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots" instance=ExtResource("8_ads4s")]
-position = Vector2(-214, 0)
+position = Vector2(-78.001, -31)
 is_workbench_slot = true
 
 [node name="Slot2" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots" instance=ExtResource("8_ads4s")]
-position = Vector2(-107, 0)
+position = Vector2(1.99902, -31)
 is_workbench_slot = true
 
 [node name="Slot3" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(81.999, -31)
 is_workbench_slot = true
 
 [node name="Slot4" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots" instance=ExtResource("8_ads4s")]
-position = Vector2(107, 0)
+position = Vector2(-78.001, 49)
 is_workbench_slot = true
 
 [node name="Slot5" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots" instance=ExtResource("8_ads4s")]
-position = Vector2(214, 0)
+position = Vector2(1.99902, 49)
+is_workbench_slot = true
+
+[node name="Slot6" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(81.999, 49)
+is_workbench_slot = true
+
+[node name="Slot7" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(-78.001, 129)
+is_workbench_slot = true
+
+[node name="Slot8" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(1.99902, 129)
+is_workbench_slot = true
+
+[node name="Slot9" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(81.999, 129)
 is_workbench_slot = true
 
 [node name="CraftButton" type="Button" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer"]
@@ -1355,10 +1371,10 @@ anchor_left = 0.743
 anchor_top = 0.396
 anchor_right = 0.743
 anchor_bottom = 0.396
-offset_left = -92.9331
-offset_top = -27.6082
-offset_right = 94.0669
-offset_bottom = 27.3918
+offset_left = -92.9296
+offset_top = 76.3918
+offset_right = 94.0704
+offset_bottom = 131.392
 focus_mode = 0
 theme = ExtResource("17_rhxkt")
 theme_override_font_sizes/font_size = 37
