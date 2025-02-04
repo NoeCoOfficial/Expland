@@ -196,6 +196,7 @@ var stamina_restoring_from_0 = false
 @export_subgroup("Layers and UI")
 @export var PocketsCollisionBoundary : Area2D
 @export var ChestCollisionBoundary : Area2D
+@export var WorkbenchCollisionBoundary : Area2D
 @export var Pickaxe_Video : VideoStreamPlayer
 @export var Axe_Video : VideoStreamPlayer
 @export var Sword_Video : VideoStreamPlayer
@@ -855,17 +856,30 @@ func showDeathScreen(): # A function to show the death screen
 
 func openInventory():
 	$is_inside_boundary_false_inventory_debounce.start()
+	
 	if InventoryManager.in_chest_interface:
-		
 		InventoryMainLayer.offset.x = -291.96
-		PocketsCollisionBoundary.set_deferred("monitorable", false)
-		PocketsCollisionBoundary.set_deferred("monitoring", false)
 		
 		ChestCollisionBoundary.set_deferred("monitorable", true)
 		ChestCollisionBoundary.set_deferred("monitoring", true)
 		
+		PocketsCollisionBoundary.set_deferred("monitorable", false)
+		PocketsCollisionBoundary.set_deferred("monitoring", false)
+		
+		WorkbenchCollisionBoundary.set_deferred("monitorable", false)
+		WorkbenchCollisionBoundary.set_deferred("monitoring", false)
+		
 	elif InventoryManager.is_in_workbench_interface:
-		pass
+		InventoryMainLayer.offset.x = -155.09
+		
+		WorkbenchCollisionBoundary.set_deferred("monitorable", true)
+		WorkbenchCollisionBoundary.set_deferred("monitoring", true)
+		
+		ChestCollisionBoundary.set_deferred("monitorable", false)
+		ChestCollisionBoundary.set_deferred("monitoring", false)
+		
+		PocketsCollisionBoundary.set_deferred("monitorable", false)
+		PocketsCollisionBoundary.set_deferred("monitoring", false)
 	
 	else:
 		
@@ -877,6 +891,9 @@ func openInventory():
 		
 		ChestCollisionBoundary.set_deferred("monitorable", false)
 		ChestCollisionBoundary.set_deferred("monitoring", false)
+		
+		WorkbenchCollisionBoundary.set_deferred("monitorable", false)
+		WorkbenchCollisionBoundary.set_deferred("monitoring", false)
 	
 	InventoryMainLayer.show()
 	InventoryLayer.show() # show the inventory UI

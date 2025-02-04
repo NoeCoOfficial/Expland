@@ -52,14 +52,23 @@ var CURRENT_CRAFTING_ITEMS = [
 	"",
 	"",
 	"",
+	"",
+	"",
+	"",
+	"",
 	""
 ]
 
 const RECIPES = [
 	
-	["PICKAXE", ["ROCK", "ROCK", "ROCK", "ROCK", "ROCK"]],
-	["SWORD", ["WOOD", "WOOD", "DIAMOND", "TITANIUM", "SKIBIDI"]],
-	
+	["PICKAXE", [
+		
+		"ROCK", "ROCK", "ROCK", 
+		"ROCK", "ROCK", "ROCK", 
+		"ROCK", "ROCK", "ROCK"]
+		
+		],
+		
 ]
 
 func _ready() -> void:
