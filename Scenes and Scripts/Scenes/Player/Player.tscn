@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=97 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -21,6 +21,7 @@
 [ext_resource type="VideoStream" uid="uid://j5g08pm8317j" path="res://Resources/Streams/Video/SwordHandDropableVideo.tres" id="15_mlct4"]
 [ext_resource type="PackedScene" uid="uid://bin1awyog56pg" path="res://Scenes and Scripts/Scenes/Player/Interaction/InteractionHUD.tscn" id="16_8a1wo"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="16_wg7d4"]
+[ext_resource type="Texture2D" uid="uid://dgt5qdmjgbdsv" path="res://Textures/Icons/UpArrow_Icon.png" id="17_60kit"]
 [ext_resource type="PackedScene" uid="uid://du1ak3ldg8x4e" path="res://Scenes and Scripts/Scenes/Dialogue/DialogueInterface.tscn" id="17_pkmg7"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="17_rhxkt"]
 [ext_resource type="PackedScene" uid="uid://ceabjbnv3nnyr" path="res://Scenes and Scripts/Scenes/Settings/SettingsUI.tscn" id="19_kj00b"]
@@ -797,7 +798,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="InventoryMainLayer" type="CanvasLayer" parent="Head/Camera3D/InventoryLayer"]
 layer = 2
-visible = false
 
 [node name="Background" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 anchors_preset = 8
@@ -1270,9 +1270,9 @@ anchor_left = 0.243924
 anchor_top = 1.54321
 anchor_right = 1.24392
 anchor_bottom = 2.54321
-offset_left = -126.0
+offset_left = -132.0
 offset_top = -0.00012207
-offset_right = -126.0
+offset_right = -132.0
 offset_bottom = -0.00012207
 grow_horizontal = 2
 grow_vertical = 2
@@ -1289,7 +1289,7 @@ anchor_bottom = 0.5
 offset_left = 118.002
 offset_top = -203.0
 offset_right = 415.002
-offset_bottom = 193.0
+offset_bottom = 301.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2kg3l")
@@ -1306,7 +1306,7 @@ anchor_bottom = 0.5
 offset_left = 124.002
 offset_top = -154.0
 offset_right = 409.002
-offset_bottom = 187.0
+offset_bottom = 295.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xa5l0")
@@ -1392,6 +1392,17 @@ is_workbench_slot = true
 position = Vector2(81.999, 129)
 is_workbench_slot = true
 
+[node name="UpArrowIcon" type="Sprite2D" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots"]
+modulate = Color(1, 1, 1, 0.562)
+position = Vector2(1.99609, 186)
+rotation = -3.14159
+scale = Vector2(0.0195631, 0.0195631)
+texture = ExtResource("17_60kit")
+
+[node name="Slot10" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(1.99902, 245)
+is_workbench_slot = true
+
 [node name="CraftButton" type="Button" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer"]
 layout_mode = 1
 anchors_preset = -1
@@ -1400,9 +1411,9 @@ anchor_top = 0.396
 anchor_right = 0.743
 anchor_bottom = 0.396
 offset_left = -108.926
-offset_top = 184.392
+offset_top = 300.392
 offset_right = 78.0739
-offset_bottom = 239.392
+offset_bottom = 355.392
 focus_mode = 0
 theme = ExtResource("17_rhxkt")
 theme_override_font_sizes/font_size = 37

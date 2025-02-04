@@ -1155,7 +1155,7 @@ func closeChest():
 func openWorkbench():
 	WorkbenchMainLayer.show()
 	$Head/Camera3D/AudioNotificationLayer.layer = 15
-	WorkbenchMainLayer.position.y = 0
+	WorkbenchMainLayer.position.y = -54
 	ChestMainLayer.position.y = 1000
 	
 	InventoryManager.is_in_workbench_interface = true
