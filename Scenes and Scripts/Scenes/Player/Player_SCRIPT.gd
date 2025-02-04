@@ -855,7 +855,7 @@ func showDeathScreen(): # A function to show the death screen
 
 func openInventory():
 	$is_inside_boundary_false_inventory_debounce.start()
-	if InventoryManager.in_chest_interface or InventoryManager.is_in_workbench_interface:
+	if InventoryManager.in_chest_interface:
 		
 		InventoryMainLayer.offset.x = -291.96
 		PocketsCollisionBoundary.set_deferred("monitorable", false)
@@ -863,6 +863,9 @@ func openInventory():
 		
 		ChestCollisionBoundary.set_deferred("monitorable", true)
 		ChestCollisionBoundary.set_deferred("monitoring", true)
+		
+	elif InventoryManager.is_in_workbench_interface:
+		pass
 	
 	else:
 		
