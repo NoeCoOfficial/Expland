@@ -235,7 +235,30 @@ var stamina_restoring_from_0 = false
 @export var Slot23_Chest_Ref : StaticBody2D
 @export var Slot24_Chest_Ref : StaticBody2D
 @export var Slot25_Chest_Ref : StaticBody2D
-
+@export var Slot26_Chest_Ref : StaticBody2D
+@export var Slot27_Chest_Ref : StaticBody2D
+@export var Slot28_Chest_Ref : StaticBody2D
+@export var Slot29_Chest_Ref : StaticBody2D
+@export var Slot30_Chest_Ref : StaticBody2D
+@export var Slot31_Chest_Ref : StaticBody2D
+@export var Slot32_Chest_Ref : StaticBody2D
+@export var Slot33_Chest_Ref : StaticBody2D
+@export var Slot34_Chest_Ref : StaticBody2D
+@export var Slot35_Chest_Ref : StaticBody2D
+@export var Slot36_Chest_Ref : StaticBody2D
+@export var Slot37_Chest_Ref : StaticBody2D
+@export var Slot38_Chest_Ref : StaticBody2D
+@export var Slot39_Chest_Ref : StaticBody2D
+@export var Slot40_Chest_Ref : StaticBody2D
+@export var Slot41_Chest_Ref : StaticBody2D
+@export var Slot42_Chest_Ref : StaticBody2D
+@export var Slot43_Chest_Ref : StaticBody2D
+@export var Slot44_Chest_Ref : StaticBody2D
+@export var Slot45_Chest_Ref : StaticBody2D
+@export var Slot46_Chest_Ref : StaticBody2D
+@export var Slot47_Chest_Ref : StaticBody2D
+@export var Slot48_Chest_Ref : StaticBody2D
+@export var Slot49_Chest_Ref : StaticBody2D
 
 @export_group("Workbench")
 
@@ -672,6 +695,31 @@ func initInventorySlots():
 		Slot23_Chest_Ref,
 		Slot24_Chest_Ref,
 		Slot25_Chest_Ref,
+		Slot26_Chest_Ref,
+		Slot27_Chest_Ref,
+		Slot28_Chest_Ref,
+		Slot29_Chest_Ref,
+		Slot30_Chest_Ref,
+		Slot31_Chest_Ref,
+		Slot32_Chest_Ref,
+		Slot33_Chest_Ref,
+		Slot34_Chest_Ref,
+		Slot35_Chest_Ref,
+		Slot36_Chest_Ref,
+		Slot37_Chest_Ref,
+		Slot38_Chest_Ref,
+		Slot39_Chest_Ref,
+		Slot40_Chest_Ref,
+		Slot41_Chest_Ref,
+		Slot42_Chest_Ref,
+		Slot43_Chest_Ref,
+		Slot44_Chest_Ref,
+		Slot45_Chest_Ref,
+		Slot46_Chest_Ref,
+		Slot47_Chest_Ref,
+		Slot48_Chest_Ref,
+		Slot49_Chest_Ref,
+
 	]
 	
 	InventoryManager.WORKSHOP_SLOTS = [
