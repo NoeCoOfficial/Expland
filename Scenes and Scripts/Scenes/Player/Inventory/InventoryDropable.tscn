@@ -5,7 +5,7 @@
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="2_qromc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mgv10"]
-size = Vector2(40, 40)
+size = Vector2(60, 60)
 
 [node name="Dropable" type="Node2D" node_paths=PackedStringArray("ITEM_TYPE_Label", "ITEM_Sprite", "mouse_over_timer", "populated_on_startup_timer")]
 script = ExtResource("1_opaah")
@@ -31,6 +31,12 @@ texture = ExtResource("2_6p8mj")
 collision_priority = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_mgv10")
+
+[node name="MouseCollision" type="Area2D" parent="." groups=["draggable"]]
+collision_priority = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseCollision"]
 shape = SubResource("RectangleShape2D_mgv10")
 
 [node name="ITEM_TYPE" type="Label" parent="."]
