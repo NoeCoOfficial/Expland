@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=98 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -183,16 +183,19 @@ size = Vector2(549, 106)
 size = Vector2(549, 116)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c8e23"]
-size = Vector2(1152, 106)
+size = Vector2(1152, 61)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dx77i"]
-size = Vector2(1152, 106)
+size = Vector2(686, 106)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ix2dd"]
 size = Vector2(152, 431)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s11mi"]
-size = Vector2(144, 431)
+size = Vector2(144, 614)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5c121"]
+size = Vector2(686, 61)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ixul"]
 size = Vector2(1152, 106)
@@ -798,6 +801,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="InventoryMainLayer" type="CanvasLayer" parent="Head/Camera3D/InventoryLayer"]
 layer = 2
+visible = false
 
 [node name="Background" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 anchors_preset = 8
@@ -1264,7 +1268,6 @@ position = Vector2(498, 493)
 is_chest_slot = true
 
 [node name="WorkbenchMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
-visible = false
 layout_mode = 3
 anchor_left = 0.243924
 anchor_top = 1.54321
@@ -1446,12 +1449,12 @@ debug_color = Color(0.92549, 0, 0.109804, 0.396078)
 position = Vector2(152, 0)
 
 [node name="Boundary1" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/WorkbenchBoundary"]
-position = Vector2(576, 53)
+position = Vector2(576, 30.5)
 shape = SubResource("RectangleShape2D_c8e23")
 debug_color = Color(0.92549, 0, 0.109804, 0.396078)
 
 [node name="Boundary2" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/WorkbenchBoundary"]
-position = Vector2(576, 590)
+position = Vector2(343, 590)
 shape = SubResource("RectangleShape2D_dx77i")
 debug_color = Color(0.92549, 0, 0.109804, 0.396078)
 
@@ -1461,8 +1464,18 @@ shape = SubResource("RectangleShape2D_ix2dd")
 debug_color = Color(0.92549, 0, 0.109804, 0.396078)
 
 [node name="Boundary4" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/WorkbenchBoundary"]
-position = Vector2(1080, 321.5)
+position = Vector2(1080, 332)
 shape = SubResource("RectangleShape2D_s11mi")
+debug_color = Color(0.92549, 0, 0.109804, 0.396078)
+
+[node name="Boundary5" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/WorkbenchBoundary"]
+position = Vector2(1023, 632)
+shape = SubResource("RectangleShape2D_dx77i")
+debug_color = Color(0.92549, 0, 0.109804, 0.396078)
+
+[node name="Boundary6" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/WorkbenchBoundary"]
+position = Vector2(346, 75)
+shape = SubResource("RectangleShape2D_5c121")
 debug_color = Color(0.92549, 0, 0.109804, 0.396078)
 
 [node name="PocketsBoundary" type="Area2D" parent="Head/Camera3D/InventoryLayer"]
