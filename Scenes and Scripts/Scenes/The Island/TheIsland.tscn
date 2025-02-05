@@ -459,7 +459,7 @@ camera_attributes = ExtResource("2_xjtor")
 script = ExtResource("4_jhu24")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.863396, 0.499889, 0.0682627, -2.04298e-08, -0.135301, 0.990803, 0.504528, -0.855457, -0.116818, 0, 0, 0)
+transform = Transform3D(0.863396, 0.499889, 0.0682634, -1.18285e-08, -0.135302, 0.990803, 0.504528, -0.855457, -0.116819, 0, 0, 0)
 light_color = Color(0.793, 0.612, 0.18, 1)
 light_energy = 0.0
 shadow_enabled = true
@@ -778,6 +778,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -397.5
 
 [node name="ExplorerNote" parent="." instance=ExtResource("31_i2rcl")]
 transform = Transform3D(0.0043717, -0.0818319, 0.281098, -0.292383, -0.01562, -3.29933e-10, 0.0149957, -0.280698, -0.0819486, -378.768, 2.46212, 303.996)
+NoteID = 1
 ImageAlbedo = ExtResource("32_fm67d")
 DecalRotation_Degrees = Vector3(0, 90, 0)
 DecalSize = Vector3(3.22, 0.61, 1.16)

@@ -1,5 +1,5 @@
 # ============================================================= #
-# IslandManager.gd [AUTOLOAD]
+# ExplorerNote_StaticBody3D_SCRIPT.gd
 # ============================================================= #
 #                       COPYRIGHT NOTICE                        #
 #                           Noe Co.                             #
@@ -45,76 +45,13 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-extends Node
+extends StaticBody3D
 
-var transitioning_from_menu
-var transitioningFromNewIsland = false
-var FreeMode_Island_Count : int
+@export var root : Node3D
 
-var Current_Island_Name = "Debug"
-var Current_Game_Mode = ""
-var Current_Weather = ""
+func on_raycast_hit_explorer_note():
+	ExplorerNotesManager.CurrentlyInteracting_ID = root.NoteID
+	InteractionManager.is_hovering_over_explorer_note = true
 
-func _ready() -> void:
-	if !OS.has_feature("debug"):
-		Current_Island_Name = ""
-
-func set_current_island(island_name: String) -> void:
-	Current_Island_Name = island_name
-	IslandAccessOrder.add_island(island_name)
-
-func resetAttributes():
-	
-	## CRITICAL
-	# EVERY NEW VALUE ASSOCIATED WITH THE ISLAND
-	# IT'S NAME AND IT'S DEFAULT HERE!
-	# VERY IMPORTANT!
-	
-	PauseManager.inside_can_move_item_workshop = false
-	PauseManager.inside_absolute_item_workshop = false
-	PauseManager.inside_item_workshop = false
-	PauseManager.is_inside_achievements_ui = false
-	PauseManager.is_inside_alert = false
-	PauseManager.is_inside_credits = false
-	PauseManager.is_inside_settings = false
-	PauseManager.is_paused = false
-	
-	PlayerData.GAME_STATE = "NORMAL"
-	PlayerData.Health = 100
-	PlayerData.Hunger = 100
-	PlayerData.Hydration = 100
-	PlayerManager.Stamina = 100
-	InventoryData.HAND_ITEM_TYPE = ""
-	IslandManager.Current_Island_Name = ""
-	IslandManager.Current_Game_Mode = ""
-	IslandManager.Current_Weather = ""
-	IslandManager.transitioningFromNewIsland = false
-	TimeManager.CURRENT_TIME = 600
-	TimeManager.CURRENT_DAY = 1
-	TimeManager.DAY_STATE = "DAY"
-	
-	InventoryManager.creatingFromInventory = false
-	InventoryManager.inventory_open = false
-	InventoryManager.in_chest_interface = false
-	InventoryManager.is_in_workbench_interface = false
-	InventoryManager.is_dragging = false
-	InventoryManager.is_inside_boundary = false
-	InventoryManager.item_ref = ""
-	InventoryManager.item_ref_not_at_inventory = ""
-	InventoryManager.is_creating_pickup = false
-	InventoryManager.is_inside_checker = false
-	InventoryManager.is_hovering_over_hand_dropable = false
-	InventoryManager.chestNode = null
-
-	InteractionManager.is_notification_on_screen = false
-	InteractionManager.is_colliding = false
-	InteractionManager.is_hovering_over_email_noeco = false
-	InteractionManager.is_hovering_over_feedback_github = false
-	InteractionManager.is_hovering_over_test_obj = false
-	InteractionManager.is_hovering_over_sackcloth_bed = false
-	InteractionManager.is_hovering_over_chest = false
-	InteractionManager.is_hovering_over_workbench = false
+func on_raycast_exit_explorer_note():
 	InteractionManager.is_hovering_over_explorer_note = false
-
-	# NOTE: May need to reset TerrainManager variables here in future
-	

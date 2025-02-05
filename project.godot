@@ -42,6 +42,7 @@ IslandAccessOrder="*res://Scenes and Scripts/Singletons/World/IslandAccessOrder.
 IslandManager="*res://Scenes and Scripts/Singletons/World/IslandManager.gd"
 PauseManager="*res://Scenes and Scripts/Singletons/Pause/PauseManager.gd"
 TimeManager="*res://Scenes and Scripts/Singletons/World/TimeManager.gd"
+ExplorerNotesManager="*res://Scenes and Scripts/Singletons/World/ExplorerNotesManager.gd"
 DialogueManager="*res://Scenes and Scripts/Singletons/Dialogue/DialogueManager.gd"
 AchievementsManager="*res://Scenes and Scripts/Singletons/Achievements/AchievementsManager.gd"
 InventoryManager="*res://Scenes and Scripts/Singletons/Inventory/InventoryManager.gd"

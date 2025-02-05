@@ -53,3 +53,7 @@ const EXPLORER_NOTES = [
 ]
 
 var COLLECTED_NOTES = []
+var CurrentlyInteracting_ID : int
+
+func viewCloseUp(ID : int):
+	pass
