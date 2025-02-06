@@ -108,10 +108,7 @@ func get_is_touching_draggable():
 
 
 func is_populated():
-	if populated:
-		return true
-	else:
-		return false
+	return populated
 
 func set_populated(populatedValue : bool):
 	if populatedValue:

@@ -937,7 +937,6 @@ func _on_chest_boundary_area_entered(area: Area2D) -> void:
 func _on_chest_boundary_area_exited(area: Area2D) -> void:
 	if area.is_in_group("draggable"):
 		InventoryManager.is_inside_boundary = false
-		
 
 
 func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
@@ -1174,8 +1173,16 @@ func _on_craft_button_pressed() -> void:
 	SignalBus.pressed_craft.emit()
 
 func Craft(ITEM_TYPE : String):
-	pass
-
+	
+	if !Slot10_Output_Workbench_Ref.is_populated():
+		for child in WorkbenchSlots.get_children():
+			if str(child.name).begins_with("Dropable"):
+				if !child.get_is_workshop_output_dropable():
+					child.queue_free()
+					child.get_slot_inside().set_populated(false)
+		InventoryManager.spawn_workbench_output_dropable(ITEM_TYPE)
+	
+	
 #endregion
 
 #region Item Workshop
