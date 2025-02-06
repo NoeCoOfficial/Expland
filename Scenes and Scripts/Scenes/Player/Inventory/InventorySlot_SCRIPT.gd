@@ -96,6 +96,13 @@ func get_is_workbench_output_slot():
 	return is_workbench_output_slot
 
 
+func set_is_touching_draggable(value : bool):
+	is_touching_draggable = value
+
+func get_is_touching_draggable():
+	return is_touching_draggable
+
+
 func is_populated():
 	if populated:
 		return true

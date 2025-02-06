@@ -176,6 +176,12 @@ func _process(delta):
 							self.queue_free()
 							InventoryManager.spawn_workshop_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside)
 							top_level = false
+							
+						elif is_workshop_output_dropable:
+							is_workshop_output_dropable = true
+							self.queue_free()
+							InventoryManager.spawn_workbench_output_dropable(ITEM_TYPE)
+							top_level = false
 						
 					else:
 						if body_ref.has_method("is_populated") and body_ref.is_populated():
@@ -192,6 +198,12 @@ func _process(delta):
 								is_workshop_dropable = true
 								self.queue_free()
 								InventoryManager.spawn_workshop_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside)
+								top_level = false
+								
+							elif is_workshop_output_dropable:
+								is_workshop_output_dropable = true
+								self.queue_free()
+								InventoryManager.spawn_workbench_output_dropable(ITEM_TYPE)
 								top_level = false
 							
 						else:
@@ -226,7 +238,7 @@ func _process(delta):
 									is_workshop_dropable = true
 									
 									self.queue_free()
-									InventoryManager.spawn_workshop_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside)
+									InventoryManager.spawn_workbench_output_dropable(ITEM_TYPE)
 									top_level = false
 								
 								else: # If the slot is a pocket slot
@@ -270,9 +282,16 @@ func _process(delta):
 					elif is_workshop_dropable:
 						is_workshop_dropable = true
 						
-						
 						self.queue_free()
 						InventoryManager.spawn_workshop_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside)
+						top_level = false
+						PlayerManager.MINIMAL_ALERT_PLAYER.hide_minimal_alert(0.1)
+						
+					elif is_workshop_output_dropable:
+						is_workshop_output_dropable = true
+						
+						self.queue_free()
+						InventoryManager.spawn_workbench_output_dropable(ITEM_TYPE)
 						top_level = false
 						PlayerManager.MINIMAL_ALERT_PLAYER.hide_minimal_alert(0.1)
 						
@@ -526,6 +545,8 @@ func get_is_workshop_dropable():
 
 func set_is_workshop_output_dropable(value : bool):
 	is_workshop_output_dropable = value
+	body_ref = InventoryManager.WORKSHOP_OUTPUT_SLOT
+	is_inside_dropable = true
 
 func get_is_workshop_output_dropable():
 	return is_workshop_output_dropable
