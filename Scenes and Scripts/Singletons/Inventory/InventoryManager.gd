@@ -205,14 +205,17 @@ func spawn_workbench_output_dropable(ITEM_TYPE):
 		var NewDropable = load("res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDropable.tscn")
 		var DropableInstance = NewDropable.instantiate()
 		DropableInstance.set_ITEM_TYPE(ITEM_TYPE)
+		DropableInstance.set_is_workshop_output_dropable(true)
+		DropableInstance.global_position = InventoryManager.WORKSHOP_OUTPUT_SLOT.global_position
+		
 		InventoryManager.WORKSHOP_OUTPUT_SLOT.set_is_touching_draggable(true)
 		
 		WorkbenchSlots.add_child(DropableInstance)
-		DropableInstance.global_position = InventoryManager.WORKSHOP_OUTPUT_SLOT.global_position
+		
+		print_rich("[color=purple]Output slot position: " + str(InventoryManager.WORKSHOP_OUTPUT_SLOT.global_position) + "[/color]")
 		DropableInstance.top_level = true
 		
 		DropableInstance.set_slot_inside(InventoryManager.WORKSHOP_OUTPUT_SLOT)
-		DropableInstance.set_is_workshop_output_dropable(true)
 		InventoryManager.WORKSHOP_OUTPUT_SLOT.set_populated(true)
 		
 		return DropableInstance

@@ -59,6 +59,7 @@ extends StaticBody2D
 func _ready():
 	if is_workbench_output_slot:
 		print_rich("[color=purple]Output slot position: " + str(position) + "[/color]")
+		print_rich("[color=purple]Output slot position: " + str(global_position) + "[/color]")
 	
 	modulate = Color(1, 1, 1, 0.2)
 
