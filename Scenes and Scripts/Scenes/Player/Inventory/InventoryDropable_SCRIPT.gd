@@ -134,7 +134,7 @@ func _process(delta):
 			if mouse_over_timer.time_left == 0 and !InventoryManager.is_hovering_over_hand_dropable:
 				initialPos = global_position
 				InventoryManager.is_dragging = true
-				if is_in_chest_slot or is_workshop_dropable:
+				if is_in_chest_slot or is_workshop_dropable or is_workshop_output_dropable:
 					top_level = true
 				self.z_index = 10
 				InventoryManager.item_ref = ITEM_TYPE
@@ -215,14 +215,20 @@ func _process(delta):
 									InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, true)
 									top_level = false
 								
-								elif body_ref.get_is_workbench_slot(): # If the slot is a workshop slot
+								elif body_ref.get_is_workbench_slot(): # If the slot is a workbench slot
 									is_workshop_dropable = true
 									
 									self.queue_free()
 									InventoryManager.spawn_workshop_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside)
 									top_level = false
+								
+								elif body_ref.get_is_workbench_output_slot(): # If the slot is a workbench output slot
+									is_workshop_dropable = true
 									
-									
+									self.queue_free()
+									InventoryManager.spawn_workshop_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside)
+									top_level = false
+								
 								else: # If the slot is a pocket slot
 									
 									if is_in_chest_slot: # If the draggable was in a chest slot
