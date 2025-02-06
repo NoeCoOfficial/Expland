@@ -243,9 +243,15 @@ func _process(delta):
 										self.queue_free()
 										InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, false)
 										top_level = false
-										
+									
+									elif is_workshop_output_dropable: # If the draggable was in a workshop output slot
+										is_workshop_output_dropable = false
+										self.queue_free()
+										InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, false)
+										top_level = false
 									
 									else: # If the draggable was in a pocket slot
+										is_workshop_output_dropable = false
 										is_workshop_dropable = false
 										is_in_chest_slot = false
 									
@@ -335,8 +341,6 @@ func _input(_event: InputEvent) -> void:
 					
 					if free_slot != null and !free_slot.is_populated():
 						free_slot.set_populated(true)
-						
-						CraftingManager.unbindCraftingItem(int(String(slot_inside.name)[-1]) - 1)
 						
 						InventoryManager.spawn_inventory_dropable(free_slot.global_position, ITEM_TYPE, free_slot, false)
 						
