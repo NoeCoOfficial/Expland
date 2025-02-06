@@ -50,6 +50,7 @@ extends Node
 var POCKET_SLOTS = []
 var CHEST_SLOTS = []
 var WORKSHOP_SLOTS = []
+var WORKSHOP_OUTPUT_SLOT
 
 func get_free_slot(Slots : Array):
 	var free_slot = null
