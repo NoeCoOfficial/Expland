@@ -9,6 +9,7 @@ fixed a bug where you could close the workbench by pressing "E", then being able
 fixed 3d inventory pickup items noclipping through the ground
 there are now 16 slots in inventory pockets instead of 9 to store items
 there are now 49 slots in the chest instead of 25 to store items
+an all new crafting system which can be accessed by interacting with the workbench in the testing area
 change player collision shape to reduce lag
 
 
