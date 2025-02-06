@@ -76,9 +76,14 @@ func _ready() -> void:
 
 func bindCraftingItem(ITEM_TYPE : String, atIndex : int):
 	CURRENT_CRAFTING_ITEMS[atIndex] = ITEM_TYPE
+	print_rich("[color=green]Binding crafting item.[/color]")
+	print_stack()
+
 
 func unbindCraftingItem(atIndex : int):
 	CURRENT_CRAFTING_ITEMS[atIndex] = ""
+	print_rich("[color=red]Unbinding crafting item.[/color]")
+	print_stack()
 
 func Craft():
 	var crafted_item = runCraftingChecks()
@@ -97,3 +102,16 @@ func runCraftingChecks() -> String:
 		if sorted_recipe_items == sorted_current_items:
 			return recipe[0]
 	return ""
+
+func resetCurrentCraftingItems():
+	CURRENT_CRAFTING_ITEMS = [
+	"",
+	"",
+	"",
+	"",
+	"",
+	"",
+	"",
+	"",
+	""
+	]

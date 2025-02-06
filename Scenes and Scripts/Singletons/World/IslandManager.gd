@@ -105,7 +105,9 @@ func resetAttributes():
 	InventoryManager.is_inside_checker = false
 	InventoryManager.is_hovering_over_hand_dropable = false
 	InventoryManager.chestNode = null
-
+	
+	CraftingManager.resetCurrentCraftingItems()
+	
 	InteractionManager.is_notification_on_screen = false
 	InteractionManager.is_colliding = false
 	InteractionManager.is_hovering_over_email_noeco = false
