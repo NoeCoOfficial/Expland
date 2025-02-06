@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://dble54a2rl76q"]
+
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/The Island/Explorer Note/ExplorerNote_SCRIPT.gd" id="1_etueb"]
+[ext_resource type="PackedScene" uid="uid://c21pv7qtyb57x" path="res://Assets/3D Models/Environment/OldPaper.blend" id="2_uieki"]
+[ext_resource type="PackedScene" uid="uid://dcc3turii63vs" path="res://Assets/3D Models/Environment/RustyNail.blend" id="4_1mdey"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/The Island/Explorer Note/ExplorerNote_StaticBody3D_SCRIPT.gd" id="4_rk6p2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hog6c"]
+size = Vector3(2.4303, 0.623383, 3.18233)
+
+[node name="ExplorerNote" type="Node3D"]
+script = ExtResource("1_etueb")
+
+[node name="OldPaper" parent="." instance=ExtResource("2_uieki")]
+
+[node name="Decal" type="Decal" parent="."]
+transform = Transform3D(0.66295, 0, 0, 0, 0.66295, 0, 0, 0, 0.66295, 0, 0.0579189, 0)
+
+[node name="RustyNail" parent="." instance=ExtResource("4_1mdey")]
+transform = Transform3D(1.62311, 0, 0, 0, 1.62311, 0, 0, 0, 1.62311, -0.810205, -0.423762, 0.000464082)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." node_paths=PackedStringArray("root")]
+script = ExtResource("4_rk6p2")
+root = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13739, -0.052922, 0.0245686)
+shape = SubResource("BoxShape3D_hog6c")
