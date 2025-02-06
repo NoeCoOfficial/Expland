@@ -97,3 +97,16 @@ func runCraftingChecks() -> String:
 		if sorted_recipe_items == sorted_current_items:
 			return recipe[0]
 	return ""
+
+func resetCurrentCraftingItems():
+	CURRENT_CRAFTING_ITEMS = [
+	"",
+	"",
+	"",
+	"",
+	"",
+	"",
+	"",
+	"",
+	""
+	]

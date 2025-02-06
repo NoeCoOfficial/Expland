@@ -735,7 +735,6 @@ func initInventorySlots():
 		Slot7_Workbench_Ref,
 		Slot8_Workbench_Ref,
 		Slot9_Workbench_Ref,
-		Slot10_Output_Workbench_Ref,
 	]
 	
 	InventoryManager.WORKSHOP_OUTPUT_SLOT = Slot10_Output_Workbench_Ref
