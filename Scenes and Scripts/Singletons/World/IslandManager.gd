@@ -105,7 +105,9 @@ func resetAttributes():
 	InventoryManager.is_inside_checker = false
 	InventoryManager.is_hovering_over_hand_dropable = false
 	InventoryManager.chestNode = null
-
+	
+	CraftingManager.resetCurrentCraftingItems()
+	
 	InteractionManager.is_notification_on_screen = false
 	InteractionManager.is_colliding = false
 	InteractionManager.is_hovering_over_email_noeco = false
@@ -113,6 +115,8 @@ func resetAttributes():
 	InteractionManager.is_hovering_over_test_obj = false
 	InteractionManager.is_hovering_over_sackcloth_bed = false
 	InteractionManager.is_hovering_over_chest = false
+	InteractionManager.is_hovering_over_workbench = false
+	InteractionManager.is_hovering_over_explorer_note = false
 
 	# NOTE: May need to reset TerrainManager variables here in future
 	

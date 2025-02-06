@@ -46,3 +46,14 @@
 # ============================================================= #
 
 extends Node
+
+const EXPLORER_NOTES = [
+	"PLACHOLDER",
+	"EXPLAND_TEXT_TEST",
+]
+
+var COLLECTED_NOTES = []
+var CurrentlyInteracting_ID : int
+
+func viewCloseUp(ID : int):
+	pass

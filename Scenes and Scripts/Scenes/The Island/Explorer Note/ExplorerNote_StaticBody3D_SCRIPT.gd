@@ -1,5 +1,5 @@
 # ============================================================= #
-# ExplorerNote_SCRIPT.gd
+# ExplorerNote_StaticBody3D_SCRIPT.gd
 # ============================================================= #
 #                       COPYRIGHT NOTICE                        #
 #                           Noe Co.                             #
@@ -45,33 +45,13 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-@tool
-@icon("res://Textures/Icons/Script Icons/32x32/script_text.png")
-extends Node3D
+extends StaticBody3D
 
-@export var NoteID : int
-@export var ImageAlbedo : Texture2D
-@export var ImageNormal : Texture2D
-@export var ImageOrm : Texture2D
-@export var ImageEmission : Texture2D
-@export var DecalRotation_Degrees : Vector3
-@export var DecalSize : Vector3 = Vector3(2, 2, 2)
-@export var DecalLowerFade : float = 0.3
-@export var NailRotation_Degrees : Vector3
-@export var ShowNail : bool = true
+@export var root : Node3D
 
+func on_raycast_hit_explorer_note():
+	ExplorerNotesManager.CurrentlyInteracting_ID = root.NoteID
+	InteractionManager.is_hovering_over_explorer_note = true
 
-func _ready() -> void:
-	pass
-
-func _process(_delta: float) -> void:
-	$Decal.texture_albedo = ImageAlbedo
-	$Decal.texture_normal = ImageNormal
-	$Decal.texture_orm = ImageOrm
-	$Decal.texture_emission = ImageEmission
-
-	$Decal.size = DecalSize
-	$Decal.lower_fade = DecalLowerFade
-	$Decal.rotation_degrees = DecalRotation_Degrees
-	$RustyNail.visible = ShowNail
-	$RustyNail.rotation_degrees = NailRotation_Degrees
+func on_raycast_exit_explorer_note():
+	InteractionManager.is_hovering_over_explorer_note = false

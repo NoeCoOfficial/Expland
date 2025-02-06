@@ -185,10 +185,18 @@ var stamina_restoring_from_0 = false
 @export var Slot7_Inventory_Ref : StaticBody2D
 @export var Slot8_Inventory_Ref : StaticBody2D
 @export var Slot9_Inventory_Ref : StaticBody2D
+@export var Slot10_Inventory_Ref : StaticBody2D
+@export var Slot11_Inventory_Ref : StaticBody2D
+@export var Slot12_Inventory_Ref : StaticBody2D
+@export var Slot13_Inventory_Ref : StaticBody2D
+@export var Slot14_Inventory_Ref : StaticBody2D
+@export var Slot15_Inventory_Ref : StaticBody2D
+@export var Slot16_Inventory_Ref : StaticBody2D
 
 @export_subgroup("Layers and UI")
 @export var PocketsCollisionBoundary : Area2D
 @export var ChestCollisionBoundary : Area2D
+@export var WorkbenchCollisionBoundary : Area2D
 @export var Pickaxe_Video : VideoStreamPlayer
 @export var Axe_Video : VideoStreamPlayer
 @export var Sword_Video : VideoStreamPlayer
@@ -228,7 +236,30 @@ var stamina_restoring_from_0 = false
 @export var Slot23_Chest_Ref : StaticBody2D
 @export var Slot24_Chest_Ref : StaticBody2D
 @export var Slot25_Chest_Ref : StaticBody2D
-
+@export var Slot26_Chest_Ref : StaticBody2D
+@export var Slot27_Chest_Ref : StaticBody2D
+@export var Slot28_Chest_Ref : StaticBody2D
+@export var Slot29_Chest_Ref : StaticBody2D
+@export var Slot30_Chest_Ref : StaticBody2D
+@export var Slot31_Chest_Ref : StaticBody2D
+@export var Slot32_Chest_Ref : StaticBody2D
+@export var Slot33_Chest_Ref : StaticBody2D
+@export var Slot34_Chest_Ref : StaticBody2D
+@export var Slot35_Chest_Ref : StaticBody2D
+@export var Slot36_Chest_Ref : StaticBody2D
+@export var Slot37_Chest_Ref : StaticBody2D
+@export var Slot38_Chest_Ref : StaticBody2D
+@export var Slot39_Chest_Ref : StaticBody2D
+@export var Slot40_Chest_Ref : StaticBody2D
+@export var Slot41_Chest_Ref : StaticBody2D
+@export var Slot42_Chest_Ref : StaticBody2D
+@export var Slot43_Chest_Ref : StaticBody2D
+@export var Slot44_Chest_Ref : StaticBody2D
+@export var Slot45_Chest_Ref : StaticBody2D
+@export var Slot46_Chest_Ref : StaticBody2D
+@export var Slot47_Chest_Ref : StaticBody2D
+@export var Slot48_Chest_Ref : StaticBody2D
+@export var Slot49_Chest_Ref : StaticBody2D
 
 @export_group("Workbench")
 
@@ -242,7 +273,11 @@ var stamina_restoring_from_0 = false
 @export var Slot3_Workbench_Ref : StaticBody2D
 @export var Slot4_Workbench_Ref : StaticBody2D
 @export var Slot5_Workbench_Ref : StaticBody2D
-
+@export var Slot6_Workbench_Ref : StaticBody2D
+@export var Slot7_Workbench_Ref : StaticBody2D
+@export var Slot8_Workbench_Ref : StaticBody2D
+@export var Slot9_Workbench_Ref : StaticBody2D
+@export var Slot10_Output_Workbench_Ref : StaticBody2D
 
 @export_group("General Nodes")
 
@@ -629,6 +664,13 @@ func initInventorySlots():
 		Slot7_Inventory_Ref,
 		Slot8_Inventory_Ref,
 		Slot9_Inventory_Ref,
+		Slot10_Inventory_Ref,
+		Slot11_Inventory_Ref,
+		Slot12_Inventory_Ref,
+		Slot13_Inventory_Ref,
+		Slot14_Inventory_Ref,
+		Slot15_Inventory_Ref,
+		Slot16_Inventory_Ref,
 	]
 	
 	InventoryManager.CHEST_SLOTS = [
@@ -657,6 +699,30 @@ func initInventorySlots():
 		Slot23_Chest_Ref,
 		Slot24_Chest_Ref,
 		Slot25_Chest_Ref,
+		Slot26_Chest_Ref,
+		Slot27_Chest_Ref,
+		Slot28_Chest_Ref,
+		Slot29_Chest_Ref,
+		Slot30_Chest_Ref,
+		Slot31_Chest_Ref,
+		Slot32_Chest_Ref,
+		Slot33_Chest_Ref,
+		Slot34_Chest_Ref,
+		Slot35_Chest_Ref,
+		Slot36_Chest_Ref,
+		Slot37_Chest_Ref,
+		Slot38_Chest_Ref,
+		Slot39_Chest_Ref,
+		Slot40_Chest_Ref,
+		Slot41_Chest_Ref,
+		Slot42_Chest_Ref,
+		Slot43_Chest_Ref,
+		Slot44_Chest_Ref,
+		Slot45_Chest_Ref,
+		Slot46_Chest_Ref,
+		Slot47_Chest_Ref,
+		Slot48_Chest_Ref,
+		Slot49_Chest_Ref,
 	]
 	
 	InventoryManager.WORKSHOP_SLOTS = [
@@ -665,7 +731,13 @@ func initInventorySlots():
 		Slot3_Workbench_Ref,
 		Slot4_Workbench_Ref,
 		Slot5_Workbench_Ref,
+		Slot6_Workbench_Ref,
+		Slot7_Workbench_Ref,
+		Slot8_Workbench_Ref,
+		Slot9_Workbench_Ref,
 	]
+	
+	InventoryManager.WORKSHOP_OUTPUT_SLOT = Slot10_Output_Workbench_Ref
 
 #endregion
 
@@ -787,14 +859,30 @@ func showDeathScreen(): # A function to show the death screen
 
 func openInventory():
 	$is_inside_boundary_false_inventory_debounce.start()
-	if InventoryManager.in_chest_interface or InventoryManager.is_in_workbench_interface:
-		
+	
+	if InventoryManager.in_chest_interface:
 		InventoryMainLayer.offset.x = -291.96
-		PocketsCollisionBoundary.set_deferred("monitorable", false)
-		PocketsCollisionBoundary.set_deferred("monitoring", false)
 		
 		ChestCollisionBoundary.set_deferred("monitorable", true)
 		ChestCollisionBoundary.set_deferred("monitoring", true)
+		
+		PocketsCollisionBoundary.set_deferred("monitorable", false)
+		PocketsCollisionBoundary.set_deferred("monitoring", false)
+		
+		WorkbenchCollisionBoundary.set_deferred("monitorable", false)
+		WorkbenchCollisionBoundary.set_deferred("monitoring", false)
+		
+	elif InventoryManager.is_in_workbench_interface:
+		InventoryMainLayer.offset.x = -155.09
+		
+		WorkbenchCollisionBoundary.set_deferred("monitorable", true)
+		WorkbenchCollisionBoundary.set_deferred("monitoring", true)
+		
+		ChestCollisionBoundary.set_deferred("monitorable", false)
+		ChestCollisionBoundary.set_deferred("monitoring", false)
+		
+		PocketsCollisionBoundary.set_deferred("monitorable", false)
+		PocketsCollisionBoundary.set_deferred("monitoring", false)
 	
 	else:
 		
@@ -806,6 +894,9 @@ func openInventory():
 		
 		ChestCollisionBoundary.set_deferred("monitorable", false)
 		ChestCollisionBoundary.set_deferred("monitoring", false)
+		
+		WorkbenchCollisionBoundary.set_deferred("monitorable", false)
+		WorkbenchCollisionBoundary.set_deferred("monitoring", false)
 	
 	InventoryMainLayer.show()
 	InventoryLayer.show() # show the inventory UI
@@ -846,7 +937,6 @@ func _on_chest_boundary_area_entered(area: Area2D) -> void:
 func _on_chest_boundary_area_exited(area: Area2D) -> void:
 	if area.is_in_group("draggable"):
 		InventoryManager.is_inside_boundary = false
-		
 
 
 func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
@@ -1067,7 +1157,7 @@ func closeChest():
 func openWorkbench():
 	WorkbenchMainLayer.show()
 	$Head/Camera3D/AudioNotificationLayer.layer = 15
-	WorkbenchMainLayer.position.y = 0
+	WorkbenchMainLayer.position.y = -54
 	ChestMainLayer.position.y = 1000
 	
 	InventoryManager.is_in_workbench_interface = true
@@ -1083,8 +1173,17 @@ func _on_craft_button_pressed() -> void:
 	SignalBus.pressed_craft.emit()
 
 func Craft(ITEM_TYPE : String):
-	pass
-
+	
+	if !Slot10_Output_Workbench_Ref.is_populated():
+		for child in WorkbenchSlots.get_children():
+			if str(child.name).begins_with("Dropable"):
+				if !child.get_is_workshop_output_dropable():
+					child.queue_free()
+					child.get_slot_inside().set_populated(false)
+		CraftingManager.resetCurrentCraftingItems()
+		InventoryManager.spawn_workbench_output_dropable(ITEM_TYPE)
+	
+	
 #endregion
 
 #region Item Workshop

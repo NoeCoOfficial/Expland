@@ -56,6 +56,7 @@ var is_hovering_over_test_obj = false
 var is_hovering_over_sackcloth_bed = false
 var is_hovering_over_chest = false
 var is_hovering_over_workbench = false
+var is_hovering_over_explorer_note = false
 
 func spawn_interaction_notification(KEY : String, MESSAGE : String):
 	if !is_notification_on_screen:
@@ -99,4 +100,6 @@ func _input(_event: InputEvent) -> void:
 			
 		if Input.is_action_just_pressed("Interact") and is_hovering_over_workbench:
 			PlayerManager.PLAYER.openWorkbench()
-			
+		
+		if Input.is_action_just_pressed("Interact") and is_hovering_over_explorer_note:
+			ExplorerNotesManager.viewCloseUp(ExplorerNotesManager.CurrentlyInteracting_ID)
