@@ -74,6 +74,7 @@ func _process(_delta):
 	else:
 		is_populated_label.visible = false
 
+
 func set_is_chest_slot(value : bool):
 	is_chest_slot = value
 
