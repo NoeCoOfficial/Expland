@@ -54,6 +54,7 @@ extends StaticBody2D
 @export var populated = false
 @export var is_chest_slot = false
 @export var is_workbench_slot = false
+@export var is_workbench_output_slot = false
 
 func _ready():
 	modulate = Color(1, 1, 1, 0.2)
@@ -85,6 +86,13 @@ func set_is_workbench_slot(value : bool):
 
 func get_is_workbench_slot():
 	return is_workbench_slot
+
+
+func set_is_workbench_output_slot(value : bool):
+	is_workbench_output_slot = value
+
+func get_is_workbench_output_slot():
+	return is_workbench_output_slot
 
 
 func is_populated():
