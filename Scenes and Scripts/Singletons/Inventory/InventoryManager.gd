@@ -223,11 +223,16 @@ func spawn_workbench_output_dropable(ITEM_TYPE):
 func set_hand_item(dropable_to_delete, ITEM_TYPE : String):
 	var PLAYER = get_node("/root/World/Player")
 	if InventoryData.HAND_ITEM_TYPE != "":
-		if !dropable_to_delete.get_is_workshop_dropable():
-			spawn_inventory_dropable(dropable_to_delete.global_position, InventoryData.HAND_ITEM_TYPE, dropable_to_delete.get_slot_inside(), dropable_to_delete.get_is_in_chest_slot())
-		else:
+		if dropable_to_delete.get_is_workshop_dropable():
 			CraftingManager.bindCraftingItem(ITEM_TYPE, int(String(dropable_to_delete.get_slot_inside().name)[-1]) - 1)
 			spawn_workshop_dropable(dropable_to_delete.global_position, InventoryData.HAND_ITEM_TYPE, dropable_to_delete.get_slot_inside())
+		
+		elif dropable_to_delete.get_is_workshop_output_dropable():
+			spawn_workbench_output_dropable(InventoryData.HAND_ITEM_TYPE)
+		
+		else:
+			spawn_inventory_dropable(dropable_to_delete.global_position, InventoryData.HAND_ITEM_TYPE, dropable_to_delete.get_slot_inside(), dropable_to_delete.get_is_in_chest_slot())
+	
 	
 	dropable_to_delete.queue_free()
 	PLAYER.set_hand_item_type(ITEM_TYPE)
