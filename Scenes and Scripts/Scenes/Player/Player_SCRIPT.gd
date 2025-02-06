@@ -1180,6 +1180,7 @@ func Craft(ITEM_TYPE : String):
 				if !child.get_is_workshop_output_dropable():
 					child.queue_free()
 					child.get_slot_inside().set_populated(false)
+		CraftingManager.resetCurrentCraftingItems()
 		InventoryManager.spawn_workbench_output_dropable(ITEM_TYPE)
 	
 	
