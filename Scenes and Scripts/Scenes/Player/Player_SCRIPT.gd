@@ -1173,7 +1173,6 @@ func _on_craft_button_pressed() -> void:
 	SignalBus.pressed_craft.emit()
 
 func Craft(ITEM_TYPE : String):
-	
 	if !Slot10_Output_Workbench_Ref.is_populated():
 		for child in WorkbenchSlots.get_children():
 			if str(child.name).begins_with("Dropable"):
@@ -1182,8 +1181,7 @@ func Craft(ITEM_TYPE : String):
 					child.get_slot_inside().set_populated(false)
 		CraftingManager.resetCurrentCraftingItems()
 		InventoryManager.spawn_workbench_output_dropable(ITEM_TYPE)
-	
-	
+
 #endregion
 
 #region Item Workshop
