@@ -1404,7 +1404,7 @@ texture = ExtResource("17_60kit")
 
 [node name="Slot10" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots" instance=ExtResource("8_ads4s")]
 position = Vector2(1.99902, 245)
-is_workbench_slot = true
+is_workbench_output_slot = true
 
 [node name="CraftButton" type="Button" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer"]
 layout_mode = 1
