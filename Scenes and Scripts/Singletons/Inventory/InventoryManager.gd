@@ -199,6 +199,23 @@ func spawn_workshop_dropable(atPos : Vector2, ITEM_TYPE, slotToPopulate):
 		
 		return DropableInstance
 
+func spawn_workbench_output_dropable(ITEM_TYPE):
+	if get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer") != null:
+		var WorkbenchSlots = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots")
+		var NewDropable = load("res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDropable.tscn")
+		var DropableInstance = NewDropable.instantiate()
+		DropableInstance.set_ITEM_TYPE(ITEM_TYPE)
+		
+		WorkbenchSlots.add_child(DropableInstance)
+		DropableInstance.position = InventoryManager.WORKSHOP_OUTPUT_SLOT.position
+		DropableInstance.top_level = true
+		
+		DropableInstance.set_slot_inside(InventoryManager.WORKSHOP_OUTPUT_SLOT)
+		DropableInstance.set_is_workshop_output_dropable(true)
+		InventoryManager.WORKSHOP_OUTPUT_SLOT.set_populated(true)
+		
+		return DropableInstance
+
 func set_hand_item(dropable_to_delete, ITEM_TYPE : String):
 	var PLAYER = get_node("/root/World/Player")
 	if InventoryData.HAND_ITEM_TYPE != "":
