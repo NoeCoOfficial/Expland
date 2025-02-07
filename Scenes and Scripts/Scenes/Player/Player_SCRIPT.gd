@@ -1195,6 +1195,7 @@ func openItemWorkshop():
 	var tween = get_tree().create_tween().set_parallel()
 	tween.connect("finished", Callable(self, "on_item_workshop_open_finished"))
 	
+	
 	tween.tween_property(ItemWorkshopLayer_MainLayer, "position", Vector2(0, 0), 0).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	tween.tween_property(ItemWorkshopLayer_GreyLayer, "modulate", Color(1, 1, 1, 1), 0)
 	
@@ -1474,3 +1475,7 @@ func _on_set_time_button_pressed() -> void:
 	PlayerManager.WORLD.set_time(SetTime_SpinBox.value)
 
 #endregion
+
+
+func _on_node_count_timeout() -> void:
+	print(str(Utils.get_total_node_count()))

@@ -63,10 +63,11 @@ const RECIPES = [
 	
 	["PICKAXE", [
 		
-		"STONE", "STONE", "", 
+			"",      "STONE", "STONE", 
+			
+		"",      "WOODPLANK",   "STONE", 
 		
-		 "STONE", "ROCK", "", 
-		"", "",           "ROCK"]
+		"WOODPLANK", "", ""]
 		
 		],
 		
