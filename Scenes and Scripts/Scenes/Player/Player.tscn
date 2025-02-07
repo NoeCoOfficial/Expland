@@ -30,7 +30,6 @@
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Debug/Inputs_currently_pressing_label_SCRIPT.gd" id="20_bmbkh"]
 [ext_resource type="StyleBox" uid="uid://com3tix0pshhk" path="res://Resources/Styles and Themes/Styles/Default/Label/Default_Label.tres" id="21_k6ube"]
 [ext_resource type="PackedScene" uid="uid://ynckscwc0643" path="res://Scenes and Scripts/Scenes/Alert/AlertLayer.tscn" id="21_r1ny7"]
-[ext_resource type="Texture2D" uid="uid://cswo7d302isb0" path="res://Textures/Inventory/STONE.png" id="22_3tvb5"]
 [ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="22_7sfup"]
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="24_6y28d"]
 [ext_resource type="PackedScene" uid="uid://djenc4llne53s" path="res://Scenes and Scripts/Scenes/Credits/CreditsLayer.tscn" id="24_qhsvo"]
@@ -209,6 +208,9 @@ size = Vector2(307, 648)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b78jw"]
 size = Vector2(304, 648)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_47ywp"]
+load_path = "res://.godot/imported/STONE.png-927cdf3755e2c3b65afc36a4cfc41a45.ctex"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_meokx"]
 bg_color = Color(0.125911, 0.125911, 0.125911, 1)
@@ -1684,7 +1686,7 @@ offset_left = 7.0
 offset_top = 29.0
 offset_right = 113.0
 offset_bottom = 135.0
-texture = ExtResource("22_3tvb5")
+texture = SubResource("CompressedTexture2D_47ywp")
 expand_mode = 1
 
 [node name="AddButton" type="Button" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/STONE"]
