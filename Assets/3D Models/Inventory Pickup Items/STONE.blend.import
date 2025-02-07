@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://hp6koxjebkch"
-path="res://.godot/imported/Stone.blend-799a590d04e954f8a810abadfada0e9a.scn"
+uid="uid://cnca041yt8f3j"
+path="res://.godot/imported/STONE.blend-d947016613c12b8fb8cd33239122e3c8.scn"
 
 [deps]
 
-source_file="res://Assets/3D Models/Rocks/Stone.blend"
-dest_files=["res://.godot/imported/Stone.blend-799a590d04e954f8a810abadfada0e9a.scn"]
+source_file="res://Assets/3D Models/Inventory Pickup Items/STONE.blend"
+dest_files=["res://.godot/imported/STONE.blend-d947016613c12b8fb8cd33239122e3c8.scn"]
 
 [params]
 
