@@ -52,24 +52,14 @@ var CURRENT_CRAFTING_ITEMS = [
 	"",
 	"",
 	"",
-	"",
-	"",
-	"",
-	"",
 	""
 ]
 
 const RECIPES = [
 	
-	["PICKAXE", [
-		
-		"STONE", "STONE", "", 
-		
-		 "STONE", "ROCK", "", 
-		"", "",           "ROCK"]
-		
-		],
-		
+	["PICKAXE", ["WOODPLANK", "WOODPLANK", "IRON", "IRON"]],
+	["SWORD", ["WOOD", "WOOD", "DIAMOND", "TITANIUM"]],
+	
 ]
 
 func _ready() -> void:
@@ -77,42 +67,17 @@ func _ready() -> void:
 
 func bindCraftingItem(ITEM_TYPE : String, atIndex : int):
 	CURRENT_CRAFTING_ITEMS[atIndex] = ITEM_TYPE
-	print_rich("[color=green]Binding crafting item.[/color]")
-	print_stack()
-
 
 func unbindCraftingItem(atIndex : int):
 	CURRENT_CRAFTING_ITEMS[atIndex] = ""
-	print_rich("[color=red]Unbinding crafting item.[/color]")
-	print_stack()
 
 func Craft():
-	var crafted_item = runCraftingChecks()
-	if crafted_item != "":
-		print("Crafted item: ", crafted_item)
-		SignalBus.spawn_crafted_item.emit(crafted_item)
-	else:
-		print("No matching recipe found.")
+	pass
 
-func runCraftingChecks() -> String:
-	for recipe in RECIPES:
-		var sorted_recipe_items = recipe[1].duplicate()
-		sorted_recipe_items.sort()
-		var sorted_current_items = CURRENT_CRAFTING_ITEMS.duplicate()
-		sorted_current_items.sort()
-		if sorted_recipe_items == sorted_current_items:
-			return recipe[0]
-	return ""
-
-func resetCurrentCraftingItems():
-	CURRENT_CRAFTING_ITEMS = [
-	"",
-	"",
-	"",
-	"",
-	"",
-	"",
-	"",
-	"",
-	""
-	]
+func runCraftingChecks():
+	# Check if CURRENT_CRAFTING_ITEMS matches any of the recipes in RECIPES
+		# If found a matching recipe:
+			# break loop and return the item to craft, which is the item attatchde to the recipe.
+		# If not found matching recipe:
+			# break loop and return null.
+	pass
