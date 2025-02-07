@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=99 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -30,6 +30,7 @@
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Debug/Inputs_currently_pressing_label_SCRIPT.gd" id="20_bmbkh"]
 [ext_resource type="StyleBox" uid="uid://com3tix0pshhk" path="res://Resources/Styles and Themes/Styles/Default/Label/Default_Label.tres" id="21_k6ube"]
 [ext_resource type="PackedScene" uid="uid://ynckscwc0643" path="res://Scenes and Scripts/Scenes/Alert/AlertLayer.tscn" id="21_r1ny7"]
+[ext_resource type="Texture2D" uid="uid://cswo7d302isb0" path="res://Textures/Inventory/STONE.png" id="22_3tvb5"]
 [ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="22_7sfup"]
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="24_6y28d"]
 [ext_resource type="PackedScene" uid="uid://djenc4llne53s" path="res://Scenes and Scripts/Scenes/Credits/CreditsLayer.tscn" id="24_qhsvo"]
@@ -802,6 +803,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="InventoryMainLayer" type="CanvasLayer" parent="Head/Camera3D/InventoryLayer"]
 layer = 2
+visible = false
 
 [node name="Background" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 anchors_preset = 8
@@ -1268,6 +1270,7 @@ position = Vector2(498, 493)
 is_chest_slot = true
 
 [node name="WorkbenchMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
+visible = false
 layout_mode = 3
 anchor_left = 0.243924
 anchor_top = 1.54321
@@ -1663,6 +1666,54 @@ offset_bottom = 29.0
 theme = ExtResource("17_rhxkt")
 theme_override_fonts/font = ExtResource("8_cdk3a")
 text = "Rock"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="STONE" type="Control" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Background" type="Panel" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/STONE"]
+layout_mode = 0
+offset_right = 119.0
+offset_bottom = 177.0
+theme_override_styles/panel = ExtResource("25_8giff")
+
+[node name="ITEM_IMAGE" type="TextureRect" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/STONE"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 29.0
+offset_right = 113.0
+offset_bottom = 135.0
+texture = ExtResource("22_3tvb5")
+expand_mode = 1
+
+[node name="AddButton" type="Button" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/STONE"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 139.0
+offset_right = 112.0
+offset_bottom = 169.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 15
+text = "Add to pockets"
+
+[node name="ITEM_TYPE" type="Label" parent="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/STONE"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 6.0
+offset_right = 116.0
+offset_bottom = 29.0
+theme = ExtResource("17_rhxkt")
+theme_override_fonts/font = ExtResource("8_cdk3a")
+text = "Stone"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -3429,6 +3480,7 @@ libraries = {
 [connection signal="area_entered" from="Head/Camera3D/InventoryLayer/PocketsBoundary" to="." method="_on_pockets_boundary_area_entered"]
 [connection signal="area_exited" from="Head/Camera3D/InventoryLayer/PocketsBoundary" to="." method="_on_pockets_boundary_area_exited"]
 [connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/ROCK/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["ROCK"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/STONE/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["ROCK"]]
 [connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/REDFLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["REDFLOWER"]]
 [connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/BLUEFLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["BLUEFLOWER"]]
 [connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/PINKFLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["PINKFLOWER"]]
