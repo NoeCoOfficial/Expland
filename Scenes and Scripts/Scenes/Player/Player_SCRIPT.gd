@@ -1475,7 +1475,3 @@ func _on_set_time_button_pressed() -> void:
 	PlayerManager.WORLD.set_time(SetTime_SpinBox.value)
 
 #endregion
-
-
-func _on_node_count_timeout() -> void:
-	print(str(Utils.get_total_node_count()))

@@ -50,6 +50,7 @@ extends Node
 const EXPLORER_NOTES = [
 	"PLACHOLDER",
 	"EXPLAND_TEXT_TEST",
+	"PICKAXE_RECIPE",
 ]
 
 var COLLECTED_NOTES = []

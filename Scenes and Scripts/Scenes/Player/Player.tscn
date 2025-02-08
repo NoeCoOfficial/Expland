@@ -666,11 +666,6 @@ one_shot = true
 autostart = true
 script = ExtResource("2_t6toi")
 
-[node name="node_count" type="Timer" parent="."]
-wait_time = 5.0
-autostart = true
-script = ExtResource("2_t6toi")
-
 [node name="HungerDepletion" type="Timer" parent="."]
 wait_time = 60.0
 autostart = true
@@ -3521,7 +3516,6 @@ libraries = {
 [connection signal="timeout" from="is_inside_boundary_false_startup" to="." method="_on_is_inside_boundary_false_startup_timeout"]
 [connection signal="timeout" from="is_inside_boundary_false_inventory_debounce" to="." method="_on_is_inside_boundary_false_inventory_debounce_timeout"]
 [connection signal="timeout" from="AutoSaveTimer" to="." method="_on_auto_save_timer_timeout"]
-[connection signal="timeout" from="node_count" to="." method="_on_node_count_timeout"]
 [connection signal="timeout" from="HungerDepletion" to="." method="_on_hunger_depletion_timeout"]
 [connection signal="timeout" from="HealthDepletingFromHunger" to="." method="_on_health_depleting_from_hunger_timeout"]
 [connection signal="area_entered" from="PickupObjectDetector" to="." method="_on_pickup_object_detector_area_entered"]
