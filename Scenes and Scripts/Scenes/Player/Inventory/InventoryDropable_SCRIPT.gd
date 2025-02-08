@@ -88,7 +88,10 @@ func _ready():
 		ITEM_TYPE_Label.text = "Pink Flower"
 	elif "YELLOWFLOWER" in ITEM_TYPE:
 		ITEM_TYPE_Label.text = "Yellow Flower"
-
+	
+	elif "WOODPLANK" in ITEM_TYPE:
+		ITEM_TYPE_Label.text = "Wood Plank"
+	
 	elif "EFFICIENCYPOTION" in ITEM_TYPE:
 		ITEM_TYPE_Label.text = "Efficiency Potion"
 	elif "HASTEPOTION" in ITEM_TYPE:

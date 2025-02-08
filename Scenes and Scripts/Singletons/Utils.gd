@@ -235,3 +235,6 @@ func sum_array(arr):
 	for value in arr:
 		total += value
 	return total
+
+func get_total_node_count():
+	return get_tree().get_node_count()

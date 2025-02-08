@@ -44,10 +44,9 @@ shape = SubResource("RectangleShape2D_5hbs3")
 shape = SubResource("RectangleShape2D_q5yu5")
 
 [node name="is_populated" type="Label" parent="."]
-visible = false
-offset_left = 62.0
+offset_left = 50.0
 offset_top = -23.0
-offset_right = 107.0
+offset_right = 95.0
 rotation = 1.57079
 theme = ExtResource("3_x0xu3")
 theme_override_font_sizes/font_size = 10
