@@ -382,7 +382,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			if !DialogueManager.is_in_absolute_interface and !InventoryManager.inventory_open and !PauseManager.is_inside_alert and !InventoryManager.is_in_workbench_interface and !InventoryManager.in_chest_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !PauseManager.inside_absolute_item_workshop and !PauseManager.inside_explorer_note_ui:
 				pauseGame()
 			
-			if InventoryManager.inventory_open and !InventoryManager.in_chest_interface and !InventoryManager.is_dragging:
+			if InventoryManager.inventory_open and !InventoryManager.in_chest_interface and !InventoryManager.is_in_explorer_notes_interface and !InventoryManager.is_dragging:
 				closeInventory()
 			
 			if InventoryManager.in_chest_interface and !InventoryManager.is_dragging:
@@ -397,6 +397,9 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			
 			if PauseManager.inside_explorer_note_ui:
 				ExplorerNotesManager.hideCloseUp()
+			
+			if InventoryManager.is_in_explorer_notes_interface:
+				closeExplorerNotes()
 	
 	if Input.is_action_just_pressed("Quit") and Quit == true and OS.has_feature("debug"): # if the Quit input is pressed and the Quit variable is true
 		SaveManager.saveAllData()
@@ -1138,6 +1141,17 @@ func _on_is_inside_boundary_false_inventory_debounce_timeout() -> void:
 #endregion
 
 #region Explorer notes
+
+func openExplorerNotes():
+	InventoryManager.is_in_explorer_notes_interface = true
+	$Head/Camera3D/InventoryLayer/ExplorerNotesMainLayer.show()
+
+func closeExplorerNotes():
+	InventoryManager.is_in_explorer_notes_interface = false
+	$Head/Camera3D/InventoryLayer/ExplorerNotesMainLayer.hide()
+
+func _on_explorer_notes_btn_pressed() -> void:
+	openExplorerNotes()
 
 #endregion
 
