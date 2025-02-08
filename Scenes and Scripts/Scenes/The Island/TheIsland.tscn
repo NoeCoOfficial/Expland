@@ -788,7 +788,7 @@ NailRotation_Degrees = Vector3(-12.485, 9.45, 0)
 
 [node name="ExplorerNote_2" parent="." instance=ExtResource("31_i2rcl")]
 transform = Transform3D(-0.0215908, -0.0020435, 0.291995, -0.278539, -0.0877377, -0.0212099, 0.0876447, -0.279338, 0.00452564, -386.735, 2.31761, 306.013)
-NoteID = 1
+NoteID = 2
 ImageAlbedo = ExtResource("33_5n0qp")
 DecalRotation_Degrees = Vector3(0, 90, 0)
 DecalSize = Vector3(6.005, 0.61, 3.14)
