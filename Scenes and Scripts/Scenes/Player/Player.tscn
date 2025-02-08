@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=101 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bg100aqmtgfn4" path="res://Textures/Icons/WhiteHam_Icon.png" id="8_l231k"]
 [ext_resource type="Texture2D" uid="uid://b20d3fbxr6vhx" path="res://Textures/Icons/WhiteHeart_Icon.png" id="8_ty1rt"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/OverlayLayer/Overlay_SCRIPT.gd" id="8_uxqns"]
+[ext_resource type="Texture2D" uid="uid://coh5374nhy6fl" path="res://Textures/Explorer Notes/2_Sheet.png" id="9_fmv5t"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/BlackOverlay_SCRIPT.gd" id="9_g6nwl"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/IgnoreMouseFilter.gd" id="9_svfxy"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/RandomText_SCRIPT.gd" id="10_6w37c"]
@@ -790,6 +791,51 @@ offset_left = -183.0
 offset_top = 17.0
 offset_right = -1107.0
 offset_bottom = -571.0
+
+[node name="ExplorerNoteLayer" type="CanvasLayer" parent="Head/Camera3D"]
+layer = 128
+
+[node name="Contents" type="Control" parent="Head/Camera3D/ExplorerNoteLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Head/Camera3D/ExplorerNoteLayer/Contents"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -424.0
+offset_top = -238.5
+offset_right = 424.0
+offset_bottom = 238.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_fmv5t")
+expand_mode = 1
+
+[node name="Claim_Btn" type="Button" parent="Head/Camera3D/ExplorerNoteLayer/Contents"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = 195.0
+offset_right = 66.0
+offset_bottom = 237.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 25
+text = "Claim"
 
 [node name="InventoryLayer" type="CanvasLayer" parent="Head/Camera3D"]
 visible = false
