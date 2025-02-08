@@ -604,6 +604,8 @@ func _ready():
 	initInventorySlots() # Link local inventory slots to singleton arrays
 	
 	PlayerManager.AudioNotification = $Head/Camera3D/AudioNotificationLayer/AudioNotification
+	PlayerManager.EXPLORER_NOTE_CONTENTS = $Head/Camera3D/ExplorerNoteLayer/Contents
+	
 	DialogueManager.DialogueInterface = DialogueInterface
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Lock mouse
 	$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving/SpinningAnimation.play(&"spin")
