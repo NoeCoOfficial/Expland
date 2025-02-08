@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=101 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://dgt5qdmjgbdsv" path="res://Textures/Icons/UpArrow_Icon.png" id="17_60kit"]
 [ext_resource type="PackedScene" uid="uid://du1ak3ldg8x4e" path="res://Scenes and Scripts/Scenes/Dialogue/DialogueInterface.tscn" id="17_pkmg7"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="17_rhxkt"]
+[ext_resource type="Texture2D" uid="uid://fih3i4yk6pip" path="res://Textures/Icons/PlayBtn_Icon.png" id="19_0wg4t"]
 [ext_resource type="PackedScene" uid="uid://ceabjbnv3nnyr" path="res://Scenes and Scripts/Scenes/Settings/SettingsUI.tscn" id="19_kj00b"]
 [ext_resource type="PackedScene" uid="uid://b7la7o37o5gld" path="res://Scenes and Scripts/Scenes/Achievements/AchievementsUI.tscn" id="20_3vll1"]
 [ext_resource type="StyleBox" uid="uid://b13po6off8nno" path="res://Resources/Styles and Themes/Styles/Default/Button/WithMarginDefaultDarkGrey.tres" id="20_b68th"]
@@ -1512,7 +1513,6 @@ text = "Explorer Notes"
 
 [node name="ExplorerNotesLayer" type="CanvasLayer" parent="Head/Camera3D/InventoryLayer"]
 layer = 3
-visible = false
 
 [node name="ExplorerNotesMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer"]
 layout_mode = 3
@@ -1562,6 +1562,69 @@ grow_horizontal = 2
 theme = ExtResource("17_rhxkt")
 theme_override_font_sizes/font_size = 26
 text = "Explorer Notes"
+
+[node name="Right_Arrow" type="TextureRect" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 282.5
+offset_top = -29.5
+offset_right = 309.5
+offset_bottom = 29.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("19_0wg4t")
+expand_mode = 1
+
+[node name="Right_Arrow_Btn" type="Button" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 287.0
+offset_top = -25.0
+offset_right = 308.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Left_Arrow" type="TextureRect" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -309.5
+offset_top = -29.5
+offset_right = -282.5
+offset_bottom = 29.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("19_0wg4t")
+expand_mode = 1
+flip_h = true
+
+[node name="Left_Arrow_Btn" type="Button" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -307.0
+offset_top = -25.0
+offset_right = -286.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="ChestBoundary" type="Area2D" parent="Head/Camera3D/InventoryLayer"]
 visible = false

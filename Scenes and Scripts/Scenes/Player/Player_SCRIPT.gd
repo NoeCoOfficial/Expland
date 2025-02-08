@@ -609,6 +609,9 @@ func _ready():
 	
 	initInventorySlots() # Link local inventory slots to singleton arrays
 	
+	Utils.set_center_offset($Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Right_Arrow)
+	Utils.set_center_offset($Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Left_Arrow)
+	
 	PlayerManager.AudioNotification = $Head/Camera3D/AudioNotificationLayer/AudioNotification
 	PlayerManager.EXPLORER_NOTE_CONTENTS = $Head/Camera3D/ExplorerNoteLayer/Contents
 	PlayerManager.EXPLORER_NOTE_TEXTURE_RECT = $Head/Camera3D/ExplorerNoteLayer/Contents/ExplorerNoteSheet
@@ -1153,6 +1156,17 @@ func closeExplorerNotes():
 func _on_explorer_notes_btn_pressed() -> void:
 	openExplorerNotes()
 
+func _on_right_arrow_btn_mouse_entered() -> void:
+	pass # Replace with function body.
+
+func _on_right_arrow_btn_mouse_exited() -> void:
+	pass # Replace with function body.
+
+func _on_right_arrow_btn_pressed() -> void:
+	pass # Replace with function body.
+
+
+
 #endregion
 
 #region Chest
@@ -1500,3 +1514,17 @@ func _on_set_time_button_pressed() -> void:
 	PlayerManager.WORLD.set_time(SetTime_SpinBox.value)
 
 #endregion
+
+
+
+func _on_left_arrow_btn_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_left_arrow_btn_mouse_entered() -> void:
+	
+	pass # Replace with function body.
+
+
+func _on_left_arrow_btn_mouse_exited() -> void:
+	pass # Replace with function body.
