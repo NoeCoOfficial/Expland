@@ -828,7 +828,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
 
-[node name="Claim_Btn" type="Button" parent="Head/Camera3D/ExplorerNoteLayer/Contents"]
+[node name="Collect_Btn" type="Button" parent="Head/Camera3D/ExplorerNoteLayer/Contents"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -844,7 +844,7 @@ grow_vertical = 2
 focus_mode = 0
 theme = ExtResource("17_rhxkt")
 theme_override_font_sizes/font_size = 25
-text = "Claim"
+text = "Collect"
 
 [node name="InventoryLayer" type="CanvasLayer" parent="Head/Camera3D"]
 visible = false

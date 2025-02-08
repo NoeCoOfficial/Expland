@@ -379,7 +379,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			
 		else:
 			
-			if !DialogueManager.is_in_absolute_interface and !InventoryManager.inventory_open and !PauseManager.is_inside_alert and !InventoryManager.is_in_workbench_interface and !InventoryManager.in_chest_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !PauseManager.inside_absolute_item_workshop:
+			if !DialogueManager.is_in_absolute_interface and !InventoryManager.inventory_open and !PauseManager.is_inside_alert and !InventoryManager.is_in_workbench_interface and !InventoryManager.in_chest_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !PauseManager.inside_absolute_item_workshop and !PauseManager.inside_explorer_note_ui:
 				pauseGame()
 			
 			if InventoryManager.inventory_open and !InventoryManager.in_chest_interface and !InventoryManager.is_dragging:
@@ -394,6 +394,9 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			
 			if PauseManager.inside_item_workshop:
 				closeItemWorkshop()
+			
+			if PauseManager.inside_explorer_note_ui:
+				ExplorerNotesManager.hideCloseUp()
 	
 	if Input.is_action_just_pressed("Quit") and Quit == true and OS.has_feature("debug"): # if the Quit input is pressed and the Quit variable is true
 		SaveManager.saveAllData()
@@ -783,6 +786,7 @@ func takeDamage(DamageToTake): # A function to take damage from the player
 			closeChest()
 			closeItemWorkshop()
 			closeWorkbench()
+			ExplorerNotesManager.hideCloseUp()
 			SettingsUI.closeSettings(0.5)
 			AlertLayer.despawnAlert(0.5)
 			AchievementsUI.despawnAchievements(0.5)

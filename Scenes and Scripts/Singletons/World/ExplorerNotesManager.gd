@@ -58,6 +58,7 @@ var CurrentlyInteracting_ID
 var CurrentlyShowing_ID
 
 func viewCloseUp(ID : int):
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	if InteractionManager.is_hovering_over_explorer_note:
 		PauseManager.inside_explorer_note_ui = true
 		CurrentlyShowing_ID = ID
@@ -71,6 +72,7 @@ func viewCloseUp(ID : int):
 		PlayerManager.EXPLORER_NOTE_CONTENTS.show()
 
 func hideCloseUp():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	PauseManager.inside_explorer_note_ui = false
 	CurrentlyShowing_ID = 0
 	PlayerManager.EXPLORER_NOTE_CONTENTS.hide()
