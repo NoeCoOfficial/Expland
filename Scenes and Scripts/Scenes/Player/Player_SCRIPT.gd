@@ -385,11 +385,11 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			if InventoryManager.inventory_open and !InventoryManager.in_chest_interface and !InventoryManager.is_in_explorer_notes_interface and !InventoryManager.is_dragging:
 				closeInventory()
 			
-			if InventoryManager.in_chest_interface and !InventoryManager.is_dragging:
+			if InventoryManager.in_chest_interface and !InventoryManager.is_dragging and !InventoryManager.is_in_explorer_notes_interface:
 				if !InventoryManager.chestNode.is_animating():
 					closeChest()
 			
-			if InventoryManager.is_in_workbench_interface and !InventoryManager.is_dragging:
+			if InventoryManager.is_in_workbench_interface and !InventoryManager.is_dragging and !InventoryManager.is_in_explorer_notes_interface:
 				closeWorkbench()
 			
 			if PauseManager.inside_item_workshop:
@@ -419,7 +419,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		SaveManager.saveAllData()
 		saveAllDataWithAnimation()
 	
-	if Input.is_action_just_pressed("Inventory") and !PauseManager.inside_explorer_note_ui and !PauseManager.inside_absolute_item_workshop and !PauseManager.is_paused and !InventoryManager.in_chest_interface and !InventoryManager.is_in_workbench_interface and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !InventoryManager.is_dragging and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
+	if Input.is_action_just_pressed("Inventory") and !InventoryManager.is_in_explorer_notes_interface and !PauseManager.inside_explorer_note_ui and !PauseManager.inside_absolute_item_workshop and !PauseManager.is_paused and !InventoryManager.in_chest_interface and !InventoryManager.is_in_workbench_interface and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !InventoryManager.is_dragging and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
 		if !InventoryManager.inventory_open:
 			openInventory()
 		else:
@@ -1144,11 +1144,11 @@ func _on_is_inside_boundary_false_inventory_debounce_timeout() -> void:
 
 func openExplorerNotes():
 	InventoryManager.is_in_explorer_notes_interface = true
-	$Head/Camera3D/InventoryLayer/ExplorerNotesMainLayer.show()
+	$Head/Camera3D/InventoryLayer/ExplorerNotesLayer.show()
 
 func closeExplorerNotes():
 	InventoryManager.is_in_explorer_notes_interface = false
-	$Head/Camera3D/InventoryLayer/ExplorerNotesMainLayer.hide()
+	$Head/Camera3D/InventoryLayer/ExplorerNotesLayer.hide()
 
 func _on_explorer_notes_btn_pressed() -> void:
 	openExplorerNotes()
