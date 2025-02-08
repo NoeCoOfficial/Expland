@@ -69,3 +69,8 @@ func viewCloseUp(ID : int):
 			PlayerManager.EXPLORER_NOTE_TEXTURE_RECT.texture = OBJ_TEXTURE
 		
 		PlayerManager.EXPLORER_NOTE_CONTENTS.show()
+
+func hideCloseUp():
+	PauseManager.inside_explorer_note_ui = false
+	CurrentlyShowing_ID = 0
+	PlayerManager.EXPLORER_NOTE_CONTENTS.hide()
