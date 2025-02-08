@@ -54,4 +54,5 @@ func on_raycast_hit_explorer_note():
 	InteractionManager.is_hovering_over_explorer_note = true
 
 func on_raycast_exit_explorer_note():
+	ExplorerNotesManager.CurrentlyInteracting_ID = null
 	InteractionManager.is_hovering_over_explorer_note = false

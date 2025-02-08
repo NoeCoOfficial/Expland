@@ -54,7 +54,7 @@ const EXPLORER_NOTES = [
 ]
 
 var COLLECTED_NOTES = []
-var CurrentlyInteracting_ID : int
+var CurrentlyInteracting_ID
 var CurrentlyShowing_ID
 
 func viewCloseUp(ID : int):
