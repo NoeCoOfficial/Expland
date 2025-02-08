@@ -52,7 +52,9 @@ var PLAYER = null
 var INVENTORY_LAYER = null
 var CHEST_SLOTS = null
 var MINIMAL_ALERT_PLAYER = null
+
 var EXPLORER_NOTE_CONTENTS = null
+var EXPLORER_NOTE_TEXTURE_RECT = null
 
 var AudioNotification
 

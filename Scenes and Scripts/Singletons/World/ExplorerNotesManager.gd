@@ -58,4 +58,14 @@ var CurrentlyInteracting_ID
 var CurrentlyShowing_ID
 
 func viewCloseUp(ID : int):
-	CurrentlyInteracting_ID = ID
+	if InteractionManager.is_hovering_over_explorer_note:
+		PauseManager.inside_explorer_note_ui = true
+		CurrentlyShowing_ID = ID
+		
+		var OBJ_TEXTURE: Texture2D = load("res://Textures/Explorer Notes/" + str(ID) + "_Sheet.png")
+		if OBJ_TEXTURE == null:
+			print("Failed to load texture: res://Textures/Explorer Notes/" + str(ID) + "_Sheet.png")
+		else:
+			PlayerManager.EXPLORER_NOTE_TEXTURE_RECT.texture = OBJ_TEXTURE
+		
+		PlayerManager.EXPLORER_NOTE_CONTENTS.show()
