@@ -81,14 +81,6 @@ func getID():
 	return NoteID
 
 func initRemoveNote():
-	self.visible = false
-	$StaticBody3D/CollisionShape3D.disabled = true
-
-func set_disabled_collision(value):
-	$StaticBody3D/CollisionShape3D.disabled = value
-
-
-func _on_remove_note_timer_timeout() -> void:
 	print("NoteID: ", NoteID, " (Type: ", typeof(NoteID), ")")
 	print("Collected Notes: ", str(ExplorerNotesManager.COLLECTED_NOTES), " (Type: ", typeof(ExplorerNotesManager.COLLECTED_NOTES), ")")
 	
@@ -97,6 +89,13 @@ func _on_remove_note_timer_timeout() -> void:
 	
 	if float(NoteID) in ExplorerNotesManager.COLLECTED_NOTES:
 		print("NoteID found in collected notes.")
-		initRemoveNote()
+		self.visible = false
+		$StaticBody3D/CollisionShape3D.disabled = true
 	else:
 		print("NoteID not found in collected notes.")
+
+func set_disabled_collision(value):
+	$StaticBody3D/CollisionShape3D.disabled = value
+
+func _on_remove_note_timer_timeout() -> void:
+	initRemoveNote()
