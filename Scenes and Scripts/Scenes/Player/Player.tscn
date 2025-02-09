@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=103 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://dgt5qdmjgbdsv" path="res://Textures/Icons/UpArrow_Icon.png" id="17_60kit"]
 [ext_resource type="PackedScene" uid="uid://du1ak3ldg8x4e" path="res://Scenes and Scripts/Scenes/Dialogue/DialogueInterface.tscn" id="17_pkmg7"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="17_rhxkt"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/ExplorerNotesMainLayer.gd" id="18_i4l12"]
 [ext_resource type="Texture2D" uid="uid://fih3i4yk6pip" path="res://Textures/Icons/PlayBtn_Icon.png" id="19_0wg4t"]
 [ext_resource type="PackedScene" uid="uid://ceabjbnv3nnyr" path="res://Scenes and Scripts/Scenes/Settings/SettingsUI.tscn" id="19_kj00b"]
 [ext_resource type="PackedScene" uid="uid://b7la7o37o5gld" path="res://Scenes and Scripts/Scenes/Achievements/AchievementsUI.tscn" id="20_3vll1"]
@@ -31,6 +32,7 @@
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Debug/Inputs_currently_pressing_label_SCRIPT.gd" id="20_bmbkh"]
 [ext_resource type="StyleBox" uid="uid://com3tix0pshhk" path="res://Resources/Styles and Themes/Styles/Default/Label/Default_Label.tres" id="21_k6ube"]
 [ext_resource type="PackedScene" uid="uid://ynckscwc0643" path="res://Scenes and Scripts/Scenes/Alert/AlertLayer.tscn" id="21_r1ny7"]
+[ext_resource type="Texture2D" uid="uid://coh5374nhy6fl" path="res://Textures/Explorer Notes/2_Sheet.png" id="21_rd3qm"]
 [ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="22_7sfup"]
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="24_6y28d"]
 [ext_resource type="PackedScene" uid="uid://djenc4llne53s" path="res://Scenes and Scripts/Scenes/Credits/CreditsLayer.tscn" id="24_qhsvo"]
@@ -1522,6 +1524,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+script = ExtResource("18_i4l12")
 metadata/_edit_use_anchors_ = true
 
 [node name="GreyLayer" type="ColorRect" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
@@ -1626,6 +1629,37 @@ offset_right = -286.0
 offset_bottom = 27.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="NoteID_2" type="Control" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -199.0
+offset_top = -119.0
+offset_right = 199.0
+offset_bottom = 119.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SheetImage" type="TextureRect" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/NoteID_2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -231.0
+offset_top = -130.0
+offset_right = 231.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("21_rd3qm")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="ChestBoundary" type="Area2D" parent="Head/Camera3D/InventoryLayer"]
 visible = false
