@@ -64,8 +64,6 @@ func saveData(Island_Name : String) -> void:
 		Utils.createIslandSaveFolder(Island_Name, "STORY")
 		SAVE_PATH = "user://saveData/Parkour Mode/Runs/" + Island_Name + "/island.save"
 	
-	
-	
 		var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 		var data = {
 			"Collected_Explorer_Notes" : ExplorerNotesManager.COLLECTED_NOTES
