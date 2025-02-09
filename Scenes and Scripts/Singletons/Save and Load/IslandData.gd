@@ -68,6 +68,7 @@ func saveData(Island_Name : String) -> void:
 	
 		var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 		var data = {
+			"Collected_Explorer_Notes" : ExplorerNotesManager.COLLECTED_NOTES
 		}
 		
 		var jstr = JSON.stringify(data)
