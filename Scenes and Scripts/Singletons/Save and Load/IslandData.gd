@@ -64,15 +64,15 @@ func saveData(Island_Name : String) -> void:
 		Utils.createIslandSaveFolder(Island_Name, "STORY")
 		SAVE_PATH = "user://saveData/Parkour Mode/Runs/" + Island_Name + "/island.save"
 	
-		var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
-		var data = {
-			"Collected_Explorer_Notes" : ExplorerNotesManager.COLLECTED_NOTES
-		}
-		
-		var jstr = JSON.stringify(data)
-		file.store_line(jstr)
-		file.close()
-		print("[IslandData] --Saved Island Data--")
+	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+	var data = {
+		"Collected_Explorer_Notes" : ExplorerNotesManager.COLLECTED_NOTES
+	}
+	
+	var jstr = JSON.stringify(data)
+	file.store_line(jstr)
+	file.close()
+	print("[IslandData] --Saved Island Data--")
 
 func loadData(Island_Name : String, withOutput : bool) -> void:
 	
@@ -105,3 +105,4 @@ func loadData(Island_Name : String, withOutput : bool) -> void:
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Collected explorer notes: " + str(ExplorerNotesManager.COLLECTED_NOTES) + "[/font][/font_size][/center]")
 			
 		file.close()
+		

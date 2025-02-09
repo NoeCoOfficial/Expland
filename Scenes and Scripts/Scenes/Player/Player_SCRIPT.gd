@@ -1145,6 +1145,11 @@ func _on_is_inside_boundary_false_inventory_debounce_timeout() -> void:
 
 #region Explorer notes
 
+func _on_collect_btn_pressed() -> void:
+	closeExplorerNotes()
+	ExplorerNotesManager.COLLECTED_NOTES.append(ExplorerNotesManager.CurrentlyShowing_ID)
+	SignalBus.remove_explorer_notes.emit()
+
 func openExplorerNotes():
 	InventoryManager.is_in_explorer_notes_interface = true
 	$Head/Camera3D/InventoryLayer/ExplorerNotesLayer.show()

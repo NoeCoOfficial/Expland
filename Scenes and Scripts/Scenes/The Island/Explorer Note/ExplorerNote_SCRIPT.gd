@@ -62,7 +62,8 @@ extends Node3D
 
 
 func _ready() -> void:
-	pass
+	SignalBus.remove_explorer_notes.connect(initRemoveNote)
+
 
 func _process(_delta: float) -> void:
 	$Decal.texture_albedo = ImageAlbedo
@@ -75,3 +76,21 @@ func _process(_delta: float) -> void:
 	$Decal.rotation_degrees = DecalRotation_Degrees
 	$RustyNail.visible = ShowNail
 	$RustyNail.rotation_degrees = NailRotation_Degrees
+
+func getID():
+	return NoteID
+
+func initRemoveNote():
+	self.visible = false
+	$StaticBody3D/CollisionShape3D.disabled = true
+
+func set_disabled_collision(value):
+	$StaticBody3D/CollisionShape3D.disabled = value
+
+
+func _on_remove_note_timer_timeout() -> void:
+	if NoteID in ExplorerNotesManager.COLLECTED_NOTES:
+		initRemoveNote()
+	else:
+		print("skibidi toulet wefweewfewfwefwe")
+		print(str(ExplorerNotesManager.COLLECTED_NOTES))

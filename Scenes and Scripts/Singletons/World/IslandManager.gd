@@ -94,6 +94,8 @@ func resetAttributes():
 	TimeManager.CURRENT_DAY = 1
 	TimeManager.DAY_STATE = "DAY"
 	
+	ExplorerNotesManager.COLLECTED_NOTES.clear()
+	
 	InventoryManager.creatingFromInventory = false
 	InventoryManager.inventory_open = false
 	InventoryManager.in_chest_interface = false
