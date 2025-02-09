@@ -60,10 +60,8 @@ extends Node3D
 @export var NailRotation_Degrees : Vector3
 @export var ShowNail : bool = true
 
-
 func _ready() -> void:
 	SignalBus.remove_explorer_notes.connect(initRemoveNote)
-
 
 func _process(_delta: float) -> void:
 	$Decal.texture_albedo = ImageAlbedo
@@ -79,6 +77,10 @@ func _process(_delta: float) -> void:
 
 func getID():
 	return NoteID
+
+func removeNote():
+	self.visible = false
+	$StaticBody3D/CollisionShape3D.disabled = true
 
 func initRemoveNote():
 	print("NoteID: ", NoteID, " (Type: ", typeof(NoteID), ")")

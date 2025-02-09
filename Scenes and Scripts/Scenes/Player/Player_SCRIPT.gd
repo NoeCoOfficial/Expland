@@ -1147,6 +1147,7 @@ func _on_is_inside_boundary_false_inventory_debounce_timeout() -> void:
 
 func _on_collect_btn_pressed() -> void:
 	ExplorerNotesManager.COLLECTED_NOTES.append(ExplorerNotesManager.CurrentlyShowing_ID)
+	ExplorerNotesManager.CurrentlyShowing_Node.removeNote()
 	ExplorerNotesManager.hideCloseUp()
 
 func openExplorerNotes():

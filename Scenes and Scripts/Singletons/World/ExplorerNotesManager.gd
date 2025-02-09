@@ -56,6 +56,7 @@ const EXPLORER_NOTES = [
 var COLLECTED_NOTES = []
 var CurrentlyInteracting_ID
 var CurrentlyShowing_ID
+var CurrentlyShowing_Node
 
 func viewCloseUp(ID : int):
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
