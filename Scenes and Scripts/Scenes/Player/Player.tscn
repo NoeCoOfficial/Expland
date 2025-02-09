@@ -1521,6 +1521,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="GreyLayer" type="ColorRect" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
@@ -1579,21 +1580,6 @@ grow_vertical = 2
 texture = ExtResource("19_0wg4t")
 expand_mode = 1
 
-[node name="Right_Arrow_Btn" type="Button" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 287.0
-offset_top = -25.0
-offset_right = 308.0
-offset_bottom = 27.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="Left_Arrow" type="TextureRect" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
 layout_mode = 1
 anchors_preset = 8
@@ -1610,6 +1596,21 @@ grow_vertical = 2
 texture = ExtResource("19_0wg4t")
 expand_mode = 1
 flip_h = true
+
+[node name="Right_Arrow_Btn" type="Button" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 287.0
+offset_top = -25.0
+offset_right = 308.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Left_Arrow_Btn" type="Button" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
 modulate = Color(1, 1, 1, 0)

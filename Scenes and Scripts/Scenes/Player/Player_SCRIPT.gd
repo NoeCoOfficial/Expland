@@ -1158,23 +1158,66 @@ func _on_explorer_notes_btn_pressed() -> void:
 
 
 func _on_right_arrow_btn_pressed() -> void:
-	pass # Replace with function body.
+	print("skib")
 
 func _on_right_arrow_btn_mouse_entered() -> void:
-	pass # Replace with function body.
+	var tween = get_tree().create_tween().set_parallel()
+	tween.tween_property(
+		$Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Right_Arrow_Btn, 
+		"scale", 
+		Vector2(1.1, 1.1), 
+		0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	
+	tween.tween_property(
+		$Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Right_Arrow, 
+		"scale", 
+		Vector2(1.4, 1.4), 
+		0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func _on_right_arrow_btn_mouse_exited() -> void:
-	pass # Replace with function body.
-
+	var tween = get_tree().create_tween().set_parallel()
+	tween.tween_property(
+		$Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Right_Arrow_Btn, 
+		"scale", 
+		Vector2(1, 1), 
+		0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	
+	tween.tween_property(
+		$Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Right_Arrow, 
+		"scale", 
+		Vector2(1, 1), 
+		0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func _on_left_arrow_btn_pressed() -> void:
-	pass # Replace with function body.
+	print("skib")
 
 func _on_left_arrow_btn_mouse_entered() -> void:
-	pass # Replace with function body.
+	var tween = get_tree().create_tween().set_parallel()
+	tween.tween_property(
+		$Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Left_Arrow_Btn, 
+		"scale", 
+		Vector2(1.4, 1.4), 
+		0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	
+	tween.tween_property(
+		$Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Left_Arrow, 
+		"scale", 
+		Vector2(1.4, 1.4), 
+		0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func _on_left_arrow_btn_mouse_exited() -> void:
-	pass # Replace with function body.
+	var tween = get_tree().create_tween().set_parallel()
+	tween.tween_property(
+		$Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Left_Arrow_Btn, 
+		"scale", 
+		Vector2(1, 1), 
+		0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	
+	tween.tween_property(
+		$Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Left_Arrow, 
+		"scale", 
+		Vector2(1, 1), 
+		0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 #endregion
 
