@@ -97,9 +97,11 @@ func loadData(Island_Name : String, withOutput : bool) -> void:
 		var current_line = JSON.parse_string(file.get_line())
 		
 		if current_line:
-			pass
+			ExplorerNotesManager.COLLECTED_NOTES = current_line["Collected_Explorer_Notes"]
+			
 				
 			if withOutput:
 				print_rich("[center][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf][font_size=30]-- ISLAND DATA HAS BEEN LOADED --[/font_size][/font][/center]")
+				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Collected explorer notes: " + str(ExplorerNotesManager.COLLECTED_NOTES) + "[/font][/font_size][/center]")
 			
 		file.close()
