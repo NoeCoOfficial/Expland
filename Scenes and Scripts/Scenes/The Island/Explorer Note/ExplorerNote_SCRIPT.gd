@@ -89,8 +89,14 @@ func set_disabled_collision(value):
 
 
 func _on_remove_note_timer_timeout() -> void:
-	if NoteID in ExplorerNotesManager.COLLECTED_NOTES:
+	print("NoteID: ", NoteID, " (Type: ", typeof(NoteID), ")")
+	print("Collected Notes: ", str(ExplorerNotesManager.COLLECTED_NOTES), " (Type: ", typeof(ExplorerNotesManager.COLLECTED_NOTES), ")")
+	
+	for collected_note in ExplorerNotesManager.COLLECTED_NOTES:
+		print("Collected Note: ", collected_note, " (Type: ", typeof(collected_note), ")")
+	
+	if float(NoteID) in ExplorerNotesManager.COLLECTED_NOTES:
+		print("NoteID found in collected notes.")
 		initRemoveNote()
 	else:
-		print("skibidi toulet wefweewfewfwefwe")
-		print(str(ExplorerNotesManager.COLLECTED_NOTES))
+		print("NoteID not found in collected notes.")
