@@ -6,10 +6,15 @@
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/The Island/Explorer Note/ExplorerNote_StaticBody3D_SCRIPT.gd" id="4_rk6p2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hog6c"]
-size = Vector3(2.4303, 0.623383, 3.18233)
+size = Vector3(2.4303, 1.4659, 3.18233)
 
-[node name="ExplorerNote" type="Node3D"]
+[node name="ExplorerNote" type="Node3D" groups=["ExplorerNoteObject"]]
 script = ExtResource("1_etueb")
+
+[node name="remove_note_timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
 
 [node name="OldPaper" parent="." instance=ExtResource("2_uieki")]
 
@@ -24,5 +29,7 @@ script = ExtResource("4_rk6p2")
 root = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13739, -0.052922, 0.0245686)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13739, 0.0471336, 0.0245686)
 shape = SubResource("BoxShape3D_hog6c")
+
+[connection signal="timeout" from="remove_note_timer" to="." method="_on_remove_note_timer_timeout"]

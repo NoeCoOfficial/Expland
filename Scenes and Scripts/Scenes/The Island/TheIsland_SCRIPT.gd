@@ -77,6 +77,7 @@ func _ready() -> void:
 	Global.the_island_transitioning_scene = false
 	
 	PlayerData.loadData(IslandManager.Current_Island_Name, true)
+	IslandData.loadData(IslandManager.Current_Island_Name, true)
 	InventoryData.loadInventory(IslandManager.Current_Island_Name)
 	
 	PlayerManager.init()

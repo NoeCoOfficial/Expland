@@ -70,6 +70,7 @@ func resetAttributes():
 	# IT'S NAME AND IT'S DEFAULT HERE!
 	# VERY IMPORTANT!
 	
+	PauseManager.inside_explorer_note_ui = false
 	PauseManager.inside_can_move_item_workshop = false
 	PauseManager.inside_absolute_item_workshop = false
 	PauseManager.inside_item_workshop = false
@@ -92,6 +93,8 @@ func resetAttributes():
 	TimeManager.CURRENT_TIME = 600
 	TimeManager.CURRENT_DAY = 1
 	TimeManager.DAY_STATE = "DAY"
+	
+	ExplorerNotesManager.COLLECTED_NOTES.clear()
 	
 	InventoryManager.creatingFromInventory = false
 	InventoryManager.inventory_open = false

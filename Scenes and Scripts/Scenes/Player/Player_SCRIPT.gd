@@ -379,21 +379,27 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			
 		else:
 			
-			if !DialogueManager.is_in_absolute_interface and !InventoryManager.inventory_open and !PauseManager.is_inside_alert and !InventoryManager.is_in_workbench_interface and !InventoryManager.in_chest_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !PauseManager.inside_absolute_item_workshop:
+			if !DialogueManager.is_in_absolute_interface and !InventoryManager.inventory_open and !PauseManager.is_inside_alert and !InventoryManager.is_in_workbench_interface and !InventoryManager.in_chest_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !PauseManager.inside_absolute_item_workshop and !PauseManager.inside_explorer_note_ui:
 				pauseGame()
 			
-			if InventoryManager.inventory_open and !InventoryManager.in_chest_interface and !InventoryManager.is_dragging:
+			if InventoryManager.inventory_open and !InventoryManager.in_chest_interface and !InventoryManager.is_in_explorer_notes_interface and !InventoryManager.is_dragging:
 				closeInventory()
 			
-			if InventoryManager.in_chest_interface and !InventoryManager.is_dragging:
+			if InventoryManager.in_chest_interface and !InventoryManager.is_dragging and !InventoryManager.is_in_explorer_notes_interface:
 				if !InventoryManager.chestNode.is_animating():
 					closeChest()
 			
-			if InventoryManager.is_in_workbench_interface and !InventoryManager.is_dragging:
+			if InventoryManager.is_in_workbench_interface and !InventoryManager.is_dragging and !InventoryManager.is_in_explorer_notes_interface:
 				closeWorkbench()
 			
 			if PauseManager.inside_item_workshop:
 				closeItemWorkshop()
+			
+			if PauseManager.inside_explorer_note_ui:
+				ExplorerNotesManager.hideCloseUp()
+			
+			if InventoryManager.is_in_explorer_notes_interface:
+				closeExplorerNotes()
 	
 	if Input.is_action_just_pressed("Quit") and Quit == true and OS.has_feature("debug"): # if the Quit input is pressed and the Quit variable is true
 		SaveManager.saveAllData()
@@ -413,7 +419,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		SaveManager.saveAllData()
 		saveAllDataWithAnimation()
 	
-	if Input.is_action_just_pressed("Inventory") and !PauseManager.inside_absolute_item_workshop and !PauseManager.is_paused and !InventoryManager.in_chest_interface and !InventoryManager.is_in_workbench_interface and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !InventoryManager.is_dragging and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
+	if Input.is_action_just_pressed("Inventory") and !InventoryManager.is_in_explorer_notes_interface and !PauseManager.inside_explorer_note_ui and !PauseManager.inside_absolute_item_workshop and !PauseManager.is_paused and !InventoryManager.in_chest_interface and !InventoryManager.is_in_workbench_interface and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !InventoryManager.is_dragging and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
 		if !InventoryManager.inventory_open:
 			openInventory()
 		else:
@@ -603,7 +609,13 @@ func _ready():
 	
 	initInventorySlots() # Link local inventory slots to singleton arrays
 	
+	Utils.set_center_offset($Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Right_Arrow)
+	Utils.set_center_offset($Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Left_Arrow)
+	
 	PlayerManager.AudioNotification = $Head/Camera3D/AudioNotificationLayer/AudioNotification
+	PlayerManager.EXPLORER_NOTE_CONTENTS = $Head/Camera3D/ExplorerNoteLayer/Contents
+	PlayerManager.EXPLORER_NOTE_TEXTURE_RECT = $Head/Camera3D/ExplorerNoteLayer/Contents/ExplorerNoteSheet
+	
 	DialogueManager.DialogueInterface = DialogueInterface
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Lock mouse
 	$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving/SpinningAnimation.play(&"spin")
@@ -780,6 +792,7 @@ func takeDamage(DamageToTake): # A function to take damage from the player
 			closeChest()
 			closeItemWorkshop()
 			closeWorkbench()
+			ExplorerNotesManager.hideCloseUp()
 			SettingsUI.closeSettings(0.5)
 			AlertLayer.despawnAlert(0.5)
 			AchievementsUI.despawnAchievements(0.5)
@@ -1130,6 +1143,89 @@ func _on_is_inside_boundary_false_inventory_debounce_timeout() -> void:
 
 #endregion
 
+#region Explorer notes
+
+func _on_collect_btn_pressed() -> void:
+	ExplorerNotesManager.COLLECTED_NOTES.append(ExplorerNotesManager.CurrentlyShowing_ID)
+	ExplorerNotesManager.CurrentlyShowing_Node.removeNote()
+	ExplorerNotesManager.hideCloseUp()
+
+func openExplorerNotes():
+	InventoryManager.is_in_explorer_notes_interface = true
+	$Head/Camera3D/InventoryLayer/ExplorerNotesLayer.show()
+
+func closeExplorerNotes():
+	InventoryManager.is_in_explorer_notes_interface = false
+	$Head/Camera3D/InventoryLayer/ExplorerNotesLayer.hide()
+
+func _on_explorer_notes_btn_pressed() -> void:
+	openExplorerNotes()
+
+
+func _on_right_arrow_btn_pressed() -> void:
+	print("skib")
+
+func _on_right_arrow_btn_mouse_entered() -> void:
+	var tween = get_tree().create_tween().set_parallel()
+	tween.tween_property(
+		$Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Right_Arrow_Btn, 
+		"scale", 
+		Vector2(1.1, 1.1), 
+		0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	
+	tween.tween_property(
+		$Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Right_Arrow, 
+		"scale", 
+		Vector2(1.4, 1.4), 
+		0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+
+func _on_right_arrow_btn_mouse_exited() -> void:
+	var tween = get_tree().create_tween().set_parallel()
+	tween.tween_property(
+		$Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Right_Arrow_Btn, 
+		"scale", 
+		Vector2(1, 1), 
+		0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	
+	tween.tween_property(
+		$Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Right_Arrow, 
+		"scale", 
+		Vector2(1, 1), 
+		0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+
+func _on_left_arrow_btn_pressed() -> void:
+	print("skib")
+
+func _on_left_arrow_btn_mouse_entered() -> void:
+	var tween = get_tree().create_tween().set_parallel()
+	tween.tween_property(
+		$Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Left_Arrow_Btn, 
+		"scale", 
+		Vector2(1.4, 1.4), 
+		0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	
+	tween.tween_property(
+		$Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Left_Arrow, 
+		"scale", 
+		Vector2(1.4, 1.4), 
+		0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+
+func _on_left_arrow_btn_mouse_exited() -> void:
+	var tween = get_tree().create_tween().set_parallel()
+	tween.tween_property(
+		$Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Left_Arrow_Btn, 
+		"scale", 
+		Vector2(1, 1), 
+		0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	
+	tween.tween_property(
+		$Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Left_Arrow, 
+		"scale", 
+		Vector2(1, 1), 
+		0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+
+#endregion
+
 #region Chest
 
 func openChest():
@@ -1194,6 +1290,7 @@ func openItemWorkshop():
 	
 	var tween = get_tree().create_tween().set_parallel()
 	tween.connect("finished", Callable(self, "on_item_workshop_open_finished"))
+	
 	
 	tween.tween_property(ItemWorkshopLayer_MainLayer, "position", Vector2(0, 0), 0).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	tween.tween_property(ItemWorkshopLayer_GreyLayer, "modulate", Color(1, 1, 1, 1), 0)

@@ -60,9 +60,8 @@ extends Node3D
 @export var NailRotation_Degrees : Vector3
 @export var ShowNail : bool = true
 
-
 func _ready() -> void:
-	pass
+	SignalBus.remove_explorer_notes.connect(initRemoveNote)
 
 func _process(_delta: float) -> void:
 	$Decal.texture_albedo = ImageAlbedo
@@ -75,3 +74,30 @@ func _process(_delta: float) -> void:
 	$Decal.rotation_degrees = DecalRotation_Degrees
 	$RustyNail.visible = ShowNail
 	$RustyNail.rotation_degrees = NailRotation_Degrees
+
+func getID():
+	return NoteID
+
+func removeNote():
+	self.visible = false
+	$StaticBody3D/CollisionShape3D.disabled = true
+
+func initRemoveNote():
+	print("NoteID: ", NoteID, " (Type: ", typeof(NoteID), ")")
+	print("Collected Notes: ", str(ExplorerNotesManager.COLLECTED_NOTES), " (Type: ", typeof(ExplorerNotesManager.COLLECTED_NOTES), ")")
+	
+	for collected_note in ExplorerNotesManager.COLLECTED_NOTES:
+		print("Collected Note: ", collected_note, " (Type: ", typeof(collected_note), ")")
+	
+	if float(NoteID) in ExplorerNotesManager.COLLECTED_NOTES:
+		print("NoteID found in collected notes.")
+		self.visible = false
+		$StaticBody3D/CollisionShape3D.disabled = true
+	else:
+		print("NoteID not found in collected notes.")
+
+func set_disabled_collision(value):
+	$StaticBody3D/CollisionShape3D.disabled = value
+
+func _on_remove_note_timer_timeout() -> void:
+	initRemoveNote()

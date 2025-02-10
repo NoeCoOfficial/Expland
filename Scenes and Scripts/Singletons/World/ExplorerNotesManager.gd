@@ -50,10 +50,33 @@ extends Node
 const EXPLORER_NOTES = [
 	"PLACHOLDER",
 	"EXPLAND_TEXT_TEST",
+	"PICKAXE_RECIPE",
 ]
 
 var COLLECTED_NOTES = []
-var CurrentlyInteracting_ID : int
+var CurrentlyInteracting_ID
+var CurrentlyShowing_ID
+var CurrentlyInteracting_Node
+var CurrentlyShowing_Node
 
 func viewCloseUp(ID : int):
-	pass
+	if InteractionManager.is_hovering_over_explorer_note:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		CurrentlyShowing_Node = CurrentlyInteracting_Node
+		PauseManager.inside_explorer_note_ui = true
+		CurrentlyShowing_ID = ID
+		
+		var OBJ_TEXTURE: Texture2D = load("res://Textures/Explorer Notes/" + str(ID) + "_Sheet.png")
+		if OBJ_TEXTURE == null:
+			print("Failed to load texture: res://Textures/Explorer Notes/" + str(ID) + "_Sheet.png")
+		else:
+			PlayerManager.EXPLORER_NOTE_TEXTURE_RECT.texture = OBJ_TEXTURE
+		
+		PlayerManager.EXPLORER_NOTE_CONTENTS.show()
+
+func hideCloseUp():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	CurrentlyShowing_Node = null
+	PauseManager.inside_explorer_note_ui = false
+	CurrentlyShowing_ID = 0
+	PlayerManager.EXPLORER_NOTE_CONTENTS.hide()

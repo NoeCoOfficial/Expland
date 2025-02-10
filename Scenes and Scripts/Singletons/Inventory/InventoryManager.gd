@@ -104,6 +104,7 @@ var creatingFromInventory = false
 var inventory_open = false
 var in_chest_interface = false
 var is_in_workbench_interface = false
+var is_in_explorer_notes_interface = false
 
 var is_dragging = false
 var is_inside_boundary = false
