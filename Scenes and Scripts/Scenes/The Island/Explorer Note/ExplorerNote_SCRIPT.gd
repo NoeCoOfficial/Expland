@@ -65,7 +65,8 @@ extends Node3D
 @export var CollisionShape : CollisionShape3D
 
 func _ready() -> void:
-	SignalBus.remove_explorer_notes.connect(initRemoveNote)
+	if !Engine.is_editor_hint():
+		SignalBus.remove_explorer_notes.connect(initRemoveNote)
 
 func _process(_delta: float) -> void:
 	DecalNode.texture_albedo = ImageAlbedo
