@@ -47,6 +47,7 @@
 
 extends Node
 
+
 const EXPLORER_NOTES = [
 	"PLACHOLDER",
 	"EXPLAND_TEXT_TEST",
@@ -54,10 +55,14 @@ const EXPLORER_NOTES = [
 ]
 
 var COLLECTED_NOTES = []
-var CurrentlyInteracting_ID
-var CurrentlyShowing_ID
-var CurrentlyInteracting_Node
-var CurrentlyShowing_Node
+var CurrentlyInteracting_ID : int
+var CurrentlyShowing_ID : int
+var CurrentlyInteracting_Node : Node
+var CurrentlyShowing_Node : Node
+
+var CurrentlyViewingID : int
+var CurrentLeftID : int
+var CurrentRightID : int
 
 func viewCloseUp(ID : int):
 	if InteractionManager.is_hovering_over_explorer_note:
