@@ -81,7 +81,7 @@ func _physics_process(_delta: float) -> void:
 			
 			elif previous_collider and previous_collider.has_method("on_raycast_hit_explorer_note"):
 				previous_collider.on_raycast_hit_explorer_note()
-				previous_collider.get_parent()
+				previous_collider.setCurrentlyInteractingNode()
 				InteractionManager.despawn_interaction_notification()
 			
 			
@@ -112,6 +112,7 @@ func _physics_process(_delta: float) -> void:
 			elif collider and collider.has_method("on_raycast_hit_explorer_note"):
 				InteractionManager.spawn_interaction_notification("F", "Read")
 				collider.on_raycast_hit_explorer_note()
+				collider.setCurrentlyInteractingNode()
 			
 			previous_collider = collider
 		
@@ -145,6 +146,7 @@ func _physics_process(_delta: float) -> void:
 		
 		elif previous_collider and previous_collider.has_method("on_raycast_exit_explorer_note"):
 			previous_collider.on_raycast_exit_explorer_note()
+			previous_collider.removeCurrentlyInteractingNode()
 			InteractionManager.despawn_interaction_notification()
 		
 		previous_collider = null

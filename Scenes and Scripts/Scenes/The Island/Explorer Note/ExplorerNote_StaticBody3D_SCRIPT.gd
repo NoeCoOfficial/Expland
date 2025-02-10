@@ -58,3 +58,6 @@ func on_raycast_exit_explorer_note():
 
 func setCurrentlyInteractingNode():
 	ExplorerNotesManager.CurrentlyInteracting_Node = root
+
+func removeCurrentlyInteractingNode():
+	ExplorerNotesManager.CurrentlyInteracting_Node = null
