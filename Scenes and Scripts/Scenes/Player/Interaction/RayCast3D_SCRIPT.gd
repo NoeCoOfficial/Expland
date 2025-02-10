@@ -81,6 +81,7 @@ func _physics_process(_delta: float) -> void:
 			
 			elif previous_collider and previous_collider.has_method("on_raycast_hit_explorer_note"):
 				previous_collider.on_raycast_hit_explorer_note()
+				previous_collider.get_parent()
 				InteractionManager.despawn_interaction_notification()
 			
 			

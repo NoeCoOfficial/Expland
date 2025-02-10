@@ -55,3 +55,6 @@ func on_raycast_hit_explorer_note():
 
 func on_raycast_exit_explorer_note():
 	InteractionManager.is_hovering_over_explorer_note = false
+
+func setCurrentlyInteractingNode():
+	ExplorerNotesManager.CurrentlyInteracting_Node = root
