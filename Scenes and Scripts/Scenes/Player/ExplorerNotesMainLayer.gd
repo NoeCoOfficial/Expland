@@ -51,24 +51,31 @@ extends Control
 @export var LeftNoteImage : TextureRect
 @export var FocusedNoteImage : TextureRect
 
-
 func _ready() -> void:
 	SignalBus.populate_explorer_note_ui.connect(populateImages)
 
 func populateImages():
 	if !ExplorerNotesManager.COLLECTED_NOTES.is_empty():
+		
 		print("Explorer Notes: " + str(ExplorerNotesManager.COLLECTED_NOTES))
 		FocusedNoteImage.texture = load("res://Textures/Explorer Notes/" + str(ExplorerNotesManager.COLLECTED_NOTES[0]) +"_Sheet.png")
+		ExplorerNotesManager.CurrentlyFocusedID = ExplorerNotesManager.COLLECTED_NOTES[0]
+		
 		if ExplorerNotesManager.COLLECTED_NOTES.size() >= 2:
+			
+			ExplorerNotesManager.CurrentRightID = ExplorerNotesManager.COLLECTED_NOTES[1]
 			RightNoteImage.texture = load("res://Textures/Explorer Notes/" + str(ExplorerNotesManager.COLLECTED_NOTES[1]) +"_Sheet.png")
+		
 		else:
+			
 			RightNoteImage.texture = null
+	
 	else:
+		
 		RightNoteImage.texture = null
 		FocusedNoteImage.texture = null
 	
 	LeftNoteImage.texture = null
-
 
 
 func _on_right_arrow_btn_pressed() -> void:
