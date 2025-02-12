@@ -82,11 +82,12 @@ func populateImages():
 	LeftNoteImage.texture = null
 
 
+func updateView():
+	pass
+
+
 func _on_right_arrow_btn_pressed() -> void:
 	pass
 
 func _on_left_arrow_btn_pressed() -> void:
-	pass
-
-func updateView():
 	pass
