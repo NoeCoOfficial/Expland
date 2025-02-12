@@ -1161,9 +1161,8 @@ func closeExplorerNotes():
 func _on_explorer_notes_btn_pressed() -> void:
 	openExplorerNotes()
 
-
 func _on_right_arrow_btn_pressed() -> void:
-	print("skib")
+	pass
 
 func _on_right_arrow_btn_mouse_entered() -> void:
 	var tween = get_tree().create_tween().set_parallel()
@@ -1192,9 +1191,6 @@ func _on_right_arrow_btn_mouse_exited() -> void:
 		"scale", 
 		Vector2(1, 1), 
 		0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-
-func _on_left_arrow_btn_pressed() -> void:
-	print("skib")
 
 func _on_left_arrow_btn_mouse_entered() -> void:
 	var tween = get_tree().create_tween().set_parallel()

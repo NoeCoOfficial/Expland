@@ -60,7 +60,7 @@ var CurrentlyShowing_ID : int
 var CurrentlyInteracting_Node : Node
 var CurrentlyShowing_Node : Node
 
-var CurrentlyViewingID : int
+var CurrentlyFocusedID : int
 var CurrentLeftID : int
 var CurrentRightID : int
 

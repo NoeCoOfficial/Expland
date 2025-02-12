@@ -53,9 +53,14 @@ extends Control
 
 
 func _ready() -> void:
+	FocusedNoteImage.texture = load("res://Textures/Explorer Notes/2_Sheet.png")
+
+
+func _on_right_arrow_btn_pressed() -> void:
 	pass # Replace with function body.
 
+func _on_left_arrow_btn_pressed() -> void:
+	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+func updateView():
 	pass
