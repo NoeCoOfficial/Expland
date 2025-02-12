@@ -90,6 +90,7 @@ func _on_right_arrow_btn_pressed() -> void:
 		if ExplorerNotesManager.UI_CurrentRightIndex == ExplorerNotesManager.COLLECTED_NOTES.size() - 1:
 			ExplorerNotesManager.UI_CurrentRightIndex = null
 			ExplorerNotesManager.UI_CurrentRightID = null
+			RightNoteImage.texture = null
 		
 		FocusedNoteImage.texture = load("res://Textures/Explorer Notes/" + str(ExplorerNotesManager.UI_CurrentlyFocusedIndex) +"_Sheet.png")
 		
