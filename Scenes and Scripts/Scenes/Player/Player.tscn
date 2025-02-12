@@ -1520,6 +1520,7 @@ text = "Explorer Notes"
 
 [node name="ExplorerNotesLayer" type="CanvasLayer" parent="Head/Camera3D/InventoryLayer"]
 layer = 3
+visible = false
 
 [node name="ExplorerNotesMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer" node_paths=PackedStringArray("RightNoteImage", "LeftNoteImage", "FocusedNoteImage")]
 layout_mode = 3
@@ -1559,6 +1560,7 @@ offset_right = 323.0
 offset_bottom = 215.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme_override_styles/panel = ExtResource("24_6y28d")
 
 [node name="Title" type="Label" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Background"]
@@ -1608,36 +1610,6 @@ texture = ExtResource("19_0wg4t")
 expand_mode = 1
 flip_h = true
 
-[node name="Right_Arrow_Btn" type="Button" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 287.0
-offset_top = -25.0
-offset_right = 308.0
-offset_bottom = 27.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Left_Arrow_Btn" type="Button" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -307.0
-offset_top = -25.0
-offset_right = -286.0
-offset_bottom = 27.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="LeftNote" type="Control" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
 layout_mode = 1
 anchors_preset = 8
@@ -1652,6 +1624,7 @@ offset_bottom = 94.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -0.10276
+mouse_filter = 1
 
 [node name="SheetImage" type="TextureRect" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/LeftNote"]
 layout_mode = 1
@@ -1684,6 +1657,7 @@ offset_bottom = 73.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 0.0799293
+mouse_filter = 1
 
 [node name="SheetImage" type="TextureRect" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/RightNote"]
 layout_mode = 1
@@ -1715,6 +1689,7 @@ offset_right = 199.0
 offset_bottom = 119.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="Shadow" type="Panel" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/FocusedNote"]
 layout_mode = 1
@@ -1744,6 +1719,36 @@ grow_vertical = 2
 texture = ExtResource("21_rd3qm")
 expand_mode = 1
 stretch_mode = 4
+
+[node name="Right_Arrow_Btn" type="Button" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 287.0
+offset_top = -25.0
+offset_right = 308.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Left_Arrow_Btn" type="Button" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -307.0
+offset_top = -25.0
+offset_right = -286.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="ChestBoundary" type="Area2D" parent="Head/Camera3D/InventoryLayer"]
 visible = false

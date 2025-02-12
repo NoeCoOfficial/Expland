@@ -53,14 +53,29 @@ extends Control
 
 
 func _ready() -> void:
-	FocusedNoteImage.texture = load("res://Textures/Explorer Notes/2_Sheet.png")
+	SignalBus.populate_explorer_note_ui.connect(populateImages)
+
+func populateImages():
+	if !ExplorerNotesManager.COLLECTED_NOTES.is_empty():
+		print("Explorer Notes: " + str(ExplorerNotesManager.COLLECTED_NOTES))
+		FocusedNoteImage.texture = load("res://Textures/Explorer Notes/" + str(ExplorerNotesManager.COLLECTED_NOTES[0]) +"_Sheet.png")
+		if ExplorerNotesManager.COLLECTED_NOTES.size() >= 2:
+			RightNoteImage.texture = load("res://Textures/Explorer Notes/" + str(ExplorerNotesManager.COLLECTED_NOTES[1]) +"_Sheet.png")
+		else:
+			RightNoteImage.texture = null
+	else:
+		RightNoteImage.texture = null
+		FocusedNoteImage.texture = null
+	
+	LeftNoteImage.texture = null
+
 
 
 func _on_right_arrow_btn_pressed() -> void:
-	pass # Replace with function body.
+	pass
 
 func _on_left_arrow_btn_pressed() -> void:
-	pass # Replace with function body.
+	pass
 
 func updateView():
 	pass
