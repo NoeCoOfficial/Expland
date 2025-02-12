@@ -60,9 +60,14 @@ var CurrentlyShowing_ID : int
 var CurrentlyInteracting_Node : Node
 var CurrentlyShowing_Node : Node
 
-var CurrentlyFocusedID : int
-var CurrentLeftID : int
-var CurrentRightID : int
+var UI_CurrentlyFocusedIndex : int
+var UI_CurrentLeftIndex : int
+var UI_CurrentRightIndex : int
+
+var UI_CurrentlyFocusedID : int
+var UI_CurrentLeftID : int
+var UI_CurrentRightID : int
+
 
 func viewCloseUp(ID : int):
 	if InteractionManager.is_hovering_over_explorer_note:
