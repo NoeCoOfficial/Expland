@@ -65,8 +65,8 @@ func populateImages():
 		
 		if ExplorerNotesManager.COLLECTED_NOTES.size() >= 2:
 			
-			ExplorerNotesManager.UI_CurrentRightIndex = ExplorerNotesManager.COLLECTED_NOTES[1]
-			ExplorerNotesManager.UI
+			ExplorerNotesManager.UI_CurrentRightID = ExplorerNotesManager.COLLECTED_NOTES[1]
+			ExplorerNotesManager.UI_CurrentRightIndex = 1
 			
 			RightNoteImage.texture = load("res://Textures/Explorer Notes/" + str(ExplorerNotesManager.COLLECTED_NOTES[1]) +"_Sheet.png")
 		
