@@ -51,6 +51,7 @@ var transitioning_from_menu
 var transitioningFromNewIsland = false
 var FreeMode_Island_Count : int
 
+var Current_Island_Version = "v0.6.5"
 var Current_Island_Name = "Debug"
 var Current_Game_Mode = ""
 var Current_Weather = ""
