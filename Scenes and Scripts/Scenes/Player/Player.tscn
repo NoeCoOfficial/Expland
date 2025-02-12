@@ -1521,7 +1521,7 @@ text = "Explorer Notes"
 [node name="ExplorerNotesLayer" type="CanvasLayer" parent="Head/Camera3D/InventoryLayer"]
 layer = 3
 
-[node name="ExplorerNotesMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer"]
+[node name="ExplorerNotesMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer" node_paths=PackedStringArray("RightNoteImage", "LeftNoteImage", "FocusedNoteImage")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1530,6 +1530,9 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("18_i4l12")
+RightNoteImage = NodePath("RightNote/SheetImage")
+LeftNoteImage = NodePath("LeftNote/SheetImage")
+FocusedNoteImage = NodePath("FocusedNote/SheetImage")
 metadata/_edit_use_anchors_ = true
 
 [node name="GreyLayer" type="ColorRect" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]

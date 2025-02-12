@@ -47,6 +47,10 @@
 
 extends Control
 
+@export var RightNoteImage : TextureRect
+@export var LeftNoteImage : TextureRect
+@export var FocusedNoteImage : TextureRect
+
 
 func _ready() -> void:
 	pass # Replace with function body.
