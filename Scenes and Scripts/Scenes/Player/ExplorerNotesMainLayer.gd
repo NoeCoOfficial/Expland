@@ -55,6 +55,7 @@ extends Control
 
 func _ready() -> void:
 	SignalBus.populate_explorer_note_ui.connect(populateImages)
+	SignalBus.populate_explorer_note_ui_right.connect(populateRightImage)
 
 func _process(delta: float) -> void:
 	NoteIndex_Label.text = str(ExplorerNotesManager.UI_CurrentlyFocusedIndex + 1) + "/" + str(ExplorerNotesManager.COLLECTED_NOTES.size())
@@ -77,6 +78,11 @@ func populateImages():
 		RightNoteImage.texture = null
 		FocusedNoteImage.texture = null
 	LeftNoteImage.texture = null
+
+func populateRightImage(index : int):
+	ExplorerNotesManager.UI_CurrentRightIndex = index
+	ExplorerNotesManager.UI_CurrentRightID = ExplorerNotesManager.COLLECTED_NOTES[ExplorerNotesManager.UI_CurrentRightIndex]
+	RightNoteImage.texture = load("res://Textures/Explorer Notes/" + str(ExplorerNotesManager.UI_CurrentRightID) + "_Sheet.png")
 
 func _on_right_arrow_btn_pressed() -> void:
 	if ExplorerNotesManager.UI_CurrentRightIndex != null:

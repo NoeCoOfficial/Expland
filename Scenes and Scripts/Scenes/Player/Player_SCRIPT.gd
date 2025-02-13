@@ -1151,6 +1151,8 @@ func _on_collect_btn_pressed() -> void:
 	ExplorerNotesManager.COLLECTED_NOTES.append(ExplorerNotesManager.CurrentlyShowing_ID)
 	ExplorerNotesManager.CurrentlyShowing_Node.removeNote()
 	ExplorerNotesManager.hideCloseUp()
+	if ExplorerNotesManager.UI_CurrentlyFocusedIndex == ExplorerNotesManager.COLLECTED_NOTES.size() - 1:
+		SignalBus.populate_explorer_note_ui_right.emit()
 
 func openExplorerNotes():
 	InventoryManager.is_in_explorer_notes_interface = true
