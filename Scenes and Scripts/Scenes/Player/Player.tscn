@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=105 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -34,6 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://ynckscwc0643" path="res://Scenes and Scripts/Scenes/Alert/AlertLayer.tscn" id="21_r1ny7"]
 [ext_resource type="Texture2D" uid="uid://coh5374nhy6fl" path="res://Textures/Explorer Notes/2_Sheet.png" id="21_rd3qm"]
 [ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="22_7sfup"]
+[ext_resource type="AudioStream" uid="uid://ce5warv2uju61" path="res://Audio/SFX/swipe.mp3" id="22_jy0m8"]
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="24_6y28d"]
 [ext_resource type="PackedScene" uid="uid://djenc4llne53s" path="res://Scenes and Scripts/Scenes/Credits/CreditsLayer.tscn" id="24_qhsvo"]
 [ext_resource type="StyleBox" uid="uid://c1a26qv61p5kw" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkgreyBGwithWhiteBorder.tres" id="25_8giff"]
@@ -1520,7 +1521,6 @@ text = "Explorer Notes"
 
 [node name="ExplorerNotesLayer" type="CanvasLayer" parent="Head/Camera3D/InventoryLayer"]
 layer = 3
-visible = false
 
 [node name="ExplorerNotesMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer" node_paths=PackedStringArray("RightNoteImage", "LeftNoteImage", "FocusedNoteImage")]
 layout_mode = 3
@@ -1535,6 +1535,10 @@ RightNoteImage = NodePath("RightNote/SheetImage")
 LeftNoteImage = NodePath("LeftNote/SheetImage")
 FocusedNoteImage = NodePath("FocusedNote/SheetImage")
 metadata/_edit_use_anchors_ = true
+
+[node name="Switch_sfx" type="AudioStreamPlayer" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
+stream = ExtResource("22_jy0m8")
+bus = &"sfx"
 
 [node name="GreyLayer" type="ColorRect" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
 layout_mode = 1
@@ -1749,6 +1753,25 @@ offset_right = -286.0
 offset_bottom = 27.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="NoteIndex_Label" type="Label" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
+modulate = Color(0.548963, 0.548963, 0.548963, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.5
+offset_top = -147.5
+offset_right = 50.5
+offset_bottom = -124.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_rhxkt")
+text = "1/10"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ChestBoundary" type="Area2D" parent="Head/Camera3D/InventoryLayer"]
 visible = false
