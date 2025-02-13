@@ -83,6 +83,8 @@ func _physics_process(_delta: float) -> void:
 				previous_collider.on_raycast_hit_explorer_note()
 				previous_collider.setCurrentlyInteractingNode()
 				InteractionManager.despawn_interaction_notification()
+				InteractionManager.is_hovering_over_explorer_note = false
+				ExplorerNotesManager.CurrentlyInteracting_Node = null
 			
 			
 			if collider and collider.has_method("on_raycast_hit_test_obj"):
@@ -148,6 +150,7 @@ func _physics_process(_delta: float) -> void:
 			previous_collider.on_raycast_exit_explorer_note()
 			previous_collider.removeCurrentlyInteractingNode()
 			InteractionManager.despawn_interaction_notification()
+			ExplorerNotesManager.CurrentlyInteracting_Node = null
 		
 		previous_collider = null
 		InteractionManager.is_colliding = false
