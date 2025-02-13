@@ -615,6 +615,7 @@ func _ready():
 	PlayerManager.AudioNotification = $Head/Camera3D/AudioNotificationLayer/AudioNotification
 	PlayerManager.EXPLORER_NOTE_CONTENTS = $Head/Camera3D/ExplorerNoteLayer/Contents
 	PlayerManager.EXPLORER_NOTE_TEXTURE_RECT = $Head/Camera3D/ExplorerNoteLayer/Contents/ExplorerNoteSheet
+	ExplorerNotesManager.EXPLORER_NOTES_MAIN_LAYER = $Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer
 	
 	DialogueManager.DialogueInterface = DialogueInterface
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Lock mouse
@@ -1148,11 +1149,15 @@ func _on_is_inside_boundary_false_inventory_debounce_timeout() -> void:
 #region Explorer notes
 
 func _on_collect_btn_pressed() -> void:
+	var temp = ExplorerNotesManager.CurrentlyShowing_ID
 	ExplorerNotesManager.COLLECTED_NOTES.append(ExplorerNotesManager.CurrentlyShowing_ID)
 	ExplorerNotesManager.CurrentlyShowing_Node.removeNote()
 	ExplorerNotesManager.hideCloseUp()
+	if ExplorerNotesManager.COLLECTED_NOTES.is_empty():
+		ExplorerNotesManager.EXPLORER_NOTES_MAIN_LAYER.setFocused(ExplorerNotesManager.CurrentlyShowing_ID)
+	
 	if ExplorerNotesManager.UI_CurrentlyFocusedIndex == ExplorerNotesManager.COLLECTED_NOTES.size() - 1:
-		SignalBus.populate_explorer_note_ui_right.emit()
+		ExplorerNotesManager.EXPLORER_NOTES_MAIN_LAYER.setRightFocused(ExplorerNotesManager.CurrentlyShowing_ID)
 
 func openExplorerNotes():
 	InventoryManager.is_in_explorer_notes_interface = true

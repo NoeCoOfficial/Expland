@@ -1523,7 +1523,7 @@ text = "Explorer Notes"
 layer = 3
 visible = false
 
-[node name="ExplorerNotesMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer" node_paths=PackedStringArray("RightNoteImage", "LeftNoteImage", "FocusedNoteImage", "NoteIndex_Label")]
+[node name="ExplorerNotesMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer" node_paths=PackedStringArray("RightNoteImage", "LeftNoteImage", "FocusedNoteImage", "NoteIndex_Label", "RightButton", "LeftButton", "Shadow")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1536,6 +1536,9 @@ RightNoteImage = NodePath("RightNote/SheetImage")
 LeftNoteImage = NodePath("LeftNote/SheetImage")
 FocusedNoteImage = NodePath("FocusedNote/SheetImage")
 NoteIndex_Label = NodePath("NoteIndex_Label")
+RightButton = NodePath("Right_Arrow_Btn")
+LeftButton = NodePath("Left_Arrow_Btn")
+Shadow = NodePath("FocusedNote/Shadow")
 metadata/_edit_use_anchors_ = true
 
 [node name="Switch_sfx" type="AudioStreamPlayer" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
@@ -1771,7 +1774,7 @@ offset_bottom = -124.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("17_rhxkt")
-text = "1/10"
+text = "1/1"
 horizontal_alignment = 1
 vertical_alignment = 1
 

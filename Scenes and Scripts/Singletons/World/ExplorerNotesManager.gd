@@ -68,6 +68,8 @@ var UI_CurrentlyFocusedID
 var UI_CurrentLeftID
 var UI_CurrentRightID
 
+var EXPLORER_NOTES_MAIN_LAYER
+
 
 func viewCloseUp(ID : int):
 	if InteractionManager.is_hovering_over_explorer_note:
