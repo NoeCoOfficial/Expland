@@ -95,7 +95,18 @@ func resetAttributes():
 	TimeManager.DAY_STATE = "DAY"
 	
 	ExplorerNotesManager.COLLECTED_NOTES.clear()
-	
+	ExplorerNotesManager.CurrentlyInteracting_ID = null
+	ExplorerNotesManager.CurrentlyShowing_ID = null
+	ExplorerNotesManager.CurrentlyInteracting_Node = null
+	ExplorerNotesManager.CurrentlyShowing_Node = null
+	ExplorerNotesManager.UI_CurrentlyFocusedIndex = null
+	ExplorerNotesManager.UI_CurrentLeftIndex = null
+	ExplorerNotesManager.UI_CurrentRightIndex = null
+	ExplorerNotesManager.UI_CurrentlyFocusedID = null
+	ExplorerNotesManager.UI_CurrentLeftID = null
+	ExplorerNotesManager.UI_CurrentRightID = null
+	ExplorerNotesManager.EXPLORER_NOTES_MAIN_LAYER = null
+
 	InventoryManager.creatingFromInventory = false
 	InventoryManager.inventory_open = false
 	InventoryManager.in_chest_interface = false

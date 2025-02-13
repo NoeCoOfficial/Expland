@@ -89,12 +89,15 @@ func _ready() -> void:
 		set_time(360)
 	else:
 		set_time(TimeManager.CURRENT_TIME)
+	
 	Tick.start()
 	
 	Player.nodeSetup()
 	Player.init_visually_equip(InventoryData.HAND_ITEM_TYPE)
 	
 	InventoryManager.chestNode = $Chest
+	
+	SignalBus.populate_explorer_note_ui.emit()
 
 func _on_ready() -> void:
 	AudioManager.initNotificaton(PlayerManager.AudioNotification)

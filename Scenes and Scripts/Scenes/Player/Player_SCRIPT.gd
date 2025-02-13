@@ -615,6 +615,7 @@ func _ready():
 	PlayerManager.AudioNotification = $Head/Camera3D/AudioNotificationLayer/AudioNotification
 	PlayerManager.EXPLORER_NOTE_CONTENTS = $Head/Camera3D/ExplorerNoteLayer/Contents
 	PlayerManager.EXPLORER_NOTE_TEXTURE_RECT = $Head/Camera3D/ExplorerNoteLayer/Contents/ExplorerNoteSheet
+	ExplorerNotesManager.EXPLORER_NOTES_MAIN_LAYER = $Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer
 	
 	DialogueManager.DialogueInterface = DialogueInterface
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Lock mouse
@@ -871,6 +872,7 @@ func showDeathScreen(): # A function to show the death screen
 #region Inventory
 
 func openInventory():
+	$Head/Camera3D/AudioNotificationLayer.layer = 15
 	$is_inside_boundary_false_inventory_debounce.start()
 	
 	if InventoryManager.in_chest_interface:
@@ -922,6 +924,7 @@ func openInventory():
 	set_hand_item_type(InventoryData.HAND_ITEM_TYPE)
 
 func closeInventory():
+	$Head/Camera3D/AudioNotificationLayer.layer = 1
 	InventoryLayer_GreyLayer.show()
 	
 	InventoryMainLayer.hide()
@@ -1146,9 +1149,21 @@ func _on_is_inside_boundary_false_inventory_debounce_timeout() -> void:
 #region Explorer notes
 
 func _on_collect_btn_pressed() -> void:
+	var temp = ExplorerNotesManager.CurrentlyShowing_ID
+	var temp_empty = ExplorerNotesManager.COLLECTED_NOTES.is_empty()
+	var temp_right_note = ExplorerNotesManager.UI_CurrentlyFocusedIndex == ExplorerNotesManager.COLLECTED_NOTES.size() - 1
+	
 	ExplorerNotesManager.COLLECTED_NOTES.append(ExplorerNotesManager.CurrentlyShowing_ID)
 	ExplorerNotesManager.CurrentlyShowing_Node.removeNote()
 	ExplorerNotesManager.hideCloseUp()
+	
+	if temp_empty:
+		print("empty")
+		ExplorerNotesManager.EXPLORER_NOTES_MAIN_LAYER.setFocused(temp)
+	
+	if temp_right_note:
+		print("at last note, adding to right")
+		ExplorerNotesManager.EXPLORER_NOTES_MAIN_LAYER.setRight(temp)
 
 func openExplorerNotes():
 	InventoryManager.is_in_explorer_notes_interface = true
@@ -1161,9 +1176,8 @@ func closeExplorerNotes():
 func _on_explorer_notes_btn_pressed() -> void:
 	openExplorerNotes()
 
-
 func _on_right_arrow_btn_pressed() -> void:
-	print("skib")
+	pass
 
 func _on_right_arrow_btn_mouse_entered() -> void:
 	var tween = get_tree().create_tween().set_parallel()
@@ -1192,9 +1206,6 @@ func _on_right_arrow_btn_mouse_exited() -> void:
 		"scale", 
 		Vector2(1, 1), 
 		0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-
-func _on_left_arrow_btn_pressed() -> void:
-	print("skib")
 
 func _on_left_arrow_btn_mouse_entered() -> void:
 	var tween = get_tree().create_tween().set_parallel()
@@ -1230,7 +1241,6 @@ func _on_left_arrow_btn_mouse_exited() -> void:
 
 func openChest():
 	ChestMainLayer.show()
-	$Head/Camera3D/AudioNotificationLayer.layer = 15
 	InventoryManager.in_chest_interface = true
 	openInventory() # Does most of the stuff for us
 	
@@ -1241,7 +1251,6 @@ func openChest():
 
 func closeChest():
 	ChestMainLayer.hide()
-	$Head/Camera3D/AudioNotificationLayer.layer = 1
 	InventoryManager.in_chest_interface = false
 	closeInventory() # Does most of the stuff for us
 	InventoryManager.chestNode.animate("CLOSE")
@@ -1252,7 +1261,6 @@ func closeChest():
 
 func openWorkbench():
 	WorkbenchMainLayer.show()
-	$Head/Camera3D/AudioNotificationLayer.layer = 15
 	WorkbenchMainLayer.position.y = -54
 	ChestMainLayer.position.y = 1000
 	
@@ -1261,7 +1269,6 @@ func openWorkbench():
 
 func closeWorkbench():
 	WorkbenchMainLayer.hide()
-	$Head/Camera3D/AudioNotificationLayer.layer = 1
 	InventoryManager.is_in_workbench_interface = false
 	closeInventory() # Does most of the stuff for us
 

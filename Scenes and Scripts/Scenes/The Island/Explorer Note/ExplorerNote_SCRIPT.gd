@@ -60,27 +60,32 @@ extends Node3D
 @export var NailRotation_Degrees : Vector3
 @export var ShowNail : bool = true
 
+@export var DecalNode : Decal
+@export var Nail : Node
+@export var CollisionShape : CollisionShape3D
+
 func _ready() -> void:
-	SignalBus.remove_explorer_notes.connect(initRemoveNote)
+	if !Engine.is_editor_hint():
+		SignalBus.remove_explorer_notes.connect(initRemoveNote)
 
 func _process(_delta: float) -> void:
-	$Decal.texture_albedo = ImageAlbedo
-	$Decal.texture_normal = ImageNormal
-	$Decal.texture_orm = ImageOrm
-	$Decal.texture_emission = ImageEmission
-
-	$Decal.size = DecalSize
-	$Decal.lower_fade = DecalLowerFade
-	$Decal.rotation_degrees = DecalRotation_Degrees
-	$RustyNail.visible = ShowNail
-	$RustyNail.rotation_degrees = NailRotation_Degrees
+	DecalNode.texture_albedo = ImageAlbedo
+	DecalNode.texture_normal = ImageNormal
+	DecalNode.texture_orm = ImageOrm
+	DecalNode.texture_emission = ImageEmission
+	
+	DecalNode.size = DecalSize
+	DecalNode.lower_fade = DecalLowerFade
+	DecalNode.rotation_degrees = DecalRotation_Degrees
+	Nail.visible = ShowNail
+	Nail.rotation_degrees = NailRotation_Degrees
 
 func getID():
 	return NoteID
 
 func removeNote():
 	self.visible = false
-	$StaticBody3D/CollisionShape3D.disabled = true
+	CollisionShape.disabled = true
 
 func initRemoveNote():
 	print("NoteID: ", NoteID, " (Type: ", typeof(NoteID), ")")
@@ -92,12 +97,12 @@ func initRemoveNote():
 	if float(NoteID) in ExplorerNotesManager.COLLECTED_NOTES:
 		print("NoteID found in collected notes.")
 		self.visible = false
-		$StaticBody3D/CollisionShape3D.disabled = true
+		CollisionShape.disabled = true
 	else:
 		print("NoteID not found in collected notes.")
 
 func set_disabled_collision(value):
-	$StaticBody3D/CollisionShape3D.disabled = value
+	CollisionShape.disabled = value
 
 func _on_remove_note_timer_timeout() -> void:
 	initRemoveNote()

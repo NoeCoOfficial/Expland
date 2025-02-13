@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=105 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -34,6 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://ynckscwc0643" path="res://Scenes and Scripts/Scenes/Alert/AlertLayer.tscn" id="21_r1ny7"]
 [ext_resource type="Texture2D" uid="uid://coh5374nhy6fl" path="res://Textures/Explorer Notes/2_Sheet.png" id="21_rd3qm"]
 [ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="22_7sfup"]
+[ext_resource type="AudioStream" uid="uid://ce5warv2uju61" path="res://Audio/SFX/swipe.mp3" id="22_jy0m8"]
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="24_6y28d"]
 [ext_resource type="PackedScene" uid="uid://djenc4llne53s" path="res://Scenes and Scripts/Scenes/Credits/CreditsLayer.tscn" id="24_qhsvo"]
 [ext_resource type="StyleBox" uid="uid://c1a26qv61p5kw" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkgreyBGwithWhiteBorder.tres" id="25_8giff"]
@@ -179,6 +180,10 @@ corner_radius_bottom_left = 12
 bg_color = Color(0.103744, 0.103744, 0.103744, 1)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qujvk"]
+bg_color = Color(0.107, 0.107, 0.107, 0)
+shadow_size = 15
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bx3eh"]
 size = Vector2(549, 106)
@@ -1518,7 +1523,7 @@ text = "Explorer Notes"
 layer = 3
 visible = false
 
-[node name="ExplorerNotesMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer"]
+[node name="ExplorerNotesMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer" node_paths=PackedStringArray("RightNoteImage", "LeftNoteImage", "FocusedNoteImage", "NoteIndex_Label", "RightButton", "LeftButton", "Shadow")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1527,7 +1532,18 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("18_i4l12")
+RightNoteImage = NodePath("RightNote/SheetImage")
+LeftNoteImage = NodePath("LeftNote/SheetImage")
+FocusedNoteImage = NodePath("FocusedNote/SheetImage")
+NoteIndex_Label = NodePath("NoteIndex_Label")
+RightButton = NodePath("Right_Arrow_Btn")
+LeftButton = NodePath("Left_Arrow_Btn")
+Shadow = NodePath("FocusedNote/Shadow")
 metadata/_edit_use_anchors_ = true
+
+[node name="Switch_sfx" type="AudioStreamPlayer" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
+stream = ExtResource("22_jy0m8")
+bus = &"sfx"
 
 [node name="GreyLayer" type="ColorRect" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
 layout_mode = 1
@@ -1553,6 +1569,7 @@ offset_right = 323.0
 offset_bottom = 215.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme_override_styles/panel = ExtResource("24_6y28d")
 
 [node name="Title" type="Label" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Background"]
@@ -1602,6 +1619,116 @@ texture = ExtResource("19_0wg4t")
 expand_mode = 1
 flip_h = true
 
+[node name="LeftNote" type="Control" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -299.0
+offset_top = -41.0
+offset_right = -73.0
+offset_bottom = 94.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.10276
+mouse_filter = 1
+
+[node name="SheetImage" type="TextureRect" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/LeftNote"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.5
+offset_top = -65.5
+offset_right = 116.5
+offset_bottom = 65.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("21_rd3qm")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="RightNote" type="Control" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 81.0
+offset_top = -62.0
+offset_right = 307.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0799293
+mouse_filter = 1
+
+[node name="SheetImage" type="TextureRect" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/RightNote"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.5
+offset_top = -65.5
+offset_right = 116.5
+offset_bottom = 65.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("21_rd3qm")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="FocusedNote" type="Control" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -199.0
+offset_top = -119.0
+offset_right = 199.0
+offset_bottom = 119.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Shadow" type="Panel" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/FocusedNote"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0452261
+anchor_top = -0.00840336
+anchor_right = 0.949749
+anchor_bottom = 1.02101
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qujvk")
+metadata/_edit_use_anchors_ = true
+
+[node name="SheetImage" type="TextureRect" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/FocusedNote"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -231.0
+offset_top = -130.0
+offset_right = 231.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("21_rd3qm")
+expand_mode = 1
+stretch_mode = 4
+
 [node name="Right_Arrow_Btn" type="Button" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
@@ -1632,36 +1759,24 @@ offset_bottom = 27.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="NoteID_2" type="Control" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
+[node name="NoteIndex_Label" type="Label" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
+modulate = Color(0.548963, 0.548963, 0.548963, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -199.0
-offset_top = -119.0
-offset_right = 199.0
-offset_bottom = 119.0
+offset_left = -50.5
+offset_top = -147.5
+offset_right = 50.5
+offset_bottom = -124.5
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="SheetImage" type="TextureRect" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/NoteID_2"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -231.0
-offset_top = -130.0
-offset_right = 231.0
-offset_bottom = 130.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("21_rd3qm")
-expand_mode = 1
-stretch_mode = 4
+theme = ExtResource("17_rhxkt")
+text = "1/1"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ChestBoundary" type="Area2D" parent="Head/Camera3D/InventoryLayer"]
 visible = false
@@ -3756,16 +3871,36 @@ libraries = {
 [connection signal="pressed" from="Head/Camera3D/InventoryLayer/InventoryMainLayer/ExplorerNotes_Btn" to="." method="_on_explorer_notes_btn_pressed"]
 [connection signal="mouse_entered" from="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Right_Arrow_Btn" to="." method="_on_right_arrow_btn_mouse_entered"]
 [connection signal="mouse_exited" from="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Right_Arrow_Btn" to="." method="_on_right_arrow_btn_mouse_exited"]
-[connection signal="pressed" from="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Right_Arrow_Btn" to="." method="_on_right_arrow_btn_pressed"]
+[connection signal="pressed" from="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Right_Arrow_Btn" to="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer" method="_on_right_arrow_btn_pressed"]
 [connection signal="mouse_entered" from="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Left_Arrow_Btn" to="." method="_on_left_arrow_btn_mouse_entered"]
 [connection signal="mouse_exited" from="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Left_Arrow_Btn" to="." method="_on_left_arrow_btn_mouse_exited"]
-[connection signal="pressed" from="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Left_Arrow_Btn" to="." method="_on_left_arrow_btn_pressed"]
+[connection signal="pressed" from="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Left_Arrow_Btn" to="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer" method="_on_left_arrow_btn_pressed"]
 [connection signal="area_entered" from="Head/Camera3D/InventoryLayer/ChestBoundary" to="." method="_on_chest_boundary_area_entered"]
 [connection signal="area_exited" from="Head/Camera3D/InventoryLayer/ChestBoundary" to="." method="_on_chest_boundary_area_exited"]
 [connection signal="area_entered" from="Head/Camera3D/InventoryLayer/WorkbenchBoundary" to="." method="_on_pockets_boundary_area_entered"]
 [connection signal="area_exited" from="Head/Camera3D/InventoryLayer/WorkbenchBoundary" to="." method="_on_pockets_boundary_area_exited"]
 [connection signal="area_entered" from="Head/Camera3D/InventoryLayer/PocketsBoundary" to="." method="_on_pockets_boundary_area_entered"]
 [connection signal="area_exited" from="Head/Camera3D/InventoryLayer/PocketsBoundary" to="." method="_on_pockets_boundary_area_exited"]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/ROCK/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["ROCK"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/STONE/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["STONE"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/REDFLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["REDFLOWER"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/BLUEFLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["BLUEFLOWER"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/PINKFLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["PINKFLOWER"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/YELLOWFLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["YELLOWFLOWER"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/BLANKFLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["BLANKFLOWER"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/WOODPLANK/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["WOODPLANK"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Food/ScrollContainer/GridContainer/COCONUT/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["COCONUT"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/HEALTHPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["HEALTHPOTION"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/HASTEPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["HASTEPOTION"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/LUCKPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["LUCKPOTION"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/EFFICIENCYPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["EFFICIENCYPOTION"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/NIGHTVISIONPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["NIGHTVISIONPOTION"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/REGENERATINGPOTION2/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["REGENERATINGPOTION"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/STAMINAPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["STAMINAPOTION"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/STRENGTHPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["STRENGTHPOTION"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Tools and Weapons/ScrollContainer/GridContainer/PICKAXE/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["PICKAXE"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Tools and Weapons/ScrollContainer/GridContainer/AXE/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["AXE"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Tools and Weapons/ScrollContainer/GridContainer/SWORD/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["SWORD"]]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/Resume_Btn" to="." method="_on_resume_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/Settings_Btn" to="." method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/SaveAndQuitToMenu" to="." method="_on_save_and_quit_to_menu_pressed"]

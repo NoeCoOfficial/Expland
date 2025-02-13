@@ -8,8 +8,11 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_hog6c"]
 size = Vector3(2.4303, 1.4659, 3.18233)
 
-[node name="ExplorerNote" type="Node3D" groups=["ExplorerNoteObject"]]
+[node name="ExplorerNote" type="Node3D" node_paths=PackedStringArray("DecalNode", "Nail", "CollisionShape") groups=["ExplorerNoteObject"]]
 script = ExtResource("1_etueb")
+DecalNode = NodePath("Decal")
+Nail = NodePath("RustyNail")
+CollisionShape = NodePath("StaticBody3D/CollisionShape3D")
 
 [node name="remove_note_timer" type="Timer" parent="."]
 wait_time = 0.5
