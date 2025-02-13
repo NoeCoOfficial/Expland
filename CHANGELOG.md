@@ -13,7 +13,7 @@ an all new crafting system which can be accessed by interacting with the workben
 change player collision shape to reduce lag
 new stone inventory item
 new wood plank inventory item
-
+an all new explorer notes system, with the ability to collect notes and view them in your inventory
 
 
 ---
