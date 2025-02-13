@@ -79,8 +79,8 @@ func populateImages():
 	LeftNoteImage.texture = null
 
 func _on_right_arrow_btn_pressed() -> void:
-	$Switch_sfx.play()
 	if ExplorerNotesManager.UI_CurrentRightIndex != null:
+		$Switch_sfx.play()
 		ExplorerNotesManager.UI_CurrentLeftIndex = ExplorerNotesManager.UI_CurrentlyFocusedIndex
 		ExplorerNotesManager.UI_CurrentLeftID = ExplorerNotesManager.UI_CurrentlyFocusedID
 		LeftNoteImage.texture = load("res://Textures/Explorer Notes/" + str(ExplorerNotesManager.UI_CurrentLeftID) + "_Sheet.png")
@@ -99,8 +99,8 @@ func _on_right_arrow_btn_pressed() -> void:
 			RightNoteImage.texture = load("res://Textures/Explorer Notes/" + str(ExplorerNotesManager.UI_CurrentRightID) + "_Sheet.png")
 
 func _on_left_arrow_btn_pressed() -> void:
-	$Switch_sfx.play()
 	if ExplorerNotesManager.UI_CurrentLeftIndex != null:
+		$Switch_sfx.play()
 		ExplorerNotesManager.UI_CurrentRightIndex = ExplorerNotesManager.UI_CurrentlyFocusedIndex
 		ExplorerNotesManager.UI_CurrentRightID = ExplorerNotesManager.UI_CurrentlyFocusedID
 		RightNoteImage.texture = load("res://Textures/Explorer Notes/" + str(ExplorerNotesManager.UI_CurrentRightID) + "_Sheet.png")
