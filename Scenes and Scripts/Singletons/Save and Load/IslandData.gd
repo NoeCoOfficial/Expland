@@ -106,4 +106,24 @@ func loadData(Island_Name : String, withOutput : bool) -> void:
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Collected explorer notes: " + str(ExplorerNotesManager.COLLECTED_NOTES) + "[/font][/font_size][/center]")
 		
 		file.close()
-		
+
+func getIslandVersion(Island_Name : String) -> String:
+	if IslandManager.Current_Game_Mode == "FREE":
+		SAVE_PATH = "user://saveData/Free Mode/Islands/" + Island_Name + "/island.save"
+	elif IslandManager.Current_Game_Mode == "STORY":
+		SAVE_PATH = "user://saveData/Story Mode/Islands/" + Island_Name + "/island.save"
+	elif IslandManager.Current_Game_Mode == "PARKOUR":
+		SAVE_PATH = "user://saveData/Parkour Mode/Runs/" + Island_Name + "/island.save"
+	
+	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
+	if not file:
+		push_warning("[IslandData] File doesn't exist (" + SAVE_PATH + ")")
+		return ""
+	
+	if file and not file.eof_reached():
+		var current_line = JSON.parse_string(file.get_line())
+		file.close()
+		if current_line:
+			return current_line["Version"]
+	
+	return ""
