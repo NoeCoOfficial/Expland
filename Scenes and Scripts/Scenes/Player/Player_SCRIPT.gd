@@ -1150,14 +1150,19 @@ func _on_is_inside_boundary_false_inventory_debounce_timeout() -> void:
 
 func _on_collect_btn_pressed() -> void:
 	var temp = ExplorerNotesManager.CurrentlyShowing_ID
+	var temp_empty = ExplorerNotesManager.COLLECTED_NOTES.is_empty()
+	var temp_right_note = ExplorerNotesManager.UI_CurrentlyFocusedIndex == ExplorerNotesManager.COLLECTED_NOTES.size() - 1
+	
 	ExplorerNotesManager.COLLECTED_NOTES.append(ExplorerNotesManager.CurrentlyShowing_ID)
 	ExplorerNotesManager.CurrentlyShowing_Node.removeNote()
 	ExplorerNotesManager.hideCloseUp()
 	
-	if ExplorerNotesManager.COLLECTED_NOTES.is_empty():
+	if temp_empty:
+		print("empty")
 		ExplorerNotesManager.EXPLORER_NOTES_MAIN_LAYER.setFocused(temp)
 	
-	if ExplorerNotesManager.UI_CurrentlyFocusedIndex == ExplorerNotesManager.COLLECTED_NOTES.size() - 1:
+	if temp_right_note:
+		print("at last note, adding to right")
 		ExplorerNotesManager.EXPLORER_NOTES_MAIN_LAYER.setRight(temp)
 
 func openExplorerNotes():
