@@ -1522,7 +1522,7 @@ text = "Explorer Notes"
 [node name="ExplorerNotesLayer" type="CanvasLayer" parent="Head/Camera3D/InventoryLayer"]
 layer = 3
 
-[node name="ExplorerNotesMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer" node_paths=PackedStringArray("RightNoteImage", "LeftNoteImage", "FocusedNoteImage")]
+[node name="ExplorerNotesMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer" node_paths=PackedStringArray("RightNoteImage", "LeftNoteImage", "FocusedNoteImage", "NoteIndex_Label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1534,6 +1534,7 @@ script = ExtResource("18_i4l12")
 RightNoteImage = NodePath("RightNote/SheetImage")
 LeftNoteImage = NodePath("LeftNote/SheetImage")
 FocusedNoteImage = NodePath("FocusedNote/SheetImage")
+NoteIndex_Label = NodePath("NoteIndex_Label")
 metadata/_edit_use_anchors_ = true
 
 [node name="Switch_sfx" type="AudioStreamPlayer" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]

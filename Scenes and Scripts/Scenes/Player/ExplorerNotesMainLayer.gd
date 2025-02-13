@@ -51,8 +51,13 @@ extends Control
 @export var LeftNoteImage : TextureRect
 @export var FocusedNoteImage : TextureRect
 
+@export var NoteIndex_Label : Label
+
 func _ready() -> void:
 	SignalBus.populate_explorer_note_ui.connect(populateImages)
+
+func _process(delta: float) -> void:
+	NoteIndex_Label.text = str(ExplorerNotesManager.UI_CurrentlyFocusedIndex + 1) + "/" + str(ExplorerNotesManager.COLLECTED_NOTES.size())
 
 func populateImages():
 	if !ExplorerNotesManager.COLLECTED_NOTES.is_empty():
