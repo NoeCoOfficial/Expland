@@ -135,6 +135,11 @@ func _on_left_arrow_btn_pressed() -> void:
 			LeftNoteImage.texture = load("res://Textures/Explorer Notes/" + str(ExplorerNotesManager.UI_CurrentLeftID) + "_Sheet.png")
 
 func setFocused(ID : int):
-		ExplorerNotesManager.UI_CurrentlyFocusedIndex = ExplorerNotesManager.UI_CurrentLeftIndex
-		ExplorerNotesManager.UI_CurrentlyFocusedID = ExplorerNotesManager.UI_CurrentLeftID
-		FocusedNoteImage.texture = load("res://Textures/Explorer Notes/" + str(ExplorerNotesManager.UI_CurrentlyFocusedID) + "_Sheet.png")
+		ExplorerNotesManager.UI_CurrentlyFocusedIndex = ExplorerNotesManager.COLLECTED_NOTES[0]
+		ExplorerNotesManager.UI_CurrentlyFocusedID = ID
+		FocusedNoteImage.texture = load("res://Textures/Explorer Notes/" + str(ID) + "_Sheet.png")
+
+func setRight(ID : int):
+	ExplorerNotesManager.UI_CurrentRightIndex = ExplorerNotesManager.COLLECTED_NOTES.size() - 1
+	ExplorerNotesManager.UI_CurrentRightID = ID
+	RightNoteImage.texture = load("res://Textures/Explorer Notes/" + str(ID) + "_Sheet.png")
