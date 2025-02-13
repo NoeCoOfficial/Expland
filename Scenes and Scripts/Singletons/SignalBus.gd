@@ -50,3 +50,4 @@ extends Node
 signal pressed_craft
 signal spawn_crafted_item(ITEM_TYPE : String)
 signal remove_explorer_notes
+signal populate_explorer_note_ui

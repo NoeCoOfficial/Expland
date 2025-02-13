@@ -134,9 +134,12 @@ func _on_continue_btn_pressed() -> void:
 	IslandAccessOrder.rename_island(current_name_submitted, text_edit.text)
 	current_name_submitted = text_edit.text
 	
-	text_edit.editable = false
-	text_edit.focus_mode = 0
 	
+	# NOTE: Version compatability happens here. 
+	# Use IslandData.getIslandVersion() to get the version of the target island
+	
+	text_edit.focus_mode = 0
+	text_edit.editable = false
 	$ProtectiveLayer.visible = true
 	
 	main_menu.goToIsland(current_name_submitted, "FREE")
