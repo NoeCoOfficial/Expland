@@ -13,3 +13,5 @@
 [7/1/2025] sebashtioon - Oops I missed some days... but made a TON of progress, can't wait for v0.6.0.
 
 [26/1/2025] sebashtioon - My bad for not keeping logs yall... the chest is coming and also music! Awesome
+
+[14/2/2025] sebashtioon - Explorer notes are coming... also, does anyone even read this???
