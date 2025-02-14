@@ -767,9 +767,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -194.0
-offset_top = -12.0
+offset_top = -76.0
 offset_right = 194.0
-offset_bottom = -7.0
+offset_bottom = -71.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_kjgn1")
@@ -790,6 +790,77 @@ modulate = Color(0.683077, 0.683077, 0.683077, 1)
 position = Vector2(16.5, 633)
 scale = Vector2(0.018711, 0.0152068)
 texture = ExtResource("8_ty1rt")
+
+[node name="HotbarLayer" type="CanvasLayer" parent="Head/Camera3D"]
+
+[node name="HotbarMainLayer" type="Control" parent="Head/Camera3D/HotbarLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Background" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer"]
+modulate = Color(1, 1, 1, 0.762)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -238.5
+offset_top = -64.0
+offset_right = 238.5
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("24_6y28d")
+
+[node name="HotbarSlots" type="Control" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -232.0
+offset_top = -60.9999
+offset_right = 483.0
+offset_bottom = 16.0001
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.65, 0.65)
+mouse_filter = 1
+
+[node name="Slot1" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(38, 38)
+
+[node name="Slot2" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(118, 38)
+
+[node name="Slot3" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(198, 38)
+
+[node name="Slot4" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(278, 38)
+
+[node name="Slot5" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(358, 38)
+
+[node name="Slot6" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(438, 38)
+
+[node name="Slot7" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(518, 38)
+
+[node name="Slot8" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(598, 38)
+
+[node name="Slot9" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(678, 38)
 
 [node name="InteractionLayer" type="CanvasLayer" parent="Head/Camera3D"]
 

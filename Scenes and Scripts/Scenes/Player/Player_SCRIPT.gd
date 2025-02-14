@@ -757,15 +757,15 @@ func initInventorySlots():
 #region Walking, sprinting and crouching sounds
 
 func _on_walking_speed_sounds_timeout() -> void:
-	if is_walking:
+	if is_walking and is_moving:
 		pass
 
 func _on_sprinting_speed_sounds_timeout() -> void:
-	if is_sprinting:
+	if is_sprinting and is_moving:
 		pass
 
 func _on_crouching_speed_sounds_timeout() -> void:
-	if is_crouching:
+	if is_crouching and is_moving:
 		pass
 
 #endregion
@@ -1147,6 +1147,8 @@ func _on_is_inside_boundary_false_inventory_debounce_timeout() -> void:
 #endregion
 
 #region Hotbar
+
+
 
 #endregion
 
