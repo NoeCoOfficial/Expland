@@ -1146,6 +1146,10 @@ func _on_is_inside_boundary_false_inventory_debounce_timeout() -> void:
 
 #endregion
 
+#region Hotbar
+
+#endregion
+
 #region Explorer notes
 
 func _on_collect_btn_pressed() -> void:
