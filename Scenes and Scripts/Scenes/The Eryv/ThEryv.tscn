@@ -5,7 +5,15 @@
 [node name="TheEryv" instance=ExtResource("1_j2hmc")]
 
 [node name="EyeGlow" parent="Eye_Right" index="0"]
-light_energy = 0.2
+transform = Transform3D(5.10355, 10.2176, -17.8126, 15.4553, -5.93503, 1.02372, -5.74287, -16.912, -11.3463, -0.887914, 0.298019, -2.29686)
+light_energy = 0.0
+light_specular = 1.885
+omni_range = 0.1
+omni_attenuation = 0.1
 
 [node name="EyeGlow_001" parent="Eye_Left" index="0"]
-light_energy = 0.2
+transform = Transform3D(14.6089, -14.7177, -1.12733e-06, -1.23603e-06, -2.47206e-06, 16.256, -14.7177, -14.6089, -3.34065e-06, 1.18868, 0.135681, -1.37206)
+light_energy = 0.0
+light_specular = 1.885
+omni_range = 0.1
+omni_attenuation = 0.1
