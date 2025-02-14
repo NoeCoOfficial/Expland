@@ -460,7 +460,7 @@ camera_attributes = ExtResource("2_xjtor")
 script = ExtResource("4_jhu24")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.863396, 0.497586, -0.0834086, 0, 0.165321, 0.986238, 0.504528, -0.851516, 0.142737, 0, 0, 0)
+transform = Transform3D(0.863396, 0.504477, 0.00718329, 0, -0.0142377, 0.999897, 0.504528, -0.863309, -0.0122927, 0, 0, 0)
 light_color = Color(0.793, 0.612, 0.18, 1)
 light_energy = 0.0
 shadow_enabled = true
@@ -512,6 +512,24 @@ transform = Transform3D(2896.94, 0, 0, 0, 0.998, 0, 0, 0, 2896.94, 0, -35.6764, 
 mesh = SubResource("BoxMesh_5bvgu")
 
 [node name="Island" parent="." instance=ExtResource("11_kq5pm")]
+
+[node name="ExplorerNote_2" parent="Island/Tree3Hitbox2" index="9" instance=ExtResource("31_i2rcl")]
+transform = Transform3D(-0.0767635, -0.00726542, 1.03815, -0.990312, -0.311941, -0.0754092, 0.31161, -0.993152, 0.0160904, -0.0355225, 7.23192, -0.739502)
+NoteID = 2
+ImageAlbedo = ExtResource("33_5n0qp")
+DecalRotation_Degrees = Vector3(0, 90, 0)
+DecalSize = Vector3(6.005, 0.61, 3.14)
+DecalLowerFade = -27.385
+NailRotation_Degrees = Vector3(-12.485, 9.45, 0)
+
+[node name="ExplorerNote_1" parent="Island/PineTree1" index="7" instance=ExtResource("31_i2rcl")]
+transform = Transform3D(0.0043717, -0.0818319, 0.281098, -0.292383, -0.01562, -3.29933e-10, 0.0149957, -0.280698, -0.0819486, -0.166992, 1.9436, -0.19101)
+NoteID = 1
+ImageAlbedo = ExtResource("32_fm67d")
+DecalRotation_Degrees = Vector3(0, 90, 0)
+DecalSize = Vector3(3.22, 0.61, 1.16)
+DecalLowerFade = 2.59
+NailRotation_Degrees = Vector3(-12.485, 9.45, 0)
 
 [node name="Player" parent="." instance=ExtResource("16_52bg8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -351.588, 0, 324.606)
@@ -776,24 +794,6 @@ transform = Transform3D(-6.98434e-08, 0, 1.59783, 0, 1.59783, 0, -1.59783, 0, -6
 
 [node name="Chest" parent="." instance=ExtResource("58_rdkag")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -397.588, 0.61203, 300.334)
-
-[node name="ExplorerNote_1" parent="." instance=ExtResource("31_i2rcl")]
-transform = Transform3D(0.0043717, -0.0818319, 0.281098, -0.292383, -0.01562, -3.29933e-10, 0.0149957, -0.280698, -0.0819486, -378.768, 2.46212, 303.996)
-NoteID = 1
-ImageAlbedo = ExtResource("32_fm67d")
-DecalRotation_Degrees = Vector3(0, 90, 0)
-DecalSize = Vector3(3.22, 0.61, 1.16)
-DecalLowerFade = 2.59
-NailRotation_Degrees = Vector3(-12.485, 9.45, 0)
-
-[node name="ExplorerNote_2" parent="." instance=ExtResource("31_i2rcl")]
-transform = Transform3D(-0.0215908, -0.0020435, 0.291995, -0.278539, -0.0877377, -0.0212099, 0.0876447, -0.279338, 0.00452564, -386.735, 2.31761, 306.013)
-NoteID = 2
-ImageAlbedo = ExtResource("33_5n0qp")
-DecalRotation_Degrees = Vector3(0, 90, 0)
-DecalSize = Vector3(6.005, 0.61, 3.14)
-DecalLowerFade = -27.385
-NailRotation_Degrees = Vector3(-12.485, 9.45, 0)
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="timeout" from="Tick" to="." method="_on_tick"]
