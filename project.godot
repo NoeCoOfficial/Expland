@@ -47,6 +47,7 @@ ExplorerNotesManager="*res://Scenes and Scripts/Singletons/World/ExplorerNotesMa
 DialogueManager="*res://Scenes and Scripts/Singletons/Dialogue/DialogueManager.gd"
 AchievementsManager="*res://Scenes and Scripts/Singletons/Achievements/AchievementsManager.gd"
 InventoryManager="*res://Scenes and Scripts/Singletons/Inventory/InventoryManager.gd"
+HotbarManager="*res://Scenes and Scripts/Singletons/Inventory/HotbarManager.gd"
 CraftingManager="*res://Scenes and Scripts/Singletons/Crafting/CraftingManager.gd"
 InputManager="*res://Scenes and Scripts/Singletons/Input/InputManager.gd"
 InteractionManager="*res://Scenes and Scripts/Singletons/Interaction/InteractionManager.gd"
