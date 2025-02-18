@@ -831,7 +831,17 @@ grow_vertical = 0
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("24_6y28d")
 
-[node name="Slot1_Outline" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer"]
+[node name="HotbarOutlines" type="Control" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Slot1_Outline" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarOutlines"]
 layout_mode = 0
 offset_left = 394.76
 offset_top = 587.0
@@ -839,7 +849,7 @@ offset_right = 445.96
 offset_bottom = 638.585
 theme_override_styles/panel = SubResource("StyleBoxFlat_ml3g1")
 
-[node name="Slot2_Outline" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer"]
+[node name="Slot2_Outline" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarOutlines"]
 layout_mode = 0
 offset_left = 342.76
 offset_top = 587.0
@@ -847,7 +857,7 @@ offset_right = 393.96
 offset_bottom = 638.585
 theme_override_styles/panel = SubResource("StyleBoxFlat_ml3g1")
 
-[node name="Slot3_Outline" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer"]
+[node name="Slot3_Outline" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarOutlines"]
 layout_mode = 0
 offset_left = 446.76
 offset_top = 587.0
@@ -855,7 +865,7 @@ offset_right = 497.96
 offset_bottom = 638.585
 theme_override_styles/panel = SubResource("StyleBoxFlat_ml3g1")
 
-[node name="Slot4_Outline" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer"]
+[node name="Slot4_Outline" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarOutlines"]
 layout_mode = 0
 offset_left = 498.76
 offset_top = 587.0
@@ -863,7 +873,7 @@ offset_right = 549.96
 offset_bottom = 638.585
 theme_override_styles/panel = SubResource("StyleBoxFlat_ml3g1")
 
-[node name="Slot5_Outline" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer"]
+[node name="Slot5_Outline" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarOutlines"]
 layout_mode = 0
 offset_left = 550.76
 offset_top = 587.0
@@ -871,7 +881,7 @@ offset_right = 601.96
 offset_bottom = 638.585
 theme_override_styles/panel = SubResource("StyleBoxFlat_ml3g1")
 
-[node name="Slot6_Outline" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer"]
+[node name="Slot6_Outline" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarOutlines"]
 layout_mode = 0
 offset_left = 602.76
 offset_top = 587.0
@@ -879,7 +889,7 @@ offset_right = 653.96
 offset_bottom = 638.585
 theme_override_styles/panel = SubResource("StyleBoxFlat_ml3g1")
 
-[node name="Slot7_Outline" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer"]
+[node name="Slot7_Outline" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarOutlines"]
 layout_mode = 0
 offset_left = 654.76
 offset_top = 587.0
@@ -887,7 +897,7 @@ offset_right = 705.96
 offset_bottom = 638.585
 theme_override_styles/panel = SubResource("StyleBoxFlat_ml3g1")
 
-[node name="Slot8_Outline" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer"]
+[node name="Slot8_Outline" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarOutlines"]
 layout_mode = 0
 offset_left = 706.76
 offset_top = 587.0
@@ -895,7 +905,7 @@ offset_right = 757.96
 offset_bottom = 638.585
 theme_override_styles/panel = SubResource("StyleBoxFlat_ml3g1")
 
-[node name="Slot9_Outline" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer"]
+[node name="Slot9_Outline" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarOutlines"]
 layout_mode = 0
 offset_left = 758.76
 offset_top = 587.0

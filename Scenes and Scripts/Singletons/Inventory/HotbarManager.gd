@@ -46,3 +46,5 @@
 # ============================================================= #
 
 extends Node
+
+var CURRENTLY_SELECTED_SLOT_NAME
