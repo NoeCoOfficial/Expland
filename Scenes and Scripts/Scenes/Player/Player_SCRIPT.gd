@@ -1149,6 +1149,7 @@ func _on_is_inside_boundary_false_inventory_debounce_timeout() -> void:
 #region Hotbar
 
 func initHotbarSlotSelection(Slot_Name):
+	print("Currently selected hotbar slot name:" + str(Slot_Name))
 	if Slot_Name == null:
 		pass
 
