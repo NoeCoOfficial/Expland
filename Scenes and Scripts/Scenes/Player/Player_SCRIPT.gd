@@ -1155,10 +1155,26 @@ func initHotbarSlotSelection(Slot_Name):
 		HotbarManager.CURRENTLY_SELECTED_SLOT = $Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots/Slot1
 	else:
 		for child in $Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots.get_children():
-			if child.name == Slot_Name:
-				HotbarManager.CURRENTLY_SELECTED_SLOT = child
-				HotbarManager.CURRENTLY_SELECTED_SLOT_NAME = child.name
+			print("Slot" + str(Slot_Name))
+			print(str(child.name))
+			if str(child.name) == "Slot" + str(Slot_Name):
+				setHotbarSelectedSlot(child)
 				break
+
+func setHotbarSelectedSlot(Slot_Number):
+	var Slot
+	for child in $Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots.get_children():
+		if str(child.name) == "Slot" + str(Slot_Number):
+			Slot = child
+	
+	for child in $Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarOutlines.get_children():
+		if str(child.name) == "Slot" + str(Slot_Number) + "_Outline":
+			child.visible = true
+		else:
+			child.visible = false
+	
+	HotbarManager.CURRENTLY_SELECTED_SLOT = Slot
+	HotbarManager.CURRENTLY_SELECTED_SLOT_NAME = Slot.name
 
 #endregion
 
