@@ -1149,9 +1149,16 @@ func _on_is_inside_boundary_false_inventory_debounce_timeout() -> void:
 #region Hotbar
 
 func initHotbarSlotSelection(Slot_Name):
-	print("Currently selected hotbar slot name:" + str(Slot_Name))
+	print("Currently selected hotbar slot name: " + str(Slot_Name))
 	if Slot_Name == null:
-		pass
+		HotbarManager.CURRENTLY_SELECTED_SLOT_NAME = $Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots/Slot1.name
+		HotbarManager.CURRENTLY_SELECTED_SLOT = $Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots/Slot1
+	else:
+		for child in $Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots.get_children():
+			if child.name == Slot_Name:
+				HotbarManager.CURRENTLY_SELECTED_SLOT = child
+				HotbarManager.CURRENTLY_SELECTED_SLOT_NAME = child.name
+				break
 
 #endregion
 
