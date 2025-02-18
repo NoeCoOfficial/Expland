@@ -422,6 +422,8 @@ func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 	
 	print("Valid island name: ", sanitized_name)
 	$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit.editable = false
+	$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit.release_focus()
+	$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Free_ModeInPopupNewIslandButton.release_focus()
 	
 	IslandManager.transitioning_from_menu = true
 	
@@ -542,6 +544,11 @@ func _on_checks_timer_timeout() -> void:
 
 func _on_island_name_text_edit_focus_entered() -> void:
 	AudioManager.canOperate_textField = false
+	if IslandManager.transitioning_from_menu:
+		$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit.release_focus()
+		$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit.editable = false
+		$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit.selecting_enabled = false
+	
 
 func _on_island_name_text_edit_focus_exited() -> void:
 	AudioManager.canOperate_textField = true
