@@ -426,23 +426,50 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			closeInventory()
 	
 	if Input.is_action_just_pressed("Hotbar_1"):
-		setHotbarSelectedSlot(1)
+		if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot1":
+			setHotbarSelectedSlot(1)
+		else:
+			setHotbarSelectedSlot(null)
 	elif Input.is_action_just_pressed("Hotbar_2"):
-		setHotbarSelectedSlot(2)
+		if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot2":
+			setHotbarSelectedSlot(2)
+		else:
+			setHotbarSelectedSlot(null)
 	elif Input.is_action_just_pressed("Hotbar_3"):
-		setHotbarSelectedSlot(3)
+		if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot3":
+			setHotbarSelectedSlot(3)
+		else:
+			setHotbarSelectedSlot(null)
 	elif Input.is_action_just_pressed("Hotbar_4"):
-		setHotbarSelectedSlot(4)
+		if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot4":
+			setHotbarSelectedSlot(4)
+		else:
+			setHotbarSelectedSlot(null)
 	elif Input.is_action_just_pressed("Hotbar_5"):
-		setHotbarSelectedSlot(5)
+		if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot5":
+			setHotbarSelectedSlot(5)
+		else:
+			setHotbarSelectedSlot(null)
 	elif Input.is_action_just_pressed("Hotbar_6"):
-		setHotbarSelectedSlot(6)
+		if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot6":
+			setHotbarSelectedSlot(6)
+		else:
+			setHotbarSelectedSlot(null)
 	elif Input.is_action_just_pressed("Hotbar_7"):
-		setHotbarSelectedSlot(7)
+		if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot7":
+			setHotbarSelectedSlot(7)
+		else:
+			setHotbarSelectedSlot(null)
 	elif Input.is_action_just_pressed("Hotbar_8"):
-		setHotbarSelectedSlot(8)
+		if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot8":
+			setHotbarSelectedSlot(8)
+		else:
+			setHotbarSelectedSlot(null)
 	elif Input.is_action_just_pressed("Hotbar_9"):
-		setHotbarSelectedSlot(9)
+		if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot9":
+			setHotbarSelectedSlot(9)
+		else:
+			setHotbarSelectedSlot(null)
 
 func _unhandled_input(event): # A built-in function that listens for input all the time
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
@@ -1167,35 +1194,30 @@ func _on_is_inside_boundary_false_inventory_debounce_timeout() -> void:
 
 #region Hotbar
 
-func initHotbarSlotSelection(Slot_Name):
-	print("Currently selected hotbar slot name: " + str(Slot_Name))
-	if Slot_Name == null:
-		HotbarManager.CURRENTLY_SELECTED_SLOT_NAME = $Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots/Slot1.name
-		HotbarManager.CURRENTLY_SELECTED_SLOT = $Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots/Slot1
-	else:
-		for child in $Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots.get_children():
-			print("Slot" + str(Slot_Name))
-			print(str(child.name))
-			if str(child.name) == "Slot" + str(Slot_Name):
-				setHotbarSelectedSlot(child)
-				break
-
 func setHotbarSelectedSlot(Slot_Number):
-	print("Setting hotbar slot to: ", Slot_Number)
-	var Slot
-	for child in $Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots.get_children():
-		print("Checking child: ", child.name)
-		if str(child.name) == "Slot" + str(Slot_Number):
-			print("Found slot: ", child.name)
-			HotbarManager.CURRENTLY_SELECTED_SLOT = child
-			HotbarManager.CURRENTLY_SELECTED_SLOT_NAME = child.name
-	
-	for child in $Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarOutlines.get_children():
-		if str(child.name) == "Slot" + str(Slot_Number) + "_Outline":
-			print("Showing outline for: ", child.name)
-			child.visible = true
-		else:
-			child.visible = false
+	if Slot_Number != null:
+		print("Setting hotbar slot to: ", Slot_Number)
+		var Slot
+		for child in $Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots.get_children():
+			print("Checking child: ", child.name)
+			if str(child.name) == "Slot" + str(Slot_Number):
+				print("Found slot: ", child.name)
+				HotbarManager.CURRENTLY_SELECTED_SLOT = child
+				HotbarManager.CURRENTLY_SELECTED_SLOT_NAME = child.name
+		
+		for child in $Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarOutlines.get_children():
+			if str(child.name) == "Slot" + str(Slot_Number) + "_Outline":
+				print("Showing outline for: ", child.name)
+				child.visible = true
+			else:
+				child.visible = false
+	else:
+		
+		for child in $Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarOutlines.get_children():
+				child.visible = false
+		
+		HotbarManager.CURRENTLY_SELECTED_SLOT = null
+		HotbarManager.CURRENTLY_SELECTED_SLOT_NAME = null
 
 #endregion
 
