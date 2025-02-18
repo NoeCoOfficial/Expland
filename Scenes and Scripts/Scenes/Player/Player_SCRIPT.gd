@@ -425,51 +425,53 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		else:
 			closeInventory()
 	
-	if Input.is_action_just_pressed("Hotbar_1"):
-		if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot1":
-			setHotbarSelectedSlot(1)
-		else:
-			setHotbarSelectedSlot(null)
-	elif Input.is_action_just_pressed("Hotbar_2"):
-		if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot2":
-			setHotbarSelectedSlot(2)
-		else:
-			setHotbarSelectedSlot(null)
-	elif Input.is_action_just_pressed("Hotbar_3"):
-		if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot3":
-			setHotbarSelectedSlot(3)
-		else:
-			setHotbarSelectedSlot(null)
-	elif Input.is_action_just_pressed("Hotbar_4"):
-		if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot4":
-			setHotbarSelectedSlot(4)
-		else:
-			setHotbarSelectedSlot(null)
-	elif Input.is_action_just_pressed("Hotbar_5"):
-		if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot5":
-			setHotbarSelectedSlot(5)
-		else:
-			setHotbarSelectedSlot(null)
-	elif Input.is_action_just_pressed("Hotbar_6"):
-		if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot6":
-			setHotbarSelectedSlot(6)
-		else:
-			setHotbarSelectedSlot(null)
-	elif Input.is_action_just_pressed("Hotbar_7"):
-		if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot7":
-			setHotbarSelectedSlot(7)
-		else:
-			setHotbarSelectedSlot(null)
-	elif Input.is_action_just_pressed("Hotbar_8"):
-		if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot8":
-			setHotbarSelectedSlot(8)
-		else:
-			setHotbarSelectedSlot(null)
-	elif Input.is_action_just_pressed("Hotbar_9"):
-		if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot9":
-			setHotbarSelectedSlot(9)
-		else:
-			setHotbarSelectedSlot(null)
+	
+	if !PauseManager.is_paused and !InventoryManager.inventory_open and !PauseManager.inside_item_workshop and !DialogueManager.is_in_interface and !PauseManager.inside_explorer_note_ui and PlayerData.GAME_STATE != "DEAD" and PlayerData.GAME_STATE != "SLEEPING":
+		if Input.is_action_just_pressed("Hotbar_1"):
+			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot1":
+				setHotbarSelectedSlot(1)
+			else:
+				setHotbarSelectedSlot(null)
+		elif Input.is_action_just_pressed("Hotbar_2"):
+			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot2":
+				setHotbarSelectedSlot(2)
+			else:
+				setHotbarSelectedSlot(null)
+		elif Input.is_action_just_pressed("Hotbar_3"):
+			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot3":
+				setHotbarSelectedSlot(3)
+			else:
+				setHotbarSelectedSlot(null)
+		elif Input.is_action_just_pressed("Hotbar_4"):
+			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot4":
+				setHotbarSelectedSlot(4)
+			else:
+				setHotbarSelectedSlot(null)
+		elif Input.is_action_just_pressed("Hotbar_5"):
+			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot5":
+				setHotbarSelectedSlot(5)
+			else:
+				setHotbarSelectedSlot(null)
+		elif Input.is_action_just_pressed("Hotbar_6"):
+			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot6":
+				setHotbarSelectedSlot(6)
+			else:
+				setHotbarSelectedSlot(null)
+		elif Input.is_action_just_pressed("Hotbar_7"):
+			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot7":
+				setHotbarSelectedSlot(7)
+			else:
+				setHotbarSelectedSlot(null)
+		elif Input.is_action_just_pressed("Hotbar_8"):
+			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot8":
+				setHotbarSelectedSlot(8)
+			else:
+				setHotbarSelectedSlot(null)
+		elif Input.is_action_just_pressed("Hotbar_9"):
+			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot9":
+				setHotbarSelectedSlot(9)
+			else:
+				setHotbarSelectedSlot(null)
 
 func _unhandled_input(event): # A built-in function that listens for input all the time
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
