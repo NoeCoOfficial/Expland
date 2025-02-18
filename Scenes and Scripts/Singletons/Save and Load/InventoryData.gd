@@ -102,7 +102,11 @@ func saveInventory(Island_Name : String, parent_node: Node, chest_parent_node: N
 	# Add HAND_ITEM_TYPE to the inventory data
 	var save_data = {
 		"inventory": inventory_data,
-		"hand_item_type": HAND_ITEM_TYPE
+		
+		"hand_item_type": HAND_ITEM_TYPE,
+		
+		"selected_hotbar_slot_name" : HotbarManager.CURRENTLY_SELECTED_SLOT_NAME
+		
 	}
 
 	# Write fresh data to the file
@@ -133,6 +137,7 @@ func loadInventory(Island_Name : String) -> void:
 		# Update the in-memory inventory data and HAND_ITEM_TYPE
 		inventory_data = current_line["inventory"]
 		HAND_ITEM_TYPE = current_line["hand_item_type"]
+		HotbarManager.CURRENTLY_SELECTED_SLOT_NAME = current_line["selected_hotbar_slot_name"]
 		
 		# Spawn inventory items based on loaded data
 		for item in inventory_data:

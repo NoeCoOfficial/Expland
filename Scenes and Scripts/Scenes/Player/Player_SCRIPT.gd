@@ -1149,8 +1149,8 @@ func _on_is_inside_boundary_false_inventory_debounce_timeout() -> void:
 #region Hotbar
 
 func initHotbarSlotSelection(Slot_Name):
-	pass
-
+	if Slot_Name == null:
+		pass
 
 #endregion
 
