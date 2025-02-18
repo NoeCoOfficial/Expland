@@ -424,6 +424,25 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			openInventory()
 		else:
 			closeInventory()
+	
+	if Input.is_action_just_pressed("Hotbar_1"):
+		pass
+	elif Input.is_action_just_pressed("Hotbar_2"):
+		pass
+	elif Input.is_action_just_pressed("Hotbar_3"):
+		pass
+	elif Input.is_action_just_pressed("Hotbar_4"):
+		pass
+	elif Input.is_action_just_pressed("Hotbar_5"):
+		pass
+	elif Input.is_action_just_pressed("Hotbar_6"):
+		pass
+	elif Input.is_action_just_pressed("Hotbar_7"):
+		pass
+	elif Input.is_action_just_pressed("Hotbar_8"):
+		pass
+	elif Input.is_action_just_pressed("Hotbar_9"):
+		pass
 
 func _unhandled_input(event): # A built-in function that listens for input all the time
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
