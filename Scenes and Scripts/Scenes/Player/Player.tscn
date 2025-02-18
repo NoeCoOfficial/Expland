@@ -843,17 +843,17 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Slot1_Outline" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarOutlines"]
 layout_mode = 0
-offset_left = 394.76
+offset_left = 342.76
 offset_top = 587.0
-offset_right = 445.96
+offset_right = 393.96
 offset_bottom = 638.585
 theme_override_styles/panel = SubResource("StyleBoxFlat_ml3g1")
 
 [node name="Slot2_Outline" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarOutlines"]
 layout_mode = 0
-offset_left = 342.76
+offset_left = 394.76
 offset_top = 587.0
-offset_right = 393.96
+offset_right = 445.96
 offset_bottom = 638.585
 theme_override_styles/panel = SubResource("StyleBoxFlat_ml3g1")
 

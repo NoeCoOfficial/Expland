@@ -426,23 +426,23 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			closeInventory()
 	
 	if Input.is_action_just_pressed("Hotbar_1"):
-		pass
+		setHotbarSelectedSlot(1)
 	elif Input.is_action_just_pressed("Hotbar_2"):
-		pass
+		setHotbarSelectedSlot(2)
 	elif Input.is_action_just_pressed("Hotbar_3"):
-		pass
+		setHotbarSelectedSlot(3)
 	elif Input.is_action_just_pressed("Hotbar_4"):
-		pass
+		setHotbarSelectedSlot(4)
 	elif Input.is_action_just_pressed("Hotbar_5"):
-		pass
+		setHotbarSelectedSlot(5)
 	elif Input.is_action_just_pressed("Hotbar_6"):
-		pass
+		setHotbarSelectedSlot(6)
 	elif Input.is_action_just_pressed("Hotbar_7"):
-		pass
+		setHotbarSelectedSlot(7)
 	elif Input.is_action_just_pressed("Hotbar_8"):
-		pass
+		setHotbarSelectedSlot(8)
 	elif Input.is_action_just_pressed("Hotbar_9"):
-		pass
+		setHotbarSelectedSlot(9)
 
 func _unhandled_input(event): # A built-in function that listens for input all the time
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
@@ -1181,19 +1181,21 @@ func initHotbarSlotSelection(Slot_Name):
 				break
 
 func setHotbarSelectedSlot(Slot_Number):
+	print("Setting hotbar slot to: ", Slot_Number)
 	var Slot
 	for child in $Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots.get_children():
+		print("Checking child: ", child.name)
 		if str(child.name) == "Slot" + str(Slot_Number):
-			Slot = child
+			print("Found slot: ", child.name)
+			HotbarManager.CURRENTLY_SELECTED_SLOT = child
+			HotbarManager.CURRENTLY_SELECTED_SLOT_NAME = child.name
 	
 	for child in $Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarOutlines.get_children():
 		if str(child.name) == "Slot" + str(Slot_Number) + "_Outline":
+			print("Showing outline for: ", child.name)
 			child.visible = true
 		else:
 			child.visible = false
-	
-	HotbarManager.CURRENTLY_SELECTED_SLOT = Slot
-	HotbarManager.CURRENTLY_SELECTED_SLOT_NAME = Slot.name
 
 #endregion
 
