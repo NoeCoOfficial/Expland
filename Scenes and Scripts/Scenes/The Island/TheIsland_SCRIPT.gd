@@ -94,6 +94,7 @@ func _ready() -> void:
 	
 	Player.nodeSetup()
 	Player.init_visually_equip(InventoryData.HAND_ITEM_TYPE)
+	Player.setHotbarSelectedSlot(int(str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME)[-1]))
 	
 	InventoryManager.chestNode = $Chest
 	
