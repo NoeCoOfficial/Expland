@@ -74,7 +74,7 @@ func spawn_minimal_alert(holdSec : float, fadeInTime : float, fadeOutTime : floa
 
 func show_minimal_alert(fadeInTime : float, message : String):
 	if tween != null:
-		tween.stop()
+		tween.kill()
 	
 	MainLayer.visible = true
 	MainLayer.text = message
