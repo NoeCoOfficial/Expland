@@ -152,11 +152,11 @@ func _process(delta):
 				if slot_inside and slot_inside.has_method("set_populated"):
 					slot_inside.set_populated(false)
 				
-				var PARENT = self.get_parent()
-				PARENT.remove_child(self)
 				can_create_pickup = false
 				debounce_timer = 0.2
 				InventoryManager.create_pickup_object()
+				
+				queue_free()
 				
 			else:
 				

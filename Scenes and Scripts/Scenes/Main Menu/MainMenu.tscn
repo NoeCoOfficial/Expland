@@ -197,9 +197,6 @@ environment = SubResource("Environment_v4n35")
 
 [node name="MainMenu_Audio" parent="." instance=ExtResource("3_wxdrf")]
 
-[node name="DebugOutputTimer" type="Timer" parent="."]
-autostart = true
-
 [node name="Checks_Timer" type="Timer" parent="."]
 one_shot = true
 autostart = true
@@ -1214,7 +1211,6 @@ initial_velocity_max = 47.09
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
-[connection signal="timeout" from="DebugOutputTimer" to="." method="_on_debug_output_timer_timeout"]
 [connection signal="timeout" from="Checks_Timer" to="." method="_on_checks_timer_timeout"]
 [connection signal="button_down" from="Camera3D/MainLayer/PlayButtonTrigger" to="." method="_on_play_button_trigger_button_down"]
 [connection signal="button_up" from="Camera3D/MainLayer/PlayButtonTrigger" to="." method="_on_play_button_trigger_button_up"]
