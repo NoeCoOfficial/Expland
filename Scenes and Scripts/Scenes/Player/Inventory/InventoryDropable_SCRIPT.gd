@@ -545,3 +545,6 @@ func set_is_workshop_output_dropable(value : bool):
 
 func get_is_workshop_output_dropable():
 	return is_workshop_output_dropable
+
+func _on_tree_exited() -> void:
+	mouse_over_timer.disconnect("timeout", Callable(self, "_on_mouse_over_timeout"))
