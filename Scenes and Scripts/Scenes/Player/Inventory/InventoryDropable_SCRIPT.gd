@@ -123,7 +123,6 @@ func _ready():
 		add_child(mouse_over_timer)
 
 func _process(delta):
-	
 	if InventoryManager.is_dragging:
 		PlayerManager.MINIMAL_ALERT_PLAYER.hide_minimal_alert(0.1)
 	
@@ -545,3 +544,6 @@ func set_is_workshop_output_dropable(value : bool):
 
 func get_is_workshop_output_dropable():
 	return is_workshop_output_dropable
+
+func _on_tree_exited() -> void:
+	mouse_over_timer.disconnect("timeout", Callable(self, "_on_mouse_over_timeout"))
