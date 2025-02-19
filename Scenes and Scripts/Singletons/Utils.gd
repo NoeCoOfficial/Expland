@@ -211,24 +211,11 @@ func _cleanup_screenshot_thread():
 
 func delete_free_mode_island(Island_Name: String) -> void:
 	IslandManager.FreeMode_Island_Count -= 1
-	# Ensure no other thread is running
-	if delete_island_thread:
-		delete_island_thread.wait_to_finish()
-		delete_island_thread = null
 	
-	# Start the thread for deleting the island folder
-	delete_island_thread = Thread.new()
-	var callable = Callable(self, "_delete_free_mode_island_in_thread").bind(Island_Name)
-	var result = delete_island_thread.start(callable)
-	
-	if result == OK:
-		print_rich("[color=orange][Utils] Delete island thread started[/color]")
-	else:
-		print_rich("[color=orange][Utils] Failed to start island delete thread[/color]")
-
-func _delete_free_mode_island_in_thread(Island_Name : String):
 	var full_dir = "user://saveData/Free Mode/Islands/" + Island_Name
 	OS.move_to_trash(ProjectSettings.globalize_path(full_dir))
+	
+	print_rich("[color=orange][Utils] Delete island process completed[/color]")
 
 func sum_array(arr):
 	var total = 0
