@@ -123,13 +123,8 @@ func _ready():
 		add_child(mouse_over_timer)
 
 func _process(delta):
-	
-	# NOTE
-	# This was casuing the memory leak and insane frame drop over time
-	# I'm gonna leave this here as a souvenir
-	
-	#if InventoryManager.is_dragging:
-	#	PlayerManager.MINIMAL_ALERT_PLAYER.hide_minimal_alert(0.1)
+	if InventoryManager.is_dragging:
+		PlayerManager.MINIMAL_ALERT_PLAYER.hide_minimal_alert(0.1)
 	
 	if debounce_timer > 0:
 		debounce_timer -= delta

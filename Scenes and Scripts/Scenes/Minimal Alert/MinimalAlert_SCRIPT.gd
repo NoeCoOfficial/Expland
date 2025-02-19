@@ -85,7 +85,7 @@ func show_minimal_alert(fadeInTime : float, message : String):
 
 func hide_minimal_alert(fadeOutTime : float):
 	if tween != null:
-		tween.stop()
+		tween.kill()
 	
 	tween = get_tree().create_tween()
 	
