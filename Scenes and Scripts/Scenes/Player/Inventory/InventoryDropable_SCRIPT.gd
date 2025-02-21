@@ -133,7 +133,7 @@ func _process(delta):
 	
 	if draggable:
 		if Input.is_action_just_pressed("LeftClick"):
-			if mouse_over_timer.time_left == 0 and !InventoryManager.is_hovering_over_hand_dropable:
+			if mouse_over_timer.time_left == 0:
 				initialPos = global_position
 				InventoryManager.is_dragging = true
 				if is_in_chest_slot or is_workshop_dropable or is_workshop_output_dropable:
@@ -409,25 +409,9 @@ func _input(_event: InputEvent) -> void:
 				InventoryManager.is_dragging = false
 				debounce_timer = 0.2
 	
-	# Consuming items and handheld items
+	# Consuming items
 	if Input.is_action_just_pressed("RightClick") and debounce_timer <= 0:
-		
 		if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup and is_hovering_over and !InventoryManager.is_dragging:
-			
-			if ITEM_TYPE != InventoryData.HAND_ITEM_TYPE:
-				
-				# Right clicked on a handheld item (see InventoryManager.gd for contents)
-				if ITEM_TYPE in InventoryManager.HANDHELD_ITEMS:
-					if PlayerManager.PLAYER.get_hand_debounce_time_left() <= 0.0:
-						if is_workshop_dropable:
-							CraftingManager.unbindCraftingItem(int(String(slot_inside.name)[-1]) - 1)
-						PlayerManager.MINIMAL_ALERT_PLAYER.hide_minimal_alert(0.1)
-						slot_inside.set_populated(false)
-						InventoryManager.set_hand_item(self, ITEM_TYPE)
-						InventoryManager.is_dragging = false
-						
-						PlayerManager.PLAYER.start_hand_debounce_timer()
-					
 				# Right clicked on a consumable item (see InventoryManager.gd for contents)
 				if ITEM_TYPE in InventoryManager.CONSUMABLE_ITEMS:
 					PlayerManager.MINIMAL_ALERT_PLAYER.hide_minimal_alert(0.1)
@@ -463,10 +447,6 @@ func _on_area_2d_mouse_entered():
 		scale = Vector2(1.05, 1.05)
 		
 	if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup and !InventoryManager.is_dragging:
-		
-		if ITEM_TYPE in InventoryManager.HANDHELD_ITEMS:
-			PlayerManager.MINIMAL_ALERT_PLAYER.show_minimal_alert(0.1, "Right click to hold item")
-		
 		if ITEM_TYPE in InventoryManager.CONSUMABLE_ITEMS:
 			PlayerManager.MINIMAL_ALERT_PLAYER.show_minimal_alert(0.1, "Right click to consume item")
 
@@ -479,13 +459,6 @@ func _on_area_2d_mouse_exited():
 		mouse_over_timer.stop()
 		draggable = false
 		scale = Vector2(1.0, 1.0)
-		
-		# Dunno why I have to do it like this but hey
-		# I don't wanna risk anything bro
-		# The code has a mind of it's own
-		
-		if ITEM_TYPE in InventoryManager.HANDHELD_ITEMS:
-			PlayerManager.MINIMAL_ALERT_PLAYER.hide_minimal_alert(0.1)
 		
 		if ITEM_TYPE in InventoryManager.CONSUMABLE_ITEMS:
 			PlayerManager.MINIMAL_ALERT_PLAYER.hide_minimal_alert(0.1)
