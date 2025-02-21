@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://djwgy3b85xfpn"]
+
+[node name="HandItem" type="Node3D"]
+
+[node name="HandMesh" type="Node3D" parent="."]
+
+[node name="HandShadow" type="Node3D" parent="."]
