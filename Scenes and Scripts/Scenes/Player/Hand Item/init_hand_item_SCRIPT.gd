@@ -53,4 +53,5 @@ extends Node3D
 @onready var hand_mesh: Node3D = %HandMesh
 
 func load_hand_item():
-	var hand_model = load()
+	var hand_model = load(HAND_ITEM.model_path)
+	hand_mesh.add_child(hand_model)
