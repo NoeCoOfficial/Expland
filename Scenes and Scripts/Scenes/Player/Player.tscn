@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=104 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -195,10 +195,13 @@ bg_color = Color(0.107, 0.107, 0.107, 0)
 shadow_size = 15
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bx3eh"]
-size = Vector2(506, 106)
+size = Vector2(474, 106)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fv14n"]
-size = Vector2(505, 116)
+size = Vector2(471, 116)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_18jxt"]
+size = Vector2(77, 648)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c8e23"]
 size = Vector2(1152, 61)
@@ -222,10 +225,10 @@ size = Vector2(1152, 106)
 size = Vector2(1152, 116)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ch6l8"]
-size = Vector2(307, 648)
+size = Vector2(385, 648)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b78jw"]
-size = Vector2(304, 648)
+size = Vector2(385, 648)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_47ywp"]
 load_path = "res://.godot/imported/STONE.png-927cdf3755e2c3b65afc36a4cfc41a45.ctex"
@@ -1025,8 +1028,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="InventoryMainLayer" type="CanvasLayer" parent="Head/Camera3D/InventoryLayer"]
 layer = 2
-offset = Vector2(-290.28, 0)
-transform = Transform2D(1, 0, 0, 1, -290.28, 0)
 
 [node name="Background" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 anchors_preset = 8
@@ -1142,6 +1143,7 @@ position = Vector2(613, 476)
 position = Vector2(693, 476)
 
 [node name="ChestMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
+visible = false
 layout_mode = 3
 anchor_left = 0.243924
 anchor_right = 1.25347
@@ -1873,15 +1875,26 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ChestBoundary" type="Area2D" parent="Head/Camera3D/InventoryLayer"]
+visible = false
 
 [node name="Boundary1" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/ChestBoundary"]
-position = Vector2(253, 53)
+position = Vector2(237, 53)
 shape = SubResource("RectangleShape2D_bx3eh")
 debug_color = Color(0.92549, 0, 0.109804, 0.396078)
 
 [node name="Boundary2" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/ChestBoundary"]
-position = Vector2(252.5, 590)
+position = Vector2(235.5, 590)
 shape = SubResource("RectangleShape2D_fv14n")
+debug_color = Color(0.92549, 0, 0.109804, 0.396078)
+
+[node name="Boundary3" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/ChestBoundary"]
+position = Vector2(49, 324)
+shape = SubResource("RectangleShape2D_18jxt")
+debug_color = Color(0.92549, 0, 0.109804, 0.396078)
+
+[node name="Boundary4" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/ChestBoundary"]
+position = Vector2(1113.5, 324)
+shape = SubResource("RectangleShape2D_18jxt")
 debug_color = Color(0.92549, 0, 0.109804, 0.396078)
 
 [node name="WorkbenchBoundary" type="Area2D" parent="Head/Camera3D/InventoryLayer"]
@@ -1919,7 +1932,6 @@ shape = SubResource("RectangleShape2D_5c121")
 debug_color = Color(0.92549, 0, 0.109804, 0.396078)
 
 [node name="PocketsBoundary" type="Area2D" parent="Head/Camera3D/InventoryLayer"]
-visible = false
 
 [node name="Boundary1" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/PocketsBoundary"]
 position = Vector2(576, 53)
@@ -1932,12 +1944,12 @@ shape = SubResource("RectangleShape2D_p86ht")
 debug_color = Color(0.92549, 0, 0.109804, 0.396078)
 
 [node name="Boundary3" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/PocketsBoundary"]
-position = Vector2(153.5, 324)
+position = Vector2(192.5, 324)
 shape = SubResource("RectangleShape2D_ch6l8")
 debug_color = Color(0.92549, 0, 0.109804, 0.396078)
 
 [node name="Boundary4" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/PocketsBoundary"]
-position = Vector2(1000, 324)
+position = Vector2(959.5, 324)
 shape = SubResource("RectangleShape2D_b78jw")
 debug_color = Color(0.92549, 0, 0.109804, 0.396078)
 

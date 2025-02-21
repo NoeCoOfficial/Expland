@@ -917,7 +917,7 @@ func openInventory():
 	$is_inside_boundary_false_inventory_debounce.start()
 	
 	if InventoryManager.in_chest_interface:
-		InventoryMainLayer.offset.x = -330.96
+		InventoryMainLayer.offset.x = -290.28
 		
 		ChestCollisionBoundary.set_deferred("monitorable", true)
 		ChestCollisionBoundary.set_deferred("monitoring", true)
