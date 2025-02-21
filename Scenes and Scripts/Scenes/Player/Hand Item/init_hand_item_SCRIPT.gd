@@ -55,3 +55,6 @@ extends Node3D
 func load_hand_item():
 	var hand_model = load(HAND_ITEM.model_path)
 	hand_mesh.add_child(hand_model)
+	hand_model.position = HAND_ITEM.position
+	hand_model.rotation_degrees = HAND_ITEM.rotation
+	hand_model.scale = HAND_ITEM.scale
