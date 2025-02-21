@@ -1577,6 +1577,7 @@ offset_top = 300.392
 offset_right = 78.0739
 offset_bottom = 355.392
 focus_mode = 0
+mouse_default_cursor_shape = 2
 theme = ExtResource("17_rhxkt")
 theme_override_font_sizes/font_size = 37
 text = "CRAFT"
@@ -1588,7 +1589,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
+mouse_filter = 2
 
 [node name="HotbarSlots" type="Control" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/HotbarMainLayer"]
 layout_mode = 1
@@ -1597,7 +1598,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
+mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="ExplorerNotes_Btn" type="Button" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
