@@ -1,0 +1,164 @@
+[gd_scene load_steps=10 format=3 uid="uid://cxslmv2vhttb5"]
+
+[ext_resource type="PackedScene" uid="uid://d3ryqywu5nr0k" path="res://Assets/3D Models/Environment/Trees/Pine/Models/PineTree5.blend" id="1_sevoq"]
+[ext_resource type="Script" path="res://Assets/3D Models/Environment/Trees/Scripts/Tree_Animation_SCRIPT.gd" id="2_wgxui"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ep2ju"]
+points = PackedVector3Array(0.67361, 0.280402, -0.210634, -0.609091, 0.129648, -0.814329, -0.458263, 0.582353, 0.317522, 0.446999, 0.205062, 0.770293, -0.0809723, -0.172229, -0.436942, -0.835554, -0.0967413, 0.54383, 0.67361, 0.431304, -0.587866, -0.307288, 0.582353, -0.361558, 0.220683, 0.582353, 0.317522, -0.2318, -0.172229, 0.317522, 0.446999, 0.35589, 0.770293, -0.458263, -0.0967413, -0.663405, -0.835554, 0.0541603, 0.54383, 0.67361, 0.280402, -0.587866, 0.371511, 0.0541603, -0.059555, -0.684579, 0.129648, -0.663405, 0.145195, 0.280402, 0.770293, -0.533603, -0.172229, 0.0910586, -0.382776, 0.0541603, -0.814329, -0.684579, -0.0212536, -0.587866, -0.835554, 0.0541603, 0.166598, 0.522634, 0.506865, -0.436942, 0.67361, 0.431304, -0.286018, -0.533603, 0.506865, 0.166598, 0.522634, 0.205062, 0.619369, 0.0697077, -0.0212536, 0.54383, -0.458263, 0.506865, -0.286018, 0.296171, 0.506865, 0.54383, 0.145195, 0.35589, -0.663405, -0.2318, 0.0541603, 0.694754, -0.382776, -0.172229, -0.436942, -0.835554, -0.0967413, 0.317522)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_k75u3"]
+points = PackedVector3Array(0.22086, 1.33674, 0.241997, -0.458263, 0.582353, 0.0910808, -0.382746, 2.01592, -0.059747, 0.824467, 1.56309, -0.436905, -0.307229, 0.582353, -0.361491, 0.145476, 0.582353, 0.392914, -0.0809428, 2.01592, -0.512408, 0.824467, 1.86493, -0.135161, -0.231844, 2.01592, 0.166583, 0.22086, 0.582353, -0.285989, -0.382746, 1.63858, -0.361491, 0.899984, 1.56309, -0.210575, -0.458263, 0.884334, 0.241997, -0.0809428, 1.78943, 0.241997, 0.145476, 1.71408, -0.512408, -0.382746, 0.582353, 0.317411, 0.22086, 2.01592, 0.0156669, 0.753645, 1.79854, -0.392653, 0.22086, 0.582353, 0.241997, 0.0699588, 2.01592, -0.512408, -0.382746, 0.582353, -0.285989, -0.156327, 0.582353, -0.361491, -0.00542551, 0.657989, 0.392914, -0.231844, 2.01592, -0.436905, -0.231844, 1.11068, -0.436905, -0.231844, 1.63858, 0.241997, -0.0809428, 2.01592, 0.166583, 0.145476, 0.657989, 0.392914, 0.899984, 1.63858, -0.361491, -0.00542551, 1.71408, 0.241997, -0.307229, 2.01592, 0.0910808, 0.899984, 1.56309, -0.285989)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pjm4b"]
+points = PackedVector3Array(-0.382864, 2.01606, -0.0597914, 0.094632, 2.66472, -0.00125707, 0.22086, 2.39325, 0.0156595, 0.0699293, 2.01606, -0.512496, -1.06193, 2.4687, -0.21056, 0.145395, 2.69518, -0.436979, -0.0810019, 2.01606, 0.166628, -1.06193, 2.4687, 0.0156595, -0.382864, 2.69518, -0.436979, -0.382864, 2.69518, 0.0156595, -1.06193, 2.318, -0.21056, 0.22086, 2.01606, -0.21056, 0.0699293, 2.61967, 0.0911103, -1.06193, 2.318, 0.0156595, -0.0810019, 2.01606, -0.512496, -0.458204, 2.01606, -0.286011, -0.231933, 2.24254, 0.166628, 0.22086, 2.01606, 0.0156595, -0.156467, 2.24254, -0.512496, -0.307399, 2.61967, 0.0911103, -0.231933, 2.01606, 0.166628, 0.22086, 2.39325, -0.286011, -0.307399, 2.09158, 0.166628, 0.0699293, 2.24254, -0.512496, -0.910872, 2.24254, 0.0156595, -0.382864, 2.01606, -0.361462, 0.145395, 2.318, -0.436979, -0.0810019, 2.24254, 0.166628, -0.156467, 2.16703, -0.512496, 0.22086, 2.24254, -0.286011, -0.458204, 2.01606, -0.21056, -0.307399, 2.01606, 0.0911103)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_vuwxk"]
+points = PackedVector3Array(-0.23183, 10.0146, -0.286033, 0.145402, 2.69518, -0.437009, -0.295179, 2.92976, -0.00121692, -0.00552154, 9.78823, -0.361573, -0.382805, 4.35667, -0.512496, -0.382805, 10.0146, -0.2107, 0.145402, 2.69518, 0.0157112, 0.145402, 4.35667, -0.512496, -0.382805, 4.28001, 0.0157112, -0.00552154, 9.10901, -0.135213, -0.307266, 2.69518, -0.437009, -0.382805, 10.0146, -0.286033, -0.00552154, 9.78823, -0.2107, -0.156342, 9.78823, -0.361573, -0.23183, 8.95784, -0.135213, 0.0699357, 6.381, -0.113673, -0.382805, 4.20478, -0.437009, -0.156342, 9.10901, -0.135213, -0.23183, 10.0146, -0.2107, -0.382805, 4.20478, -0.0597766)
+
+[sub_resource type="Animation" id="Animation_y7tjd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Circle:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0.00872665)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Circle_001:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.00451826, 1.96013, 0.0110123)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Circle_002:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.117731, -1.90299, -0.00367434)]
+}
+
+[sub_resource type="Animation" id="Animation_eclyc"]
+resource_name = "wind"
+length = 1.5
+loop_mode = 1
+step = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Circle:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.002, 0.786),
+"transitions": PackedFloat32Array(2.46229, 1.7411),
+"update": 0,
+"values": [Vector3(0, 0, 0.00872665), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Circle_001:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.348),
+"transitions": PackedFloat32Array(1.31951, 0.574349),
+"update": 0,
+"values": [Vector3(-0.00451826, 1.96013, 0.0110123), Vector3(-0.00698132, 1.95826, 0.00523599)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Circle_002:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.001, 0.868),
+"transitions": PackedFloat32Array(1.31951, 1.6245),
+"update": 0,
+"values": [Vector3(-0.117731, -1.90299, -0.00367434), Vector3(-0.122173, -1.90241, -0.0174533)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Circle_003:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.002, 1.074),
+"transitions": PackedFloat32Array(0.466516, 0.482968),
+"update": 0,
+"values": [Vector3(0, 0, 0.0174533), Vector3(0.0174533, 0, 0.0174533)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Circle_004:rotation")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.763),
+"transitions": PackedFloat32Array(2.73208, 1.93187),
+"update": 0,
+"values": [Vector3(-0.00451826, 1.96013, 0.0110123), Vector3(-0.010472, 1.95826, -0.0349066)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jcqct"]
+_data = {
+"RESET": SubResource("Animation_y7tjd"),
+"wind": SubResource("Animation_eclyc")
+}
+
+[node name="PineTree5" instance=ExtResource("1_sevoq")]
+script = ExtResource("2_wgxui")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Plane" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plane/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_ep2ju")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Plane/StaticBody3D" index="1"]
+shape = SubResource("ConvexPolygonShape3D_k75u3")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Plane/StaticBody3D" index="2"]
+shape = SubResource("ConvexPolygonShape3D_pjm4b")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Plane/StaticBody3D" index="3"]
+shape = SubResource("ConvexPolygonShape3D_vuwxk")
+
+[node name="Circle" parent="." index="1"]
+transform = Transform3D(3.69481, -0.0293551, 0, 0.0322441, 3.36376, 0, 0, 0, 3.27432, -0.157261, 2.15982, 0.0704203)
+
+[node name="Circle_001" parent="." index="2"]
+transform = Transform3D(-1.14918, 7.93574e-08, 2.48196, 0.0333375, 3.87288, 0.0121214, -2.8006, 0.0461016, -1.01829, 0.00232995, 3.70586, -0.0228727)
+
+[node name="Circle_002" parent="." index="3"]
+transform = Transform3D(-0.865652, 0.265105, -2.20551, -0.00967366, 2.39686, 0.27595, 2.50579, 0.100836, -0.760852, -0.208852, 5.53089, -0.00858164)
+
+[node name="Circle_003" parent="." index="4"]
+transform = Transform3D(2.13786, -0.0477414, -6.67192e-10, 0.037316, 2.73508, -0.00891289, 0.000175535, 0.0128658, 1.89475, 0.0342205, 6.69972, -0.149977)
+
+[node name="Circle_004" parent="." index="5"]
+transform = Transform3D(-0.529602, -0.000109272, 1.14383, 0.015193, 1.78484, 0.00560585, -1.29068, 0.0210547, -0.469279, -0.0333171, 8.25276, 0.0119055)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
+libraries = {
+"": SubResource("AnimationLibrary_jcqct")
+}

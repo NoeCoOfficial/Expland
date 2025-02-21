@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=93 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -16,9 +16,6 @@
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/IgnoreMouseFilter.gd" id="9_svfxy"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/RandomText_SCRIPT.gd" id="10_6w37c"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/GetUp_SCRIPT.gd" id="11_0enap"]
-[ext_resource type="VideoStream" uid="uid://dy45bdldi43a1" path="res://Resources/Streams/Video/PickaxeHandDropableVideo.tres" id="13_cxi4r"]
-[ext_resource type="VideoStream" uid="uid://ju0bf88uic41" path="res://Resources/Streams/Video/AxeHandDropableVideo.tres" id="14_3qyxm"]
-[ext_resource type="VideoStream" uid="uid://j5g08pm8317j" path="res://Resources/Streams/Video/SwordHandDropableVideo.tres" id="15_mlct4"]
 [ext_resource type="PackedScene" uid="uid://bin1awyog56pg" path="res://Scenes and Scripts/Scenes/Player/Interaction/InteractionHUD.tscn" id="16_8a1wo"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="16_wg7d4"]
 [ext_resource type="Texture2D" uid="uid://dgt5qdmjgbdsv" path="res://Textures/Icons/UpArrow_Icon.png" id="17_60kit"]
@@ -48,11 +45,8 @@
 [ext_resource type="Texture2D" uid="uid://bu54o8nhdxuoh" path="res://Textures/Inventory/BLANKFLOWER.png" id="30_urpf5"]
 [ext_resource type="Texture2D" uid="uid://dmyiq1y00bivg" path="res://Textures/Inventory/COCONUT.png" id="31_nd6fk"]
 [ext_resource type="Texture2D" uid="uid://1dbgnxe1pe1i" path="res://Textures/Inventory/HEALTHPOTION.png" id="31_uwwqt"]
-[ext_resource type="PackedScene" uid="uid://cnpgx6ef6qxqs" path="res://Assets/3D Models/Tools/Pickaxe.blend" id="32_4dvtj"]
 [ext_resource type="Texture2D" uid="uid://o3u6sxubmrbg" path="res://Textures/Inventory/HASTEPOTION.png" id="32_35fmr"]
 [ext_resource type="Texture2D" uid="uid://dkol2o53q7rck" path="res://Textures/Inventory/LUCKPOTION.png" id="33_6u7y3"]
-[ext_resource type="PackedScene" uid="uid://duk84wfnoo2r6" path="res://Assets/3D Models/Tools/Sword.blend" id="33_pxyba"]
-[ext_resource type="PackedScene" uid="uid://boamr831x21ue" path="res://Assets/3D Models/Tools/Axe.blend" id="34_m8bs6"]
 [ext_resource type="Texture2D" uid="uid://don2d5onyupya" path="res://Textures/Inventory/EFFICIENCYPOTION.png" id="34_ngejw"]
 [ext_resource type="Texture2D" uid="uid://d0q61bcnprn5o" path="res://Textures/Inventory/NIGHTVISIONPOTION.png" id="35_csgb7"]
 [ext_resource type="Texture2D" uid="uid://mwa55qklwxe3" path="res://Textures/Inventory/REGENERATINGPOTION.png" id="36_j5dlx"]
@@ -198,10 +192,13 @@ bg_color = Color(0.107, 0.107, 0.107, 0)
 shadow_size = 15
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bx3eh"]
-size = Vector2(549, 106)
+size = Vector2(474, 106)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fv14n"]
-size = Vector2(549, 116)
+size = Vector2(471, 116)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_18jxt"]
+size = Vector2(77, 648)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c8e23"]
 size = Vector2(1152, 61)
@@ -210,13 +207,13 @@ size = Vector2(1152, 61)
 size = Vector2(686, 106)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ix2dd"]
-size = Vector2(152, 431)
+size = Vector2(238, 431)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s11mi"]
-size = Vector2(144, 614)
+size = Vector2(211, 614)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5c121"]
-size = Vector2(686, 61)
+size = Vector2(626, 61)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ixul"]
 size = Vector2(1152, 106)
@@ -225,10 +222,10 @@ size = Vector2(1152, 106)
 size = Vector2(1152, 116)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ch6l8"]
-size = Vector2(307, 648)
+size = Vector2(385, 648)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b78jw"]
-size = Vector2(304, 648)
+size = Vector2(385, 648)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_47ywp"]
 load_path = "res://.godot/imported/STONE.png-927cdf3755e2c3b65afc36a4cfc41a45.ctex"
@@ -297,195 +294,7 @@ _data = {
 "spin": SubResource("Animation_wpbcy")
 }
 
-[sub_resource type="Animation" id="Animation_6vnpu"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_h03rl"]
-resource_name = "equip_AXE"
-length = 0.15
-step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Axe:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-0.115, -2.24, -0.58), Vector3(-0.114748, -0.0949782, -0.579574)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Axe:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_1tu78"]
-resource_name = "equip_PICKAXE"
-length = 0.15
-step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Pickaxe:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-0.161, -2.631, -0.509), Vector3(-0.160571, -0.341295, -0.509379)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Pickaxe:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_puvwo"]
-resource_name = "equip_SWORD"
-length = 0.15
-step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sword:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-0.176, -3.1, -0.529), Vector3(-0.175508, -0.624848, -0.528615)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sword:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_yqkeq"]
-resource_name = "unequip_AXE"
-length = 0.15
-step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Axe:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-0.114748, -0.0949782, -0.579574), Vector3(-0.115, -2.24, -0.58)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Axe:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.15),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_q6boy"]
-resource_name = "unequip_PICKAXE"
-length = 0.15
-step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Pickaxe:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-0.160571, -0.341295, -0.509379), Vector3(-0.161, -2.631, -0.509)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Pickaxe:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.15),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_u5xyb"]
-resource_name = "unequip_SWORD"
-length = 0.15
-step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sword:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-0.175508, -0.624848, -0.528615), Vector3(-0.176, -3.1, -0.529)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sword:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.15),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_1d7su"]
-_data = {
-"RESET": SubResource("Animation_6vnpu"),
-"equip_AXE": SubResource("Animation_h03rl"),
-"equip_PICKAXE": SubResource("Animation_1tu78"),
-"equip_SWORD": SubResource("Animation_puvwo"),
-"unequip_AXE": SubResource("Animation_yqkeq"),
-"unequip_PICKAXE": SubResource("Animation_q6boy"),
-"unequip_SWORD": SubResource("Animation_u5xyb")
-}
-
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "PickupAttractionPos", "Slot1_Inventory_Ref", "Slot2_Inventory_Ref", "Slot3_Inventory_Ref", "Slot4_Inventory_Ref", "Slot5_Inventory_Ref", "Slot6_Inventory_Ref", "Slot7_Inventory_Ref", "Slot8_Inventory_Ref", "Slot9_Inventory_Ref", "Slot10_Inventory_Ref", "Slot11_Inventory_Ref", "Slot12_Inventory_Ref", "Slot13_Inventory_Ref", "Slot14_Inventory_Ref", "Slot15_Inventory_Ref", "Slot16_Inventory_Ref", "PocketsCollisionBoundary", "ChestCollisionBoundary", "WorkbenchCollisionBoundary", "Pickaxe_Video", "Axe_Video", "Sword_Video", "EquipAnimations_Player", "HAND_ITEM_TYPE_Label", "ChestMainLayer", "ChestSlots", "Slot1_Chest_Ref", "Slot2_Chest_Ref", "Slot3_Chest_Ref", "Slot4_Chest_Ref", "Slot5_Chest_Ref", "Slot6_Chest_Ref", "Slot7_Chest_Ref", "Slot8_Chest_Ref", "Slot9_Chest_Ref", "Slot10_Chest_Ref", "Slot11_Chest_Ref", "Slot12_Chest_Ref", "Slot13_Chest_Ref", "Slot14_Chest_Ref", "Slot15_Chest_Ref", "Slot16_Chest_Ref", "Slot17_Chest_Ref", "Slot18_Chest_Ref", "Slot19_Chest_Ref", "Slot20_Chest_Ref", "Slot21_Chest_Ref", "Slot22_Chest_Ref", "Slot23_Chest_Ref", "Slot24_Chest_Ref", "Slot25_Chest_Ref", "Slot26_Chest_Ref", "Slot27_Chest_Ref", "Slot28_Chest_Ref", "Slot29_Chest_Ref", "Slot30_Chest_Ref", "Slot31_Chest_Ref", "Slot32_Chest_Ref", "Slot33_Chest_Ref", "Slot34_Chest_Ref", "Slot35_Chest_Ref", "Slot36_Chest_Ref", "Slot37_Chest_Ref", "Slot38_Chest_Ref", "Slot39_Chest_Ref", "Slot40_Chest_Ref", "Slot41_Chest_Ref", "Slot42_Chest_Ref", "Slot43_Chest_Ref", "Slot44_Chest_Ref", "Slot45_Chest_Ref", "Slot46_Chest_Ref", "Slot47_Chest_Ref", "Slot48_Chest_Ref", "Slot49_Chest_Ref", "WorkbenchMainLayer", "WorkbenchSlots", "Slot1_Workbench_Ref", "Slot2_Workbench_Ref", "Slot3_Workbench_Ref", "Slot4_Workbench_Ref", "Slot5_Workbench_Ref", "Slot6_Workbench_Ref", "Slot7_Workbench_Ref", "Slot8_Workbench_Ref", "Slot9_Workbench_Ref", "Slot10_Output_Workbench_Ref", "HUDLayer", "InventoryLayer", "InventoryMainLayer", "PauseLayer", "DebugLayer", "SettingsUI", "AchievementsUI", "AlertLayer", "CreditsLayer", "MinimalAlert", "TopLayerBlackOverlay", "SleepLayerBlackOverlay", "DayText_Label", "ProtectiveLayer", "Crosshair_Rect", "StaminaBar", "DialogueInterface", "DeathScreen_BlackOverlay", "OverlayLayer_Overlay", "InventoryLayer_GreyLayer", "ItemWorkshopLayer_MainLayer", "ItemWorkshopLayer_GreyLayer", "SaveOverlay_LighterBG", "SaveOverlay_DarkerBG", "HUDLayer_HealthBar", "HUDLayer_HungerBar", "GetUp_Label", "RandomText_Label", "OverlayLayer_RedOverlay", "ManualSaveCooldown", "HandItemDebounce", "AutoSaveTimer", "StartDebugging_Btn", "SetTime_SpinBox", "SetTime_Button", "Inventory_Item_Ref_Label", "Is_Raycast_Colliding_Label", "Is_Inside_Settings_Label", "Is_Inventory_Open_Label", "Is_Moving_Label", "Is_Walking_Label", "Is_Sprinting_Label", "Is_Crouching_Label", "Is_In_Dialogue_Interface_Label", "Showing_Interaction_Notification_Label", "Current_Time_Label", "Current_FPS_Label", "Player_Position_Label", "Player_VelocityY_Label", "Player_VelocityY_Accurate_Label", "Is_On_Floor_Label", "Inputs_Currently_Pressing_Label", "DAY_STATE_Label", "GAME_STATE_Label", "CURRENT_DAY_Label", "CURRENT_TIME_Label", "CURRENT_WEATHER_Label") groups=["PlayerBody"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "PickupAttractionPos", "Slot1_Inventory_Ref", "Slot2_Inventory_Ref", "Slot3_Inventory_Ref", "Slot4_Inventory_Ref", "Slot5_Inventory_Ref", "Slot6_Inventory_Ref", "Slot7_Inventory_Ref", "Slot8_Inventory_Ref", "Slot9_Inventory_Ref", "Slot10_Inventory_Ref", "Slot11_Inventory_Ref", "Slot12_Inventory_Ref", "Slot13_Inventory_Ref", "Slot14_Inventory_Ref", "Slot15_Inventory_Ref", "Slot16_Inventory_Ref", "PocketsCollisionBoundary", "ChestCollisionBoundary", "WorkbenchCollisionBoundary", "EquipAnimations_Player", "ChestMainLayer", "ChestSlots", "Slot1_Chest_Ref", "Slot2_Chest_Ref", "Slot3_Chest_Ref", "Slot4_Chest_Ref", "Slot5_Chest_Ref", "Slot6_Chest_Ref", "Slot7_Chest_Ref", "Slot8_Chest_Ref", "Slot9_Chest_Ref", "Slot10_Chest_Ref", "Slot11_Chest_Ref", "Slot12_Chest_Ref", "Slot13_Chest_Ref", "Slot14_Chest_Ref", "Slot15_Chest_Ref", "Slot16_Chest_Ref", "Slot17_Chest_Ref", "Slot18_Chest_Ref", "Slot19_Chest_Ref", "Slot20_Chest_Ref", "Slot21_Chest_Ref", "Slot22_Chest_Ref", "Slot23_Chest_Ref", "Slot24_Chest_Ref", "Slot25_Chest_Ref", "Slot26_Chest_Ref", "Slot27_Chest_Ref", "Slot28_Chest_Ref", "Slot29_Chest_Ref", "Slot30_Chest_Ref", "Slot31_Chest_Ref", "Slot32_Chest_Ref", "Slot33_Chest_Ref", "Slot34_Chest_Ref", "Slot35_Chest_Ref", "Slot36_Chest_Ref", "Slot37_Chest_Ref", "Slot38_Chest_Ref", "Slot39_Chest_Ref", "Slot40_Chest_Ref", "Slot41_Chest_Ref", "Slot42_Chest_Ref", "Slot43_Chest_Ref", "Slot44_Chest_Ref", "Slot45_Chest_Ref", "Slot46_Chest_Ref", "Slot47_Chest_Ref", "Slot48_Chest_Ref", "Slot49_Chest_Ref", "WorkbenchMainLayer", "WorkbenchSlots", "Slot1_Workbench_Ref", "Slot2_Workbench_Ref", "Slot3_Workbench_Ref", "Slot4_Workbench_Ref", "Slot5_Workbench_Ref", "Slot6_Workbench_Ref", "Slot7_Workbench_Ref", "Slot8_Workbench_Ref", "Slot9_Workbench_Ref", "Slot10_Output_Workbench_Ref", "HUDLayer", "InventoryLayer", "InventoryMainLayer", "PauseLayer", "DebugLayer", "SettingsUI", "AchievementsUI", "AlertLayer", "CreditsLayer", "MinimalAlert", "TopLayerBlackOverlay", "SleepLayerBlackOverlay", "DayText_Label", "ProtectiveLayer", "Crosshair_Rect", "StaminaBar", "DialogueInterface", "DeathScreen_BlackOverlay", "OverlayLayer_Overlay", "InventoryLayer_GreyLayer", "ItemWorkshopLayer_MainLayer", "ItemWorkshopLayer_GreyLayer", "SaveOverlay_LighterBG", "SaveOverlay_DarkerBG", "HUDLayer_HealthBar", "HUDLayer_HungerBar", "GetUp_Label", "RandomText_Label", "OverlayLayer_RedOverlay", "ManualSaveCooldown", "AutoSaveTimer", "StartDebugging_Btn", "SetTime_SpinBox", "SetTime_Button", "Inventory_Item_Ref_Label", "Is_Raycast_Colliding_Label", "Is_Inside_Settings_Label", "Is_Inventory_Open_Label", "Is_Moving_Label", "Is_Walking_Label", "Is_Sprinting_Label", "Is_Crouching_Label", "Is_In_Dialogue_Interface_Label", "Showing_Interaction_Notification_Label", "Current_Time_Label", "Current_FPS_Label", "Player_Position_Label", "Player_VelocityY_Label", "Player_VelocityY_Accurate_Label", "Is_On_Floor_Label", "Inputs_Currently_Pressing_Label", "DAY_STATE_Label", "GAME_STATE_Label", "CURRENT_DAY_Label", "CURRENT_TIME_Label", "CURRENT_WEATHER_Label") groups=["PlayerBody"]]
 collision_mask = 3
 script = ExtResource("1_5mhs1")
 Fade_In = true
@@ -518,11 +327,7 @@ Slot16_Inventory_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer
 PocketsCollisionBoundary = NodePath("Head/Camera3D/InventoryLayer/PocketsBoundary")
 ChestCollisionBoundary = NodePath("Head/Camera3D/InventoryLayer/ChestBoundary")
 WorkbenchCollisionBoundary = NodePath("Head/Camera3D/InventoryLayer/WorkbenchBoundary")
-Pickaxe_Video = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video")
-Axe_Video = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video")
-Sword_Video = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video")
-EquipAnimations_Player = NodePath("Head/Camera3D/InventoryHand/EquipAnimations")
-HAND_ITEM_TYPE_Label = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/HAND_ITEM_TYPE")
+EquipAnimations_Player = NodePath("")
 ChestMainLayer = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer")
 ChestSlots = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots")
 Slot1_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot1")
@@ -616,7 +421,6 @@ GetUp_Label = NodePath("Head/Camera3D/DeathScreen/BlackOverlay/GetUp")
 RandomText_Label = NodePath("Head/Camera3D/DeathScreen/BlackOverlay/RandomText")
 OverlayLayer_RedOverlay = NodePath("Head/Camera3D/OverlayLayer/RedOverlay")
 ManualSaveCooldown = NodePath("ManualSaveCooldown")
-HandItemDebounce = NodePath("HandItemDebounce")
 AutoSaveTimer = NodePath("AutoSaveTimer")
 StartDebugging_Btn = NodePath("Head/Camera3D/PauseLayer/StartDebugging_Btn")
 SetTime_SpinBox = NodePath("Head/Camera3D/PauseLayer/SetTime_SpinBox")
@@ -1042,10 +846,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -261.0
-offset_top = -213.0
-offset_right = 261.0
-offset_bottom = 203.0
+offset_left = -179.0
+offset_top = -208.0
+offset_right = 179.0
+offset_bottom = 208.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2kg3l")
@@ -1053,42 +857,45 @@ script = SubResource("GDScript_tq46f")
 
 [node name="Background_2" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 modulate = Color(0, 0, 0, 1)
-anchors_preset = -1
-anchor_left = 0.28559
-anchor_top = 0.185185
-anchor_right = 0.724826
-anchor_bottom = 0.800926
-offset_left = -6.0
-offset_right = -6.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.0
+offset_top = -199.5
+offset_right = 171.0
+offset_bottom = 199.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xa5l0")
 script = SubResource("GDScript_tq46f")
 
 [node name="Background_3" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
-anchors_preset = -1
-anchor_left = 0.28559
-anchor_top = 0.185185
-anchor_right = 0.724826
-anchor_bottom = 0.29321
-offset_left = -6.0
-offset_right = -6.0
-offset_bottom = 1.52588e-05
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.0
+offset_top = -199.932
+offset_right = 171.0
+offset_bottom = -130.068
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7tmhy")
 script = SubResource("GDScript_tq46f")
 
 [node name="Title" type="Label" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
-anchors_preset = -1
-anchor_left = 0.393229
-anchor_top = 0.20216
-anchor_right = 0.618055
-anchor_bottom = 0.293209
-offset_left = -6.0
-offset_top = -1.0
-offset_right = -6.0
-offset_bottom = -1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -129.5
+offset_top = -190.5
+offset_right = 129.5
+offset_bottom = -131.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("8_cdk3a")
@@ -1099,128 +906,52 @@ vertical_alignment = 1
 script = ExtResource("9_svfxy")
 
 [node name="Slot1" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
-position = Vector2(372, 236)
+position = Vector2(453, 236)
 
 [node name="Slot2" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
-position = Vector2(452, 236)
+position = Vector2(533, 236)
 
 [node name="Slot3" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
-position = Vector2(532, 236)
+position = Vector2(613, 236)
 
 [node name="Slot4" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
-position = Vector2(612, 236)
+position = Vector2(693, 236)
 
 [node name="Slot5" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
-position = Vector2(372, 316)
+position = Vector2(453, 316)
 
 [node name="Slot6" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
-position = Vector2(452, 316)
+position = Vector2(533, 316)
 
 [node name="Slot7" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
-position = Vector2(532, 316)
+position = Vector2(613, 316)
 
 [node name="Slot8" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
-position = Vector2(612, 316)
+position = Vector2(693, 316)
 
 [node name="Slot9" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
-position = Vector2(372, 396)
+position = Vector2(453, 396)
 
 [node name="Slot10" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
-position = Vector2(452, 396)
+position = Vector2(533, 396)
 
 [node name="Slot11" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
-position = Vector2(532, 396)
+position = Vector2(613, 396)
 
 [node name="Slot12" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
-position = Vector2(612, 396)
+position = Vector2(693, 396)
 
 [node name="Slot13" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
-position = Vector2(372, 476)
+position = Vector2(453, 476)
 
 [node name="Slot14" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
-position = Vector2(452, 476)
+position = Vector2(533, 476)
 
 [node name="Slot15" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
-position = Vector2(532, 476)
+position = Vector2(613, 476)
 
 [node name="Slot16" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
-position = Vector2(612, 476)
-
-[node name="Hand_Dropable_Background" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
-clip_children = 2
-clip_contents = true
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 87.0
-offset_top = -95.0
-offset_right = 243.0
-offset_bottom = 185.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_2kg3l")
-script = SubResource("GDScript_tq46f")
-
-[node name="Empty_Label" type="Label" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background"]
-modulate = Color(1, 1, 1, 0.395)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0512821
-anchor_top = 0.364286
-anchor_right = 0.935897
-anchor_bottom = 0.517857
-theme = ExtResource("17_rhxkt")
-theme_override_font_sizes/font_size = 25
-text = "EMPTY"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Pickaxe_Hand_Dropable_Video" type="VideoStreamPlayer" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background"]
-layout_mode = 0
-offset_left = -1.0
-offset_top = -1.0
-offset_right = 607.0
-offset_bottom = 1087.0
-scale = Vector2(0.259975, 0.259975)
-stream = ExtResource("13_cxi4r")
-autoplay = true
-loop = true
-
-[node name="Axe_Hand_Dropable_Video" type="VideoStreamPlayer" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background"]
-layout_mode = 0
-offset_left = -1.0
-offset_top = -1.0
-offset_right = 607.0
-offset_bottom = 1087.0
-scale = Vector2(0.259975, 0.259975)
-stream = ExtResource("14_3qyxm")
-autoplay = true
-loop = true
-
-[node name="Sword_Hand_Dropable_Video" type="VideoStreamPlayer" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background"]
-layout_mode = 0
-offset_left = -1.0
-offset_top = -1.0
-offset_right = 607.0
-offset_bottom = 1087.0
-scale = Vector2(0.259975, 0.259975)
-stream = ExtResource("15_mlct4")
-autoplay = true
-loop = true
-
-[node name="HAND_ITEM_TYPE" type="Label" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
-offset_left = 677.0
-offset_top = 200.0
-offset_right = 807.0
-offset_bottom = 231.0
-theme = ExtResource("17_rhxkt")
-theme_override_font_sizes/font_size = 20
-text = "Empty"
-horizontal_alignment = 1
-vertical_alignment = 1
+position = Vector2(693, 476)
 
 [node name="ChestMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 visible = false
@@ -1228,6 +959,8 @@ layout_mode = 3
 anchor_left = 0.243924
 anchor_right = 1.25347
 anchor_bottom = 1.0
+offset_left = -78.0
+offset_right = -78.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -1508,9 +1241,9 @@ anchor_left = 0.243924
 anchor_top = 1.54321
 anchor_right = 1.24392
 anchor_bottom = 2.54321
-offset_left = -132.0
+offset_left = -188.0
 offset_top = -0.00012207
-offset_right = -132.0
+offset_right = -188.0
 offset_bottom = -0.00012207
 grow_horizontal = 2
 grow_vertical = 2
@@ -1653,19 +1386,29 @@ offset_top = 300.392
 offset_right = 78.0739
 offset_bottom = 355.392
 focus_mode = 0
+mouse_default_cursor_shape = 2
 theme = ExtResource("17_rhxkt")
 theme_override_font_sizes/font_size = 37
 text = "CRAFT"
 
-[node name="HandDropableDetector" type="Button" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
-modulate = Color(1, 1, 1, 0)
-offset_left = 670.0
-offset_top = 235.0
-offset_right = 812.0
-offset_bottom = 502.0
-focus_mode = 0
-action_mode = 0
-button_mask = 2
+[node name="HotbarMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HotbarSlots" type="Control" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/HotbarMainLayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="ExplorerNotes_Btn" type="Button" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 anchors_preset = 8
@@ -1673,10 +1416,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -261.5
-offset_top = 209.0
-offset_right = 261.5
-offset_bottom = 235.0
+offset_left = -180.0
+offset_top = 211.0
+offset_right = 180.0
+offset_bottom = 237.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
@@ -1945,21 +1688,30 @@ vertical_alignment = 1
 
 [node name="ChestBoundary" type="Area2D" parent="Head/Camera3D/InventoryLayer"]
 visible = false
-position = Vector2(288, 0)
 
 [node name="Boundary1" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/ChestBoundary"]
-position = Vector2(274.5, 53)
+position = Vector2(237, 53)
 shape = SubResource("RectangleShape2D_bx3eh")
 debug_color = Color(0.92549, 0, 0.109804, 0.396078)
 
 [node name="Boundary2" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/ChestBoundary"]
-position = Vector2(274.5, 590)
+position = Vector2(235.5, 590)
 shape = SubResource("RectangleShape2D_fv14n")
+debug_color = Color(0.92549, 0, 0.109804, 0.396078)
+
+[node name="Boundary3" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/ChestBoundary"]
+position = Vector2(49, 324)
+shape = SubResource("RectangleShape2D_18jxt")
+debug_color = Color(0.92549, 0, 0.109804, 0.396078)
+
+[node name="Boundary4" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/ChestBoundary"]
+position = Vector2(1113.5, 324)
+shape = SubResource("RectangleShape2D_18jxt")
 debug_color = Color(0.92549, 0, 0.109804, 0.396078)
 
 [node name="WorkbenchBoundary" type="Area2D" parent="Head/Camera3D/InventoryLayer"]
 visible = false
-position = Vector2(152, 0)
+position = Vector2(155.09, 0)
 
 [node name="Boundary1" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/WorkbenchBoundary"]
 position = Vector2(576, 30.5)
@@ -1972,12 +1724,12 @@ shape = SubResource("RectangleShape2D_dx77i")
 debug_color = Color(0.92549, 0, 0.109804, 0.396078)
 
 [node name="Boundary3" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/WorkbenchBoundary"]
-position = Vector2(76, 321.5)
+position = Vector2(119, 321.5)
 shape = SubResource("RectangleShape2D_ix2dd")
 debug_color = Color(0.92549, 0, 0.109804, 0.396078)
 
 [node name="Boundary4" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/WorkbenchBoundary"]
-position = Vector2(1080, 332)
+position = Vector2(1046.5, 332)
 shape = SubResource("RectangleShape2D_s11mi")
 debug_color = Color(0.92549, 0, 0.109804, 0.396078)
 
@@ -1987,7 +1739,7 @@ shape = SubResource("RectangleShape2D_dx77i")
 debug_color = Color(0.92549, 0, 0.109804, 0.396078)
 
 [node name="Boundary6" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/WorkbenchBoundary"]
-position = Vector2(346, 75)
+position = Vector2(316, 75)
 shape = SubResource("RectangleShape2D_5c121")
 debug_color = Color(0.92549, 0, 0.109804, 0.396078)
 
@@ -2005,12 +1757,12 @@ shape = SubResource("RectangleShape2D_p86ht")
 debug_color = Color(0.92549, 0, 0.109804, 0.396078)
 
 [node name="Boundary3" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/PocketsBoundary"]
-position = Vector2(153.5, 324)
+position = Vector2(192.5, 324)
 shape = SubResource("RectangleShape2D_ch6l8")
 debug_color = Color(0.92549, 0, 0.109804, 0.396078)
 
 [node name="Boundary4" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/PocketsBoundary"]
-position = Vector2(1000, 324)
+position = Vector2(959.5, 324)
 shape = SubResource("RectangleShape2D_b78jw")
 debug_color = Color(0.92549, 0, 0.109804, 0.396078)
 
@@ -3997,26 +3749,6 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="InventoryHand" type="Node3D" parent="Head/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.551257, 0, 0)
-
-[node name="Pickaxe" parent="Head/Camera3D/InventoryHand" instance=ExtResource("32_4dvtj")]
-transform = Transform3D(0.0162218, 0.0973932, -0.00666097, -0.0375891, -5.64452e-09, -0.0915424, -0.0900936, 0.0175361, 0.0369942, -0.160571, -0.341295, -0.509379)
-visible = false
-
-[node name="Sword" parent="Head/Camera3D/InventoryHand" instance=ExtResource("33_pxyba")]
-transform = Transform3D(0.0240239, 0.00983063, 0.211569, -0.0427782, 0.208762, -0.0048427, -0.207432, -0.041914, 0.0255017, -0.175508, -0.624848, -0.528615)
-visible = false
-
-[node name="Axe" parent="Head/Camera3D/InventoryHand" instance=ExtResource("34_m8bs6")]
-transform = Transform3D(5.47076e-09, 0.125156, -0.0335356, 0.126747, -0.00696443, -0.0259916, -0.0269085, -0.0328045, -0.122428, -0.114748, -0.0949782, -0.579574)
-visible = false
-
-[node name="EquipAnimations" type="AnimationPlayer" parent="Head/Camera3D/InventoryHand"]
-libraries = {
-"": SubResource("AnimationLibrary_1d7su")
-}
-
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="timeout" from="WalkingSpeedSounds" to="." method="_on_walking_speed_sounds_timeout"]
 [connection signal="timeout" from="SprintingSpeedSounds" to="." method="_on_sprinting_speed_sounds_timeout"]
@@ -4030,9 +3762,6 @@ libraries = {
 [connection signal="body_entered" from="PickupObjectDetector" to="." method="_on_pickup_object_detector_body_entered"]
 [connection signal="pressed" from="Head/Camera3D/ExplorerNoteLayer/Contents/Collect_Btn" to="." method="_on_collect_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/CraftButton" to="." method="_on_craft_button_pressed"]
-[connection signal="mouse_entered" from="Head/Camera3D/InventoryLayer/InventoryMainLayer/HandDropableDetector" to="." method="_on_hand_dropable_detector_mouse_entered"]
-[connection signal="mouse_exited" from="Head/Camera3D/InventoryLayer/InventoryMainLayer/HandDropableDetector" to="." method="_on_hand_dropable_detector_mouse_exited"]
-[connection signal="pressed" from="Head/Camera3D/InventoryLayer/InventoryMainLayer/HandDropableDetector" to="." method="_on_hand_detector_right_click"]
 [connection signal="pressed" from="Head/Camera3D/InventoryLayer/InventoryMainLayer/ExplorerNotes_Btn" to="." method="_on_explorer_notes_btn_pressed"]
 [connection signal="mouse_entered" from="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Right_Arrow_Btn" to="." method="_on_right_arrow_btn_mouse_entered"]
 [connection signal="mouse_exited" from="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Right_Arrow_Btn" to="." method="_on_right_arrow_btn_mouse_exited"]
@@ -4074,7 +3803,3 @@ libraries = {
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/AchievementsButton" to="." method="_on_achievements_button_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/SetTime_Button" to="." method="_on_set_time_button_pressed"]
-
-[editable path="Head/Camera3D/InventoryHand/Pickaxe"]
-[editable path="Head/Camera3D/InventoryHand/Sword"]
-[editable path="Head/Camera3D/InventoryHand/Axe"]
