@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://djwgy3b85xfpn"]
+[gd_scene load_steps=2 format=3 uid="uid://djwgy3b85xfpn"]
+
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Hand Item/init_hand_item_SCRIPT.gd" id="1_eo1qg"]
 
 [node name="HandItem" type="Node3D"]
+script = ExtResource("1_eo1qg")
 
 [node name="HandMesh" type="Node3D" parent="."]
 

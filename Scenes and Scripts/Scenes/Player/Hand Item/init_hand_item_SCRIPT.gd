@@ -1,5 +1,5 @@
 # ============================================================= #
-# HandItem_SCRIPT.gd [CLASS: HandItems]
+# init_hand_item_SCRIPT.gd
 # ============================================================= #
 #                       COPYRIGHT NOTICE                        #
 #                           Noe Co.                             #
@@ -45,9 +45,7 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-class_name HandItems extends Resource
+extends Node3D
 
-@export var ITEM_TYPE : String
-@export var position : Vector3
-@export var rotation : Vector3
-@export var damage_amount : float
+func _ready() -> void:
+	pass # Replace with function body.
