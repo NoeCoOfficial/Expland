@@ -14,6 +14,9 @@ change player collision shape to reduce lag
 new stone inventory item
 new wood plank inventory item
 an all new explorer notes system, with the ability to collect notes and view them in your inventory
+removed the old hand item system
+[added a hotbar to the player, where you can quickly access and hold items]
+[added the ability to build]
 
 
 ---
