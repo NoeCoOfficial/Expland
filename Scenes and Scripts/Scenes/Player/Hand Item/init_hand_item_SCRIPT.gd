@@ -43,9 +43,14 @@
 #                                                               #
 #                   For inquiries, contact:                     #
 #                  noeco.official@gmail.com                     #
-# ============================================================= #
+# =========================================	==================== #
 
+@icon("res://Textures/Icons/Script Icons/32x32/character_item_get.png")
 extends Node3D
 
-func _ready() -> void:
-	pass # Replace with function body.
+@export var HAND_ITEM : HandItems
+
+@onready var hand_mesh: Node3D = %HandMesh
+
+func load_hand_item():
+	var hand_model = load()

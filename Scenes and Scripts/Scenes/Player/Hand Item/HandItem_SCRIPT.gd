@@ -45,9 +45,12 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
+@icon("res://Textures/Icons/Script Icons/32x32/object_hand.png")
 class_name HandItems extends Resource
 
 @export var ITEM_TYPE : String
 @export var position : Vector3
 @export var rotation : Vector3
+@export var scale : Vector3
+@export var model_path : String
 @export var damage_amount : float

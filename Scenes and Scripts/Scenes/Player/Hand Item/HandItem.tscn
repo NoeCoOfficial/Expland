@@ -6,5 +6,4 @@
 script = ExtResource("1_eo1qg")
 
 [node name="HandMesh" type="Node3D" parent="."]
-
-[node name="HandShadow" type="Node3D" parent="."]
+unique_name_in_owner = true
