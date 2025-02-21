@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=103 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -16,9 +16,6 @@
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/IgnoreMouseFilter.gd" id="9_svfxy"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/RandomText_SCRIPT.gd" id="10_6w37c"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/GetUp_SCRIPT.gd" id="11_0enap"]
-[ext_resource type="VideoStream" uid="uid://dy45bdldi43a1" path="res://Resources/Streams/Video/PickaxeHandDropableVideo.tres" id="13_cxi4r"]
-[ext_resource type="VideoStream" uid="uid://ju0bf88uic41" path="res://Resources/Streams/Video/AxeHandDropableVideo.tres" id="14_3qyxm"]
-[ext_resource type="VideoStream" uid="uid://j5g08pm8317j" path="res://Resources/Streams/Video/SwordHandDropableVideo.tres" id="15_mlct4"]
 [ext_resource type="PackedScene" uid="uid://bin1awyog56pg" path="res://Scenes and Scripts/Scenes/Player/Interaction/InteractionHUD.tscn" id="16_8a1wo"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="16_wg7d4"]
 [ext_resource type="Texture2D" uid="uid://dgt5qdmjgbdsv" path="res://Textures/Icons/UpArrow_Icon.png" id="17_60kit"]
@@ -518,9 +515,9 @@ Slot16_Inventory_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer
 PocketsCollisionBoundary = NodePath("Head/Camera3D/InventoryLayer/PocketsBoundary")
 ChestCollisionBoundary = NodePath("Head/Camera3D/InventoryLayer/ChestBoundary")
 WorkbenchCollisionBoundary = NodePath("Head/Camera3D/InventoryLayer/WorkbenchBoundary")
-Pickaxe_Video = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Pickaxe_Hand_Dropable_Video")
-Axe_Video = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Axe_Hand_Dropable_Video")
-Sword_Video = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background/Sword_Hand_Dropable_Video")
+Pickaxe_Video = NodePath("")
+Axe_Video = NodePath("")
+Sword_Video = NodePath("")
 EquipAnimations_Player = NodePath("Head/Camera3D/InventoryHand/EquipAnimations")
 ChestMainLayer = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer")
 ChestSlots = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots")
@@ -1038,10 +1035,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -261.0
-offset_top = -213.0
-offset_right = 261.0
-offset_bottom = 203.0
+offset_left = -179.0
+offset_top = -208.0
+offset_right = 179.0
+offset_bottom = 208.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2kg3l")
@@ -1049,42 +1046,45 @@ script = SubResource("GDScript_tq46f")
 
 [node name="Background_2" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 modulate = Color(0, 0, 0, 1)
-anchors_preset = -1
-anchor_left = 0.28559
-anchor_top = 0.185185
-anchor_right = 0.724826
-anchor_bottom = 0.800926
-offset_left = -6.0
-offset_right = -6.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.0
+offset_top = -199.5
+offset_right = 171.0
+offset_bottom = 199.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xa5l0")
 script = SubResource("GDScript_tq46f")
 
 [node name="Background_3" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
-anchors_preset = -1
-anchor_left = 0.28559
-anchor_top = 0.185185
-anchor_right = 0.724826
-anchor_bottom = 0.29321
-offset_left = -6.0
-offset_right = -6.0
-offset_bottom = 1.52588e-05
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.0
+offset_top = -199.932
+offset_right = 171.0
+offset_bottom = -130.068
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7tmhy")
 script = SubResource("GDScript_tq46f")
 
 [node name="Title" type="Label" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
-anchors_preset = -1
-anchor_left = 0.393229
-anchor_top = 0.20216
-anchor_right = 0.618055
-anchor_bottom = 0.293209
-offset_left = -6.0
-offset_top = -1.0
-offset_right = -6.0
-offset_bottom = -1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -129.5
+offset_top = -190.5
+offset_right = 129.5
+offset_bottom = -131.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("8_cdk3a")
@@ -1141,82 +1141,6 @@ position = Vector2(532, 476)
 
 [node name="Slot16" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
 position = Vector2(612, 476)
-
-[node name="Hand_Dropable_Background" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
-clip_children = 2
-clip_contents = true
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 87.0
-offset_top = -95.0
-offset_right = 243.0
-offset_bottom = 185.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_2kg3l")
-script = SubResource("GDScript_tq46f")
-
-[node name="Empty_Label" type="Label" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background"]
-modulate = Color(1, 1, 1, 0.395)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0512821
-anchor_top = 0.364286
-anchor_right = 0.935897
-anchor_bottom = 0.517857
-theme = ExtResource("17_rhxkt")
-theme_override_font_sizes/font_size = 25
-text = "EMPTY"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Pickaxe_Hand_Dropable_Video" type="VideoStreamPlayer" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background"]
-layout_mode = 0
-offset_left = -1.0
-offset_top = -1.0
-offset_right = 607.0
-offset_bottom = 1087.0
-scale = Vector2(0.259975, 0.259975)
-stream = ExtResource("13_cxi4r")
-autoplay = true
-loop = true
-
-[node name="Axe_Hand_Dropable_Video" type="VideoStreamPlayer" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background"]
-layout_mode = 0
-offset_left = -1.0
-offset_top = -1.0
-offset_right = 607.0
-offset_bottom = 1087.0
-scale = Vector2(0.259975, 0.259975)
-stream = ExtResource("14_3qyxm")
-autoplay = true
-loop = true
-
-[node name="Sword_Hand_Dropable_Video" type="VideoStreamPlayer" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/Hand_Dropable_Background"]
-layout_mode = 0
-offset_left = -1.0
-offset_top = -1.0
-offset_right = 607.0
-offset_bottom = 1087.0
-scale = Vector2(0.259975, 0.259975)
-stream = ExtResource("15_mlct4")
-autoplay = true
-loop = true
-
-[node name="HAND_ITEM_TYPE" type="Label" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
-offset_left = 677.0
-offset_top = 200.0
-offset_right = 807.0
-offset_bottom = 231.0
-theme = ExtResource("17_rhxkt")
-theme_override_font_sizes/font_size = 20
-text = "Empty"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="ChestMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 visible = false
@@ -1671,16 +1595,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 metadata/_edit_use_anchors_ = true
-
-[node name="HandDropableDetector" type="Button" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
-modulate = Color(1, 1, 1, 0)
-offset_left = 670.0
-offset_top = 235.0
-offset_right = 812.0
-offset_bottom = 502.0
-focus_mode = 0
-action_mode = 0
-button_mask = 2
 
 [node name="ExplorerNotes_Btn" type="Button" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 anchors_preset = 8
@@ -4047,9 +3961,6 @@ libraries = {
 [connection signal="body_entered" from="PickupObjectDetector" to="." method="_on_pickup_object_detector_body_entered"]
 [connection signal="pressed" from="Head/Camera3D/ExplorerNoteLayer/Contents/Collect_Btn" to="." method="_on_collect_btn_pressed"]
 [connection signal="pressed" from="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/CraftButton" to="." method="_on_craft_button_pressed"]
-[connection signal="mouse_entered" from="Head/Camera3D/InventoryLayer/InventoryMainLayer/HandDropableDetector" to="." method="_on_hand_dropable_detector_mouse_entered"]
-[connection signal="mouse_exited" from="Head/Camera3D/InventoryLayer/InventoryMainLayer/HandDropableDetector" to="." method="_on_hand_dropable_detector_mouse_exited"]
-[connection signal="pressed" from="Head/Camera3D/InventoryLayer/InventoryMainLayer/HandDropableDetector" to="." method="_on_hand_detector_right_click"]
 [connection signal="pressed" from="Head/Camera3D/InventoryLayer/InventoryMainLayer/ExplorerNotes_Btn" to="." method="_on_explorer_notes_btn_pressed"]
 [connection signal="mouse_entered" from="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Right_Arrow_Btn" to="." method="_on_right_arrow_btn_mouse_entered"]
 [connection signal="mouse_exited" from="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Right_Arrow_Btn" to="." method="_on_right_arrow_btn_mouse_exited"]
