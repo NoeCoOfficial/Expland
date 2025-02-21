@@ -207,7 +207,7 @@ size = Vector2(1152, 61)
 size = Vector2(686, 106)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ix2dd"]
-size = Vector2(152, 431)
+size = Vector2(238, 431)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s11mi"]
 size = Vector2(144, 614)
@@ -1419,7 +1419,6 @@ position = Vector2(498, 493)
 is_chest_slot = true
 
 [node name="WorkbenchMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
-visible = false
 layout_mode = 3
 anchor_left = 0.243924
 anchor_top = 1.54321
@@ -1898,7 +1897,7 @@ shape = SubResource("RectangleShape2D_dx77i")
 debug_color = Color(0.92549, 0, 0.109804, 0.396078)
 
 [node name="Boundary3" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/WorkbenchBoundary"]
-position = Vector2(76, 321.5)
+position = Vector2(119, 321.5)
 shape = SubResource("RectangleShape2D_ix2dd")
 debug_color = Color(0.92549, 0, 0.109804, 0.396078)
 
