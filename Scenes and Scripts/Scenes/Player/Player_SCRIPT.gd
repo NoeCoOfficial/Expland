@@ -581,7 +581,7 @@ func _headbob(time) -> Vector3:
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP # set the y position to the sine of the time times the bob frequency times the bob amplitude
 	return pos # return the position
 
-func _process(delta):
+func _process(_delta):
 	
 	SENSITIVITY = PlayerSettingsData.Sensitivity
 	camera.fov = PlayerSettingsData.FOV
@@ -917,7 +917,7 @@ func openInventory():
 	$is_inside_boundary_false_inventory_debounce.start()
 	
 	if InventoryManager.in_chest_interface:
-		InventoryMainLayer.offset.x = -291.96
+		InventoryMainLayer.offset.x = -330.96
 		
 		ChestCollisionBoundary.set_deferred("monitorable", true)
 		ChestCollisionBoundary.set_deferred("monitoring", true)
@@ -1068,7 +1068,6 @@ func _on_is_inside_boundary_false_inventory_debounce_timeout() -> void:
 func setHotbarSelectedSlot(Slot_Number):
 	if Slot_Number != null:
 		print("Setting hotbar slot to: ", Slot_Number)
-		var Slot
 		for child in $Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots.get_children():
 			print("Checking child: ", child.name)
 			if str(child.name) == "Slot" + str(Slot_Number):
