@@ -49,7 +49,17 @@
 @icon("res://Textures/Icons/Script Icons/32x32/character_item_get.png")
 extends Node3D
 
-@export var HAND_ITEM : HandItems
+@export var HAND_ITEM : HandItems:
+	set(value):
+		HAND_ITEM = value
+		
+		if value == null:
+			%HandMesh.get_child(0).queue_free()
+			
+		else:
+			
+			if Engine.is_editor_hint():
+				load_hand_item()
 
 @onready var hand_mesh: Node3D = %HandMesh
 
@@ -69,6 +79,7 @@ func load_hand_item():
 	hand_mesh.scale = HAND_ITEM.mesh_scale
 
 func init_hand_item():
-	hand_mesh.position = HAND_ITEM.mesh_position
-	hand_mesh.rotation = HAND_ITEM.mesh_rotation
-	hand_mesh.scale = HAND_ITEM.mesh_scale
+	if HAND_ITEM != null:
+		hand_mesh.position = HAND_ITEM.mesh_position
+		hand_mesh.rotation = HAND_ITEM.mesh_rotation
+		hand_mesh.scale = HAND_ITEM.mesh_scale

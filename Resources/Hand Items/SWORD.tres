@@ -5,8 +5,8 @@
 [resource]
 script = ExtResource("1_b2yfv")
 ITEM_TYPE = "SWORD"
-position = Vector3(0, 0, 0)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
+mesh_position = Vector3(0.145, -2.565, -0.765)
+mesh_rotation = Vector3(-0.015, 1.305, -0.125)
+mesh_scale = Vector3(0.8, 0.8, 0.8)
 model_path = "res://Assets/3D Models/Tools/Sword.blend"
 damage_amount = 0.6

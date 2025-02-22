@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=95 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Interaction/RayCast3D_SCRIPT.gd" id="3_2qtqn"]
 [ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="3_yecwp"]
 [ext_resource type="PackedScene" uid="uid://djwgy3b85xfpn" path="res://Scenes and Scripts/Scenes/Player/Hand Item/HandItem.tscn" id="4_476v6"]
+[ext_resource type="Resource" uid="uid://bfl2kn5tjktpm" path="res://Resources/Hand Items/SWORD.tres" id="5_slelm"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/OverlayLayer/RedOverlay_SCRIPT.gd" id="7_gnu1v"]
 [ext_resource type="PackedScene" uid="uid://dhhjltxmoydio" path="res://Scenes and Scripts/Scenes/Player/Inventory/InventorySlot.tscn" id="8_ads4s"]
 [ext_resource type="FontFile" uid="uid://c4h0gd5a2e2qb" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf" id="8_cdk3a"]
@@ -536,9 +537,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.477025, 0, -0.274263)
 
 [node name="HandItem" parent="Head/Camera3D/HandItemRig" instance=ExtResource("4_476v6")]
 transform = Transform3D(0.197882, 0, 0, 0, 0.197882, 0, 0, 0, 0.197882, 0, 0, 0)
+HAND_ITEM = ExtResource("5_slelm")
 
 [node name="HandMesh" parent="Head/Camera3D/HandItemRig/HandItem" index="0"]
-transform = Transform3D(-0.118212, -0.374447, -0.0321611, 0.10349, -2.1076e-05, -0.380144, 0.361297, -0.122509, 0.0983654, -0.445, -1.588, -0.235)
+transform = Transform3D(0.209946, 0.0147116, 0.77182, -0.0997286, 0.793669, 0.0119996, -0.765491, -0.0993647, 0.210119, 0.145, -2.565, -0.765)
 
 [node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.0158332)
