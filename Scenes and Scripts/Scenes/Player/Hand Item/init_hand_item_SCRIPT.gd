@@ -79,6 +79,7 @@ func _process(_delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if !Engine.is_editor_hint():
 		sway(delta, PlayerManager.isIdle)
+		bob(delta)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

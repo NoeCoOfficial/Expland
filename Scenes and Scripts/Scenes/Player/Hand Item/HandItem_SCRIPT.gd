@@ -66,8 +66,8 @@ class_name HandItems extends Resource
 @export var idle_sway_rotation_strength : float = 300.0
 @export_range(0.1, 10.0, 0.1) var random_sway_amount : float = 5.0
 @export_group("Bobbing")
-@export var bob_speed : float = 1.0
-@export var hbob_amount : float = 0.1
-@export var vbob_amount : float = 0.1
+@export var bob_speed : float = 5.0
+@export var hbob_amount : float = 0.05
+@export var vbob_amount : float = 0.05
 @export_category("Metadata")
 @export var damage_amount : float
