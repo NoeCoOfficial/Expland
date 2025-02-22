@@ -49,8 +49,8 @@
 class_name HandItems extends Resource
 
 @export var ITEM_TYPE : String
-@export var position : Vector3
-@export var rotation : Vector3
-@export var scale : Vector3 = Vector3(1, 1, 1)
+@export var mesh_position : Vector3
+@export var mesh_rotation : Vector3
+@export var mesh_scale : Vector3 = Vector3(1, 1, 1)
 @export var model_path : String
 @export var damage_amount : float
