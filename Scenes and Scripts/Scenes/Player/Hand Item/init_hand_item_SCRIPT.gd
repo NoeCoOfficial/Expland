@@ -45,6 +45,7 @@
 #                  noeco.official@gmail.com                     #
 # =========================================	==================== #
 
+@tool
 @icon("res://Textures/Icons/Script Icons/32x32/character_item_get.png")
 extends Node3D
 
@@ -54,6 +55,9 @@ extends Node3D
 
 func _ready() -> void:
 	load_hand_item()
+
+func _process(_delta: float) -> void:
+	pass
 
 func load_hand_item():
 	var hand_model = load(HAND_ITEM.model_path)
