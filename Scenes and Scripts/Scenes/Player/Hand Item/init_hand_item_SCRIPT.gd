@@ -76,32 +76,43 @@ func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
 		init_hand_item()
 
-func _physics_process(delta: float) -> void:
-	sway(delta)
-
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		mouse_movement = event.relative
 
-func sway(delta):
-	var sway_random : float = get_sway_noise()
-	var sway_random_adjusted : float = sway_random * idle_sway_adjustment
-	
-	time += delta * (sway_speed + sway_random)
-	random_sway_x = sin(time * 1.5 + sway_random_adjusted) / random_sway_amount
-	random_sway_y = sin(time - sway_random_adjusted) / random_sway_amount
+func sway(delta, isIdle : bool):
 	
 	mouse_movement = mouse_movement.clamp(HAND_ITEM.sway_min, HAND_ITEM.sway_max)
 	
-	position.x = lerp(position.x, HAND_ITEM.mesh_position.x - (mouse_movement.x *
-HAND_ITEM.sway_amount_position + random_sway_x) * delta, HAND_ITEM.sway_speed_position)
-	position.y = lerp(position.y, HAND_ITEM.mesh_position.y - (mouse_movement.y *
-HAND_ITEM.sway_amount_position + random_sway_y) * delta, HAND_ITEM.sway_speed_position)
+	if isIdle:
+		var sway_random : float = get_sway_noise()
+		var sway_random_adjusted : float = sway_random * idle_sway_adjustment
+		
+		time += delta * (sway_speed + sway_random)
+		random_sway_x = sin(time * 1.5 + sway_random_adjusted) / random_sway_amount
+		random_sway_y = sin(time - sway_random_adjusted) / random_sway_amount
+		
+		position.x = lerp(position.x, HAND_ITEM.mesh_position.x - (mouse_movement.x *
+	HAND_ITEM.sway_amount_position + random_sway_x) * delta, HAND_ITEM.sway_speed_position)
+		position.y = lerp(position.y, HAND_ITEM.mesh_position.y + (mouse_movement.y *
+	HAND_ITEM.sway_amount_position + random_sway_y) * delta, HAND_ITEM.sway_speed_position)
+		
+		rotation_degrees.y = lerp(rotation_degrees.y, HAND_ITEM.mesh_rotation.y + (mouse_movement.y *
+	HAND_ITEM.sway_amount_rotation + (random_sway_y * idle_sway_rotation_strength)) * delta, HAND_ITEM.sway_speed_rotation)
+		rotation_degrees.x = lerp(rotation_degrees.x, HAND_ITEM.mesh_rotation.x - (mouse_movement.x *
+	HAND_ITEM.sway_amount_rotation + (random_sway_x * idle_sway_rotation_strength)) * delta, HAND_ITEM.sway_speed_rotation)
 	
-	rotation_degrees.y = lerp(rotation_degrees.y, HAND_ITEM.mesh_rotation.y + (mouse_movement.y *
-HAND_ITEM.sway_amount_rotation + (random_sway_y * idle_sway_rotation_strength)) * delta, HAND_ITEM.sway_speed_rotation)
-	rotation_degrees.x = lerp(rotation_degrees.x, HAND_ITEM.mesh_rotation.x + (mouse_movement.x *
-HAND_ITEM.sway_amount_rotation + (random_sway_x * idle_sway_rotation_strength)) * delta, HAND_ITEM.sway_speed_rotation)
+	else:
+	
+		position.x = lerp(position.x, HAND_ITEM.mesh_position.x - (mouse_movement.x *
+	HAND_ITEM.sway_amount_position) * delta, HAND_ITEM.sway_speed_position)
+		position.y = lerp(position.y, HAND_ITEM.mesh_position.y + (mouse_movement.y *
+	HAND_ITEM.sway_amount_position) * delta, HAND_ITEM.sway_speed_position)
+		
+		rotation_degrees.y = lerp(rotation_degrees.y, HAND_ITEM.mesh_rotation.y + (mouse_movement.y *
+	HAND_ITEM.sway_amount_rotation) * delta, HAND_ITEM.sway_speed_rotation)
+		rotation_degrees.x = lerp(rotation_degrees.x, HAND_ITEM.mesh_rotation.x - (mouse_movement.x *
+	HAND_ITEM.sway_amount_rotation) * delta, HAND_ITEM.sway_speed_rotation)
 
 func get_sway_noise():
 	var player_position := Vector3(0, 0, 0)
