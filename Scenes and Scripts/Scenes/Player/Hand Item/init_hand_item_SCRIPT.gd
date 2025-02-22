@@ -57,13 +57,6 @@ extends Node3D
 				%HandMesh.get_child(0).queue_free()
 			load_hand_item()
 
-@export var reset := false:
-	set(value):
-		reset = value
-		if Engine.is_editor_hint():
-			load_hand_item()
-
-
 @onready var hand_mesh: Node3D = %HandMesh
 @export var sway_noise : NoiseTexture2D
 @export var sway_speed : float = 1.2

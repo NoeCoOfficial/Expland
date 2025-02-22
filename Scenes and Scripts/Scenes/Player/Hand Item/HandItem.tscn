@@ -12,6 +12,7 @@ noise = SubResource("FastNoiseLite_e5hor")
 
 [node name="HandItem" type="Node3D"]
 script = ExtResource("1_eo1qg")
+reset = null
 sway_noise = SubResource("NoiseTexture2D_ypdgh")
 sway_speed = null
 

@@ -15,4 +15,7 @@ sway_speed_position = 0.07
 sway_speed_rotation = 0.1
 sway_amount_position = 0.19
 sway_amount_rotation = 10.0
+idle_sway_adjustment = 5.0
+idle_sway_rotation_strength = 500.0
+random_sway_amount = 10.0
 damage_amount = 0.6
