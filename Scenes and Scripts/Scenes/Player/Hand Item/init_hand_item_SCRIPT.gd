@@ -106,7 +106,7 @@ HAND_ITEM.sway_amount_rotation + (random_sway_x * idle_sway_rotation_strength)) 
 func get_sway_noise():
 	var player_position := Vector3(0, 0, 0)
 	if !Engine.is_editor_hint():
-		player_position = PlayerManager.PLAYER.gloabl_position
+		player_position = PlayerManager.PLAYER.global_position
 	
 	var noise_location : float = sway_noise.noise.get_noise_2d(player_position.x, player_position.y)
 	return noise_location
