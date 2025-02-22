@@ -61,6 +61,6 @@ func load_hand_item():
 	var hand_model_instance = hand_model.instantiate()
 	
 	hand_mesh.add_child(hand_model_instance)
-	hand_model_instance.position = HAND_ITEM.position
-	hand_model_instance.rotation_degrees = HAND_ITEM.rotation
-	hand_model_instance.scale = HAND_ITEM.scale
+	hand_mesh.position = HAND_ITEM.position
+	hand_mesh.rotation_degrees = HAND_ITEM.rotation
+	hand_mesh.scale = HAND_ITEM.scale

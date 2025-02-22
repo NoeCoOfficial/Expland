@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://djwgy3b85xfpn"]
+[gd_scene load_steps=3 format=3 uid="uid://djwgy3b85xfpn"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Hand Item/init_hand_item_SCRIPT.gd" id="1_eo1qg"]
+[ext_resource type="Resource" uid="uid://der5en7j07tdn" path="res://Resources/Hand Items/PICKAXE.tres" id="2_jk7x2"]
 
 [node name="HandItem" type="Node3D"]
 script = ExtResource("1_eo1qg")
+HAND_ITEM = ExtResource("2_jk7x2")
 
 [node name="HandMesh" type="Node3D" parent="."]
 unique_name_in_owner = true
