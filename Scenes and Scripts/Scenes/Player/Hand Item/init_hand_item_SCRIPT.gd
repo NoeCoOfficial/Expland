@@ -56,9 +56,6 @@ extends Node3D
 func _ready() -> void:
 	load_hand_item()
 
-func _process(_delta: float) -> void:
-	pass
-
 func load_hand_item():
 	var hand_model = load(HAND_ITEM.model_path)
 	var hand_model_instance = hand_model.instantiate()

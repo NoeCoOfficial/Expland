@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="HandItems" load_steps=2 format=3 uid="uid://der5en7j07tdn"]
+
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Hand Item/HandItem_SCRIPT.gd" id="1_twciq"]
+
+[resource]
+script = ExtResource("1_twciq")
+ITEM_TYPE = "PICKAXE"
+position = Vector3(0, 0, 0)
+rotation = Vector3(0, 0, 0)
+scale = Vector3(0, 0, 0)
+model_path = "res://Assets/3D Models/Tools/Pickaxe.blend"
+damage_amount = 0.6
