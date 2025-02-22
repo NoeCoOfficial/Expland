@@ -7,4 +7,4 @@ script = ExtResource("1_eo1qg")
 
 [node name="HandMesh" type="Node3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(0.209946, 0.0147116, 0.77182, -0.0997286, 0.793669, 0.0119996, -0.765491, -0.0993647, 0.210119, 0.145, -2.565, -0.765)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)

@@ -536,11 +536,11 @@ script = ExtResource("2_37tst")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.477025, 0, -0.274263)
 
 [node name="HandItem" parent="Head/Camera3D/HandItemRig" instance=ExtResource("4_476v6")]
-transform = Transform3D(0.197882, 0, 0, 0, 0.197882, 0, 0, 0, 0.197882, 0, 0, 0)
+transform = Transform3D(0.162441, 0, 0.113005, 0, 0.197882, 0, -0.113005, 0, 0.162441, 0.145, -0.385, 0)
 HAND_ITEM = ExtResource("5_slelm")
 
 [node name="HandMesh" parent="Head/Camera3D/HandItemRig/HandItem" index="0"]
-transform = Transform3D(0.135692, 0.058262, 0.786253, -0.0638167, 0.796006, -0.0479712, -0.785821, -0.0545834, 0.139662, 0.145, -2.565, -0.765)
+transform = Transform3D(0.654455, 0.054496, 0.456857, -0.0663857, 0.797241, 0, -0.455282, -0.037911, 0.65672, 0.145, -0.385, -0.765)
 
 [node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.0158332)
