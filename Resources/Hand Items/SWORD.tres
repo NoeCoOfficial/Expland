@@ -18,4 +18,7 @@ sway_amount_rotation = 10.0
 idle_sway_adjustment = 5.0
 idle_sway_rotation_strength = 500.0
 random_sway_amount = 10.0
+bob_speed = 7.0
+hbob_amount = 5.0
+vbob_amount = 5.0
 damage_amount = 0.6

@@ -487,6 +487,21 @@ func _unhandled_input(event): # A built-in function that listens for input all t
 func _physics_process(delta):
 	PlayerManager.isIdle = !is_movement_input_active
 	
+	if is_walking and is_movement_input_active:
+		PlayerManager.is_walking_moving = true
+	else:
+		PlayerManager.is_walking_moving = false
+	
+	if is_sprinting and is_movement_input_active:
+		PlayerManager.is_sprinting_moving = true
+	else:
+		PlayerManager.is_sprinting_moving = false
+	
+	if is_crouching and is_movement_input_active:
+		PlayerManager.is_crouching_moving = true
+	else:
+		PlayerManager.is_crouching_moving = false
+
 	## Player stamina
 	if is_sprinting and is_movement_input_active:
 		if !stamina_restoring_from_0:

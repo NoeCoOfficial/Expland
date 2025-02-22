@@ -61,6 +61,7 @@ extends Node3D
 @export var sway_noise : NoiseTexture2D
 @export var sway_speed : float = 1.2
 var mouse_movement : Vector2
+var weapon_bob_amount := Vector2(0, 0)
 
 var random_sway_x
 var random_sway_y
@@ -79,7 +80,8 @@ func _process(_delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if !Engine.is_editor_hint():
 		sway(delta, PlayerManager.isIdle)
-		bob(delta)
+		if !PlayerManager.isIdle:
+			bob(delta)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -110,9 +112,9 @@ func sway(delta, isIdle : bool):
 	else:
 	
 		position.x = lerp(position.x, HAND_ITEM.mesh_position.x - (mouse_movement.x *
-	HAND_ITEM.sway_amount_position) * delta, HAND_ITEM.sway_speed_position)
+	HAND_ITEM.sway_amount_position + weapon_bob_amount.x) * delta, HAND_ITEM.sway_speed_position)
 		position.y = lerp(position.y, HAND_ITEM.mesh_position.y + (mouse_movement.y *
-	HAND_ITEM.sway_amount_position) * delta, HAND_ITEM.sway_speed_position)
+	HAND_ITEM.sway_amount_position + weapon_bob_amount.y) * delta, HAND_ITEM.sway_speed_position)
 		
 		rotation_degrees.y = lerp(rotation_degrees.y, HAND_ITEM.mesh_rotation.y + (mouse_movement.y *
 	HAND_ITEM.sway_amount_rotation) * delta, HAND_ITEM.sway_speed_rotation)
@@ -129,8 +131,9 @@ func get_sway_noise():
 
 func bob(delta):
 	time += delta
-	position.x = sin(time * HAND_ITEM.bob_speed) * HAND_ITEM.hbob_amount
-	position.y = abs(cos(time * HAND_ITEM.bob_speed) * HAND_ITEM.vbob_amount)
+	
+	weapon_bob_amount.x = sin(time * HAND_ITEM.bob_speed) * HAND_ITEM.hbob_amount
+	weapon_bob_amount.y = abs(cos(time * HAND_ITEM.bob_speed) * HAND_ITEM.vbob_amount)
 
 func load_hand_item():
 	var hand_model = load(HAND_ITEM.model_path)
