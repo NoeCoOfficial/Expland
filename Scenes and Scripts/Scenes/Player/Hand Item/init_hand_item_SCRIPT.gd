@@ -76,14 +76,14 @@ func _input(event: InputEvent) -> void:
 func sway(delta):
 	mouse_movement = mouse_movement.clamp(HAND_ITEM.sway_min, HAND_ITEM.sway_max)
 	
-	%HandMesh.position.x = lerp(%HandMesh.position.x, HAND_ITEM.mesh_position.x - (mouse_movement.x *
+	position.x = lerp(position.x, HAND_ITEM.mesh_position.x - (mouse_movement.x *
 HAND_ITEM.sway_amount_position) * delta, HAND_ITEM.sway_speed_position)
-	%HandMesh.position.y = lerp(%HandMesh.position.y, HAND_ITEM.mesh_position.y - (mouse_movement.y *
+	position.y = lerp(position.y, HAND_ITEM.mesh_position.y - (mouse_movement.y *
 HAND_ITEM.sway_amount_position) * delta, HAND_ITEM.sway_speed_position)
 
-	%HandMesh.rotation.y = lerp(%HandMesh.rotation.y, HAND_ITEM.mesh_rotation.y + (mouse_movement.y *
+	rotation.y = lerp(rotation.y, HAND_ITEM.mesh_rotation.y + (mouse_movement.y *
 HAND_ITEM.sway_amount_rotation) * delta, HAND_ITEM.sway_speed_rotation)
-	%HandMesh.rotation.x = lerp(%HandMesh.rotation.x, HAND_ITEM.mesh_rotation.x + (mouse_movement.x *
+	rotation.x = lerp(rotation.x, HAND_ITEM.mesh_rotation.x + (mouse_movement.x *
 HAND_ITEM.sway_amount_rotation) * delta, HAND_ITEM.sway_speed_rotation)
 
 func load_hand_item():
