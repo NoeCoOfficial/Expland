@@ -485,7 +485,7 @@ func _unhandled_input(event): # A built-in function that listens for input all t
 #region Process
 
 func _physics_process(delta):
-	PlayerManager.isIdle = is_movement_input_active
+	PlayerManager.isIdle = !is_movement_input_active
 	
 	## Player stamina
 	if is_sprinting and is_movement_input_active:
