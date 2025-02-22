@@ -5,8 +5,8 @@
 [resource]
 script = ExtResource("1_twciq")
 ITEM_TYPE = "PICKAXE"
-mesh_position = Vector3(-0.445028, -1.5878, 0)
-mesh_rotation = Vector3(1.30458, -0.461343, 1.5708)
+mesh_position = Vector3(-0.445, -1.588, -0.235)
+mesh_rotation = Vector3(1.305, -0.316, 1.571)
 mesh_scale = Vector3(0.393979, 0.393979, 0.393979)
 model_path = "res://Assets/3D Models/Tools/Pickaxe.blend"
 damage_amount = 0.6

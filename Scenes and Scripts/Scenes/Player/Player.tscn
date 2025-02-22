@@ -538,7 +538,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.477025, 0, -0.274263)
 transform = Transform3D(0.197882, 0, 0, 0, 0.197882, 0, 0, 0, 0.197882, 0, 0, 0)
 
 [node name="HandMesh" parent="Head/Camera3D/HandItemRig/HandItem" index="0"]
-transform = Transform3D(-0.169202, -0.352791, -0.0461393, 0.103649, -4.53063e-09, -0.380101, 0.340363, -0.17538, 0.0928128, -0.445028, -1.5878, 0)
+transform = Transform3D(-0.118212, -0.374447, -0.0321611, 0.10349, -2.1076e-05, -0.380144, 0.361297, -0.122509, 0.0983654, -0.445, -1.588, -0.235)
 
 [node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.0158332)
