@@ -126,6 +126,11 @@ func get_sway_noise():
 	var noise_location : float = sway_noise.noise.get_noise_2d(player_position.x, player_position.y)
 	return noise_location
 
+func bob(delta):
+	time += delta
+	position.x = sin(time * HAND_ITEM.bob_speed) * HAND_ITEM.hbob_amount
+	position.y = abs(cos(time * HAND_ITEM.bob_speed) * HAND_ITEM.vbob_amount)
+
 func load_hand_item():
 	var hand_model = load(HAND_ITEM.model_path)
 	var hand_model_instance = hand_model.instantiate()
