@@ -56,11 +56,19 @@ extends Node3D
 func _ready() -> void:
 	load_hand_item()
 
+func _process(_delta: float) -> void:
+	init_hand_item()
+
 func load_hand_item():
 	var hand_model = load(HAND_ITEM.model_path)
 	var hand_model_instance = hand_model.instantiate()
 	
 	hand_mesh.add_child(hand_model_instance)
+	hand_mesh.position = HAND_ITEM.mesh_position
+	hand_mesh.rotation = HAND_ITEM.mesh_rotation
+	hand_mesh.scale = HAND_ITEM.mesh_scale
+
+func init_hand_item():
 	hand_mesh.position = HAND_ITEM.mesh_position
 	hand_mesh.rotation = HAND_ITEM.mesh_rotation
 	hand_mesh.scale = HAND_ITEM.mesh_scale
