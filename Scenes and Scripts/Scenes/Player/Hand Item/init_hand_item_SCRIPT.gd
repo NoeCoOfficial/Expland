@@ -132,8 +132,17 @@ func get_sway_noise():
 func bob(delta):
 	time += delta
 	
-	weapon_bob_amount.x = sin(time * HAND_ITEM.bob_speed) * HAND_ITEM.hbob_amount
-	weapon_bob_amount.y = abs(cos(time * HAND_ITEM.bob_speed) * HAND_ITEM.vbob_amount)
+	if PlayerManager.is_walking_moving:
+		weapon_bob_amount.x = sin(time * HAND_ITEM.bob_speed_walking) * HAND_ITEM.hbob_amount
+		weapon_bob_amount.y = abs(cos(time * HAND_ITEM.bob_speed_walking) * HAND_ITEM.vbob_amount)
+		
+	if PlayerManager.is_sprinting_moving:
+		weapon_bob_amount.x = sin(time * HAND_ITEM.bob_speed_sprinting) * HAND_ITEM.hbob_amount
+		weapon_bob_amount.y = abs(cos(time * HAND_ITEM.bob_speed_sprinting) * HAND_ITEM.vbob_amount)
+		
+	if PlayerManager.is_crouching_moving:
+		weapon_bob_amount.x = sin(time * HAND_ITEM.bob_speed_crouching) * HAND_ITEM.hbob_amount
+		weapon_bob_amount.y = abs(cos(time * HAND_ITEM.bob_speed_crouching) * HAND_ITEM.vbob_amount)
 
 func load_hand_item():
 	var hand_model = load(HAND_ITEM.model_path)
