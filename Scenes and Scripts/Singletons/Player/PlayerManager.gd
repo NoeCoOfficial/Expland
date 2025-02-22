@@ -60,6 +60,7 @@ var AudioNotification
 
 var SLEEPING_UPON_ENTERED = false
 var Stamina : float = 100.0
+var isIdle = true
 
 func init():
 	WORLD = get_node("/root/World/")
