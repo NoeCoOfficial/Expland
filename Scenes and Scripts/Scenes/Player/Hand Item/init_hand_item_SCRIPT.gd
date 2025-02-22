@@ -54,8 +54,7 @@ extends Node3D
 		HAND_ITEM = value
 		if %HandMesh.get_child_count() != 0:
 			%HandMesh.get_child(0).queue_free()
-		if Engine.is_editor_hint():
-			load_hand_item()
+		load_hand_item()
 
 @onready var hand_mesh: Node3D = %HandMesh
 
