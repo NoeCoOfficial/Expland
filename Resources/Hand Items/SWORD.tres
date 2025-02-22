@@ -9,4 +9,7 @@ mesh_position = Vector3(0.145, -2.565, -0.765)
 mesh_rotation = Vector3(-0.015, 1.305, -0.125)
 mesh_scale = Vector3(0.8, 0.8, 0.8)
 model_path = "res://Assets/3D Models/Tools/Sword.blend"
+sway_min = Vector2(-20, -20)
+sway_max = Vector2(20, 20)
+sway_speed_position = 0.07
 damage_amount = 0.6
