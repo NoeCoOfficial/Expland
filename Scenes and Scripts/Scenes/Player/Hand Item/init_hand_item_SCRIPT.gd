@@ -67,7 +67,8 @@ func _process(_delta: float) -> void:
 	init_hand_item()
 
 func _physics_process(delta: float) -> void:
-	sway(delta)
+	if !Engine.is_editor_hint():
+		sway(delta)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -80,10 +81,10 @@ func sway(delta):
 HAND_ITEM.sway_amount_position) * delta, HAND_ITEM.sway_speed_position)
 	position.y = lerp(position.y, HAND_ITEM.mesh_position.y - (mouse_movement.y *
 HAND_ITEM.sway_amount_position) * delta, HAND_ITEM.sway_speed_position)
-
-	rotation.y = lerp(rotation.y, HAND_ITEM.mesh_rotation.y + (mouse_movement.y *
+	
+	rotation_degrees.y = lerp(rotation_degrees.y, rad_to_deg(HAND_ITEM.mesh_rotation.y) + (mouse_movement.y *
 HAND_ITEM.sway_amount_rotation) * delta, HAND_ITEM.sway_speed_rotation)
-	rotation.x = lerp(rotation.x, HAND_ITEM.mesh_rotation.x + (mouse_movement.x *
+	rotation_degrees.x = lerp(rotation_degrees.x, rad_to_deg(HAND_ITEM.mesh_rotation.x) + (mouse_movement.x *
 HAND_ITEM.sway_amount_rotation) * delta, HAND_ITEM.sway_speed_rotation)
 
 func load_hand_item():
@@ -92,7 +93,7 @@ func load_hand_item():
 	
 	hand_mesh.add_child(hand_model_instance)
 	hand_mesh.position = HAND_ITEM.mesh_position
-	hand_mesh.rotation = HAND_ITEM.mesh_rotation
+	hand_mesh.rotation_degrees = HAND_ITEM.mesh_rotation
 	hand_mesh.scale = HAND_ITEM.mesh_scale
 
 func init_hand_item():
