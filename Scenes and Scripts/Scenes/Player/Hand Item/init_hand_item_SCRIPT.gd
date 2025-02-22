@@ -52,9 +52,10 @@ extends Node3D
 @export var HAND_ITEM : HandItems:
 	set(value):
 		HAND_ITEM = value
-		if %HandMesh.get_child_count() != 0:
-			%HandMesh.get_child(0).queue_free()
-		load_hand_item()
+		if Engine.is_editor_hint():
+			if %HandMesh.get_child_count() != 0:
+				%HandMesh.get_child(0).queue_free()
+			load_hand_item()
 
 @onready var hand_mesh: Node3D = %HandMesh
 
