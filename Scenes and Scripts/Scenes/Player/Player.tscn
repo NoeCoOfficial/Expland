@@ -536,8 +536,9 @@ script = ExtResource("2_37tst")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.477025, 0, -0.274263)
 
 [node name="HandItem" parent="Head/Camera3D/HandItemRig" instance=ExtResource("4_476v6")]
-transform = Transform3D(0.162441, 0, 0.113005, 0, 0.197882, 0, -0.113005, 0, 0.162441, 0.145, -0.385, 0)
+transform = Transform3D(0.160955, -0.00119719, 0.115105, 0, 0.197871, 0.00205803, -0.115111, -0.00167399, 0.160947, 0.147171, -0.387279, 0)
 HAND_ITEM = ExtResource("5_slelm")
+sway_speed = 1.2
 
 [node name="HandMesh" parent="Head/Camera3D/HandItemRig/HandItem" index="0"]
 transform = Transform3D(0.654455, 0.054496, 0.456857, -0.0663857, 0.797241, 0, -0.455282, -0.037911, 0.65672, 0.145, -0.385, -0.765)

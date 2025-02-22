@@ -1,9 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://djwgy3b85xfpn"]
+[gd_scene load_steps=4 format=3 uid="uid://djwgy3b85xfpn"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Hand Item/init_hand_item_SCRIPT.gd" id="1_eo1qg"]
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_e5hor"]
+seed = 170
+frequency = 0.0222
+offset = Vector3(400, 0, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ypdgh"]
+noise = SubResource("FastNoiseLite_e5hor")
+
 [node name="HandItem" type="Node3D"]
 script = ExtResource("1_eo1qg")
+sway_noise = SubResource("NoiseTexture2D_ypdgh")
+sway_speed = null
 
 [node name="HandMesh" type="Node3D" parent="."]
 unique_name_in_owner = true
