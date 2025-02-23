@@ -1,12 +1,26 @@
-[gd_resource type="Resource" script_class="HandItems" load_steps=2 format=3 uid="uid://der5en7j07tdn"]
+[gd_resource type="Resource" script_class="HandItems" load_steps=2 format=3 uid="uid://blcr3veqy5vd7"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Hand Item/HandItem_SCRIPT.gd" id="1_twciq"]
 
 [resource]
 script = ExtResource("1_twciq")
 ITEM_TYPE = "PICKAXE"
-mesh_position = Vector3(-0.445, -1.588, -0.235)
-mesh_rotation = Vector3(1.305, -0.316, 1.571)
-mesh_scale = Vector3(0.393979, 0.393979, 0.393979)
-model_path = "res://Assets/3D Models/Tools/Pickaxe.blend"
+mesh_position = Vector3(0.265, -0.3, -1.24)
+mesh_rotation = Vector3(0.655, 17.905, -15.425)
+mesh_scale = Vector3(0.5, 0.5, 0.5)
+model_path = "res://Assets/3D Models/Inventory Hand Items/PICKAXE.blend"
+sway_min = Vector2(-20, -20)
+sway_max = Vector2(20, 20)
+sway_speed_position = 0.07
+sway_speed_rotation = 0.1
+sway_amount_position = 0.19
+sway_amount_rotation = 10.0
+idle_sway_adjustment = 5.0
+idle_sway_rotation_strength = 500.0
+random_sway_amount = 10.0
+bob_speed_walking = 7.0
+bob_speed_sprinting = 10.5
+bob_speed_crouching = 4.0
+hbob_amount = 5.0
+vbob_amount = 5.0
 damage_amount = 0.6

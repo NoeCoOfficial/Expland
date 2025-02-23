@@ -49,7 +49,7 @@ extends Node
 
 var is_debugging = false
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if OS.has_feature("debug"):
 		if Input.is_action_just_pressed("print_objects"):
 			print("Objects: ", Performance.get_monitor(Performance.OBJECT_COUNT))
