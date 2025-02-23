@@ -169,6 +169,7 @@ var stamina_restoring_from_0 = false
 
 @export var head : Node3D
 @export var camera : Camera3D
+@export var HandItem : Node3D
 @export var PickupAttractionPos : Node3D
 
 
@@ -196,10 +197,6 @@ var stamina_restoring_from_0 = false
 @export var PocketsCollisionBoundary : Area2D
 @export var ChestCollisionBoundary : Area2D
 @export var WorkbenchCollisionBoundary : Area2D
-@export var Pickaxe_Video : VideoStreamPlayer
-@export var Axe_Video : VideoStreamPlayer
-@export var Sword_Video : VideoStreamPlayer
-@export var EquipAnimations_Player : AnimationPlayer
 
 @export_group("Chest")
 
@@ -485,6 +482,24 @@ func _unhandled_input(event): # A built-in function that listens for input all t
 #region Process
 
 func _physics_process(delta):
+	PlayerManager.isIdle = !is_movement_input_active
+	HandItem.sway(delta, PlayerManager.isIdle)
+	
+	if is_walking and is_movement_input_active:
+		PlayerManager.is_walking_moving = true
+	else:
+		PlayerManager.is_walking_moving = false
+	
+	if is_sprinting and is_movement_input_active:
+		PlayerManager.is_sprinting_moving = true
+	else:
+		PlayerManager.is_sprinting_moving = false
+	
+	if is_crouching and is_movement_input_active:
+		PlayerManager.is_crouching_moving = true
+	else:
+		PlayerManager.is_crouching_moving = false
+
 	## Player stamina
 	if is_sprinting and is_movement_input_active:
 		if !stamina_restoring_from_0:
@@ -571,6 +586,7 @@ func _physics_process(delta):
 		if is_moving:
 			Wave_Length += delta * velocity.length()
 			camera.transform.origin = _headbob(Wave_Length)
+			HandItem.bob(delta)
 		else:
 			# Smoothly return to original position when not moving
 			var target_pos = Vector3(camera.transform.origin.x, 0, camera.transform.origin.z)

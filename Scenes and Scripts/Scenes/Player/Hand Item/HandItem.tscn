@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=3 uid="uid://djwgy3b85xfpn"]
+
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Hand Item/init_hand_item_SCRIPT.gd" id="1_eo1qg"]
+[ext_resource type="Resource" uid="uid://bfl2kn5tjktpm" path="res://Resources/Hand Items/SWORD.tres" id="2_c8ekc"]
+[ext_resource type="Texture2D" uid="uid://sfcr0rgs6jwb" path="res://Resources/Noise/HandItemSwayNoise.tres" id="2_uqh4v"]
+
+[sub_resource type="Animation" id="Animation_oxm74"]
+resource_name = "equip"
+length = 0.15
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -4.76, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_csc3g"]
+resource_name = "unequip"
+length = 0.15
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -4.76, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5diwm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_78mbq"]
+_data = {
+"RESET": SubResource("Animation_5diwm"),
+"equip": SubResource("Animation_oxm74"),
+"unequip": SubResource("Animation_csc3g")
+}
+
+[node name="HandItem" type="Node3D"]
+script = ExtResource("1_eo1qg")
+HAND_ITEM = ExtResource("2_c8ekc")
+sway_noise = ExtResource("2_uqh4v")
+
+[node name="HandMesh" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.654455, 0.054496, 0.456857, -0.0663857, 0.797241, 0, -0.455282, -0.037911, 0.65672, 0.145, -0.385, -0.765)
+
+[node name="SwapAnimations" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_78mbq")
+}

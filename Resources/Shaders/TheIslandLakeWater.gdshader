@@ -46,9 +46,9 @@ void vertex() {
     vec3 normal = MODEL_NORMAL_MATRIX * NORMAL;
 
     // Compute mini wave displacement
-    float wave1 = sin(VERTEX.x * wave_frequency + TIME * wave_speed) * 
+    float wave1 = sin(VERTEX.x * wave_frequency + TIME * wave_speed) *
                   cos(VERTEX.z * wave_frequency + TIME * wave_speed);
-    float wave2 = sin(VERTEX.z * secondary_wave_frequency + TIME * secondary_wave_speed) * 
+    float wave2 = sin(VERTEX.z * secondary_wave_frequency + TIME * secondary_wave_speed) *
                   cos(VERTEX.x * secondary_wave_frequency + TIME * secondary_wave_speed);
 
     float total_wave = wave1 * wave_amplitude + wave2 * secondary_wave_amplitude;

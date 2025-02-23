@@ -297,9 +297,9 @@ focus_mode = 0
 theme_override_constants/center_grabber = -1
 theme_override_styles/slider = SubResource("StyleBoxLine_5ohsc")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_uykce")
-min_value = 70.0
+min_value = 90.0
 max_value = 120.0
-value = 70.0
+value = 90.0
 rounded = true
 metadata/_edit_use_anchors_ = true
 
