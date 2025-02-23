@@ -86,8 +86,18 @@ func _input(event: InputEvent) -> void:
 
 
 func swap_items(toITEM : String):
-	goToITEM = toITEM
-	swap_animations.play(&"unequip")
+	if HandManager.CURRENTLY_HOLDING_ITEM == "": # If we are currently holding nothing
+		var model_to_load = load("res://Resources/Hand Items/" + toITEM + ".tres")
+		var model_instance = model_to_load.instantiate()
+		hand_mesh.add_child(model_instance)
+		swap_animations.play(&"equip")
+	
+	elif toITEM == "": # If we want to unequip everything and have empty hands
+		pass
+	
+	else:
+		goToITEM = toITEM
+		swap_animations.play(&"unequip")
 
 func _on_swap_animations_animation_finished(anim_name: StringName) -> void:
 	if anim_name == &"unequip":
