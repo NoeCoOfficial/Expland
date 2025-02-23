@@ -71,6 +71,8 @@ var time : float = 0.0
 var idle_sway_adjustment
 var idle_sway_rotation_strength
 
+var goToITEM : String
+
 func _ready() -> void:
 	load_hand_item()
 
@@ -81,6 +83,27 @@ func _process(_delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		mouse_movement = event.relative
+
+
+func swap_items(toITEM : String):
+	goToITEM = toITEM
+	swap_animations.play(&"unequip")
+
+func _on_swap_animations_animation_finished(anim_name: StringName) -> void:
+	if anim_name == &"unequip":
+		var model_to_delete = hand_mesh.get_child(0)
+		var model_to_load = load("res://Resources/Hand Items/" + goToITEM + ".tres")
+		var model_instance = model_to_load.instantiate()
+		
+		
+		hand_mesh.add_child(model_instance)
+		model_to_delete.queue_free()
+		
+		
+		swap_animations.play(&"equip")
+		
+		
+
 
 func sway(delta, isIdle : bool):
 	mouse_movement = mouse_movement.clamp(HAND_ITEM.sway_min, HAND_ITEM.sway_max)
