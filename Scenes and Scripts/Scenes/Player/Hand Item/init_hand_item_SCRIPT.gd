@@ -64,6 +64,8 @@ extends Node3D
 var mouse_movement : Vector2
 var weapon_bob_amount := Vector2(0, 0)
 
+var can_play_full_anim = true
+
 var random_sway_x
 var random_sway_y
 var random_sway_amount : float
@@ -86,26 +88,59 @@ func _input(event: InputEvent) -> void:
 
 
 func swap_items(toITEM : String):
-	if HandManager.CURRENTLY_HOLDING_ITEM == "": # If we are currently holding nothing
+	if can_play_full_anim:
+		if HandManager.CURRENTLY_HOLDING_ITEM == "": # If we are currently holding nothing
+			
+			if hand_mesh.get_child_count() > 0: # Check if there are any models left, if so then remove them
+				for child in hand_mesh.get_children():
+					child.queue_free()
+			
+			var model_to_load = load("res://Resources/Hand Items/" + toITEM + ".tres")
+			var model_instance = model_to_load.instantiate()
+			hand_mesh.add_child(model_instance)
+			HandManager.CURRENTLY_HOLDING_ITEM = toITEM
+			swap_animations.play(&"equip")
 		
-		if hand_mesh.get_child_count() > 0: # Check if there are any models left, if so then remove them
+		elif toITEM == "": # If we want to unequip everything and have empty hands
+			swap_animations.play(&"unequip_to_empty")
+			HandManager.CURRENTLY_HOLDING_ITEM = ""
+		
+		else: # If we want to equip an item and we are currently holding another item
+			goToITEM = toITEM
+			HandManager.CURRENTLY_HOLDING_ITEM = toITEM
+			swap_animations.play(&"unequip")
+	else:
+		
+		if HandManager.CURRENTLY_HOLDING_ITEM == "": # If we are currently holding nothing
+			
+			if hand_mesh.get_child_count() > 0: # Check if there are any models left, if so then remove them
+				for child in hand_mesh.get_children():
+					child.queue_free()
+			
+			var model_to_load = load("res://Resources/Hand Items/" + toITEM + ".tres")
+			var model_instance = model_to_load.instantiate()
+			hand_mesh.add_child(model_instance)
+			HandManager.CURRENTLY_HOLDING_ITEM = toITEM
+			position = Vector3(0, 0, 0)
+		
+		elif toITEM == "": # If we want to unequip everything and have empty hands
 			for child in hand_mesh.get_children():
 				child.queue_free()
+			position = Vector3(0, -4.76, 0)
+			HandManager.CURRENTLY_HOLDING_ITEM = ""
 		
-		var model_to_load = load("res://Resources/Hand Items/" + toITEM + ".tres")
-		var model_instance = model_to_load.instantiate()
-		hand_mesh.add_child(model_instance)
-		HandManager.CURRENTLY_HOLDING_ITEM = toITEM
-		swap_animations.play(&"equip")
-	
-	elif toITEM == "": # If we want to unequip everything and have empty hands
-		swap_animations.play(&"unequip_to_empty")
-		HandManager.CURRENTLY_HOLDING_ITEM = ""
-	
-	else: # If we want to equip an item and we are currently holding another item
-		goToITEM = toITEM
-		HandManager.CURRENTLY_HOLDING_ITEM = toITEM
-		swap_animations.play(&"unequip")
+		else: # If we want to equip an item and we are currently holding another item
+			HandManager.CURRENTLY_HOLDING_ITEM = toITEM
+			
+			for child in hand_mesh.get_children():
+				child.queue_free()
+				
+			var model_to_load = load("res://Resources/Hand Items/" + goToITEM + ".tres")
+			var model_instance = model_to_load.instantiate()
+			
+			hand_mesh.add_child(model_instance)
+			position = Vector3(0, 0, 0)
+			
 
 func _on_swap_animations_animation_finished(anim_name: StringName) -> void:
 	if anim_name == &"unequip_to_empty":
@@ -200,3 +235,7 @@ func init_hand_item():
 		idle_sway_adjustment = HAND_ITEM.idle_sway_adjustment
 		idle_sway_rotation_strength = HAND_ITEM.idle_sway_rotation_strength
 		random_sway_amount = HAND_ITEM.random_sway_amount
+
+
+func _on_debounce_swap_timer_timeout() -> void:
+	can_play_full_anim = true

@@ -92,4 +92,9 @@ libraries = {
 "": SubResource("AnimationLibrary_78mbq")
 }
 
+[node name="DebounceSwapTimer" type="Timer" parent="."]
+wait_time = 0.16
+one_shot = true
+
 [connection signal="animation_finished" from="SwapAnimations" to="." method="_on_swap_animations_animation_finished"]
+[connection signal="timeout" from="DebounceSwapTimer" to="." method="_on_debounce_swap_timer_timeout"]
