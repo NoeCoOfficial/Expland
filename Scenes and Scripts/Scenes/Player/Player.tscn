@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Interaction/RayCast3D_SCRIPT.gd" id="3_2qtqn"]
 [ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="3_yecwp"]
 [ext_resource type="PackedScene" uid="uid://djwgy3b85xfpn" path="res://Scenes and Scripts/Scenes/Player/Hand Item/HandItem.tscn" id="4_476v6"]
-[ext_resource type="Resource" uid="uid://bfl2kn5tjktpm" path="res://Resources/Hand Items/SWORD.tres" id="5_slelm"]
+[ext_resource type="Resource" uid="uid://blcr3veqy5vd7" path="res://Resources/Hand Items/PICKAXE.tres" id="5_yhvp8"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/OverlayLayer/RedOverlay_SCRIPT.gd" id="7_gnu1v"]
 [ext_resource type="PackedScene" uid="uid://dhhjltxmoydio" path="res://Scenes and Scripts/Scenes/Player/Inventory/InventorySlot.tscn" id="8_ads4s"]
 [ext_resource type="FontFile" uid="uid://c4h0gd5a2e2qb" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf" id="8_cdk3a"]
@@ -538,11 +538,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.477025, 0, -0.274263)
 
 [node name="HandItem" parent="Head/Camera3D/HandItemRig" instance=ExtResource("4_476v6")]
 transform = Transform3D(0.161432, 3.20613e-05, 0.114442, 0, 0.197882, -5.54371e-05, -0.114442, 4.52255e-05, 0.161432, 0.145115, -0.385922, 0)
-HAND_ITEM = ExtResource("5_slelm")
+HAND_ITEM = ExtResource("5_yhvp8")
 sway_speed = 1.0
 
 [node name="HandMesh" parent="Head/Camera3D/HandItemRig/HandItem" index="0"]
-transform = Transform3D(0.654455, 0.054496, 0.456857, -0.0663857, 0.797241, 0, -0.455282, -0.037911, 0.65672, 0.145, -0.385, -0.765)
+transform = Transform3D(0.381675, 0.132152, 0.29472, -0.159635, 0.473798, -0.00571583, -0.280786, -0.0897318, 0.403866, 0.265, -0.3, -1.24)
 
 [node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.0158332)

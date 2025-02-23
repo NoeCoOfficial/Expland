@@ -77,18 +77,11 @@ func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
 		init_hand_item()
 
-func _physics_process(delta: float) -> void:
-	if !Engine.is_editor_hint():
-		sway(delta, PlayerManager.isIdle)
-		if !PlayerManager.isIdle:
-			bob(delta)
-
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		mouse_movement = event.relative
 
 func sway(delta, isIdle : bool):
-	
 	mouse_movement = mouse_movement.clamp(HAND_ITEM.sway_min, HAND_ITEM.sway_max)
 	
 	if isIdle:
