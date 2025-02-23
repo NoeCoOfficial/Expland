@@ -542,7 +542,7 @@ HAND_ITEM = ExtResource("5_yhvp8")
 sway_speed = 1.0
 
 [node name="HandMesh" parent="Head/Camera3D/HandItemRig/HandItem" index="0"]
-transform = Transform3D(0.458178, 0.128241, 0.15371, -0.13298, 0.481958, -0.00571583, -0.149629, -0.0356428, 0.475753, 0.265, -0.3, -1.24)
+transform = Transform3D(0.381675, 0.132152, 0.29472, -0.159635, 0.473798, -0.00571583, -0.280786, -0.0897318, 0.403866, 0.265, -0.3, -1.24)
 
 [node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.0158332)
