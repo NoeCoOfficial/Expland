@@ -58,6 +58,7 @@ extends Node3D
 			load_hand_item()
 
 @onready var hand_mesh: Node3D = %HandMesh
+@onready var swap_animations: AnimationPlayer = $SwapAnimations
 @export var sway_noise : NoiseTexture2D
 @export var sway_speed : float = 1.2
 var mouse_movement : Vector2
