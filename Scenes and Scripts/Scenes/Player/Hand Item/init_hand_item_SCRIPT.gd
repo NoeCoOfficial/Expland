@@ -55,10 +55,12 @@ extends Node3D
 		if Engine.is_editor_hint():
 			if %HandMesh.get_child_count() != 0:
 				%HandMesh.get_child(0).queue_free()
-			load_hand_item()
+		load_hand_item()
 
 @onready var hand_mesh: Node3D = %HandMesh
 @onready var swap_animations: AnimationPlayer = $SwapAnimations
+@onready var debounce_swap_timer: Timer = $DebounceSwapTimer
+
 @export var sway_noise : NoiseTexture2D
 @export var sway_speed : float = 1.2
 var mouse_movement : Vector2
@@ -100,16 +102,24 @@ func swap_items(toITEM : String):
 			hand_mesh.add_child(model_instance)
 			HandManager.CURRENTLY_HOLDING_ITEM = toITEM
 			swap_animations.play(&"equip")
+			can_play_full_anim = false
+			debounce_swap_timer.start()
+			
 		
 		elif toITEM == "": # If we want to unequip everything and have empty hands
 			swap_animations.play(&"unequip_to_empty")
 			HandManager.CURRENTLY_HOLDING_ITEM = ""
+			can_play_full_anim = false
+			debounce_swap_timer.start()
 		
 		else: # If we want to equip an item and we are currently holding another item
 			goToITEM = toITEM
 			HandManager.CURRENTLY_HOLDING_ITEM = toITEM
 			swap_animations.play(&"unequip")
-	else:
+			can_play_full_anim = false
+			debounce_swap_timer.start()
+		
+	else: # If debounce timer not finished, instantly switch to the item instead of playing animations
 		
 		if HandManager.CURRENTLY_HOLDING_ITEM == "": # If we are currently holding nothing
 			
