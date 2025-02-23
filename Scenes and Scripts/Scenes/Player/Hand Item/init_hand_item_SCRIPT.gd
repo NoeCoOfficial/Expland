@@ -99,10 +99,7 @@ func _on_swap_animations_animation_finished(anim_name: StringName) -> void:
 		hand_mesh.add_child(model_instance)
 		model_to_delete.queue_free()
 		
-		
 		swap_animations.play(&"equip")
-		
-		
 
 
 func sway(delta, isIdle : bool):

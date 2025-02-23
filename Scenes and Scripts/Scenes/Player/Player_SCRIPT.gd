@@ -670,6 +670,7 @@ func _ready():
 	Utils.set_center_offset($Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Right_Arrow)
 	Utils.set_center_offset($Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Left_Arrow)
 	
+	HandManager.HAND_ITEM_NODE = HandItem
 	PlayerManager.AudioNotification = $Head/Camera3D/AudioNotificationLayer/AudioNotification
 	PlayerManager.EXPLORER_NOTE_CONTENTS = $Head/Camera3D/ExplorerNoteLayer/Contents
 	PlayerManager.EXPLORER_NOTE_TEXTURE_RECT = $Head/Camera3D/ExplorerNoteLayer/Contents/ExplorerNoteSheet

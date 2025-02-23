@@ -48,3 +48,4 @@
 extends Node
 
 var CURRENTLY_HOLDING_ITEM : String = ""
+var HAND_ITEM_NODE : Node
