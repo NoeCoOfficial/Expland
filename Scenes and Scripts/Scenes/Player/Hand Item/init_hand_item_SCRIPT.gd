@@ -87,28 +87,40 @@ func _input(event: InputEvent) -> void:
 
 func swap_items(toITEM : String):
 	if HandManager.CURRENTLY_HOLDING_ITEM == "": # If we are currently holding nothing
+		
+		if hand_mesh.get_child_count() > 0: # Check if there are any models left, if so then remove them
+			for child in hand_mesh.get_children():
+				child.queue_free()
+		
 		var model_to_load = load("res://Resources/Hand Items/" + toITEM + ".tres")
 		var model_instance = model_to_load.instantiate()
 		hand_mesh.add_child(model_instance)
+		HandManager.CURRENTLY_HOLDING_ITEM = toITEM
 		swap_animations.play(&"equip")
 	
 	elif toITEM == "": # If we want to unequip everything and have empty hands
-		pass
+		swap_animations.play(&"unequip_to_empty")
+		HandManager.CURRENTLY_HOLDING_ITEM = ""
 	
-	else:
+	else: # If we want to equip an item and we are currently holding another item
 		goToITEM = toITEM
+		HandManager.CURRENTLY_HOLDING_ITEM = toITEM
 		swap_animations.play(&"unequip")
 
 func _on_swap_animations_animation_finished(anim_name: StringName) -> void:
+	if anim_name == &"unequip_to_empty":
+		for child in hand_mesh.get_children():
+			child.queue_free()
+		
 	if anim_name == &"unequip":
-		var model_to_delete = hand_mesh.get_child(0)
+		
+		for child in hand_mesh.get_children():
+			child.queue_free()
+			
 		var model_to_load = load("res://Resources/Hand Items/" + goToITEM + ".tres")
 		var model_instance = model_to_load.instantiate()
 		
-		
 		hand_mesh.add_child(model_instance)
-		model_to_delete.queue_free()
-		
 		swap_animations.play(&"equip")
 
 

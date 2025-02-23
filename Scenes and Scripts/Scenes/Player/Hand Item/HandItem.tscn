@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://djwgy3b85xfpn"]
+[gd_scene load_steps=9 format=3 uid="uid://djwgy3b85xfpn"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Hand Item/init_hand_item_SCRIPT.gd" id="1_eo1qg"]
 [ext_resource type="Resource" uid="uid://bfl2kn5tjktpm" path="res://Resources/Hand Items/SWORD.tres" id="2_c8ekc"]
@@ -53,11 +53,29 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, -4.76, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_r8cxx"]
+resource_name = "unequip_to_empty"
+length = 0.15
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -4.76, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_78mbq"]
 _data = {
 "RESET": SubResource("Animation_5diwm"),
 "equip": SubResource("Animation_oxm74"),
-"unequip": SubResource("Animation_csc3g")
+"unequip": SubResource("Animation_csc3g"),
+"unequip_to_empty": SubResource("Animation_r8cxx")
 }
 
 [node name="HandItem" type="Node3D"]
