@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b35tlgmd6spa6"
-path="res://.godot/imported/Sword.blend-e1fd3c708d18332112b0ad041b976375.scn"
+path="res://.godot/imported/SWORD.blend-9f6134854f9259e06698140daa71f8ca.scn"
 
 [deps]
 
-source_file="res://Assets/3D Models/Inventory Hand Items/Sword.blend"
-dest_files=["res://.godot/imported/Sword.blend-e1fd3c708d18332112b0ad041b976375.scn"]
+source_file="res://Assets/3D Models/Inventory Hand Items/SWORD.blend"
+dest_files=["res://.godot/imported/SWORD.blend-9f6134854f9259e06698140daa71f8ca.scn"]
 
 [params]
 
