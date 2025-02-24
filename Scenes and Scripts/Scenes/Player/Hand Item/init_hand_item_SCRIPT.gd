@@ -58,7 +58,6 @@ extends Node3D
 			load_hand_item()
 
 @onready var hand_mesh: Node3D = %HandMesh
-@onready var swap_animations: AnimationPlayer = $SwapAnimations
 @onready var debounce_swap_timer: Timer = $DebounceSwapTimer
 
 @export var sway_noise : NoiseTexture2D
@@ -76,6 +75,9 @@ var idle_sway_adjustment
 var idle_sway_rotation_strength
 
 var goToITEM : String
+
+var equip_tween
+var unequip_tween
 
 func _ready() -> void:
 	load_hand_item()
