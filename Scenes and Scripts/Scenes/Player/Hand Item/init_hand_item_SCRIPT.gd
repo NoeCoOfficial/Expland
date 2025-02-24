@@ -55,7 +55,7 @@ extends Node3D
 		if Engine.is_editor_hint():
 			if %HandMesh.get_child_count() != 0:
 				%HandMesh.get_child(0).queue_free()
-		load_hand_item()
+			load_hand_item()
 
 @onready var hand_mesh: Node3D = %HandMesh
 @onready var swap_animations: AnimationPlayer = $SwapAnimations
@@ -97,9 +97,9 @@ func swap_items(toITEM : String):
 				for child in hand_mesh.get_children():
 					child.queue_free()
 			
-			var model_to_load = load("res://Resources/Hand Items/" + toITEM + ".tres")
-			var model_instance = model_to_load.instantiate()
-			hand_mesh.add_child(model_instance)
+			var resource_to_load = load("res://Resources/Hand Items/" + toITEM + ".tres")
+			HAND_ITEM = resource_to_load
+			load_hand_item()
 			HandManager.CURRENTLY_HOLDING_ITEM = toITEM
 			swap_animations.play(&"equip")
 			can_play_full_anim = false
@@ -127,11 +127,10 @@ func swap_items(toITEM : String):
 				for child in hand_mesh.get_children():
 					child.queue_free()
 			
-			var model_to_load = load("res://Resources/Hand Items/" + toITEM + ".tres")
-			var model_instance = model_to_load.instantiate()
-			hand_mesh.add_child(model_instance)
+			var resource_to_load = load("res://Resources/Hand Items/" + toITEM + ".tres")
+			HAND_ITEM = resource_to_load
+			load_hand_item()
 			HandManager.CURRENTLY_HOLDING_ITEM = toITEM
-			position = Vector3(0, 0, 0)
 		
 		elif toITEM == "": # If we want to unequip everything and have empty hands
 			for child in hand_mesh.get_children():
@@ -145,11 +144,9 @@ func swap_items(toITEM : String):
 			for child in hand_mesh.get_children():
 				child.queue_free()
 				
-			var model_to_load = load("res://Resources/Hand Items/" + goToITEM + ".tres")
-			var model_instance = model_to_load.instantiate()
-			
-			hand_mesh.add_child(model_instance)
-			position = Vector3(0, 0, 0)
+			var resource_to_load = load("res://Resources/Hand Items/" + goToITEM + ".tres")
+			HAND_ITEM = resource_to_load
+			load_hand_item()
 			
 
 func _on_swap_animations_animation_finished(anim_name: StringName) -> void:
@@ -162,10 +159,9 @@ func _on_swap_animations_animation_finished(anim_name: StringName) -> void:
 		for child in hand_mesh.get_children():
 			child.queue_free()
 			
-		var model_to_load = load("res://Resources/Hand Items/" + goToITEM + ".tres")
-		var model_instance = model_to_load.instantiate()
-		
-		hand_mesh.add_child(model_instance)
+		var reesource_to_load = load("res://Resources/Hand Items/" + goToITEM + ".tres")
+		HAND_ITEM = reesource_to_load
+		load_hand_item()
 		swap_animations.play(&"equip")
 
 
@@ -226,16 +222,17 @@ func bob(delta):
 		weapon_bob_amount.y = abs(cos(time * HAND_ITEM.bob_speed_crouching) * HAND_ITEM.vbob_amount)
 
 func load_hand_item():
-	var hand_model = load(HAND_ITEM.model_path)
-	var hand_model_instance = hand_model.instantiate()
-	
-	hand_mesh.add_child(hand_model_instance)
-	hand_mesh.position = HAND_ITEM.mesh_position
-	hand_mesh.rotation_degrees = HAND_ITEM.mesh_rotation
-	hand_mesh.scale = HAND_ITEM.mesh_scale
-	idle_sway_adjustment = HAND_ITEM.idle_sway_adjustment
-	idle_sway_rotation_strength = HAND_ITEM.idle_sway_rotation_strength
-	random_sway_amount = HAND_ITEM.random_sway_amount
+	if HAND_ITEM != null:
+		var hand_model = load(HAND_ITEM.model_path)
+		var hand_model_instance = hand_model.instantiate()
+		
+		hand_mesh.add_child(hand_model_instance)
+		hand_mesh.position = HAND_ITEM.mesh_position
+		hand_mesh.rotation_degrees = HAND_ITEM.mesh_rotation
+		hand_mesh.scale = HAND_ITEM.mesh_scale
+		idle_sway_adjustment = HAND_ITEM.idle_sway_adjustment
+		idle_sway_rotation_strength = HAND_ITEM.idle_sway_rotation_strength
+		random_sway_amount = HAND_ITEM.random_sway_amount
 
 func init_hand_item():
 	if HAND_ITEM != null:
