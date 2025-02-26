@@ -1848,6 +1848,54 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="KeyUI_Q" parent="Head/Camera3D/InventoryLayer/ChestKeys" instance=ExtResource("21_xhl03")]
+layout_mode = 1
+offset_left = 7.00009
+offset_top = 40.0
+offset_right = 7.00012
+offset_bottom = 40.0
+scale = Vector2(0.670759, 0.670759)
+
+[node name="KEY" parent="Head/Camera3D/InventoryLayer/ChestKeys/KeyUI_Q/Contents" index="4"]
+offset_top = 12.483
+offset_bottom = 47.483
+text = "Q"
+
+[node name="KeyUI_X" parent="Head/Camera3D/InventoryLayer/ChestKeys" instance=ExtResource("21_xhl03")]
+layout_mode = 1
+offset_left = 7.00009
+offset_top = 3.0
+offset_right = 7.00012
+offset_bottom = 3.0
+scale = Vector2(0.670759, 0.670759)
+
+[node name="KEY" parent="Head/Camera3D/InventoryLayer/ChestKeys/KeyUI_X/Contents" index="4"]
+offset_top = 14.833
+offset_bottom = 49.833
+text = "X"
+
+[node name="Quick_Drop_LBL" type="Label" parent="Head/Camera3D/InventoryLayer/ChestKeys"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 11.9999
+offset_right = 137.0
+offset_bottom = 34.9999
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 12
+text = "Quick Drop"
+vertical_alignment = 1
+
+[node name="Quick_Switch_LBL" type="Label" parent="Head/Camera3D/InventoryLayer/ChestKeys"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 48.9999
+offset_right = 137.0
+offset_bottom = 71.9999
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 12
+text = "Quick Switch"
+vertical_alignment = 1
+
 [node name="WorkbenchKeys" type="Control" parent="Head/Camera3D/InventoryLayer"]
 visible = false
 layout_mode = 3
@@ -1857,6 +1905,81 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="KeyUI_Q" parent="Head/Camera3D/InventoryLayer/WorkbenchKeys" instance=ExtResource("21_xhl03")]
+layout_mode = 1
+offset_left = 1111.0
+offset_top = 568.0
+offset_right = 1111.0
+offset_bottom = 568.0
+scale = Vector2(0.670759, 0.670759)
+
+[node name="KEY" parent="Head/Camera3D/InventoryLayer/WorkbenchKeys/KeyUI_Q/Contents" index="4"]
+offset_top = 12.483
+offset_bottom = 47.483
+text = "Q"
+
+[node name="KeyUI_X" parent="Head/Camera3D/InventoryLayer/WorkbenchKeys" instance=ExtResource("21_xhl03")]
+layout_mode = 1
+offset_left = 1111.0
+offset_top = 531.0
+offset_right = 1111.0
+offset_bottom = 531.0
+scale = Vector2(0.670759, 0.670759)
+
+[node name="KEY" parent="Head/Camera3D/InventoryLayer/WorkbenchKeys/KeyUI_X/Contents" index="4"]
+offset_top = 14.833
+offset_bottom = 49.833
+text = "X"
+
+[node name="KeyUI_C" parent="Head/Camera3D/InventoryLayer/WorkbenchKeys" instance=ExtResource("21_xhl03")]
+layout_mode = 1
+offset_left = 1111.0
+offset_top = 605.0
+offset_right = 1111.0
+offset_bottom = 605.0
+scale = Vector2(0.670759, 0.670759)
+
+[node name="KEY" parent="Head/Camera3D/InventoryLayer/WorkbenchKeys/KeyUI_C/Contents" index="4"]
+offset_top = 14.833
+offset_bottom = 49.833
+text = "C"
+
+[node name="Quick_Drop_LBL" type="Label" parent="Head/Camera3D/InventoryLayer/WorkbenchKeys"]
+layout_mode = 0
+offset_left = 1017.0
+offset_top = 540.0
+offset_right = 1110.0
+offset_bottom = 563.0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 12
+text = "Quick Drop"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Quick_Switch_LBL" type="Label" parent="Head/Camera3D/InventoryLayer/WorkbenchKeys"]
+layout_mode = 0
+offset_left = 1017.0
+offset_top = 577.0
+offset_right = 1110.0
+offset_bottom = 600.0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 12
+text = "Quick Switch"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Quick_Craft_LBL" type="Label" parent="Head/Camera3D/InventoryLayer/WorkbenchKeys"]
+layout_mode = 0
+offset_left = 1017.0
+offset_top = 615.0
+offset_right = 1110.0
+offset_bottom = 638.0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 12
+text = "Quick Craft"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="ItemWorkshopLayer" type="CanvasLayer" parent="Head/Camera3D"]
 
@@ -3899,3 +4022,8 @@ metadata/_edit_use_anchors_ = true
 [editable path="Head/Camera3D/HandItemRig/HandItem"]
 [editable path="Head/Camera3D/InventoryLayer/PocketKeys/KeyUI_Q"]
 [editable path="Head/Camera3D/InventoryLayer/PocketKeys/KeyUI_X"]
+[editable path="Head/Camera3D/InventoryLayer/ChestKeys/KeyUI_Q"]
+[editable path="Head/Camera3D/InventoryLayer/ChestKeys/KeyUI_X"]
+[editable path="Head/Camera3D/InventoryLayer/WorkbenchKeys/KeyUI_Q"]
+[editable path="Head/Camera3D/InventoryLayer/WorkbenchKeys/KeyUI_X"]
+[editable path="Head/Camera3D/InventoryLayer/WorkbenchKeys/KeyUI_C"]

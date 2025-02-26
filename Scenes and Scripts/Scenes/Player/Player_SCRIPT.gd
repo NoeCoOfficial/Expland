@@ -418,6 +418,8 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		else:
 			closeInventory()
 	
+	if Input.is_action_just_pressed("Workbench_QuickCraft") and InventoryManager.is_in_workbench_interface:
+		SignalBus.pressed_craft.emit()
 	
 	if !PauseManager.is_paused and !InventoryManager.inventory_open and !PauseManager.inside_item_workshop and !DialogueManager.is_in_interface and !PauseManager.inside_explorer_note_ui and PlayerData.GAME_STATE != "DEAD" and PlayerData.GAME_STATE != "SLEEPING":
 		if Input.is_action_just_pressed("Hotbar_1"):
