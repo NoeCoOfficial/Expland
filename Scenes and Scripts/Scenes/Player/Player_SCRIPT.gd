@@ -993,6 +993,8 @@ func closeInventory():
 	InventoryMainLayer.hide()
 	InventoryLayer.hide() # hide the inventory UI
 	$Head/Camera3D/InventoryLayer/PocketKeys.hide()
+	$Head/Camera3D/InventoryLayer/ChestKeys.hide()
+	$Head/Camera3D/InventoryLayer/WorkbenchKeys.hide()
 	
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor

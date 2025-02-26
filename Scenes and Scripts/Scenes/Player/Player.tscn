@@ -3076,7 +3076,6 @@ offset_right = 197.0
 offset_bottom = -101.0
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/DeathScreen"]
 anchors_preset = 15
@@ -3128,7 +3127,6 @@ vertical_alignment = 1
 script = ExtResource("11_0enap")
 
 [node name="OverlayLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="RedOverlay" type="ColorRect" parent="Head/Camera3D/OverlayLayer"]
 process_priority = 10
