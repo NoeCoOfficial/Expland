@@ -43,9 +43,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -410.0
+offset_left = -378.5
 offset_top = -265.5
-offset_right = 410.0
+offset_right = 378.5
 offset_bottom = 265.5
 grow_horizontal = 2
 grow_vertical = 2
@@ -89,6 +89,7 @@ layout_mode = 0
 offset_right = 636.0
 offset_bottom = 394.0
 theme_override_constants/h_separation = 179
+theme_override_constants/v_separation = 239
 columns = 4
 metadata/_edit_use_anchors_ = true
 
@@ -102,6 +103,33 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="AchievementElement4" parent="MainLayer/ScrollContainer/UI/GridContainer" instance=ExtResource("6_8vh6v")]
+layout_mode = 2
+
+[node name="AchievementElement5" parent="MainLayer/ScrollContainer/UI/GridContainer" instance=ExtResource("6_8vh6v")]
+layout_mode = 2
+
+[node name="AchievementElement6" parent="MainLayer/ScrollContainer/UI/GridContainer" instance=ExtResource("6_8vh6v")]
+layout_mode = 2
+
+[node name="AchievementElement7" parent="MainLayer/ScrollContainer/UI/GridContainer" instance=ExtResource("6_8vh6v")]
+layout_mode = 2
+
+[node name="AchievementElement8" parent="MainLayer/ScrollContainer/UI/GridContainer" instance=ExtResource("6_8vh6v")]
+layout_mode = 2
+
+[node name="AchievementElement9" parent="MainLayer/ScrollContainer/UI/GridContainer" instance=ExtResource("6_8vh6v")]
+layout_mode = 2
+
+[node name="AchievementElement10" parent="MainLayer/ScrollContainer/UI/GridContainer" instance=ExtResource("6_8vh6v")]
+layout_mode = 2
+
+[node name="AchievementElement11" parent="MainLayer/ScrollContainer/UI/GridContainer" instance=ExtResource("6_8vh6v")]
+layout_mode = 2
+
+[node name="AchievementElement12" parent="MainLayer/ScrollContainer/UI/GridContainer" instance=ExtResource("6_8vh6v")]
+layout_mode = 2
+
+[node name="AchievementElement13" parent="MainLayer/ScrollContainer/UI/GridContainer" instance=ExtResource("6_8vh6v")]
 layout_mode = 2
 
 [node name="Title" type="Label" parent="MainLayer"]
@@ -127,9 +155,9 @@ vertical_alignment = 1
 [node name="CloseButton" type="TextureButton" parent="MainLayer"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.158854
+anchor_left = 0.184028
 anchor_top = 0.0987654
-anchor_right = 0.190972
+anchor_right = 0.216146
 anchor_bottom = 0.155864
 offset_right = 8.00003
 offset_bottom = 7.99983
