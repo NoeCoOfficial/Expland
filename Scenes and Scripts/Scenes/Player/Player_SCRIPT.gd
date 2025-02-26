@@ -458,17 +458,17 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		elif Input.is_action_just_pressed("Hotbar_8"):
 			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot8":
 				setHotbarSelectedSlot(8)
-				HandManager.HAND_ITEM_NODE.swap_items("PICKAXE")
+				#HandManager.HAND_ITEM_NODE.swap_items("PICKAXE")
 			else:
 				setHotbarSelectedSlot(null)
-				HandManager.HAND_ITEM_NODE.swap_items("")
+				#HandManager.HAND_ITEM_NODE.swap_items("")
 		elif Input.is_action_just_pressed("Hotbar_9"):
 			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot9":
 				setHotbarSelectedSlot(9)
-				HandManager.HAND_ITEM_NODE.swap_items("SWORD")
+				#HandManager.HAND_ITEM_NODE.swap_items("SWORD")
 			else:
 				setHotbarSelectedSlot(null)
-				HandManager.HAND_ITEM_NODE.swap_items("")
+				#HandManager.HAND_ITEM_NODE.swap_items("")
 
 func _unhandled_input(event): # A built-in function that listens for input all the time
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
