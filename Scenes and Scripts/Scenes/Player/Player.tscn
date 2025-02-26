@@ -1875,6 +1875,7 @@ offset_bottom = 49.833
 text = "X"
 
 [node name="Quick_Drop_LBL" type="Label" parent="Head/Camera3D/InventoryLayer/ChestKeys"]
+layout_mode = 0
 offset_left = 44.0
 offset_top = 11.9999
 offset_right = 137.0
@@ -1885,6 +1886,7 @@ text = "Quick Drop"
 vertical_alignment = 1
 
 [node name="Quick_Switch_LBL" type="Label" parent="Head/Camera3D/InventoryLayer/ChestKeys"]
+layout_mode = 0
 offset_left = 44.0
 offset_top = 48.9999
 offset_right = 137.0
@@ -1944,6 +1946,7 @@ offset_bottom = 49.833
 text = "C"
 
 [node name="Quick_Drop_LBL" type="Label" parent="Head/Camera3D/InventoryLayer/WorkbenchKeys"]
+layout_mode = 0
 offset_left = 1017.0
 offset_top = 540.0
 offset_right = 1110.0
@@ -1955,6 +1958,7 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Quick_Switch_LBL" type="Label" parent="Head/Camera3D/InventoryLayer/WorkbenchKeys"]
+layout_mode = 0
 offset_left = 1017.0
 offset_top = 577.0
 offset_right = 1110.0
@@ -1966,6 +1970,7 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Quick_Craft_LBL" type="Label" parent="Head/Camera3D/InventoryLayer/WorkbenchKeys"]
+layout_mode = 0
 offset_left = 1017.0
 offset_top = 615.0
 offset_right = 1110.0
@@ -3197,7 +3202,6 @@ offset_right = 197.0
 offset_bottom = -101.0
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/DeathScreen"]
 anchors_preset = 15
@@ -3249,7 +3253,6 @@ vertical_alignment = 1
 script = ExtResource("11_0enap")
 
 [node name="OverlayLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="RedOverlay" type="ColorRect" parent="Head/Camera3D/OverlayLayer"]
 process_priority = 10
