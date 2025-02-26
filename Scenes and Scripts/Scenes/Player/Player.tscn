@@ -850,6 +850,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="InventoryMainLayer" type="CanvasLayer" parent="Head/Camera3D/InventoryLayer"]
 layer = 2
+visible = false
 
 [node name="Background" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
 anchors_preset = 8
@@ -1778,6 +1779,7 @@ shape = SubResource("RectangleShape2D_b78jw")
 debug_color = Color(0.92549, 0, 0.109804, 0.396078)
 
 [node name="PocketKeys" type="Control" parent="Head/Camera3D/InventoryLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1836,6 +1838,7 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="ChestKeys" type="Control" parent="Head/Camera3D/InventoryLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1843,7 +1846,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="WorkshopKeys" type="Control" parent="Head/Camera3D/InventoryLayer"]
+[node name="WorkbenchKeys" type="Control" parent="Head/Camera3D/InventoryLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -3072,7 +3076,6 @@ offset_right = 197.0
 offset_bottom = -101.0
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/DeathScreen"]
 anchors_preset = 15
@@ -3124,7 +3127,6 @@ vertical_alignment = 1
 script = ExtResource("11_0enap")
 
 [node name="OverlayLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="RedOverlay" type="ColorRect" parent="Head/Camera3D/OverlayLayer"]
 process_priority = 10
