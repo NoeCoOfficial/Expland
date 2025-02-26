@@ -1786,6 +1786,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="KeyUI_Q" parent="Head/Camera3D/InventoryLayer/PocketKeys" instance=ExtResource("21_xhl03")]
 layout_mode = 1
@@ -1813,7 +1814,7 @@ offset_top = 14.833
 offset_bottom = 49.833
 text = "X"
 
-[node name="Quick_Delete_LBL" type="Label" parent="Head/Camera3D/InventoryLayer/PocketKeys"]
+[node name="Quick_Drop_LBL" type="Label" parent="Head/Camera3D/InventoryLayer/PocketKeys"]
 layout_mode = 0
 offset_left = 1017.0
 offset_top = 578.0
@@ -1821,7 +1822,7 @@ offset_right = 1110.0
 offset_bottom = 601.0
 theme = ExtResource("17_rhxkt")
 theme_override_font_sizes/font_size = 12
-text = "Quick Delete"
+text = "Quick Drop"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -1845,6 +1846,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="WorkbenchKeys" type="Control" parent="Head/Camera3D/InventoryLayer"]
 visible = false
@@ -1854,6 +1856,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="ItemWorkshopLayer" type="CanvasLayer" parent="Head/Camera3D"]
 
