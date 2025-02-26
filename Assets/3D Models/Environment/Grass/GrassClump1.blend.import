@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dstwv38as3lxt"
-path="res://.godot/imported/TheEryv.blend-8e952ae6b31148d443a4d186d04d8a3f.scn"
+uid="uid://exmlfia43n4n"
+path="res://.godot/imported/GrassClump1.blend-d36abbbd0dfc0e783206b38c7f806826.scn"
 
 [deps]
 
-source_file="res://Assets/3D Models/The Eryv/TheEryv.blend"
-dest_files=["res://.godot/imported/TheEryv.blend-8e952ae6b31148d443a4d186d04d8a3f.scn"]
+source_file="res://Assets/3D Models/Environment/Grass/GrassClump1.blend"
+dest_files=["res://.godot/imported/GrassClump1.blend-d36abbbd0dfc0e783206b38c7f806826.scn"]
 
 [params]
 

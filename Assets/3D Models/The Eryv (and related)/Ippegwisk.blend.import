@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://exmlfia43n4n"
-path="res://.godot/imported/NewGrass.blend-f1f99b8e4b9bc0e333f4677ab4f8e98a.scn"
+uid="uid://btr6i6mcqf7je"
+path="res://.godot/imported/Ippegwisk.blend-21f61493062cd8de3080bcb79b4ef81f.scn"
 
 [deps]
 
-source_file="res://Assets/3D Models/Experiments/NewGrass.blend"
-dest_files=["res://.godot/imported/NewGrass.blend-f1f99b8e4b9bc0e333f4677ab4f8e98a.scn"]
+source_file="res://Assets/3D Models/The Eryv (and related)/Ippegwisk.blend"
+dest_files=["res://.godot/imported/Ippegwisk.blend-21f61493062cd8de3080bcb79b4ef81f.scn"]
 
 [params]
 

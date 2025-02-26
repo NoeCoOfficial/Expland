@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://btr6i6mcqf7je"
-path="res://.godot/imported/ippegwisk.blend-bc841bf69a9bc5682c508b9be7580895.scn"
+uid="uid://dstwv38as3lxt"
+path="res://.godot/imported/TheEryv.blend-956fdd205dff037ff614ad8fb1698cc2.scn"
 
 [deps]
 
-source_file="res://Assets/3D Models/Experiments/ippegwisk.blend"
-dest_files=["res://.godot/imported/ippegwisk.blend-bc841bf69a9bc5682c508b9be7580895.scn"]
+source_file="res://Assets/3D Models/The Eryv (and related)/TheEryv.blend"
+dest_files=["res://.godot/imported/TheEryv.blend-956fdd205dff037ff614ad8fb1698cc2.scn"]
 
 [params]
 
