@@ -58,11 +58,12 @@ extends Node3D
 			load_hand_item()
 
 @onready var hand_mesh: Node3D = %HandMesh
-@onready var swap_animations: AnimationPlayer = $SwapAnimations
+
 @export var sway_noise : NoiseTexture2D
 @export var sway_speed : float = 1.2
 var mouse_movement : Vector2
 var weapon_bob_amount := Vector2(0, 0)
+
 
 var random_sway_x
 var random_sway_y
@@ -70,6 +71,8 @@ var random_sway_amount : float
 var time : float = 0.0
 var idle_sway_adjustment
 var idle_sway_rotation_strength
+
+var goToITEM : String
 
 func _ready() -> void:
 	load_hand_item()
@@ -82,38 +85,75 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		mouse_movement = event.relative
 
-func sway(delta, isIdle : bool):
-	mouse_movement = mouse_movement.clamp(HAND_ITEM.sway_min, HAND_ITEM.sway_max)
+
+func swap_items(toITEM : String):
+	goToITEM = toITEM
 	
-	if isIdle:
-		var sway_random : float = get_sway_noise()
-		var sway_random_adjusted : float = sway_random * idle_sway_adjustment
+	# If we are currently holding nothing
+	if HandManager.CURRENTLY_HOLDING_ITEM == "":
 		
-		time += delta * (sway_speed + sway_random)
-		random_sway_x = sin(time * 1.5 + sway_random_adjusted) / random_sway_amount
-		random_sway_y = sin(time - sway_random_adjusted) / random_sway_amount
+		if hand_mesh.get_child_count() > 0: # Check if there are any models left, if so then remove them
+			for child in hand_mesh.get_children():
+				child.queue_free()
 		
-		position.x = lerp(position.x, HAND_ITEM.mesh_position.x - (mouse_movement.x *
-	HAND_ITEM.sway_amount_position + random_sway_x) * delta, HAND_ITEM.sway_speed_position)
-		position.y = lerp(position.y, HAND_ITEM.mesh_position.y + (mouse_movement.y *
-	HAND_ITEM.sway_amount_position + random_sway_y) * delta, HAND_ITEM.sway_speed_position)
-		
-		rotation_degrees.y = lerp(rotation_degrees.y, HAND_ITEM.mesh_rotation.y + (mouse_movement.y *
-	HAND_ITEM.sway_amount_rotation + (random_sway_y * idle_sway_rotation_strength)) * delta, HAND_ITEM.sway_speed_rotation)
-		rotation_degrees.x = lerp(rotation_degrees.x, HAND_ITEM.mesh_rotation.x - (mouse_movement.x *
-	HAND_ITEM.sway_amount_rotation + (random_sway_x * idle_sway_rotation_strength)) * delta, HAND_ITEM.sway_speed_rotation)
+		var resource_to_load = load("res://Resources/Hand Items/" + goToITEM + ".tres")
+		HAND_ITEM = resource_to_load
+		load_hand_item()
+		HandManager.CURRENTLY_HOLDING_ITEM = goToITEM
 	
+	# If we want to unequip everything and have empty hands
+	elif goToITEM == "":
+		HandManager.CURRENTLY_HOLDING_ITEM = ""
+		
+		if hand_mesh.get_child_count() > 0: # Check if there are any models left, if so then remove them
+			for child in hand_mesh.get_children():
+				child.queue_free()
+	
+	# If we want to equip an item and we are currently holding another item
 	else:
-	
-		position.x = lerp(position.x, HAND_ITEM.mesh_position.x - (mouse_movement.x *
-	HAND_ITEM.sway_amount_position + weapon_bob_amount.x) * delta, HAND_ITEM.sway_speed_position)
-		position.y = lerp(position.y, HAND_ITEM.mesh_position.y + (mouse_movement.y *
-	HAND_ITEM.sway_amount_position + weapon_bob_amount.y) * delta, HAND_ITEM.sway_speed_position)
+		HandManager.CURRENTLY_HOLDING_ITEM = goToITEM
 		
-		rotation_degrees.y = lerp(rotation_degrees.y, HAND_ITEM.mesh_rotation.y + (mouse_movement.y *
-	HAND_ITEM.sway_amount_rotation) * delta, HAND_ITEM.sway_speed_rotation)
-		rotation_degrees.x = lerp(rotation_degrees.x, HAND_ITEM.mesh_rotation.x - (mouse_movement.x *
-	HAND_ITEM.sway_amount_rotation) * delta, HAND_ITEM.sway_speed_rotation)
+		if hand_mesh.get_child_count() > 0: # Check if there are any models left, if so then remove them
+			for child in hand_mesh.get_children():
+				child.queue_free()
+		
+		var resource_to_load = load("res://Resources/Hand Items/" + goToITEM + ".tres")
+		HAND_ITEM = resource_to_load
+		load_hand_item()
+
+func sway(delta, isIdle : bool):
+	if HAND_ITEM != null:
+		mouse_movement = mouse_movement.clamp(HAND_ITEM.sway_min, HAND_ITEM.sway_max)
+		
+		if isIdle:
+			var sway_random : float = get_sway_noise()
+			var sway_random_adjusted : float = sway_random * idle_sway_adjustment
+			
+			time += delta * (sway_speed + sway_random)
+			random_sway_x = sin(time * 1.5 + sway_random_adjusted) / random_sway_amount
+			random_sway_y = sin(time - sway_random_adjusted) / random_sway_amount
+			
+			position.x = lerp(position.x, HAND_ITEM.mesh_position.x - (mouse_movement.x *
+		HAND_ITEM.sway_amount_position + random_sway_x) * delta, HAND_ITEM.sway_speed_position)
+			position.y = lerp(position.y, HAND_ITEM.mesh_position.y + (mouse_movement.y *
+		HAND_ITEM.sway_amount_position + random_sway_y) * delta, HAND_ITEM.sway_speed_position)
+			
+			rotation_degrees.y = lerp(rotation_degrees.y, HAND_ITEM.mesh_rotation.y + (mouse_movement.y *
+		HAND_ITEM.sway_amount_rotation + (random_sway_y * idle_sway_rotation_strength)) * delta, HAND_ITEM.sway_speed_rotation)
+			rotation_degrees.x = lerp(rotation_degrees.x, HAND_ITEM.mesh_rotation.x - (mouse_movement.x *
+		HAND_ITEM.sway_amount_rotation + (random_sway_x * idle_sway_rotation_strength)) * delta, HAND_ITEM.sway_speed_rotation)
+		
+		else:
+		
+			position.x = lerp(position.x, HAND_ITEM.mesh_position.x - (mouse_movement.x *
+		HAND_ITEM.sway_amount_position + weapon_bob_amount.x) * delta, HAND_ITEM.sway_speed_position)
+			position.y = lerp(position.y, HAND_ITEM.mesh_position.y + (mouse_movement.y *
+		HAND_ITEM.sway_amount_position + weapon_bob_amount.y) * delta, HAND_ITEM.sway_speed_position)
+			
+			rotation_degrees.y = lerp(rotation_degrees.y, HAND_ITEM.mesh_rotation.y + (mouse_movement.y *
+		HAND_ITEM.sway_amount_rotation) * delta, HAND_ITEM.sway_speed_rotation)
+			rotation_degrees.x = lerp(rotation_degrees.x, HAND_ITEM.mesh_rotation.x - (mouse_movement.x *
+		HAND_ITEM.sway_amount_rotation) * delta, HAND_ITEM.sway_speed_rotation)
 
 func get_sway_noise():
 	var player_position := Vector3(0, 0, 0)
@@ -124,31 +164,33 @@ func get_sway_noise():
 	return noise_location
 
 func bob(delta):
-	time += delta
-	
-	if PlayerManager.is_walking_moving:
-		weapon_bob_amount.x = sin(time * HAND_ITEM.bob_speed_walking) * HAND_ITEM.hbob_amount
-		weapon_bob_amount.y = abs(cos(time * HAND_ITEM.bob_speed_walking) * HAND_ITEM.vbob_amount)
+	if HAND_ITEM != null:
+		time += delta
 		
-	if PlayerManager.is_sprinting_moving:
-		weapon_bob_amount.x = sin(time * HAND_ITEM.bob_speed_sprinting) * HAND_ITEM.hbob_amount
-		weapon_bob_amount.y = abs(cos(time * HAND_ITEM.bob_speed_sprinting) * HAND_ITEM.vbob_amount)
-		
-	if PlayerManager.is_crouching_moving:
-		weapon_bob_amount.x = sin(time * HAND_ITEM.bob_speed_crouching) * HAND_ITEM.hbob_amount
-		weapon_bob_amount.y = abs(cos(time * HAND_ITEM.bob_speed_crouching) * HAND_ITEM.vbob_amount)
+		if PlayerManager.is_walking_moving:
+			weapon_bob_amount.x = sin(time * HAND_ITEM.bob_speed_walking) * HAND_ITEM.hbob_amount
+			weapon_bob_amount.y = abs(cos(time * HAND_ITEM.bob_speed_walking) * HAND_ITEM.vbob_amount)
+			
+		if PlayerManager.is_sprinting_moving:
+			weapon_bob_amount.x = sin(time * HAND_ITEM.bob_speed_sprinting) * HAND_ITEM.hbob_amount
+			weapon_bob_amount.y = abs(cos(time * HAND_ITEM.bob_speed_sprinting) * HAND_ITEM.vbob_amount)
+			
+		if PlayerManager.is_crouching_moving:
+			weapon_bob_amount.x = sin(time * HAND_ITEM.bob_speed_crouching) * HAND_ITEM.hbob_amount
+			weapon_bob_amount.y = abs(cos(time * HAND_ITEM.bob_speed_crouching) * HAND_ITEM.vbob_amount)
 
 func load_hand_item():
-	var hand_model = load(HAND_ITEM.model_path)
-	var hand_model_instance = hand_model.instantiate()
-	
-	hand_mesh.add_child(hand_model_instance)
-	hand_mesh.position = HAND_ITEM.mesh_position
-	hand_mesh.rotation_degrees = HAND_ITEM.mesh_rotation
-	hand_mesh.scale = HAND_ITEM.mesh_scale
-	idle_sway_adjustment = HAND_ITEM.idle_sway_adjustment
-	idle_sway_rotation_strength = HAND_ITEM.idle_sway_rotation_strength
-	random_sway_amount = HAND_ITEM.random_sway_amount
+	if HAND_ITEM != null:
+		var hand_model = load(HAND_ITEM.model_path)
+		var hand_model_instance = hand_model.instantiate()
+		
+		hand_mesh.add_child(hand_model_instance)
+		hand_mesh.position = HAND_ITEM.mesh_position
+		hand_mesh.rotation_degrees = HAND_ITEM.mesh_rotation
+		hand_mesh.scale = HAND_ITEM.mesh_scale
+		idle_sway_adjustment = HAND_ITEM.idle_sway_adjustment
+		idle_sway_rotation_strength = HAND_ITEM.idle_sway_rotation_strength
+		random_sway_amount = HAND_ITEM.random_sway_amount
 
 func init_hand_item():
 	if HAND_ITEM != null:

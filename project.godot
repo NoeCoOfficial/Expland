@@ -47,6 +47,7 @@ ExplorerNotesManager="*res://Scenes and Scripts/Singletons/World/ExplorerNotesMa
 DialogueManager="*res://Scenes and Scripts/Singletons/Dialogue/DialogueManager.gd"
 AchievementsManager="*res://Scenes and Scripts/Singletons/Achievements/AchievementsManager.gd"
 InventoryManager="*res://Scenes and Scripts/Singletons/Inventory/InventoryManager.gd"
+HandManager="*res://Scenes and Scripts/Singletons/Inventory/HandManager.gd"
 HotbarManager="*res://Scenes and Scripts/Singletons/Inventory/HotbarManager.gd"
 CraftingManager="*res://Scenes and Scripts/Singletons/Crafting/CraftingManager.gd"
 InputManager="*res://Scenes and Scripts/Singletons/Input/InputManager.gd"
@@ -69,7 +70,7 @@ movie_writer/fps=120
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/SphynxMotionBlurToolkit/plugin.cfg", "res://addons/anthonyec.camera_preview/plugin.cfg")
+enabled=PackedStringArray("res://addons/SphynxMotionBlurToolkit/plugin.cfg", "res://addons/anthonyec.camera_preview/plugin.cfg", "res://addons/notes_tab/plugin.cfg")
 
 [file_customization]
 
@@ -150,6 +151,11 @@ Inventory_QuickSwitch={
 Inventory_QuickDrop={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":88,"key_label":0,"unicode":120,"location":0,"echo":false,"script":null)
+]
+}
+Workbench_QuickCraft={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":67,"key_label":0,"unicode":99,"location":0,"echo":false,"script":null)
 ]
 }
 SaveGame={

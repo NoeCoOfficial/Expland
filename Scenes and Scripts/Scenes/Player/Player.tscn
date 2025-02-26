@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Interaction/RayCast3D_SCRIPT.gd" id="3_2qtqn"]
 [ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="3_yecwp"]
 [ext_resource type="PackedScene" uid="uid://djwgy3b85xfpn" path="res://Scenes and Scripts/Scenes/Player/Hand Item/HandItem.tscn" id="4_476v6"]
-[ext_resource type="Resource" uid="uid://blcr3veqy5vd7" path="res://Resources/Hand Items/PICKAXE.tres" id="5_yhvp8"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/OverlayLayer/RedOverlay_SCRIPT.gd" id="7_gnu1v"]
 [ext_resource type="PackedScene" uid="uid://dhhjltxmoydio" path="res://Scenes and Scripts/Scenes/Player/Inventory/InventorySlot.tscn" id="8_ads4s"]
 [ext_resource type="FontFile" uid="uid://c4h0gd5a2e2qb" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf" id="8_cdk3a"]
@@ -32,6 +31,7 @@
 [ext_resource type="StyleBox" uid="uid://com3tix0pshhk" path="res://Resources/Styles and Themes/Styles/Default/Label/Default_Label.tres" id="21_k6ube"]
 [ext_resource type="PackedScene" uid="uid://ynckscwc0643" path="res://Scenes and Scripts/Scenes/Alert/AlertLayer.tscn" id="21_r1ny7"]
 [ext_resource type="Texture2D" uid="uid://coh5374nhy6fl" path="res://Textures/Explorer Notes/2_Sheet.png" id="21_rd3qm"]
+[ext_resource type="PackedScene" uid="uid://lf4vntqbl3c6" path="res://Scenes and Scripts/Scenes/General/UI/KeyUI.tscn" id="21_xhl03"]
 [ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="22_7sfup"]
 [ext_resource type="AudioStream" uid="uid://ce5warv2uju61" path="res://Audio/SFX/swipe.mp3" id="22_jy0m8"]
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="24_6y28d"]
@@ -537,8 +537,8 @@ script = ExtResource("2_37tst")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.477025, 0, -0.274263)
 
 [node name="HandItem" parent="Head/Camera3D/HandItemRig" instance=ExtResource("4_476v6")]
-transform = Transform3D(0.161432, 3.20613e-05, 0.114442, 0, 0.197882, -5.54371e-05, -0.114442, 4.52255e-05, 0.161432, 0.145115, -0.385922, 0)
-HAND_ITEM = ExtResource("5_yhvp8")
+transform = Transform3D(0.161432, 3.20613e-05, 0.114442, 0, 0.197882, -5.54371e-05, -0.114442, 4.52255e-05, 0.161432, 0, 0, 0)
+HAND_ITEM = null
 sway_speed = 1.0
 
 [node name="HandMesh" parent="Head/Camera3D/HandItemRig/HandItem" index="0"]
@@ -837,7 +837,6 @@ theme_override_font_sizes/font_size = 25
 text = "Collect"
 
 [node name="InventoryLayer" type="CanvasLayer" parent="Head/Camera3D"]
-visible = false
 
 [node name="GreyLayer" type="ColorRect" parent="Head/Camera3D/InventoryLayer"]
 anchors_preset = 15
@@ -1778,6 +1777,209 @@ debug_color = Color(0.92549, 0, 0.109804, 0.396078)
 position = Vector2(959.5, 324)
 shape = SubResource("RectangleShape2D_b78jw")
 debug_color = Color(0.92549, 0, 0.109804, 0.396078)
+
+[node name="PocketKeys" type="Control" parent="Head/Camera3D/InventoryLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="KeyUI_Q" parent="Head/Camera3D/InventoryLayer/PocketKeys" instance=ExtResource("21_xhl03")]
+layout_mode = 1
+offset_left = 1111.0
+offset_top = 606.0
+offset_right = 1111.0
+offset_bottom = 606.0
+scale = Vector2(0.670759, 0.670759)
+
+[node name="KEY" parent="Head/Camera3D/InventoryLayer/PocketKeys/KeyUI_Q/Contents" index="4"]
+offset_top = 12.483
+offset_bottom = 47.483
+text = "Q"
+
+[node name="KeyUI_X" parent="Head/Camera3D/InventoryLayer/PocketKeys" instance=ExtResource("21_xhl03")]
+layout_mode = 1
+offset_left = 1111.0
+offset_top = 569.0
+offset_right = 1111.0
+offset_bottom = 569.0
+scale = Vector2(0.670759, 0.670759)
+
+[node name="KEY" parent="Head/Camera3D/InventoryLayer/PocketKeys/KeyUI_X/Contents" index="4"]
+offset_top = 14.833
+offset_bottom = 49.833
+text = "X"
+
+[node name="Quick_Drop_LBL" type="Label" parent="Head/Camera3D/InventoryLayer/PocketKeys"]
+layout_mode = 0
+offset_left = 1017.0
+offset_top = 578.0
+offset_right = 1110.0
+offset_bottom = 601.0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 12
+text = "Quick Drop"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Quick_Switch_LBL" type="Label" parent="Head/Camera3D/InventoryLayer/PocketKeys"]
+layout_mode = 0
+offset_left = 1017.0
+offset_top = 615.0
+offset_right = 1110.0
+offset_bottom = 638.0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 12
+text = "Quick Switch"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ChestKeys" type="Control" parent="Head/Camera3D/InventoryLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="KeyUI_Q" parent="Head/Camera3D/InventoryLayer/ChestKeys" instance=ExtResource("21_xhl03")]
+layout_mode = 1
+offset_left = 7.00009
+offset_top = 40.0
+offset_right = 7.00012
+offset_bottom = 40.0
+scale = Vector2(0.670759, 0.670759)
+
+[node name="KEY" parent="Head/Camera3D/InventoryLayer/ChestKeys/KeyUI_Q/Contents" index="4"]
+offset_top = 12.483
+offset_bottom = 47.483
+text = "Q"
+
+[node name="KeyUI_X" parent="Head/Camera3D/InventoryLayer/ChestKeys" instance=ExtResource("21_xhl03")]
+layout_mode = 1
+offset_left = 7.00009
+offset_top = 3.0
+offset_right = 7.00012
+offset_bottom = 3.0
+scale = Vector2(0.670759, 0.670759)
+
+[node name="KEY" parent="Head/Camera3D/InventoryLayer/ChestKeys/KeyUI_X/Contents" index="4"]
+offset_top = 14.833
+offset_bottom = 49.833
+text = "X"
+
+[node name="Quick_Drop_LBL" type="Label" parent="Head/Camera3D/InventoryLayer/ChestKeys"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 11.9999
+offset_right = 137.0
+offset_bottom = 34.9999
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 12
+text = "Quick Drop"
+vertical_alignment = 1
+
+[node name="Quick_Switch_LBL" type="Label" parent="Head/Camera3D/InventoryLayer/ChestKeys"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 48.9999
+offset_right = 137.0
+offset_bottom = 71.9999
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 12
+text = "Quick Switch"
+vertical_alignment = 1
+
+[node name="WorkbenchKeys" type="Control" parent="Head/Camera3D/InventoryLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="KeyUI_Q" parent="Head/Camera3D/InventoryLayer/WorkbenchKeys" instance=ExtResource("21_xhl03")]
+layout_mode = 1
+offset_left = 1111.0
+offset_top = 568.0
+offset_right = 1111.0
+offset_bottom = 568.0
+scale = Vector2(0.670759, 0.670759)
+
+[node name="KEY" parent="Head/Camera3D/InventoryLayer/WorkbenchKeys/KeyUI_Q/Contents" index="4"]
+offset_top = 12.483
+offset_bottom = 47.483
+text = "Q"
+
+[node name="KeyUI_X" parent="Head/Camera3D/InventoryLayer/WorkbenchKeys" instance=ExtResource("21_xhl03")]
+layout_mode = 1
+offset_left = 1111.0
+offset_top = 531.0
+offset_right = 1111.0
+offset_bottom = 531.0
+scale = Vector2(0.670759, 0.670759)
+
+[node name="KEY" parent="Head/Camera3D/InventoryLayer/WorkbenchKeys/KeyUI_X/Contents" index="4"]
+offset_top = 14.833
+offset_bottom = 49.833
+text = "X"
+
+[node name="KeyUI_C" parent="Head/Camera3D/InventoryLayer/WorkbenchKeys" instance=ExtResource("21_xhl03")]
+layout_mode = 1
+offset_left = 1111.0
+offset_top = 605.0
+offset_right = 1111.0
+offset_bottom = 605.0
+scale = Vector2(0.670759, 0.670759)
+
+[node name="KEY" parent="Head/Camera3D/InventoryLayer/WorkbenchKeys/KeyUI_C/Contents" index="4"]
+offset_top = 14.833
+offset_bottom = 49.833
+text = "C"
+
+[node name="Quick_Drop_LBL" type="Label" parent="Head/Camera3D/InventoryLayer/WorkbenchKeys"]
+layout_mode = 0
+offset_left = 1017.0
+offset_top = 540.0
+offset_right = 1110.0
+offset_bottom = 563.0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 12
+text = "Quick Drop"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Quick_Switch_LBL" type="Label" parent="Head/Camera3D/InventoryLayer/WorkbenchKeys"]
+layout_mode = 0
+offset_left = 1017.0
+offset_top = 577.0
+offset_right = 1110.0
+offset_bottom = 600.0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 12
+text = "Quick Switch"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Quick_Craft_LBL" type="Label" parent="Head/Camera3D/InventoryLayer/WorkbenchKeys"]
+layout_mode = 0
+offset_left = 1017.0
+offset_top = 615.0
+offset_right = 1110.0
+offset_bottom = 638.0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 12
+text = "Quick Craft"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="ItemWorkshopLayer" type="CanvasLayer" parent="Head/Camera3D"]
 
@@ -3818,3 +4020,10 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/SetTime_Button" to="." method="_on_set_time_button_pressed"]
 
 [editable path="Head/Camera3D/HandItemRig/HandItem"]
+[editable path="Head/Camera3D/InventoryLayer/PocketKeys/KeyUI_Q"]
+[editable path="Head/Camera3D/InventoryLayer/PocketKeys/KeyUI_X"]
+[editable path="Head/Camera3D/InventoryLayer/ChestKeys/KeyUI_Q"]
+[editable path="Head/Camera3D/InventoryLayer/ChestKeys/KeyUI_X"]
+[editable path="Head/Camera3D/InventoryLayer/WorkbenchKeys/KeyUI_Q"]
+[editable path="Head/Camera3D/InventoryLayer/WorkbenchKeys/KeyUI_X"]
+[editable path="Head/Camera3D/InventoryLayer/WorkbenchKeys/KeyUI_C"]

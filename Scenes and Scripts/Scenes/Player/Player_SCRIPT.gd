@@ -418,6 +418,8 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		else:
 			closeInventory()
 	
+	if Input.is_action_just_pressed("Workbench_QuickCraft") and InventoryManager.is_in_workbench_interface:
+		SignalBus.pressed_craft.emit()
 	
 	if !PauseManager.is_paused and !InventoryManager.inventory_open and !PauseManager.inside_item_workshop and !DialogueManager.is_in_interface and !PauseManager.inside_explorer_note_ui and PlayerData.GAME_STATE != "DEAD" and PlayerData.GAME_STATE != "SLEEPING":
 		if Input.is_action_just_pressed("Hotbar_1"):
@@ -458,13 +460,17 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		elif Input.is_action_just_pressed("Hotbar_8"):
 			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot8":
 				setHotbarSelectedSlot(8)
+				#HandManager.HAND_ITEM_NODE.swap_items("PICKAXE")
 			else:
 				setHotbarSelectedSlot(null)
+				#HandManager.HAND_ITEM_NODE.swap_items("")
 		elif Input.is_action_just_pressed("Hotbar_9"):
 			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot9":
 				setHotbarSelectedSlot(9)
+				#HandManager.HAND_ITEM_NODE.swap_items("SWORD")
 			else:
 				setHotbarSelectedSlot(null)
+				#HandManager.HAND_ITEM_NODE.swap_items("")
 
 func _unhandled_input(event): # A built-in function that listens for input all the time
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
@@ -670,6 +676,7 @@ func _ready():
 	Utils.set_center_offset($Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Right_Arrow)
 	Utils.set_center_offset($Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Left_Arrow)
 	
+	HandManager.HAND_ITEM_NODE = HandItem
 	PlayerManager.AudioNotification = $Head/Camera3D/AudioNotificationLayer/AudioNotification
 	PlayerManager.EXPLORER_NOTE_CONTENTS = $Head/Camera3D/ExplorerNoteLayer/Contents
 	PlayerManager.EXPLORER_NOTE_TEXTURE_RECT = $Head/Camera3D/ExplorerNoteLayer/Contents/ExplorerNoteSheet
@@ -943,6 +950,7 @@ func openInventory():
 		
 		WorkbenchCollisionBoundary.set_deferred("monitorable", false)
 		WorkbenchCollisionBoundary.set_deferred("monitoring", false)
+		$Head/Camera3D/InventoryLayer/ChestKeys.show()
 		
 	elif InventoryManager.is_in_workbench_interface:
 		InventoryMainLayer.offset.x = -155.09
@@ -955,6 +963,7 @@ func openInventory():
 		
 		PocketsCollisionBoundary.set_deferred("monitorable", false)
 		PocketsCollisionBoundary.set_deferred("monitoring", false)
+		$Head/Camera3D/InventoryLayer/WorkbenchKeys.show()
 	
 	else:
 		
@@ -969,6 +978,7 @@ func openInventory():
 		
 		WorkbenchCollisionBoundary.set_deferred("monitorable", false)
 		WorkbenchCollisionBoundary.set_deferred("monitoring", false)
+		$Head/Camera3D/InventoryLayer/PocketKeys.show()
 	
 	InventoryMainLayer.show()
 	InventoryLayer.show() # show the inventory UI
@@ -984,6 +994,10 @@ func closeInventory():
 	
 	InventoryMainLayer.hide()
 	InventoryLayer.hide() # hide the inventory UI
+	$Head/Camera3D/InventoryLayer/PocketKeys.hide()
+	$Head/Camera3D/InventoryLayer/ChestKeys.hide()
+	$Head/Camera3D/InventoryLayer/WorkbenchKeys.hide()
+	
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor
 	Utils.center_mouse_cursor() # center the mouse cursor
