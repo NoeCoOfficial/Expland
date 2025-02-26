@@ -94,13 +94,13 @@ func _on_continue_btn_pressed() -> void:
 	var text = text_edit.text
 	var invalid_chars = ["/", "\\", "|", "*", "<", ">", "\"", "?", ":", "+", "\t", "\n", "\r"]
 	var sanitized_name = ""
-	var has_valid_char = false
+	#var has_valid_char = false
 	
 	for character in text:
 		if character not in invalid_chars:
 			sanitized_name += character
-			if character != " ":
-				has_valid_char = true
+			#if character != " ":
+				#has_valid_char = true
 	
 	if sanitized_name == "":
 		sanitized_name = current_name_submitted
@@ -150,16 +150,17 @@ func _on_island_name_text_edit_text_submitted(_new_text: String) -> void:
 	var text = text_edit.text
 	var invalid_chars = ["/", "\\", "|", "*", "<", ">", "\"", "?", ":", "+", "\t", "\n", "\r"]
 	var sanitized_name = ""
-	var has_valid_char = false
+	#var has_valid_char = false
 	
 	$Island_Name_TextEdit.focus_mode = 0
 	$Island_Name_TextEdit.focus_mode = 1
 	
+	
 	for character in text:
 		if character not in invalid_chars:
 			sanitized_name += character
-			if character != " ":
-				has_valid_char = true
+			#if character != " ":
+				#has_valid_char = true
 	
 	if sanitized_name == "":
 		sanitized_name = current_name_submitted

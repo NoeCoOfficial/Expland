@@ -48,3 +48,14 @@
 extends Node
 
 var is_debugging = false
+
+func _input(_event: InputEvent) -> void:
+	if OS.has_feature("debug"):
+		if Input.is_action_just_pressed("print_objects"):
+			print("Objects: ", Performance.get_monitor(Performance.OBJECT_COUNT))
+			print("Nodes: ", Performance.get_monitor(Performance.OBJECT_NODE_COUNT))
+			print("Orphan Nodes: ", Performance.get_monitor(Performance.OBJECT_ORPHAN_NODE_COUNT))
+			print("Textures: ", Performance.get_monitor(Performance.RENDER_TEXTURE_MEM_USED) / 1048576, " MB") # Convert from bytes to MB
+			print("Video Memory Used: ", Performance.get_monitor(Performance.RENDER_VIDEO_MEM_USED) / 1048576, " MB")
+			print("Total Memory Used: ", Performance.get_monitor(Performance.MEMORY_STATIC) / 1048576, " MB")
+			print("--------------------------------")

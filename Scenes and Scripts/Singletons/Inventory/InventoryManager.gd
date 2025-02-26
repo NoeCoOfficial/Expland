@@ -58,15 +58,6 @@ func get_free_slot(Slots : Array):
 		if not Slots[i].is_populated():
 			free_slot = Slots[i]
 			return free_slot
-			#break
-
-const HANDHELD_ITEMS = [
-	
-	"PICKAXE",
-	"AXE",
-	"SWORD",
-	
-]
 
 const CONSUMABLE_ITEMS = [
 	
@@ -112,8 +103,6 @@ var item_ref := ""
 var item_ref_not_at_inventory :=  ""
 var is_creating_pickup = false
 var is_inside_checker = false
-
-var is_hovering_over_hand_dropable = false
 
 var chestNode
 
@@ -220,23 +209,6 @@ func spawn_workbench_output_dropable(ITEM_TYPE):
 		InventoryManager.WORKSHOP_OUTPUT_SLOT.set_populated(true)
 		
 		return DropableInstance
-
-func set_hand_item(dropable_to_delete, ITEM_TYPE : String):
-	var PLAYER = get_node("/root/World/Player")
-	if InventoryData.HAND_ITEM_TYPE != "":
-		if dropable_to_delete.get_is_workshop_dropable():
-			CraftingManager.bindCraftingItem(ITEM_TYPE, int(String(dropable_to_delete.get_slot_inside().name)[-1]) - 1)
-			spawn_workshop_dropable(dropable_to_delete.global_position, InventoryData.HAND_ITEM_TYPE, dropable_to_delete.get_slot_inside())
-		
-		elif dropable_to_delete.get_is_workshop_output_dropable():
-			spawn_workbench_output_dropable(InventoryData.HAND_ITEM_TYPE)
-		
-		else:
-			spawn_inventory_dropable(dropable_to_delete.global_position, InventoryData.HAND_ITEM_TYPE, dropable_to_delete.get_slot_inside(), dropable_to_delete.get_is_in_chest_slot())
-	
-	
-	dropable_to_delete.queue_free()
-	PLAYER.set_hand_item_type(ITEM_TYPE)
 
 func get_hunger_restoration_value(item: String) -> int:
 	if item in FOOD_ITEMS:

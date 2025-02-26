@@ -48,8 +48,6 @@
 @icon("res://Textures/Icons/Script Icons/32x32/ui_inventory.png")
 extends StaticBody2D
 
-@export var is_populated_label : Label
-
 @export var is_touching_draggable = false
 @export var populated = false
 @export var is_chest_slot = false
@@ -68,16 +66,6 @@ func _process(_delta):
 		visible = true
 	else:
 		visible = false
-	
-	if DebugManager.is_debugging:
-		is_populated_label.visible = true
-		if populated:
-			is_populated_label.text = "Populated"
-		else:
-			is_populated_label.text = "Empty"
-	else:
-		is_populated_label.visible = false
-
 
 func set_is_chest_slot(value : bool):
 	is_chest_slot = value

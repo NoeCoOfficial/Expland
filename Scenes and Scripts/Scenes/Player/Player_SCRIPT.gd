@@ -62,7 +62,6 @@ extends CharacterBody3D # Inheritance
 var inventory_opened_in_air := false ## Checks if the inventory UI is opened in the air (so the same velocity can be kept, used in _physics_process()
 var speed : float ## The speed of the player. Used in _physics_process, this variable changes to SPRINT_SPEED, CROUCH_SPEED or WALK_SPEED depending on what input is pressed.
 var transitioning_to_menu = false
-var inventoryHand_debounce_timer = 0.2
 
 ######################################
 # Gameplay group
@@ -170,6 +169,7 @@ var stamina_restoring_from_0 = false
 
 @export var head : Node3D
 @export var camera : Camera3D
+@export var HandItem : Node3D
 @export var PickupAttractionPos : Node3D
 
 
@@ -197,12 +197,6 @@ var stamina_restoring_from_0 = false
 @export var PocketsCollisionBoundary : Area2D
 @export var ChestCollisionBoundary : Area2D
 @export var WorkbenchCollisionBoundary : Area2D
-@export var Pickaxe_Video : VideoStreamPlayer
-@export var Axe_Video : VideoStreamPlayer
-@export var Sword_Video : VideoStreamPlayer
-@export var EquipAnimations_Player : AnimationPlayer
-@export var HAND_ITEM_TYPE_Label : Label
-
 
 @export_group("Chest")
 
@@ -320,7 +314,6 @@ var stamina_restoring_from_0 = false
 
 @export_subgroup("Timers")
 @export var ManualSaveCooldown : Timer
-@export var HandItemDebounce : Timer
 @export var AutoSaveTimer : Timer
 
 
@@ -424,6 +417,60 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			openInventory()
 		else:
 			closeInventory()
+	
+	if Input.is_action_just_pressed("Workbench_QuickCraft") and InventoryManager.is_in_workbench_interface:
+		SignalBus.pressed_craft.emit()
+	
+	if !PauseManager.is_paused and !InventoryManager.inventory_open and !PauseManager.inside_item_workshop and !DialogueManager.is_in_interface and !PauseManager.inside_explorer_note_ui and PlayerData.GAME_STATE != "DEAD" and PlayerData.GAME_STATE != "SLEEPING":
+		if Input.is_action_just_pressed("Hotbar_1"):
+			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot1":
+				setHotbarSelectedSlot(1)
+			else:
+				setHotbarSelectedSlot(null)
+		elif Input.is_action_just_pressed("Hotbar_2"):
+			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot2":
+				setHotbarSelectedSlot(2)
+			else:
+				setHotbarSelectedSlot(null)
+		elif Input.is_action_just_pressed("Hotbar_3"):
+			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot3":
+				setHotbarSelectedSlot(3)
+			else:
+				setHotbarSelectedSlot(null)
+		elif Input.is_action_just_pressed("Hotbar_4"):
+			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot4":
+				setHotbarSelectedSlot(4)
+			else:
+				setHotbarSelectedSlot(null)
+		elif Input.is_action_just_pressed("Hotbar_5"):
+			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot5":
+				setHotbarSelectedSlot(5)
+			else:
+				setHotbarSelectedSlot(null)
+		elif Input.is_action_just_pressed("Hotbar_6"):
+			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot6":
+				setHotbarSelectedSlot(6)
+			else:
+				setHotbarSelectedSlot(null)
+		elif Input.is_action_just_pressed("Hotbar_7"):
+			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot7":
+				setHotbarSelectedSlot(7)
+			else:
+				setHotbarSelectedSlot(null)
+		elif Input.is_action_just_pressed("Hotbar_8"):
+			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot8":
+				setHotbarSelectedSlot(8)
+				#HandManager.HAND_ITEM_NODE.swap_items("PICKAXE")
+			else:
+				setHotbarSelectedSlot(null)
+				#HandManager.HAND_ITEM_NODE.swap_items("")
+		elif Input.is_action_just_pressed("Hotbar_9"):
+			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot9":
+				setHotbarSelectedSlot(9)
+				#HandManager.HAND_ITEM_NODE.swap_items("SWORD")
+			else:
+				setHotbarSelectedSlot(null)
+				#HandManager.HAND_ITEM_NODE.swap_items("")
 
 func _unhandled_input(event): # A built-in function that listens for input all the time
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
@@ -441,6 +488,24 @@ func _unhandled_input(event): # A built-in function that listens for input all t
 #region Process
 
 func _physics_process(delta):
+	PlayerManager.isIdle = !is_movement_input_active
+	HandItem.sway(delta, PlayerManager.isIdle)
+	
+	if is_walking and is_movement_input_active:
+		PlayerManager.is_walking_moving = true
+	else:
+		PlayerManager.is_walking_moving = false
+	
+	if is_sprinting and is_movement_input_active:
+		PlayerManager.is_sprinting_moving = true
+	else:
+		PlayerManager.is_sprinting_moving = false
+	
+	if is_crouching and is_movement_input_active:
+		PlayerManager.is_crouching_moving = true
+	else:
+		PlayerManager.is_crouching_moving = false
+
 	## Player stamina
 	if is_sprinting and is_movement_input_active:
 		if !stamina_restoring_from_0:
@@ -527,6 +592,7 @@ func _physics_process(delta):
 		if is_moving:
 			Wave_Length += delta * velocity.length()
 			camera.transform.origin = _headbob(Wave_Length)
+			HandItem.bob(delta)
 		else:
 			# Smoothly return to original position when not moving
 			var target_pos = Vector3(camera.transform.origin.x, 0, camera.transform.origin.z)
@@ -537,9 +603,7 @@ func _headbob(time) -> Vector3:
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP # set the y position to the sine of the time times the bob frequency times the bob amplitude
 	return pos # return the position
 
-func _process(delta):
-	if inventoryHand_debounce_timer > 0:
-		inventoryHand_debounce_timer -= delta
+func _process(_delta):
 	
 	SENSITIVITY = PlayerSettingsData.Sensitivity
 	camera.fov = PlayerSettingsData.FOV
@@ -612,6 +676,7 @@ func _ready():
 	Utils.set_center_offset($Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Right_Arrow)
 	Utils.set_center_offset($Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Left_Arrow)
 	
+	HandManager.HAND_ITEM_NODE = HandItem
 	PlayerManager.AudioNotification = $Head/Camera3D/AudioNotificationLayer/AudioNotification
 	PlayerManager.EXPLORER_NOTE_CONTENTS = $Head/Camera3D/ExplorerNoteLayer/Contents
 	PlayerManager.EXPLORER_NOTE_TEXTURE_RECT = $Head/Camera3D/ExplorerNoteLayer/Contents/ExplorerNoteSheet
@@ -757,15 +822,15 @@ func initInventorySlots():
 #region Walking, sprinting and crouching sounds
 
 func _on_walking_speed_sounds_timeout() -> void:
-	if is_walking:
+	if is_walking and is_moving:
 		pass
 
 func _on_sprinting_speed_sounds_timeout() -> void:
-	if is_sprinting:
+	if is_sprinting and is_moving:
 		pass
 
 func _on_crouching_speed_sounds_timeout() -> void:
-	if is_crouching:
+	if is_crouching and is_moving:
 		pass
 
 #endregion
@@ -801,7 +866,6 @@ func takeDamage(DamageToTake): # A function to take damage from the player
 			MinimalAlert.hide_minimal_alert(0.1)
 			AudioManager.Current_Playlist.audibleOnlyFadeOutAllSongs()
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # lock mouse
-			set_hand_item_type("")
 			InventoryData.clearInventory(InventoryMainLayer)
 			
 			showDeathScreen() # call the death screen function 
@@ -876,7 +940,7 @@ func openInventory():
 	$is_inside_boundary_false_inventory_debounce.start()
 	
 	if InventoryManager.in_chest_interface:
-		InventoryMainLayer.offset.x = -291.96
+		InventoryMainLayer.offset.x = -290.28
 		
 		ChestCollisionBoundary.set_deferred("monitorable", true)
 		ChestCollisionBoundary.set_deferred("monitoring", true)
@@ -886,6 +950,7 @@ func openInventory():
 		
 		WorkbenchCollisionBoundary.set_deferred("monitorable", false)
 		WorkbenchCollisionBoundary.set_deferred("monitoring", false)
+		$Head/Camera3D/InventoryLayer/ChestKeys.show()
 		
 	elif InventoryManager.is_in_workbench_interface:
 		InventoryMainLayer.offset.x = -155.09
@@ -898,6 +963,7 @@ func openInventory():
 		
 		PocketsCollisionBoundary.set_deferred("monitorable", false)
 		PocketsCollisionBoundary.set_deferred("monitoring", false)
+		$Head/Camera3D/InventoryLayer/WorkbenchKeys.show()
 	
 	else:
 		
@@ -912,6 +978,7 @@ func openInventory():
 		
 		WorkbenchCollisionBoundary.set_deferred("monitorable", false)
 		WorkbenchCollisionBoundary.set_deferred("monitoring", false)
+		$Head/Camera3D/InventoryLayer/PocketKeys.show()
 	
 	InventoryMainLayer.show()
 	InventoryLayer.show() # show the inventory UI
@@ -920,8 +987,6 @@ func openInventory():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # set the mouse mode to visible
 	InventoryManager.inventory_open = true
 	inventory_opened_in_air = not is_on_floor() # Set the flag when inventory is opened in the air
-	
-	set_hand_item_type(InventoryData.HAND_ITEM_TYPE)
 
 func closeInventory():
 	$Head/Camera3D/AudioNotificationLayer.layer = 1
@@ -929,6 +994,10 @@ func closeInventory():
 	
 	InventoryMainLayer.hide()
 	InventoryLayer.hide() # hide the inventory UI
+	$Head/Camera3D/InventoryLayer/PocketKeys.hide()
+	$Head/Camera3D/InventoryLayer/ChestKeys.hide()
+	$Head/Camera3D/InventoryLayer/WorkbenchKeys.hide()
+	
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor
 	Utils.center_mouse_cursor() # center the mouse cursor
@@ -996,128 +1065,6 @@ func delete_pickup_object(pickupobj):
 	if pickupobj != null:
 		pickupobj.queue_free()
 
-func _on_hand_dropable_detector_mouse_entered() -> void:
-	InventoryManager.is_hovering_over_hand_dropable = true
-	if InventoryManager.inventory_open and InventoryData.HAND_ITEM_TYPE != "":
-		MinimalAlert.show_minimal_alert(0.1, "Right click to put item back into pockets")
-
-func _on_hand_dropable_detector_mouse_exited() -> void:
-	InventoryManager.is_hovering_over_hand_dropable = false
-	MinimalAlert.hide_minimal_alert(0.1)
-
-func _on_hand_detector_right_click() -> void:
-	if InventoryManager.is_hovering_over_hand_dropable and inventoryHand_debounce_timer <= 0:
-		if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup:
-			if !InventoryData.HAND_ITEM_TYPE == "":
-				
-				var free_slot = null
-				
-				# Get the free slot
-				free_slot = InventoryManager.get_free_slot(InventoryManager.POCKET_SLOTS)
-				
-				if free_slot != null and !free_slot.is_populated():
-					
-					InventoryManager.spawn_inventory_dropable(free_slot.global_position, InventoryData.HAND_ITEM_TYPE, free_slot, false)
-					free_slot.set_populated(true)
-					set_hand_item_type("")
-					MinimalAlert.hide_minimal_alert(0.1)
-
-func set_hand_item_type(ITEM_TYPE : String):
-	inventoryHand_debounce_timer = 0.2
-	if ITEM_TYPE == "":
-		visually_equip("")
-		InventoryData.HAND_ITEM_TYPE = ""
-		HAND_ITEM_TYPE_Label.text = "Empty"
-		Pickaxe_Video.visible = false
-		Axe_Video.visible = false
-		Sword_Video.visible = false
-	
-	elif ITEM_TYPE == "PICKAXE":
-		visually_equip("PICKAXE")
-		InventoryData.HAND_ITEM_TYPE = "PICKAXE"
-		HAND_ITEM_TYPE_Label.text = "Pickaxe"
-		Pickaxe_Video.visible = true
-		Axe_Video.visible = false
-		Sword_Video.visible = false
-	
-	elif ITEM_TYPE == "AXE":
-		visually_equip("AXE")
-		InventoryData.HAND_ITEM_TYPE = "AXE"
-		HAND_ITEM_TYPE_Label.text = "Axe"
-		Pickaxe_Video.visible = false
-		Axe_Video.visible = true
-		Sword_Video.visible = false
-	
-	elif ITEM_TYPE == "SWORD":
-		visually_equip("SWORD")
-		InventoryData.HAND_ITEM_TYPE = "SWORD"
-		HAND_ITEM_TYPE_Label.text = "Sword"
-		Pickaxe_Video.visible = false
-		Axe_Video.visible = false
-		Sword_Video.visible = true
-
-func visually_equip(ITEM_TYPE):
-	if !ITEM_TYPE == InventoryData.HAND_ITEM_TYPE:
-		if ITEM_TYPE == "":
-			if InventoryData.HAND_ITEM_TYPE != "":
-				var anim_to_play : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
-				EquipAnimations_Player.play(anim_to_play)
-		
-		if ITEM_TYPE == "SWORD":
-			if InventoryData.HAND_ITEM_TYPE == "":
-				EquipAnimations_Player.play("equip_SWORD")
-			else:
-				var item_to_unequip : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
-				EquipAnimations_Player.play(item_to_unequip)
-				await get_tree().create_timer(0.16).timeout
-				EquipAnimations_Player.play("equip_SWORD")
-		
-		if ITEM_TYPE == "PICKAXE":
-			if InventoryData.HAND_ITEM_TYPE == "":
-				EquipAnimations_Player.play("equip_PICKAXE")
-			else:
-				var item_to_unequip : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
-				EquipAnimations_Player.play(item_to_unequip)
-				await get_tree().create_timer(0.16).timeout
-				EquipAnimations_Player.play("equip_PICKAXE")
-		
-		if ITEM_TYPE == "AXE":
-			if InventoryData.HAND_ITEM_TYPE == "":
-				EquipAnimations_Player.play("equip_AXE")
-			else:
-				var item_to_unequip : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
-				EquipAnimations_Player.play(item_to_unequip)
-				await get_tree().create_timer(0.16).timeout
-				EquipAnimations_Player.play("equip_AXE")
-
-func init_visually_equip(ITEM_TYPE : String):
-	
-	if ITEM_TYPE == "":
-		Pickaxe_Video.visible = false
-		Sword_Video.visible = false
-		Axe_Video.visible = false
-	
-	if ITEM_TYPE == "PICKAXE":
-		EquipAnimations_Player.play("equip_PICKAXE")
-		Sword_Video.visible = false
-		Axe_Video.visible = false
-	
-	if ITEM_TYPE == "AXE":
-		EquipAnimations_Player.play("equip_AXE")
-		Pickaxe_Video.visible = false
-		Sword_Video.visible = false
-	
-	if ITEM_TYPE == "SWORD":
-		EquipAnimations_Player.play("equip_SWORD")
-		Pickaxe_Video.visible = false
-		Axe_Video.visible = false
-
-func get_hand_debounce_time_left():
-	return HandItemDebounce.time_left
-
-func start_hand_debounce_timer():
-	HandItemDebounce.start()
-
 func hide_chest_dropables(parent_node: Node):
 	for child in parent_node.get_children():
 		# Check if the child's name starts with "Dropable"
@@ -1143,6 +1090,34 @@ func _on_is_inside_boundary_false_startup_timeout() -> void:
 
 func _on_is_inside_boundary_false_inventory_debounce_timeout() -> void:
 	InventoryManager.is_inside_boundary = false
+
+#endregion
+
+#region Hotbar
+
+func setHotbarSelectedSlot(Slot_Number):
+	if Slot_Number != null:
+		print("Setting hotbar slot to: ", Slot_Number)
+		for child in $Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots.get_children():
+			print("Checking child: ", child.name)
+			if str(child.name) == "Slot" + str(Slot_Number):
+				print("Found slot: ", child.name)
+				HotbarManager.CURRENTLY_SELECTED_SLOT = child
+				HotbarManager.CURRENTLY_SELECTED_SLOT_NAME = child.name
+		
+		for child in $Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarOutlines.get_children():
+			if str(child.name) == "Slot" + str(Slot_Number) + "_Outline":
+				print("Showing outline for: ", child.name)
+				child.visible = true
+			else:
+				child.visible = false
+	else:
+		
+		for child in $Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarOutlines.get_children():
+				child.visible = false
+		
+		HotbarManager.CURRENTLY_SELECTED_SLOT = null
+		HotbarManager.CURRENTLY_SELECTED_SLOT_NAME = null
 
 #endregion
 

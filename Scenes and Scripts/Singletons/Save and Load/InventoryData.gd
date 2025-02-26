@@ -50,7 +50,7 @@ extends Node
 var INVENTORY_SAVE_PATH = ""
 
 var inventory_data = []
-var HAND_ITEM_TYPE : String = ""
+var CURRENT_ITEM_IN_HAND : String = ""
 
 func saveInventory(Island_Name : String, parent_node: Node, chest_parent_node: Node) -> void:
 	
@@ -65,7 +65,7 @@ func saveInventory(Island_Name : String, parent_node: Node, chest_parent_node: N
 	# Clear the inventory_data before saving
 	inventory_data.clear()
 	print("[InventoryData] Clearing old inventory data.")
-
+	
 	# Collect data from nodes with names starting with "Dropable" in parent_node
 	for child in parent_node.get_children():
 		if child.name.begins_with("Dropable"):
@@ -80,7 +80,7 @@ func saveInventory(Island_Name : String, parent_node: Node, chest_parent_node: N
 				drop_data["position"] = Utils.vector2_to_dict(child.get_slot_inside().global_position)
 			
 			inventory_data.append(drop_data)
-
+	
 	# Collect data from nodes with names starting with "Dropable" in chest_parent_node
 	for child in chest_parent_node.get_children():
 		if child.name.begins_with("Dropable"):
@@ -95,14 +95,17 @@ func saveInventory(Island_Name : String, parent_node: Node, chest_parent_node: N
 				drop_data["position"] = Utils.vector2_to_dict(child.get_slot_inside().global_position)
 			
 			inventory_data.append(drop_data)
-
+	
 	# Debugging: Ensure inventory_data contains all collected items
 	print("[InventoryData] Final inventory_data array: ", inventory_data)
-
-	# Add HAND_ITEM_TYPE to the inventory data
+	
 	var save_data = {
 		"inventory": inventory_data,
-		"hand_item_type": HAND_ITEM_TYPE
+		
+		"current_item_in_hand": CURRENT_ITEM_IN_HAND,
+		
+		"selected_hotbar_slot_name" : HotbarManager.CURRENTLY_SELECTED_SLOT_NAME
+		
 	}
 
 	# Write fresh data to the file
@@ -130,9 +133,10 @@ func loadInventory(Island_Name : String) -> void:
 			print("[InventoryData] No inventory data to load.")
 			return
 		
-		# Update the in-memory inventory data and HAND_ITEM_TYPE
+		# Update the in-memory inventory data
 		inventory_data = current_line["inventory"]
-		HAND_ITEM_TYPE = current_line["hand_item_type"]
+		CURRENT_ITEM_IN_HAND = current_line["current_item_in_hand"]
+		HotbarManager.CURRENTLY_SELECTED_SLOT_NAME = current_line["selected_hotbar_slot_name"]
 		
 		# Spawn inventory items based on loaded data
 		for item in inventory_data:
@@ -161,7 +165,6 @@ func loadInventory(Island_Name : String) -> void:
 
 func clearInventory(parent_node : Node):
 	inventory_data.clear()
-	HAND_ITEM_TYPE = ""
 	
 	for child in parent_node.get_children():
 		if child.name.begins_with("Dropable"):

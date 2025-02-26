@@ -61,7 +61,7 @@ extends Control
 func _ready() -> void:
 	SignalBus.populate_explorer_note_ui.connect(populateImages)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if ExplorerNotesManager.COLLECTED_NOTES.is_empty():
 		NoteIndex_Label.hide()
 		RightButton.hide()

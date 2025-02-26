@@ -65,9 +65,9 @@ func set_current_island(island_name: String) -> void:
 
 func resetAttributes():
 	
-	## CRITICAL
-	# EVERY NEW VALUE ASSOCIATED WITH THE ISLAND
-	# IT'S NAME AND IT'S DEFAULT HERE!
+	# CRITICAL
+	# EVERY VALUE ASSOCIATED WITH THE ISLAND AND/OR PLAYER
+	# IT'S NAME AND IT'S DEFAULT VALUE MUST BE SET HERE!
 	# VERY IMPORTANT!
 	
 	PauseManager.inside_explorer_note_ui = false
@@ -85,7 +85,7 @@ func resetAttributes():
 	PlayerData.Hunger = 100
 	PlayerData.Hydration = 100
 	PlayerManager.Stamina = 100
-	InventoryData.HAND_ITEM_TYPE = ""
+	InventoryData.CURRENT_ITEM_IN_HAND = ""
 	IslandManager.Current_Island_Name = ""
 	IslandManager.Current_Game_Mode = ""
 	IslandManager.Current_Weather = ""
@@ -106,7 +106,7 @@ func resetAttributes():
 	ExplorerNotesManager.UI_CurrentLeftID = null
 	ExplorerNotesManager.UI_CurrentRightID = null
 	ExplorerNotesManager.EXPLORER_NOTES_MAIN_LAYER = null
-
+	
 	InventoryManager.creatingFromInventory = false
 	InventoryManager.inventory_open = false
 	InventoryManager.in_chest_interface = false
@@ -117,10 +117,11 @@ func resetAttributes():
 	InventoryManager.item_ref_not_at_inventory = ""
 	InventoryManager.is_creating_pickup = false
 	InventoryManager.is_inside_checker = false
-	InventoryManager.is_hovering_over_hand_dropable = false
 	InventoryManager.chestNode = null
 	
 	CraftingManager.resetCurrentCraftingItems()
+	
+	HotbarManager.CURRENTLY_SELECTED_SLOT_NAME = null
 	
 	InteractionManager.is_notification_on_screen = false
 	InteractionManager.is_colliding = false
