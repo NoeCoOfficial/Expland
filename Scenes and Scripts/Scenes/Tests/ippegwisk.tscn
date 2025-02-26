@@ -1,14 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4rjlgobf2o4e"]
+[gd_scene load_steps=3 format=3 uid="uid://brfmaf0i4m1cc"]
 
-[ext_resource type="PackedScene" uid="uid://btr6i6mcqf7je" path="res://Assets/3D Models/Experiments/ippegwisk.blend" id="1_vg5sd"]
+[ext_resource type="PackedScene" uid="uid://btr6i6mcqf7je" path="res://Assets/3D Models/Experiments/ippegwisk.blend" id="1_jjfmq"]
+[ext_resource type="Material" uid="uid://dwu2srvqdks82" path="res://Scenes and Scripts/Scenes/Tests/Ippegwisk.tres" id="2_huqt3"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_saw03"]
-albedo_color = Color(0.759792, 0.868943, 0.95576, 1)
-metallic = 0.66
-metallic_specular = 0.97
-roughness = 0.18
-
-[node name="ippegwisk" instance=ExtResource("1_vg5sd")]
+[node name="ippegwisk" instance=ExtResource("1_jjfmq")]
 
 [node name="Icosphere_001" parent="." index="0"]
-material_override = SubResource("StandardMaterial3D_saw03")
+material_override = ExtResource("2_huqt3")

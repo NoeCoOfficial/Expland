@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://c5jkrckgqd0w6"]
+[gd_scene load_steps=94 format=3 uid="uid://c5jkrckgqd0w6"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/The Island/TheIsland_SCRIPT.gd" id="1_a8sfg"]
 [ext_resource type="Environment" uid="uid://dgtwdwq2n0x1v" path="res://Resources/Environment/TheIslandWorldEnvironment.tres" id="2_h46kk"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/RiverIcon_SCRIPT.gd" id="8_jhpei"]
 [ext_resource type="PackedScene" uid="uid://bf802csj5h2uu" path="res://Assets/3D Models/The Island Deco/TheIslandDeco.tscn" id="11_kq5pm"]
 [ext_resource type="PackedScene" uid="uid://cjm5lrxicdgsf" path="res://Scenes and Scripts/Scenes/Player/Player.tscn" id="16_52bg8"]
+[ext_resource type="PackedScene" uid="uid://brfmaf0i4m1cc" path="res://Scenes and Scripts/Scenes/Tests/Ippegwisk.tscn" id="32_k31rn"]
 [ext_resource type="PackedScene" uid="uid://dqalod7m5is51" path="res://Scenes and Scripts/Scenes/The Eryv/ThEryv.tscn" id="34_5odcp"]
 [ext_resource type="PackedScene" uid="uid://cnumc5i62ndco" path="res://Scenes and Scripts/Scenes/Tests/RayCastingTest.tscn" id="37_btdyg"]
 [ext_resource type="Texture2D" uid="uid://dvbcyu3wr00f8" path="res://Textures/Dev Textures/Orange/texture_04.png" id="42_eoiek"]
@@ -458,7 +459,7 @@ camera_attributes = ExtResource("2_xjtor")
 script = ExtResource("4_jhu24")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.863396, 0.495557, -0.0947205, 0, 0.187741, 0.982217, 0.504528, -0.848044, 0.162095, 0, 0, 0)
+transform = Transform3D(0.863396, 0.50212, 0.0492419, 0, -0.0976003, 0.995224, 0.504528, -0.859274, -0.0842675, 0, 0, 0)
 light_color = Color(0.793, 0.612, 0.18, 1)
 light_energy = 0.0
 shadow_enabled = true
@@ -777,6 +778,9 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -397.5
 
 [node name="TheEryv" parent="." instance=ExtResource("34_5odcp")]
 transform = Transform3D(1, 0, 0, 0, 0.986589, 0.163223, 0, -0.163223, 0.986589, -457.158, 1.46179, 278.633)
+
+[node name="ippegwisk" parent="." instance=ExtResource("32_k31rn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -379, 0.896871, 299)
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="timeout" from="Tick" to="." method="_on_tick"]
