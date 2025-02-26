@@ -948,6 +948,7 @@ func openInventory():
 		
 		WorkbenchCollisionBoundary.set_deferred("monitorable", false)
 		WorkbenchCollisionBoundary.set_deferred("monitoring", false)
+		$Head/Camera3D/InventoryLayer/ChestKeys.show()
 		
 	elif InventoryManager.is_in_workbench_interface:
 		InventoryMainLayer.offset.x = -155.09
@@ -960,6 +961,7 @@ func openInventory():
 		
 		PocketsCollisionBoundary.set_deferred("monitorable", false)
 		PocketsCollisionBoundary.set_deferred("monitoring", false)
+		$Head/Camera3D/InventoryLayer/WorkbenchKeys.show()
 	
 	else:
 		
@@ -974,10 +976,10 @@ func openInventory():
 		
 		WorkbenchCollisionBoundary.set_deferred("monitorable", false)
 		WorkbenchCollisionBoundary.set_deferred("monitoring", false)
+		$Head/Camera3D/InventoryLayer/PocketKeys.show()
 	
 	InventoryMainLayer.show()
 	InventoryLayer.show() # show the inventory UI
-	$Head/Camera3D/InventoryLayer/PocketKeys.show()
 	
 	Utils.center_mouse_cursor() # center the mouse cursor
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # set the mouse mode to visible
@@ -991,6 +993,7 @@ func closeInventory():
 	InventoryMainLayer.hide()
 	InventoryLayer.hide() # hide the inventory UI
 	$Head/Camera3D/InventoryLayer/PocketKeys.hide()
+	
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor
 	Utils.center_mouse_cursor() # center the mouse cursor
@@ -1209,7 +1212,6 @@ func _on_left_arrow_btn_mouse_exited() -> void:
 
 func openChest():
 	ChestMainLayer.show()
-	$Head/Camera3D/InventoryLayer/ChestKeys.show()
 	InventoryManager.in_chest_interface = true
 	openInventory() # Does most of the stuff for us
 	
@@ -1220,7 +1222,6 @@ func openChest():
 
 func closeChest():
 	ChestMainLayer.hide()
-	$Head/Camera3D/InventoryLayer/ChestKeys.hide()
 	InventoryManager.in_chest_interface = false
 	closeInventory() # Does most of the stuff for us
 	InventoryManager.chestNode.animate("CLOSE")
@@ -1231,7 +1232,6 @@ func closeChest():
 
 func openWorkbench():
 	WorkbenchMainLayer.show()
-	$Head/Camera3D/InventoryLayer/WorkbenchKeys.show()
 	WorkbenchMainLayer.position.y = -54
 	ChestMainLayer.position.y = 1000
 	
@@ -1240,7 +1240,6 @@ func openWorkbench():
 
 func closeWorkbench():
 	WorkbenchMainLayer.hide()
-	$Head/Camera3D/InventoryLayer/WorkbenchKeys.hide()
 	InventoryManager.is_in_workbench_interface = false
 	closeInventory() # Does most of the stuff for us
 
