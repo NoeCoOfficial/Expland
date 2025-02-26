@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://5hf7lqmuhec5"]
+
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Achievements/AchievementElement_SCRIPT.gd" id="1_4p8yf"]
+[ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="2_3xfan"]
+
+[node name="AchievementElement" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 175.0
+offset_bottom = 234.0
+script = ExtResource("1_4p8yf")
+
+[node name="Elements" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 175.0
+offset_bottom = 234.0
+
+[node name="Background" type="Panel" parent="Elements"]
+layout_mode = 1
+offset_right = 175.0
+offset_bottom = 234.0
+theme_override_styles/panel = ExtResource("2_3xfan")
