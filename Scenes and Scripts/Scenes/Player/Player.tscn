@@ -1811,6 +1811,30 @@ offset_top = 14.833
 offset_bottom = 49.833
 text = "X"
 
+[node name="Quick_Switch_LBL" type="Label" parent="Head/Camera3D/InventoryLayer/PocketKeys"]
+layout_mode = 0
+offset_left = 1017.0
+offset_top = 578.0
+offset_right = 1110.0
+offset_bottom = 601.0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 12
+text = "Quick Switch"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Quick_Delete_LBL" type="Label" parent="Head/Camera3D/InventoryLayer/PocketKeys"]
+layout_mode = 0
+offset_left = 1017.0
+offset_top = 615.0
+offset_right = 1110.0
+offset_bottom = 638.0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 12
+text = "Quick Delete"
+horizontal_alignment = 2
+vertical_alignment = 1
+
 [node name="ChestKeys" type="Control" parent="Head/Camera3D/InventoryLayer"]
 layout_mode = 3
 anchors_preset = 15
