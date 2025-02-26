@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://5hf7lqmuhec5"]
+[gd_scene load_steps=6 format=3 uid="uid://5hf7lqmuhec5"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Achievements/AchievementElement_SCRIPT.gd" id="1_4p8yf"]
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="2_3xfan"]
+[ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="3_wu26u"]
+[ext_resource type="FontFile" uid="uid://c4h0gd5a2e2qb" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf" id="4_w0pg6"]
+[ext_resource type="Texture2D" uid="uid://ckn730v2wn1y8" path="res://Textures/Icons/Expland-icon.png" id="5_25lgh"]
 
 [node name="AchievementElement" type="Control"]
 layout_mode = 3
@@ -21,3 +24,47 @@ layout_mode = 1
 offset_right = 175.0
 offset_bottom = 234.0
 theme_override_styles/panel = ExtResource("2_3xfan")
+
+[node name="e_name" type="Label" parent="Elements"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 2.5
+offset_top = 8.0
+offset_right = 172.5
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_wu26u")
+theme_override_fonts/font = ExtResource("4_w0pg6")
+theme_override_font_sizes/font_size = 18
+text = "Exorcist"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="e_image" type="TextureRect" parent="Elements"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 21.5
+offset_top = 32.5
+offset_right = 153.5
+offset_bottom = 177.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_25lgh")
+expand_mode = 1
+
+[node name="e_description" type="Label" parent="Elements"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 18.0
+offset_top = 176.0
+offset_right = 157.0
+offset_bottom = 226.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_wu26u")
+theme_override_font_sizes/font_size = 13
+text = "Defeated the Eryv for the first time."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
