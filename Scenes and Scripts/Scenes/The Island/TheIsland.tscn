@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://c5jkrckgqd0w6"]
+[gd_scene load_steps=93 format=3 uid="uid://c5jkrckgqd0w6"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/The Island/TheIsland_SCRIPT.gd" id="1_a8sfg"]
 [ext_resource type="Environment" uid="uid://dgtwdwq2n0x1v" path="res://Resources/Environment/TheIslandWorldEnvironment.tres" id="2_h46kk"]
@@ -11,9 +11,6 @@
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/RiverIcon_SCRIPT.gd" id="8_jhpei"]
 [ext_resource type="PackedScene" uid="uid://bf802csj5h2uu" path="res://Assets/3D Models/The Island Deco/TheIslandDeco.tscn" id="11_kq5pm"]
 [ext_resource type="PackedScene" uid="uid://cjm5lrxicdgsf" path="res://Scenes and Scripts/Scenes/Player/Player.tscn" id="16_52bg8"]
-[ext_resource type="PackedScene" uid="uid://dble54a2rl76q" path="res://Scenes and Scripts/Scenes/The Island/Explorer Note/ExplorerNote.tscn" id="31_i2rcl"]
-[ext_resource type="Texture2D" uid="uid://dhp1lqdlclos" path="res://Textures/Icons/Expland_TextWHITE_Icon.png" id="32_fm67d"]
-[ext_resource type="Texture2D" uid="uid://d2p266eplnyto" path="res://Textures/Explorer Notes/2_Lucent.png" id="33_5n0qp"]
 [ext_resource type="PackedScene" uid="uid://dqalod7m5is51" path="res://Scenes and Scripts/Scenes/The Eryv/ThEryv.tscn" id="34_5odcp"]
 [ext_resource type="PackedScene" uid="uid://cnumc5i62ndco" path="res://Scenes and Scripts/Scenes/Tests/RayCastingTest.tscn" id="37_btdyg"]
 [ext_resource type="Texture2D" uid="uid://dvbcyu3wr00f8" path="res://Textures/Dev Textures/Orange/texture_04.png" id="42_eoiek"]
@@ -461,7 +458,7 @@ camera_attributes = ExtResource("2_xjtor")
 script = ExtResource("4_jhu24")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.863396, 0.504477, 0.00718, -2.14885e-09, -0.0142312, 0.999897, 0.504528, -0.863309, -0.0122871, 0, 0, 0)
+transform = Transform3D(0.863396, 0.502119, 0.0492418, -1.47372e-08, -0.0976001, 0.995224, 0.504528, -0.859274, -0.0842673, 0, 0, 0)
 light_color = Color(0.793, 0.612, 0.18, 1)
 light_energy = 0.0
 shadow_enabled = true
@@ -512,30 +509,12 @@ script = ExtResource("8_jhpei")
 transform = Transform3D(2896.94, 0, 0, 0, 0.998, 0, 0, 0, 2896.94, 0, -35.6764, 0)
 mesh = SubResource("BoxMesh_5bvgu")
 
-[node name="Island" parent="." instance=ExtResource("11_kq5pm")]
-
-[node name="ExplorerNote_2" parent="Island/Tree3Hitbox2" index="9" instance=ExtResource("31_i2rcl")]
-transform = Transform3D(-0.0767635, -0.00726542, 1.03815, -0.990312, -0.311941, -0.0754092, 0.31161, -0.993152, 0.0160904, -0.0355225, 7.23192, -0.739502)
-NoteID = 2
-ImageAlbedo = ExtResource("33_5n0qp")
-DecalRotation_Degrees = Vector3(0, 90, 0)
-DecalSize = Vector3(6.005, 0.61, 3.14)
-DecalLowerFade = -27.385
-NailRotation_Degrees = Vector3(-12.485, 9.45, 0)
-
-[node name="ExplorerNote_1" parent="Island/PineTree1" index="7" instance=ExtResource("31_i2rcl")]
-transform = Transform3D(0.0043717, -0.0818319, 0.281098, -0.292383, -0.01562, -3.29933e-10, 0.0149957, -0.280698, -0.0819486, -0.166992, 1.9436, -0.19101)
-NoteID = 1
-ImageAlbedo = ExtResource("32_fm67d")
-DecalRotation_Degrees = Vector3(0, 90, 0)
-DecalSize = Vector3(3.22, 0.61, 1.16)
-DecalLowerFade = 2.59
-NailRotation_Degrees = Vector3(-12.485, 9.45, 0)
-
 [node name="Player" parent="." instance=ExtResource("16_52bg8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -351.588, 0, 324.606)
 StartPOS = Vector3(-351.588, 0, 324.606)
 ResetPOS = Vector3(-351.588, 0, 324.606)
+
+[node name="Island" parent="." instance=ExtResource("11_kq5pm")]
 
 [node name="RayCastingTest" parent="." instance=ExtResource("37_btdyg")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -388.434, 2.96464, 279.914)
@@ -801,5 +780,3 @@ transform = Transform3D(1, 0, 0, 0, 0.986589, 0.163223, 0, -0.163223, 0.986589, 
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="timeout" from="Tick" to="." method="_on_tick"]
-
-[editable path="Island"]

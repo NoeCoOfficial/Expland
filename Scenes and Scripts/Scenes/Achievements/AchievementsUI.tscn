@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7la7o37o5gld"]
+[gd_scene load_steps=9 format=3 uid="uid://b7la7o37o5gld"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Achievements/AchievementsUI_SCRIPT.gd" id="1_l5cpa"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="2_jb8yw"]
 [ext_resource type="StyleBox" uid="uid://3txnt8ebd3yh" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/BlackBGwithWhiteBorder.tres" id="3_s02bt"]
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="4_tvib0"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="5_8ki5k"]
+[ext_resource type="PackedScene" uid="uid://5hf7lqmuhec5" path="res://Scenes and Scripts/Scenes/Achievements/AchievementElement.tscn" id="6_8vh6v"]
 [ext_resource type="FontFile" uid="uid://b2o44xwqnsb5k" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf" id="6_x5w8t"]
 [ext_resource type="Texture2D" uid="uid://cwskjvl8pplog" path="res://Textures/Icons/Exit_Icon.png" id="7_4a01g"]
 
@@ -42,10 +43,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -346.0
-offset_top = -247.5
-offset_right = 346.0
-offset_bottom = 247.5
+offset_left = -378.5
+offset_top = -265.5
+offset_right = 378.5
+offset_bottom = 265.5
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
@@ -54,17 +55,17 @@ theme_override_styles/pressed = ExtResource("3_s02bt")
 theme_override_styles/normal = ExtResource("3_s02bt")
 script = ExtResource("2_jb8yw")
 
-[node name="TextBG" type="Button" parent="MainLayer"]
+[node name="ScrollBG" type="Button" parent="MainLayer"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -330.0
-offset_top = -186.0
-offset_right = 331.0
-offset_bottom = 234.0
+offset_left = -366.0
+offset_top = -213.5
+offset_right = 366.0
+offset_bottom = 253.5
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
@@ -73,45 +74,114 @@ theme_override_styles/pressed = ExtResource("4_tvib0")
 theme_override_styles/normal = ExtResource("4_tvib0")
 script = ExtResource("2_jb8yw")
 
-[node name="Notice" type="Label" parent="MainLayer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MainLayer"]
+layout_mode = 0
+offset_left = 217.0
+offset_top = 120.0
+offset_right = 936.0
+offset_bottom = 571.0
+
+[node name="GridContainer" type="GridContainer" parent="MainLayer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 179
+theme_override_constants/v_separation = 239
+columns = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="AchievementElement" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
+layout_mode = 2
+
+[node name="AchievementElement2" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
+layout_mode = 2
+
+[node name="AchievementElement3" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
+layout_mode = 2
+
+[node name="AchievementElement4" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
+layout_mode = 2
+
+[node name="AchievementElement5" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
+layout_mode = 2
+
+[node name="AchievementElement6" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
+layout_mode = 2
+
+[node name="AchievementElement7" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
+layout_mode = 2
+
+[node name="AchievementElement8" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
+layout_mode = 2
+
+[node name="AchievementElement9" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
+layout_mode = 2
+
+[node name="AchievementElement10" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
+layout_mode = 2
+
+[node name="AchievementElement11" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
+layout_mode = 2
+
+[node name="AchievementElement12" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
+layout_mode = 2
+
+[node name="AchievementElement13" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
+layout_mode = 2
+
+[node name="AchievementElement14" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
+layout_mode = 2
+
+[node name="AchievementElement15" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
+layout_mode = 2
+
+[node name="AchievementElement16" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
+layout_mode = 2
+
+[node name="AchievementElement17" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
+layout_mode = 2
+
+[node name="AchievementElement18" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
+layout_mode = 2
+
+[node name="AchievementElement19" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
+layout_mode = 2
+
+[node name="AchievementElement20" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
+layout_mode = 2
+
+[node name="AchievementElement21" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
+layout_mode = 2
+
+[node name="AchievementElement22" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
+layout_mode = 2
+
+[node name="AchievementElement23" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
+layout_mode = 2
+
+[node name="AchievementElement24" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
+layout_mode = 2
+
+[node name="AchievementElement25" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
+layout_mode = 2
+
+[node name="AchievementElement26" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
+layout_mode = 2
+
+[node name="AchievementElement27" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MainLayer"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -96.5
-offset_top = -11.5
-offset_right = 96.5
-offset_bottom = 11.5
+offset_left = -130.0
+offset_top = -259.5
+offset_right = 130.0
+offset_bottom = -212.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("5_8ki5k")
-theme_override_font_sizes/font_size = 30
-text = "Nothing here yet, sorry :("
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ScrollContainer" type="ScrollContainer" parent="MainLayer"]
-layout_mode = 0
-offset_left = 417.0
-offset_top = 162.0
-offset_right = 735.0
-offset_bottom = 533.0
-
-[node name="UI" type="Control" parent="MainLayer/ScrollContainer"]
-layout_mode = 2
-
-[node name="Title" type="Label" parent="MainLayer"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -130.0
-offset_top = 88.0
-offset_right = 130.0
-offset_bottom = 135.0
-grow_horizontal = 2
 theme = ExtResource("5_8ki5k")
 theme_override_fonts/font = ExtResource("6_x5w8t")
 theme_override_font_sizes/font_size = 40
@@ -122,10 +192,10 @@ vertical_alignment = 1
 [node name="CloseButton" type="TextureButton" parent="MainLayer"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.210069
-anchor_top = 0.135802
-anchor_right = 0.242187
-anchor_bottom = 0.192901
+anchor_left = 0.184028
+anchor_top = 0.0987654
+anchor_right = 0.216146
+anchor_bottom = 0.155864
 offset_right = 8.00003
 offset_bottom = 7.99983
 texture_normal = ExtResource("7_4a01g")

@@ -1,6 +1,6 @@
 <h1 align="center">Expland Changelog</h1>
 
-# v0.6.5 (unreleased)
+# v0.6.5 (released)
 
 ---
 
@@ -9,11 +9,16 @@ fixed a bug where you could close the workbench by pressing "E", then being able
 fixed 3d inventory pickup items noclipping through the ground
 there are now 16 slots in inventory pockets instead of 9 to store items
 there are now 49 slots in the chest instead of 25 to store items
+there are now 9 slots in the workbench instead of 5 to craft items
 an all new crafting system which can be accessed by interacting with the workbench in the testing area
 change player collision shape to reduce lag
 new stone inventory item
 new wood plank inventory item
 an all new explorer notes system, with the ability to collect notes and view them in your inventory
+removed the old hand item system
+changed the FOV cap from 60-120 to 90-120
+[added a hotbar to the player, where you can quickly access and hold items]
+[added the ability to build]
 
 
 ---

@@ -123,7 +123,6 @@ func _ready():
 		add_child(mouse_over_timer)
 
 func _process(delta):
-	
 	if InventoryManager.is_dragging:
 		PlayerManager.MINIMAL_ALERT_PLAYER.hide_minimal_alert(0.1)
 	
@@ -131,16 +130,18 @@ func _process(delta):
 		debounce_timer -= delta
 	else:
 		can_create_pickup = true
-		
+	
 	if draggable:
 		if Input.is_action_just_pressed("LeftClick"):
-			if mouse_over_timer.time_left == 0 and !InventoryManager.is_hovering_over_hand_dropable:
+			if mouse_over_timer.time_left == 0:
 				initialPos = global_position
 				InventoryManager.is_dragging = true
 				if is_in_chest_slot or is_workshop_dropable or is_workshop_output_dropable:
 					top_level = true
 				self.z_index = 10
 				InventoryManager.item_ref = ITEM_TYPE
+				
+				
 		if Input.is_action_pressed("LeftClick") and InventoryManager.is_dragging:
 			global_position = get_global_mouse_position()
 		
@@ -152,11 +153,11 @@ func _process(delta):
 				if slot_inside and slot_inside.has_method("set_populated"):
 					slot_inside.set_populated(false)
 				
-				var PARENT = self.get_parent()
-				PARENT.remove_child(self)
 				can_create_pickup = false
 				debounce_timer = 0.2
 				InventoryManager.create_pickup_object()
+				
+				queue_free()
 				
 			else:
 				
@@ -192,21 +193,21 @@ func _process(delta):
 							
 							if is_in_chest_slot:
 								is_in_chest_slot = true
-								self.queue_free()
 								InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, true)
 								top_level = false
+								queue_free()
 							
 							elif is_workshop_dropable:
 								is_workshop_dropable = true
-								self.queue_free()
 								InventoryManager.spawn_workshop_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside)
 								top_level = false
+								queue_free()
 								
 							elif is_workshop_output_dropable:
 								is_workshop_output_dropable = true
-								self.queue_free()
 								InventoryManager.spawn_workbench_output_dropable(ITEM_TYPE)
 								top_level = false
+								queue_free()
 							
 						else:
 							# If the slot is not populated, snap to the new slot
@@ -225,44 +226,42 @@ func _process(delta):
 								
 								if body_ref.get_is_chest_slot(): # If the slot is a chest slot
 									is_in_chest_slot = true
-									self.queue_free()
 									InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, true)
 									top_level = false
+									queue_free()
 								
 								elif body_ref.get_is_workbench_slot(): # If the slot is a workbench slot
 									is_workshop_dropable = true
-									
-									self.queue_free()
 									InventoryManager.spawn_workshop_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside)
 									top_level = false
+									queue_free()
 								
 								elif body_ref.get_is_workbench_output_slot(): # If the slot is a workbench output slot
 									is_workshop_dropable = true
-									
-									self.queue_free()
 									InventoryManager.spawn_workbench_output_dropable(ITEM_TYPE)
 									top_level = false
+									queue_free()
 								
 								else: # If the slot is a pocket slot
 									
 									if is_in_chest_slot: # If the draggable was in a chest slot
 										is_in_chest_slot = false
-										self.queue_free()
 										InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, false)
 										top_level = false
+										queue_free()
 									
 									elif is_workshop_dropable: # If the draggable was in a workshop slot
 										is_workshop_dropable = false
 										CraftingManager.unbindCraftingItem(int(String(slot_inside.name)[-1]) - 1)
-										self.queue_free()
 										InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, false)
 										top_level = false
+										queue_free()
 									
 									elif is_workshop_output_dropable: # If the draggable was in a workshop output slot
 										is_workshop_output_dropable = false
-										self.queue_free()
 										InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, false)
 										top_level = false
+										queue_free()
 									
 									else: # If the draggable was in a pocket slot
 										is_workshop_output_dropable = false
@@ -276,27 +275,25 @@ func _process(delta):
 					
 					if is_in_chest_slot:
 						is_in_chest_slot = true
-						self.queue_free()
 						InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, true)
 						top_level = false
 						PlayerManager.MINIMAL_ALERT_PLAYER.hide_minimal_alert(0.1)
+						queue_free()
 					
 					elif is_workshop_dropable:
 						is_workshop_dropable = true
-						
-						self.queue_free()
 						InventoryManager.spawn_workshop_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside)
 						top_level = false
 						PlayerManager.MINIMAL_ALERT_PLAYER.hide_minimal_alert(0.1)
+						queue_free()
 						
 					elif is_workshop_output_dropable:
 						is_workshop_output_dropable = true
-						
-						self.queue_free()
 						InventoryManager.spawn_workbench_output_dropable(ITEM_TYPE)
 						top_level = false
 						PlayerManager.MINIMAL_ALERT_PLAYER.hide_minimal_alert(0.1)
-						
+						queue_free()
+			
 			if mouse_over_timer.is_inside_tree():                          
 				mouse_over_timer.start() # Restart the timer when the item is placed down
 
@@ -307,7 +304,7 @@ func _input(_event: InputEvent) -> void:
 			InventoryManager.item_ref = ITEM_TYPE
 			InventoryManager.create_pickup_object()
 			slot_inside.set_populated(false)
-			self.queue_free()
+			queue_free()
 		
 	# Quick switching
 	if Input.is_action_just_pressed("Inventory_QuickSwitch"):
@@ -326,8 +323,8 @@ func _input(_event: InputEvent) -> void:
 						InventoryManager.spawn_inventory_dropable(free_slot.global_position, ITEM_TYPE, free_slot, false)
 						
 						slot_inside.set_populated(false)
-						self.queue_free()
 						InventoryManager.is_dragging = false
+						queue_free()
 					else:
 						InventoryManager.is_dragging = false
 				
@@ -347,8 +344,8 @@ func _input(_event: InputEvent) -> void:
 						InventoryManager.spawn_inventory_dropable(free_slot.global_position, ITEM_TYPE, free_slot, false)
 						
 						slot_inside.set_populated(false)
-						self.queue_free()
 						InventoryManager.is_dragging = false
+						queue_free()
 						
 					else:
 						InventoryManager.is_dragging = false
@@ -366,8 +363,8 @@ func _input(_event: InputEvent) -> void:
 						InventoryManager.spawn_inventory_dropable(free_slot.global_position, ITEM_TYPE, free_slot, false)
 						
 						slot_inside.set_populated(false)
-						self.queue_free()
 						InventoryManager.is_dragging = false
+						queue_free()
 						
 					else:
 						InventoryManager.is_dragging = false
@@ -385,8 +382,8 @@ func _input(_event: InputEvent) -> void:
 							InventoryManager.spawn_inventory_dropable(free_slot.global_position, ITEM_TYPE, free_slot, true)
 							
 							slot_inside.set_populated(false)
-							self.queue_free()
 							InventoryManager.is_dragging = false
+							queue_free()
 						else:
 							InventoryManager.is_dragging = false
 						
@@ -404,35 +401,17 @@ func _input(_event: InputEvent) -> void:
 							CraftingManager.bindCraftingItem(ITEM_TYPE, int(String(free_slot.name)[-1]) - 1)
 							
 							slot_inside.set_populated(false)
-							self.queue_free()
 							InventoryManager.is_dragging = false
-							
-							
+							queue_free()
 						else:
 							InventoryManager.is_dragging = false
 					
 				InventoryManager.is_dragging = false
 				debounce_timer = 0.2
 	
-	# Consuming items and handheld items
+	# Consuming items
 	if Input.is_action_just_pressed("RightClick") and debounce_timer <= 0:
-		
 		if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup and is_hovering_over and !InventoryManager.is_dragging:
-			
-			if ITEM_TYPE != InventoryData.HAND_ITEM_TYPE:
-				
-				# Right clicked on a handheld item (see InventoryManager.gd for contents)
-				if ITEM_TYPE in InventoryManager.HANDHELD_ITEMS:
-					if PlayerManager.PLAYER.get_hand_debounce_time_left() <= 0.0:
-						if is_workshop_dropable:
-							CraftingManager.unbindCraftingItem(int(String(slot_inside.name)[-1]) - 1)
-						PlayerManager.MINIMAL_ALERT_PLAYER.hide_minimal_alert(0.1)
-						slot_inside.set_populated(false)
-						InventoryManager.set_hand_item(self, ITEM_TYPE)
-						InventoryManager.is_dragging = false
-						
-						PlayerManager.PLAYER.start_hand_debounce_timer()
-					
 				# Right clicked on a consumable item (see InventoryManager.gd for contents)
 				if ITEM_TYPE in InventoryManager.CONSUMABLE_ITEMS:
 					PlayerManager.MINIMAL_ALERT_PLAYER.hide_minimal_alert(0.1)
@@ -442,11 +421,8 @@ func _input(_event: InputEvent) -> void:
 						var value = InventoryManager.FOOD_ITEMS[ITEM_TYPE]
 						PlayerManager.eat(value)
 						InventoryManager.is_dragging = false
-						
-						self.queue_free()
 						slot_inside.set_populated(false)
-						
-					
+						self.queue_free()
 					debounce_timer = 0.2
 
 func _on_area_2d_body_entered(body):
@@ -471,10 +447,6 @@ func _on_area_2d_mouse_entered():
 		scale = Vector2(1.05, 1.05)
 		
 	if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup and !InventoryManager.is_dragging:
-		
-		if ITEM_TYPE in InventoryManager.HANDHELD_ITEMS:
-			PlayerManager.MINIMAL_ALERT_PLAYER.show_minimal_alert(0.1, "Right click to hold item")
-		
 		if ITEM_TYPE in InventoryManager.CONSUMABLE_ITEMS:
 			PlayerManager.MINIMAL_ALERT_PLAYER.show_minimal_alert(0.1, "Right click to consume item")
 
@@ -487,13 +459,6 @@ func _on_area_2d_mouse_exited():
 		mouse_over_timer.stop()
 		draggable = false
 		scale = Vector2(1.0, 1.0)
-		
-		# Dunno why I have to do it like this but hey
-		# I don't wanna risk anything bro
-		# The code has a mind of it's own
-		
-		if ITEM_TYPE in InventoryManager.HANDHELD_ITEMS:
-			PlayerManager.MINIMAL_ALERT_PLAYER.hide_minimal_alert(0.1)
 		
 		if ITEM_TYPE in InventoryManager.CONSUMABLE_ITEMS:
 			PlayerManager.MINIMAL_ALERT_PLAYER.hide_minimal_alert(0.1)
@@ -552,3 +517,6 @@ func set_is_workshop_output_dropable(value : bool):
 
 func get_is_workshop_output_dropable():
 	return is_workshop_output_dropable
+
+func _on_tree_exited() -> void:
+	mouse_over_timer.disconnect("timeout", Callable(self, "_on_mouse_over_timeout"))

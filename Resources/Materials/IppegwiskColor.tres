@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dwu2srvqdks82"]
+
+[resource]
+blend_mode = 2
+depth_draw_mode = 1
+albedo_color = Color(0.678944, 0.678944, 0.678944, 1)
+emission_energy_multiplier = 4.05
+anisotropy_enabled = true
+ao_light_affect = 0.28
+detail_enabled = true
+uv1_triplanar_sharpness = 0.90125
+grow = true

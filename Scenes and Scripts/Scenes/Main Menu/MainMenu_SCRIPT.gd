@@ -422,6 +422,8 @@ func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 	
 	print("Valid island name: ", sanitized_name)
 	$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit.editable = false
+	$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit.release_focus()
+	$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Free_ModeInPopupNewIslandButton.release_focus()
 	
 	IslandManager.transitioning_from_menu = true
 	
@@ -497,8 +499,6 @@ func _on_delete_island_yes_pressed() -> void:
 	var Island_To_Delete = $Camera3D/MainLayer/DeleteIslandPopup/DeleteIslandPopupMain.getIslandToDelete()
 	
 	island_element_to_free.queue_free()
-	Utils.delete_free_mode_island(Island_To_Delete)
-	IslandAccessOrder.remove_island(Island_To_Delete)
 	
 	if IslandManager.FreeMode_Island_Count == 0:
 		$Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup/NoSavedIslandsNotice.visible = true
@@ -509,6 +509,9 @@ func _on_delete_island_yes_pressed() -> void:
 	$Camera3D/MainLayer/DeleteIslandPopup.hide()
 	is_in_delete_popup = false
 	is_in_load_island_interface = true
+	
+	Utils.delete_free_mode_island(Island_To_Delete)
+	IslandAccessOrder.remove_island(Island_To_Delete)
 
 func _on_delete_island_no_pressed() -> void:
 	$Camera3D/MainLayer/DeleteIslandPopup.visible = false
@@ -542,6 +545,11 @@ func _on_checks_timer_timeout() -> void:
 
 func _on_island_name_text_edit_focus_entered() -> void:
 	AudioManager.canOperate_textField = false
+	if IslandManager.transitioning_from_menu:
+		$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit.release_focus()
+		$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit.editable = false
+		$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit.selecting_enabled = false
+	
 
 func _on_island_name_text_edit_focus_exited() -> void:
 	AudioManager.canOperate_textField = true
