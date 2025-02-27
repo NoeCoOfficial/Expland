@@ -50,7 +50,7 @@ extends Control
 
 var animation
 
-func spawnAudioNotification(paused: bool, songName : String):
+func spawnAchievementsNotification(paused: bool, songName : String):
 	AudioManager.NotificationOnScreen = true
 	if animation:
 		animation.kill()
