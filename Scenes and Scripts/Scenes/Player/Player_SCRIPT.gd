@@ -410,7 +410,6 @@ func _input(_event): # A built-in function that listens for input using the inpu
 	if Input.is_action_just_pressed("SaveGame") and OS.has_feature("debug") and IslandManager.Current_Game_Mode == "FREE":
 		Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
 		SaveManager.saveAllData()
-		saveAllDataWithAnimation()
 	
 	if Input.is_action_just_pressed("Inventory") and !InventoryManager.is_in_explorer_notes_interface and !PauseManager.inside_explorer_note_ui and !PauseManager.inside_absolute_item_workshop and !PauseManager.is_paused and !InventoryManager.in_chest_interface and !InventoryManager.is_in_workbench_interface and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !InventoryManager.is_dragging and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
 		if !InventoryManager.inventory_open:
@@ -1369,19 +1368,6 @@ func on_save_and_quit_to_menu_fade_finished():
 	var mainMenuScene = load("res://Scenes and Scripts/Scenes/Main Menu/MainMenu.tscn")
 	
 	get_tree().change_scene_to_packed(mainMenuScene)
-
-func saveAllDataWithAnimation():
-	if ManualSaveCooldown.time_left == 0.0:
-		ManualSaveCooldown.wait_time = 5.0
-		ManualSaveCooldown.start()
-		SaveManager.saveAllData() # Call the save all data function from SaveManager to write all data to save files.
-		showLighterBG_SAVEOVERLAY()
-		await get_tree().create_timer(0.2).timeout
-		showDarkerBG_SAVEOVERLAY()
-		await get_tree().create_timer(3.0).timeout
-		hideDarkerBG_SAVEOVERLAY() 
-		await get_tree().create_timer(0.2).timeout
-		hideLighterBG_SAVEOVERLAY()
 
 func showLighterBG_SAVEOVERLAY():
 	var tween = get_tree().create_tween()
