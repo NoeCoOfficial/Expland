@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dstwv38as3lxt"
-path="res://.godot/imported/TheEryv.blend-956fdd205dff037ff614ad8fb1698cc2.scn"
+path="res://.godot/imported/The Eryv.blend-c81e16a6ee7f415100ade01e8f5328ae.scn"
 
 [deps]
 
-source_file="res://Assets/3D Models/The Eryv (and related)/TheEryv.blend"
-dest_files=["res://.godot/imported/TheEryv.blend-956fdd205dff037ff614ad8fb1698cc2.scn"]
+source_file="res://Assets/3D Models/The Eryv (and related)/The Eryv.blend"
+dest_files=["res://.godot/imported/The Eryv.blend-c81e16a6ee7f415100ade01e8f5328ae.scn"]
 
 [params]
 
