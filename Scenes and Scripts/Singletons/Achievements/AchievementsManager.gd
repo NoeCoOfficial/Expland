@@ -56,11 +56,7 @@ var ACHIEVEMENTS = [
 """
 
 
-
-
 Ideas for achievements
-
-
 
 
 Beat free mode (Wanderer)
@@ -75,8 +71,6 @@ Survived the night for the first time (Survivor)
 Defeat Eryv for the first time (Exorcist)
 Defeat Eryv for the 10th time (Hunter)
 You found a secret! (Secret)
-
-
 
 
 
