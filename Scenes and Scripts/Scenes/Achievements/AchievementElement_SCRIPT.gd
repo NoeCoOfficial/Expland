@@ -48,4 +48,12 @@
 extends Control
 
 func _update(e_name : String, e_image_path : String, e_description):
-	pass
+	var image = Image.new()
+	var err = image.load(e_image_path)
+	
+	if err == OK:
+		var texture_instance = ImageTexture.create_from_image(image)
+		$Elements/e_image_container/e_image.texture = texture_instance
+	
+	$Elements/e_name.text = e_name
+	$Elements/e_description.text = e_description
