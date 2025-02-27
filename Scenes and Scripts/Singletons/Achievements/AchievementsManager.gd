@@ -52,3 +52,29 @@ var ACHIEVEMENTS = [
 	""
 	
 ]
+
+"""
+
+
+
+
+Ideas for achievements
+
+
+Beat free mode
+Beat pakour mode
+Visited the Island for the first time (New Life)
+(Night Time)
+Defeat Eryv for the first time (Exorcist)
+Defeat Eryv for the 10th time (Hunter)
+
+
+
+
+
+
+
+
+
+
+"""
