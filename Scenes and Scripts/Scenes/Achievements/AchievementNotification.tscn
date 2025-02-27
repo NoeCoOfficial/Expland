@@ -1,47 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cjxbcx2vhofs"]
+[gd_scene load_steps=4 format=3 uid="uid://cjxbcx2vhofs"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Achievements/AchievementNotification_SCRIPT.gd" id="1_wps2i"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="2_x6fve"]
 [ext_resource type="FontFile" uid="uid://b2o44xwqnsb5k" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf" id="4_1nshs"]
-[ext_resource type="Texture2D" uid="uid://fih3i4yk6pip" path="res://Textures/Icons/PlayBtn_Icon.png" id="5_r7vly"]
-[ext_resource type="Texture2D" uid="uid://sirauob061k7" path="res://Textures/Icons/SideArrow_Icon.png" id="6_mfonw"]
-[ext_resource type="FontFile" uid="uid://c4h0gd5a2e2qb" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf" id="7_57oyr"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4gcdt"]
-bg_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-corner_detail = 12
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qs4gu"]
-bg_color = Color(0.187176, 0.187176, 0.187176, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-corner_detail = 12
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pq0us"]
-bg_color = Color(0.347817, 0.347817, 0.347817, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-corner_detail = 12
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_66xhl"]
-bg_color = Color(0.277528, 0.277528, 0.277528, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-corner_detail = 12
-anti_aliasing = false
 
 [node name="AchievementNotification" type="Control"]
 layout_mode = 3
@@ -58,36 +19,34 @@ script = ExtResource("1_wps2i")
 wait_time = 5.0
 one_shot = true
 
-[node name="BG2" type="ColorRect" parent="."]
+[node name="LightBG" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.165803
-anchor_right = 0.891192
-anchor_bottom = 1.0
-offset_left = 3.33678
-offset_right = 3.33678
+anchor_right = 1.09137
+anchor_bottom = 0.806818
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.254902, 0.254902, 0.254902, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="DarkBG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0203046
+anchor_right = 1.09137
+anchor_bottom = 0.806818
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.141176, 0.141176, 0.141176, 1)
 metadata/_edit_use_anchors_ = true
-
-[node name="BG3" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.165803
-anchor_right = 0.891192
-anchor_bottom = 1.0
-offset_left = -0.663214
-offset_right = -0.663193
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.254902, 0.254902, 0.254902, 1)
 
 [node name="Elements" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 56.0
+offset_right = 56.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -98,29 +57,29 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -43.0
-offset_top = -44.5
-offset_right = 61.0
-offset_bottom = -21.5
+offset_left = -76.0
+offset_top = -30.5
+offset_right = 58.0
+offset_bottom = -7.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_x6fve")
 theme_override_font_sizes/font_size = 13
-text = "Achievement"
+text = "Achievement Unlocked!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SongName" type="Label" parent="Elements"]
+[node name="AchievementName" type="Label" parent="Elements"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -81.0
-offset_top = -25.5
-offset_right = 91.0
-offset_bottom = -2.5
+offset_left = -96.0
+offset_top = -10.5
+offset_right = 76.0
+offset_bottom = 12.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_x6fve")
@@ -130,239 +89,10 @@ text = "AchievementName"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PlayBtnIcon" type="Sprite2D" parent="Elements"]
-position = Vector2(107, 55)
-scale = Vector2(0.0112818, 0.0112818)
-texture = ExtResource("5_r7vly")
-
-[node name="NextBtnIcon" type="Sprite2D" parent="Elements"]
-position = Vector2(140, 55)
-scale = Vector2(0.0199328, 0.0199328)
-texture = ExtResource("6_mfonw")
-
-[node name="PreviousBtnIcon" type="Sprite2D" parent="Elements"]
-position = Vector2(72, 55)
-scale = Vector2(0.0199328, 0.0199328)
-texture = ExtResource("6_mfonw")
-flip_h = true
-
-[node name="PauseBtnIcon" type="Control" parent="Elements"]
-anchors_preset = 0
-offset_left = 96.0
-offset_top = 42.0
-offset_right = 115.0
-offset_bottom = 70.0
-
-[node name="Pause1" type="Line2D" parent="Elements/PauseBtnIcon"]
-position = Vector2(-97, -42)
-points = PackedVector2Array(113, 46, 113, 65)
-width = 5.195
-begin_cap_mode = 2
-end_cap_mode = 2
-
-[node name="Pause2" type="Line2D" parent="Elements/PauseBtnIcon"]
-position = Vector2(-110, -41)
-points = PackedVector2Array(113, 45, 113, 64)
-width = 5.195
-begin_cap_mode = 2
-end_cap_mode = 2
-
-[node name="K Key Container" type="Control" parent="Elements"]
-anchors_preset = 0
-offset_left = 97.48
-offset_top = 70.0
-offset_right = 149.48
-offset_bottom = 122.0
-scale = Vector2(0.311712, 0.311712)
-
-[node name="BackgroundKEY" type="Button" parent="Elements/K Key Container"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0016129
-anchor_top = 0.00224733
-anchor_right = 0.0016129
-anchor_bottom = 0.00224733
-offset_left = -0.0838708
-offset_top = -0.116861
-offset_right = 51.9161
-offset_bottom = 51.8831
-focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_4gcdt")
-
-[node name="BackgroundKEY2" type="Button" parent="Elements/K Key Container"]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 2.0
-offset_right = 50.0
-offset_bottom = 50.0
-focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_qs4gu")
-
-[node name="BackgroundKEY3" type="Button" parent="Elements/K Key Container"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.000967703
-anchor_right = 0.000967703
-offset_left = 5.94968
-offset_top = 6.0
-offset_right = 45.9497
-offset_bottom = 46.0
-focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_pq0us")
-
-[node name="BackgroundKEY4" type="Button" parent="Elements/K Key Container"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 44.0
-offset_bottom = 44.0
-focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_66xhl")
-
-[node name="KEY" type="Label" parent="Elements/K Key Container"]
-modulate = Color(0.796243, 0.796243, 0.796243, 1)
-layout_mode = 0
-offset_left = 11.0
-offset_top = 11.0
-offset_right = 41.0
-offset_bottom = 46.0
-theme = ExtResource("2_x6fve")
-theme_override_fonts/font = ExtResource("7_57oyr")
-theme_override_font_sizes/font_size = 30
-text = "K"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="J Key Container" type="Control" parent="Elements"]
-anchors_preset = 0
-offset_left = 66.0
-offset_top = 70.0
-offset_right = 118.0
-offset_bottom = 122.0
-scale = Vector2(0.311712, 0.311712)
-
-[node name="BackgroundKEY" type="Button" parent="Elements/J Key Container"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0016129
-anchor_top = 0.00224733
-anchor_right = 0.0016129
-anchor_bottom = 0.00224733
-offset_left = -0.0838708
-offset_top = -0.116861
-offset_right = 51.9161
-offset_bottom = 51.8831
-focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_4gcdt")
-
-[node name="BackgroundKEY2" type="Button" parent="Elements/J Key Container"]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 2.0
-offset_right = 50.0
-offset_bottom = 50.0
-focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_qs4gu")
-
-[node name="BackgroundKEY3" type="Button" parent="Elements/J Key Container"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.000967703
-anchor_right = 0.000967703
-offset_left = 5.94968
-offset_top = 6.0
-offset_right = 45.9497
-offset_bottom = 46.0
-focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_pq0us")
-
-[node name="BackgroundKEY4" type="Button" parent="Elements/J Key Container"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 44.0
-offset_bottom = 44.0
-focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_66xhl")
-
-[node name="KEY" type="Label" parent="Elements/J Key Container"]
-modulate = Color(0.796243, 0.796243, 0.796243, 1)
-layout_mode = 0
-offset_left = 9.837
-offset_top = 11.0
-offset_right = 39.837
-offset_bottom = 46.0
-theme = ExtResource("2_x6fve")
-theme_override_fonts/font = ExtResource("7_57oyr")
-theme_override_font_sizes/font_size = 30
-text = "J"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="L Key Container" type="Control" parent="Elements"]
-anchors_preset = 0
-offset_left = 130.0
-offset_top = 70.0
-offset_right = 182.0
-offset_bottom = 122.0
-scale = Vector2(0.311712, 0.311712)
-
-[node name="BackgroundKEY" type="Button" parent="Elements/L Key Container"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0016129
-anchor_top = 0.00224733
-anchor_right = 0.0016129
-anchor_bottom = 0.00224733
-offset_left = -0.0838708
-offset_top = -0.116861
-offset_right = 51.9161
-offset_bottom = 51.8831
-focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_4gcdt")
-
-[node name="BackgroundKEY2" type="Button" parent="Elements/L Key Container"]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 2.0
-offset_right = 50.0
-offset_bottom = 50.0
-focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_qs4gu")
-
-[node name="BackgroundKEY3" type="Button" parent="Elements/L Key Container"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.000967703
-anchor_right = 0.000967703
-offset_left = 5.94968
-offset_top = 6.0
-offset_right = 45.9497
-offset_bottom = 46.0
-focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_pq0us")
-
-[node name="BackgroundKEY4" type="Button" parent="Elements/L Key Container"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 44.0
-offset_bottom = 44.0
-focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_66xhl")
-
-[node name="KEY" type="Label" parent="Elements/L Key Container"]
-modulate = Color(0.796243, 0.796243, 0.796243, 1)
-layout_mode = 0
-offset_left = 9.837
-offset_top = 11.0
-offset_right = 39.837
-offset_bottom = 46.0
-theme = ExtResource("2_x6fve")
-theme_override_fonts/font = ExtResource("7_57oyr")
-theme_override_font_sizes/font_size = 30
-text = "L"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Barrier" type="Line2D" parent="Elements"]
+position = Vector2(23, -7)
+points = PackedVector2Array(-4, 16, -4, 70)
+width = 1.5
+default_color = Color(0.277528, 0.277528, 0.277528, 1)
 
 [connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]
