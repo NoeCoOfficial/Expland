@@ -49,7 +49,7 @@ extends Node
 
 var ACHIEVEMENTS = [
 	"CHALLENGER", # Beat story mode for the first time
-	""
+	"VETERAN" # Beat story mode for the tenth time
 	
 ]
 
@@ -61,7 +61,11 @@ var ACHIEVEMENTS = [
 Ideas for achievements
 
 
+
+
 Beat free mode (Wanderer)
+Beat free mode for the tenth time (Nomad)s
+
 Beat pakour mode (Skilled)
 
 Visited the Island for the first time (New Life)
