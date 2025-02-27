@@ -57,7 +57,7 @@ func spawnAchievementsNotification(ARR_INDEX : int):
 	animation = get_tree().create_tween().set_parallel()
 	$DespawnTimer.start()
 	
-	$Elements/AchievementName.text = AchievementsManager.ACHIEVEMENTS[ARR_INDEX]
+	updateNotification(ARR_INDEX, "res://Textures/Achievements/" + AchievementsManager.ACHIEVEMENTS[ARR_INDEX] + ".png")
 	
 	animation.tween_property($LightBG, "position:x", -215, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	animation.tween_property($DarkBG, "position:x", -211, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.2)

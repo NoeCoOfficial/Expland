@@ -48,6 +48,8 @@
 extends Node
 
 var NotificationOnScreen = false
+var CURRENT_NOTIFICATION_NODE
+var CURRENT_UI_GRID_CONTAINER
 
 var ACHIEVEMENTS = [
 	"PLACEHOLDER",
@@ -100,14 +102,21 @@ var ACHIEVEMENT_DESCRIPTIONS = [
 
 var EARNED_ACHIEVEMENTS = []
 
-func earnAchievement(ARR_ID : int, withNotification : bool):
+func earnAchievement(ARR_INDEX : int, withNotification : bool):
 	var info = []
 	
 	var unix_time = Time.get_unix_time_from_system()
 	var date_dict = Time.get_date_dict_from_unix_time(unix_time)
 	var formatted_date = "%02d/%02d/%d" % [date_dict.day, date_dict.month, date_dict.year]
 	
-	info.append(ARR_ID)
+	info.append(ARR_INDEX)
 	info.append(formatted_date)
 	
 	EARNED_ACHIEVEMENTS.append(info)
+	
+	if CURRENT_NOTIFICATION_NODE:
+		if withNotification:
+			CURRENT_NOTIFICATION_NODE.spawnAchievementsNotification(ARR_INDEX)
+	
+	if CURRENT_UI_GRID_CONTAINER:
+		pass
