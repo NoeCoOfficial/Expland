@@ -64,29 +64,15 @@ func spawnAchievementsNotification(ARR_INDEX : int):
 	animation.tween_property($Elements, "position:x", -193, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.2)
 
 func despawnAudioNotification():
-	AudioManager.NotificationOnScreen = false
+	AchievementsManager.NotificationOnScreen = false
 	animation = get_tree().create_tween().set_parallel()
 	animation.tween_property($LightBG, "position:x", 0, 0.7).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO).set_delay(0.2)
 	animation.tween_property($DarkBG, "position:x", 0, 0.7).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO)
 	animation.tween_property($Elements, "position:x", 0, 0.7).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO)
 
-func updateNotification(paused : bool, songName : String):
+func updateNotification(ARR_INDEX : int):
 	$DespawnTimer.start()
-	$Elements/SongName.text = songName
-	
-	if AudioManager.PREVIOUS_SONGS.is_empty():
-		$Elements/PreviousBtnIcon.hide()
-		$"Elements/J Key Container".hide()
-	else:
-		$Elements/PreviousBtnIcon.show()
-		$"Elements/J Key Container".show()
-	
-	if paused:
-		$Elements/PauseBtnIcon.visible = false
-		$Elements/PlayBtnIcon.visible = true
-	else:
-		$Elements/PauseBtnIcon.visible = true
-		$Elements/PlayBtnIcon.visible = false
+	$Elements/AchievementName.text = str(AchievementsManager.ACHIEVEMENTS[ARR_INDEX]).capitalize()
 
 func resetDespawnTimer():
 	$DespawnTimer.stop()
