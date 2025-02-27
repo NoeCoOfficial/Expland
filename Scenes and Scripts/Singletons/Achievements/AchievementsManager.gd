@@ -64,6 +64,7 @@ var ACHIEVEMENTS = [
 	"NEW LIFE", # Visisted The Island for the first time (7)
 	"BED TIME", # Slept for the first time (8)
 	"SURVIVOR", # Survived the night for the first time (9)
+	
 	"EXORCIST", # Defeat The Eryv for the first time (10)
 	"HUNTER", # Defeat The Eryv for the tenth time (11)
 	
@@ -79,19 +80,20 @@ var ACHIEVEMENT_DESCRIPTIONS = [
 	"Beat Story Mode for the first time.", # CHALLENGER (1)
 	"Beat Story Mode for the tenth time.", # VETERAN (2)
 	
-	"Beat Free Mode for the first time", # WANDERER (3)
-	"NOMAD", # Beat free mode for the tenth time (4)
+	"Beat Free Mode for the first time.", # WANDERER (3)
+	"Beat Free Mode for the tenth time.", # NOMAD (4)
 	
-	"SKILLED", # Beat parkour mode for the first time (5)
-	"FREE RUN", # Beat parkour mode for the tenth time (6)
+	"Beat Parkour Mode for the first time.", # SKILLED (5)
+	"Beat Parkour Mode for the tenth time.", # FREE RUN (6)
 	
-	"NEW LIFE", # Visisted The Island for the first time (7)
-	"BED TIME", # Slept for the first time (8)
-	"SURVIVOR", # Survived the night for the first time (9)
-	"EXORCIST", # Defeat The Eryv for the first time (10)
-	"HUNTER", # Defeat The Eryv for the tenth time (11)
+	"Visited The Island for the first time.", # NEW LIFE (7)
+	"Slept for the first time.", # BED TIME (8)
+	"Survived the night for the first time.", # SURVIVOR (9)
+
+	"Defeat The Eryv for the first time.", # EXORCIST (10)
+	"Defeat The Eryv for the tenth time.", # HUNTER (11)
 	
-	"SECRET", # You found a secret! (#)
+	"You found a secret!", # SECRET (#)
 ]
 
 var EARNED_ACHIEVEMENTS = []
