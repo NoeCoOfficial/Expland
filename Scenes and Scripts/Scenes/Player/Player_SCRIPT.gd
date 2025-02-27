@@ -676,6 +676,7 @@ func _ready():
 	Utils.set_center_offset($Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Left_Arrow)
 	
 	HandManager.HAND_ITEM_NODE = HandItem
+	AchievementsManager.CURRENT_UI_GRID_CONTAINER = $Head/Camera3D/AchievementsLayer/AchievementsUI/MainLayer/ScrollContainer/GridContainer
 	PlayerManager.AudioNotification = $Head/Camera3D/AudioNotificationLayer/AudioNotification
 	PlayerManager.EXPLORER_NOTE_CONTENTS = $Head/Camera3D/ExplorerNoteLayer/Contents
 	PlayerManager.EXPLORER_NOTE_TEXTURE_RECT = $Head/Camera3D/ExplorerNoteLayer/Contents/ExplorerNoteSheet

@@ -3997,3 +3997,4 @@ metadata/_edit_use_anchors_ = true
 [editable path="Head/Camera3D/InventoryLayer/WorkbenchKeys/KeyUI_Q"]
 [editable path="Head/Camera3D/InventoryLayer/WorkbenchKeys/KeyUI_X"]
 [editable path="Head/Camera3D/InventoryLayer/WorkbenchKeys/KeyUI_C"]
+[editable path="Head/Camera3D/AchievementsLayer/AchievementsUI"]
