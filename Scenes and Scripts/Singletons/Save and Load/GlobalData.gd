@@ -45,12 +45,10 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-@icon("res://Textures/Icons/Script Icons/32x32/settings_save.png")
+@icon("res://Textures/Icons/Script Icons/32x32/world_disk.png")
 extends Node
 
 const SAVE_PATH = "user://saveData/global.save"
-
-# NOTE: Find a use for this and make it actually work
 
 func saveGlobal() -> void:
 	Utils.createBaseSaveFolder()
