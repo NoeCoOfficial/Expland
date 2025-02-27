@@ -48,34 +48,34 @@
 extends Node
 
 var ACHIEVEMENTS = [
-	"CHALLENGER", # Beat story mode for the first time
-	"VETERAN" # Beat story mode for the tenth time
+	"PLACEHOLDER",
+	
+	# =================== #
+	
+	"CHALLENGER", # Beat story mode for the first time (1)
+	"VETERAN", # Beat story mode for the tenth time (2)
+	
+	"WANDERER", # Beat free mode for the first time (3)
+	"NOMAD", # Beat free mode for the tenth time (4)
+	
+	"SKILLED", # Beat parkour mode for the first time (5)
+	"FREE RUN", # Beat parkour mode for the tenth time (6)
+	
+	"NEW LIFE", # Visisted The Island for the first time (7)
+	"BED TIME", # Slept for the first time
+	"SURVIVOR", # Survived the night for the first time
+	"EXORCIST", # Defeat The Eryv for the first time
+	"HUNTER", # Defeat The Eryv for the tenth time
+	
+	"SECRET", # You found a secret! (#)
+	
 	
 ]
 
 """
+Idea Hub
 
 
-Ideas for achievements
-
-
-Beat free mode (Wanderer)
-Beat free mode for the tenth time (Nomad)s
-
-Beat pakour mode (Skilled)
-
-Visited the Island for the first time (New Life)
-Slept for the first time (Bed Time)
-Survived the night for the first time (Survivor)
-
-Defeat Eryv for the first time (Exorcist)
-Defeat Eryv for the 10th time (Hunter)
-You found a secret! (Secret)
-
-
-
-
-
-
+<ideas go here>
 
 """
