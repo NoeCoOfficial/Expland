@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=55 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="PackedScene" uid="uid://jb61th5px5nt" path="res://Assets/3D Models/Tests/Island/Island 2.blend" id="2_0llf6"]
@@ -39,6 +39,7 @@
 [ext_resource type="PackedScene" uid="uid://cq13w255wbu5l" path="res://Scenes and Scripts/Scenes/Minimal Alert/MinimalAlert.tscn" id="27_7myre"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/Custom Popups/LoadIslandPopup_SCRIPT.gd" id="27_ro0wj"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/Custom Popups/DeleteIslandPopupMain_SCRIPT.gd" id="29_37xid"]
+[ext_resource type="PackedScene" uid="uid://cjxbcx2vhofs" path="res://Scenes and Scripts/Scenes/Achievements/AchievementNotification.tscn" id="31_ahd72"]
 [ext_resource type="PackedScene" uid="uid://bbc10j8mbwjbn" path="res://Scenes and Scripts/Scenes/Audio/AudioNotification.tscn" id="31_xncp6"]
 
 [sub_resource type="Animation" id="Animation_6cyol"]
@@ -1091,6 +1092,15 @@ theme_override_styles/normal = ExtResource("24_r2ree")
 text = "Yes"
 metadata/_edit_use_anchors_ = true
 
+[node name="AchievementNotificationLayer" type="CanvasLayer" parent="Camera3D/MainLayer"]
+layer = 9
+
+[node name="AchievementNotification" parent="Camera3D/MainLayer/AchievementNotificationLayer" instance=ExtResource("31_ahd72")]
+offset_left = 1152.0
+offset_top = 12.0
+offset_right = 197.0
+offset_bottom = -548.0
+
 [node name="AudioNotificationLayer" type="CanvasLayer" parent="Camera3D/MainLayer"]
 layer = 10
 
@@ -1240,3 +1250,5 @@ initial_velocity_max = 47.09
 [connection signal="focus_exited" from="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit" to="." method="_on_island_name_text_edit_focus_exited"]
 [connection signal="pressed" from="Camera3D/MainLayer/DeleteIslandPopup/DeleteIslandPopupMain/DeleteIsland_No" to="." method="_on_delete_island_no_pressed"]
 [connection signal="pressed" from="Camera3D/MainLayer/DeleteIslandPopup/DeleteIslandPopupMain/DeleteIsland_Yes" to="." method="_on_delete_island_yes_pressed"]
+
+[editable path="Camera3D/MainLayer/AchievementsUI"]

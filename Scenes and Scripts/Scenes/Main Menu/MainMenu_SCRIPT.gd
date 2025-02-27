@@ -74,6 +74,8 @@ var is_tweening = false
 
 func _ready() -> void:
 	AudioManager.NotificationOnScreen = false
+	AchievementsManager.CURRENT_NOTIFICATION_NODE = $Camera3D/MainLayer/AchievementNotificationLayer/AchievementNotification
+	AchievementsManager.CURRENT_UI_GRID_CONTAINER = $Camera3D/MainLayer/AchievementsUI/MainLayer/ScrollContainer/GridContainer
 	AudioManager.initNotificaton($Camera3D/MainLayer/AudioNotificationLayer/AudioNotification)
 	AudioManager.initNew($MainMenu_Audio, false, false, true)
 	AudioManager.canOperate_textField = true

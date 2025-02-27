@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b7la7o37o5gld"]
+[gd_scene load_steps=8 format=3 uid="uid://b7la7o37o5gld"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Achievements/AchievementsUI_SCRIPT.gd" id="1_l5cpa"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="2_jb8yw"]
 [ext_resource type="StyleBox" uid="uid://3txnt8ebd3yh" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/BlackBGwithWhiteBorder.tres" id="3_s02bt"]
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="4_tvib0"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="5_8ki5k"]
-[ext_resource type="PackedScene" uid="uid://5hf7lqmuhec5" path="res://Scenes and Scripts/Scenes/Achievements/AchievementElement.tscn" id="6_8vh6v"]
 [ext_resource type="FontFile" uid="uid://b2o44xwqnsb5k" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf" id="6_x5w8t"]
 [ext_resource type="Texture2D" uid="uid://cwskjvl8pplog" path="res://Textures/Icons/Exit_Icon.png" id="7_4a01g"]
 
@@ -87,87 +86,6 @@ theme_override_constants/h_separation = 179
 theme_override_constants/v_separation = 239
 columns = 4
 metadata/_edit_use_anchors_ = true
-
-[node name="AchievementElement" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
-layout_mode = 2
-
-[node name="AchievementElement2" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
-layout_mode = 2
-
-[node name="AchievementElement3" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
-layout_mode = 2
-
-[node name="AchievementElement4" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
-layout_mode = 2
-
-[node name="AchievementElement5" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
-layout_mode = 2
-
-[node name="AchievementElement6" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
-layout_mode = 2
-
-[node name="AchievementElement7" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
-layout_mode = 2
-
-[node name="AchievementElement8" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
-layout_mode = 2
-
-[node name="AchievementElement9" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
-layout_mode = 2
-
-[node name="AchievementElement10" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
-layout_mode = 2
-
-[node name="AchievementElement11" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
-layout_mode = 2
-
-[node name="AchievementElement12" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
-layout_mode = 2
-
-[node name="AchievementElement13" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
-layout_mode = 2
-
-[node name="AchievementElement14" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
-layout_mode = 2
-
-[node name="AchievementElement15" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
-layout_mode = 2
-
-[node name="AchievementElement16" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
-layout_mode = 2
-
-[node name="AchievementElement17" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
-layout_mode = 2
-
-[node name="AchievementElement18" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
-layout_mode = 2
-
-[node name="AchievementElement19" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
-layout_mode = 2
-
-[node name="AchievementElement20" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
-layout_mode = 2
-
-[node name="AchievementElement21" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
-layout_mode = 2
-
-[node name="AchievementElement22" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
-layout_mode = 2
-
-[node name="AchievementElement23" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
-layout_mode = 2
-
-[node name="AchievementElement24" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
-layout_mode = 2
-
-[node name="AchievementElement25" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
-layout_mode = 2
-
-[node name="AchievementElement26" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
-layout_mode = 2
-
-[node name="AchievementElement27" parent="MainLayer/ScrollContainer/GridContainer" instance=ExtResource("6_8vh6v")]
-layout_mode = 2
 
 [node name="Title" type="Label" parent="MainLayer"]
 layout_mode = 1
