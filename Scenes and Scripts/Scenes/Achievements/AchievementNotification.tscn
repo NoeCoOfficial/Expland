@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjxbcx2vhofs"]
+[gd_scene load_steps=6 format=3 uid="uid://cjxbcx2vhofs"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Achievements/AchievementNotification_SCRIPT.gd" id="1_wps2i"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="2_x6fve"]
 [ext_resource type="FontFile" uid="uid://b2o44xwqnsb5k" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf" id="4_1nshs"]
+[ext_resource type="Texture2D" uid="uid://bsehw8xxc02m1" path="res://Textures/Achievements/WANDERER.png" id="4_6h4ei"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vwkia"]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="AchievementNotification" type="Control"]
 layout_mode = 3
@@ -88,6 +95,19 @@ theme_override_font_sizes/font_size = 13
 text = "AchievementName"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="e_image_container" type="PanelContainer" parent="Elements"]
+clip_children = 1
+offset_left = 22.0
+offset_top = 33.0
+offset_right = 154.0
+offset_bottom = 178.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vwkia")
+
+[node name="e_image" type="TextureRect" parent="Elements/e_image_container"]
+layout_mode = 2
+texture = ExtResource("4_6h4ei")
+expand_mode = 1
 
 [node name="Barrier" type="Line2D" parent="Elements"]
 position = Vector2(23, -7)

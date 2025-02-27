@@ -47,6 +47,8 @@
 
 extends Node
 
+var NotificationOnScreen = false
+
 var ACHIEVEMENTS = [
 	"PLACEHOLDER",
 	

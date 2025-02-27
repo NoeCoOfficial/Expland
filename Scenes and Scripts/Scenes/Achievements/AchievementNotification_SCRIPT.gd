@@ -50,29 +50,14 @@ extends Control
 
 var animation
 
-func spawnAchievementsNotification(paused: bool, songName : String):
-	AudioManager.NotificationOnScreen = true
+func spawnAchievementsNotification(ARR_INDEX : int):
+	AchievementsManager.NotificationOnScreen = true
 	if animation:
 		animation.kill()
 	animation = get_tree().create_tween().set_parallel()
 	$DespawnTimer.start()
 	
-	$Elements/SongName.text = songName
-	
-	if AudioManager.PREVIOUS_SONGS.is_empty():
-		$Elements/PreviousBtnIcon.hide()
-		$"Elements/J Key Container".hide()
-	else:
-		$Elements/PreviousBtnIcon.show()
-		$"Elements/J Key Container".show()
-	
-	if paused:
-		$Elements/PauseBtnIcon.visible = false
-		$Elements/PlayBtnIcon.visible = true
-	else:
-		$Elements/PauseBtnIcon.visible = true
-		$Elements/PlayBtnIcon.visible = false
-	
+	$Elements/AchievementName.text = AchievementsManager.ACHIEVEMENTS[ARR_INDEX]
 	
 	animation.tween_property($LightBG, "position:x", -193, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	animation.tween_property($DarkBG, "position:x", -189, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.2)
