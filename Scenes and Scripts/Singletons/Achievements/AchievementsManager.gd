@@ -61,13 +61,16 @@ var ACHIEVEMENTS = [
 Ideas for achievements
 
 
-Beat free mode
-Beat pakour mode
+Beat free mode (Wanderer)
+Beat pakour mode (Skilled)
+
 Visited the Island for the first time (New Life)
-(Night Time)
+Slept for the first time (Bed Time)
+Survived the night for the first time (Survivor)
+
 Defeat Eryv for the first time (Exorcist)
 Defeat Eryv for the 10th time (Hunter)
-
+You found a secret! (Secret)
 
 
 
