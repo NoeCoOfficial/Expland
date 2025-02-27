@@ -77,23 +77,6 @@ func loadGlobal() -> void:
 			var current_line = JSON.parse_string(file.get_line())
 			if current_line:
 				pass
-				# General
-			#	showStartupScreen = current_line["show_startup_screen"]
-				
-				# Graphics
-				# DOFBlur = current_line["dof_blur"]
-				
-				# Video
-			#	FOV = current_line["FOV"]
-			#	Sensitivity = current_line["Sensitivity"]
-				
-				# Audio
-			#	Master_Volume = current_line["Master_Volume"]
-				#music_Volume = current_line["music_Volume"]
-			#	sfx_Volume = current_line["sfx_Volume"]
-				
-				#print_rich("[center][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf][font_size=30]-- PLAYER SETTINGS HAVE BEEN LOADED --[/font_size][/font][/center]")
-				
 				#print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Show startup screen: "+str(showStartupScreen)+"[/font][/font_size][/center]")
 				#print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]DOF Blur: "+str(DOFBlur)+"[/font][/font_size][/center]")
 				#print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]FOV: "+str(FOV)+"[/font][/font_size][/center]")
