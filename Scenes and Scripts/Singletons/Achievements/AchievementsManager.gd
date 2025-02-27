@@ -119,4 +119,13 @@ func earnAchievement(ARR_INDEX : int, withNotification : bool):
 			CURRENT_NOTIFICATION_NODE.spawnAchievementsNotification(ARR_INDEX)
 	
 	if CURRENT_UI_GRID_CONTAINER:
-		pass
+		var element = load("res://Scenes and Scripts/Scenes/Achievements/AchievementElement.tscn")
+		var instance = element.instantiate()
+		
+		instance._update(
+		
+		str(ACHIEVEMENTS[ARR_INDEX]).capitalize(),
+		"res://Textures/Achievements/"+ ACHIEVEMENTS[ARR_INDEX] + ".png",
+		ACHIEVEMENT_DESCRIPTIONS[ARR_INDEX]
+		
+		)
