@@ -62,20 +62,14 @@ var ACHIEVEMENTS = [
 	"FREE RUN", # Beat parkour mode for the tenth time (6)
 	
 	"NEW LIFE", # Visisted The Island for the first time (7)
-	"BED TIME", # Slept for the first time
-	"SURVIVOR", # Survived the night for the first time
-	"EXORCIST", # Defeat The Eryv for the first time
-	"HUNTER", # Defeat The Eryv for the tenth time
+	"BED TIME", # Slept for the first time (8)
+	"SURVIVOR", # Survived the night for the first time (9)
+	"EXORCIST", # Defeat The Eryv for the first time (10)
+	"HUNTER", # Defeat The Eryv for the tenth time (11)
 	
 	"SECRET", # You found a secret! (#)
 	
-	
 ]
 
-"""
-Idea Hub
-
-
-<ideas go here>
-
-"""
+func earnAchievement(ARR_ID : int, Current_Time : String):
+	pass
