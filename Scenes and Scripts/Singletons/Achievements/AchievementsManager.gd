@@ -47,5 +47,8 @@
 
 extends Node
 
-func _ready() -> void:
-	pass
+var ACHIEVEMENTS = [
+	"CHALLENGER", # Beat story mode for the first time
+	""
+	
+]
