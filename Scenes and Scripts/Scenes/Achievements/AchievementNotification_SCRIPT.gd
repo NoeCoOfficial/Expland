@@ -1,5 +1,5 @@
 # ============================================================= #
-# AudioNotification_SCRIPT.gd
+# AchievementNotification_SCRIPT.gd
 # ============================================================= #
 #                       COPYRIGHT NOTICE                        #
 #                           Noe Co.                             #
