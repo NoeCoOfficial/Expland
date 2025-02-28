@@ -49,12 +49,13 @@
 extends Node
 
 func saveAllData():
-	var playerNode = get_node("/root/World/Player")
+	GlobalData.saveGlobal()
 	
 	if IslandManager.Current_Island_Name != "":
 		PlayerData.saveData(IslandManager.Current_Island_Name)
+		IslandData.saveData(IslandManager.Current_Island_Name)
 	
-	if playerNode != null and IslandManager.Current_Island_Name != "":
-		playerNode.saveInventory()
+	if PlayerManager.PLAYER != null and IslandManager.Current_Island_Name != "":
+		PlayerManager.PLAYER.saveInventory()
 	
 	PlayerSettingsData.saveSettings()

@@ -1,5 +1,61 @@
 <h1 align="center">Expland Changelog</h1>
 
+# v0.6.5 (released)
+
+---
+
+## The Island
+
+### Added:
+- 2 new explorer notes to The Island
+- A model of The Eryv
+
+## Inventory
+
+### Added:
+- New stone inventory item
+- New wood plank inventory item
+
+### Changed:
+- Yellow flower text inside inventory is now "Yellow Flower" instead of "Yellowflower"
+- There are now 16 slots in inventory pockets instead of 9 to store items
+- There are now 49 slots in the chest instead of 25 to store items
+- There are now 9 slots in the workbench instead of 5 to craft items
+
+### Fixed:
+- Fixed a bug where you could close the workbench by pressing "E", then being able to open it again by pressing "E"
+- Fixed 3D inventory pickup items noclipping through the ground
+
+## Crafting
+
+### Added:
+- An all-new crafting system which can be accessed by interacting with the workbench in the testing area
+
+## Player
+
+### Added:
+- Added a hotbar to the player (not functional yet)
+- Added an achievements system, where future game achievements will be shown
+
+### Changed:
+- Changed player collision shape to reduce lag
+- Changed the FOV cap from 60-120 to 90-120
+
+### Removed:
+- Removed the old hand item system
+
+## Explorer Notes
+
+### Added:
+- An all-new explorer notes system, with the ability to collect notes and view them in your inventory
+
+## Settings
+
+### Added:
+- Added a quick animations option in settings (not fully done)
+
+---
+
 # v0.6.0 (released)
 
 ---

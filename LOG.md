@@ -14,4 +14,7 @@
 
 [26/1/2025] sebashtioon - My bad for not keeping logs yall... the chest is coming and also music! Awesome
 
+[1/2/2025] sebashtioon - yoo wassup!!! v0.6.0 released yesterday. We hope you like it :D
+
 [14/2/2025] sebashtioon - Explorer notes are coming... also, does anyone even read this???
+

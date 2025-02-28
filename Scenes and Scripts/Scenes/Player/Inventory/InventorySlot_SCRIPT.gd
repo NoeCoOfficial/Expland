@@ -48,14 +48,17 @@
 @icon("res://Textures/Icons/Script Icons/32x32/ui_inventory.png")
 extends StaticBody2D
 
-@export var is_populated_label : Label
-
 @export var is_touching_draggable = false
 @export var populated = false
 @export var is_chest_slot = false
 @export var is_workbench_slot = false
+@export var is_workbench_output_slot = false
 
 func _ready():
+	if is_workbench_output_slot:
+		print_rich("[color=purple]Output slot position: " + str(position) + "[/color]")
+		print_rich("[color=purple]Output slot position: " + str(global_position) + "[/color]")
+	
 	modulate = Color(1, 1, 1, 0.2)
 
 func _process(_delta):
@@ -63,15 +66,6 @@ func _process(_delta):
 		visible = true
 	else:
 		visible = false
-	
-	if DebugManager.is_debugging:
-		is_populated_label.visible = true
-		if populated:
-			is_populated_label.text = "Populated"
-		else:
-			is_populated_label.text = "Empty"
-	else:
-		is_populated_label.visible = false
 
 func set_is_chest_slot(value : bool):
 	is_chest_slot = value
@@ -87,11 +81,22 @@ func get_is_workbench_slot():
 	return is_workbench_slot
 
 
+func set_is_workbench_output_slot(value : bool):
+	is_workbench_output_slot = value
+
+func get_is_workbench_output_slot():
+	return is_workbench_output_slot
+
+
+func set_is_touching_draggable(value : bool):
+	is_touching_draggable = value
+
+func get_is_touching_draggable():
+	return is_touching_draggable
+
+
 func is_populated():
-	if populated:
-		return true
-	else:
-		return false
+	return populated
 
 func set_populated(populatedValue : bool):
 	if populatedValue:

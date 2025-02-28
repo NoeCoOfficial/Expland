@@ -47,6 +47,8 @@
 
 extends Node
 
+const VERSION = "v0.6.5"
+
 var is_first_time_in_menu = true
 var is_in_main_menu = true
 var the_island_transitioning_scene = false

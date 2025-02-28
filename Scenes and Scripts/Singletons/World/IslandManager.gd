@@ -65,11 +65,12 @@ func set_current_island(island_name: String) -> void:
 
 func resetAttributes():
 	
-	## CRITICAL
-	# EVERY NEW VALUE ASSOCIATED WITH THE ISLAND
-	# IT'S NAME AND IT'S DEFAULT HERE!
+	# CRITICAL
+	# EVERY VALUE ASSOCIATED WITH THE ISLAND AND/OR PLAYER
+	# IT'S NAME AND IT'S DEFAULT VALUE MUST BE SET HERE!
 	# VERY IMPORTANT!
 	
+	PauseManager.inside_explorer_note_ui = false
 	PauseManager.inside_can_move_item_workshop = false
 	PauseManager.inside_absolute_item_workshop = false
 	PauseManager.inside_item_workshop = false
@@ -84,7 +85,7 @@ func resetAttributes():
 	PlayerData.Hunger = 100
 	PlayerData.Hydration = 100
 	PlayerManager.Stamina = 100
-	InventoryData.HAND_ITEM_TYPE = ""
+	InventoryData.CURRENT_ITEM_IN_HAND = ""
 	IslandManager.Current_Island_Name = ""
 	IslandManager.Current_Game_Mode = ""
 	IslandManager.Current_Weather = ""
@@ -92,6 +93,19 @@ func resetAttributes():
 	TimeManager.CURRENT_TIME = 600
 	TimeManager.CURRENT_DAY = 1
 	TimeManager.DAY_STATE = "DAY"
+	
+	ExplorerNotesManager.COLLECTED_NOTES.clear()
+	ExplorerNotesManager.CurrentlyInteracting_ID = null
+	ExplorerNotesManager.CurrentlyShowing_ID = null
+	ExplorerNotesManager.CurrentlyInteracting_Node = null
+	ExplorerNotesManager.CurrentlyShowing_Node = null
+	ExplorerNotesManager.UI_CurrentlyFocusedIndex = null
+	ExplorerNotesManager.UI_CurrentLeftIndex = null
+	ExplorerNotesManager.UI_CurrentRightIndex = null
+	ExplorerNotesManager.UI_CurrentlyFocusedID = null
+	ExplorerNotesManager.UI_CurrentLeftID = null
+	ExplorerNotesManager.UI_CurrentRightID = null
+	ExplorerNotesManager.EXPLORER_NOTES_MAIN_LAYER = null
 	
 	InventoryManager.creatingFromInventory = false
 	InventoryManager.inventory_open = false
@@ -103,9 +117,12 @@ func resetAttributes():
 	InventoryManager.item_ref_not_at_inventory = ""
 	InventoryManager.is_creating_pickup = false
 	InventoryManager.is_inside_checker = false
-	InventoryManager.is_hovering_over_hand_dropable = false
 	InventoryManager.chestNode = null
-
+	
+	CraftingManager.resetCurrentCraftingItems()
+	
+	HotbarManager.CURRENTLY_SELECTED_SLOT_NAME = null
+	
 	InteractionManager.is_notification_on_screen = false
 	InteractionManager.is_colliding = false
 	InteractionManager.is_hovering_over_email_noeco = false
@@ -113,6 +130,10 @@ func resetAttributes():
 	InteractionManager.is_hovering_over_test_obj = false
 	InteractionManager.is_hovering_over_sackcloth_bed = false
 	InteractionManager.is_hovering_over_chest = false
+	InteractionManager.is_hovering_over_workbench = false
+	InteractionManager.is_hovering_over_explorer_note = false
+
+	AchievementsManager.NotificationOnScreen = false
 
 	# NOTE: May need to reset TerrainManager variables here in future
 	

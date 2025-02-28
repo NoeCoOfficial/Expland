@@ -42,10 +42,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -346.0
-offset_top = -247.5
-offset_right = 346.0
-offset_bottom = 247.5
+offset_left = -378.5
+offset_top = -265.5
+offset_right = 378.5
+offset_bottom = 265.5
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
@@ -54,17 +54,17 @@ theme_override_styles/pressed = ExtResource("3_s02bt")
 theme_override_styles/normal = ExtResource("3_s02bt")
 script = ExtResource("2_jb8yw")
 
-[node name="TextBG" type="Button" parent="MainLayer"]
+[node name="ScrollBG" type="Button" parent="MainLayer"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -330.0
-offset_top = -186.0
-offset_right = 331.0
-offset_bottom = 234.0
+offset_left = -366.0
+offset_top = -213.5
+offset_right = 366.0
+offset_bottom = 253.5
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
@@ -73,45 +73,46 @@ theme_override_styles/pressed = ExtResource("4_tvib0")
 theme_override_styles/normal = ExtResource("4_tvib0")
 script = ExtResource("2_jb8yw")
 
-[node name="Notice" type="Label" parent="MainLayer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MainLayer"]
+layout_mode = 0
+offset_left = 217.0
+offset_top = 120.0
+offset_right = 936.0
+offset_bottom = 571.0
+vertical_scroll_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MainLayer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 179
+theme_override_constants/v_separation = 274
+columns = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="ScrollEnabler" type="Control" parent="MainLayer/ScrollContainer/GridContainer"]
+layout_mode = 2
+
+[node name="ScrollEnabler2" type="Control" parent="MainLayer/ScrollContainer/GridContainer"]
+layout_mode = 2
+
+[node name="ScrollEnabler3" type="Control" parent="MainLayer/ScrollContainer/GridContainer"]
+layout_mode = 2
+
+[node name="ScrollEnabler4" type="Control" parent="MainLayer/ScrollContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MainLayer"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -96.5
-offset_top = -11.5
-offset_right = 96.5
-offset_bottom = 11.5
+offset_left = -130.0
+offset_top = -259.5
+offset_right = 130.0
+offset_bottom = -212.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("5_8ki5k")
-theme_override_font_sizes/font_size = 30
-text = "Nothing here yet, sorry :("
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ScrollContainer" type="ScrollContainer" parent="MainLayer"]
-layout_mode = 0
-offset_left = 417.0
-offset_top = 162.0
-offset_right = 735.0
-offset_bottom = 533.0
-
-[node name="UI" type="Control" parent="MainLayer/ScrollContainer"]
-layout_mode = 2
-
-[node name="Title" type="Label" parent="MainLayer"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -130.0
-offset_top = 88.0
-offset_right = 130.0
-offset_bottom = 135.0
-grow_horizontal = 2
 theme = ExtResource("5_8ki5k")
 theme_override_fonts/font = ExtResource("6_x5w8t")
 theme_override_font_sizes/font_size = 40
@@ -119,13 +120,34 @@ text = "Achievements"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="NoAchievements_LBL" type="Label" parent="MainLayer"]
+visible = false
+modulate = Color(1, 1, 1, 0.356863)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.5
+offset_top = -23.5
+offset_right = 400.5
+offset_bottom = 23.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_8ki5k")
+theme_override_font_sizes/font_size = 25
+text = "You haven't unlocked any achievements  yet!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="CloseButton" type="TextureButton" parent="MainLayer"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.210069
-anchor_top = 0.135802
-anchor_right = 0.242187
-anchor_bottom = 0.192901
+anchor_left = 0.184028
+anchor_top = 0.0987654
+anchor_right = 0.216146
+anchor_bottom = 0.155864
 offset_right = 8.00003
 offset_bottom = 7.99983
 texture_normal = ExtResource("7_4a01g")

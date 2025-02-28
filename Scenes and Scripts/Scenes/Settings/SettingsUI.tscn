@@ -127,21 +127,6 @@ text = "SETTINGS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SaveSettings" type="Button" parent="MainLayer"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 3.152
-anchor_top = 2.51835
-anchor_right = 3.152
-anchor_bottom = 2.51835
-offset_left = -2608.1
-offset_top = -1615.89
-offset_right = -2496.1
-offset_bottom = -1567.89
-focus_mode = 0
-theme = ExtResource("4_m5nwd")
-text = "Save Settings"
-
 [node name="SettingsTabContainer" type="TabContainer" parent="MainLayer"]
 layout_mode = 1
 anchors_preset = -1
@@ -216,6 +201,32 @@ max_value = 999.0
 value = 60.0
 update_on_text_changed = true
 suffix = "sec"
+
+[node name="QATTL" type="Label" parent="MainLayer/SettingsTabContainer/General"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0346668
+anchor_top = 0.0172414
+anchor_right = 0.306668
+anchor_bottom = 0.096059
+offset_left = 17.4995
+offset_top = 71.3985
+offset_right = 45.4993
+offset_bottom = 71.3985
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("4_m5nwd")
+theme_override_font_sizes/font_size = 17
+text = "Quick Animations"
+vertical_alignment = 1
+
+[node name="QASwitch" type="CheckButton" parent="MainLayer/SettingsTabContainer/General"]
+layout_mode = 0
+offset_left = 161.5
+offset_top = 81.5003
+offset_right = 205.5
+offset_bottom = 105.5
+focus_mode = 0
 
 [node name="Graphics" type="TabBar" parent="MainLayer/SettingsTabContainer"]
 visible = false
@@ -297,9 +308,9 @@ focus_mode = 0
 theme_override_constants/center_grabber = -1
 theme_override_styles/slider = SubResource("StyleBoxLine_5ohsc")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_uykce")
-min_value = 70.0
+min_value = 90.0
 max_value = 120.0
-value = 70.0
+value = 90.0
 rounded = true
 metadata/_edit_use_anchors_ = true
 
@@ -535,9 +546,9 @@ theme_override_font_sizes/font_size = 40
 text = "EXIT"
 script = ExtResource("2_vw753")
 
-[connection signal="pressed" from="MainLayer/SaveSettings" to="." method="_on_save_settings_pressed"]
 [connection signal="toggled" from="MainLayer/SettingsTabContainer/General/SSCSwitch" to="." method="_on_ssc_switch_toggled"]
 [connection signal="value_changed" from="MainLayer/SettingsTabContainer/General/AutosaveIntervalSpinBox" to="." method="_on_autosave_interval_spin_box_value_changed"]
+[connection signal="toggled" from="MainLayer/SettingsTabContainer/General/QASwitch" to="." method="_on_qa_switch_toggled"]
 [connection signal="toggled" from="MainLayer/SettingsTabContainer/Graphics/DOFBlurSwitch" to="." method="_on_dof_blur_switch_toggled"]
 [connection signal="toggled" from="MainLayer/SettingsTabContainer/Graphics/PrettyShadowsSwitch" to="." method="_on_pretty_shadows_switch_toggled"]
 [connection signal="value_changed" from="MainLayer/SettingsTabContainer/Video/FOVSlider" to="." method="_on_fov_slider_value_changed"]

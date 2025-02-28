@@ -48,7 +48,12 @@
 @icon("res://Textures/Icons/Script Icons/32x32/character.png") # Give the node an icon (so it looks cool)
 extends CharacterBody3D # Inheritance
 
-#region Export variables
+#region Variables
+
+######################################
+######################################
+
+var loadAchivementElementsThread : Thread
 
 ######################################
 ######################################
@@ -62,7 +67,6 @@ extends CharacterBody3D # Inheritance
 var inventory_opened_in_air := false ## Checks if the inventory UI is opened in the air (so the same velocity can be kept, used in _physics_process()
 var speed : float ## The speed of the player. Used in _physics_process, this variable changes to SPRINT_SPEED, CROUCH_SPEED or WALK_SPEED depending on what input is pressed.
 var transitioning_to_menu = false
-var inventoryHand_debounce_timer = 0.2
 
 ######################################
 # Gameplay group
@@ -142,6 +146,7 @@ var inventoryHand_debounce_timer = 0.2
 @export var JUMP_VELOCITY = 4.5 ## How much velocity the player has when jumping. The more this value is, the higher the player can jump.
 var is_movement_input_active = false
 var is_moving = false
+var is_moving_absolute = false
 var is_walking = false
 var is_sprinting = false
 var is_crouching = false
@@ -170,6 +175,7 @@ var stamina_restoring_from_0 = false
 
 @export var head : Node3D
 @export var camera : Camera3D
+@export var HandItem : Node3D
 @export var PickupAttractionPos : Node3D
 
 
@@ -185,16 +191,18 @@ var stamina_restoring_from_0 = false
 @export var Slot7_Inventory_Ref : StaticBody2D
 @export var Slot8_Inventory_Ref : StaticBody2D
 @export var Slot9_Inventory_Ref : StaticBody2D
+@export var Slot10_Inventory_Ref : StaticBody2D
+@export var Slot11_Inventory_Ref : StaticBody2D
+@export var Slot12_Inventory_Ref : StaticBody2D
+@export var Slot13_Inventory_Ref : StaticBody2D
+@export var Slot14_Inventory_Ref : StaticBody2D
+@export var Slot15_Inventory_Ref : StaticBody2D
+@export var Slot16_Inventory_Ref : StaticBody2D
 
 @export_subgroup("Layers and UI")
 @export var PocketsCollisionBoundary : Area2D
 @export var ChestCollisionBoundary : Area2D
-@export var Pickaxe_Video : VideoStreamPlayer
-@export var Axe_Video : VideoStreamPlayer
-@export var Sword_Video : VideoStreamPlayer
-@export var EquipAnimations_Player : AnimationPlayer
-@export var HAND_ITEM_TYPE_Label : Label
-
+@export var WorkbenchCollisionBoundary : Area2D
 
 @export_group("Chest")
 
@@ -228,7 +236,30 @@ var stamina_restoring_from_0 = false
 @export var Slot23_Chest_Ref : StaticBody2D
 @export var Slot24_Chest_Ref : StaticBody2D
 @export var Slot25_Chest_Ref : StaticBody2D
-
+@export var Slot26_Chest_Ref : StaticBody2D
+@export var Slot27_Chest_Ref : StaticBody2D
+@export var Slot28_Chest_Ref : StaticBody2D
+@export var Slot29_Chest_Ref : StaticBody2D
+@export var Slot30_Chest_Ref : StaticBody2D
+@export var Slot31_Chest_Ref : StaticBody2D
+@export var Slot32_Chest_Ref : StaticBody2D
+@export var Slot33_Chest_Ref : StaticBody2D
+@export var Slot34_Chest_Ref : StaticBody2D
+@export var Slot35_Chest_Ref : StaticBody2D
+@export var Slot36_Chest_Ref : StaticBody2D
+@export var Slot37_Chest_Ref : StaticBody2D
+@export var Slot38_Chest_Ref : StaticBody2D
+@export var Slot39_Chest_Ref : StaticBody2D
+@export var Slot40_Chest_Ref : StaticBody2D
+@export var Slot41_Chest_Ref : StaticBody2D
+@export var Slot42_Chest_Ref : StaticBody2D
+@export var Slot43_Chest_Ref : StaticBody2D
+@export var Slot44_Chest_Ref : StaticBody2D
+@export var Slot45_Chest_Ref : StaticBody2D
+@export var Slot46_Chest_Ref : StaticBody2D
+@export var Slot47_Chest_Ref : StaticBody2D
+@export var Slot48_Chest_Ref : StaticBody2D
+@export var Slot49_Chest_Ref : StaticBody2D
 
 @export_group("Workbench")
 
@@ -242,7 +273,11 @@ var stamina_restoring_from_0 = false
 @export var Slot3_Workbench_Ref : StaticBody2D
 @export var Slot4_Workbench_Ref : StaticBody2D
 @export var Slot5_Workbench_Ref : StaticBody2D
-
+@export var Slot6_Workbench_Ref : StaticBody2D
+@export var Slot7_Workbench_Ref : StaticBody2D
+@export var Slot8_Workbench_Ref : StaticBody2D
+@export var Slot9_Workbench_Ref : StaticBody2D
+@export var Slot10_Output_Workbench_Ref : StaticBody2D
 
 @export_group("General Nodes")
 
@@ -285,7 +320,6 @@ var stamina_restoring_from_0 = false
 
 @export_subgroup("Timers")
 @export var ManualSaveCooldown : Timer
-@export var HandItemDebounce : Timer
 @export var AutoSaveTimer : Timer
 
 
@@ -344,21 +378,27 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			
 		else:
 			
-			if !DialogueManager.is_in_absolute_interface and !InventoryManager.inventory_open and !PauseManager.is_inside_alert and !InventoryManager.is_in_workbench_interface and !InventoryManager.in_chest_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !PauseManager.inside_absolute_item_workshop:
+			if !DialogueManager.is_in_absolute_interface and !InventoryManager.inventory_open and !PauseManager.is_inside_alert and !InventoryManager.is_in_workbench_interface and !InventoryManager.in_chest_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !PauseManager.inside_absolute_item_workshop and !PauseManager.inside_explorer_note_ui:
 				pauseGame()
 			
-			if InventoryManager.inventory_open and !InventoryManager.in_chest_interface and !InventoryManager.is_dragging:
+			if InventoryManager.inventory_open and !InventoryManager.in_chest_interface and !InventoryManager.is_in_explorer_notes_interface and !InventoryManager.is_dragging:
 				closeInventory()
 			
-			if InventoryManager.in_chest_interface and !InventoryManager.is_dragging:
+			if InventoryManager.in_chest_interface and !InventoryManager.is_dragging and !InventoryManager.is_in_explorer_notes_interface:
 				if !InventoryManager.chestNode.is_animating():
 					closeChest()
 			
-			if InventoryManager.is_in_workbench_interface and !InventoryManager.is_dragging:
+			if InventoryManager.is_in_workbench_interface and !InventoryManager.is_dragging and !InventoryManager.is_in_explorer_notes_interface:
 				closeWorkbench()
 			
 			if PauseManager.inside_item_workshop:
 				closeItemWorkshop()
+			
+			if PauseManager.inside_explorer_note_ui:
+				ExplorerNotesManager.hideCloseUp()
+			
+			if InventoryManager.is_in_explorer_notes_interface:
+				closeExplorerNotes()
 	
 	if Input.is_action_just_pressed("Quit") and Quit == true and OS.has_feature("debug"): # if the Quit input is pressed and the Quit variable is true
 		SaveManager.saveAllData()
@@ -376,13 +416,66 @@ func _input(_event): # A built-in function that listens for input using the inpu
 	if Input.is_action_just_pressed("SaveGame") and OS.has_feature("debug") and IslandManager.Current_Game_Mode == "FREE":
 		Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
 		SaveManager.saveAllData()
-		saveAllDataWithAnimation()
 	
-	if Input.is_action_just_pressed("Inventory") and !PauseManager.inside_absolute_item_workshop and !PauseManager.is_paused and !InventoryManager.in_chest_interface and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !InventoryManager.is_dragging and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
+	if Input.is_action_just_pressed("Inventory") and !InventoryManager.is_in_explorer_notes_interface and !PauseManager.inside_explorer_note_ui and !PauseManager.inside_absolute_item_workshop and !PauseManager.is_paused and !InventoryManager.in_chest_interface and !InventoryManager.is_in_workbench_interface and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !InventoryManager.is_dragging and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
 		if !InventoryManager.inventory_open:
 			openInventory()
 		else:
 			closeInventory()
+	
+	if Input.is_action_just_pressed("Workbench_QuickCraft") and InventoryManager.is_in_workbench_interface:
+		SignalBus.pressed_craft.emit()
+	
+	if !PauseManager.is_paused and !InventoryManager.inventory_open and !PauseManager.inside_item_workshop and !DialogueManager.is_in_interface and !PauseManager.inside_explorer_note_ui and PlayerData.GAME_STATE != "DEAD" and PlayerData.GAME_STATE != "SLEEPING":
+		if Input.is_action_just_pressed("Hotbar_1"):
+			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot1":
+				setHotbarSelectedSlot(1)
+			else:
+				setHotbarSelectedSlot(null)
+		elif Input.is_action_just_pressed("Hotbar_2"):
+			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot2":
+				setHotbarSelectedSlot(2)
+			else:
+				setHotbarSelectedSlot(null)
+		elif Input.is_action_just_pressed("Hotbar_3"):
+			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot3":
+				setHotbarSelectedSlot(3)
+			else:
+				setHotbarSelectedSlot(null)
+		elif Input.is_action_just_pressed("Hotbar_4"):
+			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot4":
+				setHotbarSelectedSlot(4)
+			else:
+				setHotbarSelectedSlot(null)
+		elif Input.is_action_just_pressed("Hotbar_5"):
+			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot5":
+				setHotbarSelectedSlot(5)
+			else:
+				setHotbarSelectedSlot(null)
+		elif Input.is_action_just_pressed("Hotbar_6"):
+			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot6":
+				setHotbarSelectedSlot(6)
+			else:
+				setHotbarSelectedSlot(null)
+		elif Input.is_action_just_pressed("Hotbar_7"):
+			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot7":
+				setHotbarSelectedSlot(7)
+			else:
+				setHotbarSelectedSlot(null)
+		elif Input.is_action_just_pressed("Hotbar_8"):
+			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot8":
+				setHotbarSelectedSlot(8)
+				#HandManager.HAND_ITEM_NODE.swap_items("PICKAXE")
+			else:
+				setHotbarSelectedSlot(null)
+				#HandManager.HAND_ITEM_NODE.swap_items("")
+		elif Input.is_action_just_pressed("Hotbar_9"):
+			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot9":
+				setHotbarSelectedSlot(9)
+				#HandManager.HAND_ITEM_NODE.swap_items("SWORD")
+			else:
+				setHotbarSelectedSlot(null)
+				#HandManager.HAND_ITEM_NODE.swap_items("")
 
 func _unhandled_input(event): # A built-in function that listens for input all the time
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
@@ -400,6 +493,30 @@ func _unhandled_input(event): # A built-in function that listens for input all t
 #region Process
 
 func _physics_process(delta):
+	PlayerManager.isIdle = !is_movement_input_active
+	HandItem.sway(delta, PlayerManager.isIdle)
+	
+	if PauseManager.is_paused or InventoryManager.inventory_open or DialogueManager.is_in_interface or PauseManager.inside_item_workshop or PauseManager.inside_explorer_note_ui:
+		is_sprinting = false
+	
+	if !is_moving_absolute:
+		is_sprinting = false
+	
+	if is_walking and is_movement_input_active:
+		PlayerManager.is_walking_moving = true
+	else:
+		PlayerManager.is_walking_moving = false
+	
+	if is_sprinting and is_movement_input_active:
+		PlayerManager.is_sprinting_moving = true
+	else:
+		PlayerManager.is_sprinting_moving = false
+	
+	if is_crouching and is_movement_input_active:
+		PlayerManager.is_crouching_moving = true
+	else:
+		PlayerManager.is_crouching_moving = false
+
 	## Player stamina
 	if is_sprinting and is_movement_input_active:
 		if !stamina_restoring_from_0:
@@ -476,16 +593,19 @@ func _physics_process(delta):
 		else:
 			velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
 			velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
-			
+		
 		move_and_slide()
 		
 		# Check if the player is moving and on the floor
 		is_moving = velocity.length() > 0.1 and is_on_floor()
 		
+		is_moving_absolute = velocity.length() > 0.1
+		
 		# Apply view bobbing only if the player is moving
 		if is_moving:
 			Wave_Length += delta * velocity.length()
 			camera.transform.origin = _headbob(Wave_Length)
+			HandItem.bob(delta)
 		else:
 			# Smoothly return to original position when not moving
 			var target_pos = Vector3(camera.transform.origin.x, 0, camera.transform.origin.z)
@@ -496,9 +616,7 @@ func _headbob(time) -> Vector3:
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP # set the y position to the sine of the time times the bob frequency times the bob amplitude
 	return pos # return the position
 
-func _process(delta):
-	if inventoryHand_debounce_timer > 0:
-		inventoryHand_debounce_timer -= delta
+func _process(_delta):
 	
 	SENSITIVITY = PlayerSettingsData.Sensitivity
 	camera.fov = PlayerSettingsData.FOV
@@ -556,7 +674,7 @@ func _process(delta):
 		HUDLayer_HealthBar.show()
 	
 	
-	# TODO: Change when making crosshair setting
+	# NOTE: Change when making crosshair setting
 	Crosshair_Rect.size = crosshair_size # set the crosshair size to the crosshair size variable
 
 #endregion
@@ -564,9 +682,31 @@ func _process(delta):
 #region On startup
 
 func _ready():
+	SignalBus.spawn_crafted_item.connect(Craft)
+	
 	initInventorySlots() # Link local inventory slots to singleton arrays
 	
+	Utils.set_center_offset($Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Right_Arrow)
+	Utils.set_center_offset($Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Left_Arrow)
+	
+	HandManager.HAND_ITEM_NODE = HandItem
+	
+	GlobalData.loadGlobal()
+	
+	AchievementsManager.CURRENT_UI_GRID_CONTAINER = $Head/Camera3D/AchievementsLayer/AchievementsUI/MainLayer/ScrollContainer/GridContainer
+	AchievementsManager.CURRENT_ACHIEVEMENTS_UI = $Head/Camera3D/AchievementsLayer/AchievementsUI
+	AchievementsManager.CURRENT_NOTIFICATION_NODE = $Head/Camera3D/AchievementNotificationLayer/AchievementNotification
+	
+	loadAchivementElementsThread = Thread.new()
+	var loadAchivementElementsThread_callable = Callable(AchievementsManager, "populateGridContainer")
+	loadAchivementElementsThread.start(loadAchivementElementsThread_callable)
+	loadAchivementElementsThread.wait_to_finish()
+	
 	PlayerManager.AudioNotification = $Head/Camera3D/AudioNotificationLayer/AudioNotification
+	PlayerManager.EXPLORER_NOTE_CONTENTS = $Head/Camera3D/ExplorerNoteLayer/Contents
+	PlayerManager.EXPLORER_NOTE_TEXTURE_RECT = $Head/Camera3D/ExplorerNoteLayer/Contents/ExplorerNoteSheet
+	ExplorerNotesManager.EXPLORER_NOTES_MAIN_LAYER = $Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer
+	
 	DialogueManager.DialogueInterface = DialogueInterface
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Lock mouse
 	$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving/SpinningAnimation.play(&"spin")
@@ -589,9 +729,10 @@ func _ready():
 	else:
 		
 		OverlayLayer_Overlay.hide() # hide the overlay
-		
+	
 	if !OS.has_feature("debug"):
 		PauseLayer.hide()
+		StartDebugging_Btn.hide()
 	
 	InventoryManager.is_inside_boundary = false
 
@@ -626,6 +767,13 @@ func initInventorySlots():
 		Slot7_Inventory_Ref,
 		Slot8_Inventory_Ref,
 		Slot9_Inventory_Ref,
+		Slot10_Inventory_Ref,
+		Slot11_Inventory_Ref,
+		Slot12_Inventory_Ref,
+		Slot13_Inventory_Ref,
+		Slot14_Inventory_Ref,
+		Slot15_Inventory_Ref,
+		Slot16_Inventory_Ref,
 	]
 	
 	InventoryManager.CHEST_SLOTS = [
@@ -654,6 +802,30 @@ func initInventorySlots():
 		Slot23_Chest_Ref,
 		Slot24_Chest_Ref,
 		Slot25_Chest_Ref,
+		Slot26_Chest_Ref,
+		Slot27_Chest_Ref,
+		Slot28_Chest_Ref,
+		Slot29_Chest_Ref,
+		Slot30_Chest_Ref,
+		Slot31_Chest_Ref,
+		Slot32_Chest_Ref,
+		Slot33_Chest_Ref,
+		Slot34_Chest_Ref,
+		Slot35_Chest_Ref,
+		Slot36_Chest_Ref,
+		Slot37_Chest_Ref,
+		Slot38_Chest_Ref,
+		Slot39_Chest_Ref,
+		Slot40_Chest_Ref,
+		Slot41_Chest_Ref,
+		Slot42_Chest_Ref,
+		Slot43_Chest_Ref,
+		Slot44_Chest_Ref,
+		Slot45_Chest_Ref,
+		Slot46_Chest_Ref,
+		Slot47_Chest_Ref,
+		Slot48_Chest_Ref,
+		Slot49_Chest_Ref,
 	]
 	
 	InventoryManager.WORKSHOP_SLOTS = [
@@ -662,22 +834,28 @@ func initInventorySlots():
 		Slot3_Workbench_Ref,
 		Slot4_Workbench_Ref,
 		Slot5_Workbench_Ref,
+		Slot6_Workbench_Ref,
+		Slot7_Workbench_Ref,
+		Slot8_Workbench_Ref,
+		Slot9_Workbench_Ref,
 	]
+	
+	InventoryManager.WORKSHOP_OUTPUT_SLOT = Slot10_Output_Workbench_Ref
 
 #endregion
 
 #region Walking, sprinting and crouching sounds
 
 func _on_walking_speed_sounds_timeout() -> void:
-	if is_walking:
+	if is_walking and is_moving:
 		pass
 
 func _on_sprinting_speed_sounds_timeout() -> void:
-	if is_sprinting:
+	if is_sprinting and is_moving:
 		pass
 
 func _on_crouching_speed_sounds_timeout() -> void:
-	if is_crouching:
+	if is_crouching and is_moving:
 		pass
 
 #endregion
@@ -705,6 +883,7 @@ func takeDamage(DamageToTake): # A function to take damage from the player
 			closeChest()
 			closeItemWorkshop()
 			closeWorkbench()
+			ExplorerNotesManager.hideCloseUp()
 			SettingsUI.closeSettings(0.5)
 			AlertLayer.despawnAlert(0.5)
 			AchievementsUI.despawnAchievements(0.5)
@@ -712,7 +891,6 @@ func takeDamage(DamageToTake): # A function to take damage from the player
 			MinimalAlert.hide_minimal_alert(0.1)
 			AudioManager.Current_Playlist.audibleOnlyFadeOutAllSongs()
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # lock mouse
-			set_hand_item_type("")
 			InventoryData.clearInventory(InventoryMainLayer)
 			
 			showDeathScreen() # call the death screen function 
@@ -783,15 +961,34 @@ func showDeathScreen(): # A function to show the death screen
 #region Inventory
 
 func openInventory():
+	$Head/Camera3D/AudioNotificationLayer.layer = 15
 	$is_inside_boundary_false_inventory_debounce.start()
-	if InventoryManager.in_chest_interface or InventoryManager.is_in_workbench_interface:
-		
-		InventoryMainLayer.offset.x = -291.96
-		PocketsCollisionBoundary.set_deferred("monitorable", false)
-		PocketsCollisionBoundary.set_deferred("monitoring", false)
+	
+	if InventoryManager.in_chest_interface:
+		InventoryMainLayer.offset.x = -290.28
 		
 		ChestCollisionBoundary.set_deferred("monitorable", true)
 		ChestCollisionBoundary.set_deferred("monitoring", true)
+		
+		PocketsCollisionBoundary.set_deferred("monitorable", false)
+		PocketsCollisionBoundary.set_deferred("monitoring", false)
+		
+		WorkbenchCollisionBoundary.set_deferred("monitorable", false)
+		WorkbenchCollisionBoundary.set_deferred("monitoring", false)
+		$Head/Camera3D/InventoryLayer/ChestKeys.show()
+		
+	elif InventoryManager.is_in_workbench_interface:
+		InventoryMainLayer.offset.x = -155.09
+		
+		WorkbenchCollisionBoundary.set_deferred("monitorable", true)
+		WorkbenchCollisionBoundary.set_deferred("monitoring", true)
+		
+		ChestCollisionBoundary.set_deferred("monitorable", false)
+		ChestCollisionBoundary.set_deferred("monitoring", false)
+		
+		PocketsCollisionBoundary.set_deferred("monitorable", false)
+		PocketsCollisionBoundary.set_deferred("monitoring", false)
+		$Head/Camera3D/InventoryLayer/WorkbenchKeys.show()
 	
 	else:
 		
@@ -803,6 +1000,10 @@ func openInventory():
 		
 		ChestCollisionBoundary.set_deferred("monitorable", false)
 		ChestCollisionBoundary.set_deferred("monitoring", false)
+		
+		WorkbenchCollisionBoundary.set_deferred("monitorable", false)
+		WorkbenchCollisionBoundary.set_deferred("monitoring", false)
+		$Head/Camera3D/InventoryLayer/PocketKeys.show()
 	
 	InventoryMainLayer.show()
 	InventoryLayer.show() # show the inventory UI
@@ -811,14 +1012,17 @@ func openInventory():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # set the mouse mode to visible
 	InventoryManager.inventory_open = true
 	inventory_opened_in_air = not is_on_floor() # Set the flag when inventory is opened in the air
-	
-	set_hand_item_type(InventoryData.HAND_ITEM_TYPE)
 
 func closeInventory():
+	$Head/Camera3D/AudioNotificationLayer.layer = 1
 	InventoryLayer_GreyLayer.show()
 	
 	InventoryMainLayer.hide()
 	InventoryLayer.hide() # hide the inventory UI
+	$Head/Camera3D/InventoryLayer/PocketKeys.hide()
+	$Head/Camera3D/InventoryLayer/ChestKeys.hide()
+	$Head/Camera3D/InventoryLayer/WorkbenchKeys.hide()
+	
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor
 	Utils.center_mouse_cursor() # center the mouse cursor
@@ -843,7 +1047,6 @@ func _on_chest_boundary_area_entered(area: Area2D) -> void:
 func _on_chest_boundary_area_exited(area: Area2D) -> void:
 	if area.is_in_group("draggable"):
 		InventoryManager.is_inside_boundary = false
-		
 
 
 func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
@@ -887,128 +1090,6 @@ func delete_pickup_object(pickupobj):
 	if pickupobj != null:
 		pickupobj.queue_free()
 
-func _on_hand_dropable_detector_mouse_entered() -> void:
-	InventoryManager.is_hovering_over_hand_dropable = true
-	if InventoryManager.inventory_open and InventoryData.HAND_ITEM_TYPE != "":
-		MinimalAlert.show_minimal_alert(0.1, "Right click to put item back into pockets")
-
-func _on_hand_dropable_detector_mouse_exited() -> void:
-	InventoryManager.is_hovering_over_hand_dropable = false
-	MinimalAlert.hide_minimal_alert(0.1)
-
-func _on_hand_detector_right_click() -> void:
-	if InventoryManager.is_hovering_over_hand_dropable and inventoryHand_debounce_timer <= 0:
-		if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup:
-			if !InventoryData.HAND_ITEM_TYPE == "":
-				
-				var free_slot = null
-				
-				# Get the free slot
-				free_slot = InventoryManager.get_free_slot(InventoryManager.POCKET_SLOTS)
-				
-				if free_slot != null and !free_slot.is_populated():
-					
-					InventoryManager.spawn_inventory_dropable(free_slot.global_position, InventoryData.HAND_ITEM_TYPE, free_slot, false)
-					free_slot.set_populated(true)
-					set_hand_item_type("")
-					MinimalAlert.hide_minimal_alert(0.1)
-
-func set_hand_item_type(ITEM_TYPE : String):
-	inventoryHand_debounce_timer = 0.2
-	if ITEM_TYPE == "":
-		visually_equip("")
-		InventoryData.HAND_ITEM_TYPE = ""
-		HAND_ITEM_TYPE_Label.text = "Empty"
-		Pickaxe_Video.visible = false
-		Axe_Video.visible = false
-		Sword_Video.visible = false
-	
-	elif ITEM_TYPE == "PICKAXE":
-		visually_equip("PICKAXE")
-		InventoryData.HAND_ITEM_TYPE = "PICKAXE"
-		HAND_ITEM_TYPE_Label.text = "Pickaxe"
-		Pickaxe_Video.visible = true
-		Axe_Video.visible = false
-		Sword_Video.visible = false
-	
-	elif ITEM_TYPE == "AXE":
-		visually_equip("AXE")
-		InventoryData.HAND_ITEM_TYPE = "AXE"
-		HAND_ITEM_TYPE_Label.text = "Axe"
-		Pickaxe_Video.visible = false
-		Axe_Video.visible = true
-		Sword_Video.visible = false
-	
-	elif ITEM_TYPE == "SWORD":
-		visually_equip("SWORD")
-		InventoryData.HAND_ITEM_TYPE = "SWORD"
-		HAND_ITEM_TYPE_Label.text = "Sword"
-		Pickaxe_Video.visible = false
-		Axe_Video.visible = false
-		Sword_Video.visible = true
-
-func visually_equip(ITEM_TYPE):
-	if !ITEM_TYPE == InventoryData.HAND_ITEM_TYPE:
-		if ITEM_TYPE == "":
-			if InventoryData.HAND_ITEM_TYPE != "":
-				var anim_to_play : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
-				EquipAnimations_Player.play(anim_to_play)
-		
-		if ITEM_TYPE == "SWORD":
-			if InventoryData.HAND_ITEM_TYPE == "":
-				EquipAnimations_Player.play("equip_SWORD")
-			else:
-				var item_to_unequip : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
-				EquipAnimations_Player.play(item_to_unequip)
-				await get_tree().create_timer(0.16).timeout
-				EquipAnimations_Player.play("equip_SWORD")
-		
-		if ITEM_TYPE == "PICKAXE":
-			if InventoryData.HAND_ITEM_TYPE == "":
-				EquipAnimations_Player.play("equip_PICKAXE")
-			else:
-				var item_to_unequip : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
-				EquipAnimations_Player.play(item_to_unequip)
-				await get_tree().create_timer(0.16).timeout
-				EquipAnimations_Player.play("equip_PICKAXE")
-		
-		if ITEM_TYPE == "AXE":
-			if InventoryData.HAND_ITEM_TYPE == "":
-				EquipAnimations_Player.play("equip_AXE")
-			else:
-				var item_to_unequip : StringName = "unequip_" + InventoryData.HAND_ITEM_TYPE
-				EquipAnimations_Player.play(item_to_unequip)
-				await get_tree().create_timer(0.16).timeout
-				EquipAnimations_Player.play("equip_AXE")
-
-func init_visually_equip(ITEM_TYPE : String):
-	
-	if ITEM_TYPE == "":
-		Pickaxe_Video.visible = false
-		Sword_Video.visible = false
-		Axe_Video.visible = false
-	
-	if ITEM_TYPE == "PICKAXE":
-		EquipAnimations_Player.play("equip_PICKAXE")
-		Sword_Video.visible = false
-		Axe_Video.visible = false
-	
-	if ITEM_TYPE == "AXE":
-		EquipAnimations_Player.play("equip_AXE")
-		Pickaxe_Video.visible = false
-		Sword_Video.visible = false
-	
-	if ITEM_TYPE == "SWORD":
-		EquipAnimations_Player.play("equip_SWORD")
-		Pickaxe_Video.visible = false
-		Axe_Video.visible = false
-
-func get_hand_debounce_time_left():
-	return HandItemDebounce.time_left
-
-func start_hand_debounce_timer():
-	HandItemDebounce.start()
-
 func hide_chest_dropables(parent_node: Node):
 	for child in parent_node.get_children():
 		# Check if the child's name starts with "Dropable"
@@ -1037,11 +1118,129 @@ func _on_is_inside_boundary_false_inventory_debounce_timeout() -> void:
 
 #endregion
 
+#region Hotbar
+
+func setHotbarSelectedSlot(Slot_Number):
+	if Slot_Number != null:
+		print("Setting hotbar slot to: ", Slot_Number)
+		for child in $Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots.get_children():
+			print("Checking child: ", child.name)
+			if str(child.name) == "Slot" + str(Slot_Number):
+				print("Found slot: ", child.name)
+				HotbarManager.CURRENTLY_SELECTED_SLOT = child
+				HotbarManager.CURRENTLY_SELECTED_SLOT_NAME = child.name
+		
+		for child in $Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarOutlines.get_children():
+			if str(child.name) == "Slot" + str(Slot_Number) + "_Outline":
+				print("Showing outline for: ", child.name)
+				child.visible = true
+			else:
+				child.visible = false
+	else:
+		
+		for child in $Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarOutlines.get_children():
+				child.visible = false
+		
+		HotbarManager.CURRENTLY_SELECTED_SLOT = null
+		HotbarManager.CURRENTLY_SELECTED_SLOT_NAME = null
+
+#endregion
+
+#region Explorer notes
+
+func _on_collect_btn_pressed() -> void:
+	var temp = ExplorerNotesManager.CurrentlyShowing_ID
+	var temp_empty = ExplorerNotesManager.COLLECTED_NOTES.is_empty()
+	var temp_right_note = ExplorerNotesManager.UI_CurrentlyFocusedIndex == ExplorerNotesManager.COLLECTED_NOTES.size() - 1
+	
+	ExplorerNotesManager.COLLECTED_NOTES.append(ExplorerNotesManager.CurrentlyShowing_ID)
+	ExplorerNotesManager.CurrentlyShowing_Node.removeNote()
+	ExplorerNotesManager.hideCloseUp()
+	
+	if temp_empty:
+		print("empty")
+		ExplorerNotesManager.EXPLORER_NOTES_MAIN_LAYER.setFocused(temp)
+	
+	if temp_right_note:
+		print("at last note, adding to right")
+		ExplorerNotesManager.EXPLORER_NOTES_MAIN_LAYER.setRight(temp)
+
+func openExplorerNotes():
+	InventoryManager.is_in_explorer_notes_interface = true
+	$Head/Camera3D/InventoryLayer/ExplorerNotesLayer.show()
+
+func closeExplorerNotes():
+	InventoryManager.is_in_explorer_notes_interface = false
+	$Head/Camera3D/InventoryLayer/ExplorerNotesLayer.hide()
+
+func _on_explorer_notes_btn_pressed() -> void:
+	openExplorerNotes()
+
+func _on_right_arrow_btn_pressed() -> void:
+	pass
+
+func _on_right_arrow_btn_mouse_entered() -> void:
+	var tween = get_tree().create_tween().set_parallel()
+	tween.tween_property(
+		$Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Right_Arrow_Btn, 
+		"scale", 
+		Vector2(1.1, 1.1), 
+		0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	
+	tween.tween_property(
+		$Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Right_Arrow, 
+		"scale", 
+		Vector2(1.4, 1.4), 
+		0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+
+func _on_right_arrow_btn_mouse_exited() -> void:
+	var tween = get_tree().create_tween().set_parallel()
+	tween.tween_property(
+		$Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Right_Arrow_Btn, 
+		"scale", 
+		Vector2(1, 1), 
+		0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	
+	tween.tween_property(
+		$Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Right_Arrow, 
+		"scale", 
+		Vector2(1, 1), 
+		0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+
+func _on_left_arrow_btn_mouse_entered() -> void:
+	var tween = get_tree().create_tween().set_parallel()
+	tween.tween_property(
+		$Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Left_Arrow_Btn, 
+		"scale", 
+		Vector2(1.4, 1.4), 
+		0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	
+	tween.tween_property(
+		$Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Left_Arrow, 
+		"scale", 
+		Vector2(1.4, 1.4), 
+		0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+
+func _on_left_arrow_btn_mouse_exited() -> void:
+	var tween = get_tree().create_tween().set_parallel()
+	tween.tween_property(
+		$Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Left_Arrow_Btn, 
+		"scale", 
+		Vector2(1, 1), 
+		0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	
+	tween.tween_property(
+		$Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Left_Arrow, 
+		"scale", 
+		Vector2(1, 1), 
+		0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+
+#endregion
+
 #region Chest
 
 func openChest():
 	ChestMainLayer.show()
-	$Head/Camera3D/AudioNotificationLayer.layer = 15
 	InventoryManager.in_chest_interface = true
 	openInventory() # Does most of the stuff for us
 	
@@ -1052,19 +1251,17 @@ func openChest():
 
 func closeChest():
 	ChestMainLayer.hide()
-	$Head/Camera3D/AudioNotificationLayer.layer = 1
 	InventoryManager.in_chest_interface = false
 	closeInventory() # Does most of the stuff for us
 	InventoryManager.chestNode.animate("CLOSE")
 
 #endregion
 
-#region Workbench
+#region Workbench and crafting
 
 func openWorkbench():
 	WorkbenchMainLayer.show()
-	$Head/Camera3D/AudioNotificationLayer.layer = 15
-	WorkbenchMainLayer.position.y = 0
+	WorkbenchMainLayer.position.y = -54
 	ChestMainLayer.position.y = 1000
 	
 	InventoryManager.is_in_workbench_interface = true
@@ -1072,9 +1269,21 @@ func openWorkbench():
 
 func closeWorkbench():
 	WorkbenchMainLayer.hide()
-	$Head/Camera3D/AudioNotificationLayer.layer = 1
 	InventoryManager.is_in_workbench_interface = false
 	closeInventory() # Does most of the stuff for us
+
+func _on_craft_button_pressed() -> void:
+	SignalBus.pressed_craft.emit()
+
+func Craft(ITEM_TYPE : String):
+	if !Slot10_Output_Workbench_Ref.is_populated():
+		for child in WorkbenchSlots.get_children():
+			if str(child.name).begins_with("Dropable"):
+				if !child.get_is_workshop_output_dropable():
+					child.queue_free()
+					child.get_slot_inside().set_populated(false)
+		CraftingManager.resetCurrentCraftingItems()
+		InventoryManager.spawn_workbench_output_dropable(ITEM_TYPE)
 
 #endregion
 
@@ -1088,6 +1297,7 @@ func openItemWorkshop():
 	
 	var tween = get_tree().create_tween().set_parallel()
 	tween.connect("finished", Callable(self, "on_item_workshop_open_finished"))
+	
 	
 	tween.tween_property(ItemWorkshopLayer_MainLayer, "position", Vector2(0, 0), 0).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	tween.tween_property(ItemWorkshopLayer_GreyLayer, "modulate", Color(1, 1, 1, 1), 0)
@@ -1184,19 +1394,6 @@ func on_save_and_quit_to_menu_fade_finished():
 	var mainMenuScene = load("res://Scenes and Scripts/Scenes/Main Menu/MainMenu.tscn")
 	
 	get_tree().change_scene_to_packed(mainMenuScene)
-
-func saveAllDataWithAnimation():
-	if ManualSaveCooldown.time_left == 0.0:
-		ManualSaveCooldown.wait_time = 5.0
-		ManualSaveCooldown.start()
-		SaveManager.saveAllData() # Call the save all data function from SaveManager to write all data to save files.
-		showLighterBG_SAVEOVERLAY()
-		await get_tree().create_timer(0.2).timeout
-		showDarkerBG_SAVEOVERLAY()
-		await get_tree().create_timer(3.0).timeout
-		hideDarkerBG_SAVEOVERLAY() 
-		await get_tree().create_timer(0.2).timeout
-		hideLighterBG_SAVEOVERLAY()
 
 func showLighterBG_SAVEOVERLAY():
 	var tween = get_tree().create_tween()

@@ -79,6 +79,12 @@ func _physics_process(_delta: float) -> void:
 				previous_collider.on_raycast_hit_workbench()
 				InteractionManager.despawn_interaction_notification()
 			
+			elif previous_collider and previous_collider.has_method("on_raycast_hit_explorer_note"):
+				previous_collider.on_raycast_hit_explorer_note()
+				previous_collider.setCurrentlyInteractingNode()
+				InteractionManager.despawn_interaction_notification()
+				InteractionManager.is_hovering_over_explorer_note = false
+				ExplorerNotesManager.CurrentlyInteracting_Node = null
 			
 			
 			if collider and collider.has_method("on_raycast_hit_test_obj"):
@@ -102,8 +108,13 @@ func _physics_process(_delta: float) -> void:
 				collider.on_raycast_hit_chest()
 			
 			elif collider and collider.has_method("on_raycast_hit_workbench"):
-				InteractionManager.spawn_interaction_notification("F", "Construct")
+				InteractionManager.spawn_interaction_notification("F", "Craft")
 				collider.on_raycast_hit_workbench()
+			
+			elif collider and collider.has_method("on_raycast_hit_explorer_note"):
+				InteractionManager.spawn_interaction_notification("F", "Read")
+				collider.on_raycast_hit_explorer_note()
+				collider.setCurrentlyInteractingNode()
 			
 			previous_collider = collider
 		
@@ -134,6 +145,12 @@ func _physics_process(_delta: float) -> void:
 		elif previous_collider and previous_collider.has_method("on_raycast_exit_workbench"):
 			previous_collider.on_raycast_exit_workbench()
 			InteractionManager.despawn_interaction_notification()
+		
+		elif previous_collider and previous_collider.has_method("on_raycast_exit_explorer_note"):
+			previous_collider.on_raycast_exit_explorer_note()
+			previous_collider.removeCurrentlyInteractingNode()
+			InteractionManager.despawn_interaction_notification()
+			ExplorerNotesManager.CurrentlyInteracting_Node = null
 		
 		previous_collider = null
 		InteractionManager.is_colliding = false

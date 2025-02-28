@@ -53,6 +53,7 @@ func nodeSetup():
 	
 	$GreyLayer.modulate = Color(1, 1, 1, 0)
 	
+	$MainLayer/SettingsTabContainer/General/QASwitch.button_pressed = PlayerSettingsData.quickAnimations
 	$MainLayer/SettingsTabContainer/Graphics/PrettyShadowsSwitch.button_pressed = PlayerSettingsData.PrettyShadows
 	$MainLayer/SettingsTabContainer/General/SSCSwitch.button_pressed = PlayerSettingsData.showStartupScreen
 	$MainLayer/SettingsTabContainer/General/AutosaveIntervalSpinBox.value = PlayerSettingsData.autosaveInterval
@@ -66,8 +67,6 @@ func nodeSetup():
 func _ready() -> void:
 	PlayerSettingsData.loadSettings()
 	
-	if !OS.has_feature("debug"):
-		$SaveSettings.hide()
 	
 	Utils.set_center_offset($MainLayer)
 	$MainLayer.scale = Vector2(0.0, 0.0)
@@ -90,25 +89,30 @@ func openSettings(animationTime : float):
 	
 	self.visible = true
 	
-	
-	var tween = get_tree().create_tween().set_parallel()
-	
-	tween.tween_property($MainLayer, "scale", Vector2(1.0, 1.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-	tween.tween_property($GreyLayer, "modulate", Color(1, 1, 1, 1), animationTime)
+	if PlayerSettingsData.quickAnimations:
+		$MainLayer.scale = Vector2(1.0, 1.0)
+		$GreyLayer.modulate = Color(1, 1, 1, 1)
+	else:
+		var tween = get_tree().create_tween().set_parallel()
+		tween.tween_property($MainLayer, "scale", Vector2(1.0, 1.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+		tween.tween_property($GreyLayer, "modulate", Color(1, 1, 1, 1), animationTime)
 
 func closeSettings(animationTime : float):
 	PauseManager.is_inside_settings = false
 	PlayerSettingsData.saveSettings()
 	
-	var tween = get_tree().create_tween().set_parallel()
-	
-	tween.tween_property($MainLayer, "scale", Vector2(0.0, 0.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-	tween.tween_property($GreyLayer, "modulate", Color(1, 1, 1, 0), animationTime)
-
-	
-	await get_tree().create_timer(animationTime).timeout
-	
-	self.visible = false
+	if PlayerSettingsData.quickAnimations:
+		$MainLayer.scale = Vector2(0.0, 0.0)
+		$GreyLayer.modulate = Color(1, 1, 1, 0)
+		self.visible = false
+	else:
+		var tween = get_tree().create_tween().set_parallel()
+		tween.tween_property($MainLayer, "scale", Vector2(0.0, 0.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+		tween.tween_property($GreyLayer, "modulate", Color(1, 1, 1, 0), animationTime)
+		
+		await get_tree().create_timer(animationTime).timeout
+		
+		self.visible = false
 
 
 func _on_exit_settings_button_pressed() -> void:
@@ -128,9 +132,6 @@ func _on_music_slider_value_changed(value: float) -> void:
 
 func _on_sfx_slider_value_changed(value: float) -> void:
 	PlayerSettingsData.sfx_Volume = value
-
-func _on_save_settings_pressed() -> void:
-	PlayerSettingsData.saveSettings()
 
 func _on_dof_blur_switch_toggled(toggled_on: bool) -> void:
 	if !Global.is_in_main_menu:
@@ -165,3 +166,9 @@ func _on_ssc_switch_toggled(toggled_on: bool) -> void:
 func _on_autosave_interval_spin_box_value_changed(value: float) -> void:
 	PlayerSettingsData.autosaveInterval = int(value)
 	PlayerSettingsData.set_autosave_interval(int(value))
+
+func _on_qa_switch_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		PlayerSettingsData.quickAnimations = true
+	else:
+		PlayerSettingsData.quickAnimations = false

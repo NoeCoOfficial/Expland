@@ -1,0 +1,122 @@
+[gd_scene load_steps=7 format=3 uid="uid://cjxbcx2vhofs"]
+
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Achievements/AchievementNotification_SCRIPT.gd" id="1_wps2i"]
+[ext_resource type="AudioStream" uid="uid://c533ps3rxpxtx" path="res://Audio/SFX/unlockAchievement.mp3" id="2_h3d07"]
+[ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="2_x6fve"]
+[ext_resource type="FontFile" uid="uid://b2o44xwqnsb5k" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf" id="4_1nshs"]
+[ext_resource type="Texture2D" uid="uid://bsehw8xxc02m1" path="res://Textures/Achievements/WANDERER.png" id="4_6h4ei"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vwkia"]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="AchievementNotification" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -955.0
+offset_bottom = -560.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wps2i")
+
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="unlockSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_h3d07")
+bus = &"sfx"
+
+[node name="LightBG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.09137
+anchor_bottom = 0.806818
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.351563, 0.351563, 0.351563, 1)
+
+[node name="DarkBG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0203046
+anchor_right = 1.09137
+anchor_bottom = 0.806818
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.18359, 0.18359, 0.18359, 1)
+
+[node name="Elements" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 56.0
+offset_right = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Elements"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.0
+offset_top = -30.5
+offset_right = 58.0
+offset_bottom = -7.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_x6fve")
+theme_override_font_sizes/font_size = 13
+text = "Achievement Unlocked!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AchievementName" type="Label" parent="Elements"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -10.5
+offset_right = 76.0
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_x6fve")
+theme_override_fonts/font = ExtResource("4_1nshs")
+theme_override_font_sizes/font_size = 13
+text = "AchievementName"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="e_image_container" type="PanelContainer" parent="Elements"]
+clip_children = 1
+layout_mode = 0
+offset_left = -46.0
+offset_top = 4.0
+offset_right = 12.0
+offset_bottom = 67.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vwkia")
+
+[node name="e_image" type="TextureRect" parent="Elements/e_image_container"]
+layout_mode = 2
+texture = ExtResource("4_6h4ei")
+expand_mode = 1
+
+[node name="Barrier" type="Line2D" parent="Elements"]
+position = Vector2(23, -7)
+points = PackedVector2Array(-4, 16, -4, 70)
+width = 1.5
+default_color = Color(0.277528, 0.277528, 0.277528, 1)
+
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]
