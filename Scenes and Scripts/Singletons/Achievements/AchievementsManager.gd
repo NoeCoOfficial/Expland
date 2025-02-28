@@ -107,8 +107,7 @@ var EARNED_ACHIEVEMENTS = []
 func earnAchievement(ARR_INDEX : int, withNotification : bool):
 	var info = []
 	
-	var unix_time = Time.get_unix_time_from_system()
-	var date_dict = Time.get_date_dict_from_unix_time(unix_time)
+	var date_dict = Time.get_datetime_dict_from_system()
 	var formatted_date = "%02d/%02d/%d" % [date_dict.day, date_dict.month, date_dict.year]
 	
 	info.append(ARR_INDEX) # The index of the achievement in the global array is stored at pos 0.
@@ -138,6 +137,7 @@ func earnAchievement(ARR_INDEX : int, withNotification : bool):
 		)
 		
 		CURRENT_UI_GRID_CONTAINER.call_deferred("add_child", instance)
+		CURRENT_UI_GRID_CONTAINER.call_deferred("move_child", instance, 0)
 		
 		GlobalData.saveGlobal() # Call the saveGlobal function which saved the EARNED_ACHIEVEMENTS Array
 
@@ -158,7 +158,8 @@ func populateGridContainer():
 				)
 				
 				CURRENT_UI_GRID_CONTAINER.call_deferred("add_child", instance)
-		
+				CURRENT_UI_GRID_CONTAINER.call_deferred("move_child", instance, 0)
+				
 			#CURRENT_ACHIEVEMENTS_UI.toggle_no_achievements_label(false)
 			if CURRENT_ACHIEVEMENTS_UI:
 				CURRENT_ACHIEVEMENTS_UI.call_deferred("toggle_no_achievements_label", false)
