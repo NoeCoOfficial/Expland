@@ -682,6 +682,8 @@ func _ready():
 	
 	HandManager.HAND_ITEM_NODE = HandItem
 	
+	GlobalData.loadGlobal()
+	
 	AchievementsManager.CURRENT_UI_GRID_CONTAINER = $Head/Camera3D/AchievementsLayer/AchievementsUI/MainLayer/ScrollContainer/GridContainer
 	AchievementsManager.CURRENT_ACHIEVEMENTS_UI = $Head/Camera3D/AchievementsLayer/AchievementsUI
 	AchievementsManager.CURRENT_NOTIFICATION_NODE = $Head/Camera3D/AchievementNotificationLayer/AchievementNotification
@@ -689,7 +691,6 @@ func _ready():
 	loadAchivementElementsThread = Thread.new()
 	var loadAchivementElementsThread_callable = Callable(AchievementsManager, "populateGridContainer")
 	loadAchivementElementsThread.start(loadAchivementElementsThread_callable)
-	
 	
 	PlayerManager.AudioNotification = $Head/Camera3D/AudioNotificationLayer/AudioNotification
 	PlayerManager.EXPLORER_NOTE_CONTENTS = $Head/Camera3D/ExplorerNoteLayer/Contents
