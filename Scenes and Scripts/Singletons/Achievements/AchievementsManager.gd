@@ -48,8 +48,10 @@
 extends Node
 
 var NotificationOnScreen = false
+
 var CURRENT_NOTIFICATION_NODE
 var CURRENT_UI_GRID_CONTAINER
+var CURRENT_ACHIEVEMENTS_UI
 
 var ACHIEVEMENTS = [
 	"PLACEHOLDER",
@@ -109,8 +111,8 @@ func earnAchievement(ARR_INDEX : int, withNotification : bool):
 	var date_dict = Time.get_date_dict_from_unix_time(unix_time)
 	var formatted_date = "%02d/%02d/%d" % [date_dict.day, date_dict.month, date_dict.year]
 	
-	info.append(ARR_INDEX)
-	info.append(formatted_date)
+	info.append(ARR_INDEX) # The index of the achievement in the global array is stored at pos 0.
+	info.append(formatted_date) # The day the achievement was earned is store at pos 1.
 	
 	EARNED_ACHIEVEMENTS.append(info)
 	
@@ -119,6 +121,9 @@ func earnAchievement(ARR_INDEX : int, withNotification : bool):
 			CURRENT_NOTIFICATION_NODE.spawnAchievementsNotification(ARR_INDEX)
 	
 	if CURRENT_UI_GRID_CONTAINER:
+
+		# TODO: Add a new child in a thread so no lag
+
 		var element = load("res://Scenes and Scripts/Scenes/Achievements/AchievementElement.tscn")
 		var instance = element.instantiate()
 		
@@ -126,6 +131,32 @@ func earnAchievement(ARR_INDEX : int, withNotification : bool):
 		
 		str(ACHIEVEMENTS[ARR_INDEX]).capitalize(),
 		"res://Textures/Achievements/"+ ACHIEVEMENTS[ARR_INDEX] + ".png",
-		ACHIEVEMENT_DESCRIPTIONS[ARR_INDEX]
+		ACHIEVEMENT_DESCRIPTIONS[ARR_INDEX],
+		formatted_date
 		
 		)
+
+		CURRENT_UI_GRID_CONTAINER.call_deferred("add_child", instance)
+
+		GlobalData.saveGlobal() # Call the saveGlobal function which saved the EARNED_ACHIEVEMENTS Array
+
+func populateGridContainer():
+	if CURRENT_UI_GRID_CONTAINER:
+		if !EARNED_ACHIEVEMENTS.is_empty():
+			for achievement in EARNED_ACHIEVEMENTS: # Iterate through all of the earned achievements
+				var element = load("res://Scenes and Scripts/Scenes/Achievements/AchievementElement.tscn") # Load the PackedScene resource
+				var instance = element.instantiate() # Create an instance of the PackedScene
+
+				instance._update(
+				
+				str(ACHIEVEMENTS[achievement[0]]).capitalize(), # Capitalized name (e.g. "WANDERER" -> "Wanderer")
+				"res://Textures/Achievements/"+ ACHIEVEMENTS[achievement[0]] + ".png", # Get the texture using the saved index
+				ACHIEVEMENT_DESCRIPTIONS[achievement[0]], # Get the description for the achievement index
+				achievement[1] # Current time
+				
+				)
+
+				EARNED_ACHIEVEMENTS.call_deferred("add_child", instance)
+		else:
+			# TODO: Show "No achievements" label logic
+				

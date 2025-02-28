@@ -70,16 +70,16 @@ func despawnAchievementsNotification():
 	animation.tween_property($DarkBG, "position:x", 4, 0.7).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO)
 	animation.tween_property($Elements, "position:x", 56, 0.7).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO)
 
-func updateNotification(ARR_INDEX : int, e_image_path : String):
-	$DespawnTimer.start()
-	$Elements/AchievementName.text = str(AchievementsManager.ACHIEVEMENTS[ARR_INDEX]).capitalize()
+func updateNotification(ARR_INDEX: int, e_image_path: String):
+    $DespawnTimer.start()
+    $Elements/AchievementName.text = str(AchievementsManager.ACHIEVEMENTS[ARR_INDEX]).capitalize()
 	
-	var image = Image.new()
-	var err = image.load(e_image_path)
-	
-	if err == OK:
-		var texture_instance = ImageTexture.create_from_image(image)
-		$Elements/e_image_container/e_image.texture = texture_instance
+    var texture = load(e_image_path)  # Directly load the image as a texture
+    if texture is Texture2D:  # Ensure it's a valid texture
+        $Elements/e_image_container/e_image.texture = texture
+    else:
+        print("Failed to load texture:", e_image_path)
+
 
 func resetDespawnTimer():
 	$DespawnTimer.stop()
