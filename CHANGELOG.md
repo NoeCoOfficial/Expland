@@ -4,22 +4,49 @@
 
 ---
 
-yellow flower text inside inventory is now "Yellow Flower" instead of "Yellowflower"
-fixed a bug where you could close the workbench by pressing "E", then being able to open it again by pressing "E"
-fixed 3d inventory pickup items noclipping through the ground
-there are now 16 slots in inventory pockets instead of 9 to store items
-there are now 49 slots in the chest instead of 25 to store items
-there are now 9 slots in the workbench instead of 5 to craft items
-an all new crafting system which can be accessed by interacting with the workbench in the testing area
-change player collision shape to reduce lag
-new stone inventory item
-new wood plank inventory item
-an all new explorer notes system, with the ability to collect notes and view them in your inventory
-removed the old hand item system
-changed the FOV cap from 60-120 to 90-120
-Added a hotbar to the player (not functional yet)
-added an achievements system, where future game achievements will be shown
-added a quick animations option in settings
+## Inventory
+
+### Changed:
+- Yellow flower text inside inventory is now "Yellow Flower" instead of "Yellowflower"
+- There are now 16 slots in inventory pockets instead of 9 to store items
+- There are now 49 slots in the chest instead of 25 to store items
+- There are now 9 slots in the workbench instead of 5 to craft items
+
+### Fixed:
+- Fixed a bug where you could close the workbench by pressing "E", then being able to open it again by pressing "E"
+- Fixed 3D inventory pickup items noclipping through the ground
+
+### Added:
+- New stone inventory item
+- New wood plank inventory item
+
+## Crafting
+
+### Added:
+- An all-new crafting system which can be accessed by interacting with the workbench in the testing area
+
+## Player
+
+### Changed:
+- Changed player collision shape to reduce lag
+- Changed the FOV cap from 60-120 to 90-120
+
+### Added:
+- Added a hotbar to the player (not functional yet)
+- Added an achievements system, where future game achievements will be shown
+
+## Explorer Notes
+
+### Added:
+- An all-new explorer notes system, with the ability to collect notes and view them in your inventory
+
+## Settings
+
+### Added:
+- Added a quick animations option in settings (not fully done)
+
+### Removed:
+- Removed the old hand item system
 
 ---
 
