@@ -91,25 +91,30 @@ func openSettings(animationTime : float):
 	
 	self.visible = true
 	
-	
-	var tween = get_tree().create_tween().set_parallel()
-	
-	tween.tween_property($MainLayer, "scale", Vector2(1.0, 1.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-	tween.tween_property($GreyLayer, "modulate", Color(1, 1, 1, 1), animationTime)
+	if PlayerSettingsData.quickAnimations:
+		$MainLayer.scale = Vector2(1.0, 1.0)
+		$GreyLayer.modulate = Color(1, 1, 1, 1)
+	else:
+		var tween = get_tree().create_tween().set_parallel()
+		tween.tween_property($MainLayer, "scale", Vector2(1.0, 1.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+		tween.tween_property($GreyLayer, "modulate", Color(1, 1, 1, 1), animationTime)
 
 func closeSettings(animationTime : float):
 	PauseManager.is_inside_settings = false
 	PlayerSettingsData.saveSettings()
 	
-	var tween = get_tree().create_tween().set_parallel()
-	
-	tween.tween_property($MainLayer, "scale", Vector2(0.0, 0.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-	tween.tween_property($GreyLayer, "modulate", Color(1, 1, 1, 0), animationTime)
-
-	
-	await get_tree().create_timer(animationTime).timeout
-	
-	self.visible = false
+	if PlayerSettingsData.quickAnimations:
+		$MainLayer.scale = Vector2(0.0, 0.0)
+		$GreyLayer.modulate = Color(1, 1, 1, 0)
+		self.visible = false
+	else:
+		var tween = get_tree().create_tween().set_parallel()
+		tween.tween_property($MainLayer, "scale", Vector2(0.0, 0.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+		tween.tween_property($GreyLayer, "modulate", Color(1, 1, 1, 0), animationTime)
+		
+		await get_tree().create_timer(animationTime).timeout
+		
+		self.visible = false
 
 
 func _on_exit_settings_button_pressed() -> void:
