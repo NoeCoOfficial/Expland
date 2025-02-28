@@ -133,9 +133,9 @@ func earnAchievement(ARR_INDEX : int, withNotification : bool):
 		formatted_date
 		
 		)
-
+		
 		CURRENT_UI_GRID_CONTAINER.call_deferred("add_child", instance)
-
+		
 		GlobalData.saveGlobal() # Call the saveGlobal function which saved the EARNED_ACHIEVEMENTS Array
 
 func populateGridContainer():
@@ -144,7 +144,7 @@ func populateGridContainer():
 			for achievement in EARNED_ACHIEVEMENTS: # Iterate through all of the earned achievements
 				var element = load("res://Scenes and Scripts/Scenes/Achievements/AchievementElement.tscn") # Load the PackedScene resource
 				var instance = element.instantiate() # Create an instance of the PackedScene
-
+				
 				instance._update(
 				
 				str(ACHIEVEMENTS[achievement[0]]).capitalize(), # Capitalized name (e.g. "WANDERER" -> "Wanderer")
@@ -153,8 +153,8 @@ func populateGridContainer():
 				achievement[1] # Current time
 				
 				)
-
-				EARNED_ACHIEVEMENTS.call_deferred("add_child", instance)
+				
+				CURRENT_UI_GRID_CONTAINER.call_deferred("add_child", instance)
 		else:
 			pass
 			# TODO: Show "No achievements" label logic

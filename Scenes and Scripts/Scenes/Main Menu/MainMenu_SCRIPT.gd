@@ -90,6 +90,10 @@ func initialize_audio() -> void:
 	AudioManager.canOperate_textField = true
 
 func initialize_globals() -> void:
+	AchievementsManager.CURRENT_ACHIEVEMENTS_UI = $Camera3D/MainLayer/AchievementsUI
+	AchievementsManager.CURRENT_NOTIFICATION_NODE = $Camera3D/MainLayer/AchievementNotificationLayer/AchievementNotification
+	AchievementsManager.CURRENT_UI_GRID_CONTAINER = $Camera3D/MainLayer/AchievementsUI/MainLayer/ScrollContainer/GridContainer
+	
 	PauseManager.is_paused = false
 	Global.main_menu_transitioning_scene = false
 	Global.the_island_transitioning_scene = false
