@@ -138,7 +138,7 @@ func earnAchievement(ARR_INDEX : int, withNotification : bool):
 
 		CURRENT_UI_GRID_CONTAINER.call_deferred("add_child", instance)
 
-		GlobalData.saveGlobal()
+		GlobalData.saveGlobal() # Call the saveGlobal function which saved the EARNED_ACHIEVEMENTS Array
 
 func populateGridContainer():
 	if CURRENT_UI_GRID_CONTAINER:
