@@ -57,3 +57,4 @@ func _update(e_name: String, e_image_path: String, e_description: String, e_time
 
 	$Elements/e_name.text = e_name
 	$Elements/e_description.text = e_description
+	$Elements/e_time.text = "Earned on " + e_time_str
