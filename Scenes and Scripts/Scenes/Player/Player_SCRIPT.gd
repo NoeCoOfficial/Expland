@@ -691,6 +691,7 @@ func _ready():
 	loadAchivementElementsThread = Thread.new()
 	var loadAchivementElementsThread_callable = Callable(AchievementsManager, "populateGridContainer")
 	loadAchivementElementsThread.start(loadAchivementElementsThread_callable)
+	loadAchivementElementsThread.wait_to_finish()
 	
 	PlayerManager.AudioNotification = $Head/Camera3D/AudioNotificationLayer/AudioNotification
 	PlayerManager.EXPLORER_NOTE_CONTENTS = $Head/Camera3D/ExplorerNoteLayer/Contents

@@ -155,8 +155,8 @@ func populateGridContainer():
 				)
 				
 				CURRENT_UI_GRID_CONTAINER.call_deferred("add_child", instance)
-				CURRENT_ACHIEVEMENTS_UI.set_has_achievements(true)
+				CURRENT_ACHIEVEMENTS_UI.toggle_no_achievements_label(true)
 		else:
 			if CURRENT_ACHIEVEMENTS_UI:
-				CURRENT_ACHIEVEMENTS_UI.set_has_achievements(false)
+				CURRENT_ACHIEVEMENTS_UI.toggle_no_achievements_label(false)
 				
