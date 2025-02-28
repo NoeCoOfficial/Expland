@@ -17,8 +17,9 @@ new wood plank inventory item
 an all new explorer notes system, with the ability to collect notes and view them in your inventory
 removed the old hand item system
 changed the FOV cap from 60-120 to 90-120
-added a hotbar to the player (not functional yet)
+Added a hotbar to the player (not functional yet)
 added an achievements system, where future game achievements will be shown
+added a quick animations option in settings
 
 
 ---
