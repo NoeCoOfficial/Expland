@@ -49,7 +49,7 @@
 extends Node3D
 
 var loadIslandThread : Thread
-var loadAchivementsThread : Thread
+var loadAchivementElementsThread : Thread
 
 var is_in_gamemode_select = false
 var is_in_absolute_gamemode_select = false
@@ -97,8 +97,12 @@ func _ready() -> void:
 	IslandAccessOrder.load_order()
 	
 	loadIslandThread = Thread.new()
-	var callable = Callable($Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup, "loadIslands")
-	loadIslandThread.start(callable)
+	var loadIslandThread_callable = Callable($Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup, "loadIslands")
+	loadIslandThread.start(loadIslandThread_callable)
+
+	loadAchivementElementsThread = Thread.new()
+	var loadAchivementElementsThread_callable = Callable(AchievementsManager, "populateGridContainer")
+	loadAchivementElementsThread.start(loadAchivementElementsThread_callable)
 	
 	Utils.set_center_offset($Camera3D/MainLayer/PlayButton)
 	Utils.set_center_offset($Camera3D/MainLayer/PlayButtonTrigger)
