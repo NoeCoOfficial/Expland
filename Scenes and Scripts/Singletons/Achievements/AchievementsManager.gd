@@ -129,3 +129,5 @@ func earnAchievement(ARR_INDEX : int, withNotification : bool):
 		ACHIEVEMENT_DESCRIPTIONS[ARR_INDEX]
 		
 		)
+
+		CURRENT_UI_GRID_CONTAINER.call_deferred("add_child", instance)
