@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://c5jkrckgqd0w6"]
+[gd_scene load_steps=97 format=3 uid="uid://c5jkrckgqd0w6"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/The Island/TheIsland_SCRIPT.gd" id="1_a8sfg"]
 [ext_resource type="Environment" uid="uid://dgtwdwq2n0x1v" path="res://Resources/Environment/TheIslandWorldEnvironment.tres" id="2_h46kk"]
@@ -384,11 +384,8 @@ Any feedback can be emailed to Noe Co. or
 opened as an issue on GitHub."
 font = ExtResource("43_wohm1")
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4n8d7"]
-load_path = "res://.godot/imported/texture_09.png-af058f71607185ce00f169d41e1fb755.s3tc.ctex"
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e3d0f"]
-albedo_texture = SubResource("CompressedTexture2D_4n8d7")
+albedo_texture = ExtResource("46_h84sd")
 uv1_triplanar = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m0i5d"]
