@@ -48,8 +48,10 @@
 extends Node
 
 var NotificationOnScreen = false
+
 var CURRENT_NOTIFICATION_NODE
 var CURRENT_UI_GRID_CONTAINER
+var CURRENT_ACHIEVEMENTS_UI
 
 var ACHIEVEMENTS = [
 	"PLACEHOLDER",
@@ -119,6 +121,10 @@ func earnAchievement(ARR_INDEX : int, withNotification : bool):
 			CURRENT_NOTIFICATION_NODE.spawnAchievementsNotification(ARR_INDEX)
 	
 	if CURRENT_UI_GRID_CONTAINER:
+
+
+		# TODO: Add a new child in a thread so no lag
+
 		var element = load("res://Scenes and Scripts/Scenes/Achievements/AchievementElement.tscn")
 		var instance = element.instantiate()
 		
@@ -135,5 +141,6 @@ func earnAchievement(ARR_INDEX : int, withNotification : bool):
 func populateGridContainer():
 	if CURRENT_UI_GRID_CONTAINER:
 		for achievement in EARNED_ACHIEVEMENTS:
-			var element = load(
+					var element = load("res://Scenes and Scripts/Scenes/Achievements/AchievementElement.tscn")
+		var instance = element.instantiate()
 			
