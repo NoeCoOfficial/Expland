@@ -49,6 +49,7 @@
 extends Node
 
 func saveAllData():
+	GlobalData.saveGlobal()
 	
 	if IslandManager.Current_Island_Name != "":
 		PlayerData.saveData(IslandManager.Current_Island_Name)

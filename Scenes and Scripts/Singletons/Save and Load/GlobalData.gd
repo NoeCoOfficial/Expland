@@ -45,22 +45,20 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-@icon("res://Textures/Icons/Script Icons/32x32/settings_save.png")
+@icon("res://Textures/Icons/Script Icons/32x32/world_disk.png")
 extends Node
 
 const SAVE_PATH = "user://saveData/global.save"
-
-# NOTE: Find a use for this and make it actually work
 
 func saveGlobal() -> void:
 	Utils.createBaseSaveFolder()
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	var data = {
-		"placeholder" : 0,
+		"earned_achievements" : AchievementsManager.EARNED_ACHIEVEMENTS,
 	}
 	var jstr = JSON.stringify(data)
 	file.store_line(jstr)
-	print("[GlobalData] --Saved Player Settings--")
+	print("[GlobalData] --Saved Global Data--")
 
 func loadGlobal() -> void:
 	Utils.createBaseSaveFolder()
@@ -72,14 +70,7 @@ func loadGlobal() -> void:
 		return
 	if FileAccess.file_exists(SAVE_PATH) == true:
 		if not file.eof_reached():
-			
-			
 			var current_line = JSON.parse_string(file.get_line())
 			if current_line:
-				pass
-				#print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Show startup screen: "+str(showStartupScreen)+"[/font][/font_size][/center]")
-				#print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]DOF Blur: "+str(DOFBlur)+"[/font][/font_size][/center]")
-				#print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]FOV: "+str(FOV)+"[/font][/font_size][/center]")
-				#print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Master Volume: "+str(Master_Volume)+"[/font][/font_size][/center]")
-				#print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Music Volume: "+str(music_Volume)+"[/font][/font_size][/center]")
-				#print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]SFX Volume: "+str(sfx_Volume)+"[/font][/font_size][/center]")
+				AchievementsManager.EARNED_ACHIEVEMENTS = current_line["earned_achievements"]
+				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Earned Achievements: "+str(AchievementsManager.EARNED_ACHIEVEMENTS)+"[/font][/font_size][/center]")

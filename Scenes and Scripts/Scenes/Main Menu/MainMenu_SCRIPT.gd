@@ -49,6 +49,7 @@
 extends Node3D
 
 var loadIslandThread : Thread
+var loadAchivementElementsThread : Thread
 
 var is_in_gamemode_select = false
 var is_in_absolute_gamemode_select = false
@@ -68,61 +69,69 @@ var is_tweening = false
 @export var TextEditNewIslandName : LineEdit
 @export var fade_timer_time_left_label : Label
 
-######################################
-# Startup
-######################################
+# ---------------------------------------------------------------------------- #
+#                                    STARTUP                                   #
+# ---------------------------------------------------------------------------- #
 
 func _ready() -> void:
+	initialize_audio()
+	initialize_globals()
+	initialize_ui()
+	initialize_threads()
+	initialize_buttons()
+	await get_tree().create_timer(1).timeout
+	onStartup()
+	handle_protective_layer_visibility()
+
+func initialize_audio() -> void:
 	AudioManager.NotificationOnScreen = false
 	AudioManager.initNotificaton($Camera3D/MainLayer/AudioNotificationLayer/AudioNotification)
 	AudioManager.initNew($MainMenu_Audio, false, false, true)
 	AudioManager.canOperate_textField = true
-	PlayerSettingsData.loadSettings()
+
+func initialize_globals() -> void:
+	AchievementsManager.CURRENT_ACHIEVEMENTS_UI = $Camera3D/MainLayer/AchievementsUI
+	AchievementsManager.CURRENT_NOTIFICATION_NODE = $Camera3D/MainLayer/AchievementNotificationLayer/AchievementNotification
+	AchievementsManager.CURRENT_UI_GRID_CONTAINER = $Camera3D/MainLayer/AchievementsUI/MainLayer/ScrollContainer/GridContainer
+	
 	PauseManager.is_paused = false
 	Global.main_menu_transitioning_scene = false
 	Global.the_island_transitioning_scene = false
-	
-	"""
-	if Global.is_first_time_in_menu:
-		Global.is_first_time_in_menu = false
-		
-		if PlayerSettingsData.showStartupScreen:
-			call_deferred("change_to_startup_notice")
-		else:
-			$MainMenu_Audio.Start(false, true)
-	else:
-		$MainMenu_Audio.Start(false, true)
-	"""
+	GlobalData.loadGlobal()
+	PlayerSettingsData.loadSettings()
+
+func initialize_ui() -> void:
 	$Camera3D/MainLayer/GreyLayerGamemodeLayer.hide()
 	$Camera3D/MainLayer/GreyLayerGamemodeLayer.modulate = Color(1, 1, 1, 0)
-	
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	
 	IslandManager.resetAttributes()
-	
 	IslandAccessOrder.load_order()
-	
+
+func initialize_threads() -> void:
 	loadIslandThread = Thread.new()
-	var callable = Callable($Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup, "loadIslands")
-	loadIslandThread.start(callable)
+	var loadIslandThread_callable = Callable($Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup, "loadIslands")
+	loadIslandThread.start(loadIslandThread_callable)
 	
+	loadAchivementElementsThread = Thread.new()
+	var loadAchivementElementsThread_callable = Callable(AchievementsManager, "populateGridContainer")
+	loadAchivementElementsThread.start(loadAchivementElementsThread_callable)
+
+func initialize_buttons() -> void:
 	Utils.set_center_offset($Camera3D/MainLayer/PlayButton)
 	Utils.set_center_offset($Camera3D/MainLayer/PlayButtonTrigger)
-	
 	Utils.set_center_offset($Camera3D/MainLayer/SettingsButton)
 	Utils.set_center_offset($Camera3D/MainLayer/SettingsButtonTrigger)
-	
 	Utils.set_center_offset($Camera3D/MainLayer/QuitButton)
 	Utils.set_center_offset($Camera3D/MainLayer/QuitButtonTrigger)
-	
-	await get_tree().create_timer(1).timeout
-	onStartup()
-	
-	await get_tree().create_timer(2).timeout
-	$Camera3D/MainLayer/ProtectiveLayer.visible = false
+
+func handle_protective_layer_visibility() -> void:
+	if PlayerSettingsData.quickAnimations:
+		$Camera3D/MainLayer/ProtectiveLayer.visible = false
+	else:
+		await get_tree().create_timer(2).timeout
+		$Camera3D/MainLayer/ProtectiveLayer.visible = false
 
 func change_to_startup_notice() -> void:
-	#$Music.stop()
 	get_tree().change_scene_to_packed(StartupNotice)
 
 func fadeOut(node):
@@ -140,26 +149,32 @@ func onStartup():
 	fadeOut($Camera3D/MainLayer/TopLayer/FadeOut)
 	$Camera3D/MainLayer/Version_LBL.visible = true
 	
-	var tween = get_tree().create_tween().set_parallel()
-	
-	tween.tween_property($Camera3D/MainLayer/Logo, "position:x", -15, 1.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.5)
-	
-	tween.tween_property($Camera3D/MainLayer/PlayButton, "position", Vector2(0, 203), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.0)
-	tween.tween_property($Camera3D/MainLayer/PlayButtonTrigger, "position", Vector2(0, 203), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.0)
-	
-	tween.tween_property($Camera3D/MainLayer/SettingsButton, "position", Vector2(0, 297), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.2)
-	tween.tween_property($Camera3D/MainLayer/SettingsButtonTrigger, "position", Vector2(0, 297), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.2)
-	
-	tween.tween_property($Camera3D/MainLayer/QuitButton, "position", Vector2(0, 383), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.4)
-	tween.tween_property($Camera3D/MainLayer/QuitButtonTrigger, "position", Vector2(0, 383), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.4)
-	
-	tween.tween_property($Camera3D/MainLayer/AchievementsButton, "position", Vector2(947, 558), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.2)
-	
-	tween.tween_property($Camera3D/MainLayer/CreditsButton, "position", Vector2(1018, 605), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.2)
+	# Menu animation (in the form of tweens)
+	if PlayerSettingsData.quickAnimations:
+		$Camera3D/MainLayer/Logo.position.x = -15
+		$Camera3D/MainLayer/PlayButton.position = Vector2(0, 203)
+		$Camera3D/MainLayer/PlayButtonTrigger.position = Vector2(0, 203)
+		$Camera3D/MainLayer/SettingsButton.position = Vector2(0, 297)
+		$Camera3D/MainLayer/SettingsButtonTrigger.position = Vector2(0, 297)
+		$Camera3D/MainLayer/QuitButton.position = Vector2(0, 383)
+		$Camera3D/MainLayer/QuitButtonTrigger.position = Vector2(0, 383)
+		$Camera3D/MainLayer/AchievementsButton.position = Vector2(947, 558)
+		$Camera3D/MainLayer/CreditsButton.position = Vector2(1018, 605)
+	else:
+		var tween = get_tree().create_tween().set_parallel()
+		tween.tween_property($Camera3D/MainLayer/Logo, "position:x", -15, 1.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.5)
+		tween.tween_property($Camera3D/MainLayer/PlayButton, "position", Vector2(0, 203), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.0)
+		tween.tween_property($Camera3D/MainLayer/PlayButtonTrigger, "position", Vector2(0, 203), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.0)
+		tween.tween_property($Camera3D/MainLayer/SettingsButton, "position", Vector2(0, 297), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.2)
+		tween.tween_property($Camera3D/MainLayer/SettingsButtonTrigger, "position", Vector2(0, 297), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.2)
+		tween.tween_property($Camera3D/MainLayer/QuitButton, "position", Vector2(0, 383), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.4)
+		tween.tween_property($Camera3D/MainLayer/QuitButtonTrigger, "position", Vector2(0, 383), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.4)
+		tween.tween_property($Camera3D/MainLayer/AchievementsButton, "position", Vector2(947, 558), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.2)
+		tween.tween_property($Camera3D/MainLayer/CreditsButton, "position", Vector2(1018, 605), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.2)
 
-######################################
-# Input
-######################################
+# ---------------------------------------------------------------------------- #
+#                                     INPUT                                    #
+# ---------------------------------------------------------------------------- #
 
 func _input(_event: InputEvent) -> void:
 	if !Global.main_menu_transitioning_scene:
@@ -204,41 +219,17 @@ func _input(_event: InputEvent) -> void:
 				is_in_delete_popup = false
 				is_in_load_island_interface = true
 
-######################################
-# Process
-######################################
+# ---------------------------------------------------------------------------- #
+#                                    PROCESS                                   #
+# ---------------------------------------------------------------------------- #
 
 func _process(_delta: float) -> void:
 	if OS.has_feature("debug"):
 		fade_timer_time_left_label.text = str(int(AudioManager.FADE_TIMER_TIME_LEFT))
 
-######################################
-# PlayButton animations and functions
-######################################
-
-func _on_play_button_trigger_mouse_entered() -> void:
-	var tween = get_tree().create_tween().set_parallel()
-	tween.tween_property($Camera3D/MainLayer/PlayButtonTrigger, "position:x", 20.0, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-	tween.tween_property($Camera3D/MainLayer/PlayButton, "position:x", 20.0, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-
-func _on_play_button_trigger_mouse_exited() -> void:
-	var tween = get_tree().create_tween().set_parallel()
-	tween.tween_property($Camera3D/MainLayer/PlayButtonTrigger, "position:x", 0.0, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-	tween.tween_property($Camera3D/MainLayer/PlayButton, "position:x", 0.0, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-
-func _on_play_button_trigger_button_down() -> void:
-	var tween = get_tree().create_tween().set_parallel()
-	tween.tween_property($Camera3D/MainLayer/PlayButtonTrigger, "scale", Vector2(1.05, 1.05), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-	tween.tween_property($Camera3D/MainLayer/PlayButton, "scale", Vector2(1.05, 1.05), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-
-func _on_play_button_trigger_button_up() -> void:
-	if !Global.main_menu_transitioning_scene:
-		var tween = get_tree().create_tween().set_parallel()
-		tween.tween_property($Camera3D/MainLayer/PlayButtonTrigger, "scale", Vector2(1.0, 1.0), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-		tween.tween_property($Camera3D/MainLayer/PlayButton, "scale", Vector2(1.0, 1.0), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-
-func _on_play_button_trigger_pressed() -> void:
-	spawnGameModeMenu()
+# ---------------------------------------------------------------------------- #
+#                             SPAWN GAME MODE MENU                             #
+# ---------------------------------------------------------------------------- #
 
 func spawnGameModeMenu():
 	is_in_absolute_gamemode_select = true
@@ -284,9 +275,37 @@ func deSpawnGameModeMenu():
 func on_despawn_game_mode_menu_tween_finished():
 	is_tweening = false  # Set tweening flag to false
 
-######################################
-# SettingsButton animations and functions
-######################################
+# ---------------------------------------------------------------------------- #
+#                     PLAY BUTTON ANIMATIONS AND FUNCTIONS                     #
+# ---------------------------------------------------------------------------- #
+
+func _on_play_button_trigger_mouse_entered() -> void:
+	var tween = get_tree().create_tween().set_parallel()
+	tween.tween_property($Camera3D/MainLayer/PlayButtonTrigger, "position:x", 20.0, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property($Camera3D/MainLayer/PlayButton, "position:x", 20.0, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+
+func _on_play_button_trigger_mouse_exited() -> void:
+	var tween = get_tree().create_tween().set_parallel()
+	tween.tween_property($Camera3D/MainLayer/PlayButtonTrigger, "position:x", 0.0, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property($Camera3D/MainLayer/PlayButton, "position:x", 0.0, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+
+func _on_play_button_trigger_button_down() -> void:
+	var tween = get_tree().create_tween().set_parallel()
+	tween.tween_property($Camera3D/MainLayer/PlayButtonTrigger, "scale", Vector2(1.05, 1.05), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property($Camera3D/MainLayer/PlayButton, "scale", Vector2(1.05, 1.05), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+
+func _on_play_button_trigger_button_up() -> void:
+	if !Global.main_menu_transitioning_scene:
+		var tween = get_tree().create_tween().set_parallel()
+		tween.tween_property($Camera3D/MainLayer/PlayButtonTrigger, "scale", Vector2(1.0, 1.0), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+		tween.tween_property($Camera3D/MainLayer/PlayButton, "scale", Vector2(1.0, 1.0), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+
+func _on_play_button_trigger_pressed() -> void:
+	spawnGameModeMenu()
+
+# ---------------------------------------------------------------------------- #
+#                   SETTINGS BUTTON ANIMATIONS AND FUNCTIONS                   #
+# ---------------------------------------------------------------------------- #
 
 func _on_settings_button_trigger_mouse_entered() -> void:
 	var tween = get_tree().create_tween().set_parallel()
@@ -312,9 +331,9 @@ func _on_settings_button_trigger_pressed() -> void:
 	if !PauseManager.is_inside_settings:
 		$Camera3D/MainLayer/SettingsUI.openSettings(0.5)
 
-######################################
-# QuitButton animations and functions
-######################################
+# ---------------------------------------------------------------------------- #
+#                     QUIT BUTTON ANIMATIONS AND FUNCTIONS                     #
+# ---------------------------------------------------------------------------- #
 
 func _on_quit_button_trigger_button_up() -> void:
 	var tween = get_tree().create_tween().set_parallel()
@@ -339,19 +358,22 @@ func _on_quit_button_trigger_mouse_exited() -> void:
 func _on_quit_button_trigger_pressed() -> void:
 	get_tree().quit()
 
-######################################
-# Exit gamemode layer button functions
-######################################
+# ---------------------------------------------------------------------------- #
+#                 EXIT GAMEMODE BUTTON ANIMATIONS AND FUNCTIONS                #
+# ---------------------------------------------------------------------------- #
 
 func _on_exit_gamemode_layer_button_pressed() -> void:
 	if is_in_gamemode_select:
 		deSpawnGameModeMenu()
 
+# ---------------------------------------------------------------------------- #
+#                            GAMEMODE SELECT BUTTONS                           #
+# ---------------------------------------------------------------------------- #
+
 func _on_play_story_mode_button_pressed() -> void:
 	pass
 
 func _on_play_free_mode_button_pressed() -> void:
-	
 	FreeModeIslandPopupLayer.visible = true
 	$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandOrLoadIslandPopup.show()
 	$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup.hide()
@@ -367,6 +389,10 @@ func _on_achievements_button_pressed() -> void:
 
 func _on_credits_button_pressed() -> void:
 	$Camera3D/MainLayer/CreditsLayer.spawnCredits(0.5)
+
+# ---------------------------------------------------------------------------- #
+#                                ISLAND CREATION                               #
+# ---------------------------------------------------------------------------- #
 
 func _on_new_island_name_text_input(event: InputEventKey) -> void:
 	var invalid_chars = ["/", "\\", "|", "*", "<", ">", "\"", "?", ":", "+"]
@@ -519,9 +545,9 @@ func _on_delete_island_no_pressed() -> void:
 	is_in_delete_popup = false
 	is_in_load_island_interface = true
 
-######################################
-# Other
-######################################
+# ---------------------------------------------------------------------------- #
+#                                     OTHER                                    #
+# ---------------------------------------------------------------------------- #
 
 func _exit_tree() -> void:
 	loadIslandThread.wait_to_finish()

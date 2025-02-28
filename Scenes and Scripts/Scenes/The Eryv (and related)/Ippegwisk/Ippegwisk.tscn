@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://brfmaf0i4m1cc"]
+
+[ext_resource type="PackedScene" uid="uid://btr6i6mcqf7je" path="res://Assets/3D Models/The Eryv (and related)/Ippegwisk.blend" id="1_qoxgv"]
+[ext_resource type="Material" uid="uid://dwu2srvqdks82" path="res://Resources/Materials/IppegwiskColor.tres" id="2_d0juy"]
+
+[node name="Ippegwisk" instance=ExtResource("1_qoxgv")]
+
+[node name="Icosphere_001" parent="." index="0"]
+material_override = ExtResource("2_d0juy")

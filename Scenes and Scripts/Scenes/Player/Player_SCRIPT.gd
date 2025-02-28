@@ -48,7 +48,12 @@
 @icon("res://Textures/Icons/Script Icons/32x32/character.png") # Give the node an icon (so it looks cool)
 extends CharacterBody3D # Inheritance
 
-#region Export variables
+#region Variables
+
+######################################
+######################################
+
+var loadAchivementElementsThread : Thread
 
 ######################################
 ######################################
@@ -410,7 +415,6 @@ func _input(_event): # A built-in function that listens for input using the inpu
 	if Input.is_action_just_pressed("SaveGame") and OS.has_feature("debug") and IslandManager.Current_Game_Mode == "FREE":
 		Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
 		SaveManager.saveAllData()
-		saveAllDataWithAnimation()
 	
 	if Input.is_action_just_pressed("Inventory") and !InventoryManager.is_in_explorer_notes_interface and !PauseManager.inside_explorer_note_ui and !PauseManager.inside_absolute_item_workshop and !PauseManager.is_paused and !InventoryManager.in_chest_interface and !InventoryManager.is_in_workbench_interface and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !InventoryManager.is_dragging and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
 		if !InventoryManager.inventory_open:
@@ -490,6 +494,9 @@ func _unhandled_input(event): # A built-in function that listens for input all t
 func _physics_process(delta):
 	PlayerManager.isIdle = !is_movement_input_active
 	HandItem.sway(delta, PlayerManager.isIdle)
+	
+	if PauseManager.is_paused or InventoryManager.inventory_open or DialogueManager.is_in_interface or PauseManager.inside_item_workshop or PauseManager.inside_explorer_note_ui:
+		is_sprinting = false
 	
 	if is_walking and is_movement_input_active:
 		PlayerManager.is_walking_moving = true
@@ -661,7 +668,7 @@ func _process(_delta):
 		HUDLayer_HealthBar.show()
 	
 	
-	# TODO: Change when making crosshair setting
+	# NOTE: Change when making crosshair setting
 	Crosshair_Rect.size = crosshair_size # set the crosshair size to the crosshair size variable
 
 #endregion
@@ -677,6 +684,18 @@ func _ready():
 	Utils.set_center_offset($Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Left_Arrow)
 	
 	HandManager.HAND_ITEM_NODE = HandItem
+	
+	GlobalData.loadGlobal()
+	
+	AchievementsManager.CURRENT_UI_GRID_CONTAINER = $Head/Camera3D/AchievementsLayer/AchievementsUI/MainLayer/ScrollContainer/GridContainer
+	AchievementsManager.CURRENT_ACHIEVEMENTS_UI = $Head/Camera3D/AchievementsLayer/AchievementsUI
+	AchievementsManager.CURRENT_NOTIFICATION_NODE = $Head/Camera3D/AchievementNotificationLayer/AchievementNotification
+	
+	loadAchivementElementsThread = Thread.new()
+	var loadAchivementElementsThread_callable = Callable(AchievementsManager, "populateGridContainer")
+	loadAchivementElementsThread.start(loadAchivementElementsThread_callable)
+	loadAchivementElementsThread.wait_to_finish()
+	
 	PlayerManager.AudioNotification = $Head/Camera3D/AudioNotificationLayer/AudioNotification
 	PlayerManager.EXPLORER_NOTE_CONTENTS = $Head/Camera3D/ExplorerNoteLayer/Contents
 	PlayerManager.EXPLORER_NOTE_TEXTURE_RECT = $Head/Camera3D/ExplorerNoteLayer/Contents/ExplorerNoteSheet
@@ -1369,19 +1388,6 @@ func on_save_and_quit_to_menu_fade_finished():
 	var mainMenuScene = load("res://Scenes and Scripts/Scenes/Main Menu/MainMenu.tscn")
 	
 	get_tree().change_scene_to_packed(mainMenuScene)
-
-func saveAllDataWithAnimation():
-	if ManualSaveCooldown.time_left == 0.0:
-		ManualSaveCooldown.wait_time = 5.0
-		ManualSaveCooldown.start()
-		SaveManager.saveAllData() # Call the save all data function from SaveManager to write all data to save files.
-		showLighterBG_SAVEOVERLAY()
-		await get_tree().create_timer(0.2).timeout
-		showDarkerBG_SAVEOVERLAY()
-		await get_tree().create_timer(3.0).timeout
-		hideDarkerBG_SAVEOVERLAY() 
-		await get_tree().create_timer(0.2).timeout
-		hideLighterBG_SAVEOVERLAY()
 
 func showLighterBG_SAVEOVERLAY():
 	var tween = get_tree().create_tween()

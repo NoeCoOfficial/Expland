@@ -47,5 +47,14 @@
 
 extends Control
 
-func _update(e_name : String, e_image_path : String, e_description):
-	pass
+func _update(e_name: String, e_image_path: String, e_description: String, e_time_str : String):
+	var texture = load(e_image_path)  # Load the image as a Texture2D
+
+	if texture is Texture2D:  # Ensure it's a valid texture
+		$Elements/e_image_container/e_image.texture = texture
+	else:
+		print("Failed to load texture:", e_image_path)
+
+	$Elements/e_name.text = e_name
+	$Elements/e_description.text = e_description
+	$Elements/e_time.text = "Earned on " + e_time_str

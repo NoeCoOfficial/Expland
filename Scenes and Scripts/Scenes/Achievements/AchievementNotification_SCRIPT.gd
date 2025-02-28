@@ -1,5 +1,5 @@
 # ============================================================= #
-# AudioNotification_SCRIPT.gd
+# AchievementNotification_SCRIPT.gd
 # ============================================================= #
 #                       COPYRIGHT NOTICE                        #
 #                           Noe Co.                             #
@@ -50,62 +50,40 @@ extends Control
 
 var animation
 
-func spawnAudioNotification(paused: bool, songName : String):
-	AudioManager.NotificationOnScreen = true
+func spawnAchievementsNotification(ARR_INDEX : int):
+	$unlockSFX.play()
+	AchievementsManager.NotificationOnScreen = true
 	if animation:
 		animation.kill()
 	animation = get_tree().create_tween().set_parallel()
 	$DespawnTimer.start()
 	
-	$Elements/SongName.text = songName
+	updateNotification(ARR_INDEX, "res://Textures/Achievements/" + AchievementsManager.ACHIEVEMENTS[ARR_INDEX] + ".png")
 	
-	if AudioManager.PREVIOUS_SONGS.is_empty():
-		$Elements/PreviousBtnIcon.hide()
-		$"Elements/J Key Container".hide()
-	else:
-		$Elements/PreviousBtnIcon.show()
-		$"Elements/J Key Container".show()
-	
-	if paused:
-		$Elements/PauseBtnIcon.visible = false
-		$Elements/PlayBtnIcon.visible = true
-	else:
-		$Elements/PauseBtnIcon.visible = true
-		$Elements/PlayBtnIcon.visible = false
-	
-	
-	animation.tween_property($LightBG, "position:x", -193, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-	animation.tween_property($DarkBG, "position:x", -189, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.2)
-	animation.tween_property($Elements, "position:x", -193, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.2)
+	animation.tween_property($LightBG, "position:x", -215, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	animation.tween_property($DarkBG, "position:x", -211, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.2)
+	animation.tween_property($Elements, "position:x", -159, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.2)
 
-func despawnAudioNotification():
-	AudioManager.NotificationOnScreen = false
+func despawnAchievementsNotification():
+	AchievementsManager.NotificationOnScreen = false
 	animation = get_tree().create_tween().set_parallel()
 	animation.tween_property($LightBG, "position:x", 0, 0.7).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO).set_delay(0.2)
-	animation.tween_property($DarkBG, "position:x", 0, 0.7).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO)
-	animation.tween_property($Elements, "position:x", 0, 0.7).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO)
+	animation.tween_property($DarkBG, "position:x", 4, 0.7).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO)
+	animation.tween_property($Elements, "position:x", 56, 0.7).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO)
 
-func updateNotification(paused : bool, songName : String):
+func updateNotification(ARR_INDEX: int, e_image_path: String):
 	$DespawnTimer.start()
-	$Elements/SongName.text = songName
+	$Elements/AchievementName.text = str(AchievementsManager.ACHIEVEMENTS[ARR_INDEX]).capitalize()
 	
-	if AudioManager.PREVIOUS_SONGS.is_empty():
-		$Elements/PreviousBtnIcon.hide()
-		$"Elements/J Key Container".hide()
+	var texture = load(e_image_path)  # Directly load the image as a texture
+	if texture is Texture2D:  # Ensure it's a valid texture
+		$Elements/e_image_container/e_image.texture = texture
 	else:
-		$Elements/PreviousBtnIcon.show()
-		$"Elements/J Key Container".show()
-	
-	if paused:
-		$Elements/PauseBtnIcon.visible = false
-		$Elements/PlayBtnIcon.visible = true
-	else:
-		$Elements/PauseBtnIcon.visible = true
-		$Elements/PlayBtnIcon.visible = false
+		print("Failed to load texture:", e_image_path)
 
 func resetDespawnTimer():
 	$DespawnTimer.stop()
 	$DespawnTimer.start()
 
 func _on_despawn_timer_timeout() -> void:
-	despawnAudioNotification()
+	despawnAchievementsNotification()

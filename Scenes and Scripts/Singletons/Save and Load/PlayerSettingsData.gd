@@ -57,6 +57,10 @@ const SAVE_PATH = "user://saveData/settings.save"
 var showStartupScreen : bool = true
 var autosaveInterval : int = 60
 
+# TODO: Implement these settings
+var quickAnimations : bool = false
+var showTime : bool = false
+
 ######################################
 # Graphics
 ######################################
@@ -91,6 +95,8 @@ func saveSettings() -> void:
 		# General
 		"show_startup_screen" : showStartupScreen,
 		"autosave_interval" : autosaveInterval,
+		"quick_animations" : quickAnimations,
+		"show_time" : showTime,
 		
 		# Graphics
 		"dof_blur" : DOFBlur,
@@ -129,6 +135,9 @@ func loadSettings() -> void:
 				showStartupScreen = current_line["show_startup_screen"]
 				autosaveInterval = current_line["autosave_interval"]
 				
+				quickAnimations = current_line["quick_animations"]
+				showTime = current_line["show_time"]
+				
 				# Graphics
 				DOFBlur = current_line["dof_blur"]
 				PrettyShadows = current_line["pretty_shadows"]
@@ -144,11 +153,20 @@ func loadSettings() -> void:
 				
 				print_rich("[center][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf][font_size=30]-- PLAYER SETTINGS HAVE BEEN LOADED --[/font_size][/font][/center]")
 				
+				# General
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Show startup screen: "+str(showStartupScreen)+"[/font][/font_size][/center]")
+				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Quick animations: "+str(quickAnimations)+"[/font][/font_size][/center]")
+				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Show time: "+str(showTime)+"[/font][/font_size][/center]")
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Autosave Interval: "+str(autosaveInterval)+"[/font][/font_size][/center]")
+				
+				# Graphics
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]DOF Blur: "+str(DOFBlur)+"[/font][/font_size][/center]")
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Pretty shadows: "+str(PrettyShadows)+"[/font][/font_size][/center]")
+				
+				# Video
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]FOV: "+str(FOV)+"[/font][/font_size][/center]")
+				
+				# Audio
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Master Volume: "+str(Master_Volume)+"[/font][/font_size][/center]")
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Music Volume: "+str(music_Volume)+"[/font][/font_size][/center]")
 				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]SFX Volume: "+str(sfx_Volume)+"[/font][/font_size][/center]")

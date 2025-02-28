@@ -57,3 +57,6 @@ func _input(_event: InputEvent) -> void:
 			DebugManager.is_debugging = false
 		else:
 			DebugManager.is_debugging = true
+	
+	if Input.is_action_just_pressed("DoButton"):
+		AchievementsManager.earnAchievement(3, true)
