@@ -100,14 +100,20 @@ func _input(_event: InputEvent) -> void:
 func showGreyOverlay(Duration : float):
 	GreyLayer.visible = true
 	
-	var tween = get_tree().create_tween()
-	tween.tween_property(GreyLayer, "modulate", Color(1, 1, 1, 1), Duration)
+	if PlayerSettingsData.quickAnimations:
+		GreyLayer.modulate = Color(1, 1, 1, 1)
+	else:
+		var tween = get_tree().create_tween()
+		tween.tween_property(GreyLayer, "modulate", Color(1, 1, 1, 1), Duration)
 
 func hideGreyOverlay(Duration : float):
-	
-	var tween = get_tree().create_tween()
-	tween.tween_property(GreyLayer, "modulate", Color(1, 1, 1, 0), Duration)
-	tween.tween_property(GreyLayer, "visible", false, 0.0)
+	if PlayerSettingsData.quickAnimations:
+		GreyLayer.modulate = Color(1, 1, 1, 0)
+		GreyLayer.visible = false
+	else:
+		var tween = get_tree().create_tween()
+		tween.tween_property(GreyLayer, "modulate", Color(1, 1, 1, 0), Duration)
+		tween.tween_property(GreyLayer, "visible", false, 0.0)
 
 ######################################
 # Tweening dialogue box
@@ -123,30 +129,31 @@ func onSideArrowAnimFinished():
 	tweenSideArrow()
 
 func tweenBox(ONorOFF : String, Duration : float):
-		
-	var tween = get_tree().create_tween()
-	
-	if ONorOFF == "ON":
-		
-		is_animating = true
-		
-		tween.tween_property(
-			DialogueBoxButton, 
-			"position", 
-			Vector2(259.12, 433), 
-			Duration).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-		
-		tween.connect("finished", Callable(self, "on_tween_on_finished"))
-		
-	elif ONorOFF == "OFF":
-		
-		DialogueManager.is_in_interface = false
-		
-		tween.tween_property(
-			DialogueBoxButton, 
-			"position", 
-			Vector2(259.12, 656), 
-			Duration).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO)
+	if PlayerSettingsData.quickAnimations:
+		if ONorOFF == "ON":
+			DialogueBoxButton.position = Vector2(259.12, 433)
+			is_animating = false
+			DialogueManager.is_in_interface = true
+		elif ONorOFF == "OFF":
+			DialogueBoxButton.position = Vector2(259.12, 656)
+			DialogueManager.is_in_interface = false
+	else:
+		var tween = get_tree().create_tween()
+		if ONorOFF == "ON":
+			is_animating = true
+			tween.tween_property(
+				DialogueBoxButton, 
+				"position", 
+				Vector2(259.12, 433), 
+				Duration).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+			tween.connect("finished", Callable(self, "on_tween_on_finished"))
+		elif ONorOFF == "OFF":
+			DialogueManager.is_in_interface = false
+			tween.tween_property(
+				DialogueBoxButton, 
+				"position", 
+				Vector2(259.12, 656), 
+				Duration).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_EXPO)
 
 func on_tween_on_finished():
 	is_animating = false
