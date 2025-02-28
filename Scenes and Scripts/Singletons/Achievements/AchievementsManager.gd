@@ -143,11 +143,11 @@ func populateGridContainer():
 		for achievement in EARNED_ACHIEVEMENTS:
 			var element = load("res://Scenes and Scripts/Scenes/Achievements/AchievementElement.tscn")
 			var instance = element.instantiate()
-			
+
 			instance._update(
 			
-			str(ACHIEVEMENTS[ARR_INDEX]).capitalize(),
-			"res://Textures/Achievements/"+ ACHIEVEMENTS[ARR_INDEX] + ".png",
+			str(ACHIEVEMENTS[achievement[0]]).capitalize(),
+			"res://Textures/Achievements/"+ ACHIEVEMENTS[achievement[0]] + ".png",
 			ACHIEVEMENT_DESCRIPTIONS[ARR_INDEX]
 			
 			)
