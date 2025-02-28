@@ -109,8 +109,8 @@ func earnAchievement(ARR_INDEX : int, withNotification : bool):
 	var date_dict = Time.get_date_dict_from_unix_time(unix_time)
 	var formatted_date = "%02d/%02d/%d" % [date_dict.day, date_dict.month, date_dict.year]
 	
-	info.append(ARR_INDEX)
-	info.append(formatted_date)
+	info.append(ARR_INDEX) # The index of the achievement in the global array is stored at pos 0.
+	info.append(formatted_date) # The day the achievement was earned is store at pos 1.
 	
 	EARNED_ACHIEVEMENTS.append(info)
 	
@@ -133,4 +133,6 @@ func earnAchievement(ARR_INDEX : int, withNotification : bool):
 		CURRENT_UI_GRID_CONTAINER.call_deferred("add_child", instance)
 
 func populateGridContainer():
-	
+	if CURRENT_UI_GRID_CONTAINER:
+		for achievement in EARNED_ACHIEVEMENTS:
+			
