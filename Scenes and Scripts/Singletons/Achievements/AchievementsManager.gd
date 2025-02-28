@@ -148,7 +148,7 @@ func populateGridContainer():
 			
 			str(ACHIEVEMENTS[achievement[0]]).capitalize(),
 			"res://Textures/Achievements/"+ ACHIEVEMENTS[achievement[0]] + ".png",
-			ACHIEVEMENT_DESCRIPTIONS[ARR_INDEX]
+			ACHIEVEMENT_DESCRIPTIONS[achievement[0]]
 			
 			)
 			
