@@ -74,53 +74,58 @@ var is_tweening = false
 ######################################
 
 func _ready() -> void:
-	AudioManager.NotificationOnScreen = false
-	AchievementsManager.CURRENT_NOTIFICATION_NODE = $Camera3D/MainLayer/AchievementNotificationLayer/AchievementNotification
-	AchievementsManager.CURRENT_UI_GRID_CONTAINER = $Camera3D/MainLayer/AchievementsUI/MainLayer/ScrollContainer/GridContainer
-	AudioManager.initNotificaton($Camera3D/MainLayer/AudioNotificationLayer/AudioNotification)
+    initialize_audio()
+    initialize_globals()
+    initialize_ui()
+    initialize_threads()
+    initialize_buttons()
+    await get_tree().create_timer(1).timeout
+    onStartup()
+    handle_protective_layer_visibility()
+
+func initialize_audio() -> void:
+    AudioManager.NotificationOnScreen = false
+    AudioManager.initNotificaton($Camera3D/MainLayer/AudioNotificationLayer/AudioNotification)
 	AudioManager.initNew($MainMenu_Audio, false, false, true)
-	AudioManager.canOperate_textField = true
-	PauseManager.is_paused = false
-	Global.main_menu_transitioning_scene = false
-	Global.the_island_transitioning_scene = false
+    AudioManager.canOperate_textField = true
 
-	GlobalData.loadGlobal()
-	PlayerSettingsData.loadSettings()
+func initialize_globals() -> void:
+    PauseManager.is_paused = false
+    Global.main_menu_transitioning_scene = false
+    Global.the_island_transitioning_scene = false
+    GlobalData.loadGlobal()
+    PlayerSettingsData.loadSettings()
 
-	$Camera3D/MainLayer/GreyLayerGamemodeLayer.hide()
-	$Camera3D/MainLayer/GreyLayerGamemodeLayer.modulate = Color(1, 1, 1, 0)
-	
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	
-	IslandManager.resetAttributes()
-	
-	IslandAccessOrder.load_order()
-	
-	loadIslandThread = Thread.new()
-	var loadIslandThread_callable = Callable($Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup, "loadIslands")
-	loadIslandThread.start(loadIslandThread_callable)
+func initialize_ui() -> void:
+    $Camera3D/MainLayer/GreyLayerGamemodeLayer.hide()
+    $Camera3D/MainLayer/GreyLayerGamemodeLayer.modulate = Color(1, 1, 1, 0)
+    Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+    IslandManager.resetAttributes()
+    IslandAccessOrder.load_order()
 
-	loadAchivementElementsThread = Thread.new()
-	var loadAchivementElementsThread_callable = Callable(AchievementsManager, "populateGridContainer")
-	loadAchivementElementsThread.start(loadAchivementElementsThread_callable)
-	
-	Utils.set_center_offset($Camera3D/MainLayer/PlayButton)
-	Utils.set_center_offset($Camera3D/MainLayer/PlayButtonTrigger)
-	
-	Utils.set_center_offset($Camera3D/MainLayer/SettingsButton)
-	Utils.set_center_offset($Camera3D/MainLayer/SettingsButtonTrigger)
-	
-	Utils.set_center_offset($Camera3D/MainLayer/QuitButton)
-	Utils.set_center_offset($Camera3D/MainLayer/QuitButtonTrigger)
-	
-	await get_tree().create_timer(1).timeout
-	onStartup()
-	
-	if PlayerSettingsData.quickAnimations:
-		$Camera3D/MainLayer/ProtectiveLayer.visible = false
-	else:
-		await get_tree().create_timer(2).timeout
-		$Camera3D/MainLayer/ProtectiveLayer.visible = false
+func initialize_threads() -> void:
+    loadIslandThread = Thread.new()
+    var loadIslandThread_callable = Callable($Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup, "loadIslands")
+    loadIslandThread.start(loadIslandThread_callable)
+
+    loadAchivementElementsThread = Thread.new()
+    var loadAchivementElementsThread_callable = Callable(AchievementsManager, "populateGridContainer")
+    loadAchivementElementsThread.start(loadAchivementElementsThread_callable)
+
+func initialize_buttons() -> void:
+    Utils.set_center_offset($Camera3D/MainLayer/PlayButton)
+    Utils.set_center_offset($Camera3D/MainLayer/PlayButtonTrigger)
+    Utils.set_center_offset($Camera3D/MainLayer/SettingsButton)
+    Utils.set_center_offset($Camera3D/MainLayer/SettingsButtonTrigger)
+    Utils.set_center_offset($Camera3D/MainLayer/QuitButton)
+    Utils.set_center_offset($Camera3D/MainLayer/QuitButtonTrigger)
+
+func handle_protective_layer_visibility() -> void:
+    if PlayerSettingsData.quickAnimations:
+        $Camera3D/MainLayer/ProtectiveLayer.visible = false
+    else:
+        await get_tree().create_timer(2).timeout
+        $Camera3D/MainLayer/ProtectiveLayer.visible = false
 
 func change_to_startup_notice() -> void:
 	get_tree().change_scene_to_packed(StartupNotice)
