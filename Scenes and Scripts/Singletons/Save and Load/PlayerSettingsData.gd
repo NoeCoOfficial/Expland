@@ -134,6 +134,7 @@ func loadSettings() -> void:
 				# General
 				showStartupScreen = current_line["show_startup_screen"]
 				autosaveInterval = current_line["autosave_interval"]
+				
 				quickAnimations = current_line["quick_animations"]
 				showTime = current_line["show_time"]
 				
