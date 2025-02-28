@@ -121,7 +121,7 @@ func earnAchievement(ARR_INDEX : int, withNotification : bool):
 			CURRENT_NOTIFICATION_NODE.spawnAchievementsNotification(ARR_INDEX)
 	
 	if CURRENT_UI_GRID_CONTAINER:
-	
+
 		# TODO: Add a new child in a thread so no lag
 
 		var element = load("res://Scenes and Scripts/Scenes/Achievements/AchievementElement.tscn")
@@ -142,16 +142,16 @@ func earnAchievement(ARR_INDEX : int, withNotification : bool):
 
 func populateGridContainer():
 	if CURRENT_UI_GRID_CONTAINER:
-		for achievement in EARNED_ACHIEVEMENTS:
-			var element = load("res://Scenes and Scripts/Scenes/Achievements/AchievementElement.tscn")
-			var instance = element.instantiate()
+		for achievement in EARNED_ACHIEVEMENTS: # Iterate through all of the earned achievements
+			var element = load("res://Scenes and Scripts/Scenes/Achievements/AchievementElement.tscn") # Load the PackedScene resource
+			var instance = element.instantiate() # Create an instance of the PackedScene
 
 			instance._update(
 			
-			str(ACHIEVEMENTS[achievement[0]]).capitalize(),
-			"res://Textures/Achievements/"+ ACHIEVEMENTS[achievement[0]] + ".png",
-			ACHIEVEMENT_DESCRIPTIONS[achievement[0]],
-			achievement[1]
+			str(ACHIEVEMENTS[achievement[0]]).capitalize(), # Capitalized name (e.g. "WANDERER" -> "Wanderer")
+			"res://Textures/Achievements/"+ ACHIEVEMENTS[achievement[0]] + ".png", # Get the texture using the saved index
+			ACHIEVEMENT_DESCRIPTIONS[achievement[0]], # Get the description for the achievement index
+			achievement[1] # Current time
 			
 			)
 			
