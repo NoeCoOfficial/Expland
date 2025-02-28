@@ -96,6 +96,7 @@ vertical_alignment = 1
 
 [node name="e_image_container" type="PanelContainer" parent="Elements"]
 clip_children = 1
+layout_mode = 0
 offset_left = -46.0
 offset_top = 4.0
 offset_right = 12.0
