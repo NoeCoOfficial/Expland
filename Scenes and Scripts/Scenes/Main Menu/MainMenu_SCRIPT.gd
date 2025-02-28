@@ -49,6 +49,7 @@
 extends Node3D
 
 var loadIslandThread : Thread
+var loadAchivementsThread : Thread
 
 var is_in_gamemode_select = false
 var is_in_absolute_gamemode_select = false
@@ -79,22 +80,13 @@ func _ready() -> void:
 	AudioManager.initNotificaton($Camera3D/MainLayer/AudioNotificationLayer/AudioNotification)
 	AudioManager.initNew($MainMenu_Audio, false, false, true)
 	AudioManager.canOperate_textField = true
-	PlayerSettingsData.loadSettings()
 	PauseManager.is_paused = false
 	Global.main_menu_transitioning_scene = false
 	Global.the_island_transitioning_scene = false
-	
-	"""
-	if Global.is_first_time_in_menu:
-		Global.is_first_time_in_menu = false
-		
-		if PlayerSettingsData.showStartupScreen:
-			call_deferred("change_to_startup_notice")
-		else:
-			$MainMenu_Audio.Start(false, true)
-	else:
-		$MainMenu_Audio.Start(false, true)
-	"""
+
+	GlobalData.loadGlobal()
+	PlayerSettingsData.loadSettings()
+
 	$Camera3D/MainLayer/GreyLayerGamemodeLayer.hide()
 	$Camera3D/MainLayer/GreyLayerGamemodeLayer.modulate = Color(1, 1, 1, 0)
 	
@@ -124,7 +116,6 @@ func _ready() -> void:
 	$Camera3D/MainLayer/ProtectiveLayer.visible = false
 
 func change_to_startup_notice() -> void:
-	#$Music.stop()
 	get_tree().change_scene_to_packed(StartupNotice)
 
 func fadeOut(node):
