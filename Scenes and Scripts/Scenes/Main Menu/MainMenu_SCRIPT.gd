@@ -137,6 +137,8 @@ func onStartup():
 	fadeOut($Camera3D/MainLayer/TopLayer/FadeOut)
 	$Camera3D/MainLayer/Version_LBL.visible = true
 	
+	# Menu animation (in the form of tweens)
+	
 	var tween = get_tree().create_tween().set_parallel()
 	
 	tween.tween_property($Camera3D/MainLayer/Logo, "position:x", -15, 1.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.5)
