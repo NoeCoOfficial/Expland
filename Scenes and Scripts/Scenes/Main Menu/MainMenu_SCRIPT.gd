@@ -116,9 +116,11 @@ func _ready() -> void:
 	await get_tree().create_timer(1).timeout
 	onStartup()
 	
-	#if !PlayerSettingsData.quickAnimations:
-	await get_tree().create_timer(2).timeout
-	$Camera3D/MainLayer/ProtectiveLayer.visible = false
+	if PlayerSettingsData.quickAnimations:
+		$Camera3D/MainLayer/ProtectiveLayer.visible = false
+	else:
+		await get_tree().create_timer(2).timeout
+		$Camera3D/MainLayer/ProtectiveLayer.visible = false
 
 func change_to_startup_notice() -> void:
 	get_tree().change_scene_to_packed(StartupNotice)
