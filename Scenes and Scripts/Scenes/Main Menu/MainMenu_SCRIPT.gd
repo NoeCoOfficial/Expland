@@ -111,7 +111,7 @@ func initialize_threads() -> void:
 	loadIslandThread = Thread.new()
 	var loadIslandThread_callable = Callable($Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup, "loadIslands")
 	loadIslandThread.start(loadIslandThread_callable)
-
+	
 	loadAchivementElementsThread = Thread.new()
 	var loadAchivementElementsThread_callable = Callable(AchievementsManager, "populateGridContainer")
 	loadAchivementElementsThread.start(loadAchivementElementsThread_callable)

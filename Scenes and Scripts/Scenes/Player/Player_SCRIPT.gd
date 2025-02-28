@@ -48,7 +48,12 @@
 @icon("res://Textures/Icons/Script Icons/32x32/character.png") # Give the node an icon (so it looks cool)
 extends CharacterBody3D # Inheritance
 
-#region Export variables
+#region Variables
+
+######################################
+######################################
+
+var loadAchivementElementsThread : Thread
 
 ######################################
 ######################################
@@ -680,6 +685,11 @@ func _ready():
 	AchievementsManager.CURRENT_UI_GRID_CONTAINER = $Head/Camera3D/AchievementsLayer/AchievementsUI/MainLayer/ScrollContainer/GridContainer
 	AchievementsManager.CURRENT_ACHIEVEMENTS_UI = $Head/Camera3D/AchievementsLayer/AchievementsUI
 	AchievementsManager.CURRENT_NOTIFICATION_NODE = $Head/Camera3D/AchievementNotificationLayer/AchievementNotification
+	
+	loadAchivementElementsThread = Thread.new()
+	var loadAchivementElementsThread_callable = Callable(AchievementsManager, "populateGridContainer")
+	loadAchivementElementsThread.start(loadAchivementElementsThread_callable)
+	
 	
 	PlayerManager.AudioNotification = $Head/Camera3D/AudioNotificationLayer/AudioNotification
 	PlayerManager.EXPLORER_NOTE_CONTENTS = $Head/Camera3D/ExplorerNoteLayer/Contents
