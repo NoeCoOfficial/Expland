@@ -12,6 +12,10 @@
 
 ## Inventory
 
+### Added:
+- New stone inventory item
+- New wood plank inventory item
+
 ### Changed:
 - Yellow flower text inside inventory is now "Yellow Flower" instead of "Yellowflower"
 - There are now 16 slots in inventory pockets instead of 9 to store items
@@ -22,10 +26,6 @@
 - Fixed a bug where you could close the workbench by pressing "E", then being able to open it again by pressing "E"
 - Fixed 3D inventory pickup items noclipping through the ground
 
-### Added:
-- New stone inventory item
-- New wood plank inventory item
-
 ## Crafting
 
 ### Added:
@@ -33,13 +33,16 @@
 
 ## Player
 
+### Added:
+- Added a hotbar to the player (not functional yet)
+- Added an achievements system, where future game achievements will be shown
+
 ### Changed:
 - Changed player collision shape to reduce lag
 - Changed the FOV cap from 60-120 to 90-120
 
-### Added:
-- Added a hotbar to the player (not functional yet)
-- Added an achievements system, where future game achievements will be shown
+### Removed:
+- Removed the old hand item system
 
 ## Explorer Notes
 
@@ -50,9 +53,6 @@
 
 ### Added:
 - Added a quick animations option in settings (not fully done)
-
-### Removed:
-- Removed the old hand item system
 
 ---
 
