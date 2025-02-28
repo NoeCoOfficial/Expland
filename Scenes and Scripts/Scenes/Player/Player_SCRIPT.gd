@@ -495,6 +495,9 @@ func _physics_process(delta):
 	PlayerManager.isIdle = !is_movement_input_active
 	HandItem.sway(delta, PlayerManager.isIdle)
 	
+	if PauseManager.is_paused or InventoryManager.inventory_open or DialogueManager.is_in_interface or PauseManager.inside_item_workshop or PauseManager.inside_explorer_note_ui:
+		is_sprinting = false
+	
 	if is_walking and is_movement_input_active:
 		PlayerManager.is_walking_moving = true
 	else:
