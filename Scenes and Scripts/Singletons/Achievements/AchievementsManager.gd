@@ -135,4 +135,5 @@ func earnAchievement(ARR_INDEX : int, withNotification : bool):
 func populateGridContainer():
 	if CURRENT_UI_GRID_CONTAINER:
 		for achievement in EARNED_ACHIEVEMENTS:
+			var element = load(
 			
