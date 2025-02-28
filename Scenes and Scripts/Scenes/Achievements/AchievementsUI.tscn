@@ -107,6 +107,27 @@ text = "Achievements"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="NoAchievements_LBL" type="Label" parent="MainLayer"]
+visible = false
+modulate = Color(1, 1, 1, 0.356863)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.5
+offset_top = -23.5
+offset_right = 400.5
+offset_bottom = 23.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_8ki5k")
+theme_override_font_sizes/font_size = 25
+text = "You haven't unlocked any achievements  yet!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="CloseButton" type="TextureButton" parent="MainLayer"]
 layout_mode = 1
 anchors_preset = -1
