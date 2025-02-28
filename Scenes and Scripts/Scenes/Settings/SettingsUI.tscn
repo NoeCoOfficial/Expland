@@ -127,21 +127,6 @@ text = "SETTINGS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SaveSettings" type="Button" parent="MainLayer"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 3.152
-anchor_top = 2.51835
-anchor_right = 3.152
-anchor_bottom = 2.51835
-offset_left = -2608.1
-offset_top = -1615.89
-offset_right = -2496.1
-offset_bottom = -1567.89
-focus_mode = 0
-theme = ExtResource("4_m5nwd")
-text = "Save Settings"
-
 [node name="SettingsTabContainer" type="TabContainer" parent="MainLayer"]
 layout_mode = 1
 anchors_preset = -1
@@ -561,7 +546,6 @@ theme_override_font_sizes/font_size = 40
 text = "EXIT"
 script = ExtResource("2_vw753")
 
-[connection signal="pressed" from="MainLayer/SaveSettings" to="." method="_on_save_settings_pressed"]
 [connection signal="toggled" from="MainLayer/SettingsTabContainer/General/SSCSwitch" to="." method="_on_ssc_switch_toggled"]
 [connection signal="value_changed" from="MainLayer/SettingsTabContainer/General/AutosaveIntervalSpinBox" to="." method="_on_autosave_interval_spin_box_value_changed"]
 [connection signal="toggled" from="MainLayer/SettingsTabContainer/General/QASwitch" to="." method="_on_qa_switch_toggled"]

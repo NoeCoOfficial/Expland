@@ -146,6 +146,7 @@ var transitioning_to_menu = false
 @export var JUMP_VELOCITY = 4.5 ## How much velocity the player has when jumping. The more this value is, the higher the player can jump.
 var is_movement_input_active = false
 var is_moving = false
+var is_moving_absolute = false
 var is_walking = false
 var is_sprinting = false
 var is_crouching = false
@@ -498,6 +499,9 @@ func _physics_process(delta):
 	if PauseManager.is_paused or InventoryManager.inventory_open or DialogueManager.is_in_interface or PauseManager.inside_item_workshop or PauseManager.inside_explorer_note_ui:
 		is_sprinting = false
 	
+	if !is_moving_absolute:
+		is_sprinting = false
+	
 	if is_walking and is_movement_input_active:
 		PlayerManager.is_walking_moving = true
 	else:
@@ -589,11 +593,13 @@ func _physics_process(delta):
 		else:
 			velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
 			velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
-			
+		
 		move_and_slide()
 		
 		# Check if the player is moving and on the floor
 		is_moving = velocity.length() > 0.1 and is_on_floor()
+		
+		is_moving_absolute = velocity.length() > 0.1
 		
 		# Apply view bobbing only if the player is moving
 		if is_moving:

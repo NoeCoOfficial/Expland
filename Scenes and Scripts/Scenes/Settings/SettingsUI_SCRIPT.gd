@@ -67,8 +67,6 @@ func nodeSetup():
 func _ready() -> void:
 	PlayerSettingsData.loadSettings()
 	
-	if !OS.has_feature("debug"):
-		$SaveSettings.hide()
 	
 	Utils.set_center_offset($MainLayer)
 	$MainLayer.scale = Vector2(0.0, 0.0)
@@ -134,9 +132,6 @@ func _on_music_slider_value_changed(value: float) -> void:
 
 func _on_sfx_slider_value_changed(value: float) -> void:
 	PlayerSettingsData.sfx_Volume = value
-
-func _on_save_settings_pressed() -> void:
-	PlayerSettingsData.saveSettings()
 
 func _on_dof_blur_switch_toggled(toggled_on: bool) -> void:
 	if !Global.is_in_main_menu:
