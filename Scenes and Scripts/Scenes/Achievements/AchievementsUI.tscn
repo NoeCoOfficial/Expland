@@ -83,7 +83,7 @@ offset_bottom = 571.0
 [node name="GridContainer" type="GridContainer" parent="MainLayer/ScrollContainer"]
 layout_mode = 2
 theme_override_constants/h_separation = 179
-theme_override_constants/v_separation = 239
+theme_override_constants/v_separation = 274
 columns = 4
 metadata/_edit_use_anchors_ = true
 
