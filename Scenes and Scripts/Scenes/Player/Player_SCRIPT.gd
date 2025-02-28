@@ -660,7 +660,7 @@ func _process(_delta):
 		HUDLayer_HealthBar.show()
 	
 	
-	# TODO: Change when making crosshair setting
+	# NOTE: Change when making crosshair setting
 	Crosshair_Rect.size = crosshair_size # set the crosshair size to the crosshair size variable
 
 #endregion

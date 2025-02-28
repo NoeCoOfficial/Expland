@@ -121,9 +121,7 @@ func earnAchievement(ARR_INDEX : int, withNotification : bool):
 			CURRENT_NOTIFICATION_NODE.spawnAchievementsNotification(ARR_INDEX)
 	
 	if CURRENT_UI_GRID_CONTAINER:
-
-		# TODO: Add a new child in a thread so no lag
-
+		
 		var element = load("res://Scenes and Scripts/Scenes/Achievements/AchievementElement.tscn")
 		var instance = element.instantiate()
 		
