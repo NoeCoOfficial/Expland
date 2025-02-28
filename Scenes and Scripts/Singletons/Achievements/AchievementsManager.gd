@@ -116,6 +116,9 @@ func earnAchievement(ARR_INDEX : int, withNotification : bool):
 	
 	EARNED_ACHIEVEMENTS.append(info)
 	
+	if CURRENT_ACHIEVEMENTS_UI:
+		CURRENT_ACHIEVEMENTS_UI.call_deferred("toggle_no_achievements_label", false)
+		
 	if CURRENT_NOTIFICATION_NODE:
 		if withNotification:
 			CURRENT_NOTIFICATION_NODE.spawnAchievementsNotification(ARR_INDEX)
@@ -155,8 +158,12 @@ func populateGridContainer():
 				)
 				
 				CURRENT_UI_GRID_CONTAINER.call_deferred("add_child", instance)
-				CURRENT_ACHIEVEMENTS_UI.toggle_no_achievements_label(true)
+		
+			#CURRENT_ACHIEVEMENTS_UI.toggle_no_achievements_label(false)
+			if CURRENT_ACHIEVEMENTS_UI:
+				CURRENT_ACHIEVEMENTS_UI.call_deferred("toggle_no_achievements_label", false)
 		else:
 			if CURRENT_ACHIEVEMENTS_UI:
-				CURRENT_ACHIEVEMENTS_UI.toggle_no_achievements_label(false)
+				#CURRENT_ACHIEVEMENTS_UI.toggle_no_achievements_label(true)
+				CURRENT_ACHIEVEMENTS_UI.call_deferred("toggle_no_achievements_label", true)
 				
