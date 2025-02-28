@@ -142,16 +142,19 @@ func earnAchievement(ARR_INDEX : int, withNotification : bool):
 
 func populateGridContainer():
 	if CURRENT_UI_GRID_CONTAINER:
-		for achievement in EARNED_ACHIEVEMENTS: # Iterate through all of the earned achievements
-			var element = load("res://Scenes and Scripts/Scenes/Achievements/AchievementElement.tscn") # Load the PackedScene resource
-			var instance = element.instantiate() # Create an instance of the PackedScene
+		if !EARNED_ACHIEVEMENTS.is_empty():
+			for achievement in EARNED_ACHIEVEMENTS: # Iterate through all of the earned achievements
+				var element = load("res://Scenes and Scripts/Scenes/Achievements/AchievementElement.tscn") # Load the PackedScene resource
+				var instance = element.instantiate() # Create an instance of the PackedScene
 
-			instance._update(
-			
-			str(ACHIEVEMENTS[achievement[0]]).capitalize(), # Capitalized name (e.g. "WANDERER" -> "Wanderer")
-			"res://Textures/Achievements/"+ ACHIEVEMENTS[achievement[0]] + ".png", # Get the texture using the saved index
-			ACHIEVEMENT_DESCRIPTIONS[achievement[0]], # Get the description for the achievement index
-			achievement[1] # Current time
-			
-			)
-			
+				instance._update(
+				
+				str(ACHIEVEMENTS[achievement[0]]).capitalize(), # Capitalized name (e.g. "WANDERER" -> "Wanderer")
+				"res://Textures/Achievements/"+ ACHIEVEMENTS[achievement[0]] + ".png", # Get the texture using the saved index
+				ACHIEVEMENT_DESCRIPTIONS[achievement[0]], # Get the description for the achievement index
+				achievement[1] # Current time
+				
+				)
+		else:
+			# TODO: Show "No achievements" label logic
+				
