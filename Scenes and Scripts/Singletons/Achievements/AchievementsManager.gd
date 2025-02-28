@@ -121,8 +121,7 @@ func earnAchievement(ARR_INDEX : int, withNotification : bool):
 			CURRENT_NOTIFICATION_NODE.spawnAchievementsNotification(ARR_INDEX)
 	
 	if CURRENT_UI_GRID_CONTAINER:
-
-
+	
 		# TODO: Add a new child in a thread so no lag
 
 		var element = load("res://Scenes and Scripts/Scenes/Achievements/AchievementElement.tscn")
@@ -132,11 +131,14 @@ func earnAchievement(ARR_INDEX : int, withNotification : bool):
 		
 		str(ACHIEVEMENTS[ARR_INDEX]).capitalize(),
 		"res://Textures/Achievements/"+ ACHIEVEMENTS[ARR_INDEX] + ".png",
-		ACHIEVEMENT_DESCRIPTIONS[ARR_INDEX]
+		ACHIEVEMENT_DESCRIPTIONS[ARR_INDEX],
+		formatted_date
 		
 		)
 
 		CURRENT_UI_GRID_CONTAINER.call_deferred("add_child", instance)
+
+		GlobalData.saveGlobal()
 
 func populateGridContainer():
 	if CURRENT_UI_GRID_CONTAINER:
@@ -148,7 +150,8 @@ func populateGridContainer():
 			
 			str(ACHIEVEMENTS[achievement[0]]).capitalize(),
 			"res://Textures/Achievements/"+ ACHIEVEMENTS[achievement[0]] + ".png",
-			ACHIEVEMENT_DESCRIPTIONS[achievement[0]]
+			ACHIEVEMENT_DESCRIPTIONS[achievement[0]],
+			achievement[1]
 			
 			)
 			
