@@ -3200,14 +3200,6 @@ offset_top = 459.0
 offset_right = 197.0
 offset_bottom = -101.0
 
-[node name="AchievementNotificationLayer" type="CanvasLayer" parent="Head/Camera3D"]
-
-[node name="AchievementNotification" parent="Head/Camera3D/AchievementNotificationLayer" instance=ExtResource("45_4wdcp")]
-offset_left = 1152.0
-offset_top = 12.0
-offset_right = 197.0
-offset_bottom = -548.0
-
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
 
 [node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/DeathScreen"]
@@ -3645,6 +3637,14 @@ theme_override_font_sizes/font_size = 12
 text = "Saved"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AchievementNotificationLayer" type="CanvasLayer" parent="Head/Camera3D"]
+
+[node name="AchievementNotification" parent="Head/Camera3D/AchievementNotificationLayer" instance=ExtResource("45_4wdcp")]
+offset_left = 1152.0
+offset_top = 62.0
+offset_right = 197.0
+offset_bottom = -498.0
 
 [node name="DebugLayer" type="CanvasLayer" parent="Head/Camera3D"]
 layer = 128
