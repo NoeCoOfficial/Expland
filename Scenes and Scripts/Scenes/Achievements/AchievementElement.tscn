@@ -28,7 +28,7 @@ offset_bottom = 234.0
 [node name="Background" type="Panel" parent="Elements"]
 layout_mode = 1
 offset_right = 175.0
-offset_bottom = 234.0
+offset_bottom = 269.0
 theme_override_styles/panel = ExtResource("2_3xfan")
 
 [node name="e_name" type="Label" parent="Elements"]
@@ -65,14 +65,35 @@ expand_mode = 1
 layout_mode = 1
 anchors_preset = -1
 offset_left = 18.0
-offset_top = 176.0
+offset_top = 210.0
 offset_right = 157.0
-offset_bottom = 226.0
+offset_bottom = 263.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_wu26u")
 theme_override_font_sizes/font_size = 13
 text = "Beat Free Mode for the first time."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="e_time" type="Label" parent="Elements"]
+modulate = Color(1, 1, 1, 0.34902)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.5
+offset_top = 68.5
+offset_right = 82.5
+offset_bottom = 89.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_wu26u")
+theme_override_font_sizes/font_size = 13
+text = "Earned on [date]"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3

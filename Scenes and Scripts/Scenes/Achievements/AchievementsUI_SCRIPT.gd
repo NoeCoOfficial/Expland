@@ -88,3 +88,6 @@ func _on_close_button_mouse_entered() -> void:
 
 func _on_close_button_pressed() -> void:
 	despawnAchievements(0.5)
+
+func toggle_no_achievements_label(value : bool):
+	$MainLayer/NoAchievements_LBL.visible = value

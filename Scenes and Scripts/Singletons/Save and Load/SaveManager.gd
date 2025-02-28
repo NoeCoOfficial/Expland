@@ -59,4 +59,3 @@ func saveAllData():
 		PlayerManager.PLAYER.saveInventory()
 	
 	PlayerSettingsData.saveSettings()
-

@@ -3200,14 +3200,6 @@ offset_top = 459.0
 offset_right = 197.0
 offset_bottom = -101.0
 
-[node name="AchievementNotificationLayer" type="CanvasLayer" parent="Head/Camera3D"]
-
-[node name="AchievementNotification" parent="Head/Camera3D/AchievementNotificationLayer" instance=ExtResource("45_4wdcp")]
-offset_left = 1152.0
-offset_top = 12.0
-offset_right = 197.0
-offset_bottom = -548.0
-
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
 
 [node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/DeathScreen"]
@@ -3646,8 +3638,17 @@ text = "Saved"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="AchievementNotificationLayer" type="CanvasLayer" parent="Head/Camera3D"]
+layer = 120
+
+[node name="AchievementNotification" parent="Head/Camera3D/AchievementNotificationLayer" instance=ExtResource("45_4wdcp")]
+offset_left = 1152.0
+offset_top = 62.0
+offset_right = 197.0
+offset_bottom = -498.0
+
 [node name="DebugLayer" type="CanvasLayer" parent="Head/Camera3D"]
-layer = 128
+layer = 127
 visible = false
 
 [node name="item_ref_LBL" type="Label" parent="Head/Camera3D/DebugLayer"]
@@ -3923,6 +3924,7 @@ text = "CURRENT_WEATHER = \"\""
 horizontal_alignment = 2
 
 [node name="TopLayer" type="CanvasLayer" parent="Head/Camera3D"]
+layer = 128
 
 [node name="ProtectiveLayer" type="Control" parent="Head/Camera3D/TopLayer"]
 visible = false
