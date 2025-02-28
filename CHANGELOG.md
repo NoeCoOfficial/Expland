@@ -4,6 +4,12 @@
 
 ---
 
+## The Island
+
+### Added:
+- 2 new explorer notes to The Island
+- A model of The Eryv
+
 ## Inventory
 
 ### Changed:
@@ -39,7 +45,6 @@
 
 ### Added:
 - An all-new explorer notes system, with the ability to collect notes and view them in your inventory
-- 2 new explorer notes to The Island
 
 ## Settings
 
