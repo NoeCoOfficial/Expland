@@ -79,6 +79,7 @@ offset_left = 217.0
 offset_top = 120.0
 offset_right = 936.0
 offset_bottom = 571.0
+vertical_scroll_mode = 2
 
 [node name="GridContainer" type="GridContainer" parent="MainLayer/ScrollContainer"]
 layout_mode = 2
@@ -86,6 +87,18 @@ theme_override_constants/h_separation = 179
 theme_override_constants/v_separation = 274
 columns = 4
 metadata/_edit_use_anchors_ = true
+
+[node name="ScrollEnabler" type="Control" parent="MainLayer/ScrollContainer/GridContainer"]
+layout_mode = 2
+
+[node name="ScrollEnabler2" type="Control" parent="MainLayer/ScrollContainer/GridContainer"]
+layout_mode = 2
+
+[node name="ScrollEnabler3" type="Control" parent="MainLayer/ScrollContainer/GridContainer"]
+layout_mode = 2
+
+[node name="ScrollEnabler4" type="Control" parent="MainLayer/ScrollContainer/GridContainer"]
+layout_mode = 2
 
 [node name="Title" type="Label" parent="MainLayer"]
 layout_mode = 1
