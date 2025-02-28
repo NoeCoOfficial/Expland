@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cjxbcx2vhofs"]
+[gd_scene load_steps=7 format=3 uid="uid://cjxbcx2vhofs"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Achievements/AchievementNotification_SCRIPT.gd" id="1_wps2i"]
+[ext_resource type="AudioStream" uid="uid://c533ps3rxpxtx" path="res://Audio/SFX/unlockAchievement.mp3" id="2_h3d07"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="2_x6fve"]
 [ext_resource type="FontFile" uid="uid://b2o44xwqnsb5k" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf" id="4_1nshs"]
 [ext_resource type="Texture2D" uid="uid://bsehw8xxc02m1" path="res://Textures/Achievements/WANDERER.png" id="4_6h4ei"]
@@ -25,6 +26,10 @@ script = ExtResource("1_wps2i")
 [node name="DespawnTimer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
+
+[node name="unlockSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_h3d07")
+bus = &"sfx"
 
 [node name="LightBG" type="ColorRect" parent="."]
 layout_mode = 1

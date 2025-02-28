@@ -51,6 +51,7 @@ extends Control
 var animation
 
 func spawnAchievementsNotification(ARR_INDEX : int):
+	$unlockSFX.play()
 	AchievementsManager.NotificationOnScreen = true
 	if animation:
 		animation.kill()
