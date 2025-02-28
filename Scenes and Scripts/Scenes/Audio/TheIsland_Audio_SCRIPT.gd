@@ -173,10 +173,6 @@ func Previous(fade : bool, showNotification : bool):
 			else:
 				AudioManager.NotificationNode.updateNotification(AudioManager.is_paused, currently_playing_song.name)
 
-# TODO
-#func StartSong(song : Node, fade : bool, showNotification : bool):
-#	pass
-
 func Start(fade : bool, showNotification : bool):
 	AudioManager.is_paused = false
 	var nextSong
@@ -198,10 +194,6 @@ func Start(fade : bool, showNotification : bool):
 			AudioManager.NotificationNode.spawnAudioNotification(AudioManager.is_paused, currently_playing_song.name)
 		else:
 			AudioManager.NotificationNode.updateNotification(AudioManager.is_paused, currently_playing_song.name)
-
-# TODO
-#func Stop(song : Node, fade : bool):
-#	pass
 
 func FadeIn(song : Node):
 	song.volume_db = -80
