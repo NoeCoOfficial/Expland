@@ -57,6 +57,10 @@ const SAVE_PATH = "user://saveData/settings.save"
 var showStartupScreen : bool = true
 var autosaveInterval : int = 60
 
+# TODO: Implement these settings
+var quickAnimations : bool = false
+var showTime : bool = false
+
 ######################################
 # Graphics
 ######################################
@@ -91,6 +95,8 @@ func saveSettings() -> void:
 		# General
 		"show_startup_screen" : showStartupScreen,
 		"autosave_interval" : autosaveInterval,
+		"quick_animations" : quickAnimations,
+		"show_time" : showTime,
 		
 		# Graphics
 		"dof_blur" : DOFBlur,
