@@ -141,6 +141,7 @@ func earnAchievement(ARR_INDEX : int, withNotification : bool):
 func populateGridContainer():
 	if CURRENT_UI_GRID_CONTAINER:
 		if !EARNED_ACHIEVEMENTS.is_empty():
+			CURRENT_ACHIEVEMENTS_UI.set_has_achievements(true)
 			for achievement in EARNED_ACHIEVEMENTS: # Iterate through all of the earned achievements
 				var element = load("res://Scenes and Scripts/Scenes/Achievements/AchievementElement.tscn") # Load the PackedScene resource
 				var instance = element.instantiate() # Create an instance of the PackedScene
@@ -156,6 +157,6 @@ func populateGridContainer():
 				
 				CURRENT_UI_GRID_CONTAINER.call_deferred("add_child", instance)
 		else:
-			pass
-			# TODO: Show "No achievements" label logic
+			if CURRENT_ACHIEVEMENTS_UI:
+				CURRENT_ACHIEVEMENTS_UI.set_has_achievements(false)
 				
