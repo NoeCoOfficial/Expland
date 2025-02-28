@@ -21,7 +21,6 @@ Added a hotbar to the player (not functional yet)
 added an achievements system, where future game achievements will be shown
 added a quick animations option in settings
 
-
 ---
 
 # v0.6.0 (released)
