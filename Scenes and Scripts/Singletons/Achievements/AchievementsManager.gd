@@ -156,5 +156,6 @@ func populateGridContainer():
 
 				EARNED_ACHIEVEMENTS.call_deferred("add_child", instance)
 		else:
+			pass
 			# TODO: Show "No achievements" label logic
 				

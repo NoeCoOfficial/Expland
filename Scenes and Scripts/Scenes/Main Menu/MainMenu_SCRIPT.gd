@@ -146,7 +146,7 @@ func onStartup():
 	$Camera3D/MainLayer/Version_LBL.visible = true
 	
 	# Menu animation (in the form of tweens)
-	if quickAnimations:
+	if PlayerSettingsData.quickAnimations:
 		$Camera3D/MainLayer/Logo.position.x = -15
 		$Camera3D/MainLayer/PlayButton.position = Vector2(0, 203)
 		$Camera3D/MainLayer/PlayButtonTrigger.position = Vector2(0, 203)
