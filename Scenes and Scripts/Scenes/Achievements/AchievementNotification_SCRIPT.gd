@@ -79,7 +79,7 @@ func updateNotification(ARR_INDEX: int, e_image_path: String):
         $Elements/e_image_container/e_image.texture = texture
     else:
         print("Failed to load texture:", e_image_path)
-
+	
 
 func resetDespawnTimer():
 	$DespawnTimer.stop()
