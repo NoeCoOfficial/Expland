@@ -178,6 +178,7 @@ var stamina_restoring_from_0 = false
 @export var HandItem : Node3D
 @export var PickupAttractionPos : Node3D
 @export var Character_Anim_Player : AnimationPlayer
+@export var Character_Body : Node3D
 
 
 @export_group("Inventory")
@@ -620,16 +621,20 @@ func _headbob(time) -> Vector3:
 	return pos # return the position
 
 func _update_animation():
-	if is_sprinting:
-		Character_Anim_Player.play(&"Fast Run_2")
-	elif is_walking:
-		Character_Anim_Player.play(&"Slow Run_2")
-	elif is_crouching and is_movement_input_active:
-		Character_Anim_Player.play(&"CrouchWalk_2")
-	elif is_crouching:
-		Character_Anim_Player.play(&"CrouchingIdle_2")
+	if velocity.y == 0:
+		if PlayerManager.is_sprinting_moving:
+			Character_Anim_Player.play("Fast Run_2")
+		elif PlayerManager.is_walking_moving:
+			Character_Anim_Player.play("Slow Run_2")
+		elif PlayerManager.is_crouching_moving:
+			Character_Anim_Player.play("CrouchWalk_2")
+		elif is_crouching:
+			Character_Anim_Player.play("CrouchingIdle_2")
+		else:
+			Character_Anim_Player.play("Idle_2")
 	else:
-		Character_Anim_Player.play(&"Idle_2")
+		Character_Anim_Player.play("Falling")
+	
 
 func _process(_delta):
 	
