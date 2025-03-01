@@ -177,6 +177,7 @@ var stamina_restoring_from_0 = false
 @export var camera : Camera3D
 @export var HandItem : Node3D
 @export var PickupAttractionPos : Node3D
+@export var Character_Anim_Player : AnimationPlayer
 
 
 @export_group("Inventory")
