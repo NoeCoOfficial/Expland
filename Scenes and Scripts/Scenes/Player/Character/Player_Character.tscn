@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cxhfdfnqn1fv1"]
 
 [ext_resource type="PackedScene" uid="uid://dxfg176kyivpw" path="res://Assets/3D Models/Characters/Player/Player_Character.blend" id="1_b8vnc"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Character/PlayerCharcter_SCRIPT.gd" id="2_iv01h"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Character/PlayerCharacter_SCRIPT.gd" id="2_iv01h"]
 
 [sub_resource type="Animation" id="Animation_hr2cg"]
 resource_name = "Fast Run"
