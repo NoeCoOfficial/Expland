@@ -49,6 +49,7 @@ extends Node
 
 var is_in_interface = false
 var is_in_absolute_interface = false
+
 var current_dialogue_index = 0
 var dialogue_messages = []
 var DialogueInterface
@@ -163,4 +164,35 @@ var testDialogue = [
 	
 	Seb and Tristan",
 	"duration": 4},
+]
+
+################################################
+################################################
+################################################
+################################################
+################################################
+################################################
+################################################
+################################################
+################################################
+################################################
+################################################
+
+var mainMenuStoryModeDialogue_1 = [
+	{"author": "???", 
+	"message": "Who is this?",
+	"duration": 0.5},
+	
+	{"author": "???", 
+	"message": "Analyzing player data...",
+	"duration": 1},
+	
+	{"author": "???", 
+	"message": "Oh... someone new. And your name is... Gavin, I presume?",
+	"duration": 2},
+	
+	{"author": "???", 
+	"message": "I don't think you know what you're getting yourself into.",
+	"duration": 2},
+	
 ]

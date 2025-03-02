@@ -179,7 +179,7 @@ func onStartup():
 func _input(_event: InputEvent) -> void:
 	if !Global.main_menu_transitioning_scene:
 		if Input.is_action_just_pressed("Exit") and !is_tweening:  # Check if not tweening
-			if is_in_gamemode_select and !is_in_free_mode_island_popup and !is_in_free_mode_create_island and !is_in_load_island_interface and !is_in_delete_popup:
+			if is_in_gamemode_select and !DialogueManager.is_in_interface and !is_in_free_mode_island_popup and !is_in_free_mode_create_island and !is_in_load_island_interface and !is_in_delete_popup:
 				deSpawnGameModeMenu()
 			
 		if Input.is_action_just_pressed("Exit"):
@@ -371,7 +371,7 @@ func _on_exit_gamemode_layer_button_pressed() -> void:
 # ---------------------------------------------------------------------------- #
 
 func _on_play_story_mode_button_pressed() -> void:
-	pass
+	startStoryMode()
 
 func _on_play_free_mode_button_pressed() -> void:
 	FreeModeIslandPopupLayer.visible = true
@@ -585,3 +585,8 @@ func _on_load_island_element_text_edit_focus_entered() -> void:
 
 func _on_load_island_element_text_edit_focus_exited() -> void:
 	AudioManager.canOperate_textField = true
+
+############################################
+
+func startStoryMode():
+	pass

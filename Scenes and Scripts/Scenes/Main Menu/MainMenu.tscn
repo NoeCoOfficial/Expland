@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=56 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="PackedScene" uid="uid://jb61th5px5nt" path="res://Assets/3D Models/Tests/Island/Island 2.blend" id="2_0llf6"]
@@ -39,6 +39,7 @@
 [ext_resource type="PackedScene" uid="uid://cq13w255wbu5l" path="res://Scenes and Scripts/Scenes/Minimal Alert/MinimalAlert.tscn" id="27_7myre"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/Custom Popups/LoadIslandPopup_SCRIPT.gd" id="27_ro0wj"]
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/Custom Popups/DeleteIslandPopupMain_SCRIPT.gd" id="29_37xid"]
+[ext_resource type="PackedScene" uid="uid://du1ak3ldg8x4e" path="res://Scenes and Scripts/Scenes/Dialogue/DialogueInterface.tscn" id="30_q7bh6"]
 [ext_resource type="PackedScene" uid="uid://cjxbcx2vhofs" path="res://Scenes and Scripts/Scenes/Achievements/AchievementNotification.tscn" id="31_ahd72"]
 [ext_resource type="PackedScene" uid="uid://bbc10j8mbwjbn" path="res://Scenes and Scripts/Scenes/Audio/AudioNotification.tscn" id="31_xncp6"]
 
@@ -1099,6 +1100,10 @@ grow_vertical = 2
 mouse_filter = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="DialogueLayer" type="CanvasLayer" parent="Camera3D/MainLayer"]
+
+[node name="DialogueInterface" parent="Camera3D/MainLayer/DialogueLayer" instance=ExtResource("30_q7bh6")]
+
 [node name="AchievementNotificationLayer" type="CanvasLayer" parent="Camera3D/MainLayer"]
 layer = 9
 
@@ -1140,6 +1145,7 @@ offset_bottom = -101.0
 
 [node name="TopLayer" type="CanvasLayer" parent="Camera3D/MainLayer"]
 layer = 128
+visible = false
 
 [node name="FadeOut" type="ColorRect" parent="Camera3D/MainLayer/TopLayer"]
 anchors_preset = 15
