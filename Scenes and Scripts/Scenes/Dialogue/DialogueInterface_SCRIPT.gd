@@ -58,7 +58,6 @@ signal FinishedDialogue(StoryModeID : int)
 
 var is_animating = false
 var spawnTween
-var Current_StoryModeID
 
 ######################################
 # On startup
@@ -168,7 +167,7 @@ func on_tween_on_finished():
 
 func spawnDialogue(Person : String, Message : String, Duration : float, StoryModeID):
 	if StoryModeID != null:
-		Current_StoryModeID = StoryModeID
+		DialogueManager.Current_StoryModeID = StoryModeID
 	
 	DialogueManager.is_in_absolute_interface = true
 	
@@ -188,10 +187,10 @@ func spawnDialogue(Person : String, Message : String, Duration : float, StoryMod
 	spawnTween.tween_property(MessageLabel, "visible_ratio", 1.0, Duration).from(0.0)
 
 func despawnDialogue():
-	FinishedDialogue.emit(Current_StoryModeID)
+	FinishedDialogue.emit(DialogueManager.Current_StoryModeID)
 	DialogueManager.is_in_absolute_interface = false
 	DialogueManager.is_in_interface = false
-	Current_StoryModeID = null
+	DialogueManager.Current_StoryModeID = null
 	
 	tweenBox("OFF", 0.5)
 	hideGreyOverlay(0.5)

@@ -53,6 +53,7 @@ var is_in_absolute_interface = false
 var current_dialogue_index = 0
 var dialogue_messages = []
 var DialogueInterface
+var Current_StoryModeID
 
 func _ready():
 	pass
