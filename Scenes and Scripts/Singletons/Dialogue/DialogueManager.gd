@@ -184,7 +184,7 @@ var mainMenuStoryModeDialogue_1 = [
 	"duration": 0.5},
 	
 	{"author": "???", 
-	"message": "Analyzing player data...",
+	"message": "Analyzing user data...",
 	"duration": 1},
 	
 	{"author": "???", 
@@ -219,7 +219,9 @@ var mainMenuStoryModeDialogue_2 = [
 	"duration": 2},
 	
 	{"author": "???", 
-	"message": "All the best. See you on the other side.",
+	"message": "All the best. 
+	
+	See you on the other side.",
 	"duration": 2},
 	
 ]
