@@ -188,3 +188,10 @@ func append_random_songs(song_array: Array):
 	var num_songs_to_append = randi() % shuffled_songs.size() + 1
 	for i in range(num_songs_to_append):
 		AudioManager.IN_FRONT_SONGS.append(shuffled_songs[i])
+
+func weatherTest():
+	#var sky = load("res://Resources/Environment/TheIslandProceduralSkyMaterial.tres")
+	#var tween = get_tree().create_tween()
+	#$"Day-Night Cycle".stop()
+	#tween.tween_property(sky, "sky_top_color", Color(0.281, 0, 0.003), 0)
+	pass

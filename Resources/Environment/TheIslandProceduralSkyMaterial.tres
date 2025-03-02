@@ -2,7 +2,7 @@
 
 [resource]
 sky_top_color = Color(0, 0, 0, 1)
-sky_horizon_color = Color(0.328842, 0.547447, 0.781591, 1)
+sky_horizon_color = Color(0.302636, 0.554639, 0.826951, 1)
 sky_curve = 0.0409602
 ground_bottom_color = Color(0.09, 0.09, 0.09, 1)
 ground_horizon_color = Color(0.301961, 0.552941, 0.827451, 1)
