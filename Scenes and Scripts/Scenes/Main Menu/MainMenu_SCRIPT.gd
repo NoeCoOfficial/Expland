@@ -602,3 +602,5 @@ func _on_dialogue_interface_finished_dialogue(StoryModeID: int) -> void:
 	# NOTE: StoryModeID will always be the same as DialogueManager.Current_StoryModeID
 	if StoryModeID == 1:
 		pass
+	if StoryModeID == 2:
+		print("FINISHED! ENTER STORY MODE!")
