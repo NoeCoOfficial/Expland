@@ -93,6 +93,7 @@ func initialize_globals() -> void:
 	AchievementsManager.CURRENT_ACHIEVEMENTS_UI = $Camera3D/MainLayer/AchievementsUI
 	AchievementsManager.CURRENT_NOTIFICATION_NODE = $Camera3D/MainLayer/AchievementNotificationLayer/AchievementNotification
 	AchievementsManager.CURRENT_UI_GRID_CONTAINER = $Camera3D/MainLayer/AchievementsUI/MainLayer/ScrollContainer/GridContainer
+	DialogueManager.DialogueInterface = $Camera3D/MainLayer/DialogueLayer/DialogueInterface
 	
 	PauseManager.is_paused = false
 	Global.main_menu_transitioning_scene = false
@@ -589,4 +590,4 @@ func _on_load_island_element_text_edit_focus_exited() -> void:
 ############################################
 
 func startStoryMode():
-	pass
+	DialogueManager.startDialogue(DialogueManager.mainMenuStoryModeDialogue_1)
