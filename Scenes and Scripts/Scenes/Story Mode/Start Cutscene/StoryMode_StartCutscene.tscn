@@ -1,3 +1,7 @@
 [gd_scene format=3 uid="uid://nlp0xy1m65tp"]
 
 [node name="StoryMode_StartCutscene" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="MainLayer" type="CanvasLayer" parent="Camera3D"]
