@@ -576,7 +576,6 @@ func _on_island_name_text_edit_focus_entered() -> void:
 		$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit.release_focus()
 		$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit.editable = false
 		$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit.selecting_enabled = false
-	
 
 func _on_island_name_text_edit_focus_exited() -> void:
 	AudioManager.canOperate_textField = true
