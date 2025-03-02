@@ -47,12 +47,22 @@
 
 extends Node3D
 
+@onready var animation_tree: AnimationTree = $AnimationTree
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func idle():
+	animation_tree.set("parameters/Movement/transition_request", "Idle")
 
+func crouchIdle():
+	animation_tree.set("parameters/Movement/transition_request", "CrouchingIdle")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func crouchWalk():
+	animation_tree.set("parameters/Movement/transition_request", "CrouchWalk")
+
+func fastRun():
+	animation_tree.set("parameters/Movement/transition_request", "Fast Run")
+
+func slowRun():
+	animation_tree.set("parameters/Movement/transition_request", "Slow Run")
+
+func fall():
+	animation_tree.set("parameters/Movement/transition_request", "Falling")
