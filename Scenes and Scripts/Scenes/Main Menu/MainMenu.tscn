@@ -1140,7 +1140,6 @@ offset_bottom = -101.0
 
 [node name="TopLayer" type="CanvasLayer" parent="Camera3D/MainLayer"]
 layer = 128
-visible = false
 
 [node name="FadeOut" type="ColorRect" parent="Camera3D/MainLayer/TopLayer"]
 anchors_preset = 15
