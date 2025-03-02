@@ -614,6 +614,7 @@ func _physics_process(delta):
 			camera.transform.origin = camera.transform.origin.lerp(target_pos, delta * BOB_SMOOTHING_SPEED)
 	
 	_update_animation()
+	Character_Anim_Player.advance(delta)
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO # set the position to zero
@@ -623,17 +624,18 @@ func _headbob(time) -> Vector3:
 func _update_animation():
 	if velocity.y == 0:
 		if PlayerManager.is_sprinting_moving:
-			Character_Anim_Player.play("Fast Run_2")
+			Character_Anim_Player.queue("Fast Run_2")
 		elif PlayerManager.is_walking_moving:
-			Character_Anim_Player.play("Slow Run_2")
+			Character_Anim_Player.queue("Slow Run_2")
 		elif PlayerManager.is_crouching_moving:
-			Character_Anim_Player.play("CrouchWalk_2")
+			Character_Anim_Player.queue("CrouchWalk_2")
 		elif is_crouching:
-			Character_Anim_Player.play("CrouchingIdle_2")
+			Character_Anim_Player.queue("CrouchingIdle_2")
 		else:
-			Character_Anim_Player.play("Idle_2")
+			Character_Anim_Player.queue("Idle_2")
 	else:
-		Character_Anim_Player.play("Falling")
+		Character_Anim_Player.queue("Falling")
+
 	
 
 func _process(_delta):
