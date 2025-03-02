@@ -105,7 +105,10 @@ var deathScreenRandomText = [ # a list of random text to display when the player
 	"Hope fades into the darkness.",
 	"Your struggle was meaningless.",
 	"Nothing can undo what you've done.",
-	"How could you let this happen?"
+	"How could you let this happen?",
+	"ERR___    MSG NOT FOUND ----_",
+	"???",
+	"Rebooting...",
 ]
 
 var testDialogue = [
