@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://nlp0xy1m65tp"]
+
+[node name="StoryMode_StartCutscene" type="Node3D"]
