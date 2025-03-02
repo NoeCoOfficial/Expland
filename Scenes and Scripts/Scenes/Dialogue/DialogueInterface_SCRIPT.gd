@@ -48,6 +48,8 @@
 @icon("res://Textures/Icons/Script Icons/32x32/dialogue.png")
 extends Control
 
+signal FinishedDialogue(StoryModeID : int)
+
 @export var GreyLayer : ColorRect
 @export var DialogueBoxButton : Button
 @export var PersonLabel : Label
