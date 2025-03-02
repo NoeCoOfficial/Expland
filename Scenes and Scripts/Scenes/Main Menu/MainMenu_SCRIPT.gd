@@ -603,4 +603,4 @@ func _on_dialogue_interface_finished_dialogue(StoryModeID: int) -> void:
 	if StoryModeID == 1:
 		pass
 	if StoryModeID == 2:
-		print("FINISHED! ENTER STORY MODE!")
+		$Camera3D/MainLayer/ProtectiveLayer.visible = true
