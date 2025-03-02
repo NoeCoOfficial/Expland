@@ -546,7 +546,11 @@ func _physics_process(delta):
 	## Player movement and physics
 	if !InventoryManager.inventory_open and PlayerData.GAME_STATE not in ["DEAD", "SLEEPING"] and is_on_floor() and !InventoryManager.in_chest_interface and !PauseManager.is_paused and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !PauseManager.inside_can_move_item_workshop:
 		if Input.is_action_pressed("Crouch"):
-			pass
+			self.scale.y = lerp(self.scale.y, 0.5, CROUCH_INTERPOLATION * delta)
+		else:
+			self.scale.y = lerp(self.scale.y, 1.0, CROUCH_INTERPOLATION * delta)
+	else:
+		self.scale.y = lerp(self.scale.y, 1.0, CROUCH_INTERPOLATION * delta)
 		
 	if PlayerData.GAME_STATE != "DEAD":
 		# Always apply gravity unless game state is DEAD

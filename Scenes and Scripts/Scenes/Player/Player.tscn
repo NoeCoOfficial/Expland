@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=102 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -62,14 +62,6 @@
 [ext_resource type="Texture2D" uid="uid://64jg78rc6wkb" path="res://Textures/Icons/Loading_Icon.png" id="52_xwypu"]
 [ext_resource type="Texture2D" uid="uid://cliv00fuliseq" path="res://Textures/Icons/TickGreen_Icon.png" id="53_i3m63"]
 [ext_resource type="PackedScene" uid="uid://32wjv1fmedim" path="res://Scenes and Scripts/Scenes/Player/Character/PlayerCharacter.tscn" id="62_d4k5t"]
-
-[sub_resource type="Animation" id="Animation_h2af8"]
-resource_name = "Crouch"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_npcnh"]
-_data = {
-"Crouch": SubResource("Animation_h2af8")
-}
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bmd81"]
 
@@ -1755,7 +1747,7 @@ HandItem = NodePath("Head/Camera3D/HandItemRig/HandItem")
 PickupAttractionPos = NodePath("PickupAttractionPos")
 Character_Anim_Player = NodePath("Head/Player_Character/AnimationPlayer_Character")
 Character_Body = NodePath("Head/Player_Character")
-Player_Animations = NodePath("Player Animations")
+Player_Animations = NodePath("")
 Slot1_Inventory_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Slot1")
 Slot2_Inventory_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Slot2")
 Slot3_Inventory_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/Slot3")
@@ -1945,11 +1937,6 @@ wait_time = 10.0
 autostart = true
 script = ExtResource("2_t6toi")
 
-[node name="Player Animations" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_npcnh")
-}
-
 [node name="PickupAttractionPos" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1659, 0)
 
@@ -1970,36 +1957,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 transform = Transform3D(-0.651061, 0, 5.69175e-08, 0, 0.651061, 0, -5.69175e-08, 0, -0.651061, -0.0444108, -1.66439, 1.92699)
 
 [node name="Skeleton3D" parent="Head/Player_Character/Armature_003" index="0"]
-bones/0/position = Vector3(2.71408, -4.20601, -195.355)
-bones/0/rotation = Quaternion(-0.682905, -0.270024, 0.250606, 0.630812)
-bones/1/rotation = Quaternion(0.0812219, 0.0411648, -0.00951408, 0.9958)
-bones/2/rotation = Quaternion(0.100365, 0.0797634, -0.0233665, 0.991473)
-bones/3/rotation = Quaternion(0.100365, 0.0797635, -0.0233665, 0.991473)
-bones/4/rotation = Quaternion(-0.0673366, -0.0108775, 0.00220999, 0.997669)
-bones/5/rotation = Quaternion(-0.0562045, 0.176842, -0.0120821, 0.982559)
-bones/7/rotation = Quaternion(0.595443, 0.401789, -0.567824, 0.40198)
+bones/0/position = Vector3(2.88592, -3.5493, -195.838)
+bones/0/rotation = Quaternion(-0.684643, -0.26999, 0.248976, 0.629587)
+bones/1/rotation = Quaternion(0.079441, 0.0408554, -0.00877389, 0.995963)
+bones/2/rotation = Quaternion(0.0966781, 0.0792027, -0.0224307, 0.991906)
+bones/3/rotation = Quaternion(0.0966881, 0.0792021, -0.0224315, 0.991905)
+bones/4/rotation = Quaternion(-0.0512956, -0.0108189, 0.00236054, 0.998622)
+bones/5/rotation = Quaternion(-0.0373159, 0.176411, -0.00586764, 0.983592)
+bones/7/rotation = Quaternion(0.583918, 0.415946, -0.566852, 0.405841)
 bones/7/scale = Vector3(1, 1, 1)
-bones/8/rotation = Quaternion(0.419901, -0.108131, 0.0878631, 0.896812)
-bones/9/rotation = Quaternion(-0.0394484, 0.0583476, 0.404647, 0.911756)
+bones/8/rotation = Quaternion(0.427591, -0.103315, 0.0883501, 0.893692)
+bones/9/rotation = Quaternion(-0.0366454, 0.0615478, 0.410315, 0.909126)
 bones/9/scale = Vector3(1, 1, 1)
-bones/11/rotation = Quaternion(0.643586, -0.362443, 0.524544, 0.423422)
+bones/11/rotation = Quaternion(0.631071, -0.377851, 0.525063, 0.42812)
 bones/11/scale = Vector3(1, 1, 1)
-bones/12/rotation = Quaternion(0.403264, 0.114643, 0.148876, 0.895584)
+bones/12/rotation = Quaternion(0.416529, 0.103772, 0.148521, 0.890885)
 bones/12/scale = Vector3(1, 1, 1)
-bones/13/rotation = Quaternion(0.0213072, 0.0264179, -0.362111, 0.931517)
+bones/13/rotation = Quaternion(0.0322328, 0.0108025, -0.365971, 0.930005)
 bones/13/scale = Vector3(1, 1, 1)
-bones/15/rotation = Quaternion(0.0790962, 0.240829, 0.961491, -0.106212)
+bones/15/rotation = Quaternion(0.0795146, 0.23567, 0.962905, -0.104646)
 bones/15/scale = Vector3(1, 1, 1.00001)
-bones/16/rotation = Quaternion(-0.366273, 0.118116, -0.0367433, 0.922249)
-bones/17/rotation = Quaternion(0.566334, -0.00280885, -0.0267322, 0.823738)
-bones/18/rotation = Quaternion(0.289416, -0.0368126, -0.00941889, 0.956449)
+bones/16/rotation = Quaternion(-0.362338, 0.119263, -0.0365797, 0.923661)
+bones/17/rotation = Quaternion(0.565608, -0.00205669, -0.0252788, 0.824284)
+bones/18/rotation = Quaternion(0.289093, -0.0360012, -0.00936209, 0.956578)
 bones/18/scale = Vector3(1, 1, 1)
-bones/20/rotation = Quaternion(-0.1245, 0.0395589, 0.982566, 0.132284)
+bones/20/rotation = Quaternion(-0.124905, 0.0313541, 0.982713, 0.133007)
 bones/20/scale = Vector3(1, 1, 1)
-bones/21/rotation = Quaternion(-0.360412, 0.0701247, -0.0271969, 0.929756)
+bones/21/rotation = Quaternion(-0.350447, 0.0716629, -0.0266487, 0.933457)
 bones/21/scale = Vector3(1, 1, 1)
-bones/22/rotation = Quaternion(0.680341, 0.0547955, 0.104761, 0.723297)
-bones/23/rotation = Quaternion(0.278124, 0.0567383, -0.0169541, 0.958718)
+bones/22/rotation = Quaternion(0.676468, 0.055128, 0.105898, 0.726731)
+bones/23/rotation = Quaternion(0.277957, 0.0566605, -0.0169608, 0.958771)
 bones/23/scale = Vector3(1, 1, 1)
 
 [node name="AnimationPlayer" parent="Head/Player_Character" index="1"]
