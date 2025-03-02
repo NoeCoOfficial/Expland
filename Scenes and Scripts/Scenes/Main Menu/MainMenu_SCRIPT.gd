@@ -603,3 +603,17 @@ func _on_dialogue_interface_finished_dialogue(StoryModeID: int) -> void:
 		pass
 	if StoryModeID == 2:
 		$Camera3D/MainLayer/ProtectiveLayer.visible = true
+		
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		
+		$Camera3D/MainLayer/TopLayer/TransitionFadeOut.modulate = Color(1, 1, 1, 0)
+		$Camera3D/MainLayer/TopLayer/TransitionFadeOut.visible = true
+		
+		var tween = get_tree().create_tween()
+		tween.connect("finished", Callable(self, "on_story_mode_fade_finished"))
+		
+		tween.tween_property($Camera3D/MainLayer/TopLayer/TransitionFadeOut, "modulate", Color(1, 1, 1, 1), 1)
+		tween.tween_interval(1)
+
+func on_story_mode_fade_finished():
+	pass
