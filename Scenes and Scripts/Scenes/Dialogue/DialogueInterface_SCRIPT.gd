@@ -165,9 +165,7 @@ func on_tween_on_finished():
 # Spawn and despawn dialogue
 ######################################
 
-func spawnDialogue(Person : String, Message : String, Duration : float, StoryModeID):
-	if StoryModeID != null:
-		DialogueManager.Current_StoryModeID = StoryModeID
+func spawnDialogue(Person : String, Message : String, Duration : float):
 	
 	DialogueManager.is_in_absolute_interface = true
 	

@@ -47,6 +47,14 @@
 
 extends Node
 
+######## Story Mode ID's ########
+#        1 - First message when click on story mode play butotn
+
+
+
+
+
+
 var is_in_interface = false
 var is_in_absolute_interface = false
 
