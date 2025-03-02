@@ -48,7 +48,8 @@
 extends Node
 
 ######## Story Mode ID's ########
-#        1 - First message when click on story mode play butotn
+#        1 - First message when click on story mode play button
+#        2 - Second message when click on story mode play button, which after exiting takes you to story mode
 
 
 
@@ -65,6 +66,9 @@ var Current_StoryModeID
 
 func _ready():
 	pass
+
+func setStoryModeID(StoryModeID):
+	Current_StoryModeID = StoryModeID
 
 func startDialogue(messages: Array) -> void:
 	if !PauseManager.is_inside_settings and !PauseManager.is_paused and !InventoryManager.inventory_open:
