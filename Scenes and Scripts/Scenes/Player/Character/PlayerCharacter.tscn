@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://32wjv1fmedim"]
+[gd_scene load_steps=23 format=3 uid="uid://32wjv1fmedim"]
 
 [ext_resource type="PackedScene" uid="uid://dxfg176kyivpw" path="res://Assets/3D Models/Characters/Player/Player_Character.blend" id="1_mqpmu"]
 
@@ -3145,7 +3145,67 @@ _data = {
 "Slow Run_2": SubResource("Animation_y4a8x")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ti38g"]
+animation = &"CrouchWalk_2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uoemg"]
+animation = &"CrouchingIdle_2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_engwk"]
+animation = &"Fast Run_2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c4v57"]
+animation = &"Idle_2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cd1qf"]
+animation = &"Slow Run_2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2q0wj"]
+animation = &"Falling"
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_5rt3w"]
+input_0/name = "Idle"
+input_0/auto_advance = false
+input_0/break_loop_at_end = false
+input_0/reset = true
+input_1/name = "CrouchingIdle"
+input_1/auto_advance = false
+input_1/break_loop_at_end = false
+input_1/reset = true
+input_2/name = "Falling"
+input_2/auto_advance = false
+input_2/break_loop_at_end = false
+input_2/reset = true
+input_3/name = "CrouchWalk"
+input_3/auto_advance = false
+input_3/break_loop_at_end = false
+input_3/reset = true
+input_4/name = "Fast Run"
+input_4/auto_advance = false
+input_4/break_loop_at_end = false
+input_4/reset = true
+input_5/name = "Slow Run"
+input_5/auto_advance = false
+input_5/break_loop_at_end = false
+input_5/reset = true
+
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_i6kbe"]
+graph_offset = Vector2(-123.772, -125.369)
+nodes/Anim_CrouchWalk/node = SubResource("AnimationNodeAnimation_ti38g")
+nodes/Anim_CrouchWalk/position = Vector2(-180, -20)
+nodes/Anim_CrouchingIdle/node = SubResource("AnimationNodeAnimation_uoemg")
+nodes/Anim_CrouchingIdle/position = Vector2(20, -20)
+"nodes/Anim_Fast Run/node" = SubResource("AnimationNodeAnimation_engwk")
+"nodes/Anim_Fast Run/position" = Vector2(240, -20)
+nodes/Anim_Idle/node = SubResource("AnimationNodeAnimation_c4v57")
+nodes/Anim_Idle/position = Vector2(40, -180)
+"nodes/Anim_Slow Run/node" = SubResource("AnimationNodeAnimation_cd1qf")
+"nodes/Anim_Slow Run/position" = Vector2(420, -20)
+nodes/Falling/node = SubResource("AnimationNodeAnimation_2q0wj")
+nodes/Falling/position = Vector2(40, 140)
+nodes/Movement/node = SubResource("AnimationNodeTransition_5rt3w")
+nodes/Movement/position = Vector2(700, -20)
+nodes/output/position = Vector2(1040, -80)
 
 [node name="Player_Character" instance=ExtResource("1_mqpmu")]
 
@@ -3204,3 +3264,7 @@ playback_default_blend_time = 0.3
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="3"]
 tree_root = SubResource("AnimationNodeBlendTree_i6kbe")
+anim_player = NodePath("../AnimationPlayer_Character")
+parameters/Movement/current_state = ""
+parameters/Movement/transition_request = ""
+parameters/Movement/current_index = -1
