@@ -614,7 +614,6 @@ func _physics_process(delta):
 			camera.transform.origin = camera.transform.origin.lerp(target_pos, delta * BOB_SMOOTHING_SPEED)
 	
 	_update_animation()
-	Character_Anim_Player.advance(delta)
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO # set the position to zero
