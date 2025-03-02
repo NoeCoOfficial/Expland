@@ -613,27 +613,27 @@ func _physics_process(delta):
 			var target_pos = Vector3(camera.transform.origin.x, 0, camera.transform.origin.z)
 			camera.transform.origin = camera.transform.origin.lerp(target_pos, delta * BOB_SMOOTHING_SPEED)
 	
-	_update_animation()
+	#_update_animation()
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO # set the position to zero
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP # set the y position to the sine of the time times the bob frequency times the bob amplitude
 	return pos # return the position
 
-func _update_animation():
-	if velocity.y == 0:
-		if PlayerManager.is_sprinting_moving:
-			Character_Anim_Player.play("Fast Run_2")
-		elif PlayerManager.is_walking_moving:
-			Character_Anim_Player.play("Slow Run_2")
-		elif PlayerManager.is_crouching_moving:
-			Character_Anim_Player.play("CrouchWalk_2")
-		elif is_crouching:
-			Character_Anim_Player.play("CrouchingIdle_2")
-		else:
-			Character_Anim_Player.play("Idle_2")
-	else:
-		Character_Anim_Player.play("Falling")
+#func _update_animation():
+	#if velocity.y == 0:
+		#if PlayerManager.is_sprinting_moving:
+			#Character_Anim_Player.play("Fast Run_2")
+		#elif PlayerManager.is_walking_moving:
+			#Character_Anim_Player.play("Slow Run_2")
+		#elif PlayerManager.is_crouching_moving:
+			#Character_Anim_Player.play("CrouchWalk_2")
+		#elif is_crouching:
+			#Character_Anim_Player.play("CrouchingIdle_2")
+		#else:
+			#Character_Anim_Player.play("Idle_2")
+	#else:
+		#Character_Anim_Player.play("Falling")
 
 func _process(_delta):
 	
