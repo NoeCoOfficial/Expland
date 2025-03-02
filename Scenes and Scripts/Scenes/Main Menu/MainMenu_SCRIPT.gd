@@ -590,4 +590,8 @@ func _on_load_island_element_text_edit_focus_exited() -> void:
 ############################################
 
 func startStoryMode():
-	DialogueManager.startDialogue(DialogueManager.mainMenuStoryModeDialogue_1)
+	if !StoryModeManager.has_done_first_story_msg:
+		StoryModeManager.has_done_first_story_msg = true
+		DialogueManager.startDialogue(DialogueManager.mainMenuStoryModeDialogue_1)
+	else:
+		DialogueManager.startDialogue(DialogueManager.mainMenuStoryModeDialogue_2)

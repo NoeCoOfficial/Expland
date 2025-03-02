@@ -196,3 +196,30 @@ var mainMenuStoryModeDialogue_1 = [
 	"duration": 2},
 	
 ]
+
+var mainMenuStoryModeDialogue_2 = [
+	{"author": "???", 
+	"message": "Oh... it's you again.",
+	"duration": 1},
+	
+	{"author": "???", 
+	"message": "Why did you come back?",
+	"duration": 1},
+	
+	{"author": "???", 
+	"message": "*Sigh*......",
+	"duration": 1},
+	
+	{"author": "???", 
+	"message": "You're going to regret this.",
+	"duration": 1},
+	
+	{"author": "???", 
+	"message": "I will grant your request to enter, but I'm warning you.",
+	"duration": 2},
+	
+	{"author": "???", 
+	"message": "All the best. See you on the other side.",
+	"duration": 2},
+	
+]

@@ -48,3 +48,4 @@
 extends Node
 
 var is_first_story_mode = true
+var has_done_first_story_msg = false
