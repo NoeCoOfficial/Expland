@@ -865,7 +865,7 @@ offset_right = 91.5
 offset_bottom = 29.0
 grow_horizontal = 2
 theme = ExtResource("4_grlcg")
-text = "Create a new Island"
+text = "Create a new Free Mode Island"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -949,7 +949,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_grlcg")
 theme_override_font_sizes/font_size = 30
-text = "Load an Island"
+text = "Load a Free Mode Island"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1128,6 +1128,7 @@ offset_bottom = -101.0
 
 [node name="TopLayer" type="CanvasLayer" parent="Camera3D/MainLayer"]
 layer = 128
+visible = false
 
 [node name="FadeOut" type="ColorRect" parent="Camera3D/MainLayer/TopLayer"]
 anchors_preset = 15
