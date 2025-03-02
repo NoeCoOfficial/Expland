@@ -595,3 +595,8 @@ func startStoryMode():
 		DialogueManager.startDialogue(DialogueManager.mainMenuStoryModeDialogue_1)
 	else:
 		DialogueManager.startDialogue(DialogueManager.mainMenuStoryModeDialogue_2)
+
+
+func _on_dialogue_interface_finished_dialogue(StoryModeID: int) -> void:
+	if StoryModeID == 1:
+		pass

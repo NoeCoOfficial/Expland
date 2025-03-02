@@ -58,6 +58,7 @@ signal FinishedDialogue(StoryModeID : int)
 
 var is_animating = false
 var spawnTween
+var Current_StoryModeID
 
 ######################################
 # On startup
@@ -165,7 +166,9 @@ func on_tween_on_finished():
 # Spawn and despawn dialogue
 ######################################
 
-func spawnDialogue(Person : String, Message : String, Duration : float):
+func spawnDialogue(Person : String, Message : String, Duration : float, StoryModeID):
+	if StoryModeID != null:
+		Current_StoryModeID = StoryModeID
 	
 	DialogueManager.is_in_absolute_interface = true
 	
