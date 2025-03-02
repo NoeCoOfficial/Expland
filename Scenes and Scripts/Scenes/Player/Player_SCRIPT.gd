@@ -179,6 +179,7 @@ var stamina_restoring_from_0 = false
 @export var PickupAttractionPos : Node3D
 @export var Character_Anim_Player : AnimationPlayer
 @export var Character_Body : Node3D
+@export var Player_Animations : AnimationPlayer
 
 
 @export_group("Inventory")
