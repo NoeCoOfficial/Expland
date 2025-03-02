@@ -1087,6 +1087,18 @@ theme_override_styles/normal = ExtResource("24_r2ree")
 text = "Yes"
 metadata/_edit_use_anchors_ = true
 
+[node name="StoryModePopup" type="CanvasLayer" parent="Camera3D/MainLayer"]
+
+[node name="MainLayer" type="Control" parent="Camera3D/MainLayer/StoryModePopup"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+metadata/_edit_use_anchors_ = true
+
 [node name="AchievementNotificationLayer" type="CanvasLayer" parent="Camera3D/MainLayer"]
 layer = 9
 
