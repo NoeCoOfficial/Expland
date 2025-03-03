@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://nlp0xy1m65tp"]
+[gd_scene load_steps=5 format=3 uid="uid://nlp0xy1m65tp"]
+
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/StoryMode_StartCutscene_SCRIPT.gd" id="1_4d7y3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o0gwv"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -14,6 +16,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [node name="StoryMode_StartCutscene" type="Node3D"]
+script = ExtResource("1_4d7y3")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_wtwtj")
