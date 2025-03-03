@@ -1,7 +1,27 @@
-[gd_scene format=3 uid="uid://nlp0xy1m65tp"]
+[gd_scene load_steps=4 format=3 uid="uid://nlp0xy1m65tp"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o0gwv"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_mb8pb"]
+sky_material = SubResource("ProceduralSkyMaterial_o0gwv")
+
+[sub_resource type="Environment" id="Environment_wtwtj"]
+background_mode = 2
+sky = SubResource("Sky_mb8pb")
+tonemap_mode = 2
+glow_enabled = true
 
 [node name="StoryMode_StartCutscene" type="Node3D"]
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_wtwtj")
 
-[node name="MainLayer" type="CanvasLayer" parent="Camera3D"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.219186, 0.449397, 0, 0.898794, 0.438371, -0.5, 0.379641, -0.778378, 0, 0, 0)
+light_color = Color(1, 0.733333, 0, 1)
+light_energy = 3.75
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]

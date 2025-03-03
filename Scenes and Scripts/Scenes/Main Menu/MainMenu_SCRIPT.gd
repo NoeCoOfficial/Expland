@@ -61,7 +61,8 @@ var island_element_to_free
 var is_tweening = false
 
 @onready var StartupNotice = preload("res://Scenes and Scripts/Scenes/Startup Notice/StartupNotice.tscn")
-@onready var world = preload("res://Scenes and Scripts/Scenes/The Island/TheIsland.tscn")
+@onready var world = preload("uid://c5jkrckgqd0w6")
+@onready var StoryModeStartCutscene = preload("uid://nlp0xy1m65tp")
 @onready var DefaultXPos = $Camera3D/MainLayer/PlayButton.position.x
 
 @export_group("Node references")
@@ -616,4 +617,4 @@ func _on_dialogue_interface_finished_dialogue(StoryModeID: int) -> void:
 		tween.tween_interval(1)
 
 func on_story_mode_fade_finished():
-	pass
+	get_tree().change_scene_to_packed(StoryModeStartCutscene)
