@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://dble54a2rl76q"]
 
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/The Island/Explorer Note/ExplorerNote_SCRIPT.gd" id="1_etueb"]
+[ext_resource type="Script" uid="uid://dfsbyhya1cuc5" path="res://Scenes and Scripts/Scenes/The Island/Explorer Note/ExplorerNote_SCRIPT.gd" id="1_etueb"]
 [ext_resource type="PackedScene" uid="uid://c21pv7qtyb57x" path="res://Assets/3D Models/Environment/Explorer Note/OldPaper.blend" id="2_uieki"]
 [ext_resource type="PackedScene" uid="uid://dcc3turii63vs" path="res://Assets/3D Models/Environment/Explorer Note/RustyNail.blend" id="4_1mdey"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/The Island/Explorer Note/ExplorerNote_StaticBody3D_SCRIPT.gd" id="4_rk6p2"]
+[ext_resource type="Script" uid="uid://c6pw68pa85lsp" path="res://Scenes and Scripts/Scenes/The Island/Explorer Note/ExplorerNote_StaticBody3D_SCRIPT.gd" id="4_rk6p2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hog6c"]
 size = Vector3(2.4303, 1.4659, 3.18233)

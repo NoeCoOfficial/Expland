@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://5fjl3bhlrc02"]
 
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Audio/TheIsland_Audio_SCRIPT.gd" id="1_ltd34"]
+[ext_resource type="Script" uid="uid://di0afd6fbs754" path="res://Scenes and Scripts/Scenes/Audio/TheIsland_Audio_SCRIPT.gd" id="1_ltd34"]
 [ext_resource type="AudioStream" uid="uid://dpg36vjqvglo0" path="res://Audio/Music/One Ray Of Light.mp3" id="2_gro8j"]
 [ext_resource type="AudioStream" uid="uid://uws1k05ns22p" path="res://Audio/Music/A New Beginning.mp3" id="3_2pg3e"]
 [ext_resource type="AudioStream" uid="uid://conpplraltngy" path="res://Audio/Music/Unfamiliar Lights.mp3" id="3_65yup"]
