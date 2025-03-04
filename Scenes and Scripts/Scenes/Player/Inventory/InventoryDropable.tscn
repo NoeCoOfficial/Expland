@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bah2p5efhcjtx"]
 
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDropable_SCRIPT.gd" id="1_opaah"]
+[ext_resource type="Script" uid="uid://cptco2so25hse" path="res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDropable_SCRIPT.gd" id="1_opaah"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="2_qromc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mgv10"]

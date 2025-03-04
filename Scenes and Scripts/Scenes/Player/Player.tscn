@@ -1,33 +1,33 @@
 [gd_scene load_steps=102 format=3 uid="uid://cjm5lrxicdgsf"]
 
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
-[ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
+[ext_resource type="Script" uid="uid://6516a37cmejq" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
+[ext_resource type="Script" uid="uid://dilocovfy7y5b" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
 [ext_resource type="Texture2D" uid="uid://tmqrfb1atg1j" path="res://Textures/Crosshairs/Expland_Crosshair.png" id="2_606ex"]
-[ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/ClockIcon_SCRIPT.gd" id="2_t6toi"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Interaction/RayCast3D_SCRIPT.gd" id="3_2qtqn"]
+[ext_resource type="Script" uid="uid://djnu0mq7nqgk2" path="res://Textures/Icons/Script Icons/Scripts/ClockIcon_SCRIPT.gd" id="2_t6toi"]
+[ext_resource type="Script" uid="uid://c6ou0e14j1o15" path="res://Scenes and Scripts/Scenes/Player/Interaction/RayCast3D_SCRIPT.gd" id="3_2qtqn"]
 [ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="3_yecwp"]
 [ext_resource type="PackedScene" uid="uid://djwgy3b85xfpn" path="res://Scenes and Scripts/Scenes/Player/Hand Item/HandItem.tscn" id="4_476v6"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/OverlayLayer/RedOverlay_SCRIPT.gd" id="7_gnu1v"]
+[ext_resource type="Script" uid="uid://bm52qfp1sskfh" path="res://Scenes and Scripts/Scenes/Player/OverlayLayer/RedOverlay_SCRIPT.gd" id="7_gnu1v"]
 [ext_resource type="PackedScene" uid="uid://dhhjltxmoydio" path="res://Scenes and Scripts/Scenes/Player/Inventory/InventorySlot.tscn" id="8_ads4s"]
 [ext_resource type="FontFile" uid="uid://c4h0gd5a2e2qb" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf" id="8_cdk3a"]
 [ext_resource type="Texture2D" uid="uid://bg100aqmtgfn4" path="res://Textures/Icons/WhiteHam_Icon.png" id="8_l231k"]
 [ext_resource type="Texture2D" uid="uid://b20d3fbxr6vhx" path="res://Textures/Icons/WhiteHeart_Icon.png" id="8_ty1rt"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/OverlayLayer/Overlay_SCRIPT.gd" id="8_uxqns"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/BlackOverlay_SCRIPT.gd" id="9_g6nwl"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/IgnoreMouseFilter.gd" id="9_svfxy"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/RandomText_SCRIPT.gd" id="10_6w37c"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/GetUp_SCRIPT.gd" id="11_0enap"]
+[ext_resource type="Script" uid="uid://di02ml8prlof0" path="res://Scenes and Scripts/Scenes/Player/OverlayLayer/Overlay_SCRIPT.gd" id="8_uxqns"]
+[ext_resource type="Script" uid="uid://ddsobh5x3h3qn" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/BlackOverlay_SCRIPT.gd" id="9_g6nwl"]
+[ext_resource type="Script" uid="uid://snus4y53incu" path="res://Scenes and Scripts/Utility Scripts/IgnoreMouseFilter.gd" id="9_svfxy"]
+[ext_resource type="Script" uid="uid://can8cebn2rm5a" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/RandomText_SCRIPT.gd" id="10_6w37c"]
+[ext_resource type="Script" uid="uid://8qfa2wch42ao" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/GetUp_SCRIPT.gd" id="11_0enap"]
 [ext_resource type="PackedScene" uid="uid://bin1awyog56pg" path="res://Scenes and Scripts/Scenes/Player/Interaction/InteractionHUD.tscn" id="16_8a1wo"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="16_wg7d4"]
+[ext_resource type="Script" uid="uid://bd3squcstkss1" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="16_wg7d4"]
 [ext_resource type="Texture2D" uid="uid://dgt5qdmjgbdsv" path="res://Textures/Icons/UpArrow_Icon.png" id="17_60kit"]
 [ext_resource type="PackedScene" uid="uid://du1ak3ldg8x4e" path="res://Scenes and Scripts/Scenes/Dialogue/DialogueInterface.tscn" id="17_pkmg7"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="17_rhxkt"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/ExplorerNotesMainLayer.gd" id="18_i4l12"]
+[ext_resource type="Script" uid="uid://c5qc0uayrbxpk" path="res://Scenes and Scripts/Scenes/Player/ExplorerNotesMainLayer.gd" id="18_i4l12"]
 [ext_resource type="Texture2D" uid="uid://fih3i4yk6pip" path="res://Textures/Icons/PlayBtn_Icon.png" id="19_0wg4t"]
 [ext_resource type="PackedScene" uid="uid://ceabjbnv3nnyr" path="res://Scenes and Scripts/Scenes/Settings/SettingsUI.tscn" id="19_kj00b"]
 [ext_resource type="PackedScene" uid="uid://b7la7o37o5gld" path="res://Scenes and Scripts/Scenes/Achievements/AchievementsUI.tscn" id="20_3vll1"]
 [ext_resource type="StyleBox" uid="uid://b13po6off8nno" path="res://Resources/Styles and Themes/Styles/Default/Button/WithMarginDefaultDarkGrey.tres" id="20_b68th"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Debug/Inputs_currently_pressing_label_SCRIPT.gd" id="20_bmbkh"]
+[ext_resource type="Script" uid="uid://dbw4gstfj8x4u" path="res://Scenes and Scripts/Scenes/Player/Debug/Inputs_currently_pressing_label_SCRIPT.gd" id="20_bmbkh"]
 [ext_resource type="StyleBox" uid="uid://com3tix0pshhk" path="res://Resources/Styles and Themes/Styles/Default/Label/Default_Label.tres" id="21_k6ube"]
 [ext_resource type="PackedScene" uid="uid://ynckscwc0643" path="res://Scenes and Scripts/Scenes/Alert/AlertLayer.tscn" id="21_r1ny7"]
 [ext_resource type="Texture2D" uid="uid://coh5374nhy6fl" path="res://Textures/Explorer Notes/2_Sheet.png" id="21_rd3qm"]
@@ -1495,11 +1495,11 @@ tracks/39/keys = PackedFloat32Array(0, 1, 2.11568e-12, 10.3578, -5.21534e-08)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_her0p"]
 _data = {
-"CrouchWalk_2": SubResource("Animation_bwve4"),
-"CrouchingIdle_2": SubResource("Animation_nlx80"),
-"Fast Run_2": SubResource("Animation_w0t3l"),
-"Idle_2": SubResource("Animation_sgl5y"),
-"Slow Run_2": SubResource("Animation_lrtbu")
+&"CrouchWalk_2": SubResource("Animation_bwve4"),
+&"CrouchingIdle_2": SubResource("Animation_nlx80"),
+&"Fast Run_2": SubResource("Animation_w0t3l"),
+&"Idle_2": SubResource("Animation_sgl5y"),
+&"Slow Run_2": SubResource("Animation_lrtbu")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7b7oy"]
@@ -1726,8 +1726,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4x2pf"]
 _data = {
-"RESET": SubResource("Animation_p5ohr"),
-"spin": SubResource("Animation_wpbcy")
+&"RESET": SubResource("Animation_p5ohr"),
+&"spin": SubResource("Animation_wpbcy")
 }
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "HandItem", "PickupAttractionPos", "Character_Anim_Player", "Character_Body", "Slot1_Inventory_Ref", "Slot2_Inventory_Ref", "Slot3_Inventory_Ref", "Slot4_Inventory_Ref", "Slot5_Inventory_Ref", "Slot6_Inventory_Ref", "Slot7_Inventory_Ref", "Slot8_Inventory_Ref", "Slot9_Inventory_Ref", "Slot10_Inventory_Ref", "Slot11_Inventory_Ref", "Slot12_Inventory_Ref", "Slot13_Inventory_Ref", "Slot14_Inventory_Ref", "Slot15_Inventory_Ref", "Slot16_Inventory_Ref", "PocketsCollisionBoundary", "ChestCollisionBoundary", "WorkbenchCollisionBoundary", "ChestMainLayer", "ChestSlots", "Slot1_Chest_Ref", "Slot2_Chest_Ref", "Slot3_Chest_Ref", "Slot4_Chest_Ref", "Slot5_Chest_Ref", "Slot6_Chest_Ref", "Slot7_Chest_Ref", "Slot8_Chest_Ref", "Slot9_Chest_Ref", "Slot10_Chest_Ref", "Slot11_Chest_Ref", "Slot12_Chest_Ref", "Slot13_Chest_Ref", "Slot14_Chest_Ref", "Slot15_Chest_Ref", "Slot16_Chest_Ref", "Slot17_Chest_Ref", "Slot18_Chest_Ref", "Slot19_Chest_Ref", "Slot20_Chest_Ref", "Slot21_Chest_Ref", "Slot22_Chest_Ref", "Slot23_Chest_Ref", "Slot24_Chest_Ref", "Slot25_Chest_Ref", "Slot26_Chest_Ref", "Slot27_Chest_Ref", "Slot28_Chest_Ref", "Slot29_Chest_Ref", "Slot30_Chest_Ref", "Slot31_Chest_Ref", "Slot32_Chest_Ref", "Slot33_Chest_Ref", "Slot34_Chest_Ref", "Slot35_Chest_Ref", "Slot36_Chest_Ref", "Slot37_Chest_Ref", "Slot38_Chest_Ref", "Slot39_Chest_Ref", "Slot40_Chest_Ref", "Slot41_Chest_Ref", "Slot42_Chest_Ref", "Slot43_Chest_Ref", "Slot44_Chest_Ref", "Slot45_Chest_Ref", "Slot46_Chest_Ref", "Slot47_Chest_Ref", "Slot48_Chest_Ref", "Slot49_Chest_Ref", "WorkbenchMainLayer", "WorkbenchSlots", "Slot1_Workbench_Ref", "Slot2_Workbench_Ref", "Slot3_Workbench_Ref", "Slot4_Workbench_Ref", "Slot5_Workbench_Ref", "Slot6_Workbench_Ref", "Slot7_Workbench_Ref", "Slot8_Workbench_Ref", "Slot9_Workbench_Ref", "Slot10_Output_Workbench_Ref", "HUDLayer", "InventoryLayer", "InventoryMainLayer", "PauseLayer", "DebugLayer", "SettingsUI", "AchievementsUI", "AlertLayer", "CreditsLayer", "MinimalAlert", "TopLayerBlackOverlay", "SleepLayerBlackOverlay", "DayText_Label", "ProtectiveLayer", "Crosshair_Rect", "StaminaBar", "DialogueInterface", "DeathScreen_BlackOverlay", "OverlayLayer_Overlay", "InventoryLayer_GreyLayer", "ItemWorkshopLayer_MainLayer", "ItemWorkshopLayer_GreyLayer", "HUDLayer_HealthBar", "HUDLayer_HungerBar", "GetUp_Label", "RandomText_Label", "OverlayLayer_RedOverlay", "ManualSaveCooldown", "AutoSaveTimer", "StartDebugging_Btn", "SetTime_SpinBox", "SetTime_Button", "Inventory_Item_Ref_Label", "Is_Raycast_Colliding_Label", "Is_Inside_Settings_Label", "Is_Inventory_Open_Label", "Is_Moving_Label", "Is_Walking_Label", "Is_Sprinting_Label", "Is_Crouching_Label", "Is_In_Dialogue_Interface_Label", "Showing_Interaction_Notification_Label", "Current_Time_Label", "Current_FPS_Label", "Player_Position_Label", "Player_VelocityY_Label", "Player_VelocityY_Accurate_Label", "Is_On_Floor_Label", "Inputs_Currently_Pressing_Label", "DAY_STATE_Label", "GAME_STATE_Label", "CURRENT_DAY_Label", "CURRENT_TIME_Label", "CURRENT_WEATHER_Label") groups=["PlayerBody"]]
@@ -1942,12 +1942,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1659, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_bmd81")
+debug_color = Color(0, 0.6, 0.701961, 1)
 
 [node name="PickupObjectDetector" type="Area3D" parent="." groups=["pickup_object_detector"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PickupObjectDetector"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1972, 0)
 shape = SubResource("BoxShape3D_16v4h")
+debug_color = Color(0.172549, 0.643137, 0, 1)
 
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
@@ -1956,44 +1958,44 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 transform = Transform3D(-0.651061, 0, 5.69175e-08, 0, 0.651061, 0, -5.69175e-08, 0, -0.651061, -0.0444108, -1.66439, 1.92699)
 
 [node name="Skeleton3D" parent="Head/Player_Character/Armature_003" index="0"]
-bones/0/position = Vector3(2.71039, -4.17158, -195.381)
-bones/0/rotation = Quaternion(-0.683004, -0.270053, 0.250516, 0.630729)
-bones/1/rotation = Quaternion(0.0811279, 0.0411552, -0.00947598, 0.995809)
-bones/2/rotation = Quaternion(0.100174, 0.0797489, -0.0233301, 0.991494)
-bones/3/rotation = Quaternion(0.100174, 0.079749, -0.0233301, 0.991494)
-bones/4/rotation = Quaternion(-0.0669014, -0.0108004, 0.00206516, 0.997699)
-bones/5/rotation = Quaternion(-0.0568588, 0.17687, -0.0116383, 0.982522)
-bones/7/rotation = Quaternion(0.595022, 0.402306, -0.567819, 0.402095)
+bones/0/position = Vector3(2.78831, -3.08778, -196.012)
+bones/0/rotation = Quaternion(-0.684306, -0.270529, 0.248907, 0.62975)
+bones/1/rotation = Quaternion(0.0792224, 0.0408959, -0.0085175, 0.995981)
+bones/2/rotation = Quaternion(0.0963316, 0.0792738, -0.0223224, 0.991936)
+bones/3/rotation = Quaternion(0.0963315, 0.0792739, -0.0223224, 0.991936)
+bones/4/rotation = Quaternion(-0.0557167, -0.0103428, 0.00221089, 0.998391)
+bones/5/rotation = Quaternion(-0.0698916, 0.178483, -0.00488198, 0.981445)
+bones/7/rotation = Quaternion(0.585142, 0.414452, -0.567417, 0.404816)
 bones/7/scale = Vector3(1, 1, 1)
-bones/8/rotation = Quaternion(0.420216, -0.10782, 0.0879933, 0.896689)
+bones/8/rotation = Quaternion(0.429102, -0.101125, 0.0893166, 0.893123)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0392702, 0.0585881, 0.405294, 0.911461)
+bones/9/rotation = Quaternion(-0.0354073, 0.0630488, 0.41413, 0.907341)
 bones/9/scale = Vector3(1, 1, 1)
-bones/11/rotation = Quaternion(0.643141, -0.363007, 0.52453, 0.423632)
+bones/11/rotation = Quaternion(0.631836, -0.376812, 0.525303, 0.427613)
 bones/11/scale = Vector3(1, 1, 1)
-bones/12/rotation = Quaternion(0.404106, 0.113909, 0.148834, 0.895305)
+bones/12/rotation = Quaternion(0.422269, 0.099674, 0.147596, 0.888802)
 bones/12/scale = Vector3(1, 1, 1)
-bones/13/rotation = Quaternion(0.0217919, 0.025315, -0.362326, 0.931453)
+bones/13/rotation = Quaternion(0.0326969, 0.00690091, -0.366676, 0.929748)
 bones/13/scale = Vector3(1, 1, 1)
-bones/15/rotation = Quaternion(0.0791233, 0.240536, 0.961567, -0.106168)
+bones/15/rotation = Quaternion(0.0799892, 0.234158, 0.963241, -0.104588)
 bones/15/scale = Vector3(1, 1, 1.00001)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.366152, 0.118119, -0.0366884, 0.922299)
-bones/17/rotation = Quaternion(0.566345, -0.00276804, -0.0266507, 0.823732)
-bones/18/rotation = Quaternion(0.289416, -0.0368019, -0.00942965, 0.956449)
+bones/16/rotation = Quaternion(-0.362047, 0.119365, -0.0365791, 0.923762)
+bones/17/rotation = Quaternion(0.566189, -0.00165442, -0.0245782, 0.823908)
+bones/18/rotation = Quaternion(0.289416, -0.0366539, -0.00957862, 0.956453)
 bones/18/scale = Vector3(1, 1, 1)
-bones/20/rotation = Quaternion(-0.12454, 0.039144, 0.982569, 0.132346)
+bones/20/rotation = Quaternion(-0.125069, 0.0276929, 0.982806, 0.132981)
 bones/20/scale = Vector3(1, 1, 1)
-bones/21/rotation = Quaternion(-0.359813, 0.0702258, -0.0271338, 0.929982)
+bones/21/rotation = Quaternion(-0.345707, 0.0720553, -0.0259464, 0.935212)
 bones/21/scale = Vector3(1, 1, 1)
-bones/22/rotation = Quaternion(0.680129, 0.0548037, 0.10481, 0.723489)
+bones/22/rotation = Quaternion(0.674964, 0.0552747, 0.106265, 0.728064)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.278157, 0.0568088, -0.0169935, 0.958704)
+bones/23/rotation = Quaternion(0.278266, 0.0571031, -0.0171692, 0.958651)
 bones/23/scale = Vector3(1, 1, 1)
 
 [node name="AnimationPlayer" parent="Head/Player_Character" index="1"]
 libraries = {
-"": SubResource("AnimationLibrary_her0p")
+&"": SubResource("AnimationLibrary_her0p")
 }
 
 [node name="ItemDropPosition" type="Node3D" parent="Head"]
@@ -5021,7 +5023,7 @@ pivot_offset = Vector2(20, 34.5)
 
 [node name="SpinningAnimation" type="AnimationPlayer" parent="Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving"]
 libraries = {
-"": SubResource("AnimationLibrary_4x2pf")
+&"": SubResource("AnimationLibrary_4x2pf")
 }
 
 [node name="LoadingIcon" type="TextureRect" parent="Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving"]

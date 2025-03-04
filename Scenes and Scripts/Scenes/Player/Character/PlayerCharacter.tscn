@@ -1,7 +1,7 @@
 [gd_scene load_steps=25 format=3 uid="uid://32wjv1fmedim"]
 
 [ext_resource type="PackedScene" uid="uid://dxfg176kyivpw" path="res://Assets/3D Models/Characters/Player/Player_Character.blend" id="1_mqpmu"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Character/PlayerCharacter_SCRIPT.gd" id="2_xmecp"]
+[ext_resource type="Script" uid="uid://53clldjmfys1" path="res://Scenes and Scripts/Scenes/Player/Character/PlayerCharacter_SCRIPT.gd" id="2_xmecp"]
 
 [sub_resource type="Animation" id="Animation_ducw1"]
 resource_name = "CrouchWalk_2"
@@ -1425,11 +1425,11 @@ tracks/39/keys = PackedFloat32Array(0, 1, 2.11568e-12, 10.3578, -5.21534e-08)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qhh33"]
 _data = {
-"CrouchWalk_2": SubResource("Animation_ducw1"),
-"CrouchingIdle_2": SubResource("Animation_trjyo"),
-"Fast Run_2": SubResource("Animation_3psgf"),
-"Idle_2": SubResource("Animation_dbdr4"),
-"Slow Run_2": SubResource("Animation_u1omi")
+&"CrouchWalk_2": SubResource("Animation_ducw1"),
+&"CrouchingIdle_2": SubResource("Animation_trjyo"),
+&"Fast Run_2": SubResource("Animation_3psgf"),
+&"Idle_2": SubResource("Animation_dbdr4"),
+&"Slow Run_2": SubResource("Animation_u1omi")
 }
 
 [sub_resource type="Animation" id="Animation_0pywl"]
@@ -3144,12 +3144,12 @@ tracks/39/keys = PackedFloat32Array(0, 1, 2.11568e-12, 10.3578, -5.21534e-08)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1c8yl"]
 _data = {
-"CrouchWalk_2": SubResource("Animation_0pywl"),
-"CrouchingIdle_2": SubResource("Animation_26usp"),
-"Falling": SubResource("Animation_nmorn"),
-"Fast Run_2": SubResource("Animation_jrjxt"),
-"Idle_2": SubResource("Animation_jlchh"),
-"Slow Run_2": SubResource("Animation_y4a8x")
+&"CrouchWalk_2": SubResource("Animation_0pywl"),
+&"CrouchingIdle_2": SubResource("Animation_26usp"),
+&"Falling": SubResource("Animation_nmorn"),
+&"Fast Run_2": SubResource("Animation_jrjxt"),
+&"Idle_2": SubResource("Animation_jlchh"),
+&"Slow Run_2": SubResource("Animation_y4a8x")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ti38g"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://nlp0xy1m65tp"]
 
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/StoryMode_StartCutscene_SCRIPT.gd" id="1_4d7y3"]
+[ext_resource type="Script" uid="uid://uvb2g81nntt2" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/StoryMode_StartCutscene_SCRIPT.gd" id="1_4d7y3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o0gwv"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)

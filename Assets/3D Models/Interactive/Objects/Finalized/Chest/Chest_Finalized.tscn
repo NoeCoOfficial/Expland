@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://dvh658edbkjrn"]
 
 [ext_resource type="PackedScene" uid="uid://bxy2ihf8ehq18" path="res://Assets/3D Models/Interactive/Objects/Models/Chest.blend" id="1_5yx1o"]
-[ext_resource type="Script" path="res://Assets/3D Models/Interactive/Objects/Finalized/Chest/Chest_Finalized_SCRIPT.gd" id="2_f51ac"]
-[ext_resource type="Script" path="res://Assets/3D Models/Interactive/Objects/Finalized/Chest/Chest_Finalized_StaticBody3D_SCRIPT.gd" id="2_ha2tq"]
+[ext_resource type="Script" uid="uid://yqpm53nh5cdk" path="res://Assets/3D Models/Interactive/Objects/Finalized/Chest/Chest_Finalized_SCRIPT.gd" id="2_f51ac"]
+[ext_resource type="Script" uid="uid://billeg7qursg8" path="res://Assets/3D Models/Interactive/Objects/Finalized/Chest/Chest_Finalized_StaticBody3D_SCRIPT.gd" id="2_ha2tq"]
 [ext_resource type="FontFile" uid="uid://c4h0gd5a2e2qb" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf" id="4_xn6ko"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nm63g"]
@@ -45,9 +45,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g6lga"]
 _data = {
-"RESET": SubResource("Animation_xo4kc"),
-"close": SubResource("Animation_kju7u"),
-"open": SubResource("Animation_ye7vl")
+&"RESET": SubResource("Animation_xo4kc"),
+&"close": SubResource("Animation_kju7u"),
+&"open": SubResource("Animation_ye7vl")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r3ipb"]

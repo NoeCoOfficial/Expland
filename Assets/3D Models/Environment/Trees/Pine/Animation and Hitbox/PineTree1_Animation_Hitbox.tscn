@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dsti02es4bfwp"]
 
-[ext_resource type="Script" path="res://Assets/3D Models/Environment/Trees/Scripts/Tree_Animation_SCRIPT.gd" id="1_qaygg"]
+[ext_resource type="Script" uid="uid://be2hbme5pe50y" path="res://Assets/3D Models/Environment/Trees/Scripts/Tree_Animation_SCRIPT.gd" id="1_qaygg"]
 [ext_resource type="PackedScene" uid="uid://cwu1exk1sgj4t" path="res://Assets/3D Models/Environment/Trees/Pine/Models/PineTree1.blend" id="1_qd1ka"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kns7o"]
@@ -116,8 +116,8 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jcqct"]
 _data = {
-"RESET": SubResource("Animation_y7tjd"),
-"wind": SubResource("Animation_eclyc")
+&"RESET": SubResource("Animation_y7tjd"),
+&"wind": SubResource("Animation_eclyc")
 }
 
 [node name="PineTree1" instance=ExtResource("1_qd1ka")]

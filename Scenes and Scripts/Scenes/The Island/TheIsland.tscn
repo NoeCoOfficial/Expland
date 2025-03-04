@@ -1,14 +1,14 @@
 [gd_scene load_steps=97 format=3 uid="uid://c5jkrckgqd0w6"]
 
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/The Island/TheIsland_SCRIPT.gd" id="1_a8sfg"]
+[ext_resource type="Script" uid="uid://cucb4fwieubx" path="res://Scenes and Scripts/Scenes/The Island/TheIsland_SCRIPT.gd" id="1_a8sfg"]
 [ext_resource type="Environment" uid="uid://dgtwdwq2n0x1v" path="res://Resources/Environment/TheIslandWorldEnvironment.tres" id="2_h46kk"]
 [ext_resource type="CameraAttributesPractical" uid="uid://cskddrxjnggrw" path="res://Resources/Environment/DefaultCameraAttributes.tres" id="2_xjtor"]
-[ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/WorldpageIcon_SCRIPT.gd" id="4_jhu24"]
-[ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/LightbulbIcon_SCRIPT.gd" id="5_yd52g"]
-[ext_resource type="Shader" path="res://Resources/Shaders/TheIslandLakeWater.gdshader" id="6_35xrv"]
+[ext_resource type="Script" uid="uid://cjjjbrbbir385" path="res://Textures/Icons/Script Icons/Scripts/WorldpageIcon_SCRIPT.gd" id="4_jhu24"]
+[ext_resource type="Script" uid="uid://dn1b1gnwe5iap" path="res://Textures/Icons/Script Icons/Scripts/LightbulbIcon_SCRIPT.gd" id="5_yd52g"]
+[ext_resource type="Shader" uid="uid://d0lkn0b41r7og" path="res://Resources/Shaders/TheIslandLakeWater.gdshader" id="6_35xrv"]
 [ext_resource type="PackedScene" uid="uid://5fjl3bhlrc02" path="res://Scenes and Scripts/Scenes/Audio/TheIsland_Audio.tscn" id="6_sj3c2"]
-[ext_resource type="Shader" path="res://Scenes and Scripts/Scenes/The Island/TheIslandSeaWater.gdshader" id="7_pf2qu"]
-[ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/RiverIcon_SCRIPT.gd" id="8_jhpei"]
+[ext_resource type="Shader" uid="uid://b2gi30s113t00" path="res://Scenes and Scripts/Scenes/The Island/TheIslandSeaWater.gdshader" id="7_pf2qu"]
+[ext_resource type="Script" uid="uid://dudqfc8y403pg" path="res://Textures/Icons/Script Icons/Scripts/RiverIcon_SCRIPT.gd" id="8_jhpei"]
 [ext_resource type="PackedScene" uid="uid://bf802csj5h2uu" path="res://Assets/3D Models/The Island Deco/TheIslandDeco.tscn" id="11_kq5pm"]
 [ext_resource type="PackedScene" uid="uid://cjm5lrxicdgsf" path="res://Scenes and Scripts/Scenes/Player/Player.tscn" id="16_52bg8"]
 [ext_resource type="PackedScene" uid="uid://dble54a2rl76q" path="res://Scenes and Scripts/Scenes/The Island/Explorer Note/ExplorerNote.tscn" id="32_qh5si"]
@@ -18,9 +18,9 @@
 [ext_resource type="PackedScene" uid="uid://cnumc5i62ndco" path="res://Scenes and Scripts/Scenes/Tests/RayCastingTest.tscn" id="37_btdyg"]
 [ext_resource type="Texture2D" uid="uid://dvbcyu3wr00f8" path="res://Textures/Dev Textures/Orange/texture_04.png" id="42_eoiek"]
 [ext_resource type="Texture2D" uid="uid://cqkp640cq8j51" path="res://Textures/Dev Textures/Red/texture_12.png" id="43_a63ti"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/The Island/EmailNoeCo_SCRIPT.gd" id="43_layrd"]
+[ext_resource type="Script" uid="uid://br1n0tat1x83f" path="res://Scenes and Scripts/Scenes/The Island/EmailNoeCo_SCRIPT.gd" id="43_layrd"]
 [ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="43_wohm1"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/The Island/OpenFeedbackIssue_SCRIPT.gd" id="45_fuui5"]
+[ext_resource type="Script" uid="uid://dxej0ilt0iapv" path="res://Scenes and Scripts/Scenes/The Island/OpenFeedbackIssue_SCRIPT.gd" id="45_fuui5"]
 [ext_resource type="Texture2D" uid="uid://hq2wahi8kffb" path="res://Textures/Dev Textures/Green/texture_01.png" id="45_x50q0"]
 [ext_resource type="Texture2D" uid="uid://bt0tmvpctigpn" path="res://Textures/Dev Textures/Orange/texture_01.png" id="46_h84sd"]
 [ext_resource type="Texture2D" uid="uid://dpivfw7kf4k2h" path="res://Textures/Dev Textures/Dark/texture_12.png" id="48_8kecl"]
@@ -177,12 +177,12 @@ tracks/7/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_odk08"]
 _data = {
-"RESET": SubResource("Animation_54a8b"),
-"cycle": SubResource("Animation_kjsf0")
+&"RESET": SubResource("Animation_54a8b"),
+&"cycle": SubResource("Animation_kjsf0")
 }
 
 [sub_resource type="Curve" id="Curve_tq56d"]
-max_value = 0.1
+_limits = [0.0, 0.1, 0.0, 1.0]
 _data = [Vector2(0, 0), 0.0, 0.333367, 0, 0, Vector2(0.433526, 0.0316176), 0.185509, 0.185509, 0, 0, Vector2(0.791908, 0.0220588), -0.0267802, -0.0267802, 0, 0, Vector2(1, 0.0132353), 0.0, 0.0, 0, 0]
 point_count = 4
 
@@ -222,8 +222,10 @@ shader_parameter/roughness = 0.0
 shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
 shader_parameter/specular = 1.0
 shader_parameter/metallic = 0.0
+shader_parameter/texture_refraction = SubResource("NoiseTexture2D_liir7")
 shader_parameter/refraction = 0.05
-shader_parameter/refraction_texture_channel = null
+shader_parameter/refraction_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_okwhy")
 shader_parameter/normal_scale = 1.0
 shader_parameter/uv1_blend_sharpness = 1.0
 shader_parameter/uv1_scale = Vector3(0.01, 0.01, 0.01)
@@ -236,8 +238,6 @@ shader_parameter/wave_speed = 0.1
 shader_parameter/secondary_wave_amplitude = 0.005
 shader_parameter/secondary_wave_frequency = 0.866
 shader_parameter/secondary_wave_speed = 0.388
-shader_parameter/texture_refraction = SubResource("NoiseTexture2D_liir7")
-shader_parameter/texture_normal = SubResource("NoiseTexture2D_okwhy")
 
 [sub_resource type="BoxMesh" id="BoxMesh_ieriy"]
 material = SubResource("ShaderMaterial_rldvi")
@@ -265,8 +265,10 @@ shader_parameter/roughness = 0.0
 shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
 shader_parameter/specular = 1.0
 shader_parameter/metallic = 0.0
+shader_parameter/texture_refraction = SubResource("NoiseTexture2D_8dvl3")
 shader_parameter/refraction = 0.05
-shader_parameter/refraction_texture_channel = null
+shader_parameter/refraction_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_fwurs")
 shader_parameter/normal_scale = 1.0
 shader_parameter/uv1_blend_sharpness = 1.0
 shader_parameter/uv1_scale = Vector3(0.01, 0.01, 0.01)
@@ -279,8 +281,6 @@ shader_parameter/wave_speed = 0.1
 shader_parameter/secondary_wave_amplitude = 0.005
 shader_parameter/secondary_wave_frequency = 0.623
 shader_parameter/secondary_wave_speed = 0.388
-shader_parameter/texture_refraction = SubResource("NoiseTexture2D_8dvl3")
-shader_parameter/texture_normal = SubResource("NoiseTexture2D_fwurs")
 
 [sub_resource type="BoxMesh" id="BoxMesh_trxij"]
 material = SubResource("ShaderMaterial_adahd")
@@ -479,7 +479,7 @@ script = ExtResource("5_yd52g")
 
 [node name="Day-Night Cycle" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_odk08")
+&"": SubResource("AnimationLibrary_odk08")
 }
 
 [node name="Tick" type="Timer" parent="."]
