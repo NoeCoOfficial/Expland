@@ -144,6 +144,12 @@ func set_time(minute : int):
 		DayNightCycle.stop()
 		DayNightCycle.play(&"cycle")
 	
+	if DayNightCycle_Sky.is_playing():
+		DayNightCycle_Sky.play(&"sky_cycle")
+	else:
+		DayNightCycle_Sky.stop()
+		DayNightCycle_Sky.play(&"sky_cycle")
+		
 	TimeManager.CURRENT_TIME = minute
 	
 	if TimeManager.CURRENT_TIME >= 1140 or TimeManager.CURRENT_TIME < 360:
@@ -157,6 +163,7 @@ func set_time(minute : int):
 	# Since the animation goes for 2880 seconds and there are 
 	# 1440 "minutes" in a day, we need to multiply the value by 2
 	DayNightCycle.seek(minute * 2)
+	DayNightCycle_Sky.seek(minute * 2)
 
 func _on_tick() -> void:
 	TimeManager.CURRENT_TIME += 1
