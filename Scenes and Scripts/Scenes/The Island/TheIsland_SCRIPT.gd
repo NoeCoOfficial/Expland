@@ -51,19 +51,12 @@ extends Node
 func initializeIslandProperties(_Island_Name):
 	pass
 
-var SKY_TRANS_TIME = 20.0
-
 @export var DayNightCycle : AnimationPlayer
 @export var DayNightCycle_Sky : AnimationPlayer
 @export var Tick : Timer
 @export var RainParticles : CPUParticles3D
 @export var Clouds : MeshInstance3D
 @export var Player : CharacterBody3D
-
-var transSunny_tween
-var transRain_tween
-var transStorm_tween
-var transCloudy_tween
 
 func _ready() -> void:
 	randomize()
