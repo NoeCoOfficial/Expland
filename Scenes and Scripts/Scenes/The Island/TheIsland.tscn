@@ -252,7 +252,7 @@ animation = &"cloudy_sky_cycle"
 animation = &"sky_cycle"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_747t0"]
-graph_offset = Vector2(-453.061, 62.3121)
+graph_offset = Vector2(-398.25, 102.752)
 nodes/DN_Sky_Trans/node = SubResource("AnimationNodeTransition_s3501")
 nodes/DN_Sky_Trans/position = Vector2(120, 120)
 nodes/Normal_DN_ANIM/node = SubResource("AnimationNodeAnimation_rkq2m")
@@ -533,10 +533,11 @@ data = PackedVector3Array(0, 1, 0.5, 0.049, 1, 0.4976, 0, 0.6, 0.5, 0.049, 1, 0.
 [sub_resource type="BoxShape3D" id="BoxShape3D_sdnyt"]
 size = Vector3(3.10474, 2.18762, 1.86438)
 
-[node name="World" type="Node3D" node_paths=PackedStringArray("DayNightCycle", "DayNightCycle_Sky", "Tick", "RainParticles", "Clouds", "Player")]
+[node name="World" type="Node3D" node_paths=PackedStringArray("DayNightCycle", "DayNightCycle_Sky", "DayNightCycle_Sky_Transitions", "Tick", "RainParticles", "Clouds", "Player")]
 script = ExtResource("1_a8sfg")
 DayNightCycle = NodePath("Day-Night Cycle")
 DayNightCycle_Sky = NodePath("Day-Night-Cycle-Sky")
+DayNightCycle_Sky_Transitions = NodePath("Day-Night Cycle-Sky Transitions")
 Tick = NodePath("Tick")
 RainParticles = NodePath("Rain")
 Clouds = NodePath("Clouds")
@@ -548,7 +549,7 @@ camera_attributes = ExtResource("2_xjtor")
 script = ExtResource("4_jhu24")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.863396, -0.0876105, -0.496862, 0, 0.984809, -0.173648, 0.504528, 0.149927, 0.850277, 0, 0, 0)
+transform = Transform3D(0.863396, -0.0876104, -0.496862, 0, 0.984809, -0.173648, 0.504528, 0.149927, 0.850277, 0, 0, 0)
 light_color = Color(0.793, 0.612, 0.18, 1)
 light_energy = 0.0
 shadow_enabled = true
@@ -568,7 +569,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_whi7k")
 }
 
-[node name="Day-Night Cycle Transitions" type="AnimationTree" parent="."]
+[node name="Day-Night Cycle-Sky Transitions" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeBlendTree_747t0")
 anim_player = NodePath("../Day-Night-Cycle-Sky")
 parameters/DN_Sky_Trans/current_state = "Cloudy_DN"

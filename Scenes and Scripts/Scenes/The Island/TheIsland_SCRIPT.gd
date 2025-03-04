@@ -53,6 +53,8 @@ func initializeIslandProperties(_Island_Name):
 
 @export var DayNightCycle : AnimationPlayer
 @export var DayNightCycle_Sky : AnimationPlayer
+@export var DayNightCycle_Sky_Transitions : AnimationTree
+# animation_tree.set("parameters/Movement/transition_request", "CrouchWalk")
 @export var Tick : Timer
 @export var RainParticles : CPUParticles3D
 @export var Clouds : MeshInstance3D
