@@ -252,7 +252,7 @@ animation = &"cloudy_sky_cycle"
 animation = &"sky_cycle"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_747t0"]
-graph_offset = Vector2(-398.25, 102.752)
+graph_offset = Vector2(-210.99, -20.8272)
 nodes/DN_Sky_Trans/node = SubResource("AnimationNodeTransition_s3501")
 nodes/DN_Sky_Trans/position = Vector2(120, 120)
 nodes/Normal_DN_ANIM/node = SubResource("AnimationNodeAnimation_rkq2m")
@@ -549,7 +549,7 @@ camera_attributes = ExtResource("2_xjtor")
 script = ExtResource("4_jhu24")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.863396, -0.0876104, -0.496862, 0, 0.984809, -0.173648, 0.504528, 0.149927, 0.850277, 0, 0, 0)
+transform = Transform3D(0.863396, -0.0876105, -0.496862, 0, 0.984809, -0.173648, 0.504528, 0.149927, 0.850277, 0, 0, 0)
 light_color = Color(0.793, 0.612, 0.18, 1)
 light_energy = 0.0
 shadow_enabled = true
