@@ -54,11 +54,10 @@ func initializeIslandProperties(_Island_Name):
 var SKY_TRANS_TIME = 20.0
 
 @export var DayNightCycle : AnimationPlayer
+@export var DayNightCycle_Sky : AnimationPlayer
 @export var Tick : Timer
-
 @export var RainParticles : CPUParticles3D
 @export var Clouds : MeshInstance3D
-
 @export var Player : CharacterBody3D
 
 var transSunny_tween

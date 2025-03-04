@@ -452,9 +452,10 @@ data = PackedVector3Array(0, 1, 0.5, 0.049, 1, 0.4976, 0, 0.6, 0.5, 0.049, 1, 0.
 [sub_resource type="BoxShape3D" id="BoxShape3D_sdnyt"]
 size = Vector3(3.10474, 2.18762, 1.86438)
 
-[node name="World" type="Node3D" node_paths=PackedStringArray("DayNightCycle", "Tick", "RainParticles", "Clouds", "Player")]
+[node name="World" type="Node3D" node_paths=PackedStringArray("DayNightCycle", "DayNightCycle_Sky", "Tick", "RainParticles", "Clouds", "Player")]
 script = ExtResource("1_a8sfg")
 DayNightCycle = NodePath("Day-Night Cycle")
+DayNightCycle_Sky = NodePath("Day-Night-Cycle-Sky")
 Tick = NodePath("Tick")
 RainParticles = NodePath("Rain")
 Clouds = NodePath("Clouds")
