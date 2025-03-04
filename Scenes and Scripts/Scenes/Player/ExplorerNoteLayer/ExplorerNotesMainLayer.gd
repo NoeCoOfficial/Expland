@@ -73,12 +73,12 @@ func _process(_delta: float) -> void:
 		LeftButton.show()
 		Shadow.show()
 		if ExplorerNotesManager.UI_CurrentlyFocusedIndex != null:
-			NoteIndex_Label.text = str(ExplorerNotesManager.UI_CurrentlyFocusedIndex + 1) + "/" + str(ExplorerNotesManager.COLLECTED_NOTES.size())
+			NoteIndex_Label.text = str(int(ExplorerNotesManager.UI_CurrentlyFocusedIndex + 1)) + "/" + str(int(ExplorerNotesManager.COLLECTED_NOTES.size()))
 
 func populateImages():
 	if !ExplorerNotesManager.COLLECTED_NOTES.is_empty():
 		print("Explorer Notes: " + str(ExplorerNotesManager.COLLECTED_NOTES))
-		FocusedNoteImage.texture = load("res://Textures/Explorer Notes/" + str(ExplorerNotesManager.COLLECTED_NOTES[0]) + "_Sheet.png")
+		FocusedNoteImage.texture = load("res://Textures/Explorer Notes/" + str(int(ExplorerNotesManager.COLLECTED_NOTES[0])) + "_Sheet.png")
 		
 		ExplorerNotesManager.UI_CurrentlyFocusedIndex = 0
 		ExplorerNotesManager.UI_CurrentlyFocusedID = ExplorerNotesManager.COLLECTED_NOTES[ExplorerNotesManager.UI_CurrentlyFocusedIndex]
@@ -86,7 +86,7 @@ func populateImages():
 		if ExplorerNotesManager.COLLECTED_NOTES.size() >= 2:
 			ExplorerNotesManager.UI_CurrentRightIndex = 1
 			ExplorerNotesManager.UI_CurrentRightID = ExplorerNotesManager.COLLECTED_NOTES[ExplorerNotesManager.UI_CurrentRightIndex]
-			RightNoteImage.texture = load("res://Textures/Explorer Notes/" + str(ExplorerNotesManager.COLLECTED_NOTES[1]) + "_Sheet.png")
+			RightNoteImage.texture = load("res://Textures/Explorer Notes/" + str(int(ExplorerNotesManager.COLLECTED_NOTES[1])) + "_Sheet.png")
 		else:
 			RightNoteImage.texture = null
 	else:
@@ -99,11 +99,11 @@ func _on_right_arrow_btn_pressed() -> void:
 		$Switch_sfx.play()
 		ExplorerNotesManager.UI_CurrentLeftIndex = ExplorerNotesManager.UI_CurrentlyFocusedIndex
 		ExplorerNotesManager.UI_CurrentLeftID = ExplorerNotesManager.UI_CurrentlyFocusedID
-		LeftNoteImage.texture = load("res://Textures/Explorer Notes/" + str(ExplorerNotesManager.UI_CurrentLeftID) + "_Sheet.png")
+		LeftNoteImage.texture = load("res://Textures/Explorer Notes/" + str(int(ExplorerNotesManager.UI_CurrentLeftID)) + "_Sheet.png")
 		
 		ExplorerNotesManager.UI_CurrentlyFocusedIndex = ExplorerNotesManager.UI_CurrentRightIndex
 		ExplorerNotesManager.UI_CurrentlyFocusedID = ExplorerNotesManager.UI_CurrentRightID
-		FocusedNoteImage.texture = load("res://Textures/Explorer Notes/" + str(ExplorerNotesManager.UI_CurrentlyFocusedID) + "_Sheet.png")
+		FocusedNoteImage.texture = load("res://Textures/Explorer Notes/" + str(int(ExplorerNotesManager.UI_CurrentlyFocusedID)) + "_Sheet.png")
 		
 		if ExplorerNotesManager.UI_CurrentRightIndex == ExplorerNotesManager.COLLECTED_NOTES.size() - 1:
 			ExplorerNotesManager.UI_CurrentRightIndex = null
@@ -112,18 +112,18 @@ func _on_right_arrow_btn_pressed() -> void:
 		else:
 			ExplorerNotesManager.UI_CurrentRightIndex += 1
 			ExplorerNotesManager.UI_CurrentRightID = ExplorerNotesManager.COLLECTED_NOTES[ExplorerNotesManager.UI_CurrentRightIndex]
-			RightNoteImage.texture = load("res://Textures/Explorer Notes/" + str(ExplorerNotesManager.UI_CurrentRightID) + "_Sheet.png")
+			RightNoteImage.texture = load("res://Textures/Explorer Notes/" + str(int(ExplorerNotesManager.UI_CurrentRightID)) + "_Sheet.png")
 
 func _on_left_arrow_btn_pressed() -> void:
 	if ExplorerNotesManager.UI_CurrentLeftIndex != null:
 		$Switch_sfx.play()
 		ExplorerNotesManager.UI_CurrentRightIndex = ExplorerNotesManager.UI_CurrentlyFocusedIndex
 		ExplorerNotesManager.UI_CurrentRightID = ExplorerNotesManager.UI_CurrentlyFocusedID
-		RightNoteImage.texture = load("res://Textures/Explorer Notes/" + str(ExplorerNotesManager.UI_CurrentRightID) + "_Sheet.png")
+		RightNoteImage.texture = load("res://Textures/Explorer Notes/" + str(int(ExplorerNotesManager.UI_CurrentRightID)) + "_Sheet.png")
 		
 		ExplorerNotesManager.UI_CurrentlyFocusedIndex = ExplorerNotesManager.UI_CurrentLeftIndex
 		ExplorerNotesManager.UI_CurrentlyFocusedID = ExplorerNotesManager.UI_CurrentLeftID
-		FocusedNoteImage.texture = load("res://Textures/Explorer Notes/" + str(ExplorerNotesManager.UI_CurrentlyFocusedID) + "_Sheet.png")
+		FocusedNoteImage.texture = load("res://Textures/Explorer Notes/" + str(int(ExplorerNotesManager.UI_CurrentlyFocusedID)) + "_Sheet.png")
 		
 		if ExplorerNotesManager.UI_CurrentLeftIndex == 0:
 			ExplorerNotesManager.UI_CurrentLeftIndex = null
@@ -132,14 +132,14 @@ func _on_left_arrow_btn_pressed() -> void:
 		else:
 			ExplorerNotesManager.UI_CurrentLeftIndex -= 1
 			ExplorerNotesManager.UI_CurrentLeftID = ExplorerNotesManager.COLLECTED_NOTES[ExplorerNotesManager.UI_CurrentLeftIndex]
-			LeftNoteImage.texture = load("res://Textures/Explorer Notes/" + str(ExplorerNotesManager.UI_CurrentLeftID) + "_Sheet.png")
+			LeftNoteImage.texture = load("res://Textures/Explorer Notes/" + str(int(ExplorerNotesManager.UI_CurrentLeftID)) + "_Sheet.png")
 
 func setFocused(ID : int):
 		ExplorerNotesManager.UI_CurrentlyFocusedIndex = 0
 		ExplorerNotesManager.UI_CurrentlyFocusedID = ID
-		FocusedNoteImage.texture = load("res://Textures/Explorer Notes/" + str(ID) + "_Sheet.png")
+		FocusedNoteImage.texture = load("res://Textures/Explorer Notes/" + str(int(ID)) + "_Sheet.png")
 
 func setRight(ID : int):
 	ExplorerNotesManager.UI_CurrentRightIndex = ExplorerNotesManager.COLLECTED_NOTES.size() - 1
 	ExplorerNotesManager.UI_CurrentRightID = ID
-	RightNoteImage.texture = load("res://Textures/Explorer Notes/" + str(ID) + "_Sheet.png")
+	RightNoteImage.texture = load("res://Textures/Explorer Notes/" + str(int(ID)) + "_Sheet.png")
