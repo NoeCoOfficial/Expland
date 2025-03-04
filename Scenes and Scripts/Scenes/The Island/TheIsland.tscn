@@ -49,30 +49,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 1)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("DirectionalLight3D:light_color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.793, 0.612, 0.18, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("DirectionalLight3D:light_energy")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
 
 [sub_resource type="Animation" id="Animation_kjsf0"]
 resource_name = "cycle"
@@ -125,54 +101,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0.780392, 0.423529, 0, 1), Color(0.301961, 0.552941, 0.827451, 1), Color(0.301961, 0.552941, 0.827451, 1), Color(0.814487, 0.387853, 0.178652, 1), Color(0, 0, 0, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("DirectionalLight3D:light_color")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 463, 510, 814, 1438, 2055, 2287),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0.793, 0.612, 0.18, 1), Color(0.793, 0.612, 0.18, 1), Color(0.941, 0.987, 0.809, 1), Color(0.941, 0.987, 0.809, 1), Color(1, 0.460991, 0.142547, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Clouds:material_override:shader_parameter/cloud_color")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 480),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("DirectionalLight3D:rotation")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 724, 2563),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0.174533, -0.528835, 0), Vector3(0.174533, -0.528835, 0), Vector3(-3.31613, -0.528835, 0)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("DirectionalLight3D:light_energy")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(423, 706, 724, 2472, 2563),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, 1.0, 1.0, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_odk08"]
@@ -467,8 +395,8 @@ camera_attributes = ExtResource("2_xjtor")
 script = ExtResource("4_jhu24")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.863396, 0.481008, -0.15225, 0, 0.301768, 0.95338, 0.504528, -0.823146, 0.260544, 0, 0, 0)
-light_color = Color(0.793, 0.612, 0.18, 1)
+transform = Transform3D(0.863396, -0.0876105, -0.496862, 0, 0.984809, -0.173648, 0.504528, 0.149927, 0.850277, 0, 0, 0)
+light_color = Color(0, 0, 0, 1)
 light_energy = 0.0
 shadow_enabled = true
 directional_shadow_fade_start = 0.655
@@ -478,6 +406,11 @@ script = ExtResource("5_yd52g")
 [node name="TheIsland_Audio" parent="." instance=ExtResource("6_sj3c2")]
 
 [node name="Day-Night Cycle" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_odk08")
+}
+
+[node name="Day-Night-Cycle-Sky" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_odk08")
 }
