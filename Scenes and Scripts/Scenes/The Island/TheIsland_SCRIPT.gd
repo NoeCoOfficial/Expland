@@ -191,8 +191,5 @@ func append_random_songs(song_array: Array):
 		AudioManager.IN_FRONT_SONGS.append(shuffled_songs[i])
 
 func weatherTest():
-	#var sky = load("res://Resources/Environment/TheIslandProceduralSkyMaterial.tres")
-	#var tween = get_tree().create_tween()
-	#$"Day-Night Cycle".stop()
-	#tween.tween_property(sky, "sky_top_color", Color(0.281, 0, 0.003), 0)
-	pass
+	DayNightCycle_Sky_Transitions.set("parameters/DN_Sky_Trans/transition_request", "Cloudy_DN")
+	
