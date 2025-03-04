@@ -59,6 +59,8 @@ func initializeIslandProperties(_Island_Name):
 @export var Clouds : MeshInstance3D
 @export var Player : CharacterBody3D
 
+var transitioning_weather = false
+
 func _ready() -> void:
 	randomize()
 	initNodes()
@@ -190,5 +192,13 @@ func append_random_songs(song_array: Array):
 		AudioManager.IN_FRONT_SONGS.append(shuffled_songs[i])
 
 func weatherTest():
-	pass
-	
+	change_sky(&"cloudy_sky_cycle", TimeManager.CURRENT_TIME)
+
+func change_sky(to_anim: String, TOD : int):
+	if DayNightCycle_Sky.current_animation == to_anim or transitioning_weather:
+		return
+	transitioning_weather = true
+	DayNightCycle_Sky.play(to_anim)
+	DayNightCycle_Sky.seek(TOD * 2)
+	await get_tree().create_timer(30.0).timeout
+	transitioning_weather = false
