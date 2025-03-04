@@ -53,8 +53,7 @@ func initializeIslandProperties(_Island_Name):
 
 @export var DayNightCycle : AnimationPlayer
 @export var DayNightCycle_Sky : AnimationPlayer
-@export var DayNightCycle_Sky_Transitions : AnimationTree
-# animation_tree.set("parameters/Movement/transition_request", "CrouchWalk")
+
 @export var Tick : Timer
 @export var RainParticles : CPUParticles3D
 @export var Clouds : MeshInstance3D
@@ -191,5 +190,5 @@ func append_random_songs(song_array: Array):
 		AudioManager.IN_FRONT_SONGS.append(shuffled_songs[i])
 
 func weatherTest():
-	DayNightCycle_Sky_Transitions.set("parameters/DN_Sky_Trans/transition_request", "Cloudy_DN")
+	pass
 	
