@@ -185,10 +185,10 @@ tracks/0/path = NodePath("WorldEnvironment:environment:sky:sky_material:sky_top_
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 480, 1255, 2140, 2655),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 480, 1764, 2655),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0.31, 0.31, 0.31, 1), Color(0.311, 0.463, 0.682, 1), Color(0, 0, 0, 1)]
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0.111197, 0.111197, 0.111197, 1), Color(0, 0, 0, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -197,10 +197,10 @@ tracks/1/path = NodePath("WorldEnvironment:environment:sky:sky_material:sky_hori
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 480, 822, 2136, 2416, 2598),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 480, 1764, 2598),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(0.04, 0.04, 0.04, 1), Color(0.04, 0.04, 0.04, 1), Color(0.38, 0.38, 0.38, 1), Color(0.42, 0.42, 0.42, 1), Color(0.859434, 0.346059, 1.92523e-07, 1), Color(0.04, 0.04, 0.04, 1)]
+"values": [Color(0.04, 0.04, 0.04, 1), Color(0.04, 0.04, 0.04, 1), Color(0.205117, 0.205117, 0.205117, 1), Color(0.04, 0.04, 0.04, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -221,10 +221,10 @@ tracks/3/path = NodePath("WorldEnvironment:environment:sky:sky_material:ground_h
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 480, 822, 1438.73, 2141, 2431, 2602),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 480, 1764, 2602),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0.37, 0.37, 0.37, 1), Color(0.37, 0.37, 0.37, 1), Color(0.301961, 0.552941, 0.827451, 1), Color(0.814487, 0.387853, 0.178652, 1), Color(0, 0, 0, 1)]
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0.233925, 0.233925, 0.233925, 1), Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_whi7k"]
