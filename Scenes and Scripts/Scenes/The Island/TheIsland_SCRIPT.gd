@@ -51,20 +51,15 @@ extends Node
 func initializeIslandProperties(_Island_Name):
 	pass
 
-var SKY_TRANS_TIME = 20.0
-
 @export var DayNightCycle : AnimationPlayer
-@export var Tick : Timer
+@export var DayNightCycle_Sky : AnimationPlayer
 
+@export var Tick : Timer
 @export var RainParticles : CPUParticles3D
 @export var Clouds : MeshInstance3D
-
 @export var Player : CharacterBody3D
 
-var transSunny_tween
-var transRain_tween
-var transStorm_tween
-var transCloudy_tween
+var transitioning_weather = false
 
 func _ready() -> void:
 	randomize()
@@ -152,6 +147,12 @@ func set_time(minute : int):
 		DayNightCycle.stop()
 		DayNightCycle.play(&"cycle")
 	
+	if DayNightCycle_Sky.is_playing():
+		DayNightCycle_Sky.play(&"sky_cycle")
+	else:
+		DayNightCycle_Sky.stop()
+		DayNightCycle_Sky.play(&"sky_cycle")
+		
 	TimeManager.CURRENT_TIME = minute
 	
 	if TimeManager.CURRENT_TIME >= 1140 or TimeManager.CURRENT_TIME < 360:
@@ -165,6 +166,7 @@ func set_time(minute : int):
 	# Since the animation goes for 2880 seconds and there are 
 	# 1440 "minutes" in a day, we need to multiply the value by 2
 	DayNightCycle.seek(minute * 2)
+	DayNightCycle_Sky.seek(minute * 2)
 
 func _on_tick() -> void:
 	TimeManager.CURRENT_TIME += 1
@@ -190,8 +192,13 @@ func append_random_songs(song_array: Array):
 		AudioManager.IN_FRONT_SONGS.append(shuffled_songs[i])
 
 func weatherTest():
-	#var sky = load("res://Resources/Environment/TheIslandProceduralSkyMaterial.tres")
-	#var tween = get_tree().create_tween()
-	#$"Day-Night Cycle".stop()
-	#tween.tween_property(sky, "sky_top_color", Color(0.281, 0, 0.003), 0)
-	pass
+	change_sky(&"cloudy_sky_cycle", TimeManager.CURRENT_TIME)
+
+func change_sky(to_anim: String, TOD : int):
+	if DayNightCycle_Sky.current_animation == to_anim or transitioning_weather:
+		return
+	transitioning_weather = true
+	DayNightCycle_Sky.play(to_anim)
+	DayNightCycle_Sky.seek(TOD * 2)
+	await get_tree().create_timer(30.0).timeout
+	transitioning_weather = false
