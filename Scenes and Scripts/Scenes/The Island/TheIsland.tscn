@@ -577,7 +577,8 @@ script = ExtResource("5_yd52g")
 libraries = {
 &"": SubResource("AnimationLibrary_odk08")
 }
-blend_times = [&"cycle", &"RESET", 30.0, &"cycle", &"cycle", 30.0]
+playback_default_blend_time = 30.0
+blend_times = [&"cloudy_cycle", &"cloudy_cycle", 30.0, &"cloudy_cycle", &"cycle", 30.0, &"cycle", &"RESET", 30.0, &"cycle", &"cycle", 30.0]
 
 [node name="Day-Night-Cycle-Sky" type="AnimationPlayer" parent="."]
 libraries = {
