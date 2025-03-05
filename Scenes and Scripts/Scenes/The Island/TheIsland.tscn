@@ -153,7 +153,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 2880),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0)]
+"values": [Vector3(0.001, 0.001, 0.001), Vector3(0.001, 0.001, 0.001)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_odk08"]
@@ -563,7 +563,7 @@ camera_attributes = ExtResource("2_xjtor")
 script = ExtResource("4_jhu24")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+transform = Transform3D(0.000863396, -8.76104e-05, -0.000496863, 0, 0.000984808, -0.000173648, 0.000504528, 0.000149927, 0.000850279, 0, 0, 0)
 light_color = Color(0.793, 0.612, 0.18, 1)
 light_energy = 0.0
 shadow_enabled = true
