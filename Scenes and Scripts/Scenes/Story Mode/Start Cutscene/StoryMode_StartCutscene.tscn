@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://nlp0xy1m65tp"]
+[gd_scene load_steps=13 format=3 uid="uid://nlp0xy1m65tp"]
 
 [ext_resource type="Script" uid="uid://uvb2g81nntt2" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/StoryMode_StartCutscene_SCRIPT.gd" id="1_4d7y3"]
+[ext_resource type="Shader" uid="uid://b2gi30s113t00" path="res://Scenes and Scripts/Scenes/The Island/TheIslandSeaWater.gdshader" id="2_cfn0j"]
+[ext_resource type="Script" uid="uid://dudqfc8y403pg" path="res://Textures/Icons/Script Icons/Scripts/RiverIcon_SCRIPT.gd" id="3_os8dc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o0gwv"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -15,6 +17,49 @@ sky = SubResource("Sky_mb8pb")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_oopga"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_encjm"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_oopga")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_u6jhm"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_to1x2"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_u6jhm")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g8pos"]
+render_priority = 0
+shader = ExtResource("2_cfn0j")
+shader_parameter/albedo = Color(0.12549, 0.584314, 1, 0.839216)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 0.0
+shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/specular = 1.0
+shader_parameter/metallic = 0.0
+shader_parameter/texture_refraction = SubResource("NoiseTexture2D_to1x2")
+shader_parameter/refraction = 0.05
+shader_parameter/refraction_texture_channel = Vector4(0, 0, 0, 0)
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_encjm")
+shader_parameter/normal_scale = 1.0
+shader_parameter/uv1_blend_sharpness = 1.0
+shader_parameter/uv1_scale = Vector3(0.01, 0.01, 0.01)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/wave_amplitude = 0.0
+shader_parameter/wave_frequency = 1.554
+shader_parameter/wave_speed = 0.1
+shader_parameter/secondary_wave_amplitude = 0.0
+shader_parameter/secondary_wave_frequency = 0.623
+shader_parameter/secondary_wave_speed = 0.1
+
+[sub_resource type="BoxMesh" id="BoxMesh_7s4ab"]
+material = SubResource("ShaderMaterial_g8pos")
+
 [node name="StoryMode_StartCutscene" type="Node3D"]
 script = ExtResource("1_4d7y3")
 
@@ -28,3 +73,8 @@ light_energy = 3.75
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="SeaWater" type="MeshInstance3D" parent="."]
+transform = Transform3D(2896.94, 0, 0, 0, 314.222, 0, 0, 0, 3775.78, -0.552, -172.612, -24.36)
+mesh = SubResource("BoxMesh_7s4ab")
+script = ExtResource("3_os8dc")
