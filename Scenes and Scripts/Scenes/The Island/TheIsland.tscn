@@ -138,22 +138,10 @@ tracks/2/path = NodePath("DirectionalLight3D:light_energy")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(423, 2563),
+"times": PackedFloat32Array(428, 2563),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 0.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("DirectionalLight3D:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 2880),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.001, 0.001, 0.001), Vector3(0.001, 0.001, 0.001)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_odk08"]
@@ -563,7 +551,7 @@ camera_attributes = ExtResource("2_xjtor")
 script = ExtResource("4_jhu24")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.000863396, -8.76104e-05, -0.000496863, 0, 0.000984808, -0.000173648, 0.000504528, 0.000149927, 0.000850279, 0, 0, 0)
+transform = Transform3D(0.863395, 0.129143, -0.48772, 0, 0.966685, 0.255967, 0.504528, -0.221001, 0.834632, 0, 0, 0)
 light_color = Color(0.793, 0.612, 0.18, 1)
 light_energy = 0.0
 shadow_enabled = true
