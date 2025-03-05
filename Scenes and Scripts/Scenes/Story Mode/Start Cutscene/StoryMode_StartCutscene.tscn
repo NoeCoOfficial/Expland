@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://nlp0xy1m65tp"]
+[gd_scene load_steps=14 format=3 uid="uid://nlp0xy1m65tp"]
 
 [ext_resource type="Script" uid="uid://uvb2g81nntt2" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/StoryMode_StartCutscene_SCRIPT.gd" id="1_4d7y3"]
 [ext_resource type="Shader" uid="uid://b2gi30s113t00" path="res://Scenes and Scripts/Scenes/The Island/TheIslandSeaWater.gdshader" id="2_cfn0j"]
 [ext_resource type="Script" uid="uid://dudqfc8y403pg" path="res://Textures/Icons/Script Icons/Scripts/RiverIcon_SCRIPT.gd" id="3_os8dc"]
+[ext_resource type="PackedScene" uid="uid://ck0guuhifgbmr" path="res://Assets/3D Models/Cutscenes/Story Mode/Start Cutscene/Yacht.blend" id="4_os8dc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o0gwv"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -50,11 +51,11 @@ shader_parameter/uv1_scale = Vector3(0.01, 0.01, 0.01)
 shader_parameter/uv1_offset = Vector3(0, 0, 0)
 shader_parameter/uv2_scale = Vector3(1, 1, 1)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
-shader_parameter/wave_amplitude = 0.0
-shader_parameter/wave_frequency = 1.554
-shader_parameter/wave_speed = 0.1
+shader_parameter/wave_amplitude = 0.001
+shader_parameter/wave_frequency = 0.1
+shader_parameter/wave_speed = 0.169
 shader_parameter/secondary_wave_amplitude = 0.0
-shader_parameter/secondary_wave_frequency = 0.623
+shader_parameter/secondary_wave_frequency = 0.1
 shader_parameter/secondary_wave_speed = 0.1
 
 [sub_resource type="BoxMesh" id="BoxMesh_7s4ab"]
@@ -73,8 +74,12 @@ light_energy = 3.75
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.999733, 0.0065212, -0.0221486, 0, 0.959284, 0.282442, 0.0230887, -0.282367, 0.959029, -0.619172, -10.8699, -7.81091)
 
 [node name="SeaWater" type="MeshInstance3D" parent="."]
 transform = Transform3D(2896.94, 0, 0, 0, 314.222, 0, 0, 0, 3775.78, -0.552, -172.612, -24.36)
 mesh = SubResource("BoxMesh_7s4ab")
 script = ExtResource("3_os8dc")
+
+[node name="Yacht" parent="." instance=ExtResource("4_os8dc")]
+transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, -1.45786, -15.6352, -17.8476)
