@@ -64,7 +64,7 @@ tracks/1/keys = {
 "values": [1.0, 1.0]
 }
 
-[sub_resource type="Animation" id="Animation_32fgl"]
+[sub_resource type="Animation" id="Animation_rkq2m"]
 resource_name = "cycle"
 length = 2880.0
 step = 1.0
@@ -78,7 +78,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 2880),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1)]
+"values": [Color(0.051971, 0.051971, 0.0519709, 1), Color(0.0509804, 0.0509804, 0.0509804, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -87,16 +87,16 @@ tracks/1/path = NodePath("DirectionalLight3D:light_energy")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
+"times": PackedFloat32Array(428, 2563),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": []
+"values": [1.0, 1.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1rf0p"]
 _data = {
 &"cloudy_cycle": SubResource("Animation_747t0"),
-&"cycle": SubResource("Animation_32fgl")
+&"cycle": SubResource("Animation_rkq2m")
 }
 
 [sub_resource type="Animation" id="Animation_kjsf0"]
@@ -522,8 +522,7 @@ script = ExtResource("4_jhu24")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.863395, -0.0876104, -0.496863, 0, 0.984808, -0.173648, 0.504528, 0.149927, 0.850278, 0, 0, 0)
-light_color = Color(0, 0, 0, 1)
-light_energy = 0.0
+light_color = Color(0.051971, 0.051971, 0.0519709, 1)
 shadow_enabled = true
 directional_shadow_fade_start = 0.655
 directional_shadow_max_distance = 150.0
