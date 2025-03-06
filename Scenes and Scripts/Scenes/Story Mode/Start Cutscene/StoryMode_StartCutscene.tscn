@@ -1,22 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://nlp0xy1m65tp"]
+[gd_scene load_steps=22 format=3 uid="uid://nlp0xy1m65tp"]
 
 [ext_resource type="Script" uid="uid://uvb2g81nntt2" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/StoryMode_StartCutscene_SCRIPT.gd" id="1_4d7y3"]
 [ext_resource type="Shader" uid="uid://b2gi30s113t00" path="res://Scenes and Scripts/Scenes/The Island/TheIslandSeaWater.gdshader" id="2_cfn0j"]
+[ext_resource type="Environment" uid="uid://dgtwdwq2n0x1v" path="res://Resources/Environment/TheIslandWorldEnvironment.tres" id="2_g8pos"]
 [ext_resource type="Script" uid="uid://dudqfc8y403pg" path="res://Textures/Icons/Script Icons/Scripts/RiverIcon_SCRIPT.gd" id="3_os8dc"]
 [ext_resource type="PackedScene" uid="uid://ck0guuhifgbmr" path="res://Assets/3D Models/Cutscenes/Story Mode/Start Cutscene/Yacht.blend" id="4_os8dc"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o0gwv"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-
-[sub_resource type="Sky" id="Sky_mb8pb"]
-sky_material = SubResource("ProceduralSkyMaterial_o0gwv")
-
-[sub_resource type="Environment" id="Environment_wtwtj"]
-background_mode = 2
-sky = SubResource("Sky_mb8pb")
-tonemap_mode = 2
-glow_enabled = true
+[ext_resource type="Shader" uid="uid://brub6nkftipc1" path="res://Resources/Shaders/Clouds.gdshader" id="5_encjm"]
+[ext_resource type="Script" uid="uid://dn1b1gnwe5iap" path="res://Textures/Icons/Script Icons/Scripts/LightbulbIcon_SCRIPT.gd" id="6_to1x2"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_oopga"]
 
@@ -61,17 +51,87 @@ shader_parameter/secondary_wave_speed = 0.1
 [sub_resource type="BoxMesh" id="BoxMesh_7s4ab"]
 material = SubResource("ShaderMaterial_g8pos")
 
+[sub_resource type="Gradient" id="Gradient_to1x2"]
+offsets = PackedFloat32Array(0.238411, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_g8pos"]
+noise_type = 3
+seed = 256
+frequency = 0.001
+fractal_octaves = 4
+fractal_lacunarity = 8.0
+fractal_gain = 1.0
+fractal_ping_pong_strength = 4.21
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_7s4ab"]
+seamless = true
+seamless_blend_skirt = 1.0
+color_ramp = SubResource("Gradient_to1x2")
+noise = SubResource("FastNoiseLite_g8pos")
+
+[sub_resource type="Gradient" id="Gradient_f3l76"]
+offsets = PackedFloat32Array(0.309051, 0.671082)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_l057t"]
+noise_type = 2
+seed = 77
+frequency = 0.0295
+fractal_type = 2
+fractal_lacunarity = 3.54
+fractal_weighted_strength = 0.29
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_44ck5"]
+width = 128
+height = 128
+depth = 128
+seamless = true
+seamless_blend_skirt = 0.058
+normalize = false
+color_ramp = SubResource("Gradient_f3l76")
+noise = SubResource("FastNoiseLite_l057t")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w18yt"]
+render_priority = 0
+shader = ExtResource("5_encjm")
+shader_parameter/cloud_noise_texture = SubResource("NoiseTexture3D_7s4ab")
+shader_parameter/CloudNoiseUVTiling = 1.429
+shader_parameter/CloudNoiseTilingMagnitude = 0.379
+shader_parameter/cloud_threshold = 0.141
+shader_parameter/cloud_threshold_multiplier = 4.291
+shader_parameter/GPUKiller = 225
+shader_parameter/GPUSaver = 0.41
+shader_parameter/cloud_scroll_speed = 0.0
+shader_parameter/minBounds = Vector3(-4096, 256, -4096)
+shader_parameter/maxBounds = Vector3(4096, 576, 4096)
+shader_parameter/detail_noise_texture = SubResource("NoiseTexture3D_44ck5")
+shader_parameter/DetailNoiseInfluenceOnFinalResult = 51.373
+shader_parameter/detail_scroll_speed = -10.0
+shader_parameter/DetailNoiseUVTiling = 2.0
+shader_parameter/light_direction = Vector3(2.075, -0.23, 0.5)
+shader_parameter/cloud_movement_direction = Vector3(0.0001, -0.0001, 0.0001)
+shader_parameter/cloud_movement_speed = 0.515
+shader_parameter/cloudMovementMagnitude = 0.0
+shader_parameter/LightCorrection = 0.58
+shader_parameter/cloud_alpha = 4.0
+shader_parameter/cloud_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ec70e"]
+lightmap_size_hint = Vector2i(14, 21)
+
 [node name="StoryMode_StartCutscene" type="Node3D"]
 script = ExtResource("1_4d7y3")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_wtwtj")
+environment = ExtResource("2_g8pos")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.219186, 0.449397, 0, 0.898794, 0.438371, -0.5, 0.379641, -0.778378, 0, 0, 0)
-light_color = Color(1, 0.733333, 0, 1)
-light_energy = 3.75
+transform = Transform3D(0.863395, 0.390681, -0.319244, 0, 0.632758, 0.77435, 0.504528, -0.66857, 0.54632, 0, 0, 0)
+light_energy = 1.692
+light_indirect_energy = 0.827
 shadow_enabled = true
+directional_shadow_fade_start = 0.655
+directional_shadow_max_distance = 150.0
+script = ExtResource("6_to1x2")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.999733, 0.0065212, -0.0221486, 0, 0.959284, 0.282442, 0.0230887, -0.282367, 0.959029, -0.619172, -10.8699, -7.81091)
@@ -83,3 +143,8 @@ script = ExtResource("3_os8dc")
 
 [node name="Yacht" parent="." instance=ExtResource("4_os8dc")]
 transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, -1.45786, -15.6352, -17.8476)
+
+[node name="Clouds" type="MeshInstance3D" parent="."]
+transform = Transform3D(8192, 0, 0, 0, 128, 0, 0, 0, 8192, 0, 128, 0)
+material_override = SubResource("ShaderMaterial_w18yt")
+mesh = SubResource("BoxMesh_ec70e")
