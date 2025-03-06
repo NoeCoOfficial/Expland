@@ -493,8 +493,8 @@ camera_attributes = ExtResource("2_xjtor")
 script = ExtResource("4_jhu24")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.863395, -0.0876104, -0.496863, 0, 0.984808, -0.173648, 0.504528, 0.149927, 0.850278, 0, 0, 0)
-light_color = Color(0.051971, 0.051971, 0.0519709, 1)
+transform = Transform3D(0.863395, -0.0394603, -0.502982, 0, 0.996937, -0.0782123, 0.504528, 0.0675282, 0.86075, 0, 0, 0)
+light_color = Color(0.0518689, 0.0518689, 0.0518688, 1)
 shadow_enabled = true
 directional_shadow_fade_start = 0.655
 directional_shadow_max_distance = 150.0
