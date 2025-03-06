@@ -212,7 +212,11 @@ func change_sky(SkyType: String, TOD : int):
 		DayNightCycle_Sky.play(&"cloudy_sky_cycle")
 		DayNightCycle_Sky.seek(TOD * 2)
 		
-		DayNightCycle_Rotation.stop(true)
+		set_CloudySky_Rotate()
 		
 		await get_tree().create_timer(30.0).timeout
 		transitioning_weather = false
+
+func set_CloudySky_Rotate():
+	var tween = get_tree().create_tween()
+	tween.tween_property($DirectionalLight3D, "light_color", Color(0, 0, 0, 0), 30)
