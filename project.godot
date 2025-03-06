@@ -58,6 +58,10 @@ TerrainManager="*res://Scenes and Scripts/Singletons/World/TerrainManager.gd"
 Utils="*res://Scenes and Scripts/Singletons/Utils.gd"
 SmoothMovements="*res://Scenes and Scripts/Singletons/SmoothMovements.gd"
 
+[debug]
+
+gdscript/warnings/unused_signal=0
+
 [display]
 
 window/stretch/mode="canvas_items"
