@@ -209,6 +209,7 @@ func change_sky(SkyType: String, TOD : int):
 		
 		transitioning_weather = true
 		
+		DayNightCycle.stop(true)
 		DayNightCycle_Sky.play(&"cloudy_sky_cycle")
 		DayNightCycle_Sky.seek(TOD * 2)
 		
