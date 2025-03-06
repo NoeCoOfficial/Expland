@@ -618,3 +618,4 @@ func _on_dialogue_interface_finished_dialogue(StoryModeID: int) -> void:
 
 func on_story_mode_fade_finished():
 	get_tree().change_scene_to_packed(StoryModeStartCutscene)
+	StoryModeManager.is_in_story_mode_first_cutscene_world = true
