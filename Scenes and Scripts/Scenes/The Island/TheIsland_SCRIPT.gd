@@ -52,6 +52,7 @@ func initializeIslandProperties(_Island_Name):
 	pass
 
 @export var DayNightCycle : AnimationPlayer
+@export var DayNightCycle_Rotation : AnimationPlayer
 @export var DayNightCycle_Sky : AnimationPlayer
 
 @export var Tick : Timer
@@ -152,6 +153,12 @@ func set_time(minute : int):
 	else:
 		DayNightCycle_Sky.stop()
 		DayNightCycle_Sky.play(&"sky_cycle")
+	
+	if DayNightCycle_Rotation.is_playing():
+		DayNightCycle_Rotation.play(&"rotation_cycle")
+	else:
+		DayNightCycle_Rotation.stop()
+		DayNightCycle_Rotation.play(&"rotation_cycle")
 		
 	TimeManager.CURRENT_TIME = minute
 	
@@ -166,6 +173,7 @@ func set_time(minute : int):
 	# Since the animation goes for 2880 seconds and there are 
 	# 1440 "minutes" in a day, we need to multiply the value by 2
 	DayNightCycle.seek(minute * 2)
+	DayNightCycle_Rotation.seek(minute * 2)
 	DayNightCycle_Sky.seek(minute * 2)
 
 func _on_tick() -> void:
@@ -192,13 +200,20 @@ func append_random_songs(song_array: Array):
 		AudioManager.IN_FRONT_SONGS.append(shuffled_songs[i])
 
 func weatherTest():
-	change_sky(&"cloudy_sky_cycle", TimeManager.CURRENT_TIME)
+	change_sky("CLOUDY", TimeManager.CURRENT_TIME)
 
-func change_sky(to_anim: String, TOD : int):
-	if DayNightCycle_Sky.current_animation == to_anim or transitioning_weather:
-		return
-	transitioning_weather = true
-	DayNightCycle_Sky.play(to_anim)
-	DayNightCycle_Sky.seek(TOD * 2)
-	await get_tree().create_timer(30.0).timeout
-	transitioning_weather = false
+func change_sky(SkyType: String, TOD : int):
+	if SkyType == "CLOUDY":
+		if transitioning_weather:
+			return
+		
+		transitioning_weather = true
+		
+		DayNightCycle_Sky.play(&"cloudy_sky_cycle")
+		DayNightCycle_Sky.seek(TOD * 2)
+		
+		DayNightCycle.play(&"cloudy_cycle")
+		DayNightCycle.seek(TOD * 2)
+		
+		await get_tree().create_timer(30.0).timeout
+		transitioning_weather = false

@@ -108,6 +108,11 @@ func initialize_ui() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	IslandManager.resetAttributes()
 	IslandAccessOrder.load_order()
+	
+	if OS.is_debug_build():
+		fade_timer_time_left_label.show()
+	else:
+		fade_timer_time_left_label.hide()
 
 func initialize_threads() -> void:
 	loadIslandThread = Thread.new()
@@ -144,7 +149,7 @@ func _on_ready() -> void:
 	pass
 
 func onStartup():
-	if !OS.has_feature("debug"):
+	if !OS.is_debug_build():
 		$Camera3D/MainLayer/AudioNotificationLayer/fade_timer_time_left.hide()
 		$Camera3D/MainLayer/AudioNotificationLayer/fade_timer_time_left_title.hide()
 	
@@ -226,8 +231,7 @@ func _input(_event: InputEvent) -> void:
 # ---------------------------------------------------------------------------- #
 
 func _process(_delta: float) -> void:
-	if OS.has_feature("debug"):
-		fade_timer_time_left_label.text = str(int(AudioManager.FADE_TIMER_TIME_LEFT))
+	fade_timer_time_left_label.text = str(int(AudioManager.FADE_TIMER_TIME_LEFT))
 
 # ---------------------------------------------------------------------------- #
 #                             SPAWN GAME MODE MENU                             #
