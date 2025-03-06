@@ -52,6 +52,7 @@ func initializeIslandProperties(_Island_Name):
 	pass
 
 @export var DayNightCycle : AnimationPlayer
+@export var DayNightCycle_Rotation : AnimationPlayer
 @export var DayNightCycle_Sky : AnimationPlayer
 
 @export var Tick : Timer

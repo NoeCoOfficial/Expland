@@ -62,47 +62,6 @@ tracks/1/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_kjsf0"]
-resource_name = "cycle"
-length = 2880.0
-step = 1.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DirectionalLight3D:light_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 463, 510, 814, 1438, 2055, 2287),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0.793, 0.612, 0.18, 1), Color(0.793, 0.612, 0.18, 1), Color(0.941, 0.987, 0.809, 1), Color(0.941, 0.987, 0.809, 1), Color(1, 0.460991, 0.142547, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("DirectionalLight3D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 724, 2563),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0.174533, -0.528835, 0), Vector3(0.174533, -0.528835, 0), Vector3(-3.31613, -0.528835, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("DirectionalLight3D:light_energy")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(423, 706, 724, 2472, 2563),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, 1.0, 1.0, 0.0]
-}
-
 [sub_resource type="Animation" id="Animation_rkq2m"]
 resource_name = "cloudy_cycle"
 length = 2880.0
@@ -144,64 +103,52 @@ tracks/2/keys = {
 "values": [0.0, 0.0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_odk08"]
-_data = {
-&"RESET": SubResource("Animation_54a8b"),
-&"cloudy_cycle": SubResource("Animation_rkq2m"),
-&"cycle": SubResource("Animation_kjsf0")
-}
-
-[sub_resource type="Animation" id="Animation_whi7k"]
-resource_name = "sky_cycle"
+[sub_resource type="Animation" id="Animation_kjsf0"]
+resource_name = "cycle"
 length = 2880.0
 step = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("WorldEnvironment:environment:sky:sky_material:sky_top_color")
+tracks/0/path = NodePath("DirectionalLight3D:light_color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 480, 1255, 2140, 2655),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 463, 510, 814, 1438, 2055, 2287),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0.311, 0.463, 0.682, 1), Color(0.311, 0.463, 0.682, 1), Color(0, 0, 0, 1)]
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0.793, 0.612, 0.18, 1), Color(0.793, 0.612, 0.18, 1), Color(0.941, 0.987, 0.809, 1), Color(0.941, 0.987, 0.809, 1), Color(1, 0.460991, 0.142547, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("WorldEnvironment:environment:sky:sky_material:sky_horizon_color")
+tracks/1/path = NodePath("DirectionalLight3D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 480, 822, 1243, 2134, 2416, 2598),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 724, 2563),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(0.04, 0.04, 0.04, 1), Color(0.04, 0.04, 0.04, 1), Color(0.780392, 0.423529, 0, 1), Color(0.302636, 0.554639, 0.826951, 1), Color(0.302636, 0.554639, 0.826951, 1), Color(0.859434, 0.346059, 1.92523e-07, 1), Color(0.04, 0.04, 0.04, 1)]
+"values": [Vector3(0.174533, -0.528835, 0), Vector3(0.174533, -0.528835, 0), Vector3(-3.31613, -0.528835, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("WorldEnvironment:environment:sky:sky_material:ground_bottom_color")
+tracks/2/path = NodePath("DirectionalLight3D:light_energy")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 480, 1080, 2159, 2655),
-"transitions": PackedFloat32Array(1, 1, 0.90125, 0.90125, 1),
+"times": PackedFloat32Array(423, 706, 724, 2472, 2563),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0.09, 0.09, 0.09, 1), Color(0.09, 0.09, 0.09, 1), Color(0, 0, 0, 1)]
+"values": [0.0, 0.0, 1.0, 1.0, 0.0]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("WorldEnvironment:environment:sky:sky_material:ground_horizon_color")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 480, 822, 1137, 2141, 2431, 2602),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0.780392, 0.423529, 0, 1), Color(0.301961, 0.552941, 0.827451, 1), Color(0.301961, 0.552941, 0.827451, 1), Color(0.814487, 0.387853, 0.178652, 1), Color(0, 0, 0, 1)]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_odk08"]
+_data = {
+&"RESET": SubResource("Animation_54a8b"),
+&"cloudy_cycle": SubResource("Animation_rkq2m"),
+&"cycle": SubResource("Animation_kjsf0")
 }
 
 [sub_resource type="Animation" id="Animation_s3501"]
@@ -255,6 +202,59 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0.233925, 0.233925, 0.233925, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_whi7k"]
+resource_name = "sky_cycle"
+length = 2880.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WorldEnvironment:environment:sky:sky_material:sky_top_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 480, 1255, 2140, 2655),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0.311, 0.463, 0.682, 1), Color(0.311, 0.463, 0.682, 1), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WorldEnvironment:environment:sky:sky_material:sky_horizon_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 480, 822, 1243, 2134, 2416, 2598),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.04, 0.04, 0.04, 1), Color(0.04, 0.04, 0.04, 1), Color(0.780392, 0.423529, 0, 1), Color(0.302636, 0.554639, 0.826951, 1), Color(0.302636, 0.554639, 0.826951, 1), Color(0.859434, 0.346059, 1.92523e-07, 1), Color(0.04, 0.04, 0.04, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WorldEnvironment:environment:sky:sky_material:ground_bottom_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 480, 1080, 2159, 2655),
+"transitions": PackedFloat32Array(1, 1, 0.90125, 0.90125, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0.09, 0.09, 0.09, 1), Color(0.09, 0.09, 0.09, 1), Color(0, 0, 0, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WorldEnvironment:environment:sky:sky_material:ground_horizon_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 480, 822, 1137, 2141, 2431, 2602),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0.780392, 0.423529, 0, 1), Color(0.301961, 0.552941, 0.827451, 1), Color(0.301961, 0.552941, 0.827451, 1), Color(0.814487, 0.387853, 0.178652, 1), Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_whi7k"]
@@ -536,10 +536,11 @@ data = PackedVector3Array(0, 1, 0.5, 0.049, 1, 0.4976, 0, 0.6, 0.5, 0.049, 1, 0.
 [sub_resource type="BoxShape3D" id="BoxShape3D_sdnyt"]
 size = Vector3(3.10474, 2.18762, 1.86438)
 
-[node name="World" type="Node3D" node_paths=PackedStringArray("DayNightCycle", "DayNightCycle_Sky", "Tick", "RainParticles", "Clouds", "Player")]
+[node name="World" type="Node3D" node_paths=PackedStringArray("DayNightCycle", "DayNightCycle_Rotation", "DayNightCycle_Sky", "Tick", "RainParticles", "Clouds", "Player")]
 script = ExtResource("1_a8sfg")
 DayNightCycle = NodePath("Day-Night Cycle")
-DayNightCycle_Sky = NodePath("Day-Night-Cycle-Sky")
+DayNightCycle_Rotation = NodePath("Day-Night Rotation")
+DayNightCycle_Sky = NodePath("Day-Night Cycle-Sky")
 Tick = NodePath("Tick")
 RainParticles = NodePath("Rain")
 Clouds = NodePath("Clouds")
@@ -568,7 +569,14 @@ libraries = {
 playback_default_blend_time = 30.0
 blend_times = [&"cloudy_cycle", &"cloudy_cycle", 30.0, &"cloudy_cycle", &"cycle", 30.0, &"cycle", &"RESET", 30.0, &"cycle", &"cycle", 30.0]
 
-[node name="Day-Night-Cycle-Sky" type="AnimationPlayer" parent="."]
+[node name="Day-Night Rotation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_odk08")
+}
+playback_default_blend_time = 30.0
+blend_times = [&"cloudy_cycle", &"cloudy_cycle", 30.0, &"cloudy_cycle", &"cycle", 30.0, &"cycle", &"RESET", 30.0, &"cycle", &"cycle", 30.0]
+
+[node name="Day-Night Cycle-Sky" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_whi7k")
 }
