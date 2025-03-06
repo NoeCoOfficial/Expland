@@ -213,6 +213,15 @@ current = true
 
 [node name="MainLayer" type="CanvasLayer" parent="Camera3D"]
 
+[node name="BlackFade" type="ColorRect" parent="Camera3D/MainLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
 [node name="SeaWater" type="MeshInstance3D" parent="."]
 transform = Transform3D(2896.94, 0, 0, 0, 314.222, 0, 0, 0, 3775.78, -0.552, -172.612, -24.36)
 mesh = SubResource("BoxMesh_7s4ab")
