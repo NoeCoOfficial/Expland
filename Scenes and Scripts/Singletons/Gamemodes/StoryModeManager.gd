@@ -49,3 +49,4 @@ extends Node
 
 var is_first_story_mode = true
 var has_done_first_story_msg = false
+var is_in_story_mode_first_cutscene_world = false

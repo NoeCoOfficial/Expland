@@ -50,3 +50,4 @@ extends Node3D
 
 func _ready() -> void:
 	print("ENTERED STORY MODE START CUTSCENE")
+	$Camera3D.set_current(true)

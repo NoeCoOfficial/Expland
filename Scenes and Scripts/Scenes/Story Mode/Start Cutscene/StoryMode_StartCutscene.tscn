@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://nlp0xy1m65tp"]
+[gd_scene load_steps=43 format=3 uid="uid://nlp0xy1m65tp"]
 
 [ext_resource type="Script" uid="uid://uvb2g81nntt2" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/StoryMode_StartCutscene_SCRIPT.gd" id="1_4d7y3"]
 [ext_resource type="Shader" uid="uid://b2gi30s113t00" path="res://Scenes and Scripts/Scenes/The Island/TheIslandSeaWater.gdshader" id="2_cfn0j"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ck0guuhifgbmr" path="res://Assets/3D Models/Cutscenes/Story Mode/Start Cutscene/Yacht.blend" id="4_os8dc"]
 [ext_resource type="Shader" uid="uid://brub6nkftipc1" path="res://Resources/Shaders/Clouds.gdshader" id="5_encjm"]
 [ext_resource type="Script" uid="uid://dn1b1gnwe5iap" path="res://Textures/Icons/Script Icons/Scripts/LightbulbIcon_SCRIPT.gd" id="6_to1x2"]
+[ext_resource type="PackedScene" uid="uid://cjm5lrxicdgsf" path="res://Scenes and Scripts/Scenes/Player/Player.tscn" id="8_7s4ab"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_oopga"]
 
@@ -304,5 +305,8 @@ mesh = SubResource("BoxMesh_ec70e")
 libraries = {
 &"": SubResource("AnimationLibrary_7s4ab")
 }
+
+[node name="Player" parent="." instance=ExtResource("8_7s4ab")]
+transform = Transform3D(-0.141731, 0, -0.989905, 0, 1, 0, 0.989905, 0, -0.141731, 2.03192, -15.4413, -16.8065)
 
 [editable path="Yacht Rig/Yacht"]
