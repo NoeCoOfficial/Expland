@@ -210,6 +210,7 @@ script = ExtResource("6_to1x2")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.999733, 0.0065212, -0.0221486, 0, 0.959284, 0.282442, 0.0230887, -0.282367, 0.959029, 0.434159, -11.5673, -8.07182)
+current = true
 
 [node name="SeaWater" type="MeshInstance3D" parent="."]
 transform = Transform3D(2896.94, 0, 0, 0, 314.222, 0, 0, 0, 3775.78, -0.552, -172.612, -24.36)
