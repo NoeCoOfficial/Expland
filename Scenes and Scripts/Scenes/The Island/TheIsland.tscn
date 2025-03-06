@@ -8,6 +8,7 @@
 [ext_resource type="Shader" uid="uid://d0lkn0b41r7og" path="res://Resources/Shaders/TheIslandLakeWater.gdshader" id="6_35xrv"]
 [ext_resource type="PackedScene" uid="uid://5fjl3bhlrc02" path="res://Scenes and Scripts/Scenes/Audio/TheIsland_Audio.tscn" id="6_sj3c2"]
 [ext_resource type="Shader" uid="uid://b2gi30s113t00" path="res://Scenes and Scripts/Scenes/The Island/TheIslandSeaWater.gdshader" id="7_pf2qu"]
+[ext_resource type="Animation" uid="uid://bxd8jw8o3rmre" path="res://Resources/Animations/cycle_sun.anim" id="7_s3501"]
 [ext_resource type="Script" uid="uid://dudqfc8y403pg" path="res://Textures/Icons/Script Icons/Scripts/RiverIcon_SCRIPT.gd" id="8_jhpei"]
 [ext_resource type="PackedScene" uid="uid://bf802csj5h2uu" path="res://Assets/3D Models/The Island Deco/TheIslandDeco.tscn" id="11_kq5pm"]
 [ext_resource type="PackedScene" uid="uid://cjm5lrxicdgsf" path="res://Scenes and Scripts/Scenes/Player/Player.tscn" id="16_52bg8"]
@@ -64,39 +65,10 @@ tracks/1/keys = {
 "values": [1.0, 1.0]
 }
 
-[sub_resource type="Animation" id="Animation_rkq2m"]
-resource_name = "cycle"
-length = 2880.0
-step = 1.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DirectionalLight3D:light_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2880),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.051971, 0.051971, 0.0519709, 1), Color(0.0509804, 0.0509804, 0.0509804, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("DirectionalLight3D:light_energy")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(428, 2563),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [1.0, 1.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1rf0p"]
 _data = {
 &"cloudy_cycle": SubResource("Animation_747t0"),
-&"cycle": SubResource("Animation_rkq2m")
+&"cycle": ExtResource("7_s3501")
 }
 
 [sub_resource type="Animation" id="Animation_kjsf0"]
