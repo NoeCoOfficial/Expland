@@ -50,7 +50,7 @@ extends Node
 var is_debugging = false
 
 func _input(_event: InputEvent) -> void:
-	if OS.has_feature("debug"):
+	if OS.is_debug_build():
 		if Input.is_action_just_pressed("print_objects"):
 			print("Objects: ", Performance.get_monitor(Performance.OBJECT_COUNT))
 			print("Nodes: ", Performance.get_monitor(Performance.OBJECT_NODE_COUNT))

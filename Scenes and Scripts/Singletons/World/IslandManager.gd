@@ -56,7 +56,7 @@ var Current_Game_Mode = ""
 var Current_Weather = ""
 
 func _ready() -> void:
-	if !OS.has_feature("debug"):
+	if !OS.is_debug_build():
 		Current_Island_Name = ""
 
 func set_current_island(island_name: String) -> void:

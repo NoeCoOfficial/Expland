@@ -1,8 +1,8 @@
-[gd_scene load_steps=55 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=56 format=3 uid="uid://234mnfypwndn"]
 
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
+[ext_resource type="Script" uid="uid://uvd1eie30b14" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="PackedScene" uid="uid://jb61th5px5nt" path="res://Assets/3D Models/Tests/Island/Island 2.blend" id="2_0llf6"]
-[ext_resource type="Script" path="res://Textures/Icons/Script Icons/Scripts/LightbulbIcon_SCRIPT.gd" id="2_j6ch4"]
+[ext_resource type="Script" uid="uid://dn1b1gnwe5iap" path="res://Textures/Icons/Script Icons/Scripts/LightbulbIcon_SCRIPT.gd" id="2_j6ch4"]
 [ext_resource type="Texture2D" uid="uid://dhp1lqdlclos" path="res://Textures/Icons/Expland_TextWHITE_Icon.png" id="2_numx3"]
 [ext_resource type="PackedScene" uid="uid://d0uinxy2wgtd3" path="res://Assets/3D Models/Environment/Trees/Normal/Models/Tree1.blend" id="3_hbjgs"]
 [ext_resource type="PackedScene" uid="uid://4y07lcegxyxt" path="res://Scenes and Scripts/Scenes/Audio/MainMenu_Audio.tscn" id="3_wxdrf"]
@@ -16,11 +16,11 @@
 [ext_resource type="PackedScene" uid="uid://bq7v171b1atvm" path="res://Assets/3D Models/Environment/Rocks/Rock7_Rough.blend" id="7_jmxkd"]
 [ext_resource type="PackedScene" uid="uid://c855wuotwp7n7" path="res://Assets/3D Models/Environment/Grass/Grass1.blend" id="8_0bg8c"]
 [ext_resource type="Texture2D" uid="uid://cwskjvl8pplog" path="res://Textures/Icons/Exit_Icon.png" id="8_rn1to"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/IgnoreMouseFilter.gd" id="8_tu6ba"]
+[ext_resource type="Script" uid="uid://snus4y53incu" path="res://Scenes and Scripts/Utility Scripts/IgnoreMouseFilter.gd" id="8_tu6ba"]
 [ext_resource type="PackedScene" uid="uid://dvk3qu1v8iisg" path="res://Assets/3D Models/Environment/Grass/Grass3.blend" id="9_w5mwr"]
 [ext_resource type="PackedScene" uid="uid://ceabjbnv3nnyr" path="res://Scenes and Scripts/Scenes/Settings/SettingsUI.tscn" id="10_i36v3"]
 [ext_resource type="PackedScene" uid="uid://0stf8uio7dg2" path="res://Assets/3D Models/Environment/Trees/Normal/Models/Tree9.blend" id="10_ji46n"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="10_y68f7"]
+[ext_resource type="Script" uid="uid://bd3squcstkss1" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="10_y68f7"]
 [ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="11_1cstc"]
 [ext_resource type="StyleBox" uid="uid://3txnt8ebd3yh" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/BlackBGwithWhiteBorder.tres" id="11_613mu"]
 [ext_resource type="StyleBox" uid="uid://b13po6off8nno" path="res://Resources/Styles and Themes/Styles/Default/Button/WithMarginDefaultDarkGrey.tres" id="12_3uklh"]
@@ -37,8 +37,9 @@
 [ext_resource type="StyleBox" uid="uid://cm8xotke6bccm" path="res://Resources/Styles and Themes/Styles/Default/LineEdit/Default_Normal_LineEdit.tres" id="25_3j2x4"]
 [ext_resource type="StyleBox" uid="uid://cf1a43wkesukc" path="res://Resources/Styles and Themes/Styles/Default/LineEdit/Default_Focus_LineEdit.tres" id="26_j2nrr"]
 [ext_resource type="PackedScene" uid="uid://cq13w255wbu5l" path="res://Scenes and Scripts/Scenes/Minimal Alert/MinimalAlert.tscn" id="27_7myre"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/Custom Popups/LoadIslandPopup_SCRIPT.gd" id="27_ro0wj"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/Custom Popups/DeleteIslandPopupMain_SCRIPT.gd" id="29_37xid"]
+[ext_resource type="Script" uid="uid://de7igwvi1x7ws" path="res://Scenes and Scripts/Scenes/Main Menu/Custom Popups/LoadIslandPopup_SCRIPT.gd" id="27_ro0wj"]
+[ext_resource type="Script" uid="uid://dj2wb6vcpgeed" path="res://Scenes and Scripts/Scenes/Main Menu/Custom Popups/DeleteIslandPopupMain_SCRIPT.gd" id="29_37xid"]
+[ext_resource type="PackedScene" uid="uid://du1ak3ldg8x4e" path="res://Scenes and Scripts/Scenes/Dialogue/DialogueInterface.tscn" id="30_q7bh6"]
 [ext_resource type="PackedScene" uid="uid://cjxbcx2vhofs" path="res://Scenes and Scripts/Scenes/Achievements/AchievementNotification.tscn" id="31_ahd72"]
 [ext_resource type="PackedScene" uid="uid://bbc10j8mbwjbn" path="res://Scenes and Scripts/Scenes/Audio/AudioNotification.tscn" id="31_xncp6"]
 
@@ -100,8 +101,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mddl5"]
 _data = {
-"RESET": SubResource("Animation_6cyol"),
-"camera movement": SubResource("Animation_kvdnl")
+&"RESET": SubResource("Animation_6cyol"),
+&"camera movement": SubResource("Animation_kvdnl")
 }
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0rshe"]
@@ -156,7 +157,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="Curve" id="Curve_myn2q"]
-max_value = 0.1
+_limits = [0.0, 0.1, 0.0, 1.0]
 _data = [Vector2(0, 0), 0.0, 0.333367, 0, 0, Vector2(0.433526, 0.0316176), 0.185509, 0.185509, 0, 0, Vector2(0.791908, 0.0220588), -0.0267802, -0.0267802, 0, 0, Vector2(1, 0.0132353), 0.0, 0.0, 0, 0]
 point_count = 4
 
@@ -178,7 +179,7 @@ fade_timer_time_left_label = NodePath("Camera3D/MainLayer/AudioNotificationLayer
 
 [node name="CameraAnim" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_mddl5")
+&"": SubResource("AnimationLibrary_mddl5")
 }
 autoplay = "camera movement"
 
@@ -611,12 +612,7 @@ focus_mode = 0
 theme = SubResource("Theme_u5css")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/disabled = ExtResource("12_3uklh")
-disabled = true
-
-[node name="PadlockIcon" type="Sprite2D" parent="Camera3D/MainLayer/GameModeLayer/BG_StoryMode"]
-position = Vector2(98, 479)
-scale = Vector2(0.0927734, 0.0927734)
-texture = ExtResource("16_3n0bi")
+text = "PLAY"
 
 [node name="BG_FreeMode" type="Button" parent="Camera3D/MainLayer/GameModeLayer"]
 layout_mode = 1
@@ -870,7 +866,7 @@ offset_right = 91.5
 offset_bottom = 29.0
 grow_horizontal = 2
 theme = ExtResource("4_grlcg")
-text = "Create a new Island"
+text = "Create a new Free Mode Island"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -954,7 +950,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_grlcg")
 theme_override_font_sizes/font_size = 30
-text = "Load an Island"
+text = "Load a Free Mode Island"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1091,6 +1087,23 @@ theme_override_styles/pressed = ExtResource("23_ocvtf")
 theme_override_styles/normal = ExtResource("24_r2ree")
 text = "Yes"
 metadata/_edit_use_anchors_ = true
+
+[node name="StoryModePopup" type="CanvasLayer" parent="Camera3D/MainLayer"]
+
+[node name="MainLayer" type="Control" parent="Camera3D/MainLayer/StoryModePopup"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="DialogueLayer" type="CanvasLayer" parent="Camera3D/MainLayer"]
+
+[node name="DialogueInterface" parent="Camera3D/MainLayer/DialogueLayer" instance=ExtResource("30_q7bh6")]
 
 [node name="AchievementNotificationLayer" type="CanvasLayer" parent="Camera3D/MainLayer"]
 layer = 9
@@ -1250,5 +1263,6 @@ initial_velocity_max = 47.09
 [connection signal="focus_exited" from="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit" to="." method="_on_island_name_text_edit_focus_exited"]
 [connection signal="pressed" from="Camera3D/MainLayer/DeleteIslandPopup/DeleteIslandPopupMain/DeleteIsland_No" to="." method="_on_delete_island_no_pressed"]
 [connection signal="pressed" from="Camera3D/MainLayer/DeleteIslandPopup/DeleteIslandPopupMain/DeleteIsland_Yes" to="." method="_on_delete_island_yes_pressed"]
+[connection signal="FinishedDialogue" from="Camera3D/MainLayer/DialogueLayer/DialogueInterface" to="." method="_on_dialogue_interface_finished_dialogue"]
 
 [editable path="Camera3D/MainLayer/AchievementsUI"]

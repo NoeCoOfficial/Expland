@@ -177,6 +177,8 @@ var stamina_restoring_from_0 = false
 @export var camera : Camera3D
 @export var HandItem : Node3D
 @export var PickupAttractionPos : Node3D
+@export var Character_Anim_Player : AnimationPlayer
+@export var Character_Body : Node3D
 
 
 @export_group("Inventory")
@@ -400,11 +402,11 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			if InventoryManager.is_in_explorer_notes_interface:
 				closeExplorerNotes()
 	
-	if Input.is_action_just_pressed("Quit") and Quit == true and OS.has_feature("debug"): # if the Quit input is pressed and the Quit variable is true
+	if Input.is_action_just_pressed("Quit") and Quit == true and OS.is_debug_build(): # if the Quit input is pressed and the Quit variable is true
 		SaveManager.saveAllData()
 		get_tree().quit() # quit the game
 	
-	if Input.is_action_just_pressed("Reset") and !PauseManager.inside_absolute_item_workshop and Reset == true and !PauseManager.is_paused and !PauseManager.is_inside_alert and OS.has_feature("debug"):
+	if Input.is_action_just_pressed("Reset") and !PauseManager.inside_absolute_item_workshop and Reset == true and !PauseManager.is_paused and !PauseManager.is_inside_alert and OS.is_debug_build():
 		if PlayerData.GAME_STATE == "NORMAL" or InventoryManager.inventory_open:
 			if ResetPOS == Vector3(999, 999, 999):
 				self.position = StartPOS # set the player's position to the Start position
@@ -413,7 +415,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 				self.position = ResetPOS # set the player's position to the Reset position 
 				velocity.y = 0.0 # set the player's velocity to 0 
 	
-	if Input.is_action_just_pressed("SaveGame") and OS.has_feature("debug") and IslandManager.Current_Game_Mode == "FREE":
+	if Input.is_action_just_pressed("SaveGame") and OS.is_debug_build() and IslandManager.Current_Game_Mode == "FREE":
 		Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
 		SaveManager.saveAllData()
 	
@@ -610,11 +612,28 @@ func _physics_process(delta):
 			# Smoothly return to original position when not moving
 			var target_pos = Vector3(camera.transform.origin.x, 0, camera.transform.origin.z)
 			camera.transform.origin = camera.transform.origin.lerp(target_pos, delta * BOB_SMOOTHING_SPEED)
+	
+	_update_animation()
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO # set the position to zero
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP # set the y position to the sine of the time times the bob frequency times the bob amplitude
 	return pos # return the position
+
+func _update_animation():
+	if velocity.y == 0:
+		if PlayerManager.is_sprinting_moving:
+			Character_Body.fastRun()
+		elif PlayerManager.is_walking_moving:
+			Character_Body.slowRun()
+		elif PlayerManager.is_crouching_moving:
+			Character_Body.crouchWalk()
+		elif is_crouching:
+			Character_Body.crouchIdle()
+		else:
+			Character_Body.idle()
+	else:
+		Character_Body.fall()
 
 func _process(_delta):
 	
@@ -730,7 +749,7 @@ func _ready():
 		
 		OverlayLayer_Overlay.hide() # hide the overlay
 	
-	if !OS.has_feature("debug"):
+	if !OS.is_debug_build():
 		PauseLayer.hide()
 		StartDebugging_Btn.hide()
 	

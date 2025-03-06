@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ceeflh1bhg0ei"]
 
 [ext_resource type="PackedScene" uid="uid://vnk7463heub8" path="res://Assets/3D Models/Interactive/Objects/Models/SackclothBed.blend" id="1_vw55b"]
-[ext_resource type="Script" path="res://Assets/3D Models/Interactive/Objects/Finalized/SackclothBed/SackclothBed_Finalized_StaticBody3D_SCRIPT.gd" id="2_h6dgk"]
+[ext_resource type="Script" uid="uid://bqmgeym8ihac0" path="res://Assets/3D Models/Interactive/Objects/Finalized/SackclothBed/SackclothBed_Finalized_StaticBody3D_SCRIPT.gd" id="2_h6dgk"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bv106"]
 points = PackedVector3Array(1.70159, 0.411032, 0.767976, -1.58815, -0.36, -0.722685, -1.70159, 0.411032, -0.774087, -1.70159, 0.411032, 0.767976, 1.70159, 0.411032, -0.774087, 1.58815, -0.36, 0.716574, -1.58815, -0.36, 0.716574, 1.58815, -0.36, -0.722685)

@@ -51,20 +51,16 @@ extends Node
 func initializeIslandProperties(_Island_Name):
 	pass
 
-var SKY_TRANS_TIME = 20.0
-
 @export var DayNightCycle : AnimationPlayer
-@export var Tick : Timer
+@export var DayNightCycle_Rotation : AnimationPlayer
+@export var DayNightCycle_Sky : AnimationPlayer
 
+@export var Tick : Timer
 @export var RainParticles : CPUParticles3D
 @export var Clouds : MeshInstance3D
-
 @export var Player : CharacterBody3D
 
-var transSunny_tween
-var transRain_tween
-var transStorm_tween
-var transCloudy_tween
+var transitioning_weather = false
 
 func _ready() -> void:
 	randomize()
@@ -152,6 +148,18 @@ func set_time(minute : int):
 		DayNightCycle.stop()
 		DayNightCycle.play(&"cycle")
 	
+	if DayNightCycle_Sky.is_playing():
+		DayNightCycle_Sky.play(&"sky_cycle")
+	else:
+		DayNightCycle_Sky.stop()
+		DayNightCycle_Sky.play(&"sky_cycle")
+	
+	if DayNightCycle_Rotation.is_playing():
+		DayNightCycle_Rotation.play(&"rotation_cycle")
+	else:
+		DayNightCycle_Rotation.stop()
+		DayNightCycle_Rotation.play(&"rotation_cycle")
+		
 	TimeManager.CURRENT_TIME = minute
 	
 	if TimeManager.CURRENT_TIME >= 1140 or TimeManager.CURRENT_TIME < 360:
@@ -165,6 +173,8 @@ func set_time(minute : int):
 	# Since the animation goes for 2880 seconds and there are 
 	# 1440 "minutes" in a day, we need to multiply the value by 2
 	DayNightCycle.seek(minute * 2)
+	DayNightCycle_Rotation.seek(minute * 2)
+	DayNightCycle_Sky.seek(minute * 2)
 
 func _on_tick() -> void:
 	TimeManager.CURRENT_TIME += 1
@@ -188,3 +198,22 @@ func append_random_songs(song_array: Array):
 	var num_songs_to_append = randi() % shuffled_songs.size() + 1
 	for i in range(num_songs_to_append):
 		AudioManager.IN_FRONT_SONGS.append(shuffled_songs[i])
+
+func weatherTest():
+	change_sky("CLOUDY", TimeManager.CURRENT_TIME)
+
+func change_sky(SkyType: String, TOD : int):
+	if SkyType == "CLOUDY":
+		if transitioning_weather:
+			return
+		
+		transitioning_weather = true
+		
+		DayNightCycle_Sky.play(&"cloudy_sky_cycle")
+		DayNightCycle_Sky.seek(TOD * 2)
+		
+		DayNightCycle.play(&"cloudy_cycle")
+		DayNightCycle.seek(TOD * 2)
+		
+		await get_tree().create_timer(30.0).timeout
+		transitioning_weather = false

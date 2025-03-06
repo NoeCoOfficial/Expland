@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://oker5ahpwg2"]
 
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Main Menu/IslandSaveElement/IslandSaveElement_SCRIPT.gd" id="1_eww5b"]
+[ext_resource type="Script" uid="uid://dhuio3snbgvnj" path="res://Scenes and Scripts/Scenes/Main Menu/IslandSaveElement/IslandSaveElement_SCRIPT.gd" id="1_eww5b"]
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="2_drivp"]
 [ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="2_ptwj5"]
 [ext_resource type="StyleBox" uid="uid://cm8xotke6bccm" path="res://Resources/Styles and Themes/Styles/Default/LineEdit/Default_Normal_LineEdit.tres" id="3_gaeij"]

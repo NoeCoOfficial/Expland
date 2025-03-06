@@ -17,7 +17,7 @@ config/version="0.6.5"
 config/tags=PackedStringArray("3d", "noeco", "official")
 run/main_scene="res://Scenes and Scripts/Scenes/Main Menu/MainMenu.tscn"
 config/use_custom_user_dir=true
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
 config/icon="res://Textures/Icons/Expland-icon.png"
@@ -40,6 +40,7 @@ InventoryData="*res://Scenes and Scripts/Singletons/Save and Load/InventoryData.
 PlayerSettingsData="*res://Scenes and Scripts/Singletons/Save and Load/PlayerSettingsData.gd"
 SaveManager="*res://Scenes and Scripts/Singletons/Save and Load/SaveManager.gd"
 IslandAccessOrder="*res://Scenes and Scripts/Singletons/World/IslandAccessOrder.gd"
+StoryModeManager="*res://Scenes and Scripts/Singletons/Gamemodes/StoryModeManager.gd"
 IslandManager="*res://Scenes and Scripts/Singletons/World/IslandManager.gd"
 PauseManager="*res://Scenes and Scripts/Singletons/Pause/PauseManager.gd"
 TimeManager="*res://Scenes and Scripts/Singletons/World/TimeManager.gd"
@@ -59,7 +60,6 @@ SmoothMovements="*res://Scenes and Scripts/Singletons/SmoothMovements.gd"
 
 [display]
 
-window/size/mode=4
 window/stretch/mode="canvas_items"
 display_server/driver.linuxbsd="wayland"
 
@@ -71,7 +71,7 @@ movie_writer/fps=120
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/SphynxMotionBlurToolkit/plugin.cfg", "res://addons/anthonyec.camera_preview/plugin.cfg", "res://addons/notes_tab/plugin.cfg")
+enabled=PackedStringArray("res://addons/SphynxMotionBlurToolkit/plugin.cfg", "res://addons/anthonyec.camera_preview/plugin.cfg", "res://addons/notes_tab/plugin.cfg", "res://addons/nv.file_system/plugin.cfg")
 
 [file_customization]
 

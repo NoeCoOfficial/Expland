@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://b7la7o37o5gld"]
 
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Achievements/AchievementsUI_SCRIPT.gd" id="1_l5cpa"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="2_jb8yw"]
+[ext_resource type="Script" uid="uid://bmx3u3okqrvl6" path="res://Scenes and Scripts/Scenes/Achievements/AchievementsUI_SCRIPT.gd" id="1_l5cpa"]
+[ext_resource type="Script" uid="uid://bd3squcstkss1" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="2_jb8yw"]
 [ext_resource type="StyleBox" uid="uid://3txnt8ebd3yh" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/BlackBGwithWhiteBorder.tres" id="3_s02bt"]
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="4_tvib0"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="5_8ki5k"]

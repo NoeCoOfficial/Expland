@@ -61,7 +61,8 @@ var island_element_to_free
 var is_tweening = false
 
 @onready var StartupNotice = preload("res://Scenes and Scripts/Scenes/Startup Notice/StartupNotice.tscn")
-@onready var world = preload("res://Scenes and Scripts/Scenes/The Island/TheIsland.tscn")
+@onready var world = preload("uid://c5jkrckgqd0w6")
+@onready var StoryModeStartCutscene = preload("uid://nlp0xy1m65tp")
 @onready var DefaultXPos = $Camera3D/MainLayer/PlayButton.position.x
 
 @export_group("Node references")
@@ -93,6 +94,7 @@ func initialize_globals() -> void:
 	AchievementsManager.CURRENT_ACHIEVEMENTS_UI = $Camera3D/MainLayer/AchievementsUI
 	AchievementsManager.CURRENT_NOTIFICATION_NODE = $Camera3D/MainLayer/AchievementNotificationLayer/AchievementNotification
 	AchievementsManager.CURRENT_UI_GRID_CONTAINER = $Camera3D/MainLayer/AchievementsUI/MainLayer/ScrollContainer/GridContainer
+	DialogueManager.DialogueInterface = $Camera3D/MainLayer/DialogueLayer/DialogueInterface
 	
 	PauseManager.is_paused = false
 	Global.main_menu_transitioning_scene = false
@@ -106,6 +108,11 @@ func initialize_ui() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	IslandManager.resetAttributes()
 	IslandAccessOrder.load_order()
+	
+	if OS.is_debug_build():
+		fade_timer_time_left_label.show()
+	else:
+		fade_timer_time_left_label.hide()
 
 func initialize_threads() -> void:
 	loadIslandThread = Thread.new()
@@ -142,7 +149,7 @@ func _on_ready() -> void:
 	pass
 
 func onStartup():
-	if !OS.has_feature("debug"):
+	if !OS.is_debug_build():
 		$Camera3D/MainLayer/AudioNotificationLayer/fade_timer_time_left.hide()
 		$Camera3D/MainLayer/AudioNotificationLayer/fade_timer_time_left_title.hide()
 	
@@ -179,7 +186,7 @@ func onStartup():
 func _input(_event: InputEvent) -> void:
 	if !Global.main_menu_transitioning_scene:
 		if Input.is_action_just_pressed("Exit") and !is_tweening:  # Check if not tweening
-			if is_in_gamemode_select and !is_in_free_mode_island_popup and !is_in_free_mode_create_island and !is_in_load_island_interface and !is_in_delete_popup:
+			if is_in_gamemode_select and !DialogueManager.is_in_interface and !is_in_free_mode_island_popup and !is_in_free_mode_create_island and !is_in_load_island_interface and !is_in_delete_popup:
 				deSpawnGameModeMenu()
 			
 		if Input.is_action_just_pressed("Exit"):
@@ -224,8 +231,7 @@ func _input(_event: InputEvent) -> void:
 # ---------------------------------------------------------------------------- #
 
 func _process(_delta: float) -> void:
-	if OS.has_feature("debug"):
-		fade_timer_time_left_label.text = str(int(AudioManager.FADE_TIMER_TIME_LEFT))
+	fade_timer_time_left_label.text = str(int(AudioManager.FADE_TIMER_TIME_LEFT))
 
 # ---------------------------------------------------------------------------- #
 #                             SPAWN GAME MODE MENU                             #
@@ -371,7 +377,7 @@ func _on_exit_gamemode_layer_button_pressed() -> void:
 # ---------------------------------------------------------------------------- #
 
 func _on_play_story_mode_button_pressed() -> void:
-	pass
+	startStoryMode()
 
 func _on_play_free_mode_button_pressed() -> void:
 	FreeModeIslandPopupLayer.visible = true
@@ -575,7 +581,6 @@ func _on_island_name_text_edit_focus_entered() -> void:
 		$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit.release_focus()
 		$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit.editable = false
 		$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit.selecting_enabled = false
-	
 
 func _on_island_name_text_edit_focus_exited() -> void:
 	AudioManager.canOperate_textField = true
@@ -585,3 +590,35 @@ func _on_load_island_element_text_edit_focus_entered() -> void:
 
 func _on_load_island_element_text_edit_focus_exited() -> void:
 	AudioManager.canOperate_textField = true
+
+############################################
+
+func startStoryMode():
+	if !StoryModeManager.has_done_first_story_msg:
+		StoryModeManager.has_done_first_story_msg = true
+		DialogueManager.setStoryModeID(1)
+		DialogueManager.startDialogue(DialogueManager.mainMenuStoryModeDialogue_1)
+	else:
+		DialogueManager.setStoryModeID(2)
+		DialogueManager.startDialogue(DialogueManager.mainMenuStoryModeDialogue_2)
+
+func _on_dialogue_interface_finished_dialogue(StoryModeID: int) -> void:
+	# NOTE: StoryModeID will always be the same as DialogueManager.Current_StoryModeID
+	if StoryModeID == 1:
+		pass
+	if StoryModeID == 2:
+		$Camera3D/MainLayer/ProtectiveLayer.visible = true
+		
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		
+		$Camera3D/MainLayer/TopLayer/TransitionFadeOut.modulate = Color(1, 1, 1, 0)
+		$Camera3D/MainLayer/TopLayer/TransitionFadeOut.visible = true
+		
+		var tween = get_tree().create_tween()
+		tween.connect("finished", Callable(self, "on_story_mode_fade_finished"))
+		
+		tween.tween_property($Camera3D/MainLayer/TopLayer/TransitionFadeOut, "modulate", Color(1, 1, 1, 1), 1)
+		tween.tween_interval(1)
+
+func on_story_mode_fade_finished():
+	get_tree().change_scene_to_packed(StoryModeStartCutscene)

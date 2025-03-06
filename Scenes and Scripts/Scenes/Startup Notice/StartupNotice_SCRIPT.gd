@@ -49,7 +49,7 @@
 extends Control
 
 func _ready() -> void:
-	if !OS.has_feature("debug"):
+	if !OS.is_debug_build():
 		$Notice/DebugNotice.hide()
 	
 	$Notice/DebugNotice.self_modulate = Color(1, 1, 1, 0)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dhhjltxmoydio"]
 
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Inventory/InventorySlot_SCRIPT.gd" id="1_bxl3d"]
+[ext_resource type="Script" uid="uid://qp1u2d0q1xmp" path="res://Scenes and Scripts/Scenes/Player/Inventory/InventorySlot_SCRIPT.gd" id="1_bxl3d"]
 [ext_resource type="Texture2D" uid="uid://dynk4aytqg20" path="res://Textures/Inventory/Slot/InventorySlotTexture.png" id="2_2mtlq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5hbs3"]

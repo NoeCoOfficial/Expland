@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://xybmfvufjuv"]
 
-[ext_resource type="Script" path="res://addons/anthonyec.camera_preview/preview.gd" id="1_6b32r"]
+[ext_resource type="Script" uid="uid://btpputg7s7iu2" path="res://addons/anthonyec.camera_preview/preview.gd" id="1_6b32r"]
 [ext_resource type="Texture2D" uid="uid://do6d60od41vmg" path="res://addons/anthonyec.camera_preview/Pin.svg" id="2_p0pa8"]
 [ext_resource type="Texture2D" uid="uid://btc01wc11tiid" path="res://addons/anthonyec.camera_preview/GuiResizerTopLeft.svg" id="2_t64ej"]
 [ext_resource type="Texture2D" uid="uid://04l05jxuyt7k" path="res://addons/anthonyec.camera_preview/GuiResizerTopRight.svg" id="3_6yuab"]
