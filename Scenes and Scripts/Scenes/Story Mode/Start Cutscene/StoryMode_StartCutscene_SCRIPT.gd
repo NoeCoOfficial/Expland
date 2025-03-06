@@ -50,3 +50,11 @@ extends Node3D
 
 func _ready() -> void:
 	print("ENTERED STORY MODE START CUTSCENE")
+	fadeeOutGreyOverlay()
+
+func fadeeOutGreyOverlay():
+	var tween = get_tree().create_tween()
+	tween.tween_property($Camera3D/MainLayer/BlackFade, "modulate", Color(1, 1, 1, 0), 4)
+
+func onfadeeOutGreyOverlay_Finished():
+	$Camera3D/MainLayer/BlackFade.visible = false
