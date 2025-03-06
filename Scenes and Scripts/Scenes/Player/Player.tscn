@@ -1958,36 +1958,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 transform = Transform3D(-0.651061, 0, 5.69175e-08, 0, 0.651061, 0, -5.69175e-08, 0, -0.651061, -0.0444108, -1.66439, 1.92699)
 
 [node name="Skeleton3D" parent="Head/Player_Character/Armature_003" index="0"]
-bones/0/position = Vector3(2.89311, -3.51531, -195.848)
-bones/0/rotation = Quaternion(-0.684706, -0.27, 0.248938, 0.62953)
-bones/1/rotation = Quaternion(0.0793683, 0.0408387, -0.0087333, 0.99597)
-bones/2/rotation = Quaternion(0.0965342, 0.0791743, -0.0223776, 0.991923)
-bones/3/rotation = Quaternion(0.0965492, 0.0791735, -0.0223786, 0.991922)
-bones/4/rotation = Quaternion(-0.050696, -0.0108133, 0.00235387, 0.998653)
-bones/5/rotation = Quaternion(-0.0371527, 0.176485, -0.00590655, 0.983584)
-bones/7/rotation = Quaternion(0.583476, 0.416477, -0.566805, 0.405998)
+bones/0/position = Vector3(2.68782, -3.70804, -195.666)
+bones/0/rotation = Quaternion(-0.683704, -0.270344, 0.249848, 0.63011)
+bones/1/rotation = Quaternion(0.0803461, 0.0410454, -0.00910249, 0.99588)
+bones/2/rotation = Quaternion(0.0984366, 0.0796127, -0.022978, 0.991688)
+bones/3/rotation = Quaternion(0.0984366, 0.0796127, -0.022978, 0.991688)
+bones/4/rotation = Quaternion(-0.0616786, -0.010709, 0.00210236, 0.998036)
+bones/5/rotation = Quaternion(-0.0627975, 0.177146, -0.00862543, 0.982141)
+bones/7/rotation = Quaternion(0.590813, 0.407608, -0.567328, 0.403652)
 bones/7/scale = Vector3(1, 1, 1)
-bones/8/rotation = Quaternion(0.427969, -0.103046, 0.0883811, 0.89354)
-bones/9/rotation = Quaternion(-0.0365001, 0.0617326, 0.410665, 0.908962)
+bones/8/rotation = Quaternion(0.423572, -0.104603, 0.0880245, 0.895487)
+bones/9/rotation = Quaternion(-0.0373929, 0.0609894, 0.409399, 0.909546)
 bones/9/scale = Vector3(1, 1, 1)
-bones/11/rotation = Quaternion(0.630487, -0.378543, 0.525077, 0.428351)
+bones/11/rotation = Quaternion(0.638236, -0.369123, 0.524677, 0.425579)
 bones/11/scale = Vector3(1, 1, 1)
-bones/12/rotation = Quaternion(0.417109, 0.103284, 0.148338, 0.890701)
+bones/12/rotation = Quaternion(0.4134, 0.107126, 0.148194, 0.891999)
 bones/12/scale = Vector3(1, 1, 1)
-bones/13/rotation = Quaternion(0.0325413, 0.0102589, -0.366054, 0.929968)
+bones/13/rotation = Quaternion(0.026255, 0.0169014, -0.365027, 0.930473)
 bones/13/scale = Vector3(1, 1, 1)
-bones/15/rotation = Quaternion(0.0795338, 0.235482, 0.962958, -0.104568)
+bones/15/rotation = Quaternion(0.0794588, 0.237459, 0.962371, -0.105552)
 bones/15/scale = Vector3(1, 1, 1.00001)
-bones/16/rotation = Quaternion(-0.362268, 0.119314, -0.0365986, 0.923681)
-bones/17/rotation = Quaternion(0.565618, -0.00202235, -0.0252131, 0.82428)
-bones/18/rotation = Quaternion(0.2891, -0.0360123, -0.00936886, 0.956575)
+bones/16/rotation = Quaternion(-0.364109, 0.118546, -0.036443, 0.923062)
+bones/17/rotation = Quaternion(0.566427, -0.0024805, -0.0260766, 0.823696)
+bones/18/rotation = Quaternion(0.289416, -0.0367269, -0.00950513, 0.956451)
 bones/18/scale = Vector3(1, 1, 1)
-bones/20/rotation = Quaternion(-0.124932, 0.031011, 0.98271, 0.133086)
+bones/20/rotation = Quaternion(-0.124564, 0.0339967, 0.982741, 0.13247)
 bones/20/scale = Vector3(1, 1, 1)
-bones/21/rotation = Quaternion(-0.350146, 0.0717088, -0.0266551, 0.933566)
+bones/21/rotation = Quaternion(-0.353692, 0.0710264, -0.0268436, 0.932275)
 bones/21/scale = Vector3(1, 1, 1)
-bones/22/rotation = Quaternion(0.676345, 0.05516, 0.105974, 0.726832)
-bones/23/rotation = Quaternion(0.277961, 0.0566659, -0.0169633, 0.958769)
+bones/22/rotation = Quaternion(0.677965, 0.0549959, 0.105465, 0.725408)
+bones/23/rotation = Quaternion(0.278346, 0.0572172, -0.017223, 0.958621)
 bones/23/scale = Vector3(1, 1, 1)
 
 [node name="AnimationPlayer" parent="Head/Player_Character" index="1"]
@@ -2023,6 +2023,7 @@ target_position = Vector3(0, -3, 0)
 script = ExtResource("3_2qtqn")
 
 [node name="HUDLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="Crosshair" type="TextureRect" parent="Head/Camera3D/HUDLayer"]
 anchors_preset = 8
@@ -2094,6 +2095,7 @@ scale = Vector2(0.018711, 0.0152068)
 texture = ExtResource("8_ty1rt")
 
 [node name="HotbarLayer" type="CanvasLayer" parent="Head/Camera3D"]
+visible = false
 
 [node name="HotbarMainLayer" type="Control" parent="Head/Camera3D/HotbarLayer"]
 layout_mode = 3
