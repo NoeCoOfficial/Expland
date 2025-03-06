@@ -49,7 +49,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 2880),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1)]
+"values": [Color(0.0196078, 0.0196078, 0.0196078, 1), Color(0.0196078, 0.0196078, 0.0196078, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -521,8 +521,8 @@ camera_attributes = ExtResource("2_xjtor")
 script = ExtResource("4_jhu24")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.863395, 0.189568, -0.46756, 0, 0.926728, 0.375733, 0.504528, -0.324406, 0.800132, 0, 0, 0)
-light_color = Color(0, 0, 0, 1)
+transform = Transform3D(0.863395, -0.0876104, -0.496863, 0, 0.984808, -0.173648, 0.504528, 0.149927, 0.850278, 0, 0, 0)
+light_color = Color(0.0196078, 0.0196078, 0.0196078, 1)
 light_energy = 0.0
 shadow_enabled = true
 directional_shadow_fade_start = 0.655
@@ -544,7 +544,6 @@ reset_on_save = false
 libraries = {
 &"": SubResource("AnimationLibrary_odk08")
 }
-playback_default_blend_time = 30.0
 
 [node name="Day-Night Cycle-Sky" type="AnimationPlayer" parent="."]
 reset_on_save = false
