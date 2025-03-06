@@ -108,7 +108,7 @@ func initNodes():
 	RainParticles.visible = false
 
 func set_dof_blur(value : bool) -> void:
-	var cameraAttributesResource = load("res://Resources/Environment/DefaultCameraAttributes.tres")
+	var cameraAttributesResource = load("uid://cskddrxjnggrw")
 	
 	if value:
 		cameraAttributesResource.dof_blur_far_enabled = true
@@ -116,12 +116,12 @@ func set_dof_blur(value : bool) -> void:
 		cameraAttributesResource.dof_blur_far_enabled = false
 
 func set_pretty_shadows(value : bool) -> void:
-	var WorldEnv = load("res://Resources/Environment/TheIslandWorldEnvironment.tres")
+	var IslandWorldEnv = load("uid://dgtwdwq2n0x1v")
 	
 	if value:
-		WorldEnv.sdfgi_enabled = true
+		IslandWorldEnv.sdfgi_enabled = true
 	else:
-		WorldEnv.sdfgi_enabled = false
+		IslandWorldEnv.sdfgi_enabled = false
 
 func get_weighted_random_weather():
 	var weights = [60, 10, 10, 20]

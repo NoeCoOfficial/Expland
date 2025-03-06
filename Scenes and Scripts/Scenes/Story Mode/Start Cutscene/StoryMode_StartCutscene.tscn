@@ -1,12 +1,30 @@
-[gd_scene load_steps=42 format=3 uid="uid://nlp0xy1m65tp"]
+[gd_scene load_steps=44 format=3 uid="uid://nlp0xy1m65tp"]
 
 [ext_resource type="Script" uid="uid://uvb2g81nntt2" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/StoryMode_StartCutscene_SCRIPT.gd" id="1_4d7y3"]
 [ext_resource type="Shader" uid="uid://b2gi30s113t00" path="res://Scenes and Scripts/Scenes/The Island/TheIslandSeaWater.gdshader" id="2_cfn0j"]
-[ext_resource type="Environment" uid="uid://dgtwdwq2n0x1v" path="res://Resources/Environment/TheIslandWorldEnvironment.tres" id="2_g8pos"]
 [ext_resource type="Script" uid="uid://dudqfc8y403pg" path="res://Textures/Icons/Script Icons/Scripts/RiverIcon_SCRIPT.gd" id="3_os8dc"]
 [ext_resource type="PackedScene" uid="uid://ck0guuhifgbmr" path="res://Assets/3D Models/Cutscenes/Story Mode/Start Cutscene/Yacht.blend" id="4_os8dc"]
 [ext_resource type="Shader" uid="uid://brub6nkftipc1" path="res://Resources/Shaders/Clouds.gdshader" id="5_encjm"]
 [ext_resource type="Script" uid="uid://dn1b1gnwe5iap" path="res://Textures/Icons/Script Icons/Scripts/LightbulbIcon_SCRIPT.gd" id="6_to1x2"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_to1x2"]
+sky_top_color = Color(0.379513, 0.678929, 0.950538, 1)
+sky_horizon_color = Color(0.51, 0.755, 1, 1)
+sky_curve = 0.0409602
+ground_bottom_color = Color(0.09, 0.09, 0.09, 1)
+ground_horizon_color = Color(0.301961, 0.552941, 0.827451, 1)
+
+[sub_resource type="Sky" id="Sky_7s4ab"]
+sky_material = SubResource("ProceduralSkyMaterial_to1x2")
+
+[sub_resource type="Environment" id="Environment_f3l76"]
+background_mode = 2
+sky = SubResource("Sky_7s4ab")
+tonemap_mode = 2
+ssao_power = 9.74701
+ssao_detail = 2.21
+ssao_horizon = 0.59
+glow_enabled = true
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_oopga"]
 
@@ -196,7 +214,7 @@ _data = {
 script = ExtResource("1_4d7y3")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("2_g8pos")
+environment = SubResource("Environment_f3l76")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.863395, 0.390681, -0.319244, 0, 0.632758, 0.77435, 0.504528, -0.66857, 0.54632, 0, 0, 0)
