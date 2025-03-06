@@ -90,10 +90,6 @@ folder_colors={
 
 PlayerBody="The body for the player."
 
-[gui]
-
-theme/custom_font="uid://btimp4hwg4jis"
-
 [input]
 
 Jump={
