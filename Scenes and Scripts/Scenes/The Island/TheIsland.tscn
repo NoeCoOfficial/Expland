@@ -522,8 +522,7 @@ script = ExtResource("4_jhu24")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.863395, 0.180445, -0.471156, 0, 0.933856, 0.357651, 0.504528, -0.308794, 0.806286, 0, 0, 0)
-light_color = Color(0.958841, 0.481446, 0.291475, 1)
-light_energy = 0.98182
+light_color = Color(0.0518231, 0.0518231, 0.051823, 1)
 shadow_enabled = true
 directional_shadow_fade_start = 0.655
 directional_shadow_max_distance = 150.0
