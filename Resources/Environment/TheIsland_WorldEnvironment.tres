@@ -1,6 +1,6 @@
 [gd_resource type="Environment" load_steps=3 format=3 uid="uid://dgtwdwq2n0x1v"]
 
-[ext_resource type="Material" uid="uid://d14tly1o3umag" path="res://Resources/Environment/TheIslandProceduralSkyMaterial.tres" id="1_h7ow7"]
+[ext_resource type="Material" uid="uid://d14tly1o3umag" path="res://Resources/Environment/TheIsland_ProceduralSkyMaterial.tres" id="1_h7ow7"]
 
 [sub_resource type="Sky" id="Sky_eijt2"]
 sky_material = ExtResource("1_h7ow7")
