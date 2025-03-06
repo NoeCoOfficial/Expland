@@ -183,7 +183,7 @@ func _on_tick() -> void:
 		TimeManager.CURRENT_TIME = 0
 		
 		if !PlayerData.GAME_STATE == "SLEEPING":
-			TimeManager.CURRENT_DAY += 1
+			TimeManager.CURRENT_DAY = int(TimeManager.CURRENT_DAY + 1)
 	
 	if TimeManager.CURRENT_TIME >= 1140 or TimeManager.CURRENT_TIME < 360:
 		TimeManager.DAY_STATE = "NIGHT"
