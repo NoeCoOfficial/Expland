@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://jdu8drxlcfv5"]
+[gd_scene load_steps=4 format=3 uid="uid://jdu8drxlcfv5"]
 
 [ext_resource type="PackedScene" uid="uid://bm8ioe8ilxdqq" path="res://Assets/3D Models/Characters/Player/Player_Character_Shadow.blend" id="1_y30h3"]
 [ext_resource type="Script" uid="uid://cxwyxp15k7mp7" path="res://Scenes and Scripts/Scenes/Player/Character/PlayerCharacterShadow_SCRIPT.gd" id="2_b2qjb"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_y30h3"]
 
 [node name="Player_Character_Shadow" instance=ExtResource("1_y30h3")]
 script = ExtResource("2_b2qjb")
@@ -47,3 +49,8 @@ bones/22/rotation = Quaternion(0.802501, 0.0444934, 0.0970324, 0.587024)
 bones/23/position = Vector3(-2.48286e-07, 27.4118, -8.89987e-07)
 bones/23/rotation = Quaternion(0.262391, 0.0570509, -0.0293376, 0.962827)
 bones/24/position = Vector3(3.17023e-06, 10.3578, 2.18395e-07)
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+callback_mode_process = 0
+tree_root = SubResource("AnimationNodeBlendTree_y30h3")
+anim_player = NodePath("../AnimationPlayer")
