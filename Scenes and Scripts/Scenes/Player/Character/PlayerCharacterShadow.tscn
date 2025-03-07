@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://jdu8drxlcfv5"]
+[gd_scene load_steps=19 format=3 uid="uid://jdu8drxlcfv5"]
 
 [ext_resource type="PackedScene" uid="uid://bm8ioe8ilxdqq" path="res://Assets/3D Models/Characters/Player/Player_Character_Shadow.blend" id="1_y30h3"]
 [ext_resource type="Script" uid="uid://cxwyxp15k7mp7" path="res://Scenes and Scripts/Scenes/Player/Character/PlayerCharacterShadow_SCRIPT.gd" id="2_b2qjb"]
+[ext_resource type="Curve" uid="uid://dunhv8hktvil5" path="res://Resources/Curves/PlayerCharacter_TransitionCurve.tres" id="3_b2qjb"]
 
 [sub_resource type="Animation" id="Animation_y30h3"]
 resource_name = "CrouchingIdle_2"
@@ -1740,6 +1741,7 @@ animation = &"Idle_2"
 
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_b2qjb"]
 xfade_time = 0.3
+xfade_curve = ExtResource("3_b2qjb")
 input_0/name = "Idle"
 input_0/auto_advance = false
 input_0/break_loop_at_end = false
@@ -1769,7 +1771,7 @@ input_5/reset = true
 animation = &"Slow Run_2"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_y30h3"]
-graph_offset = Vector2(-490.025, -19.8823)
+graph_offset = Vector2(-335.025, -83.8823)
 nodes/CrouchWalk_ANIM/node = SubResource("AnimationNodeAnimation_y30h3")
 nodes/CrouchWalk_ANIM/position = Vector2(-140, -60)
 nodes/CrouchingIdle_ANIM/node = SubResource("AnimationNodeAnimation_b2qjb")
