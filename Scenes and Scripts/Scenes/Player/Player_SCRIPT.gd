@@ -177,8 +177,12 @@ var stamina_restoring_from_0 = false
 @export var camera : Camera3D
 @export var HandItem : Node3D
 @export var PickupAttractionPos : Node3D
-@export var Character_Anim_Player : AnimationPlayer
+
 @export var Character_Body : Node3D
+@export var Character_Anim_Player : AnimationPlayer
+
+@export var Character_Shadow_Body : Node3D
+@export var Character_Shadow_Anim_Player : AnimationPlayer
 
 
 @export_group("Inventory")
@@ -624,16 +628,22 @@ func _update_animation():
 	if velocity.y == 0:
 		if PlayerManager.is_sprinting_moving:
 			Character_Body.fastRun()
+			Character_Shadow_Body.fastRun()
 		elif PlayerManager.is_walking_moving:
 			Character_Body.slowRun()
+			Character_Shadow_Body.slowRun()
 		elif PlayerManager.is_crouching_moving:
 			Character_Body.crouchWalk()
+			Character_Shadow_Body.crouchWalk()
 		elif is_crouching:
 			Character_Body.crouchIdle()
+			Character_Shadow_Body.crouchIdle()
 		else:
 			Character_Body.idle()
+			Character_Shadow_Body.idle()
 	else:
 		Character_Body.fall()
+		Character_Shadow_Body.fall()
 
 func _process(_delta):
 	
