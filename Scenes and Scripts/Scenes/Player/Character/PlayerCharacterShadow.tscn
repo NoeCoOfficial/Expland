@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://jdu8drxlcfv5"]
+[gd_scene load_steps=18 format=3 uid="uid://jdu8drxlcfv5"]
 
 [ext_resource type="PackedScene" uid="uid://bm8ioe8ilxdqq" path="res://Assets/3D Models/Characters/Player/Player_Character_Shadow.blend" id="1_y30h3"]
 [ext_resource type="Script" uid="uid://cxwyxp15k7mp7" path="res://Scenes and Scripts/Scenes/Player/Character/PlayerCharacterShadow_SCRIPT.gd" id="2_b2qjb"]
@@ -1724,6 +1724,19 @@ _data = {
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y30h3"]
+animation = &"CrouchWalk_2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b2qjb"]
+animation = &"CrouchingIdle_2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fs1ew"]
+animation = &"Falling"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3jjcs"]
+animation = &"Fast Run_2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1r86f"]
+animation = &"Idle_2"
 
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_b2qjb"]
 xfade_time = 0.3
@@ -1732,12 +1745,25 @@ input_0/auto_advance = false
 input_0/break_loop_at_end = false
 input_0/reset = true
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_txhdo"]
+animation = &"Slow Run_2"
+
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_y30h3"]
-graph_offset = Vector2(-193, 16)
-nodes/Animation/node = SubResource("AnimationNodeAnimation_y30h3")
-nodes/Animation/position = Vector2(-200, 200)
+graph_offset = Vector2(-471.025, -100.882)
+nodes/CrouchWalk_ANIM/node = SubResource("AnimationNodeAnimation_y30h3")
+nodes/CrouchWalk_ANIM/position = Vector2(-140, -60)
+nodes/CrouchingIdle_ANIM/node = SubResource("AnimationNodeAnimation_b2qjb")
+nodes/CrouchingIdle_ANIM/position = Vector2(-320, -60)
+nodes/Falling_ANIM/node = SubResource("AnimationNodeAnimation_fs1ew")
+nodes/Falling_ANIM/position = Vector2(-320, 120)
+"nodes/Fast Run_ANIM/node" = SubResource("AnimationNodeAnimation_3jjcs")
+"nodes/Fast Run_ANIM/position" = Vector2(-160, 300)
+nodes/Idle_ANIM/node = SubResource("AnimationNodeAnimation_1r86f")
+nodes/Idle_ANIM/position = Vector2(-140, 120)
 nodes/Movement/node = SubResource("AnimationNodeTransition_b2qjb")
 nodes/Movement/position = Vector2(80, 120)
+"nodes/Slow Run_ANIM/node" = SubResource("AnimationNodeAnimation_txhdo")
+"nodes/Slow Run_ANIM/position" = Vector2(-320, 300)
 node_connections = [&"output", 0, &"Movement"]
 
 [node name="Player_Character_Shadow" instance=ExtResource("1_y30h3")]
