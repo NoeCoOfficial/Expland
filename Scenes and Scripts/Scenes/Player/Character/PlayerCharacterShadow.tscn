@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://jdu8drxlcfv5"]
+[gd_scene load_steps=3 format=3 uid="uid://jdu8drxlcfv5"]
 
-[ext_resource type="PackedScene" uid="uid://bm8ioe8ilxdqq" path="res://Assets/3D Models/Characters/Player/Player_Character_Shadow.blend" id="1_i7l06"]
+[ext_resource type="PackedScene" uid="uid://bm8ioe8ilxdqq" path="res://Assets/3D Models/Characters/Player/Player_Character_Shadow.blend" id="1_y30h3"]
+[ext_resource type="Script" uid="uid://cxwyxp15k7mp7" path="res://Scenes and Scripts/Scenes/Player/Character/PlayerCharacterShadow_SCRIPT.gd" id="2_b2qjb"]
 
-[node name="Player_Character_Shadow" instance=ExtResource("1_i7l06")]
+[node name="Player_Character_Shadow" instance=ExtResource("1_y30h3")]
+script = ExtResource("2_b2qjb")
 
 [node name="Skeleton3D" parent="Armature_003" index="0"]
 bones/0/position = Vector3(3.78714, -1.65733, -149.7)
