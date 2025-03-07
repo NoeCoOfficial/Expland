@@ -1740,16 +1740,36 @@ animation = &"Idle_2"
 
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_b2qjb"]
 xfade_time = 0.3
-input_0/name = "state_0"
+input_0/name = "Idle"
 input_0/auto_advance = false
 input_0/break_loop_at_end = false
 input_0/reset = true
+input_1/name = "CrouchWalk"
+input_1/auto_advance = false
+input_1/break_loop_at_end = false
+input_1/reset = true
+input_2/name = "CrouchingIdle"
+input_2/auto_advance = false
+input_2/break_loop_at_end = false
+input_2/reset = true
+input_3/name = "Fast Run"
+input_3/auto_advance = false
+input_3/break_loop_at_end = false
+input_3/reset = true
+input_4/name = "Slow Run"
+input_4/auto_advance = false
+input_4/break_loop_at_end = false
+input_4/reset = true
+input_5/name = "Falling"
+input_5/auto_advance = false
+input_5/break_loop_at_end = false
+input_5/reset = true
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_txhdo"]
 animation = &"Slow Run_2"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_y30h3"]
-graph_offset = Vector2(-471.025, -100.882)
+graph_offset = Vector2(-490.025, -19.8823)
 nodes/CrouchWalk_ANIM/node = SubResource("AnimationNodeAnimation_y30h3")
 nodes/CrouchWalk_ANIM/position = Vector2(-140, -60)
 nodes/CrouchingIdle_ANIM/node = SubResource("AnimationNodeAnimation_b2qjb")
@@ -1820,6 +1840,6 @@ libraries = {
 callback_mode_process = 0
 tree_root = SubResource("AnimationNodeBlendTree_y30h3")
 anim_player = NodePath("../AnimationPlayer_Character")
-parameters/Movement/current_state = "state_0"
+parameters/Movement/current_state = "Idle"
 parameters/Movement/transition_request = ""
 parameters/Movement/current_index = 0
