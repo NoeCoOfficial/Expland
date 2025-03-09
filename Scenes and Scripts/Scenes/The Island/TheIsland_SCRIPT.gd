@@ -200,12 +200,7 @@ func change_sky(SkyType: String, TOD : int):
 		await get_tree().create_timer(30.0).timeout
 		transitioning_weather = false
 
-func change_weather(ARR_INDEX : int):
-	if ARR_INDEX < 0 or ARR_INDEX >= WeatherManager.WEATHERS.size():
-		print("Invalid array index for accessing weather!")
-		return
-	
-	var GOTO_WEATHER_STR = WeatherManager.WEATHERS[ARR_INDEX]
+func change_weather(GOTO_WEATHER_STR : String):
 	print_rich("[color=pink]Changing weather to: " + GOTO_WEATHER_STR + "[/color]")
 	
 	if GOTO_WEATHER_STR == "SUNNY":
@@ -223,6 +218,3 @@ func change_weather(ARR_INDEX : int):
 	elif GOTO_WEATHER_STR == "STORM":
 		# Implement STORM weather change logic
 		pass
-
-func change_weather_to_random():
-	WeatherManager.change_weather_to_random()
