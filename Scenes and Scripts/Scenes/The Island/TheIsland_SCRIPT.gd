@@ -218,3 +218,9 @@ func change_weather(GOTO_WEATHER_STR : String):
 	elif GOTO_WEATHER_STR == "STORM":
 		# Implement STORM weather change logic
 		pass
+
+func _on_weather_timer_timeout() -> void:
+	WeatherManager.change_weather_to_random()
+	$"Weather Timer".stop()
+	$"Weather Timer".wait_time = randi_range(400, 1000)
+	$"Weather Timer".start()

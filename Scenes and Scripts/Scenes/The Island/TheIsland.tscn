@@ -893,3 +893,4 @@ NailRotation_Degrees = Vector3(-2.34, -23.005, 2.495)
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="timeout" from="Tick" to="." method="_on_tick"]
+[connection signal="timeout" from="Weather Timer" to="." method="_on_weather_timer_timeout"]
