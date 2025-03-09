@@ -66,10 +66,13 @@ func onfadeeOutGreyOverlay_Finished():
 
 func cutscene_timeline():
 	await get_tree().create_timer(2).timeout
+	print("Dialogue 1")
 	MD.spawnMinimalDialogue(
 	2.5, 
 	'"Three days out here already... hard to believe it has been so long since I have seen Doc."')
-	await get_tree().create_timer(10).timeout
+	
+	await get_tree().create_timer(6).timeout
+	print("Dialogue 2")
 	MD.spawnMinimalDialogue(
 	2.5, 
 	'"Just me and the waves and the smell of the sea, huh? Could get used to this, but I better not."')
