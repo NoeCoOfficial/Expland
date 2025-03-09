@@ -1,9 +1,10 @@
-[gd_scene load_steps=42 format=3 uid="uid://nlp0xy1m65tp"]
+[gd_scene load_steps=43 format=3 uid="uid://nlp0xy1m65tp"]
 
 [ext_resource type="Script" uid="uid://uvb2g81nntt2" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/StoryMode_StartCutscene_SCRIPT.gd" id="1_4d7y3"]
 [ext_resource type="Shader" uid="uid://b2gi30s113t00" path="res://Scenes and Scripts/Scenes/The Island/TheIslandSeaWater.gdshader" id="2_cfn0j"]
 [ext_resource type="Environment" uid="uid://d1cbu0qgvxnuh" path="res://Resources/Environment/StoryMode_StartCutscene_WorldEnvironment.tres" id="2_g8pos"]
 [ext_resource type="Script" uid="uid://dudqfc8y403pg" path="res://Textures/Icons/Script Icons/Scripts/RiverIcon_SCRIPT.gd" id="3_os8dc"]
+[ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="4_7s4ab"]
 [ext_resource type="PackedScene" uid="uid://ck0guuhifgbmr" path="res://Assets/3D Models/Cutscenes/Story Mode/Start Cutscene/Yacht.blend" id="4_os8dc"]
 [ext_resource type="Shader" uid="uid://brub6nkftipc1" path="res://Resources/Shaders/Clouds.gdshader" id="5_encjm"]
 [ext_resource type="Script" uid="uid://dn1b1gnwe5iap" path="res://Textures/Icons/Script Icons/Scripts/LightbulbIcon_SCRIPT.gd" id="6_to1x2"]
@@ -221,6 +222,33 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+
+[node name="MinimalDialogue" type="Control" parent="Camera3D/MainLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="Label" parent="Camera3D/MainLayer/MinimalDialogue"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -299.0
+offset_top = 181.0
+offset_right = 300.0
+offset_bottom = 204.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_7s4ab")
+text = "Three days out here already... hard to believe it has been so long since I have seen Doc."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="SeaWater" type="MeshInstance3D" parent="."]
 transform = Transform3D(2896.94, 0, 0, 0, 314.222, 0, 0, 0, 3775.78, -0.552, -172.612, -24.36)

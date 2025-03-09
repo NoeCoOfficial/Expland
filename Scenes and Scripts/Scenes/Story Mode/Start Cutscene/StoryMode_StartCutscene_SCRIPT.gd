@@ -51,10 +51,24 @@ extends Node3D
 func _ready() -> void:
 	print("ENTERED STORY MODE START CUTSCENE")
 	fadeeOutGreyOverlay()
+	$Camera3D/MainLayer/MinimalDialogue/Text.hide()
 
 func fadeeOutGreyOverlay():
 	var tween = get_tree().create_tween()
+	tween.connect("finished", onfadeeOutGreyOverlay_Finished)
 	tween.tween_property($Camera3D/MainLayer/BlackFade, "modulate", Color(1, 1, 1, 0), 4)
 
 func onfadeeOutGreyOverlay_Finished():
 	$Camera3D/MainLayer/BlackFade.visible = false
+	spawnMinimalDialogue(
+	3, 
+	"Three days out here already... hard to believe it has been so long since I have seen Doc.")
+
+func spawnMinimalDialogue(time : float, msg : String):
+	$Camera3D/MainLayer/MinimalDialogue/Text.show()
+	$Camera3D/MainLayer/MinimalDialogue/Text.modulate = Color(1, 1, 1, 1)
+	$Camera3D/MainLayer/MinimalDialogue/Text.visible_ratio = 0.0
+	$Camera3D/MainLayer/MinimalDialogue/Text.text = msg
+	var tween = get_tree().create_tween().set_parallel()
+	tween.tween_property($Camera3D/MainLayer/MinimalDialogue/Text, "visible_ratio", 1.0, time)
+	tween.tween_property($Camera3D/MainLayer/MinimalDialogue/Text, "modulate", Color(1, 1, 1, 0), 1).set_delay(time + 2)
