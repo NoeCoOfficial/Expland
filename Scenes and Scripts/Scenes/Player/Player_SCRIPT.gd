@@ -1155,7 +1155,6 @@ func setHotbarSelectedSlot(Slot_Number):
 	if Slot_Number != null:
 		print("Setting hotbar slot to: ", Slot_Number)
 		for child in $Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots.get_children():
-			print("Checking child: ", child.name)
 			if str(child.name) == "Slot" + str(Slot_Number):
 				print("Found slot: ", child.name)
 				HotbarManager.CURRENTLY_SELECTED_SLOT = child
