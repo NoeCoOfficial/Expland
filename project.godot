@@ -44,6 +44,7 @@ StoryModeManager="*res://Scenes and Scripts/Singletons/Gamemodes/StoryModeManage
 IslandManager="*res://Scenes and Scripts/Singletons/World/IslandManager.gd"
 PauseManager="*res://Scenes and Scripts/Singletons/Pause/PauseManager.gd"
 TimeManager="*res://Scenes and Scripts/Singletons/World/TimeManager.gd"
+WeatherManager="*res://Scenes and Scripts/Singletons/World/WeatherManager.gd"
 ExplorerNotesManager="*res://Scenes and Scripts/Singletons/World/ExplorerNotesManager.gd"
 DialogueManager="*res://Scenes and Scripts/Singletons/Dialogue/DialogueManager.gd"
 AchievementsManager="*res://Scenes and Scripts/Singletons/Achievements/AchievementsManager.gd"
