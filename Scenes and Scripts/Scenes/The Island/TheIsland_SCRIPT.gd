@@ -123,24 +123,6 @@ func set_pretty_shadows(value : bool) -> void:
 	else:
 		IslandWorldEnv.sdfgi_enabled = false
 
-func get_weighted_random_weather():
-	var weights = [60, 10, 10, 20]
-	
-	var options = [1, 2, 3, 4]
-	# 1 = SUNNY
-	# 2 = RAIN
-	# 3 = STORM
-	# 4 = CLOUDY
-	
-	var total_weight = Utils.sum_array(weights)
-	var random_value = randi() % total_weight
-	var cumulative = 0
-	
-	for i in options.size():
-		cumulative += weights[i]
-		if random_value < cumulative:
-			return options[i]
-
 func set_time(minute : int):
 	if !DayNightCycle.is_playing():
 		DayNightCycle.play(&"cycle")
@@ -226,4 +208,12 @@ func change_weather(ARR_INDEX : int):
 	var GOTO_WEATHER_STR = WeatherManager.WEATHERS[ARR_INDEX]
 	
 	if GOTO_WEATHER_STR == "SUNNY":
+		pass
+	elif GOTO_WEATHER_STR == "CLOUDY":
+		pass
+	elif GOTO_WEATHER_STR == "RAIN":
+		pass
+	elif GOTO_WEATHER_STR == "LIGHT_RAIN":
+		pass
+	elif GOTO_WEATHER_STR == "STORM":
 		pass
