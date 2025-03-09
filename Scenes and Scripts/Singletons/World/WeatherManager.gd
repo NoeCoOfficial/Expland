@@ -50,10 +50,57 @@ extends Node
 var CURRENT_WEATHER : String = ""
 var CURRENT_WEATHER_ARR_INDEX : int
 
-var WEATHERS : Array = ["PLACEHOLDER",
-	"SUNNY", # 1
-	"CLOUDY", # 2
-	"RAIN", # 3
-	"LIGHT_RAIN", # 4
-	"STORM", # 5
+var WEATHERS : Array = [
+	"SUNNY", # 0
+	"CLOUDY", # 1
+	"RAIN", # 2
+	"LIGHT_RAIN", # 3
+	"STORM", # 4
 ]
+
+# Define weights for each weather type
+var WEATHER_WEIGHTS : Array = [50, 30, 10, 5, 5] # Example weights
+
+func get_random_weather() -> int:
+	var total_weight = 0
+	for weight in WEATHER_WEIGHTS:
+		total_weight += weight
+	
+	var random_value = randi() % total_weight
+	var cumulative_weight = 0
+	
+	for i in range(WEATHER_WEIGHTS.size()):
+		cumulative_weight += WEATHER_WEIGHTS[i]
+		if random_value < cumulative_weight:
+			return i
+
+	return 0 # Default to SUNNY if something goes wrong
+
+func change_weather_to_random():
+	var random_weather_index = get_random_weather()
+	change_weather(random_weather_index)
+
+func change_weather(ARR_INDEX : int):
+	if ARR_INDEX < 0 or ARR_INDEX >= WEATHERS.size():
+		print("Invalid array index for accessing weather!")
+		return
+	
+	CURRENT_WEATHER = WEATHERS[ARR_INDEX]
+	CURRENT_WEATHER_ARR_INDEX = ARR_INDEX
+	print_rich("[color=pink]Changing weather to: " + CURRENT_WEATHER + "[/color]")
+	
+	if CURRENT_WEATHER == "SUNNY":
+		# Implement SUNNY weather change logic
+		pass
+	elif CURRENT_WEATHER == "CLOUDY":
+		# Implement CLOUDY weather change logic
+		pass
+	elif CURRENT_WEATHER == "RAIN":
+		# Implement RAIN weather change logic
+		pass
+	elif CURRENT_WEATHER == "LIGHT_RAIN":
+		# Implement LIGHT_RAIN weather change logic
+		pass
+	elif CURRENT_WEATHER == "STORM":
+		# Implement STORM weather change logic
+		pass
