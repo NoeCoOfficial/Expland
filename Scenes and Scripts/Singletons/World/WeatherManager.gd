@@ -47,4 +47,13 @@
 
 extends Node
 
-@export var on_terrain: String = "GRASS"
+var CURRENT_WEATHER : String = ""
+var CURRENT_WEATHER_ARR_INDEX : int
+
+var WEATHERS : Array = ["PLACEHOLDER",
+	"SUNNY", # 1
+	"CLOUDY", # 2
+	"RAIN", # 3
+	"LIGHT_RAIN", # 4
+	"STORM", # 5
+]
