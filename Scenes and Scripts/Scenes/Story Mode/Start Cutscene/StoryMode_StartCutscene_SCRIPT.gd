@@ -49,6 +49,7 @@ extends Node3D
 
 @onready var MD : Control = $Camera3D/MainLayer/MinimalDialogue
 
+
 func _ready() -> void:
 	print("ENTERED STORY MODE START CUTSCENE")
 	fadeeOutGreyOverlay()
