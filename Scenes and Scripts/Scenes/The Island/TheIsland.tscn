@@ -555,6 +555,10 @@ blend_times = [&"cloudy_sky_cycle", &"cloudy_sky_cycle", 30.0, &"cloudy_sky_cycl
 [node name="Tick" type="Timer" parent="."]
 wait_time = 2.0
 
+[node name="Weather Timer" type="Timer" parent="."]
+wait_time = 200.0
+one_shot = true
+
 [node name="Rain" type="CPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -347.562, 57.3563, 287.541)
 visible = false

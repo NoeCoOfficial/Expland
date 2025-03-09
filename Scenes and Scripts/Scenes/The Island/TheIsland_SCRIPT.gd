@@ -217,3 +217,13 @@ func change_sky(SkyType: String, TOD : int):
 		
 		await get_tree().create_timer(30.0).timeout
 		transitioning_weather = false
+
+func change_weather(ARR_INDEX : int):
+	if ARR_INDEX == 0:
+		print("Invalid array index for accessing weather!")
+		return
+	
+	var GOTO_WEATHER_STR = WeatherManager.WEATHERS[ARR_INDEX]
+	
+	if GOTO_WEATHER_STR == "SUNNY":
+		pass
