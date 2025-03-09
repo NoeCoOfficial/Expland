@@ -76,3 +76,9 @@ func cutscene_timeline():
 	MD.spawnMinimalDialogue(
 	2.5, 
 	'"Just me and the waves and the smell of the sea, huh? Could get used to this, but I better not."')
+	
+	await get_tree().create_timer(8).timeout
+	print("Dialogue 3")
+	MD.spawnMinimalDialogue(
+	2.5, 
+	'"This trip is only the beginning of something much bigger. Bigger?"')
