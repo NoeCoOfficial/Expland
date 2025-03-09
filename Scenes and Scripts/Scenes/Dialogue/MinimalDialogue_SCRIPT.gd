@@ -46,3 +46,12 @@
 # ============================================================= #
 
 extends Control
+
+func spawnMinimalDialogue(time : float, msg : String):
+	$Text.show()
+	$Text.modulate = Color(1, 1, 1, 1)
+	$Text.visible_ratio = 0.0
+	$Text.text = msg
+	var tween = get_tree().create_tween().set_parallel()
+	tween.tween_property($Text, "visible_ratio", 1.0, time)
+	tween.tween_property($Text, "modulate", Color(1, 1, 1, 0), 1).set_delay(time + 2)

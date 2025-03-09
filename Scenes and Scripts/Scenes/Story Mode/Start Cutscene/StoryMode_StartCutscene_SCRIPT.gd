@@ -47,6 +47,7 @@
 
 extends Node3D
 
+@onready var MD : Control = $Camera3D/MainLayer/MinimalDialogue
 
 func _ready() -> void:
 	print("ENTERED STORY MODE START CUTSCENE")
@@ -64,19 +65,10 @@ func onfadeeOutGreyOverlay_Finished():
 
 func cutscene_timeline():
 	await get_tree().create_timer(2).timeout
-	spawnMinimalDialogue(
+	MD.spawnMinimalDialogue(
 	2.5, 
 	'"Three days out here already... hard to believe it has been so long since I have seen Doc."')
 	await get_tree().create_timer(2.5 + 2 + 0.8).timeout
-	spawnMinimalDialogue(
+	MD.spawnMinimalDialogue(
 	2.5, 
 	'"Just me and the waves and the smell of the sea, huh? Could get used to this, but I better not."')
-
-func spawnMinimalDialogue(time : float, msg : String):
-	$Camera3D/MainLayer/MinimalDialogue/Text.show()
-	$Camera3D/MainLayer/MinimalDialogue/Text.modulate = Color(1, 1, 1, 1)
-	$Camera3D/MainLayer/MinimalDialogue/Text.visible_ratio = 0.0
-	$Camera3D/MainLayer/MinimalDialogue/Text.text = msg
-	var tween = get_tree().create_tween().set_parallel()
-	tween.tween_property($Camera3D/MainLayer/MinimalDialogue/Text, "visible_ratio", 1.0, time)
-	tween.tween_property($Camera3D/MainLayer/MinimalDialogue/Text, "modulate", Color(1, 1, 1, 0), 1).set_delay(time + 2)
