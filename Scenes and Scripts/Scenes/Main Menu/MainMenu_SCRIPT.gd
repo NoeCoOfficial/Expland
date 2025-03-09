@@ -627,13 +627,12 @@ func on_story_mode_fade_finished():
 	get_tree().change_scene_to_packed(StoryModeStartCutscene)
 	StoryModeManager.is_in_story_mode_first_cutscene_world = true
 
-
 func _on_tree_exiting() -> void:
-	if loadAchivementElementsThread.is_alive():
+	if loadAchivementElementsThread:
 		loadAchivementElementsThread.wait_to_finish()
+		loadAchivementElementsThread = null
 	
-	if loadIslandThread.is_alive():
-		loadIslandThread.wait_to_finish()
-	
-	loadIslandThread.wait_to_finish()
-	loadAchivementElementsThread.wait_to_finish()
+	if loadIslandThread:
+		if loadIslandThread.is_alive():
+			loadIslandThread.wait_to_finish()
+			loadIslandThread = null
