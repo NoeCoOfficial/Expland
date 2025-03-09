@@ -206,9 +206,10 @@ func change_weather(ARR_INDEX : int):
 		return
 	
 	var GOTO_WEATHER_STR = WeatherManager.WEATHERS[ARR_INDEX]
+	print_rich("[color=pink]Changing weather to: " + GOTO_WEATHER_STR + "[/color]")
 	
 	if GOTO_WEATHER_STR == "SUNNY":
-		print_rich()
+		pass
 	elif GOTO_WEATHER_STR == "CLOUDY":
 		pass
 	elif GOTO_WEATHER_STR == "RAIN":
