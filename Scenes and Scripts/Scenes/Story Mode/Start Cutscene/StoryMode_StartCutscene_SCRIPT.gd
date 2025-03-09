@@ -51,6 +51,7 @@ extends Node3D
 func _ready() -> void:
 	print("ENTERED STORY MODE START CUTSCENE")
 	fadeeOutGreyOverlay()
+	cutscene_timeline()
 	$Camera3D/MainLayer/MinimalDialogue/Text.hide()
 
 func fadeeOutGreyOverlay():
@@ -60,6 +61,9 @@ func fadeeOutGreyOverlay():
 
 func onfadeeOutGreyOverlay_Finished():
 	$Camera3D/MainLayer/BlackFade.visible = false
+
+func cutscene_timeline():
+	await get_tree().create_timer(2.5).timeout
 	spawnMinimalDialogue(
 	3, 
 	"Three days out here already... hard to believe it has been so long since I have seen Doc.")
