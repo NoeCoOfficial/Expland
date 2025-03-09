@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://nlp0xy1m65tp"]
+[gd_scene load_steps=44 format=3 uid="uid://nlp0xy1m65tp"]
 
 [ext_resource type="Script" uid="uid://uvb2g81nntt2" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/StoryMode_StartCutscene_SCRIPT.gd" id="1_4d7y3"]
 [ext_resource type="Shader" uid="uid://b2gi30s113t00" path="res://Scenes and Scripts/Scenes/The Island/TheIslandSeaWater.gdshader" id="2_cfn0j"]
@@ -175,6 +175,8 @@ lightmap_size_hint = Vector2i(14, 21)
 
 [sub_resource type="Animation" id="Animation_g8pos"]
 resource_name = "yacht_bob"
+length = 5.0
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -182,14 +184,30 @@ tracks/0/path = NodePath("Yacht Rig/Yacht:rotation")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.06667, 4.26667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 2.87979, 0), Vector3(0.00174533, 2.87979, 0.010472), Vector3(-0.0333326, 2.87965, 0.00202203)]
+}
+
+[sub_resource type="Animation" id="Animation_7s4ab"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Yacht Rig/Yacht:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 2.87979, 0)]
+"values": [Vector3(0.00355501, 2.87981, 0.0132678)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7s4ab"]
 _data = {
+&"RESET": SubResource("Animation_7s4ab"),
 &"yacht_bob": SubResource("Animation_g8pos")
 }
 
@@ -234,7 +252,7 @@ script = ExtResource("3_os8dc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22068, -15.4248, -17.6352)
 
 [node name="Yacht" parent="Yacht Rig" instance=ExtResource("4_os8dc")]
-transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 0, 0, 0)
+transform = Transform3D(-0.965834, 0.0137353, 0.258798, 0.0132673, 0.999906, -0.003555, -0.258822, 0, -0.965925, 0, 0, 0)
 
 [node name="Collision" type="StaticBody3D" parent="Yacht Rig/Yacht"]
 
@@ -319,5 +337,6 @@ mesh = SubResource("BoxMesh_ec70e")
 libraries = {
 &"": SubResource("AnimationLibrary_7s4ab")
 }
+autoplay = "yacht_bob"
 
 [editable path="Yacht Rig/Yacht"]
