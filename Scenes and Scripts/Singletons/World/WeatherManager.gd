@@ -87,20 +87,6 @@ func change_weather(ARR_INDEX : int):
 	
 	CURRENT_WEATHER = WEATHERS[ARR_INDEX]
 	CURRENT_WEATHER_ARR_INDEX = ARR_INDEX
-	print_rich("[color=pink]Changing weather to: " + CURRENT_WEATHER + "[/color]")
 	
-	if CURRENT_WEATHER == "SUNNY":
-		# Implement SUNNY weather change logic
-		pass
-	elif CURRENT_WEATHER == "CLOUDY":
-		# Implement CLOUDY weather change logic
-		pass
-	elif CURRENT_WEATHER == "RAIN":
-		# Implement RAIN weather change logic
-		pass
-	elif CURRENT_WEATHER == "LIGHT_RAIN":
-		# Implement LIGHT_RAIN weather change logic
-		pass
-	elif CURRENT_WEATHER == "STORM":
-		# Implement STORM weather change logic
-		pass
+	if PlayerManager.WORLD:
+		PlayerManager.WORLD.change_weather(CURRENT_WEATHER)
