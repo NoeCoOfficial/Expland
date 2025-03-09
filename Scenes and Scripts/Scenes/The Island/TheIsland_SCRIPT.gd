@@ -65,7 +65,7 @@ var transitioning_weather = false
 func _ready() -> void:
 	randomize()
 	initNodes()
-
+	
 	AudioManager.NotificationOnScreen = false
 	AudioManager.canOperate_textField = true
 	IslandManager.transitioning_from_menu = false
@@ -87,6 +87,7 @@ func _ready() -> void:
 		set_time(TimeManager.CURRENT_TIME)
 	
 	Tick.start()
+	init_weather()
 	
 	Player.nodeSetup()
 	Player.setHotbarSelectedSlot(int(str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME)[-1]))
@@ -220,6 +221,9 @@ func change_weather(GOTO_WEATHER_STR : String):
 		pass
 
 func _on_weather_timer_timeout() -> void:
+	init_weather()
+
+func init_weather():
 	WeatherManager.change_weather_to_random()
 	$"Weather Timer".stop()
 	$"Weather Timer".wait_time = randi_range(400, 1000)
