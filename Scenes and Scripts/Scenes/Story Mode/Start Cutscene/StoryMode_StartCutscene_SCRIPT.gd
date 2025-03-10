@@ -48,6 +48,7 @@
 extends Node3D
 
 @onready var MD : Control = $Camera3D/MainLayer/MinimalDialogue
+@onready var player_scene = preload("uid://cjm5lrxicdgsf")
 
 
 func _ready() -> void:
@@ -70,13 +71,16 @@ func onfadeOutGreyOverlay_Finished():
 #####################################
 
 func fadeInGreyOverlay():
-	$Camera3D/MainLayer/BlackFade.visible = true
+	#$Camera3D/MainLayer/BlackFade.visible = true
 	var tween = get_tree().create_tween()
 	tween.connect("finished", onfadeInGreyOverlay_Finished)
 	tween.tween_property($Camera3D/MainLayer/BlackFade, "modulate", Color(1, 1, 1, 1), 4).from(Color(1, 1, 1, 0))
 
 func onfadeInGreyOverlay_Finished():
-	pass
+	var player_instance = player_scene.instantiate()
+	$Camera_Sutle_Movement.stop()
+	$"Yacht Bob".stop()
+	player_instance.StartPOS = Vector3(2.07, -15.328, -17.33)
 
 #####################################
 

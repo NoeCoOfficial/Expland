@@ -711,8 +711,6 @@ func _process(_delta):
 #region On startup
 
 func _ready():
-	if StoryModeManager.is_in_story_mode_first_cutscene_world:
-		camera.current = false
 	SignalBus.spawn_crafted_item.connect(Craft)
 	
 	initInventorySlots() # Link local inventory slots to singleton arrays
