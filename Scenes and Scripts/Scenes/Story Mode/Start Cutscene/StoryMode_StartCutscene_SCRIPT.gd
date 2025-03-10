@@ -70,9 +70,10 @@ func onfadeOutGreyOverlay_Finished():
 #####################################
 
 func fadeInGreyOverlay():
+	$Camera3D/MainLayer/BlackFade.visible = true
 	var tween = get_tree().create_tween()
 	tween.connect("finished", onfadeInGreyOverlay_Finished)
-	tween.tween_property($Camera3D/MainLayer/BlackFade, "modulate", Color(1, 1, 1, 1), 4)
+	tween.tween_property($Camera3D/MainLayer/BlackFade, "modulate", Color(1, 1, 1, 1), 4).from(Color(1, 1, 1, 0))
 
 func onfadeInGreyOverlay_Finished():
 	pass
