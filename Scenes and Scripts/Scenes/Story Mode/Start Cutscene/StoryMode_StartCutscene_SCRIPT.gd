@@ -52,17 +52,32 @@ extends Node3D
 
 func _ready() -> void:
 	print("ENTERED STORY MODE START CUTSCENE")
-	fadeeOutGreyOverlay()
+	fadeOutGreyOverlay()
 	cutscene_timeline()
 	$Camera3D/MainLayer/MinimalDialogue/Text.hide()
 
-func fadeeOutGreyOverlay():
+#####################################
+
+func fadeOutGreyOverlay():
 	var tween = get_tree().create_tween()
-	tween.connect("finished", onfadeeOutGreyOverlay_Finished)
+	tween.connect("finished", onfadeOutGreyOverlay_Finished)
 	tween.tween_property($Camera3D/MainLayer/BlackFade, "modulate", Color(1, 1, 1, 0), 4)
 
-func onfadeeOutGreyOverlay_Finished():
+func onfadeOutGreyOverlay_Finished():
 	$Camera3D/MainLayer/BlackFade.visible = false
+
+#####################################
+#####################################
+
+func fadeInGreyOverlay():
+	var tween = get_tree().create_tween()
+	tween.connect("finished", onfadeInGreyOverlay_Finished)
+	tween.tween_property($Camera3D/MainLayer/BlackFade, "modulate", Color(1, 1, 1, 1), 4)
+
+func onfadeInGreyOverlay_Finished():
+	pass
+
+#####################################
 
 func cutscene_timeline():
 	await get_tree().create_timer(2).timeout
