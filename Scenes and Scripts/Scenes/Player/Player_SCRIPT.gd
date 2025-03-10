@@ -1398,14 +1398,17 @@ func _on_credits_button_pressed() -> void:
 #region Saving
 
 func saveInventory():
-	InventoryData.saveInventory(IslandManager.Current_Island_Name, InventoryMainLayer, ChestSlots)
+	if !StoryModeManager.is_in_story_mode_first_cutscene_world:
+		InventoryData.saveInventory(IslandManager.Current_Island_Name, InventoryMainLayer, ChestSlots)
 
 func _on_save_and_quit_btn_pressed():
-	SaveManager.saveAllData()
+	if !StoryModeManager.is_in_story_mode_first_cutscene_world:
+		SaveManager.saveAllData()
 	get_tree().quit()
 
 func _on_save_and_quit_to_menu_pressed() -> void:
-	SaveManager.saveAllData()
+	if !StoryModeManager.is_in_story_mode_first_cutscene_world:
+		SaveManager.saveAllData()
 	transitioning_to_menu = true
 	Global.the_island_transitioning_scene = true
 	AudioManager.Current_Playlist.audibleOnlyFadeOutAllSongs()
