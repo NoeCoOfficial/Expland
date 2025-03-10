@@ -82,6 +82,7 @@ func onfadeInGreyOverlay_Finished():
 	$Camera_Sutle_Movement.stop()
 	$"Yacht Bob".stop()
 	self.add_child(player_instance)
+	player_instance.position = Vector3(2.07, -15.328, -17.33)
 	player_instance.nodeSetup()
 	$Camera3D.clear_current(true)
 	$Camera3D/MainLayer/BlackFade.hide()
