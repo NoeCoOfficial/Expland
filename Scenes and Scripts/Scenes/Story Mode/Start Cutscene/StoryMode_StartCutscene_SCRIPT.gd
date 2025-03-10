@@ -52,6 +52,7 @@ extends Node3D
 
 
 func _ready() -> void:
+	StoryModeManager.is_in_story_mode_first_cutscene_world = true
 	print("ENTERED STORY MODE START CUTSCENE")
 	fadeOutGreyOverlay()
 	cutscene_timeline()
@@ -83,6 +84,7 @@ func onfadeInGreyOverlay_Finished():
 	self.add_child(player_instance)
 	player_instance.nodeSetup()
 	$Camera3D.clear_current(true)
+	$Camera3D/MainLayer/BlackFade.hide()
 
 #####################################
 

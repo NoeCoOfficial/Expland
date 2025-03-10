@@ -248,7 +248,7 @@ _data = {
 &"camera_sutle_movement": SubResource("Animation_f3l76")
 }
 
-[node name="StoryMode_StartCutscene" type="Node3D"]
+[node name="World" type="Node3D"]
 script = ExtResource("1_4d7y3")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
