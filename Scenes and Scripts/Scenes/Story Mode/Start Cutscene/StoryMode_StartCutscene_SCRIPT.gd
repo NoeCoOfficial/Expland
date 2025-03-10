@@ -71,7 +71,7 @@ func onfadeOutGreyOverlay_Finished():
 #####################################
 
 func fadeInGreyOverlay():
-	#$Camera3D/MainLayer/BlackFade.visible = true
+	$Camera3D/MainLayer/BlackFade.visible = true
 	var tween = get_tree().create_tween()
 	tween.connect("finished", onfadeInGreyOverlay_Finished)
 	tween.tween_property($Camera3D/MainLayer/BlackFade, "modulate", Color(1, 1, 1, 1), 4).from(Color(1, 1, 1, 0))
@@ -80,7 +80,9 @@ func onfadeInGreyOverlay_Finished():
 	var player_instance = player_scene.instantiate()
 	$Camera_Sutle_Movement.stop()
 	$"Yacht Bob".stop()
-	player_instance.StartPOS = Vector3(2.07, -15.328, -17.33)
+	self.add_child(player_instance)
+	player_instance.nodeSetup()
+	player_instance.position = Vector3(2.07, -15.328, -17.33)
 
 #####################################
 
@@ -105,4 +107,3 @@ func cutscene_timeline():
 	
 	await get_tree().create_timer(6).timeout
 	fadeInGreyOverlay()
-	
