@@ -420,8 +420,9 @@ func _input(_event): # A built-in function that listens for input using the inpu
 				velocity.y = 0.0 # set the player's velocity to 0 
 	
 	if Input.is_action_just_pressed("SaveGame") and OS.is_debug_build() and IslandManager.Current_Game_Mode == "FREE":
-		Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
-		SaveManager.saveAllData()
+		if !StoryModeManager.is_in_story_mode_first_cutscene_world:
+			Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
+			SaveManager.saveAllData()
 	
 	if Input.is_action_just_pressed("Inventory") and !InventoryManager.is_in_explorer_notes_interface and !PauseManager.inside_explorer_note_ui and !PauseManager.inside_absolute_item_workshop and !PauseManager.is_paused and !InventoryManager.in_chest_interface and !InventoryManager.is_in_workbench_interface and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !InventoryManager.is_dragging and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
 		if !InventoryManager.inventory_open:
@@ -766,8 +767,9 @@ func _ready():
 	InventoryManager.is_inside_boundary = false
 
 func on_fade_in_tween_finished():
-	if IslandManager.Current_Game_Mode == "FREE":
-		Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
+	if !StoryModeManager.is_in_story_mode_first_cutscene_world:
+		if IslandManager.Current_Game_Mode == "FREE":
+			Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
 
 func _on_ready() -> void: # Called when the node is considered ready
 	pass
@@ -1444,8 +1446,9 @@ func hideDarkerBG_SAVEOVERLAY():
 #region Autosave
 
 func _on_auto_save_timer_timeout(): # A function to save the player data every x seconds
-	if !PauseManager.is_paused and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !transitioning_to_menu:
-		Autosave_showSaving()
+	if !StoryModeManager.is_in_story_mode_first_cutscene_world:
+		if !PauseManager.is_paused and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !transitioning_to_menu:
+			Autosave_showSaving()
 
 func Autosave_showSaving():
 	$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved.visible = false
@@ -1460,21 +1463,22 @@ func Autosave_showSaving():
 	tween.tween_interval(4.0)
 
 func Autosave_showSaved():
-	SaveManager.saveAllData() # Saves everything
-	Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png") # Take island screenshot
-	
-	$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved.visible = true
-	$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved.scale = Vector2(0.83, 0.83)
-	$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved.modulate = Color(1, 1, 1, 0)
-	
-	var tween = get_tree().create_tween().set_parallel()
-	tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving, "modulate", Color(1, 1, 1, 0), 0.2)
-	tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving, "scale", Vector2(0.83, 0.83), 0.2)
-	tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved, "modulate", Color(1, 1, 1, 1), 0.2).set_delay(0.2)
-	tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved, "scale", Vector2(1.0, 1.0), 0.2).set_delay(0.2)
-	
-	tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved, "modulate", Color(1, 1, 1, 0), 0.2).set_delay(3.2)
-	tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved, "scale", Vector2(0.83, 0.83), 0.2).set_delay(3.2)
+	if !StoryModeManager.is_in_story_mode_first_cutscene_world:
+		SaveManager.saveAllData() # Saves everything
+		Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png") # Take island screenshot
+		
+		$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved.visible = true
+		$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved.scale = Vector2(0.83, 0.83)
+		$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved.modulate = Color(1, 1, 1, 0)
+		
+		var tween = get_tree().create_tween().set_parallel()
+		tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving, "modulate", Color(1, 1, 1, 0), 0.2)
+		tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving, "scale", Vector2(0.83, 0.83), 0.2)
+		tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved, "modulate", Color(1, 1, 1, 1), 0.2).set_delay(0.2)
+		tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved, "scale", Vector2(1.0, 1.0), 0.2).set_delay(0.2)
+		
+		tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved, "modulate", Color(1, 1, 1, 0), 0.2).set_delay(3.2)
+		tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved, "scale", Vector2(0.83, 0.83), 0.2).set_delay(3.2)
 
 func setAutosaveInterval(value : int):
 	AutoSaveTimer.stop()
