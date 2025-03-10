@@ -97,3 +97,7 @@ func cutscene_timeline():
 	MD.spawnMinimalDialogue(
 	2.5, 
 	'"This trip is only the beginning of something much bigger. Bigger?"')
+	
+	await get_tree().create_timer(12).timeout
+	fadeInGreyOverlay()
+	
