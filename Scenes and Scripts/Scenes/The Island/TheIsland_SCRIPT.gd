@@ -201,7 +201,7 @@ func change_sky(SkyType: String, TOD : int):
 		await get_tree().create_timer(30.0).timeout
 		transitioning_weather = false
 
-func change_weather(GOTO_WEATHER_STR : String):
+func change_weather(GOTO_WEATHER_STR : String, ARR_INDEX : int):
 	print_rich("[color=pink]Changing weather to: " + GOTO_WEATHER_STR + "[/color]")
 	
 	if GOTO_WEATHER_STR == "SUNNY":
@@ -211,14 +211,21 @@ func change_weather(GOTO_WEATHER_STR : String):
 		# Implement CLOUDY weather change logic
 		pass
 	elif GOTO_WEATHER_STR == "RAIN":
-		# Implement RAIN weather change logic
-		pass
+		
+		var tween = get_tree().create_tween()
+		$Rain.emitting = true
+		tween.tween_property($Rain, "amount", 5000, 30.0)
+		change_sky("CLOUDY", TimeManager.CURRENT_TIME)
+		
 	elif GOTO_WEATHER_STR == "LIGHT_RAIN":
 		# Implement LIGHT_RAIN weather change logic
 		pass
 	elif GOTO_WEATHER_STR == "STORM":
 		# Implement STORM weather change logic
 		pass
+	
+	WeatherManager.CURRENT_WEATHER = WeatherManager.WEATHERS[ARR_INDEX]
+	WeatherManager.CURRENT_WEATHER_ARR_INDEX = ARR_INDEX
 
 func _on_weather_timer_timeout() -> void:
 	init_weather()
