@@ -533,7 +533,6 @@ one_shot = true
 
 [node name="Rain" type="CPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -347.562, 57.3563, 287.541)
-visible = false
 amount = 5000
 lifetime = 0.84
 mesh = SubResource("RibbonTrailMesh_lc7w2")
@@ -544,6 +543,7 @@ spread = 5.0
 gravity = Vector3(0, -60, 0)
 initial_velocity_min = 47.09
 initial_velocity_max = 47.09
+color = Color(1, 1, 1, 0.054902)
 
 [node name="Clouds" type="MeshInstance3D" parent="."]
 transform = Transform3D(8192, 0, 0, 0, 128, 0, 0, 0, 8192, 0, 128, 0)
