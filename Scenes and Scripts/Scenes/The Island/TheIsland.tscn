@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=3 uid="uid://c5jkrckgqd0w6"]
+[gd_scene load_steps=102 format=3 uid="uid://c5jkrckgqd0w6"]
 
 [ext_resource type="Script" uid="uid://cucb4fwieubx" path="res://Scenes and Scripts/Scenes/The Island/TheIsland_SCRIPT.gd" id="1_a8sfg"]
 [ext_resource type="Environment" uid="uid://dgtwdwq2n0x1v" path="res://Resources/Environment/TheIsland_WorldEnvironment.tres" id="2_h46kk"]
@@ -36,33 +36,6 @@
 [ext_resource type="PackedScene" uid="uid://ebqmro758fob" path="res://Assets/3D Models/Interactive/Objects/Finalized/Workbench/Workbench_Finalized.tscn" id="58_sktol"]
 [ext_resource type="Material" uid="uid://b53wf3cs61c28" path="res://Resources/Materials/CloudsMaterial.tres" id="59_evg4o"]
 
-[sub_resource type="Animation" id="Animation_rkq2m"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DirectionalLight3D:light_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.0518231, 0.0518231, 0.051823, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("DirectionalLight3D:light_energy")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-
 [sub_resource type="Animation" id="Animation_747t0"]
 resource_name = "cloudy_cycle"
 length = 2880.0
@@ -94,7 +67,6 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1rf0p"]
 _data = {
-&"RESET": SubResource("Animation_rkq2m"),
 &"cloudy_cycle": SubResource("Animation_747t0"),
 &"cycle": ExtResource("7_s3501")
 }
@@ -522,7 +494,7 @@ script = ExtResource("4_jhu24")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.863395, -0.0876104, -0.496863, 0, 0.984808, -0.173648, 0.504528, 0.149927, 0.850278, 0, 0, 0)
-light_color = Color(0.97354, 0.830258, 0.442006, 1)
+light_color = Color(0.968293, 0.85695, 0.49595, 1)
 shadow_enabled = true
 directional_shadow_fade_start = 0.655
 directional_shadow_max_distance = 150.0
