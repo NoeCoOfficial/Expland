@@ -590,7 +590,7 @@ grow_horizontal = 2
 theme = ExtResource("4_grlcg")
 theme_override_fonts/font = ExtResource("14_8r23i")
 theme_override_font_sizes/font_size = 13
-text = "Uncover mysteries and explore a mysterious world."
+text = "Uncover secrets and explore a mysterious world."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -1234,6 +1234,7 @@ initial_velocity_max = 47.09
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="timeout" from="Checks_Timer" to="." method="_on_checks_timer_timeout"]
 [connection signal="button_down" from="Camera3D/MainLayer/PlayButtonTrigger" to="." method="_on_play_button_trigger_button_down"]
 [connection signal="button_up" from="Camera3D/MainLayer/PlayButtonTrigger" to="." method="_on_play_button_trigger_button_up"]

@@ -474,6 +474,7 @@ func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 	$Camera3D/MainLayer/TopLayer/TransitionFadeOut.modulate = Color(1, 1, 1, 0)
 	$Camera3D/MainLayer/TopLayer/TransitionFadeOut.visible = true
 	
+	
 	var tween = get_tree().create_tween()
 	tween.connect("finished", Callable(self, "on_free_mode_fade_finished"))
 	
@@ -489,6 +490,7 @@ func goToIsland(island_name : String, _gamemode : String):
 	
 	Utils.createBaseSaveFolder()
 	Utils.createIslandSaveFolder(island_name, IslandManager.Current_Game_Mode)
+	
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
@@ -563,6 +565,7 @@ func _on_tree_entered() -> void:
 
 func _on_tree_exited() -> void:
 	Global.is_in_main_menu = false
+	
 
 func _on_checks_timer_timeout() -> void:
 	if Global.is_first_time_in_menu:
@@ -622,4 +625,13 @@ func _on_dialogue_interface_finished_dialogue(StoryModeID: int) -> void:
 
 func on_story_mode_fade_finished():
 	get_tree().change_scene_to_packed(StoryModeStartCutscene)
-	StoryModeManager.is_in_story_mode_first_cutscene_world = true
+
+func _on_tree_exiting() -> void:
+	if loadAchivementElementsThread:
+		loadAchivementElementsThread.wait_to_finish()
+		loadAchivementElementsThread = null
+	
+	if loadIslandThread:
+		if loadIslandThread.is_alive():
+			loadIslandThread.wait_to_finish()
+			loadIslandThread = null
