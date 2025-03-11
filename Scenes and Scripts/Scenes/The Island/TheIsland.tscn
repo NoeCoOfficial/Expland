@@ -619,7 +619,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_whi7k")
 }
 playback_default_blend_time = 30.0
-blend_times = [&"cloudy_sky_cycle", &"cloudy_sky_cycle", 30.0, &"cloudy_sky_cycle", &"sky_cycle", 30.0]
+blend_times = [&"cloudy_sky_cycle", &"cloudy_sky_cycle", 30.0, &"cloudy_sky_cycle", &"sky_cycle", 30.0, &"rain_sky_cycle", &"cloudy_sky_cycle", 30.0, &"rain_sky_cycle", &"rain_sky_cycle", 30.0, &"rain_sky_cycle", &"sky_cycle", 30.0]
 
 [node name="Tick" type="Timer" parent="."]
 wait_time = 2.0
