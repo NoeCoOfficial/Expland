@@ -60,5 +60,4 @@ func _input(_event: InputEvent) -> void:
 	
 	if Input.is_action_just_pressed("DoButton"):
 		if OS.is_debug_build():
-			#AchievementsManager.earnAchievement(3, true)
-			PlayerManager.WORLD.weatherTest()
+			WeatherManager.change_weather(3)
