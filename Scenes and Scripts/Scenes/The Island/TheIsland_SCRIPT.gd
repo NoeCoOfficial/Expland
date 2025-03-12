@@ -198,6 +198,18 @@ func change_sky(SkyType: String, TOD : int):
 		
 		await get_tree().create_timer(30.0).timeout
 		transitioning_weather = false
+	
+	if SkyType == "LIGHT_RAIN":
+		transitioning_weather = true
+		
+		DayNightCycle_Sky.play(&"light_rain_sky_cycle")
+		DayNightCycle_Sky.seek(TOD * 2)
+		
+		DayNightCycle.play(&"light_rain_cycle")
+		DayNightCycle.seek(TOD * 2)
+		
+		await get_tree().create_timer(30.0).timeout
+		transitioning_weather = false
 
 func change_weather(GOTO_WEATHER_STR : String, ARR_INDEX : int):
 	print_rich("[color=pink]Changing weather to: " + GOTO_WEATHER_STR + "[/color]")
@@ -211,7 +223,6 @@ func change_weather(GOTO_WEATHER_STR : String, ARR_INDEX : int):
 		pass
 	
 	elif GOTO_WEATHER_STR == "RAIN":
-		
 		$Rain.emitting = true
 		$Rain.amount = 5000
 		$Rain.visible = true
@@ -220,8 +231,12 @@ func change_weather(GOTO_WEATHER_STR : String, ARR_INDEX : int):
 		change_sky("CLOUDY", TimeManager.CURRENT_TIME)
 		
 	elif GOTO_WEATHER_STR == "LIGHT_RAIN":
-		# Implement LIGHT_RAIN weather change logic
-		pass
+		$Rain.emitting = true
+		$Rain.amount = 2500
+		$Rain.visible = true
+		var tween = get_tree().create_tween()
+		tween.tween_property($Rain, "color", Color(1, 1, 1, 1), 30.0).from(Color(1, 1, 1, 0))
+		change_sky("LIGHT_RAIN", TimeManager.CURRENT_TIME)
 	
 	elif GOTO_WEATHER_STR == "STORM":
 		# Implement STORM weather change logic
