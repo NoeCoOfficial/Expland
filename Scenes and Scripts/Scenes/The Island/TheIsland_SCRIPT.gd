@@ -110,7 +110,6 @@ func initNodes():
 
 func set_dof_blur(value : bool) -> void:
 	var cameraAttributesResource = load("uid://cskddrxjnggrw")
-	
 	if value:
 		cameraAttributesResource.dof_blur_far_enabled = true
 	else:
@@ -118,24 +117,54 @@ func set_dof_blur(value : bool) -> void:
 
 func set_pretty_shadows(value : bool) -> void:
 	var IslandWorldEnv = load("uid://dgtwdwq2n0x1v")
-	
 	if value:
 		IslandWorldEnv.sdfgi_enabled = true
 	else:
 		IslandWorldEnv.sdfgi_enabled = false
 
 func set_time(minute : int):
-	if !DayNightCycle.is_playing():
-		DayNightCycle.play(&"cycle")
-	else:
-		DayNightCycle.stop()
-		DayNightCycle.play(&"cycle")
 	
-	if DayNightCycle_Sky.is_playing():
-		DayNightCycle_Sky.play(&"sky_cycle")
-	else:
-		DayNightCycle_Sky.stop()
-		DayNightCycle_Sky.play(&"sky_cycle")
+	if WeatherManager.CURRENT_WEATHER == "SUNNY":
+	
+		if !DayNightCycle.is_playing():
+			DayNightCycle.play(&"cycle")
+		else:
+			DayNightCycle.stop()
+			DayNightCycle.play(&"cycle")
+		
+		if DayNightCycle_Sky.is_playing():
+			DayNightCycle_Sky.play(&"sky_cycle")
+		else:
+			DayNightCycle_Sky.stop()
+			DayNightCycle_Sky.play(&"sky_cycle")
+	
+	if WeatherManager.CURRENT_WEATHER == "CLOUDY" or WeatherManager.CURRENT_WEATHER == "LIGHT_RAIN":
+		
+		if !DayNightCycle.is_playing():
+			DayNightCycle.play(&"light_rain_cycle")
+		else:
+			DayNightCycle.stop()
+			DayNightCycle.play(&"light_rain_cycle")
+		
+		if DayNightCycle_Sky.is_playing():
+			DayNightCycle_Sky.play(&"light_rain_sky_cycle")
+		else:
+			DayNightCycle_Sky.stop()
+			DayNightCycle_Sky.play(&"light_rain_sky_cycle")
+	
+	if WeatherManager.CURRENT_WEATHER == "STORM" or WeatherManager.CURRENT_WEATHER == "RAIN":
+		
+		if !DayNightCycle.is_playing():
+			DayNightCycle.play(&"cloudy_cycle")
+		else:
+			DayNightCycle.stop()
+			DayNightCycle.play(&"cloudy_cycle")
+		
+		if DayNightCycle_Sky.is_playing():
+			DayNightCycle_Sky.play(&"cloudy_sky_cycle")
+		else:
+			DayNightCycle_Sky.stop()
+			DayNightCycle_Sky.play(&"cloudy_sky_cycle")
 	
 	if DayNightCycle_Rotation.is_playing():
 		DayNightCycle_Rotation.play(&"rotation_cycle")
