@@ -182,13 +182,11 @@ func append_random_songs(song_array: Array):
 	for i in range(num_songs_to_append):
 		AudioManager.IN_FRONT_SONGS.append(shuffled_songs[i])
 
-func weatherTest():
-	change_sky("CLOUDY", TimeManager.CURRENT_TIME)
-
 func change_sky(SkyType: String, TOD : int):
+	if transitioning_weather:
+		return
+	
 	if SkyType == "CLOUDY":
-		if transitioning_weather:
-			return
 		
 		transitioning_weather = true
 		
@@ -207,9 +205,11 @@ func change_weather(GOTO_WEATHER_STR : String, ARR_INDEX : int):
 	if GOTO_WEATHER_STR == "SUNNY":
 		# Implement SUNNY weather change logic
 		pass
+	
 	elif GOTO_WEATHER_STR == "CLOUDY":
 		# Implement CLOUDY weather change logic
 		pass
+	
 	elif GOTO_WEATHER_STR == "RAIN":
 		
 		$Rain.emitting = true
@@ -222,6 +222,7 @@ func change_weather(GOTO_WEATHER_STR : String, ARR_INDEX : int):
 	elif GOTO_WEATHER_STR == "LIGHT_RAIN":
 		# Implement LIGHT_RAIN weather change logic
 		pass
+	
 	elif GOTO_WEATHER_STR == "STORM":
 		# Implement STORM weather change logic
 		pass
