@@ -187,7 +187,7 @@ func change_sky(SkyType: String, TOD : int):
 		print("Already transitioning sky. Can't preform desired operation.")
 		return
 	
-	if SkyType == "CLOUDY":
+	if SkyType == "SUNNY":
 		
 		transitioning_weather = true
 		
@@ -239,33 +239,36 @@ func change_weather(GOTO_WEATHER_STR : String, ARR_INDEX : int):
 		tween.connect("finished", _on_rain_color_fade_out_finished)
 		tween.tween_property($Rain, "color", Color(1, 1, 1, 0), 30.0)
 		change_sky("LIGHT_RAIN", TimeManager.CURRENT_TIME)
+		
 	
 	elif GOTO_WEATHER_STR == "RAIN":
+		$Rain.amount = 5000
 		$Rain.emitting = true
-		if !WeatherManager.CURRENT_WEATHER == "RAIN" and !WeatherManager.CURRENT_WEATHER == "STORM" and !WeatherManager.CURRENT_WEATHER == "LIGHT_RAIN":
-			$Rain.amount = 5000
+		
 		$Rain.visible = true
 		var tween = get_tree().create_tween()
 		tween.tween_property($Rain, "color", Color(1, 1, 1, 1), 30.0).from(Color(1, 1, 1, 0))
 		change_sky("CLOUDY", TimeManager.CURRENT_TIME)
 		
-	elif GOTO_WEATHER_STR == "LIGHT_RAIN":
-		$Rain.emitting = true
+		WeatherManager.CURRENT_WEATHER = GOTO_WEATHER_STR
+		WeatherManager.CURRENT_WEATHER_ARR_INDEX = ARR_INDEX
 		
-		if !WeatherManager.CURRENT_WEATHER == "RAIN" and !WeatherManager.CURRENT_WEATHER == "STORM" and !WeatherManager.CURRENT_WEATHER == "LIGHT_RAIN":
-			$Rain.amount = 2500
+	elif GOTO_WEATHER_STR == "LIGHT_RAIN":
+		
+		$Rain.amount = 2500
+		$Rain.emitting = true
 		
 		$Rain.visible = true
 		var tween = get_tree().create_tween()
 		tween.tween_property($Rain, "color", Color(1, 1, 1, 1), 30.0).from(Color(1, 1, 1, 0))
 		change_sky("LIGHT_RAIN", TimeManager.CURRENT_TIME)
+		
+		WeatherManager.CURRENT_WEATHER = GOTO_WEATHER_STR
+		WeatherManager.CURRENT_WEATHER_ARR_INDEX = ARR_INDEX
 	
 	elif GOTO_WEATHER_STR == "STORM":
 		# Implement STORM weather change logic
 		pass
-	
-	WeatherManager.CURRENT_WEATHER = WeatherManager.WEATHERS[ARR_INDEX]
-	WeatherManager.CURRENT_WEATHER_ARR_INDEX = ARR_INDEX
 
 func _on_rain_color_fade_out_finished():
 	$Rain.emitting = false

@@ -85,5 +85,7 @@ func change_weather(ARR_INDEX : int):
 		print("Invalid array index for accessing weather!")
 		return
 	
+	CURRENT_WEATHER = WEATHERS[ARR_INDEX]  # Set the current weather string
+	
 	if PlayerManager.WORLD:
 		PlayerManager.WORLD.change_weather(CURRENT_WEATHER, ARR_INDEX)
