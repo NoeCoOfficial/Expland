@@ -225,7 +225,7 @@ func change_sky(SkyType: String, TOD : int):
 		await get_tree().create_timer(30.0).timeout
 		transitioning_weather = false
 
-func change_weather(GOTO_WEATHER_STR : String, ARR_INDEX : int):
+func change_weather(GOTO_WEATHER_STR : String, PREVIOUS_WEATHER_STR : String):
 	print_rich("[color=pink]Changing weather to: " + GOTO_WEATHER_STR + "[/color]")
 	
 	if GOTO_WEATHER_STR == "SUNNY":
@@ -242,29 +242,28 @@ func change_weather(GOTO_WEATHER_STR : String, ARR_INDEX : int):
 		
 	
 	elif GOTO_WEATHER_STR == "RAIN":
-		$Rain.amount = 5000
-		$Rain.emitting = true
+		if PREVIOUS_WEATHER_STR != "RAIN":
+			if PREVIOUS_WEATHER_STR != "STORM" and PREVIOUS_WEATHER_STR != "LIGHT_RAIN":
+				$Rain.amount = 5000
+				$Rain.emitting = true
+				
+				$Rain.visible = true
+				var tween = get_tree().create_tween()
+				tween.tween_property($Rain, "color", Color(1, 1, 1, 1), 30.0).from(Color(1, 1, 1, 0))
+				change_sky("CLOUDY", TimeManager.CURRENT_TIME)
 		
-		$Rain.visible = true
-		var tween = get_tree().create_tween()
-		tween.tween_property($Rain, "color", Color(1, 1, 1, 1), 30.0).from(Color(1, 1, 1, 0))
-		change_sky("CLOUDY", TimeManager.CURRENT_TIME)
-		
-		WeatherManager.CURRENT_WEATHER = GOTO_WEATHER_STR
-		WeatherManager.CURRENT_WEATHER_ARR_INDEX = ARR_INDEX
 		
 	elif GOTO_WEATHER_STR == "LIGHT_RAIN":
+		if PREVIOUS_WEATHER_STR != "LIGHT_RAIN":
+			if PREVIOUS_WEATHER_STR != "STORM" and PREVIOUS_WEATHER_STR != "RAIN":
+				$Rain.amount = 2500
+				$Rain.emitting = true
+			
+			$Rain.visible = true
+			var tween = get_tree().create_tween()
+			tween.tween_property($Rain, "color", Color(1, 1, 1, 1), 30.0).from(Color(1, 1, 1, 0))
+			change_sky("LIGHT_RAIN", TimeManager.CURRENT_TIME)
 		
-		$Rain.amount = 2500
-		$Rain.emitting = true
-		
-		$Rain.visible = true
-		var tween = get_tree().create_tween()
-		tween.tween_property($Rain, "color", Color(1, 1, 1, 1), 30.0).from(Color(1, 1, 1, 0))
-		change_sky("LIGHT_RAIN", TimeManager.CURRENT_TIME)
-		
-		WeatherManager.CURRENT_WEATHER = GOTO_WEATHER_STR
-		WeatherManager.CURRENT_WEATHER_ARR_INDEX = ARR_INDEX
 	
 	elif GOTO_WEATHER_STR == "STORM":
 		# Implement STORM weather change logic
