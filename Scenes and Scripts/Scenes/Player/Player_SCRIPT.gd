@@ -878,16 +878,16 @@ func initInventorySlots():
 #region Walking, sprinting and crouching sounds
 
 func _on_walking_speed_sounds_timeout() -> void:
-	if PlayerManager.is_walking_moving:
-		$FootstepSounds_Audio.play()
+	if PlayerManager.is_walking_moving and velocity.y == 0.0:
+		$FootstepSounds_Audio_Grass.play()
 
 func _on_sprinting_speed_sounds_timeout() -> void:
-	if PlayerManager.is_sprinting_moving:
-		$FootstepSounds_Audio.play()
+	if PlayerManager.is_sprinting_moving and velocity.y == 0.0:
+		$FootstepSounds_Audio_Grass.play()
 
 func _on_crouching_speed_sounds_timeout() -> void:
-	if PlayerManager.is_crouching_moving:
-		$FootstepSounds_Audio.play()
+	if PlayerManager.is_crouching_moving and velocity.y == 0.0:
+		$FootstepSounds_Audio_Grass.play()
 
 #endregion
 
