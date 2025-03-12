@@ -232,7 +232,10 @@ func change_weather(GOTO_WEATHER_STR : String, ARR_INDEX : int):
 		
 	elif GOTO_WEATHER_STR == "LIGHT_RAIN":
 		$Rain.emitting = true
-		$Rain.amount = 2500
+		
+		if !WeatherManager.CURRENT_WEATHER == "RAIN" and !WeatherManager.CURRENT_WEATHER == "STORM":
+			$Rain.amount = 2500
+		
 		$Rain.visible = true
 		var tween = get_tree().create_tween()
 		tween.tween_property($Rain, "color", Color(1, 1, 1, 1), 30.0).from(Color(1, 1, 1, 0))
