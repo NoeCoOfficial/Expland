@@ -212,10 +212,11 @@ func change_weather(GOTO_WEATHER_STR : String, ARR_INDEX : int):
 		pass
 	elif GOTO_WEATHER_STR == "RAIN":
 		
-		var tween = get_tree().create_tween()
 		$Rain.emitting = true
+		$Rain.amount = 5000
 		$Rain.visible = true
-		tween.tween_property($Rain, "amount", 5000, 30.0).from(1)
+		var tween = get_tree().create_tween()
+		tween.tween_property($Rain, "color", Color(1, 1, 1, 1), 30.0).from(Color(1, 1, 1, 0))
 		change_sky("CLOUDY", TimeManager.CURRENT_TIME)
 		
 	elif GOTO_WEATHER_STR == "LIGHT_RAIN":
