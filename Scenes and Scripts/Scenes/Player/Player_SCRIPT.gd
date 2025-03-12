@@ -883,11 +883,11 @@ func _on_walking_speed_sounds_timeout() -> void:
 
 func _on_sprinting_speed_sounds_timeout() -> void:
 	if PlayerManager.is_sprinting_moving:
-		pass
+		$FootstepSounds_Audio.play()
 
 func _on_crouching_speed_sounds_timeout() -> void:
 	if PlayerManager.is_crouching_moving:
-		pass
+		$FootstepSounds_Audio.play()
 
 #endregion
 
