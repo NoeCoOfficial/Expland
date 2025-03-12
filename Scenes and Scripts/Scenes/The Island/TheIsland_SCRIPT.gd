@@ -166,6 +166,7 @@ func set_time(minute : int):
 			DayNightCycle_Sky.stop()
 			DayNightCycle_Sky.play(&"cloudy_sky_cycle")
 	
+	
 	if DayNightCycle_Rotation.is_playing():
 		DayNightCycle_Rotation.play(&"rotation_cycle")
 	else:
