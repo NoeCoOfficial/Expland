@@ -221,9 +221,9 @@ func append_random_songs(song_array: Array):
 
 
 
-
-
 ## WEATHER
+
+
 
 
 
@@ -270,6 +270,10 @@ func change_sky(SkyType: String, TOD : int):
 		await get_tree().create_timer(30.0).timeout
 		transitioning_weather = false
 
+#######################################################################
+#######################################################################
+#######################################################################
+
 func change_sky_instant(SkyType: String, TOD : int):
 	if transitioning_weather:
 		print("Already transitioning sky. Can't preform desired operation.")
@@ -294,8 +298,6 @@ func change_sky_instant(SkyType: String, TOD : int):
 		
 	
 	if SkyType == "LIGHT_RAIN":
-		
-		DayNightCycle_Sky
 		
 		DayNightCycle_Sky.play(&"light_rain_sky_cycle", 0.0)
 		DayNightCycle_Sky.seek(TOD * 2)
