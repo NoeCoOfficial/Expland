@@ -129,50 +129,50 @@ func set_time(minute : int):
 	if WeatherManager.CURRENT_WEATHER == "SUNNY":
 	
 		if !DayNightCycle.is_playing():
-			DayNightCycle.play(&"cycle")
+			DayNightCycle.play(&"cycle", 0.0)
 		else:
 			DayNightCycle.stop()
-			DayNightCycle.play(&"cycle")
+			DayNightCycle.play(&"cycle", 0.0)
 		
 		if DayNightCycle_Sky.is_playing():
-			DayNightCycle_Sky.play(&"sky_cycle")
+			DayNightCycle_Sky.play(&"sky_cycle", 0.0)
 		else:
 			DayNightCycle_Sky.stop()
-			DayNightCycle_Sky.play(&"sky_cycle")
+			DayNightCycle_Sky.play(&"sky_cycle", 0.0)
 	
 	if WeatherManager.CURRENT_WEATHER == "CLOUDY" or WeatherManager.CURRENT_WEATHER == "LIGHT_RAIN":
 		
 		if !DayNightCycle.is_playing():
-			DayNightCycle.play(&"light_rain_cycle")
+			DayNightCycle.play(&"light_rain_cycle", 0.0)
 		else:
 			DayNightCycle.stop()
-			DayNightCycle.play(&"light_rain_cycle")
+			DayNightCycle.play(&"light_rain_cycle", 0.0)
 		
 		if DayNightCycle_Sky.is_playing():
-			DayNightCycle_Sky.play(&"light_rain_sky_cycle")
+			DayNightCycle_Sky.play(&"light_rain_sky_cycle", 0.0)
 		else:
 			DayNightCycle_Sky.stop()
-			DayNightCycle_Sky.play(&"light_rain_sky_cycle")
+			DayNightCycle_Sky.play(&"light_rain_sky_cycle", 0.0)
 	
 	if WeatherManager.CURRENT_WEATHER == "STORM" or WeatherManager.CURRENT_WEATHER == "RAIN":
 		
 		if !DayNightCycle.is_playing():
-			DayNightCycle.play(&"cloudy_cycle")
+			DayNightCycle.play(&"cloudy_cycle", 0.0)
 		else:
 			DayNightCycle.stop()
-			DayNightCycle.play(&"cloudy_cycle")
+			DayNightCycle.play(&"cloudy_cycle", 0.0)
 		
 		if DayNightCycle_Sky.is_playing():
-			DayNightCycle_Sky.play(&"cloudy_sky_cycle")
+			DayNightCycle_Sky.play(&"cloudy_sky_cycle", 0.0)
 		else:
 			DayNightCycle_Sky.stop()
-			DayNightCycle_Sky.play(&"cloudy_sky_cycle")
+			DayNightCycle_Sky.play(&"cloudy_sky_cycle", 0.0)
 	
 	if DayNightCycle_Rotation.is_playing():
-		DayNightCycle_Rotation.play(&"rotation_cycle")
+		DayNightCycle_Rotation.play(&"rotation_cycle", 0.0)
 	else:
 		DayNightCycle_Rotation.stop()
-		DayNightCycle_Rotation.play(&"rotation_cycle")
+		DayNightCycle_Rotation.play(&"rotation_cycle", 0.0)
 	
 	
 	# Minute logic
@@ -216,6 +216,17 @@ func append_random_songs(song_array: Array):
 	for i in range(num_songs_to_append):
 		AudioManager.IN_FRONT_SONGS.append(shuffled_songs[i])
 
+
+
+
+
+
+
+
+## WEATHER
+
+
+
 func change_sky(SkyType: String, TOD : int):
 	if transitioning_weather:
 		print("Already transitioning sky. Can't preform desired operation.")
@@ -258,6 +269,49 @@ func change_sky(SkyType: String, TOD : int):
 		
 		await get_tree().create_timer(30.0).timeout
 		transitioning_weather = false
+
+func change_sky_instant(SkyType: String, TOD : int):
+	if transitioning_weather:
+		print("Already transitioning sky. Can't preform desired operation.")
+		return
+	
+	if SkyType == "SUNNY":
+		
+		DayNightCycle_Sky.play(&"sky_cycle", 0.0)
+		DayNightCycle_Sky.seek(TOD * 2)
+		
+		DayNightCycle.play(&"cycle", 0.0)
+		DayNightCycle.seek(TOD * 2)
+		
+	
+	if SkyType == "CLOUDY":
+		
+		DayNightCycle_Sky.play(&"cloudy_sky_cycle", 0.0)
+		DayNightCycle_Sky.seek(TOD * 2)
+		
+		DayNightCycle.play(&"cloudy_cycle", 0.0)
+		DayNightCycle.seek(TOD * 2)
+		
+	
+	if SkyType == "LIGHT_RAIN":
+		
+		DayNightCycle_Sky
+		
+		DayNightCycle_Sky.play(&"light_rain_sky_cycle", 0.0)
+		DayNightCycle_Sky.seek(TOD * 2)
+		
+		DayNightCycle.play(&"light_rain_cycle", 0.0)
+		DayNightCycle.seek(TOD * 2)
+		
+
+
+
+
+
+
+
+
+
 
 func change_weather(GOTO_WEATHER_STR : String, PREVIOUS_WEATHER_STR : String):
 	print_rich("[color=pink]Changing weather to: " + GOTO_WEATHER_STR + "[/color]")
