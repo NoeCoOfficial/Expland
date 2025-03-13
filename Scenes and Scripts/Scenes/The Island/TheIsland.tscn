@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=3 uid="uid://c5jkrckgqd0w6"]
+[gd_scene load_steps=102 format=3 uid="uid://c5jkrckgqd0w6"]
 
 [ext_resource type="Script" uid="uid://cucb4fwieubx" path="res://Scenes and Scripts/Scenes/The Island/TheIsland_SCRIPT.gd" id="1_a8sfg"]
 [ext_resource type="Environment" uid="uid://dgtwdwq2n0x1v" path="res://Resources/Environment/TheIsland_WorldEnvironment.tres" id="2_h46kk"]
@@ -10,6 +10,7 @@
 [ext_resource type="Shader" uid="uid://b2gi30s113t00" path="res://Scenes and Scripts/Scenes/The Island/TheIslandSeaWater.gdshader" id="7_pf2qu"]
 [ext_resource type="Animation" uid="uid://bxd8jw8o3rmre" path="res://Resources/Animations/cycle_sun.anim" id="7_s3501"]
 [ext_resource type="Script" uid="uid://dudqfc8y403pg" path="res://Textures/Icons/Script Icons/Scripts/RiverIcon_SCRIPT.gd" id="8_jhpei"]
+[ext_resource type="RibbonTrailMesh" uid="uid://dg43yr7xlvtnq" path="res://Resources/Meshes/Rain_Mesh.tres" id="8_rkq2m"]
 [ext_resource type="PackedScene" uid="uid://bf802csj5h2uu" path="res://Assets/3D Models/The Island Deco/TheIslandDeco.tscn" id="11_kq5pm"]
 [ext_resource type="PackedScene" uid="uid://cjm5lrxicdgsf" path="res://Scenes and Scripts/Scenes/Player/Player.tscn" id="16_52bg8"]
 [ext_resource type="PackedScene" uid="uid://dble54a2rl76q" path="res://Scenes and Scripts/Scenes/The Island/Explorer Note/ExplorerNote.tscn" id="32_qh5si"]
@@ -288,22 +289,6 @@ _data = {
 &"light_rain_sky_cycle": SubResource("Animation_r68ax"),
 &"sky_cycle": SubResource("Animation_whi7k")
 }
-
-[sub_resource type="Curve" id="Curve_tq56d"]
-_limits = [0.0, 0.1, 0.0, 1.0]
-_data = [Vector2(0, 0), 0.0, 0.333367, 0, 0, Vector2(0.433526, 0.0316176), 0.185509, 0.185509, 0, 0, Vector2(0.791908, 0.0220588), -0.0267802, -0.0267802, 0, 0, Vector2(1, 0.0132353), 0.0, 0.0, 0, 0]
-point_count = 4
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rvn2t"]
-transparency = 1
-cull_mode = 2
-shading_mode = 0
-vertex_color_use_as_albedo = true
-albedo_color = Color(1, 1, 1, 0.0784314)
-
-[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_lc7w2"]
-material = SubResource("StandardMaterial3D_rvn2t")
-curve = SubResource("Curve_tq56d")
 
 [sub_resource type="BoxMesh" id="BoxMesh_cqokr"]
 lightmap_size_hint = Vector2i(14, 21)
@@ -620,7 +605,7 @@ one_shot = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -347.562, 57.3563, 287.541)
 amount = 5000
 lifetime = 0.84
-mesh = SubResource("RibbonTrailMesh_lc7w2")
+mesh = ExtResource("8_rkq2m")
 emission_shape = 3
 emission_box_extents = Vector3(100, 0.5, 100)
 direction = Vector3(0, -1, 0)
