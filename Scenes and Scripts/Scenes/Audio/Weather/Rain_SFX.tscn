@@ -10,3 +10,4 @@ script = ExtResource("1_obrl4")
 stream = ExtResource("2_jetw6")
 volume_db = -7.0
 bus = &"sfx"
+parameters/looping = true
