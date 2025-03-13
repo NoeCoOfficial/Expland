@@ -315,9 +315,6 @@ func change_sky_instant(SkyType: String, TOD : int):
 
 
 
-
-
-
 func change_weather(GOTO_WEATHER_STR : String, PREVIOUS_WEATHER_STR : String):
 	print_rich("[color=pink]Changing weather to: " + GOTO_WEATHER_STR + "[/color]")
 	
