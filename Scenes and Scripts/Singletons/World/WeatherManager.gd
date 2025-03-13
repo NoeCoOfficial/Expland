@@ -49,6 +49,7 @@ extends Node
 
 var CURRENT_WEATHER : String = ""
 var CURRENT_WEATHER_ARR_INDEX : int
+var WEATHER_TIMER_TIME_LEFT : int
 
 var WEATHERS : Array = [
 	"SUNNY", # 0
