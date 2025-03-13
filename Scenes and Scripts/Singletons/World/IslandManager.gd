@@ -87,7 +87,6 @@ func resetAttributes():
 	InventoryData.CURRENT_ITEM_IN_HAND = ""
 	IslandManager.Current_Island_Name = ""
 	IslandManager.Current_Game_Mode = ""
-	IslandManager.Current_Weather = ""
 	IslandManager.transitioningFromNewIsland = false
 	TimeManager.CURRENT_TIME = 600
 	TimeManager.CURRENT_DAY = 1
