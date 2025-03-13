@@ -124,6 +124,8 @@ func set_pretty_shadows(value : bool) -> void:
 
 func set_time(minute : int):
 	
+	# Transitioning sky depending on the current weather
+	
 	if WeatherManager.CURRENT_WEATHER == "SUNNY":
 	
 		if !DayNightCycle.is_playing():
@@ -172,7 +174,10 @@ func set_time(minute : int):
 	else:
 		DayNightCycle_Rotation.stop()
 		DayNightCycle_Rotation.play(&"rotation_cycle")
-		
+	
+	
+	# Minute logic
+	
 	TimeManager.CURRENT_TIME = minute
 	
 	if TimeManager.CURRENT_TIME >= 1140 or TimeManager.CURRENT_TIME < 360:
