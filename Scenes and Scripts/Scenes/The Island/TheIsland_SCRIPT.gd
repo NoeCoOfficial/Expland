@@ -87,7 +87,7 @@ func _ready() -> void:
 		set_time(TimeManager.CURRENT_TIME)
 	
 	Tick.start()
-	init_weather() # NOTE: Important line right here (initalize weather)
+	init_weather_instant() # NOTE: Important line right here (initalize weather)
 	
 	Player.nodeSetup()
 	Player.setHotbarSelectedSlot(int(str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME)[-1]))
@@ -307,9 +307,15 @@ func _on_rain_color_fade_out_finished():
 	$Rain.emitting = false
 
 func _on_weather_timer_timeout() -> void:
-	init_weather()
+	init_weather_with_fade()
 
-func init_weather():
+func init_weather_with_fade():
+	WeatherManager.change_weather_to_random()
+	$"Weather Timer".stop()
+	$"Weather Timer".wait_time = randi_range(400, 1000)
+	$"Weather Timer".start()
+
+func init_weather_instant():
 	WeatherManager.change_weather_to_random()
 	$"Weather Timer".stop()
 	$"Weather Timer".wait_time = randi_range(400, 1000)
