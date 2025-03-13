@@ -53,3 +53,6 @@ func _ready() -> void:
 	for child in self.get_children():
 		if str(child.name).begins_with("AUDIO"):
 			SOUNDS.append(child)
+
+func play_random_sound():
+	pass
