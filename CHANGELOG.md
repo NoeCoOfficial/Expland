@@ -1,6 +1,6 @@
 <h1 align="center">Expland Changelog</h1>
 
-# v0.7.0 (un-released)
+# v0.7.0 (unreleased)
 
 
 - changed opacity of the rain in the main menu background scene
