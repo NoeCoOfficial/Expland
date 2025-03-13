@@ -50,10 +50,10 @@ extends Node
 func _ready() -> void:
 	$rainLoop2.volume_db = -80.0
 
-func start_rain_loop(fade_time : float):
+func start_rain_loop(fade_time : float, db : float):
 	$rainLoop2.play()
 	var tween = get_tree().create_tween()
-	tween.tween_property($rainLoop2, "volume_db", -7.0, fade_time).from(-80.0)
+	tween.tween_property($rainLoop2, "volume_db", db, fade_time).from(-80.0)
 
 func stop_rain_loop(fade_time : float):
 		var tween = get_tree().create_tween()

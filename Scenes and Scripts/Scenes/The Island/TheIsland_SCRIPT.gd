@@ -378,6 +378,7 @@ func change_weather_instant(GOTO_WEATHER_STR : String, PREVIOUS_WEATHER_STR : St
 			if PREVIOUS_WEATHER_STR != "STORM" and PREVIOUS_WEATHER_STR != "LIGHT_RAIN":
 				$Rain.amount = 5000
 				$Rain.emitting = true
+			
 				
 				$Rain.visible = true
 				$Rain.visible = true
