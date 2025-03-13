@@ -879,15 +879,15 @@ func initInventorySlots():
 
 func _on_walking_speed_sounds_timeout() -> void:
 	if PlayerManager.is_walking_moving and velocity.y == 0.0:
-		$FootstepSounds_Audio_Grass.play()
+		$"Footstep Sounds/Footstep_Sounds_GRASS".play_random()
 
 func _on_sprinting_speed_sounds_timeout() -> void:
 	if PlayerManager.is_sprinting_moving and velocity.y == 0.0:
-		$FootstepSounds_Audio_Grass.play()
+		$"Footstep Sounds/Footstep_Sounds_GRASS".play_random()
 
 func _on_crouching_speed_sounds_timeout() -> void:
 	if PlayerManager.is_crouching_moving and velocity.y == 0.0:
-		$FootstepSounds_Audio_Grass.play()
+		$"Footstep Sounds/Footstep_Sounds_GRASS".play_random()
 
 #endregion
 

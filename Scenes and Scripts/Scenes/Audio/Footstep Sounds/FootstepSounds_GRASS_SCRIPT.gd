@@ -54,7 +54,7 @@ func _ready() -> void:
 		if str(child.name).begins_with("AUDIO"):
 			SOUNDS.append(child)
 
-func play_random_sound():
+func play_random():
 	if SOUNDS.size() > 0:
 		var random_sound = SOUNDS[randi() % SOUNDS.size()]
 		if random_sound:
