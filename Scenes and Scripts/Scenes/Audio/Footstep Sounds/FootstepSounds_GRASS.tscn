@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://befvxrvmvcjab"]
+
+[ext_resource type="Script" uid="uid://brgggfesou277" path="res://Scenes and Scripts/Scenes/Audio/Footstep Sounds/FootstepSounds_GRASS_SCRIPT.gd" id="1_us15h"]
+
+[node name="Footstep_Sounds_GRASS" type="Node"]
+script = ExtResource("1_us15h")
+
+[node name="Grass1" type="AudioStreamPlayer" parent="."]
+
+[node name="Grass2" type="AudioStreamPlayer" parent="."]
+
+[node name="Grass3" type="AudioStreamPlayer" parent="."]
+
+[node name="Grass4" type="AudioStreamPlayer" parent="."]
+
+[node name="Grass5" type="AudioStreamPlayer" parent="."]
+
+[node name="Grass6" type="AudioStreamPlayer" parent="."]
+
+[node name="Grass7" type="AudioStreamPlayer" parent="."]
+
+[node name="Grass8" type="AudioStreamPlayer" parent="."]
