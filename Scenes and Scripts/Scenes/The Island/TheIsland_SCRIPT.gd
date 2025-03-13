@@ -303,6 +303,53 @@ func change_weather(GOTO_WEATHER_STR : String, PREVIOUS_WEATHER_STR : String):
 		# Implement STORM weather change logic
 		pass
 
+
+func change_weather_instant(GOTO_WEATHER_STR : String, PREVIOUS_WEATHER_STR : String):
+	print_rich("[color=pink]Changing weather to: " + GOTO_WEATHER_STR + "[/color]")
+	print_rich("[color=red]WARNING: Weather change is instant[/color]")
+	
+	if GOTO_WEATHER_STR == "SUNNY":
+		$Rain.color = Color(1, 1, 1, 0)
+		change_sky_instant("SUNNY", TimeManager.CURRENT_TIME)
+	
+	elif GOTO_WEATHER_STR == "CLOUDY":
+		$Rain.color = Color(1, 1, 1, 0)
+		change_sky_instant("LIGHT_RAIN", TimeManager.CURRENT_TIME)
+		
+	
+	elif GOTO_WEATHER_STR == "RAIN":
+		if PREVIOUS_WEATHER_STR != "RAIN":
+			if PREVIOUS_WEATHER_STR != "STORM" and PREVIOUS_WEATHER_STR != "LIGHT_RAIN":
+				$Rain.amount = 5000
+				$Rain.emitting = true
+				
+				$Rain.visible = true
+				var tween = get_tree().create_tween()
+				tween.tween_property($Rain, "color", Color(1, 1, 1, 1), 30.0).from(Color(1, 1, 1, 0))
+				change_sky("CLOUDY", TimeManager.CURRENT_TIME)
+		
+		
+	elif GOTO_WEATHER_STR == "LIGHT_RAIN":
+		if PREVIOUS_WEATHER_STR != "LIGHT_RAIN":
+			if PREVIOUS_WEATHER_STR != "STORM" and PREVIOUS_WEATHER_STR != "RAIN":
+				$Rain.amount = 2500
+				$Rain.emitting = true
+			
+			$Rain.visible = true
+			var tween = get_tree().create_tween()
+			tween.tween_property($Rain, "color", Color(1, 1, 1, 1), 30.0).from(Color(1, 1, 1, 0))
+			change_sky("LIGHT_RAIN", TimeManager.CURRENT_TIME)
+		
+	
+	elif GOTO_WEATHER_STR == "STORM":
+		# Implement STORM weather change logic
+		pass
+
+
+
+
+
+
 func _on_rain_color_fade_out_finished():
 	$Rain.emitting = false
 
@@ -316,7 +363,7 @@ func init_weather_with_fade():
 	$"Weather Timer".start()
 
 func init_weather_instant():
-	WeatherManager.change_weather_to_random()
+	WeatherManager.change_weather_to_random_instant()
 	$"Weather Timer".stop()
 	$"Weather Timer".wait_time = randi_range(400, 1000)
 	$"Weather Timer".start()

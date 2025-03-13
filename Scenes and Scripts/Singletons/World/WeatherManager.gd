@@ -80,6 +80,10 @@ func change_weather_to_random():
 	var random_weather_index = get_random_weather()
 	change_weather(random_weather_index)
 
+func change_weather_to_random_instant():
+	var random_weather_index = get_random_weather()
+	change_weather_instant(random_weather_index)
+
 func change_weather(ARR_INDEX : int):
 	if ARR_INDEX < 0 or ARR_INDEX >= WEATHERS.size():
 		print("Invalid array index for accessing weather! " + str(ARR_INDEX))
@@ -91,3 +95,15 @@ func change_weather(ARR_INDEX : int):
 	
 	if PlayerManager.WORLD:
 		PlayerManager.WORLD.change_weather(CURRENT_WEATHER, PREV_WEATHER)
+
+func change_weather_instant(ARR_INDEX : int):
+	if ARR_INDEX < 0 or ARR_INDEX >= WEATHERS.size():
+		print("Invalid array index for accessing weather! " + str(ARR_INDEX))
+		return
+	
+	var PREV_WEATHER = CURRENT_WEATHER
+	CURRENT_WEATHER = WEATHERS[ARR_INDEX]
+	CURRENT_WEATHER_ARR_INDEX = ARR_INDEX
+	
+	if PlayerManager.WORLD:
+		PlayerManager.WORLD.change_weather_instant(CURRENT_WEATHER, PREV_WEATHER)
