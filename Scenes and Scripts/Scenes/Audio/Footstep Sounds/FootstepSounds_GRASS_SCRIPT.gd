@@ -46,3 +46,10 @@
 # ============================================================= #
 
 extends Node
+
+var SOUNDS : Array = []
+
+func _ready() -> void:
+	for child in self.get_children():
+		if str(child.name).begins_with("AUDIO"):
+			SOUNDS.append(child)
