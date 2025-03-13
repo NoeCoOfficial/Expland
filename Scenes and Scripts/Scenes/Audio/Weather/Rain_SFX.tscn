@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://c80rdnk63xyah"]
+[gd_scene load_steps=3 format=3 uid="uid://c80rdnk63xyah"]
 
 [ext_resource type="Script" uid="uid://bq0pmuhtni0l" path="res://Scenes and Scripts/Scenes/Audio/Weather/Rain_SFX_SCRIPT.gd" id="1_obrl4"]
+[ext_resource type="AudioStream" uid="uid://ptewirkc0lj6" path="res://Audio/SFX/Weather/rainLoop2.mp3" id="2_jetw6"]
 
 [node name="Rain_SFX" type="Node"]
 script = ExtResource("1_obrl4")
 
 [node name="rainLoop2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_jetw6")
+volume_db = -7.0
+bus = &"sfx"
