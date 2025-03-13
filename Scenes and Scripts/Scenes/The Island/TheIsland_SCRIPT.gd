@@ -367,30 +367,47 @@ func change_weather_instant(GOTO_WEATHER_STR : String, PREVIOUS_WEATHER_STR : St
 	if GOTO_WEATHER_STR == "SUNNY":
 		$Rain.color = Color(1, 1, 1, 0)
 		change_sky_instant("SUNNY", TimeManager.CURRENT_TIME)
+		$Rain_SFX.stop_rain_loop(0.0)
 	
 	elif GOTO_WEATHER_STR == "CLOUDY":
 		$Rain.color = Color(1, 1, 1, 0)
 		change_sky_instant("LIGHT_RAIN", TimeManager.CURRENT_TIME)
+		$Rain_SFX.stop_rain_loop(0.0)
 		
 	
 	elif GOTO_WEATHER_STR == "RAIN":
 		if PREVIOUS_WEATHER_STR != "RAIN":
+			
 			if PREVIOUS_WEATHER_STR != "STORM" and PREVIOUS_WEATHER_STR != "LIGHT_RAIN":
 				$Rain.amount = 5000
 				$Rain.emitting = true
 			
+			if PREVIOUS_WEATHER_STR == "LIGHT_RAIN":
+				$Rain_SFX.tween_fade(3.0, -7.0)
 				
-				$Rain.visible = true
-				$Rain.visible = true
-				$Rain.color = Color(1, 1, 1, 1)
-				change_sky_instant("CLOUDY", TimeManager.CURRENT_TIME)
+			if PREVIOUS_WEATHER_STR != "STORM" and PREVIOUS_WEATHER_STR != "LIGHT_RAIN":
+				$Rain_SFX.start_rain_loop(3.0, -7.0)
+			
+			$Rain.visible = true
+			$Rain.visible = true
+			$Rain.color = Color(1, 1, 1, 1)
+			change_sky_instant("CLOUDY", TimeManager.CURRENT_TIME)
 		
 		
 	elif GOTO_WEATHER_STR == "LIGHT_RAIN":
 		if PREVIOUS_WEATHER_STR != "LIGHT_RAIN":
+			
+			
 			if PREVIOUS_WEATHER_STR != "STORM" and PREVIOUS_WEATHER_STR != "RAIN":
 				$Rain.amount = 2500
 				$Rain.emitting = true
+			
+			
+			if PREVIOUS_WEATHER_STR == "STORM" and PREVIOUS_WEATHER_STR == "RAIN":
+				$Rain_SFX.tween_fade(3.0, -13.0)
+			
+			else:
+				$Rain_SFX.start_rain_loop(3.0, -13.0)
 			
 			$Rain.visible = true
 			$Rain.color = Color(1, 1, 1, 1)

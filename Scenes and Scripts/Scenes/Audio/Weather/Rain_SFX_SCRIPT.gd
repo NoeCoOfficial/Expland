@@ -62,3 +62,7 @@ func stop_rain_loop(fade_time : float):
 
 func on_stop_rain_loop_fade_finished():
 	$rainLoop2.stop()
+
+func tween_fade(fade_time : float, to_db : float):
+	var tween = get_tree().create_tween()
+	tween.tween_property($rainLoop2, "volume_db", to_db, fade_time)
