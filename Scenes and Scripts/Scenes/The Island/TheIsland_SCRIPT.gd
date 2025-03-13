@@ -416,11 +416,11 @@ func _on_weather_timer_timeout() -> void:
 func init_weather_with_fade():
 	WeatherManager.change_weather_to_random()
 	$"Weather Timer".stop()
-	$"Weather Timer".wait_time = randi_range(400, 1000)
+	#$"Weather Timer".wait_time = randi_range(400, 1000)
 	$"Weather Timer".start()
 
 func init_weather_instant():
 	WeatherManager.change_weather_to_random_instant()
 	$"Weather Timer".stop()
-	$"Weather Timer".wait_time = randi_range(400, 1000)
+	#$"Weather Timer".wait_time = randi_range(400, 1000)
 	$"Weather Timer".start()
