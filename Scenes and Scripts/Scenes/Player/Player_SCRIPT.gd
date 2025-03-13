@@ -1416,6 +1416,8 @@ func _on_save_and_quit_to_menu_pressed() -> void:
 	transitioning_to_menu = true
 	Global.the_island_transitioning_scene = true
 	AudioManager.Current_Playlist.audibleOnlyFadeOutAllSongs()
+	if AudioManager.Current_Rain_SFX_Node:
+		AudioManager.Current_Rain_SFX_Node.stop_rain_loop(2.0)
 	
 	$Head/Camera3D/SleepLayer.layer = 100
 	SleepLayerBlackOverlay.modulate = Color(1, 1, 1, 0)

@@ -100,6 +100,7 @@ func _ready() -> void:
 func _on_ready() -> void:
 	AudioManager.initNotificaton(PlayerManager.AudioNotification)
 	AudioManager.initNew($TheIsland_Audio, true, false, true)
+	AudioManager.Current_Rain_SFX_Node = $Rain_SFX
 
 func _process(_delta: float) -> void:
 	RainParticles.position.x = Player.position.x
