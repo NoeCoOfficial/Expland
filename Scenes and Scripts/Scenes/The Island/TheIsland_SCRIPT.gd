@@ -56,6 +56,7 @@ func initializeIslandProperties(_Island_Name):
 @export var DayNightCycle_Sky : AnimationPlayer
 
 @export var Tick : Timer
+@export var Weather_Timer : Timer
 @export var RainParticles : CPUParticles3D
 @export var Clouds : MeshInstance3D
 @export var Player : CharacterBody3D
@@ -103,6 +104,7 @@ func _on_ready() -> void:
 func _process(_delta: float) -> void:
 	RainParticles.position.x = Player.position.x
 	RainParticles.position.z = Player.position.z
+	WeatherManager.WEATHER_TIMER_TIME_LEFT = int(Weather_Timer.time_left)
 
 func initNodes():
 	RainParticles.emitting = false
