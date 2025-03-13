@@ -1,5 +1,5 @@
 # ============================================================= #
-# WeatherManager.gd [AUTOLOAD]
+# FootstepSounds_GRASS_SCRIPT.gd
 # ============================================================= #
 #                       COPYRIGHT NOTICE                        #
 #                           Noe Co.                             #
@@ -47,63 +47,15 @@
 
 extends Node
 
-var CURRENT_WEATHER : String = ""
-var CURRENT_WEATHER_ARR_INDEX : int
+var SOUNDS : Array = []
 
-var WEATHERS : Array = [
-	"SUNNY", # 0
-	"CLOUDY", # 1
-	"RAIN", # 2
-	"LIGHT_RAIN", # 3
-	"STORM", # 4
-]
+func _ready() -> void:
+	for child in self.get_children():
+		if str(child.name).begins_with("AUDIO"):
+			SOUNDS.append(child)
 
-# Define weights for each weather type
-var WEATHER_WEIGHTS : Array = [50, 20, 20, 5, 5]
-
-func get_random_weather() -> int:
-	var total_weight = 0
-	for weight in WEATHER_WEIGHTS:
-		total_weight += weight
-	
-	var random_value = randi() % total_weight
-	var cumulative_weight = 0
-	
-	for i in range(WEATHER_WEIGHTS.size()):
-		cumulative_weight += WEATHER_WEIGHTS[i]
-		if random_value < cumulative_weight:
-			return i
-	
-	return 0 # Default to SUNNY if something goes wrong
-
-func change_weather_to_random():
-	var random_weather_index = get_random_weather()
-	change_weather(random_weather_index)
-
-func change_weather_to_random_instant():
-	var random_weather_index = get_random_weather()
-	change_weather_instant(random_weather_index)
-
-func change_weather(ARR_INDEX : int):
-	if ARR_INDEX < 0 or ARR_INDEX >= WEATHERS.size():
-		print("Invalid array index for accessing weather! " + str(ARR_INDEX))
-		return
-	
-	var PREV_WEATHER = CURRENT_WEATHER
-	CURRENT_WEATHER = WEATHERS[ARR_INDEX]
-	CURRENT_WEATHER_ARR_INDEX = ARR_INDEX
-	
-	if PlayerManager.WORLD:
-		PlayerManager.WORLD.change_weather(CURRENT_WEATHER, PREV_WEATHER)
-
-func change_weather_instant(ARR_INDEX : int):
-	if ARR_INDEX < 0 or ARR_INDEX >= WEATHERS.size():
-		print("Invalid array index for accessing weather! " + str(ARR_INDEX))
-		return
-	
-	var PREV_WEATHER = CURRENT_WEATHER
-	CURRENT_WEATHER = WEATHERS[ARR_INDEX]
-	CURRENT_WEATHER_ARR_INDEX = ARR_INDEX
-	
-	if PlayerManager.WORLD:
-		PlayerManager.WORLD.change_weather_instant(CURRENT_WEATHER, PREV_WEATHER)
+func play_random():
+	if SOUNDS.size() > 0:
+		var random_sound = SOUNDS[randi() % SOUNDS.size()]
+		if random_sound:
+			random_sound.play()
