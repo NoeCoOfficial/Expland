@@ -356,6 +356,8 @@ var stamina_restoring_from_0 = false
 @export var CURRENT_DAY_Label : Label
 @export var CURRENT_TIME_Label : Label
 @export var CURRENT_WEATHER_Label : Label
+@export var CURRENT_WEATHER_ARR_INDEX_Label : Label
+@export var WEATHER_TIMER_TIME_LEFT_Label : Label
 
 #endregion
 
@@ -693,7 +695,9 @@ func _process(_delta):
 	GAME_STATE_Label.text = "GAME_STATE = " + PlayerData.GAME_STATE
 	CURRENT_DAY_Label.text = "CURRENT_DAY = " + str(TimeManager.CURRENT_DAY)
 	CURRENT_TIME_Label.text = "CURRENT_TIME = " + str(TimeManager.CURRENT_TIME)
-	CURRENT_WEATHER_Label.text = "CURRENT_WEATHER = " + WeatherManager.CURRENT_WEATHER
+	CURRENT_WEATHER_Label.text = "CURRENT_WEATHER = " + str(WeatherManager.CURRENT_WEATHER)
+	CURRENT_WEATHER_ARR_INDEX_Label.text = "CURRENT_WEATHER_ARR_INDEX = " + str(WeatherManager.CURRENT_WEATHER_ARR_INDEX)
+	WEATHER_TIMER_TIME_LEFT_Label.text = "WEATHER_TIMER_TIME_LEFT = " + str(WeatherManager.WEATHER_TIMER_TIME_LEFT)
 	
 	## END DEBUGGING
 	

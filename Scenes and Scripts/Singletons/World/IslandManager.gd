@@ -94,6 +94,7 @@ func resetAttributes():
 	
 	WeatherManager.CURRENT_WEATHER = ""
 	WeatherManager.CURRENT_WEATHER_ARR_INDEX = 0
+	WeatherManager.WEATHER_TIMER_TIME_LEFT = 0
 	
 	ExplorerNotesManager.COLLECTED_NOTES.clear()
 	ExplorerNotesManager.CurrentlyInteracting_ID = null
