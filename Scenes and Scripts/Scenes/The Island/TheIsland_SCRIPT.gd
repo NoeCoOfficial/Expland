@@ -87,7 +87,7 @@ func _ready() -> void:
 		set_time(TimeManager.CURRENT_TIME)
 	
 	Tick.start()
-	init_weather()
+	init_weather() # NOTE: Important line right here (initalize weather)
 	
 	Player.nodeSetup()
 	Player.setHotbarSelectedSlot(int(str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME)[-1]))
@@ -167,7 +167,6 @@ func set_time(minute : int):
 		else:
 			DayNightCycle_Sky.stop()
 			DayNightCycle_Sky.play(&"cloudy_sky_cycle")
-	
 	
 	if DayNightCycle_Rotation.is_playing():
 		DayNightCycle_Rotation.play(&"rotation_cycle")
