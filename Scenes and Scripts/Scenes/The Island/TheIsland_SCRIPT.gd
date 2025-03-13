@@ -125,6 +125,7 @@ func set_pretty_shadows(value : bool) -> void:
 func set_time(minute : int):
 	
 	# Transitioning sky depending on the current weather
+	# Blend time is instant (0.0)
 	
 	if WeatherManager.CURRENT_WEATHER == "SUNNY":
 	
@@ -380,9 +381,9 @@ func change_weather_instant(GOTO_WEATHER_STR : String, PREVIOUS_WEATHER_STR : St
 				$Rain.emitting = true
 				
 				$Rain.visible = true
-				var tween = get_tree().create_tween()
-				tween.tween_property($Rain, "color", Color(1, 1, 1, 1), 30.0).from(Color(1, 1, 1, 0))
-				change_sky("CLOUDY", TimeManager.CURRENT_TIME)
+				$Rain.visible = true
+				$Rain.color = Color(1, 1, 1, 1)
+				change_sky_instant("CLOUDY", TimeManager.CURRENT_TIME)
 		
 		
 	elif GOTO_WEATHER_STR == "LIGHT_RAIN":
@@ -392,15 +393,13 @@ func change_weather_instant(GOTO_WEATHER_STR : String, PREVIOUS_WEATHER_STR : St
 				$Rain.emitting = true
 			
 			$Rain.visible = true
-			var tween = get_tree().create_tween()
-			tween.tween_property($Rain, "color", Color(1, 1, 1, 1), 30.0).from(Color(1, 1, 1, 0))
-			change_sky("LIGHT_RAIN", TimeManager.CURRENT_TIME)
+			$Rain.color = Color(1, 1, 1, 1)
+			change_sky_instant("LIGHT_RAIN", TimeManager.CURRENT_TIME)
 		
 	
 	elif GOTO_WEATHER_STR == "STORM":
 		# Implement STORM weather change logic
 		pass
-
 
 
 
