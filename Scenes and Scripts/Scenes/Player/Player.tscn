@@ -1,28 +1,20 @@
-[gd_scene load_steps=112 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=103 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" uid="uid://6516a37cmejq" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
-[ext_resource type="AudioStream" uid="uid://icd7j3r3qar2" path="res://Audio/SFX/Footstep/Grass/Grass1.mp3" id="2_7qp4s"]
 [ext_resource type="Script" uid="uid://dilocovfy7y5b" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
 [ext_resource type="Texture2D" uid="uid://tmqrfb1atg1j" path="res://Textures/Crosshairs/Expland_Crosshair.png" id="2_606ex"]
 [ext_resource type="Script" uid="uid://djnu0mq7nqgk2" path="res://Textures/Icons/Script Icons/Scripts/ClockIcon_SCRIPT.gd" id="2_t6toi"]
 [ext_resource type="PackedScene" uid="uid://jdu8drxlcfv5" path="res://Scenes and Scripts/Scenes/Player/Character/PlayerCharacterShadow.tscn" id="3_1fhva"]
 [ext_resource type="Script" uid="uid://c6ou0e14j1o15" path="res://Scenes and Scripts/Scenes/Player/Interaction/RayCast3D_SCRIPT.gd" id="3_2qtqn"]
-[ext_resource type="AudioStream" uid="uid://cxc1ybkupv6t5" path="res://Audio/SFX/Footstep/Grass/Grass2.mp3" id="3_dybty"]
 [ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="3_yecwp"]
 [ext_resource type="PackedScene" uid="uid://djwgy3b85xfpn" path="res://Scenes and Scripts/Scenes/Player/Hand Item/HandItem.tscn" id="4_476v6"]
-[ext_resource type="AudioStream" uid="uid://bwinfrrgylgg2" path="res://Audio/SFX/Footstep/Grass/Grass3.mp3" id="4_n48mm"]
-[ext_resource type="AudioStream" uid="uid://yig44hgetdt8" path="res://Audio/SFX/Footstep/Grass/Grass4.mp3" id="5_vhqsg"]
-[ext_resource type="AudioStream" uid="uid://ypdbfpy0jikg" path="res://Audio/SFX/Footstep/Grass/Grass5.mp3" id="6_1upcs"]
 [ext_resource type="Script" uid="uid://bm52qfp1sskfh" path="res://Scenes and Scripts/Scenes/Player/OverlayLayer/RedOverlay_SCRIPT.gd" id="7_gnu1v"]
-[ext_resource type="AudioStream" uid="uid://dil43niwqhfbr" path="res://Audio/SFX/Footstep/Grass/Grass6.mp3" id="7_tb1c3"]
-[ext_resource type="AudioStream" uid="uid://prqujkpcypsm" path="res://Audio/SFX/Footstep/Grass/Grass7.mp3" id="8_3tnnq"]
 [ext_resource type="PackedScene" uid="uid://dhhjltxmoydio" path="res://Scenes and Scripts/Scenes/Player/Inventory/InventorySlot.tscn" id="8_ads4s"]
 [ext_resource type="FontFile" uid="uid://c4h0gd5a2e2qb" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf" id="8_cdk3a"]
 [ext_resource type="Texture2D" uid="uid://bg100aqmtgfn4" path="res://Textures/Icons/WhiteHam_Icon.png" id="8_l231k"]
 [ext_resource type="Texture2D" uid="uid://b20d3fbxr6vhx" path="res://Textures/Icons/WhiteHeart_Icon.png" id="8_ty1rt"]
 [ext_resource type="Script" uid="uid://di02ml8prlof0" path="res://Scenes and Scripts/Scenes/Player/OverlayLayer/Overlay_SCRIPT.gd" id="8_uxqns"]
 [ext_resource type="Script" uid="uid://ddsobh5x3h3qn" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/BlackOverlay_SCRIPT.gd" id="9_g6nwl"]
-[ext_resource type="AudioStream" uid="uid://6jg76r8ntdnv" path="res://Audio/SFX/Footstep/Grass/Grass8.mp3" id="9_sp1qr"]
 [ext_resource type="Script" uid="uid://snus4y53incu" path="res://Scenes and Scripts/Utility Scripts/IgnoreMouseFilter.gd" id="9_svfxy"]
 [ext_resource type="Script" uid="uid://can8cebn2rm5a" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/RandomText_SCRIPT.gd" id="10_6w37c"]
 [ext_resource type="Script" uid="uid://8qfa2wch42ao" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/GetUp_SCRIPT.gd" id="11_0enap"]
@@ -71,17 +63,6 @@
 [ext_resource type="Texture2D" uid="uid://64jg78rc6wkb" path="res://Textures/Icons/Loading_Icon.png" id="52_xwypu"]
 [ext_resource type="Texture2D" uid="uid://cliv00fuliseq" path="res://Textures/Icons/TickGreen_Icon.png" id="53_i3m63"]
 [ext_resource type="PackedScene" uid="uid://32wjv1fmedim" path="res://Scenes and Scripts/Scenes/Player/Character/PlayerCharacter.tscn" id="62_d4k5t"]
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_esl0a"]
-streams_count = 8
-stream_0/stream = ExtResource("2_7qp4s")
-stream_1/stream = ExtResource("3_dybty")
-stream_2/stream = ExtResource("4_n48mm")
-stream_3/stream = ExtResource("5_vhqsg")
-stream_4/stream = ExtResource("6_1upcs")
-stream_5/stream = ExtResource("7_tb1c3")
-stream_6/stream = ExtResource("8_3tnnq")
-stream_7/stream = ExtResource("9_sp1qr")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bmd81"]
 
@@ -1906,9 +1887,7 @@ CURRENT_DAY_Label = NodePath("Head/Camera3D/DebugLayer/CURRENT_DAY")
 CURRENT_TIME_Label = NodePath("Head/Camera3D/DebugLayer/CURRENT_TIME")
 CURRENT_WEATHER_Label = NodePath("Head/Camera3D/DebugLayer/CURRENT_WEATHER")
 
-[node name="FootstepSounds_Audio_Grass" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamRandomizer_esl0a")
-bus = &"sfx"
+[node name="Footstep Sounds" type="Node" parent="."]
 
 [node name="WalkingSpeedSounds" type="Timer" parent="."]
 wait_time = 0.4
@@ -1985,30 +1964,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 transform = Transform3D(-0.651061, 0, -5.69176e-08, 0, 0.651061, 0, 5.69176e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Head/Player_Character_Shadow/Armature_003" index="0"]
-bones/0/position = Vector3(2.87718, -2.31031, -196.494)
-bones/0/rotation = Quaternion(-0.684829, -0.270645, 0.248441, 0.629315)
-bones/1/rotation = Quaternion(0.0781872, 0.0408242, -0.00811625, 0.996069)
-bones/2/rotation = Quaternion(0.0933339, 0.0791883, -0.0216241, 0.992245)
-bones/3/rotation = Quaternion(0.0926843, 0.0792603, -0.0215596, 0.992302)
-bones/4/rotation = Quaternion(-0.0474181, -0.0105287, 0.00204039, 0.998818)
-bones/5/rotation = Quaternion(-0.0699694, 0.177874, -0.000924976, 0.981562)
-bones/7/rotation = Quaternion(0.573231, 0.428122, -0.567042, 0.408144)
-bones/8/rotation = Quaternion(0.435477, -0.0977603, 0.0883445, 0.890504)
+bones/0/position = Vector3(2.81656, -4.26235, -195.438)
+bones/0/rotation = Quaternion(-0.683173, -0.270052, 0.25017, 0.630683)
+bones/1/rotation = Quaternion(0.0808823, 0.0409131, -0.00937202, 0.99584)
+bones/2/rotation = Quaternion(0.0998122, 0.0792621, -0.0231911, 0.991573)
+bones/3/rotation = Quaternion(0.0998122, 0.0792621, -0.023191, 0.991573)
+bones/4/rotation = Quaternion(-0.0645926, -0.0109722, 0.00234487, 0.997849)
+bones/5/rotation = Quaternion(-0.0494953, 0.176493, -0.0105334, 0.983)
+bones/7/rotation = Quaternion(0.594538, 0.403182, -0.567174, 0.402843)
+bones/8/rotation = Quaternion(0.420331, -0.108144, 0.0884191, 0.896554)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0335432, 0.0657049, 0.418845, 0.905056)
-bones/11/rotation = Quaternion(0.620575, -0.389943, 0.525711, 0.43181)
-bones/12/rotation = Quaternion(0.432559, 0.0917672, 0.146113, 0.884942)
-bones/13/rotation = Quaternion(0.0398795, -0.00317807, -0.368348, 0.928827)
-bones/15/rotation = Quaternion(0.0804234, 0.23086, 0.964107, -0.1036)
+bones/9/rotation = Quaternion(-0.0393007, 0.0577915, 0.404785, 0.911737)
+bones/11/rotation = Quaternion(0.641931, -0.364591, 0.524569, 0.424059)
+bones/12/rotation = Quaternion(0.405288, 0.113699, 0.14733, 0.895046)
+bones/13/rotation = Quaternion(0.023296, 0.0246164, -0.363464, 0.930991)
+bones/15/rotation = Quaternion(0.0791773, 0.240225, 0.961646, -0.106115)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.359255, 0.119435, -0.0364871, 0.924846)
-bones/17/rotation = Quaternion(0.56586, -0.00114739, -0.023667, 0.824161)
-bones/18/rotation = Quaternion(0.289414, -0.0365365, -0.00969077, 0.956457)
-bones/20/rotation = Quaternion(-0.125531, 0.0214089, 0.982797, 0.133766)
-bones/21/rotation = Quaternion(-0.336182, 0.0725359, -0.025486, 0.938654)
-bones/22/rotation = Quaternion(0.672068, 0.0555142, 0.107026, 0.730608)
+bones/16/rotation = Quaternion(-0.365176, 0.118357, -0.0366065, 0.922658)
+bones/17/rotation = Quaternion(0.565664, -0.00275475, -0.0265426, 0.824204)
+bones/18/rotation = Quaternion(0.288942, -0.0357482, -0.00920675, 0.956635)
+bones/20/rotation = Quaternion(-0.124334, 0.0390311, 0.98264, 0.132046)
+bones/21/rotation = Quaternion(-0.359346, 0.0707771, -0.0271838, 0.930119)
+bones/22/rotation = Quaternion(0.679666, 0.0546651, 0.104733, 0.723946)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.278141, 0.0569236, -0.0170847, 0.9587)
+bones/23/rotation = Quaternion(0.277871, 0.0565361, -0.0169022, 0.958804)
 
 [node name="Model_004" parent="Head/Player_Character_Shadow/Armature_003/Skeleton3D" index="0"]
 cast_shadow = 3
@@ -2017,27 +1996,27 @@ cast_shadow = 3
 transform = Transform3D(-0.651061, 0, 5.69175e-08, 0, 0.651061, 0, -5.69175e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Head/Player_Character/Armature_003" index="0"]
-bones/0/position = Vector3(2.87718, -2.31031, -196.494)
-bones/0/rotation = Quaternion(-0.684829, -0.270645, 0.248441, 0.629315)
-bones/1/rotation = Quaternion(0.0781872, 0.0408242, -0.00811625, 0.996069)
-bones/2/rotation = Quaternion(0.0933339, 0.0791883, -0.0216241, 0.992245)
-bones/3/rotation = Quaternion(0.0926843, 0.0792603, -0.0215596, 0.992302)
-bones/4/rotation = Quaternion(-0.0474181, -0.0105287, 0.00204039, 0.998818)
-bones/5/rotation = Quaternion(-0.0699694, 0.177874, -0.000924976, 0.981562)
-bones/7/rotation = Quaternion(0.573231, 0.428122, -0.567042, 0.408144)
-bones/8/rotation = Quaternion(0.435477, -0.0977603, 0.0883445, 0.890504)
-bones/9/rotation = Quaternion(-0.0335432, 0.0657049, 0.418845, 0.905056)
-bones/11/rotation = Quaternion(0.620575, -0.389943, 0.525711, 0.43181)
-bones/12/rotation = Quaternion(0.432559, 0.0917672, 0.146113, 0.884942)
-bones/13/rotation = Quaternion(0.0398795, -0.00317807, -0.368348, 0.928827)
-bones/15/rotation = Quaternion(0.0804234, 0.23086, 0.964107, -0.1036)
-bones/16/rotation = Quaternion(-0.359255, 0.119435, -0.0364871, 0.924846)
-bones/17/rotation = Quaternion(0.56586, -0.00114739, -0.023667, 0.824161)
-bones/18/rotation = Quaternion(0.289414, -0.0365365, -0.00969077, 0.956457)
-bones/20/rotation = Quaternion(-0.125531, 0.0214089, 0.982797, 0.133766)
-bones/21/rotation = Quaternion(-0.336182, 0.0725359, -0.025486, 0.938654)
-bones/22/rotation = Quaternion(0.672068, 0.0555142, 0.107026, 0.730608)
-bones/23/rotation = Quaternion(0.278141, 0.0569236, -0.0170847, 0.9587)
+bones/0/position = Vector3(2.81656, -4.26235, -195.438)
+bones/0/rotation = Quaternion(-0.683173, -0.270052, 0.25017, 0.630683)
+bones/1/rotation = Quaternion(0.0808823, 0.0409131, -0.00937202, 0.99584)
+bones/2/rotation = Quaternion(0.0998122, 0.0792621, -0.0231911, 0.991573)
+bones/3/rotation = Quaternion(0.0998122, 0.0792621, -0.023191, 0.991573)
+bones/4/rotation = Quaternion(-0.0645926, -0.0109722, 0.00234487, 0.997849)
+bones/5/rotation = Quaternion(-0.0494953, 0.176493, -0.0105334, 0.983)
+bones/7/rotation = Quaternion(0.594538, 0.403182, -0.567174, 0.402843)
+bones/8/rotation = Quaternion(0.420331, -0.108144, 0.0884191, 0.896554)
+bones/9/rotation = Quaternion(-0.0393007, 0.0577915, 0.404785, 0.911737)
+bones/11/rotation = Quaternion(0.641931, -0.364591, 0.524569, 0.424059)
+bones/12/rotation = Quaternion(0.405288, 0.113699, 0.14733, 0.895046)
+bones/13/rotation = Quaternion(0.023296, 0.0246164, -0.363464, 0.930991)
+bones/15/rotation = Quaternion(0.0791773, 0.240225, 0.961646, -0.106115)
+bones/16/rotation = Quaternion(-0.365176, 0.118357, -0.0366065, 0.922658)
+bones/17/rotation = Quaternion(0.565664, -0.00275475, -0.0265426, 0.824204)
+bones/18/rotation = Quaternion(0.288942, -0.0357482, -0.00920675, 0.956635)
+bones/20/rotation = Quaternion(-0.124334, 0.0390311, 0.98264, 0.132046)
+bones/21/rotation = Quaternion(-0.359346, 0.0707771, -0.0271838, 0.930119)
+bones/22/rotation = Quaternion(0.679666, 0.0546651, 0.104733, 0.723946)
+bones/23/rotation = Quaternion(0.277871, 0.0565361, -0.0169022, 0.958804)
 
 [node name="Model_004" parent="Head/Player_Character/Armature_003/Skeleton3D" index="0"]
 cast_shadow = 0

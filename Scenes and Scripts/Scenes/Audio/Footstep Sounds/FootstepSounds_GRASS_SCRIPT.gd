@@ -57,4 +57,5 @@ func _ready() -> void:
 func play_random_sound():
 	if SOUNDS.size() > 0:
 		var random_sound = SOUNDS[randi() % SOUNDS.size()]
-		random_sound.play()
+		if random_sound:
+			random_sound.play()
