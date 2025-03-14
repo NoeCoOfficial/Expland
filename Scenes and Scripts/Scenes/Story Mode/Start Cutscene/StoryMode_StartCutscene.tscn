@@ -53,7 +53,7 @@ shader_parameter/secondary_wave_speed = 0.1
 material = SubResource("ShaderMaterial_g8pos")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7s4ab"]
-size = Vector3(15.8928, 1, 8.57983)
+size = Vector3(10.6402, 0.282715, 2.05533)
 
 [sub_resource type="Gradient" id="Gradient_to1x2"]
 offsets = PackedFloat32Array(0.238411, 1)
@@ -243,7 +243,7 @@ transform = Transform3D(-0.965833, 0.0137354, 0.258801, 0.0132673, 0.999906, -0.
 [node name="Collision" type="StaticBody3D" parent="Yacht Rig/Yacht"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Yacht Rig/Yacht/Collision"]
-transform = Transform3D(1, 0, 0, 2.3099e-07, 1, -1.00705e-10, -5.06639e-07, 0, 1, -2.31011, 2.41526, 0.542807)
+transform = Transform3D(1, 1.01301e-08, 0, 2.33691e-07, 1, -1.40226e-11, -5.96046e-07, -3.40088e-09, 1, -1.23709, 2.7739, 0.00517273)
 shape = SubResource("BoxShape3D_7s4ab")
 debug_color = Color(1, 0.21, 0.223166, 1)
 
