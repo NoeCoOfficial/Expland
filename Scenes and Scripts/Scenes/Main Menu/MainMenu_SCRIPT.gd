@@ -474,6 +474,7 @@ func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 	$Camera3D/TopLayer/TransitionFadeOut.modulate = Color(1, 1, 1, 0)
 	$Camera3D/TopLayer/TransitionFadeOut.visible = true
 	$Camera3D/TopLayer/ProtectiveLayer.show()
+	$Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Free_ModeInPopupNewIslandButton.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	
 	var tween = get_tree().create_tween()
 	tween.connect("finished", Callable(self, "on_free_mode_fade_finished"))
