@@ -152,8 +152,8 @@ func onStartup():
 	if !OS.is_debug_build():
 		$Camera3D/MainLayer/AudioNotificationLayer/fade_timer_time_left.hide()
 		$Camera3D/MainLayer/AudioNotificationLayer/fade_timer_time_left_title.hide()
-	
-	fadeOut($Camera3D/MainLayer/TopLayer/FadeOut)
+		
+	fadeOut($Camera3D/TopLayer/FadeOut)
 	$Camera3D/MainLayer/Version_LBL.visible = true
 	
 	# Menu animation (in the form of tweens)
@@ -471,14 +471,15 @@ func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
-	$Camera3D/MainLayer/TopLayer/TransitionFadeOut.modulate = Color(1, 1, 1, 0)
-	$Camera3D/MainLayer/TopLayer/TransitionFadeOut.visible = true
+	$Camera3D/TopLayer/TransitionFadeOut.modulate = Color(1, 1, 1, 0)
+	$Camera3D/TopLayer/TransitionFadeOut.visible = true
+	$Camera3D/TopLayer/ProtectiveLayer.show()
 	
 	
 	var tween = get_tree().create_tween()
 	tween.connect("finished", Callable(self, "on_free_mode_fade_finished"))
 	
-	tween.tween_property($Camera3D/MainLayer/TopLayer/TransitionFadeOut, "modulate", Color(1, 1, 1, 1), 1)
+	tween.tween_property($Camera3D/TopLayer/TransitionFadeOut, "modulate", Color(1, 1, 1, 1), 1)
 	tween.tween_interval(1)
 
 func goToIsland(island_name : String, _gamemode : String):
@@ -494,13 +495,14 @@ func goToIsland(island_name : String, _gamemode : String):
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
-	$Camera3D/MainLayer/TopLayer/TransitionFadeOut.modulate = Color(1, 1, 1, 0)
-	$Camera3D/MainLayer/TopLayer/TransitionFadeOut.visible = true
+	$Camera3D/TopLayer/TransitionFadeOut.modulate = Color(1, 1, 1, 0)
+	$Camera3D/TopLayer/TransitionFadeOut.visible = true
+	$Camera3D/TopLayer/ProtectiveLayer.show()
 	
 	var tween = get_tree().create_tween()
 	tween.connect("finished", Callable(self, "on_free_mode_fade_finished"))
 		
-	tween.tween_property($Camera3D/MainLayer/TopLayer/TransitionFadeOut, "modulate", Color(1, 1, 1, 1), 1)
+	tween.tween_property($Camera3D/TopLayer/TransitionFadeOut, "modulate", Color(1, 1, 1, 1), 1)
 	tween.tween_interval(1)
 
 func on_free_mode_fade_finished():
@@ -614,13 +616,13 @@ func _on_dialogue_interface_finished_dialogue(StoryModeID: int) -> void:
 		
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		
-		$Camera3D/MainLayer/TopLayer/TransitionFadeOut.modulate = Color(1, 1, 1, 0)
-		$Camera3D/MainLayer/TopLayer/TransitionFadeOut.visible = true
+		$Camera3D/TopLayer/TransitionFadeOut.modulate = Color(1, 1, 1, 0)
+		$Camera3D/TopLayer/TransitionFadeOut.visible = true
 		
 		var tween = get_tree().create_tween()
 		tween.connect("finished", Callable(self, "on_story_mode_fade_finished"))
 		
-		tween.tween_property($Camera3D/MainLayer/TopLayer/TransitionFadeOut, "modulate", Color(1, 1, 1, 1), 1)
+		tween.tween_property($Camera3D/TopLayer/TransitionFadeOut, "modulate", Color(1, 1, 1, 1), 1)
 		tween.tween_interval(1)
 
 func on_story_mode_fade_finished():
