@@ -883,16 +883,27 @@ func initInventorySlots():
 
 func _on_walking_speed_sounds_timeout() -> void:
 	if PlayerManager.is_walking_moving and velocity.y == 0.0:
-		$"Footstep Sounds/Footstep_Sounds_GRASS".play_random()
+		play_footstep_sounds_terrain()
 
 func _on_sprinting_speed_sounds_timeout() -> void:
 	if PlayerManager.is_sprinting_moving and velocity.y == 0.0:
-		$"Footstep Sounds/Footstep_Sounds_GRASS".play_random()
+		play_footstep_sounds_terrain()
 
 func _on_crouching_speed_sounds_timeout() -> void:
 	if PlayerManager.is_crouching_moving and velocity.y == 0.0:
-		$"Footstep Sounds/Footstep_Sounds_GRASS".play_random()
+		play_footstep_sounds_terrain()
 
+func play_footstep_sounds_terrain():
+	# Default sound
+	if TerrainManager.on_terrain == "":
+		$"Footstep Sounds/Footstep_Sounds_STONE".play_random()
+	
+	else:
+		if TerrainManager.on_terrain == "GRASS":
+			$"Footstep Sounds/Footstep_Sounds_GRASS".play_random()
+		elif TerrainManager.on_terrain == "STONE":
+			$"Footstep Sounds/Footstep_Sounds_STONE".play_random()
+			
 #endregion
 
 #region Health and dying management
