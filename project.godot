@@ -44,6 +44,7 @@ StoryModeManager="*res://Scenes and Scripts/Singletons/Gamemodes/StoryModeManage
 IslandManager="*res://Scenes and Scripts/Singletons/World/IslandManager.gd"
 PauseManager="*res://Scenes and Scripts/Singletons/Pause/PauseManager.gd"
 TimeManager="*res://Scenes and Scripts/Singletons/World/TimeManager.gd"
+WeatherManager="*res://Scenes and Scripts/Singletons/World/WeatherManager.gd"
 ExplorerNotesManager="*res://Scenes and Scripts/Singletons/World/ExplorerNotesManager.gd"
 DialogueManager="*res://Scenes and Scripts/Singletons/Dialogue/DialogueManager.gd"
 AchievementsManager="*res://Scenes and Scripts/Singletons/Achievements/AchievementsManager.gd"
@@ -75,7 +76,7 @@ movie_writer/fps=120
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/SphynxMotionBlurToolkit/plugin.cfg", "res://addons/anthonyec.camera_preview/plugin.cfg", "res://addons/notes_tab/plugin.cfg")
+enabled=PackedStringArray("res://addons/SphynxMotionBlurToolkit/plugin.cfg", "res://addons/anthonyec.camera_preview/plugin.cfg", "res://addons/code_time/plugin.cfg", "res://addons/notes_tab/plugin.cfg")
 
 [file_customization]
 

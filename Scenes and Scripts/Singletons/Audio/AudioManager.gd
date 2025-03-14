@@ -58,6 +58,8 @@ var NotificationNode : Node
 var NotificationOnScreen : bool = false
 var canOperate_textField : bool = true
 
+var Current_Rain_SFX_Node : Node
+
 var ISLAND_NIGHT_SONGS = []
 var ISLAND_MORNING_SONGS = []
 

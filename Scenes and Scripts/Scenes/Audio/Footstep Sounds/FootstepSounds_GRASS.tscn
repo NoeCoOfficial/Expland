@@ -1,0 +1,54 @@
+[gd_scene load_steps=10 format=3 uid="uid://befvxrvmvcjab"]
+
+[ext_resource type="Script" uid="uid://brgggfesou277" path="res://Scenes and Scripts/Scenes/Audio/Footstep Sounds/FootstepSounds_SCRIPT.gd" id="1_us15h"]
+[ext_resource type="AudioStream" uid="uid://icd7j3r3qar2" path="res://Audio/SFX/Footstep/Grass/Grass1.mp3" id="2_gvuu5"]
+[ext_resource type="AudioStream" uid="uid://cxc1ybkupv6t5" path="res://Audio/SFX/Footstep/Grass/Grass2.mp3" id="3_uffd5"]
+[ext_resource type="AudioStream" uid="uid://bwinfrrgylgg2" path="res://Audio/SFX/Footstep/Grass/Grass3.mp3" id="4_clut6"]
+[ext_resource type="AudioStream" uid="uid://yig44hgetdt8" path="res://Audio/SFX/Footstep/Grass/Grass4.mp3" id="5_3h11k"]
+[ext_resource type="AudioStream" uid="uid://ypdbfpy0jikg" path="res://Audio/SFX/Footstep/Grass/Grass5.mp3" id="6_ihvto"]
+[ext_resource type="AudioStream" uid="uid://dil43niwqhfbr" path="res://Audio/SFX/Footstep/Grass/Grass6.mp3" id="7_qamsp"]
+[ext_resource type="AudioStream" uid="uid://prqujkpcypsm" path="res://Audio/SFX/Footstep/Grass/Grass7.mp3" id="8_ifieg"]
+[ext_resource type="AudioStream" uid="uid://6jg76r8ntdnv" path="res://Audio/SFX/Footstep/Grass/Grass8.mp3" id="9_62car"]
+
+[node name="Footstep_Sounds_GRASS" type="Node"]
+script = ExtResource("1_us15h")
+
+[node name="AUDIO_Grass1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_gvuu5")
+volume_db = -5.5
+bus = &"sfx"
+
+[node name="AUDIO_Grass2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_uffd5")
+volume_db = -5.5
+bus = &"sfx"
+
+[node name="AUDIO_Grass3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_clut6")
+volume_db = -5.5
+bus = &"sfx"
+
+[node name="AUDIO_Grass4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_3h11k")
+volume_db = -5.5
+bus = &"sfx"
+
+[node name="AUDIO_Grass5" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ihvto")
+volume_db = -5.5
+bus = &"sfx"
+
+[node name="AUDIO_Grass6" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_qamsp")
+volume_db = -5.5
+bus = &"sfx"
+
+[node name="AUDIO_Grass7" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ifieg")
+volume_db = -5.5
+bus = &"sfx"
+
+[node name="AUDIO_Grass8" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_62car")
+volume_db = -5.5
+bus = &"sfx"

@@ -56,6 +56,7 @@ func initializeIslandProperties(_Island_Name):
 @export var DayNightCycle_Sky : AnimationPlayer
 
 @export var Tick : Timer
+@export var Weather_Timer : Timer
 @export var RainParticles : CPUParticles3D
 @export var Clouds : MeshInstance3D
 @export var Player : CharacterBody3D
@@ -65,7 +66,7 @@ var transitioning_weather = false
 func _ready() -> void:
 	randomize()
 	initNodes()
-
+	
 	AudioManager.NotificationOnScreen = false
 	AudioManager.canOperate_textField = true
 	IslandManager.transitioning_from_menu = false
@@ -87,6 +88,7 @@ func _ready() -> void:
 		set_time(TimeManager.CURRENT_TIME)
 	
 	Tick.start()
+	init_weather_instant() # NOTE: Important line right here (initalize weather)
 	
 	Player.nodeSetup()
 	Player.setHotbarSelectedSlot(int(str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME)[-1]))
@@ -98,10 +100,12 @@ func _ready() -> void:
 func _on_ready() -> void:
 	AudioManager.initNotificaton(PlayerManager.AudioNotification)
 	AudioManager.initNew($TheIsland_Audio, true, false, true)
+	AudioManager.Current_Rain_SFX_Node = $Rain_SFX
 
 func _process(_delta: float) -> void:
 	RainParticles.position.x = Player.position.x
 	RainParticles.position.z = Player.position.z
+	WeatherManager.WEATHER_TIMER_TIME_LEFT = int(Weather_Timer.time_left)
 
 func initNodes():
 	RainParticles.emitting = false
@@ -109,7 +113,6 @@ func initNodes():
 
 func set_dof_blur(value : bool) -> void:
 	var cameraAttributesResource = load("uid://cskddrxjnggrw")
-	
 	if value:
 		cameraAttributesResource.dof_blur_far_enabled = true
 	else:
@@ -117,49 +120,67 @@ func set_dof_blur(value : bool) -> void:
 
 func set_pretty_shadows(value : bool) -> void:
 	var IslandWorldEnv = load("uid://dgtwdwq2n0x1v")
-	
 	if value:
 		IslandWorldEnv.sdfgi_enabled = true
 	else:
 		IslandWorldEnv.sdfgi_enabled = false
 
-func get_weighted_random_weather():
-	var weights = [60, 10, 10, 20]
-	
-	var options = [1, 2, 3, 4]
-	# 1 = SUNNY
-	# 2 = RAIN
-	# 3 = STORM
-	# 4 = CLOUDY
-	
-	var total_weight = Utils.sum_array(weights)
-	var random_value = randi() % total_weight
-	var cumulative = 0
-	
-	for i in options.size():
-		cumulative += weights[i]
-		if random_value < cumulative:
-			return options[i]
-
 func set_time(minute : int):
-	if !DayNightCycle.is_playing():
-		DayNightCycle.play(&"cycle")
-	else:
-		DayNightCycle.stop()
-		DayNightCycle.play(&"cycle")
 	
-	if DayNightCycle_Sky.is_playing():
-		DayNightCycle_Sky.play(&"sky_cycle")
-	else:
-		DayNightCycle_Sky.stop()
-		DayNightCycle_Sky.play(&"sky_cycle")
+	# Transitioning sky depending on the current weather
+	# Blend time is instant (0.0)
+	
+	if WeatherManager.CURRENT_WEATHER == "SUNNY":
+	
+		if !DayNightCycle.is_playing():
+			DayNightCycle.play(&"cycle", 0.0)
+		else:
+			DayNightCycle.stop()
+			DayNightCycle.play(&"cycle", 0.0)
+		
+		if DayNightCycle_Sky.is_playing():
+			DayNightCycle_Sky.play(&"sky_cycle", 0.0)
+		else:
+			DayNightCycle_Sky.stop()
+			DayNightCycle_Sky.play(&"sky_cycle", 0.0)
+	
+	if WeatherManager.CURRENT_WEATHER == "CLOUDY" or WeatherManager.CURRENT_WEATHER == "LIGHT_RAIN":
+		
+		if !DayNightCycle.is_playing():
+			DayNightCycle.play(&"light_rain_cycle", 0.0)
+		else:
+			DayNightCycle.stop()
+			DayNightCycle.play(&"light_rain_cycle", 0.0)
+		
+		if DayNightCycle_Sky.is_playing():
+			DayNightCycle_Sky.play(&"light_rain_sky_cycle", 0.0)
+		else:
+			DayNightCycle_Sky.stop()
+			DayNightCycle_Sky.play(&"light_rain_sky_cycle", 0.0)
+	
+	if WeatherManager.CURRENT_WEATHER == "STORM" or WeatherManager.CURRENT_WEATHER == "RAIN":
+		
+		if !DayNightCycle.is_playing():
+			DayNightCycle.play(&"cloudy_cycle", 0.0)
+		else:
+			DayNightCycle.stop()
+			DayNightCycle.play(&"cloudy_cycle", 0.0)
+		
+		if DayNightCycle_Sky.is_playing():
+			DayNightCycle_Sky.play(&"cloudy_sky_cycle", 0.0)
+		else:
+			DayNightCycle_Sky.stop()
+			DayNightCycle_Sky.play(&"cloudy_sky_cycle", 0.0)
 	
 	if DayNightCycle_Rotation.is_playing():
-		DayNightCycle_Rotation.play(&"rotation_cycle")
+		DayNightCycle_Rotation.play(&"rotation_cycle", 0.0)
 	else:
 		DayNightCycle_Rotation.stop()
-		DayNightCycle_Rotation.play(&"rotation_cycle")
-		
+		DayNightCycle_Rotation.play(&"rotation_cycle", 0.0)
+	
+	
+	# Minute logic
+	
 	TimeManager.CURRENT_TIME = minute
 	
 	if TimeManager.CURRENT_TIME >= 1140 or TimeManager.CURRENT_TIME < 360:
@@ -199,13 +220,36 @@ func append_random_songs(song_array: Array):
 	for i in range(num_songs_to_append):
 		AudioManager.IN_FRONT_SONGS.append(shuffled_songs[i])
 
-func weatherTest():
-	change_sky("CLOUDY", TimeManager.CURRENT_TIME)
+
+
+
+
+
+## WEATHER
+
+
+
+
 
 func change_sky(SkyType: String, TOD : int):
+	if transitioning_weather:
+		print("Already transitioning sky. Can't preform desired operation.")
+		return
+	
+	if SkyType == "SUNNY":
+		
+		transitioning_weather = true
+		
+		DayNightCycle_Sky.play(&"sky_cycle")
+		DayNightCycle_Sky.seek(TOD * 2)
+		
+		DayNightCycle.play(&"cycle")
+		DayNightCycle.seek(TOD * 2)
+		
+		await get_tree().create_timer(30.0).timeout
+		transitioning_weather = false
+	
 	if SkyType == "CLOUDY":
-		if transitioning_weather:
-			return
 		
 		transitioning_weather = true
 		
@@ -217,3 +261,194 @@ func change_sky(SkyType: String, TOD : int):
 		
 		await get_tree().create_timer(30.0).timeout
 		transitioning_weather = false
+	
+	if SkyType == "LIGHT_RAIN":
+		transitioning_weather = true
+		
+		DayNightCycle_Sky.play(&"light_rain_sky_cycle")
+		DayNightCycle_Sky.seek(TOD * 2)
+		
+		DayNightCycle.play(&"light_rain_cycle")
+		DayNightCycle.seek(TOD * 2)
+		
+		await get_tree().create_timer(30.0).timeout
+		transitioning_weather = false
+
+#######################################################################
+#######################################################################
+#######################################################################
+
+func change_sky_instant(SkyType: String, TOD : int):
+	if transitioning_weather:
+		print("Already transitioning sky. Can't preform desired operation.")
+		return
+	
+	if SkyType == "SUNNY":
+		
+		DayNightCycle_Sky.play(&"sky_cycle", 0.0)
+		DayNightCycle_Sky.seek(TOD * 2)
+		
+		DayNightCycle.play(&"cycle", 0.0)
+		DayNightCycle.seek(TOD * 2)
+		
+	
+	if SkyType == "CLOUDY":
+		
+		DayNightCycle_Sky.play(&"cloudy_sky_cycle", 0.0)
+		DayNightCycle_Sky.seek(TOD * 2)
+		
+		DayNightCycle.play(&"cloudy_cycle", 0.0)
+		DayNightCycle.seek(TOD * 2)
+		
+	
+	if SkyType == "LIGHT_RAIN":
+		
+		DayNightCycle_Sky.play(&"light_rain_sky_cycle", 0.0)
+		DayNightCycle_Sky.seek(TOD * 2)
+		
+		DayNightCycle.play(&"light_rain_cycle", 0.0)
+		DayNightCycle.seek(TOD * 2)
+		
+
+
+
+
+
+
+
+func change_weather(GOTO_WEATHER_STR : String, PREVIOUS_WEATHER_STR : String):
+	print_rich("[color=pink]Changing weather to: " + GOTO_WEATHER_STR + "[/color]")
+	
+	if GOTO_WEATHER_STR == "SUNNY":
+		var tween = get_tree().create_tween()
+		tween.connect("finished", _on_rain_color_fade_out_finished)
+		tween.tween_property($Rain, "color", Color(1, 1, 1, 0), 20.0)
+		change_sky("SUNNY", TimeManager.CURRENT_TIME)
+		$Rain_SFX.stop_rain_loop(30.0)
+	
+	elif GOTO_WEATHER_STR == "CLOUDY":
+		var tween = get_tree().create_tween()
+		tween.connect("finished", _on_rain_color_fade_out_finished)
+		tween.tween_property($Rain, "color", Color(1, 1, 1, 0), 20.0)
+		change_sky("LIGHT_RAIN", TimeManager.CURRENT_TIME)
+		$Rain_SFX.stop_rain_loop(30.0)
+	
+	elif GOTO_WEATHER_STR == "RAIN":
+		if PREVIOUS_WEATHER_STR != "RAIN":
+			if PREVIOUS_WEATHER_STR != "STORM" and PREVIOUS_WEATHER_STR != "LIGHT_RAIN":
+				$Rain.amount = 5000
+				$Rain.emitting = true
+				$Rain.visible = true
+				var tween = get_tree().create_tween()
+				tween.tween_property($Rain, "color", Color(1, 1, 1, 1), 20.0).from(Color(1, 1, 1, 0))
+				change_sky("CLOUDY", TimeManager.CURRENT_TIME)
+			
+			if PREVIOUS_WEATHER_STR == "LIGHT_RAIN":
+				$Rain_SFX.tween_fade(30.0, -7.0)
+				
+			if PREVIOUS_WEATHER_STR != "STORM" and PREVIOUS_WEATHER_STR != "LIGHT_RAIN":
+				$Rain_SFX.start_rain_loop(30.0, -7.0)
+				
+		
+	elif GOTO_WEATHER_STR == "LIGHT_RAIN":
+		if PREVIOUS_WEATHER_STR != "LIGHT_RAIN":
+			if PREVIOUS_WEATHER_STR != "STORM" and PREVIOUS_WEATHER_STR != "RAIN":
+				$Rain.amount = 2500
+				$Rain.emitting = true
+				
+				$Rain.visible = true
+				var tween = get_tree().create_tween()
+				tween.tween_property($Rain, "color", Color(1, 1, 1, 1), 20.0).from(Color(1, 1, 1, 0))
+				change_sky("LIGHT_RAIN", TimeManager.CURRENT_TIME)
+				
+			if PREVIOUS_WEATHER_STR == "STORM" or PREVIOUS_WEATHER_STR == "RAIN":
+				$Rain_SFX.tween_fade(30.0, -13.0)
+			
+			else:
+				$Rain_SFX.start_rain_loop(30.0, -13.0)
+		
+	elif GOTO_WEATHER_STR == "STORM":
+		# Implement STORM weather change logic
+		pass
+
+
+func change_weather_instant(GOTO_WEATHER_STR : String, PREVIOUS_WEATHER_STR : String):
+	print_rich("[color=pink]Changing weather to: " + GOTO_WEATHER_STR + "[/color]")
+	print_rich("[color=red]WARNING: Weather change is instant[/color]")
+	
+	if GOTO_WEATHER_STR == "SUNNY":
+		$Rain.color = Color(1, 1, 1, 0)
+		change_sky_instant("SUNNY", TimeManager.CURRENT_TIME)
+		$Rain_SFX.stop_rain_loop(0.0)
+	
+	elif GOTO_WEATHER_STR == "CLOUDY":
+		$Rain.color = Color(1, 1, 1, 0)
+		change_sky_instant("LIGHT_RAIN", TimeManager.CURRENT_TIME)
+		$Rain_SFX.stop_rain_loop(0.0)
+		
+	
+	elif GOTO_WEATHER_STR == "RAIN":
+		if PREVIOUS_WEATHER_STR != "RAIN":
+			
+			if PREVIOUS_WEATHER_STR != "STORM" and PREVIOUS_WEATHER_STR != "LIGHT_RAIN":
+				$Rain.amount = 5000
+				$Rain.emitting = true
+			
+			
+			if PREVIOUS_WEATHER_STR == "LIGHT_RAIN":
+				$Rain_SFX.tween_fade(3.0, -7.0)
+				
+			if PREVIOUS_WEATHER_STR != "STORM" and PREVIOUS_WEATHER_STR != "LIGHT_RAIN":
+				$Rain_SFX.start_rain_loop(3.0, -7.0)
+			
+			$Rain.visible = true
+			$Rain.visible = true
+			$Rain.color = Color(1, 1, 1, 1)
+			change_sky_instant("CLOUDY", TimeManager.CURRENT_TIME)
+		
+		
+	elif GOTO_WEATHER_STR == "LIGHT_RAIN":
+		if PREVIOUS_WEATHER_STR != "LIGHT_RAIN":
+			
+			
+			if PREVIOUS_WEATHER_STR != "STORM" and PREVIOUS_WEATHER_STR != "RAIN":
+				$Rain.amount = 2500
+				$Rain.emitting = true
+			
+			
+			if PREVIOUS_WEATHER_STR == "STORM" or PREVIOUS_WEATHER_STR == "RAIN":
+				$Rain_SFX.tween_fade(3.0, -13.0)
+			
+			else:
+				$Rain_SFX.start_rain_loop(3.0, -13.0)
+			
+			$Rain.visible = true
+			$Rain.color = Color(1, 1, 1, 1)
+			change_sky_instant("LIGHT_RAIN", TimeManager.CURRENT_TIME)
+		
+	
+	elif GOTO_WEATHER_STR == "STORM":
+		# Implement STORM weather change logic
+		pass
+
+
+
+
+
+func _on_rain_color_fade_out_finished():
+	$Rain.emitting = false
+
+func _on_weather_timer_timeout() -> void:
+	init_weather_with_fade()
+
+func init_weather_with_fade():
+	WeatherManager.change_weather_to_random()
+	$"Weather Timer".stop()
+	#$"Weather Timer".wait_time = randi_range(400, 1000)
+	$"Weather Timer".start()
+
+func init_weather_instant():
+	WeatherManager.change_weather_to_random_instant()
+	$"Weather Timer".stop()
+	#$"Weather Timer".wait_time = randi_range(400, 1000)
+	$"Weather Timer".start()

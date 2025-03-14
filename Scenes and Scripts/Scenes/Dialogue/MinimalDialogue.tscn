@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn1krf62jowgb"]
+
+[ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="1_6apa6"]
+[ext_resource type="Script" uid="uid://brwgt0xjhlfvy" path="res://Scenes and Scripts/Scenes/Dialogue/MinimalDialogue_SCRIPT.gd" id="1_qmdrv"]
+
+[node name="MinimalDialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qmdrv")
+
+[node name="Text" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -328.0
+offset_top = 158.5
+offset_right = 328.0
+offset_bottom = 181.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_6apa6")
+text = "\"Three days out here already... hard to believe it has been so long since I have seen Doc.\""
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://bisjbnqhm460p"]
+
+[ext_resource type="Script" path="res://addons/code_time/timer_panel.gd" id="1_ecqis"]
+
+[node name="TimerPanel" type="PanelContainer"]
+custom_minimum_size = Vector2(250, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ecqis")
+
+[node name="TimeLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "00:00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.1
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
