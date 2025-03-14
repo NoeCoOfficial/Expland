@@ -1430,6 +1430,7 @@ func _on_save_and_quit_to_menu_pressed() -> void:
 	if AudioManager.Current_Rain_SFX_Node:
 		AudioManager.Current_Rain_SFX_Node.stop_rain_loop(2.0)
 	
+	ProtectiveLayer.show()
 	$Head/Camera3D/SleepLayer.layer = 100
 	SleepLayerBlackOverlay.modulate = Color(1, 1, 1, 0)
 	SleepLayerBlackOverlay.visible = true

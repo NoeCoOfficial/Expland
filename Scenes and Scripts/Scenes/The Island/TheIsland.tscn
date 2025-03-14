@@ -14,7 +14,7 @@
 [ext_resource type="RibbonTrailMesh" uid="uid://dg43yr7xlvtnq" path="res://Resources/Meshes/Rain_Mesh.tres" id="8_rkq2m"]
 [ext_resource type="PackedScene" uid="uid://bf802csj5h2uu" path="res://Assets/3D Models/The Island Deco/TheIslandDeco.tscn" id="11_kq5pm"]
 [ext_resource type="PackedScene" uid="uid://cjm5lrxicdgsf" path="res://Scenes and Scripts/Scenes/Player/Player.tscn" id="16_52bg8"]
-[ext_resource type="Script" uid="uid://dbn31kh6cxec8" path="res://Scenes and Scripts/Scenes/The Island/Island_Terrain_Switcher_SCRIPT.gd" id="16_r68ax"]
+[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/The Island/Island_Terrain_Switcher_SCRIPT.gd" id="16_r68ax"]
 [ext_resource type="PackedScene" uid="uid://dble54a2rl76q" path="res://Scenes and Scripts/Scenes/The Island/Explorer Note/ExplorerNote.tscn" id="32_qh5si"]
 [ext_resource type="Texture2D" uid="uid://dhp1lqdlclos" path="res://Textures/Icons/Expland_TextWHITE_Icon.png" id="33_74605"]
 [ext_resource type="PackedScene" uid="uid://dqalod7m5is51" path="res://Scenes and Scripts/Scenes/The Eryv (and related)/The Eryv.tscn" id="34_5odcp"]
