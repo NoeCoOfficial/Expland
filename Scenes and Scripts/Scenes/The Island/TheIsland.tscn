@@ -388,6 +388,7 @@ albedo_color = Color(1, 0.972549, 0.486275, 1)
 material = SubResource("StandardMaterial3D_f1xik")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_747t0"]
+size = Vector3(29.4999, 1, 48.5692)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_agd54"]
 albedo_texture = ExtResource("45_x50q0")
@@ -653,9 +654,10 @@ script = ExtResource("16_r68ax")
 [node name="Terrain Areas" type="Node" parent="."]
 
 [node name="STONE" type="Area3D" parent="Terrain Areas"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -388.529, 7.65426, 308.022)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -384.861, 6.68802, 299.186)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain Areas/STONE"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.647583, 0, 0.708557)
 shape = SubResource("BoxShape3D_747t0")
 
 [node name="RayCastingTest" parent="." instance=ExtResource("37_btdyg")]
@@ -953,3 +955,5 @@ NailRotation_Degrees = Vector3(-2.34, -23.005, 2.495)
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="timeout" from="Tick" to="." method="_on_tick"]
 [connection signal="timeout" from="Weather Timer" to="." method="_on_weather_timer_timeout"]
+[connection signal="body_entered" from="Terrain Areas/STONE" to="island_Terrain_Switcher" method="_on_stone_body_entered"]
+[connection signal="body_exited" from="Terrain Areas/STONE" to="island_Terrain_Switcher" method="_on_stone_body_exited"]

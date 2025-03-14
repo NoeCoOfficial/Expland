@@ -46,3 +46,15 @@
 # ============================================================= #
 
 extends Node
+
+
+func _on_stone_body_entered(body: Node3D) -> void:
+	TerrainManager.on_terrain = "STONE"
+
+
+##################
+## On body exited (return to default terrain type)
+##################
+
+func _on_stone_body_exited(body: Node3D) -> void:
+	TerrainManager.on_terrain = ""
