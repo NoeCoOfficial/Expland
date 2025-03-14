@@ -95,7 +95,8 @@ func new_player_dialogue_timeline(player_node : Node):
 	if DialogueManager.MinimalDialogueInterface:
 		DialogueManager.MinimalDialogueInterface.spawnMinimalDialogue(
 			4.0,
-			'"This job... it’s the chance I’ve been waiting for. Sunshine Co. doesn’t just hire anyone. What makes me special?"'
+			'"This job... it’s the chance I’ve been waiting for. Sunshine Co. doesn’t\n
+			just hire anyone. What makes me special?"'
 		)
 		
 
