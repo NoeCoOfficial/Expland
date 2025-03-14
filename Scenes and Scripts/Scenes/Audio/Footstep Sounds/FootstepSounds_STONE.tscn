@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://dkwjlirowtv8w" path="res://Audio/SFX/Footstep/Stone/Stone7.mp3" id="8_itt2x"]
 [ext_resource type="AudioStream" uid="uid://cvr2xho2n708n" path="res://Audio/SFX/Footstep/Stone/Stone8.mp3" id="9_jwdnq"]
 
-[node name="Footstep_Sounds_GRASS" type="Node"]
+[node name="Footstep_Sounds_STONE" type="Node"]
 script = ExtResource("1_kk7pq")
 
 [node name="AUDIO_Stone1" type="AudioStreamPlayer" parent="."]
