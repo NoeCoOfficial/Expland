@@ -388,7 +388,7 @@ albedo_color = Color(1, 0.972549, 0.486275, 1)
 material = SubResource("StandardMaterial3D_f1xik")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_747t0"]
-size = Vector3(29.4999, 18.4379, 48.5692)
+size = Vector3(29.6547, 18.4379, 48.5692)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_agd54"]
 albedo_texture = ExtResource("45_x50q0")
@@ -656,7 +656,7 @@ script = ExtResource("16_r68ax")
 [node name="STONE" type="Area3D" parent="Terrain Areas"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain Areas/STONE"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -385.508, 9.2025, 299.866)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -385.431, 9.2025, 299.866)
 shape = SubResource("BoxShape3D_747t0")
 
 [node name="RayCastingTest" parent="." instance=ExtResource("37_btdyg")]
