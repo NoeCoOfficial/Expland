@@ -185,11 +185,11 @@ func onStartup():
 
 func _input(_event: InputEvent) -> void:
 	if !Global.main_menu_transitioning_scene:
-		if Input.is_action_just_pressed("Exit") and !is_tweening:  # Check if not tweening
+		if Input.is_action_just_pressed("Exit") and !is_tweening and !DialogueManager.is_in_absolute_interface:  # Check if not tweening
 			if is_in_gamemode_select and !DialogueManager.is_in_interface and !is_in_free_mode_island_popup and !is_in_free_mode_create_island and !is_in_load_island_interface and !is_in_delete_popup:
 				deSpawnGameModeMenu()
 			
-		if Input.is_action_just_pressed("Exit"):
+		if Input.is_action_just_pressed("Exit") and !DialogueManager.is_in_absolute_interface:
 			if PauseManager.is_inside_settings:
 				$Camera3D/MainLayer/SettingsUI.closeSettings(0.5)
 			
@@ -474,7 +474,6 @@ func _on_free_mode_in_popup_new_island_button_pressed() -> void:
 	$Camera3D/TopLayer/TransitionFadeOut.modulate = Color(1, 1, 1, 0)
 	$Camera3D/TopLayer/TransitionFadeOut.visible = true
 	$Camera3D/TopLayer/ProtectiveLayer.show()
-	
 	
 	var tween = get_tree().create_tween()
 	tween.connect("finished", Callable(self, "on_free_mode_fade_finished"))
