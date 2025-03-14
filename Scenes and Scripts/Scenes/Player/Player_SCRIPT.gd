@@ -417,10 +417,9 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		if PlayerData.GAME_STATE == "NORMAL" or InventoryManager.inventory_open:
 			if ResetPOS == Vector3(999, 999, 999):
 				self.position = StartPOS # set the player's position to the Start position
-				velocity.y = 0.0 # set the player's velocity to 0
 			else:
 				self.position = ResetPOS # set the player's position to the Reset position 
-				velocity.y = 0.0 # set the player's velocity to 0 
+			velocity.y = 0.0 # set the player's velocity to 0 
 	
 	if Input.is_action_just_pressed("SaveGame") and OS.is_debug_build() and IslandManager.Current_Game_Mode == "FREE":
 		if !StoryModeManager.is_in_story_mode_first_cutscene_world:
