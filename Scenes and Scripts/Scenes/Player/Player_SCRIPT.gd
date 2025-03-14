@@ -881,6 +881,8 @@ func initInventorySlots():
 func init_for_story_mode_cutscene():
 	if StoryModeManager.is_in_story_mode_first_cutscene_world:
 		UseHealth = false
+		head.rotation_degrees.y = -125.3
+		camera.rotation_degrees.x = -6.0
 		$Head/Camera3D/HotbarLayer/HotbarMainLayer/Background.hide()
 		$Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarOutlines.hide()
 		$Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots.hide()
