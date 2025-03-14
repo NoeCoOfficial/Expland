@@ -409,7 +409,8 @@ func _input(_event): # A built-in function that listens for input using the inpu
 				closeExplorerNotes()
 	
 	if Input.is_action_just_pressed("Quit") and Quit == true and OS.is_debug_build(): # if the Quit input is pressed and the Quit variable is true
-		SaveManager.saveAllData()
+		if !StoryModeManager.is_in_story_mode_first_cutscene_world:
+			SaveManager.saveAllData()
 		get_tree().quit() # quit the game
 	
 	if Input.is_action_just_pressed("Reset") and !PauseManager.inside_absolute_item_workshop and Reset == true and !PauseManager.is_paused and !PauseManager.is_inside_alert and OS.is_debug_build():
