@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://nlp0xy1m65tp"]
+[gd_scene load_steps=34 format=3 uid="uid://nlp0xy1m65tp"]
 
 [ext_resource type="Script" uid="uid://uvb2g81nntt2" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/StoryMode_StartCutscene_SCRIPT.gd" id="1_4d7y3"]
 [ext_resource type="Shader" uid="uid://b2gi30s113t00" path="res://Scenes and Scripts/Scenes/The Island/TheIslandSeaWater.gdshader" id="2_cfn0j"]
@@ -56,6 +56,9 @@ material = SubResource("ShaderMaterial_g8pos")
 size = Vector3(10.6402, 0.282715, 2.05533)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_44ck5"]
+size = Vector3(10.6402, 0.282715, 3.65436)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w18yt"]
 size = Vector3(10.6402, 0.282715, 3.65436)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f3l76"]
@@ -262,8 +265,8 @@ shape = SubResource("BoxShape3D_44ck5")
 debug_color = Color(1, 0.21, 0.223166, 1)
 
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="Yacht Rig/Yacht/Collision"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.27418, -0.0213652, 0.0959282)
-shape = SubResource("BoxShape3D_44ck5")
+transform = Transform3D(1, 3.21527e-08, 0, 1.75199e-10, 0.999995, 1.76362e-08, -5.96046e-08, -3.79873e-09, 1, -1.27418, -0.0213652, 0.0959282)
+shape = SubResource("BoxShape3D_w18yt")
 debug_color = Color(1, 0.21, 0.223166, 1)
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="Yacht Rig/Yacht/Collision"]
