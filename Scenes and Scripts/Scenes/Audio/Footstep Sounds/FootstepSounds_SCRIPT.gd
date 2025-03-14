@@ -1,5 +1,5 @@
 # ============================================================= #
-# FootstepSounds_GRASS_SCRIPT.gd
+# FootstepSounds_SCRIPT.gd
 # ============================================================= #
 #                       COPYRIGHT NOTICE                        #
 #                           Noe Co.                             #

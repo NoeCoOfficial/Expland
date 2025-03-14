@@ -1,0 +1,46 @@
+[gd_scene load_steps=10 format=3 uid="uid://22st751melpi"]
+
+[ext_resource type="Script" uid="uid://brgggfesou277" path="res://Scenes and Scripts/Scenes/Audio/Footstep Sounds/FootstepSounds_SCRIPT.gd" id="1_kk7pq"]
+[ext_resource type="AudioStream" uid="uid://d0hf8oe6eu6jp" path="res://Audio/SFX/Footstep/Stone/Stone1.mp3" id="2_kk7pq"]
+[ext_resource type="AudioStream" uid="uid://cxc1ybkupv6t5" path="res://Audio/SFX/Footstep/Grass/Grass2.mp3" id="3_0wxe4"]
+[ext_resource type="AudioStream" uid="uid://bwinfrrgylgg2" path="res://Audio/SFX/Footstep/Grass/Grass3.mp3" id="4_i104m"]
+[ext_resource type="AudioStream" uid="uid://yig44hgetdt8" path="res://Audio/SFX/Footstep/Grass/Grass4.mp3" id="5_33kpy"]
+[ext_resource type="AudioStream" uid="uid://ypdbfpy0jikg" path="res://Audio/SFX/Footstep/Grass/Grass5.mp3" id="6_itt2x"]
+[ext_resource type="AudioStream" uid="uid://dil43niwqhfbr" path="res://Audio/SFX/Footstep/Grass/Grass6.mp3" id="7_jwdnq"]
+[ext_resource type="AudioStream" uid="uid://prqujkpcypsm" path="res://Audio/SFX/Footstep/Grass/Grass7.mp3" id="8_tyr3c"]
+[ext_resource type="AudioStream" uid="uid://6jg76r8ntdnv" path="res://Audio/SFX/Footstep/Grass/Grass8.mp3" id="9_s1ppi"]
+
+[node name="Footstep_Sounds_GRASS" type="Node"]
+script = ExtResource("1_kk7pq")
+
+[node name="AUDIO_Stone1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_kk7pq")
+bus = &"sfx"
+
+[node name="AUDIO_Stone2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0wxe4")
+bus = &"sfx"
+
+[node name="AUDIO_Stone3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_i104m")
+bus = &"sfx"
+
+[node name="AUDIO_Stone4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_33kpy")
+bus = &"sfx"
+
+[node name="AUDIO_Stone5" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_itt2x")
+bus = &"sfx"
+
+[node name="AUDIO_Stone6" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_jwdnq")
+bus = &"sfx"
+
+[node name="AUDIO_Stone7" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_tyr3c")
+bus = &"sfx"
+
+[node name="AUDIO_Stone8" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_s1ppi")
+bus = &"sfx"
