@@ -54,6 +54,7 @@ extends Node3D
 func _ready() -> void:
 	Global.is_in_main_menu = false
 	StoryModeManager.is_in_story_mode_first_cutscene_world = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	print("ENTERED STORY MODE START CUTSCENE")
 	fadeOutGreyOverlay()
 	cutscene_timeline()
@@ -95,7 +96,7 @@ func new_player_dialogue_timeline(player_node : Node):
 	if DialogueManager.MinimalDialogueInterface:
 		DialogueManager.MinimalDialogueInterface.spawnMinimalDialogue(
 			4.0,
-			'"This job... it’s the chance I’ve been waiting for. Sunshine Co. doesn’t\n
+			'"This job... it’s the chance I’ve been waiting for. Sunshine Co. doesn’t
 			just hire anyone. What makes me special?"'
 		)
 		

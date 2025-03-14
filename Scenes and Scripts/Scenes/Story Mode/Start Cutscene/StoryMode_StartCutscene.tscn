@@ -244,7 +244,7 @@ script = ExtResource("3_os8dc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22068, -15.4248, -17.6352)
 
 [node name="Yacht" parent="Yacht Rig" instance=ExtResource("4_os8dc")]
-transform = Transform3D(-0.965833, 0.0137354, 0.258801, 0.0132673, 0.999906, -0.003555, -0.258826, 6.10016e-08, -0.965924, 0, 0, 0)
+transform = Transform3D(-0.965833, 0.0137354, 0.258801, 0.0132673, 0.999906, -0.003555, -0.258825, 6.10016e-08, -0.965924, 0, 0, 0)
 
 [node name="Collision" type="StaticBody3D" parent="Yacht Rig/Yacht"]
 
