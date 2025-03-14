@@ -4,7 +4,9 @@
 
 
 - changed opacity of the rain in the main menu background scene
+- added a working weather system to The Island
 - added footstep sounds to the player
+- added a player body character to the player, with animations
 
 
 ---
