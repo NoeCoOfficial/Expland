@@ -511,17 +511,17 @@ func _physics_process(delta):
 	if !is_moving_absolute:
 		is_sprinting = false
 	
-	if is_walking and is_movement_input_active:
+	if is_walking and is_movement_input_active and is_moving_absolute:
 		PlayerManager.is_walking_moving = true
 	else:
 		PlayerManager.is_walking_moving = false
 	
-	if is_sprinting and is_movement_input_active:
+	if is_sprinting and is_movement_input_active and is_moving_absolute:
 		PlayerManager.is_sprinting_moving = true
 	else:
 		PlayerManager.is_sprinting_moving = false
 	
-	if is_crouching and is_movement_input_active:
+	if is_crouching and is_movement_input_active and is_moving_absolute:
 		PlayerManager.is_crouching_moving = true
 	else:
 		PlayerManager.is_crouching_moving = false
