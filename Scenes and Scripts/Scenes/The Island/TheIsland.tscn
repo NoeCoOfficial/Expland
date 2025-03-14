@@ -644,6 +644,10 @@ ResetPOS = Vector3(-351.588, 0, 324.606)
 
 [node name="Island" parent="." instance=ExtResource("11_kq5pm")]
 
+[node name="Normal" type="Area3D" parent="."]
+
+[node name="Terrain Areas" type="Node" parent="."]
+
 [node name="RayCastingTest" parent="." instance=ExtResource("37_btdyg")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -388.434, 2.96464, 279.914)
 
