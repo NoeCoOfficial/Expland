@@ -3,10 +3,21 @@
 # v0.7.0 (released)
 
 
-- changed opacity of the rain in the main menu background scene
-- added a working weather system to The Island
-- added footstep sounds to the player
-- added a player body character to the player, with animations
+## Main Menu
+
+### Changed:
+- Changed opacity of the rain in the main menu background scene
+
+## The Island
+
+### Added:
+- Added a working weather system to The Island
+
+## Player
+
+### Added:
+- Added footstep sounds to the player
+- Added a player body character to the player, with animations
 
 
 ---
