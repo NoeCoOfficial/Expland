@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=3 uid="uid://c5jkrckgqd0w6"]
+[gd_scene load_steps=102 format=3 uid="uid://c5jkrckgqd0w6"]
 
 [ext_resource type="Script" uid="uid://cucb4fwieubx" path="res://Scenes and Scripts/Scenes/The Island/TheIsland_SCRIPT.gd" id="1_a8sfg"]
 [ext_resource type="Environment" uid="uid://dgtwdwq2n0x1v" path="res://Resources/Environment/TheIsland_WorldEnvironment.tres" id="2_h46kk"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://cjjjbrbbir385" path="res://Textures/Icons/Script Icons/Scripts/WorldpageIcon_SCRIPT.gd" id="4_jhu24"]
 [ext_resource type="Script" uid="uid://dn1b1gnwe5iap" path="res://Textures/Icons/Script Icons/Scripts/LightbulbIcon_SCRIPT.gd" id="5_yd52g"]
 [ext_resource type="Shader" uid="uid://d0lkn0b41r7og" path="res://Resources/Shaders/TheIslandLakeWater.gdshader" id="6_35xrv"]
-[ext_resource type="PackedScene" uid="uid://c80rdnk63xyah" path="res://Scenes and Scripts/Scenes/Audio/Weather/Rain_SFX.tscn" id="6_747t0"]
 [ext_resource type="PackedScene" uid="uid://5fjl3bhlrc02" path="res://Scenes and Scripts/Scenes/Audio/TheIsland_Audio.tscn" id="6_sj3c2"]
 [ext_resource type="Shader" uid="uid://b2gi30s113t00" path="res://Scenes and Scripts/Scenes/The Island/TheIslandSeaWater.gdshader" id="7_pf2qu"]
 [ext_resource type="Animation" uid="uid://bxd8jw8o3rmre" path="res://Resources/Animations/cycle_sun.anim" id="7_s3501"]
@@ -548,13 +547,12 @@ data = PackedVector3Array(0, 1, 0.5, 0.049, 1, 0.4976, 0, 0.6, 0.5, 0.049, 1, 0.
 [sub_resource type="BoxShape3D" id="BoxShape3D_sdnyt"]
 size = Vector3(3.10474, 2.18762, 1.86438)
 
-[node name="World" type="Node3D" node_paths=PackedStringArray("DayNightCycle", "DayNightCycle_Rotation", "DayNightCycle_Sky", "Tick", "Weather_Timer", "RainParticles", "Clouds", "Player")]
+[node name="World" type="Node3D" node_paths=PackedStringArray("DayNightCycle", "DayNightCycle_Rotation", "DayNightCycle_Sky", "Tick", "RainParticles", "Clouds", "Player")]
 script = ExtResource("1_a8sfg")
 DayNightCycle = NodePath("Day-Night Cycle")
 DayNightCycle_Rotation = NodePath("Day-Night Rotation")
 DayNightCycle_Sky = NodePath("Day-Night Cycle-Sky")
 Tick = NodePath("Tick")
-Weather_Timer = NodePath("Weather Timer")
 RainParticles = NodePath("Rain")
 Clouds = NodePath("Clouds")
 Player = NodePath("Player")
@@ -571,8 +569,6 @@ shadow_enabled = true
 directional_shadow_fade_start = 0.655
 directional_shadow_max_distance = 150.0
 script = ExtResource("5_yd52g")
-
-[node name="Rain_SFX" parent="." instance=ExtResource("6_747t0")]
 
 [node name="TheIsland_Audio" parent="." instance=ExtResource("6_sj3c2")]
 
