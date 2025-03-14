@@ -52,6 +52,7 @@ extends Node3D
 
 
 func _ready() -> void:
+	Global.is_in_main_menu = false
 	StoryModeManager.is_in_story_mode_first_cutscene_world = true
 	print("ENTERED STORY MODE START CUTSCENE")
 	fadeOutGreyOverlay()

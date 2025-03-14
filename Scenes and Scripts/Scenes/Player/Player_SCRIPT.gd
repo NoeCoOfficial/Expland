@@ -880,13 +880,16 @@ func initInventorySlots():
 
 func init_for_story_mode_cutscene():
 	if StoryModeManager.is_in_story_mode_first_cutscene_world:
-		$Head/Camera3D/HotbarLayer.hide()
+		UseHealth = false
+		$Head/Camera3D/HotbarLayer/HotbarMainLayer/Background.hide()
+		$Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarOutlines.hide()
+		$Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots.hide()
 		$Head/Camera3D/HUDLayer/HungerBar.hide()
 		$Head/Camera3D/HUDLayer/HealthBar.hide()
 		$Head/Camera3D/HUDLayer/StaminaBar.hide()
 		$Head/Camera3D/HUDLayer/WhiteHamIcon.hide()
 		$Head/Camera3D/HUDLayer/WhiteHeartIcon.hide()
-		
+
 #endregion
 
 #region Walking, sprinting and crouching sounds
