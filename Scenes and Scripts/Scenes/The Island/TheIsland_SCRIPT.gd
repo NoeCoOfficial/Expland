@@ -322,14 +322,14 @@ func change_weather(GOTO_WEATHER_STR : String, PREVIOUS_WEATHER_STR : String):
 	if GOTO_WEATHER_STR == "SUNNY":
 		var tween = get_tree().create_tween()
 		tween.connect("finished", _on_rain_color_fade_out_finished)
-		tween.tween_property($Rain, "color", Color(1, 1, 1, 0), 30.0)
+		tween.tween_property($Rain, "color", Color(1, 1, 1, 0), 20.0)
 		change_sky("SUNNY", TimeManager.CURRENT_TIME)
 		$Rain_SFX.stop_rain_loop(30.0)
 	
 	elif GOTO_WEATHER_STR == "CLOUDY":
 		var tween = get_tree().create_tween()
 		tween.connect("finished", _on_rain_color_fade_out_finished)
-		tween.tween_property($Rain, "color", Color(1, 1, 1, 0), 30.0)
+		tween.tween_property($Rain, "color", Color(1, 1, 1, 0), 20.0)
 		change_sky("LIGHT_RAIN", TimeManager.CURRENT_TIME)
 		$Rain_SFX.stop_rain_loop(30.0)
 	
@@ -340,7 +340,7 @@ func change_weather(GOTO_WEATHER_STR : String, PREVIOUS_WEATHER_STR : String):
 				$Rain.emitting = true
 				$Rain.visible = true
 				var tween = get_tree().create_tween()
-				tween.tween_property($Rain, "color", Color(1, 1, 1, 1), 30.0).from(Color(1, 1, 1, 0))
+				tween.tween_property($Rain, "color", Color(1, 1, 1, 1), 20.0).from(Color(1, 1, 1, 0))
 				change_sky("CLOUDY", TimeManager.CURRENT_TIME)
 			
 			if PREVIOUS_WEATHER_STR == "LIGHT_RAIN":
@@ -358,7 +358,7 @@ func change_weather(GOTO_WEATHER_STR : String, PREVIOUS_WEATHER_STR : String):
 				
 				$Rain.visible = true
 				var tween = get_tree().create_tween()
-				tween.tween_property($Rain, "color", Color(1, 1, 1, 1), 30.0).from(Color(1, 1, 1, 0))
+				tween.tween_property($Rain, "color", Color(1, 1, 1, 1), 20.0).from(Color(1, 1, 1, 0))
 				change_sky("LIGHT_RAIN", TimeManager.CURRENT_TIME)
 				
 			if PREVIOUS_WEATHER_STR == "STORM" or PREVIOUS_WEATHER_STR == "RAIN":
