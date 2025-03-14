@@ -114,6 +114,7 @@ offset_left = 417.0
 offset_top = 162.0
 offset_right = 735.0
 offset_bottom = 533.0
+scroll_vertical = 486
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainLayer/ScrollContainer"]
 layout_mode = 2
@@ -315,33 +316,24 @@ text = "Without Godot, this entire project may not have been possible. To all th
 horizontal_alignment = 1
 autowrap_mode = 3
 
+[node name="GodotIcon" type="Sprite2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
+position = Vector2(115, 710)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("15_ny2xt")
+
+[node name="RedHeartIcon" type="Sprite2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
+position = Vector2(189.375, 712.044)
+scale = Vector2(0.0657484, 0.0545605)
+texture = ExtResource("11_m50j2")
+
 [node name="Space9" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
 theme_override_fonts/font = ExtResource("8_uiqvs")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 60
 horizontal_alignment = 1
 autowrap_mode = 3
-
-[node name="Space7" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("8_uiqvs")
-theme_override_font_sizes/font_size = 5
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="GodotIcon" type="Sprite2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
-position = Vector2(115, 732)
-scale = Vector2(0.06, 0.06)
-texture = ExtResource("15_ny2xt")
-
-[node name="RedHeartIcon" type="Sprite2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
-position = Vector2(189.375, 734.044)
-scale = Vector2(0.0657484, 0.0545605)
-texture = ExtResource("11_m50j2")
 
 [node name="Space11" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
@@ -376,10 +368,10 @@ layout_mode = 2
 focus_mode = 0
 theme = SubResource("Theme_wxeot")
 theme_override_font_sizes/font_size = 30
-text = "OPEN     "
+text = "OPEN      "
 
 [node name="OpenExternalLinkWhiteIcon" type="Sprite2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
-position = Vector2(190.375, 862.625)
+position = Vector2(188.375, 837.625)
 scale = Vector2(0.103333, 0.103333)
 texture = ExtResource("12_lbc4b")
 
