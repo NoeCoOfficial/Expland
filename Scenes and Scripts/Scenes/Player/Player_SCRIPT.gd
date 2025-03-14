@@ -386,7 +386,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			
 		else:
 			
-			if !DialogueManager.is_in_absolute_interface and !InventoryManager.inventory_open and !PauseManager.is_inside_alert and !InventoryManager.is_in_workbench_interface and !InventoryManager.in_chest_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !PauseManager.inside_absolute_item_workshop and !PauseManager.inside_explorer_note_ui:
+			if !DialogueManager.is_in_absolute_interface and !InventoryManager.inventory_open and !PauseManager.is_inside_alert and !InventoryManager.is_in_workbench_interface and !InventoryManager.in_chest_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !PauseManager.inside_absolute_item_workshop and !PauseManager.inside_explorer_note_ui and !StoryModeManager.is_in_story_mode_first_cutscene_world:
 				pauseGame()
 			
 			if InventoryManager.inventory_open and !InventoryManager.in_chest_interface and !InventoryManager.is_in_explorer_notes_interface and !InventoryManager.is_dragging:
@@ -426,7 +426,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
 			SaveManager.saveAllData()
 	
-	if Input.is_action_just_pressed("Inventory") and !InventoryManager.is_in_explorer_notes_interface and !PauseManager.inside_explorer_note_ui and !PauseManager.inside_absolute_item_workshop and !PauseManager.is_paused and !InventoryManager.in_chest_interface and !InventoryManager.is_in_workbench_interface and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !InventoryManager.is_dragging and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
+	if Input.is_action_just_pressed("Inventory") and !InventoryManager.is_in_explorer_notes_interface and !PauseManager.inside_explorer_note_ui and !PauseManager.inside_absolute_item_workshop and !PauseManager.is_paused and !InventoryManager.in_chest_interface and !InventoryManager.is_in_workbench_interface and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !InventoryManager.is_dragging and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !StoryModeManager.is_in_story_mode_first_cutscene_world:
 		if !InventoryManager.inventory_open:
 			openInventory()
 		else:
@@ -719,6 +719,7 @@ func _ready():
 	SignalBus.spawn_crafted_item.connect(Craft)
 	
 	initInventorySlots() # Link local inventory slots to singleton arrays
+	init_for_story_mode_cutscene()
 	
 	Utils.set_center_offset($Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Right_Arrow)
 	Utils.set_center_offset($Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Left_Arrow)
@@ -877,6 +878,15 @@ func initInventorySlots():
 	
 	InventoryManager.WORKSHOP_OUTPUT_SLOT = Slot10_Output_Workbench_Ref
 
+func init_for_story_mode_cutscene():
+	if StoryModeManager.is_in_story_mode_first_cutscene_world:
+		$Head/Camera3D/HotbarLayer.hide()
+		$Head/Camera3D/HUDLayer/HungerBar.hide()
+		$Head/Camera3D/HUDLayer/HealthBar.hide()
+		$Head/Camera3D/HUDLayer/StaminaBar.hide()
+		$Head/Camera3D/HUDLayer/WhiteHamIcon.hide()
+		$Head/Camera3D/HUDLayer/WhiteHeartIcon.hide()
+		
 #endregion
 
 #region Walking, sprinting and crouching sounds
