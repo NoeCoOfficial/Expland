@@ -92,6 +92,7 @@ func onfadeInGreyOverlay_Finished():
 
 func new_player_dialogue_timeline(player_node : Node):
 	#player_node
+	pass
 
 #####################################
 
