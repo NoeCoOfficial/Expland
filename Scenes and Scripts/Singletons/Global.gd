@@ -47,7 +47,7 @@
 
 extends Node
 
-const VERSION = "v0.7.0"
+const VERSION = "v0.7.5"
 
 var is_first_time_in_menu = true
 var is_in_main_menu = true
