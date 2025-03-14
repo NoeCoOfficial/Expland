@@ -67,6 +67,7 @@ func _ready() -> void:
 	randomize()
 	initNodes()
 	
+	TerrainManager.on_terrain = "GRASS"
 	AudioManager.NotificationOnScreen = false
 	AudioManager.canOperate_textField = true
 	IslandManager.transitioning_from_menu = false

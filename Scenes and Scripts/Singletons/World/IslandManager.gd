@@ -137,5 +137,5 @@ func resetAttributes():
 	
 	AchievementsManager.NotificationOnScreen = false
 	
-	# NOTE: May need to reset TerrainManager variables here in future
+	TerrainManager.on_terrain = ""
 	
