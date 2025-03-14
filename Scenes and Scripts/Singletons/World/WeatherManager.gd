@@ -56,11 +56,17 @@ var WEATHERS : Array = [
 	"CLOUDY", # 1
 	"RAIN", # 2
 	"LIGHT_RAIN", # 3
-	"STORM", # 4
+	#"STORM", # 4
 ]
 
 # Define weights for each weather type
-var WEATHER_WEIGHTS : Array = [50, 20, 20, 5, 5]
+var WEATHER_WEIGHTS : Array = [
+	50, # SUNNY
+	20, # CLOUDY
+	20, # RAIN
+	5, # LIGHT_RAIN
+	#5, # STORM
+	]
 
 func get_random_weather() -> int:
 	var total_weight = 0
