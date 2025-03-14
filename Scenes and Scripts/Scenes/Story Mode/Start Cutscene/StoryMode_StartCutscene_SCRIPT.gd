@@ -91,8 +91,14 @@ func onfadeInGreyOverlay_Finished():
 	new_player_dialogue_timeline(player_instance)
 
 func new_player_dialogue_timeline(player_node : Node):
-	#player_node
-	pass
+	await get_tree().create_timer(5.0).timeout
+	if DialogueManager.MinimalDialogueInterface:
+		DialogueManager.MinimalDialogueInterface.spawnMinimalDialogue(
+			4.0,
+			'"This job... it’s the chance I’ve been waiting for. Sunshine Co. doesn’t just hire anyone. What makes me special?"'
+		)
+		
+
 
 #####################################
 
