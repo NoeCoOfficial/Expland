@@ -18,3 +18,4 @@
 
 [14/2/2025] sebashtioon - Explorer notes are coming... also, does anyone even read this???
 
+[1/3/2025] sebashtioon - Wassup gang v0.6.5 got released today go play it

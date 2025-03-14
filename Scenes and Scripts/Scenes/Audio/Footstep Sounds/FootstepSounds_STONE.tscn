@@ -1,0 +1,54 @@
+[gd_scene load_steps=10 format=3 uid="uid://22st751melpi"]
+
+[ext_resource type="Script" uid="uid://brgggfesou277" path="res://Scenes and Scripts/Scenes/Audio/Footstep Sounds/FootstepSounds_SCRIPT.gd" id="1_kk7pq"]
+[ext_resource type="AudioStream" uid="uid://d0hf8oe6eu6jp" path="res://Audio/SFX/Footstep/Stone/Stone1.mp3" id="2_kk7pq"]
+[ext_resource type="AudioStream" uid="uid://c1ijpxkfphbyh" path="res://Audio/SFX/Footstep/Stone/Stone2.mp3" id="3_kk7pq"]
+[ext_resource type="AudioStream" uid="uid://c1vvhfo8d3ihe" path="res://Audio/SFX/Footstep/Stone/Stone3.mp3" id="4_y7cwj"]
+[ext_resource type="AudioStream" uid="uid://cjyxef2tqgn0y" path="res://Audio/SFX/Footstep/Stone/Stone4.mp3" id="5_0wxe4"]
+[ext_resource type="AudioStream" uid="uid://it4o81a2w60j" path="res://Audio/SFX/Footstep/Stone/Stone5.mp3" id="6_i104m"]
+[ext_resource type="AudioStream" uid="uid://dvm3nwscd2abw" path="res://Audio/SFX/Footstep/Stone/Stone6.mp3" id="7_33kpy"]
+[ext_resource type="AudioStream" uid="uid://dkwjlirowtv8w" path="res://Audio/SFX/Footstep/Stone/Stone7.mp3" id="8_itt2x"]
+[ext_resource type="AudioStream" uid="uid://cvr2xho2n708n" path="res://Audio/SFX/Footstep/Stone/Stone8.mp3" id="9_jwdnq"]
+
+[node name="Footstep_Sounds_STONE" type="Node"]
+script = ExtResource("1_kk7pq")
+
+[node name="AUDIO_Stone1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_kk7pq")
+volume_db = -5.5
+bus = &"sfx"
+
+[node name="AUDIO_Stone2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_kk7pq")
+volume_db = -5.5
+bus = &"sfx"
+
+[node name="AUDIO_Stone3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_y7cwj")
+volume_db = -5.5
+bus = &"sfx"
+
+[node name="AUDIO_Stone4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_0wxe4")
+volume_db = -5.5
+bus = &"sfx"
+
+[node name="AUDIO_Stone5" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_i104m")
+volume_db = -5.5
+bus = &"sfx"
+
+[node name="AUDIO_Stone6" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_33kpy")
+volume_db = -5.5
+bus = &"sfx"
+
+[node name="AUDIO_Stone7" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_itt2x")
+volume_db = -5.5
+bus = &"sfx"
+
+[node name="AUDIO_Stone8" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_jwdnq")
+volume_db = -5.5
+bus = &"sfx"

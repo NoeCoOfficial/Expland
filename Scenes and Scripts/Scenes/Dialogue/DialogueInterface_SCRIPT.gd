@@ -48,6 +48,8 @@
 @icon("res://Textures/Icons/Script Icons/32x32/dialogue.png")
 extends Control
 
+signal FinishedDialogue(StoryModeID : int)
+
 @export var GreyLayer : ColorRect
 @export var DialogueBoxButton : Button
 @export var PersonLabel : Label
@@ -183,9 +185,10 @@ func spawnDialogue(Person : String, Message : String, Duration : float):
 	spawnTween.tween_property(MessageLabel, "visible_ratio", 1.0, Duration).from(0.0)
 
 func despawnDialogue():
-	
+	FinishedDialogue.emit(DialogueManager.Current_StoryModeID)
 	DialogueManager.is_in_absolute_interface = false
 	DialogueManager.is_in_interface = false
+	DialogueManager.Current_StoryModeID = null
 	
 	tweenBox("OFF", 0.5)
 	hideGreyOverlay(0.5)

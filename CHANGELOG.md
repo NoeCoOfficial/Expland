@@ -1,5 +1,27 @@
 <h1 align="center">Expland Changelog</h1>
 
+# v0.7.0 (released)
+
+
+## Main Menu
+
+### Changed:
+- Changed opacity of the rain in the main menu background scene
+
+## The Island
+
+### Added:
+- Added a working weather system to The Island
+
+## Player
+
+### Added:
+- Added footstep sounds to the player
+- Added a player body character to the player, with animations
+
+
+---
+
 # v0.6.5 (released)
 
 ---

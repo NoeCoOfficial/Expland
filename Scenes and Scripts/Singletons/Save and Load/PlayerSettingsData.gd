@@ -180,43 +180,45 @@ func set_autosave_interval(value : int):
 		PlayerManager.PLAYER.setAutosaveInterval(value)
 
 func set_dof_blur(value : bool) -> void:
-	if get_node("/root/World") != null:
-			if value:
-				DOFBlur = true
-				var world = get_node("/root/World")
-				
-				if world.has_method("set_dof_blur"):
-					world.set_dof_blur(value)
+	if !StoryModeManager.is_in_story_mode_first_cutscene_world:
+		if get_node("/root/World") != null:
+				if value:
+					DOFBlur = true
+					var world = get_node("/root/World")
+					
+					if world.has_method("set_dof_blur"):
+						world.set_dof_blur(value)
+					else:
+						printerr("[PlayerSettingsData] Could not find set_dof_blur() method in world node.")
 				else:
-					printerr("[PlayerSettingsData] Could not find set_dof_blur() method in world node.")
-			else:
-				DOFBlur = false
-				var world = get_node("/root/World")
-				
-				if world.has_method("set_dof_blur"):
-					world.set_dof_blur(value)
-				else:
-					printerr("[PlayerSettingsData] Could not find set_dof_blur() method in world node.")
-	else:
-		printerr("[PlayerSettingsData] World node (/root/World) is null. Can't call set_dof_blur().")
+					DOFBlur = false
+					var world = get_node("/root/World")
+					
+					if world.has_method("set_dof_blur"):
+						world.set_dof_blur(value)
+					else:
+						printerr("[PlayerSettingsData] Could not find set_dof_blur() method in world node.")
+		else:
+			printerr("[PlayerSettingsData] World node (/root/World) is null. Can't call set_dof_blur().")
 
 func set_pretty_shadows(value : bool) -> void:
-	if get_node("/root/World") != null:
-			if value:
-				PrettyShadows = true
-				var world = get_node("/root/World")
-				
-				if world.has_method("set_pretty_shadows"):
-					world.set_pretty_shadows(value)
+	if !StoryModeManager.is_in_story_mode_first_cutscene_world:
+		if get_node("/root/World") != null:
+				if value:
+					PrettyShadows = true
+					var world = get_node("/root/World")
+					
+					if world.has_method("set_pretty_shadows"):
+						world.set_pretty_shadows(value)
+					else:
+						printerr("[PlayerSettingsData] Could not find set_pretty_shadows() method in world node.")
 				else:
-					printerr("[PlayerSettingsData] Could not find set_pretty_shadows() method in world node.")
-			else:
-				PrettyShadows = false
-				var world = get_node("/root/World")
-				
-				if world.has_method("set_pretty_shadows"):
-					world.set_pretty_shadows(value)
-				else:
-					printerr("[PlayerSettingsData] Could not find set_pretty_shadows() method in world node.")
-	else:
-		printerr("[PlayerSettingsData] World node (/root/World) is null. Can't call set_pretty_shadows().")
+					PrettyShadows = false
+					var world = get_node("/root/World")
+					
+					if world.has_method("set_pretty_shadows"):
+						world.set_pretty_shadows(value)
+					else:
+						printerr("[PlayerSettingsData] Could not find set_pretty_shadows() method in world node.")
+		else:
+			printerr("[PlayerSettingsData] World node (/root/World) is null. Can't call set_pretty_shadows().")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://djenc4llne53s"]
 
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Credits/CreditsLayer_SCRIPT.gd" id="1_wf8c4"]
-[ext_resource type="Script" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="2_anj2t"]
+[ext_resource type="Script" uid="uid://c2rn7sdv7k58i" path="res://Scenes and Scripts/Scenes/Credits/CreditsLayer_SCRIPT.gd" id="1_wf8c4"]
+[ext_resource type="Script" uid="uid://bd3squcstkss1" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="2_anj2t"]
 [ext_resource type="StyleBox" uid="uid://3txnt8ebd3yh" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/BlackBGwithWhiteBorder.tres" id="3_1pdi7"]
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="4_a8p6x"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="5_ome4s"]
@@ -315,33 +315,24 @@ text = "Without Godot, this entire project may not have been possible. To all th
 horizontal_alignment = 1
 autowrap_mode = 3
 
+[node name="GodotIcon" type="Sprite2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
+position = Vector2(115, 710)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("15_ny2xt")
+
+[node name="RedHeartIcon" type="Sprite2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
+position = Vector2(189.375, 712.044)
+scale = Vector2(0.0657484, 0.0545605)
+texture = ExtResource("11_m50j2")
+
 [node name="Space9" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
 theme_override_fonts/font = ExtResource("8_uiqvs")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 60
 horizontal_alignment = 1
 autowrap_mode = 3
-
-[node name="Space7" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("8_uiqvs")
-theme_override_font_sizes/font_size = 5
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="GodotIcon" type="Sprite2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
-position = Vector2(115, 732)
-scale = Vector2(0.06, 0.06)
-texture = ExtResource("15_ny2xt")
-
-[node name="RedHeartIcon" type="Sprite2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
-position = Vector2(189.375, 734.044)
-scale = Vector2(0.0657484, 0.0545605)
-texture = ExtResource("11_m50j2")
 
 [node name="Space11" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
@@ -376,10 +367,10 @@ layout_mode = 2
 focus_mode = 0
 theme = SubResource("Theme_wxeot")
 theme_override_font_sizes/font_size = 30
-text = "OPEN     "
+text = "OPEN      "
 
 [node name="OpenExternalLinkWhiteIcon" type="Sprite2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
-position = Vector2(190.375, 862.625)
+position = Vector2(188.375, 837.625)
 scale = Vector2(0.103333, 0.103333)
 texture = ExtResource("12_lbc4b")
 

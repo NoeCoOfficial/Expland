@@ -47,4 +47,4 @@
 
 extends Node
 
-@export var on_terrain: String = "GRASS"
+@export var on_terrain: String = ""

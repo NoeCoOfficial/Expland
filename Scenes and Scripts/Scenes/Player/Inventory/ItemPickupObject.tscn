@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bp7xr2ilbttfv"]
 
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Player/Inventory/ItemPickupObject_SCRIPT.gd" id="2_y2nv0"]
+[ext_resource type="Script" uid="uid://cisw20io0cflx" path="res://Scenes and Scripts/Scenes/Player/Inventory/ItemPickupObject_SCRIPT.gd" id="2_y2nv0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0xbt0"]
 size = Vector3(1.7, 1.7, 1.7)

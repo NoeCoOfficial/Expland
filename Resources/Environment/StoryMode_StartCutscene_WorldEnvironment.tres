@@ -1,0 +1,15 @@
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://d1cbu0qgvxnuh"]
+
+[ext_resource type="Material" uid="uid://b3a6b6qhmdaxy" path="res://Resources/Environment/StoryMode_StartCutscene_ProceduralSkyMaterial.tres" id="1_x0uyd"]
+
+[sub_resource type="Sky" id="Sky_ix38m"]
+sky_material = ExtResource("1_x0uyd")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_ix38m")
+tonemap_mode = 2
+ssao_power = 9.74701
+ssao_detail = 2.21
+ssao_horizon = 0.59
+glow_enabled = true

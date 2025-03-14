@@ -53,10 +53,9 @@ var FreeMode_Island_Count : int
 
 var Current_Island_Name = "Debug"
 var Current_Game_Mode = ""
-var Current_Weather = ""
 
 func _ready() -> void:
-	if !OS.has_feature("debug"):
+	if !OS.is_debug_build():
 		Current_Island_Name = ""
 
 func set_current_island(island_name: String) -> void:
@@ -88,11 +87,14 @@ func resetAttributes():
 	InventoryData.CURRENT_ITEM_IN_HAND = ""
 	IslandManager.Current_Island_Name = ""
 	IslandManager.Current_Game_Mode = ""
-	IslandManager.Current_Weather = ""
 	IslandManager.transitioningFromNewIsland = false
 	TimeManager.CURRENT_TIME = 600
 	TimeManager.CURRENT_DAY = 1
 	TimeManager.DAY_STATE = "DAY"
+	
+	WeatherManager.CURRENT_WEATHER = ""
+	WeatherManager.CURRENT_WEATHER_ARR_INDEX = 0
+	WeatherManager.WEATHER_TIMER_TIME_LEFT = 0
 	
 	ExplorerNotesManager.COLLECTED_NOTES.clear()
 	ExplorerNotesManager.CurrentlyInteracting_ID = null
@@ -132,8 +134,8 @@ func resetAttributes():
 	InteractionManager.is_hovering_over_chest = false
 	InteractionManager.is_hovering_over_workbench = false
 	InteractionManager.is_hovering_over_explorer_note = false
-
+	
 	AchievementsManager.NotificationOnScreen = false
-
-	# NOTE: May need to reset TerrainManager variables here in future
+	
+	TerrainManager.on_terrain = ""
 	

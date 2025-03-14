@@ -47,14 +47,28 @@
 
 extends Node
 
+######## Story Mode ID's ########
+#        1 - First message when click on story mode play button
+#        2 - Second message when click on story mode play button, which after exiting takes you to story mode
+
+
+
+
+
+
 var is_in_interface = false
 var is_in_absolute_interface = false
+
 var current_dialogue_index = 0
 var dialogue_messages = []
 var DialogueInterface
+var Current_StoryModeID
 
 func _ready():
 	pass
+
+func setStoryModeID(StoryModeID):
+	Current_StoryModeID = StoryModeID
 
 func startDialogue(messages: Array) -> void:
 	if !PauseManager.is_inside_settings and !PauseManager.is_paused and !InventoryManager.inventory_open:
@@ -105,7 +119,10 @@ var deathScreenRandomText = [ # a list of random text to display when the player
 	"Hope fades into the darkness.",
 	"Your struggle was meaningless.",
 	"Nothing can undo what you've done.",
-	"How could you let this happen?"
+	"How could you let this happen?",
+	"ERR___    MSG NOT FOUND ----_",
+	"???",
+	"Rebooting...",
 ]
 
 var testDialogue = [
@@ -160,4 +177,64 @@ var testDialogue = [
 	
 	Seb and Tristan",
 	"duration": 4},
+]
+
+################################################
+################################################
+################################################
+################################################
+################################################
+################################################
+################################################
+################################################
+################################################
+################################################
+################################################
+
+var mainMenuStoryModeDialogue_1 = [
+	{"author": "???", 
+	"message": "Who is this?",
+	"duration": 0.5},
+	
+	{"author": "???", 
+	"message": "Analyzing user data...",
+	"duration": 1},
+	
+	{"author": "???", 
+	"message": "Oh... someone new. And your name is... Gavin, I presume?",
+	"duration": 2},
+	
+	{"author": "???", 
+	"message": "I don't think you know what you're getting yourself into.",
+	"duration": 2},
+	
+]
+
+var mainMenuStoryModeDialogue_2 = [
+	{"author": "???", 
+	"message": "Oh... it's you again.",
+	"duration": 1},
+	
+	{"author": "???", 
+	"message": "Why did you come back?",
+	"duration": 1},
+	
+	{"author": "???", 
+	"message": "*Sigh*......",
+	"duration": 1},
+	
+	{"author": "???", 
+	"message": "You're going to regret this.",
+	"duration": 1},
+	
+	{"author": "???", 
+	"message": "I will grant your request to enter, but I'm warning you.",
+	"duration": 2},
+	
+	{"author": "???", 
+	"message": "All the best. 
+	
+	See you on the other side.",
+	"duration": 2},
+	
 ]

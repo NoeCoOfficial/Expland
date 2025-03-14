@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://55ped4wn51da"]
 
-[ext_resource type="Script" path="res://Scenes and Scripts/Scenes/Startup Notice/StartupNotice_SCRIPT.gd" id="1_0gubr"]
+[ext_resource type="Script" uid="uid://dpg7veidusq6o" path="res://Scenes and Scripts/Scenes/Startup Notice/StartupNotice_SCRIPT.gd" id="1_0gubr"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="2_og75x"]
 
 [node name="StartupNotice" type="Control"]
@@ -38,7 +38,7 @@ grow_vertical = 2
 theme = ExtResource("2_og75x")
 theme_override_font_sizes/font_size = 35
 text = "This is a pre-release version of Expland! 
-You are currently playing v0.6.5."
+You are currently playing v0.7.0."
 horizontal_alignment = 1
 vertical_alignment = 1
 

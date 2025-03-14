@@ -178,6 +178,12 @@ var stamina_restoring_from_0 = false
 @export var HandItem : Node3D
 @export var PickupAttractionPos : Node3D
 
+@export var Character_Body : Node3D
+@export var Character_Anim_Player : AnimationPlayer
+
+@export var Character_Shadow_Body : Node3D
+@export var Character_Shadow_Anim_Player : AnimationPlayer
+
 
 @export_group("Inventory")
 
@@ -350,6 +356,8 @@ var stamina_restoring_from_0 = false
 @export var CURRENT_DAY_Label : Label
 @export var CURRENT_TIME_Label : Label
 @export var CURRENT_WEATHER_Label : Label
+@export var CURRENT_WEATHER_ARR_INDEX_Label : Label
+@export var WEATHER_TIMER_TIME_LEFT_Label : Label
 
 #endregion
 
@@ -400,11 +408,11 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			if InventoryManager.is_in_explorer_notes_interface:
 				closeExplorerNotes()
 	
-	if Input.is_action_just_pressed("Quit") and Quit == true and OS.has_feature("debug"): # if the Quit input is pressed and the Quit variable is true
+	if Input.is_action_just_pressed("Quit") and Quit == true and OS.is_debug_build(): # if the Quit input is pressed and the Quit variable is true
 		SaveManager.saveAllData()
 		get_tree().quit() # quit the game
 	
-	if Input.is_action_just_pressed("Reset") and !PauseManager.inside_absolute_item_workshop and Reset == true and !PauseManager.is_paused and !PauseManager.is_inside_alert and OS.has_feature("debug"):
+	if Input.is_action_just_pressed("Reset") and !PauseManager.inside_absolute_item_workshop and Reset == true and !PauseManager.is_paused and !PauseManager.is_inside_alert and OS.is_debug_build():
 		if PlayerData.GAME_STATE == "NORMAL" or InventoryManager.inventory_open:
 			if ResetPOS == Vector3(999, 999, 999):
 				self.position = StartPOS # set the player's position to the Start position
@@ -413,9 +421,10 @@ func _input(_event): # A built-in function that listens for input using the inpu
 				self.position = ResetPOS # set the player's position to the Reset position 
 				velocity.y = 0.0 # set the player's velocity to 0 
 	
-	if Input.is_action_just_pressed("SaveGame") and OS.has_feature("debug") and IslandManager.Current_Game_Mode == "FREE":
-		Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
-		SaveManager.saveAllData()
+	if Input.is_action_just_pressed("SaveGame") and OS.is_debug_build() and IslandManager.Current_Game_Mode == "FREE":
+		if !StoryModeManager.is_in_story_mode_first_cutscene_world:
+			Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
+			SaveManager.saveAllData()
 	
 	if Input.is_action_just_pressed("Inventory") and !InventoryManager.is_in_explorer_notes_interface and !PauseManager.inside_explorer_note_ui and !PauseManager.inside_absolute_item_workshop and !PauseManager.is_paused and !InventoryManager.in_chest_interface and !InventoryManager.is_in_workbench_interface and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !InventoryManager.is_dragging and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
 		if !InventoryManager.inventory_open:
@@ -502,17 +511,17 @@ func _physics_process(delta):
 	if !is_moving_absolute:
 		is_sprinting = false
 	
-	if is_walking and is_movement_input_active:
+	if is_walking and is_movement_input_active and is_moving_absolute:
 		PlayerManager.is_walking_moving = true
 	else:
 		PlayerManager.is_walking_moving = false
 	
-	if is_sprinting and is_movement_input_active:
+	if is_sprinting and is_movement_input_active and is_moving_absolute:
 		PlayerManager.is_sprinting_moving = true
 	else:
 		PlayerManager.is_sprinting_moving = false
 	
-	if is_crouching and is_movement_input_active:
+	if is_crouching and is_movement_input_active and is_moving_absolute:
 		PlayerManager.is_crouching_moving = true
 	else:
 		PlayerManager.is_crouching_moving = false
@@ -610,11 +619,34 @@ func _physics_process(delta):
 			# Smoothly return to original position when not moving
 			var target_pos = Vector3(camera.transform.origin.x, 0, camera.transform.origin.z)
 			camera.transform.origin = camera.transform.origin.lerp(target_pos, delta * BOB_SMOOTHING_SPEED)
+	
+	_update_animation()
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO # set the position to zero
 	pos.y = sin(time * BOB_FREQ) * BOB_AMP # set the y position to the sine of the time times the bob frequency times the bob amplitude
 	return pos # return the position
+
+func _update_animation():
+	if velocity.y == 0:
+		if PlayerManager.is_sprinting_moving:
+			Character_Body.fastRun()
+			Character_Shadow_Body.fastRun()
+		elif PlayerManager.is_walking_moving:
+			Character_Body.slowRun()
+			Character_Shadow_Body.slowRun()
+		elif PlayerManager.is_crouching_moving:
+			Character_Body.crouchWalk()
+			Character_Shadow_Body.crouchWalk()
+		elif is_crouching:
+			Character_Body.crouchIdle()
+			Character_Shadow_Body.crouchIdle()
+		else:
+			Character_Body.idle()
+			Character_Shadow_Body.idle()
+	else:
+		Character_Body.fall()
+		Character_Shadow_Body.fall()
 
 func _process(_delta):
 	
@@ -663,7 +695,9 @@ func _process(_delta):
 	GAME_STATE_Label.text = "GAME_STATE = " + PlayerData.GAME_STATE
 	CURRENT_DAY_Label.text = "CURRENT_DAY = " + str(TimeManager.CURRENT_DAY)
 	CURRENT_TIME_Label.text = "CURRENT_TIME = " + str(TimeManager.CURRENT_TIME)
-	CURRENT_WEATHER_Label.text = "CURRENT_WEATHER = " + IslandManager.Current_Weather
+	CURRENT_WEATHER_Label.text = "CURRENT_WEATHER = " + str(WeatherManager.CURRENT_WEATHER)
+	CURRENT_WEATHER_ARR_INDEX_Label.text = "CURRENT_WEATHER_ARR_INDEX = " + str(WeatherManager.CURRENT_WEATHER_ARR_INDEX)
+	WEATHER_TIMER_TIME_LEFT_Label.text = "WEATHER_TIMER_TIME_LEFT = " + str(WeatherManager.WEATHER_TIMER_TIME_LEFT)
 	
 	## END DEBUGGING
 	
@@ -730,15 +764,16 @@ func _ready():
 		
 		OverlayLayer_Overlay.hide() # hide the overlay
 	
-	if !OS.has_feature("debug"):
+	if !OS.is_debug_build():
 		PauseLayer.hide()
 		StartDebugging_Btn.hide()
 	
 	InventoryManager.is_inside_boundary = false
 
 func on_fade_in_tween_finished():
-	if IslandManager.Current_Game_Mode == "FREE":
-		Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
+	if !StoryModeManager.is_in_story_mode_first_cutscene_world:
+		if IslandManager.Current_Game_Mode == "FREE":
+			Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
 
 func _on_ready() -> void: # Called when the node is considered ready
 	pass
@@ -847,17 +882,28 @@ func initInventorySlots():
 #region Walking, sprinting and crouching sounds
 
 func _on_walking_speed_sounds_timeout() -> void:
-	if is_walking and is_moving:
-		pass
+	if PlayerManager.is_walking_moving and velocity.y == 0.0:
+		play_footstep_sounds_terrain()
 
 func _on_sprinting_speed_sounds_timeout() -> void:
-	if is_sprinting and is_moving:
-		pass
+	if PlayerManager.is_sprinting_moving and velocity.y == 0.0:
+		play_footstep_sounds_terrain()
 
 func _on_crouching_speed_sounds_timeout() -> void:
-	if is_crouching and is_moving:
-		pass
+	if PlayerManager.is_crouching_moving and velocity.y == 0.0:
+		play_footstep_sounds_terrain()
 
+func play_footstep_sounds_terrain():
+	# Default sound
+	if TerrainManager.on_terrain == "":
+		$"Footstep Sounds/Footstep_Sounds_STONE".play_random()
+	
+	else:
+		if TerrainManager.on_terrain == "GRASS":
+			$"Footstep Sounds/Footstep_Sounds_GRASS".play_random()
+		elif TerrainManager.on_terrain == "STONE":
+			$"Footstep Sounds/Footstep_Sounds_STONE".play_random()
+			
 #endregion
 
 #region Health and dying management
@@ -1124,7 +1170,6 @@ func setHotbarSelectedSlot(Slot_Number):
 	if Slot_Number != null:
 		print("Setting hotbar slot to: ", Slot_Number)
 		for child in $Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots.get_children():
-			print("Checking child: ", child.name)
 			if str(child.name) == "Slot" + str(Slot_Number):
 				print("Found slot: ", child.name)
 				HotbarManager.CURRENTLY_SELECTED_SLOT = child
@@ -1368,18 +1413,24 @@ func _on_credits_button_pressed() -> void:
 #region Saving
 
 func saveInventory():
-	InventoryData.saveInventory(IslandManager.Current_Island_Name, InventoryMainLayer, ChestSlots)
+	if !StoryModeManager.is_in_story_mode_first_cutscene_world:
+		InventoryData.saveInventory(IslandManager.Current_Island_Name, InventoryMainLayer, ChestSlots)
 
 func _on_save_and_quit_btn_pressed():
-	SaveManager.saveAllData()
+	if !StoryModeManager.is_in_story_mode_first_cutscene_world:
+		SaveManager.saveAllData()
 	get_tree().quit()
 
 func _on_save_and_quit_to_menu_pressed() -> void:
-	SaveManager.saveAllData()
+	if !StoryModeManager.is_in_story_mode_first_cutscene_world:
+		SaveManager.saveAllData()
 	transitioning_to_menu = true
 	Global.the_island_transitioning_scene = true
 	AudioManager.Current_Playlist.audibleOnlyFadeOutAllSongs()
+	if AudioManager.Current_Rain_SFX_Node:
+		AudioManager.Current_Rain_SFX_Node.stop_rain_loop(2.0)
 	
+	ProtectiveLayer.show()
 	$Head/Camera3D/SleepLayer.layer = 100
 	SleepLayerBlackOverlay.modulate = Color(1, 1, 1, 0)
 	SleepLayerBlackOverlay.visible = true
@@ -1416,8 +1467,9 @@ func hideDarkerBG_SAVEOVERLAY():
 #region Autosave
 
 func _on_auto_save_timer_timeout(): # A function to save the player data every x seconds
-	if !PauseManager.is_paused and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !transitioning_to_menu:
-		Autosave_showSaving()
+	if !StoryModeManager.is_in_story_mode_first_cutscene_world:
+		if !PauseManager.is_paused and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !transitioning_to_menu:
+			Autosave_showSaving()
 
 func Autosave_showSaving():
 	$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved.visible = false
@@ -1432,21 +1484,22 @@ func Autosave_showSaving():
 	tween.tween_interval(4.0)
 
 func Autosave_showSaved():
-	SaveManager.saveAllData() # Saves everything
-	Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png") # Take island screenshot
-	
-	$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved.visible = true
-	$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved.scale = Vector2(0.83, 0.83)
-	$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved.modulate = Color(1, 1, 1, 0)
-	
-	var tween = get_tree().create_tween().set_parallel()
-	tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving, "modulate", Color(1, 1, 1, 0), 0.2)
-	tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving, "scale", Vector2(0.83, 0.83), 0.2)
-	tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved, "modulate", Color(1, 1, 1, 1), 0.2).set_delay(0.2)
-	tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved, "scale", Vector2(1.0, 1.0), 0.2).set_delay(0.2)
-	
-	tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved, "modulate", Color(1, 1, 1, 0), 0.2).set_delay(3.2)
-	tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved, "scale", Vector2(0.83, 0.83), 0.2).set_delay(3.2)
+	if !StoryModeManager.is_in_story_mode_first_cutscene_world:
+		SaveManager.saveAllData() # Saves everything
+		Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png") # Take island screenshot
+		
+		$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved.visible = true
+		$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved.scale = Vector2(0.83, 0.83)
+		$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved.modulate = Color(1, 1, 1, 0)
+		
+		var tween = get_tree().create_tween().set_parallel()
+		tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving, "modulate", Color(1, 1, 1, 0), 0.2)
+		tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving, "scale", Vector2(0.83, 0.83), 0.2)
+		tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved, "modulate", Color(1, 1, 1, 1), 0.2).set_delay(0.2)
+		tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved, "scale", Vector2(1.0, 1.0), 0.2).set_delay(0.2)
+		
+		tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved, "modulate", Color(1, 1, 1, 0), 0.2).set_delay(3.2)
+		tween.tween_property($Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved, "scale", Vector2(0.83, 0.83), 0.2).set_delay(3.2)
 
 func setAutosaveInterval(value : int):
 	AutoSaveTimer.stop()
@@ -1466,7 +1519,7 @@ func sleep_cycle(setSleeping : bool, incrementDay : bool, fadeInTime : float, ho
 	
 	if incrementDay:
 		if TimeManager.CURRENT_TIME < 1440 and TimeManager.CURRENT_TIME >= 1080:
-			TimeManager.CURRENT_DAY += 1
+			TimeManager.CURRENT_DAY = int(TimeManager.CURRENT_DAY + 1)
 	
 	SaveManager.saveAllData()
 	
