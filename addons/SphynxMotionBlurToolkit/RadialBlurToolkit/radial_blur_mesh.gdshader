@@ -22,7 +22,7 @@ uniform float debug_toggle = 0;
 uniform vec4 debug_color : source_color = vec4(0);
 
 //https://www.shadertoy.com/view/fdtfWM
-vec3 rotate(float angle, vec3 axis, vec3 point)
+vec3 rotate(float angle, vec3 axis, vec3 point) // NOTE: axis must be unit!
 {
     float c = cos(angle);
     float s = sin(angle);
