@@ -1,5 +1,5 @@
-# ============================================================= #
-# FootstepSounds_GRASS_SCRIPT.gd
+#============================================================= #
+# Island_Terrain_Switcher_SCRIPT.gd
 # ============================================================= #
 #                       COPYRIGHT NOTICE                        #
 #                           Noe Co.                             #
@@ -47,15 +47,16 @@
 
 extends Node
 
-var SOUNDS : Array = []
 
-func _ready() -> void:
-	for child in self.get_children():
-		if str(child.name).begins_with("AUDIO"):
-			SOUNDS.append(child)
+func _on_stone_body_entered(body: Node3D) -> void:
+	if body.is_in_group("PlayerBody"):
+		TerrainManager.on_terrain = "STONE"
 
-func play_random():
-	if SOUNDS.size() > 0:
-		var random_sound = SOUNDS[randi() % SOUNDS.size()]
-		if random_sound:
-			random_sound.play()
+
+##################
+## On body exited (return to default terrain type)
+##################
+
+func _on_stone_body_exited(body: Node3D) -> void:
+	if body.is_in_group("PlayerBody"):
+		TerrainManager.on_terrain = "GRASS"

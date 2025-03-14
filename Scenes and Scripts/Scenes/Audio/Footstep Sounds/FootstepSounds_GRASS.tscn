@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://befvxrvmvcjab"]
 
-[ext_resource type="Script" uid="uid://brgggfesou277" path="res://Scenes and Scripts/Scenes/Audio/Footstep Sounds/FootstepSounds_GRASS_SCRIPT.gd" id="1_us15h"]
+[ext_resource type="Script" uid="uid://brgggfesou277" path="res://Scenes and Scripts/Scenes/Audio/Footstep Sounds/FootstepSounds_SCRIPT.gd" id="1_us15h"]
 [ext_resource type="AudioStream" uid="uid://icd7j3r3qar2" path="res://Audio/SFX/Footstep/Grass/Grass1.mp3" id="2_gvuu5"]
 [ext_resource type="AudioStream" uid="uid://cxc1ybkupv6t5" path="res://Audio/SFX/Footstep/Grass/Grass2.mp3" id="3_uffd5"]
 [ext_resource type="AudioStream" uid="uid://bwinfrrgylgg2" path="res://Audio/SFX/Footstep/Grass/Grass3.mp3" id="4_clut6"]

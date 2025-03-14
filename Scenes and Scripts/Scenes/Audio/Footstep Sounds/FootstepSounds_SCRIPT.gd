@@ -1,5 +1,5 @@
 # ============================================================= #
-# TerrainManager.gd [AUTOLOAD]
+# FootstepSounds_SCRIPT.gd
 # ============================================================= #
 #                       COPYRIGHT NOTICE                        #
 #                           Noe Co.                             #
@@ -47,4 +47,15 @@
 
 extends Node
 
-@export var on_terrain: String = ""
+var SOUNDS : Array = []
+
+func _ready() -> void:
+	for child in self.get_children():
+		if str(child.name).begins_with("AUDIO"):
+			SOUNDS.append(child)
+
+func play_random():
+	if SOUNDS.size() > 0:
+		var random_sound = SOUNDS[randi() % SOUNDS.size()]
+		if random_sound:
+			random_sound.play()
