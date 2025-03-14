@@ -88,6 +88,10 @@ func onfadeInGreyOverlay_Finished():
 	player_instance.nodeSetup()
 	$Camera3D.clear_current(true)
 	$Camera3D/MainLayer/BlackFade.hide()
+	new_player_dialogue_timeline(player_instance)
+
+func new_player_dialogue_timeline(player_node : Node):
+	#player_node
 
 #####################################
 
