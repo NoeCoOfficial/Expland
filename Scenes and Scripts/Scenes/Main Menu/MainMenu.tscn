@@ -492,7 +492,7 @@ offset_bottom = 39.0
 grow_horizontal = 0
 theme = ExtResource("4_grlcg")
 theme_override_font_sizes/font_size = 26
-text = "v0.7.0"
+text = "v0.7.5"
 
 [node name="GreyLayer" type="ColorRect" parent="Camera3D/MainLayer"]
 visible = false
