@@ -270,17 +270,13 @@ var StoryMode_StartCutsceneDialogue_2 = [
 			"time": 4.0},
 			
 		{"message": 
-			'"But here I am, on this yacht, heading to what
-			could be the best decision of my life. Right?"',
-			"time": 2.8},
+			'"A six-figure salary, building solar panels? I never
+			thought I’d land something like that. Am I doing the right thing?"',
+			"time": 4.0},
 			
 		{"message": 
 			'"But here I am, on this yacht, heading to what
 			could be the best decision of my life. Right?"',
 			"time": 2.8},
 			
-		{"message": 
-			'"But here I am, on this yacht, heading to what
-			could be the best decision of my life. Right?"',
-			"time": 2.8},
 	]
