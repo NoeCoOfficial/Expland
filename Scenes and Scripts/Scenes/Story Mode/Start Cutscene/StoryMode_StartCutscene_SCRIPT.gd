@@ -59,7 +59,6 @@ func _ready() -> void:
 	print("ENTERED STORY MODE START CUTSCENE")
 	fadeOutGreyOverlay()
 	cutscene_timeline()
-	$Camera3D/MainLayer/MinimalDialogue/Text.hide()
 
 #####################################
 
@@ -83,7 +82,7 @@ func fadeInGreyOverlay():
 func onfadeInGreyOverlay_Finished():
 	var player_instance = player_scene.instantiate()
 	$Camera_Sutle_Movement.stop()
-	#$"Yacht Bob".stop()
+	
 	$"Yacht Rig/Yacht".position.y = 0.11
 	self.add_child(player_instance)
 	player_instance.position = Vector3(2.876, -15.188, -16.899)
@@ -96,33 +95,13 @@ func onfadeInGreyOverlay_Finished():
 func new_player_dialogue_timeline():
 	await get_tree().create_timer(5.0).timeout
 	if DialogueManager.MinimalDialogueInterface:
-		DialogueManager.MinimalDialogueInterface.spawnMinimalDialogue(
-			4.0,
-			'"This job... it’s the chance I’ve been waiting for. Sunshine Co. doesn’t
-			just hire anyone. What makes me special?"'
-		)
-		
+		DialogueManager.MinimalDialogueInterface.spawnMinimalDialogue(DialogueManager.StoryMode_StartCutsceneDialogue_2)
 
 #####################################
 
 func cutscene_timeline():
-	await get_tree().create_timer(2).timeout
-	print("Dialogue 1")
-	MD.spawnMinimalDialogue(
-	2.5, 
-	'"Three days out here already... hard to believe it has been so long since I have seen Doc."')
+	MD.spawnMinimalDialogue(DialogueManager.StoryMode_StartCutsceneDialogue_1)
 	
-	await get_tree().create_timer(6).timeout
-	print("Dialogue 2")
-	MD.spawnMinimalDialogue(
-	2.5, 
-	'"Just me and the waves and the smell of the sea, huh? Could get used to this, but I better not."')
-	
-	await get_tree().create_timer(6).timeout
-	print("Dialogue 3")
-	MD.spawnMinimalDialogue(
-	2.5, 
-	'"This trip is only the beginning of something much bigger. Bigger?"')
-	
-	await get_tree().create_timer(6).timeout
-	fadeInGreyOverlay()
+	# Assuming fadeInGreyOverlay should be called after the last dialogue
+	var total_duration = 2 + 6 * (DialogueManager.StoryMode_StartCutsceneDialogue_1.size() - 1) + DialogueManager.StoryMode_StartCutsceneDialogue_1[-1]["time"]
+	get_tree().create_timer(total_duration).connect("timeout", fadeInGreyOverlay)

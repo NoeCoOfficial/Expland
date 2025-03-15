@@ -47,11 +47,33 @@
 
 extends Control
 
-func spawnMinimalDialogue(time : float, msg : String):
-	$Text.show()
-	$Text.modulate = Color(1, 1, 1, 1)
-	$Text.visible_ratio = 0.0
-	$Text.text = msg
-	var tween = get_tree().create_tween().set_parallel()
-	tween.tween_property($Text, "visible_ratio", 1.0, time)
-	tween.tween_property($Text, "modulate", Color(1, 1, 1, 0), 1).set_delay(time + 2)
+var message_queue = []
+var is_displaying = false
+
+func spawnMinimalDialogue(dialogue_list : Array):
+	for dialogue in dialogue_list:
+		message_queue.append(dialogue)
+	if not is_displaying:
+		_display_next_message()
+
+func _display_next_message():
+	if message_queue.size() > 0:
+		is_displaying = true
+		var message_data = message_queue.pop_front()
+		var msg = message_data.get("message", "")
+		var time = message_data.get("time", 1.0)
+		
+		$Text.show()
+		$Text.modulate = Color(1, 1, 1, 1)
+		$Text.visible_ratio = 0.0
+		$Text.text = msg
+		
+		var tween = get_tree().create_tween().set_parallel()
+		tween.tween_property($Text, "visible_ratio", 1.0, time)
+		tween.tween_property($Text, "modulate", Color(1, 1, 1, 0), 1).set_delay(time + 2)
+		tween.connect("finished", _on_tween_finished)
+	else:
+		is_displaying = false
+
+func _on_tween_finished():
+	_display_next_message()
