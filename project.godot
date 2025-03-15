@@ -13,7 +13,7 @@ config_version=5
 config/name="Expland"
 config/description="Expland
 "
-config/version="0.7.5"
+config/version="0.7.0"
 config/tags=PackedStringArray("3d", "noeco", "official")
 run/main_scene="res://Scenes and Scripts/Scenes/Main Menu/MainMenu.tscn"
 config/use_custom_user_dir=true
