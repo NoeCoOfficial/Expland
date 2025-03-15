@@ -74,7 +74,7 @@ size = Vector3(0.189156, 2.01709, 3.41242)
 size = Vector3(0.0760232, 1.81616, 3.40347)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w18yt"]
-size = Vector3(10.6402, 0.282715, 3.65436)
+size = Vector3(11.243, 0.282715, 3.65436)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f3l76"]
 size = Vector3(9.55203, 0.282715, 0.891492)
@@ -265,7 +265,7 @@ script = ExtResource("3_os8dc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22068, -15.4248, -17.6352)
 
 [node name="Yacht" parent="Yacht Rig" instance=ExtResource("4_os8dc")]
-transform = Transform3D(-0.965833, 0.0137354, 0.258801, 0.0132673, 0.999906, -0.003555, -0.258826, 6.10016e-08, -0.965924, 0, 0, 0)
+transform = Transform3D(-0.965833, 0.0137354, 0.258801, 0.0132673, 0.999906, -0.003555, -0.258826, 6.10016e-08, -0.965924, 0, 0.09, 0)
 
 [node name="Collision" type="StaticBody3D" parent="Yacht Rig/Yacht"]
 
@@ -315,7 +315,7 @@ shape = SubResource("BoxShape3D_gk6k1")
 debug_color = Color(1, 0.21, 0.223166, 1)
 
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="Yacht Rig/Yacht/Collision"]
-transform = Transform3D(1, 7.13534e-08, 0, 4.90232e-07, 0.999995, 1.76124e-08, -4.76837e-07, 1.1978e-07, 1, -1.27418, -0.0213652, 0.0959225)
+transform = Transform3D(1, 8.31382e-08, 0, 6.69046e-07, 0.999995, 1.76124e-08, -4.76837e-07, 1.6376e-07, 1, -1.57556, -0.0213661, 0.0959225)
 shape = SubResource("BoxShape3D_w18yt")
 debug_color = Color(1, 0.21, 0.223166, 1)
 
