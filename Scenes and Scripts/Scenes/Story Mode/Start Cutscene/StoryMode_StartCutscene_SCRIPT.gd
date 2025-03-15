@@ -59,7 +59,6 @@ func _ready() -> void:
 	print("ENTERED STORY MODE START CUTSCENE")
 	fadeOutGreyOverlay()
 	cutscene_timeline()
-	$Camera3D/MainLayer/MinimalDialogue/Text.hide()
 
 #####################################
 
@@ -83,7 +82,7 @@ func fadeInGreyOverlay():
 func onfadeInGreyOverlay_Finished():
 	var player_instance = player_scene.instantiate()
 	$Camera_Sutle_Movement.stop()
-	#$"Yacht Bob".stop()
+	
 	$"Yacht Rig/Yacht".position.y = 0.11
 	self.add_child(player_instance)
 	player_instance.position = Vector3(2.876, -15.188, -16.899)
@@ -96,12 +95,7 @@ func onfadeInGreyOverlay_Finished():
 func new_player_dialogue_timeline():
 	await get_tree().create_timer(5.0).timeout
 	if DialogueManager.MinimalDialogueInterface:
-		DialogueManager.MinimalDialogueInterface.spawnMinimalDialogue(
-			4.0,
-			'"This job... it’s the chance I’ve been waiting for. Sunshine Co. doesn’t
-			just hire anyone. What makes me special?"'
-		)
-		
+		DialogueManager.MinimalDialogueInterface.spawnMinimalDialogue(DialogueManager.StoryMode_StartCutsceneDialogue_2)
 
 #####################################
 
