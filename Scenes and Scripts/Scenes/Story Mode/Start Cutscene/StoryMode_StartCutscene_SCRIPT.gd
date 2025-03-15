@@ -101,6 +101,7 @@ func new_player_dialogue_timeline():
 			'"This job... it’s the chance I’ve been waiting for. Sunshine Co. doesn’t
 			just hire anyone. What makes me special?"'
 		)
+		
 
 #####################################
 
