@@ -1600,7 +1600,7 @@ func _on_health_regen_timeout() -> void:
 	if PlayerData.Health > MaxHealth:
 		PlayerData.Health = MaxHealth
 		
-		update_bar("HEALTH", true, PlayerData.Health)
+	update_bar("HEALTH", true, PlayerData.Health)
 
 func _on_hunger_depletion_timeout() -> void:
 	if !PlayerManager.is_sprinting_moving:
