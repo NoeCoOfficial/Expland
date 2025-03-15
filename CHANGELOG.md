@@ -5,6 +5,8 @@
 ---
 
 - added procedural health regeneration to the player
+- changed health regeneration value to 10 instead of 5 when sleeping
+- fixed health bar not updating after gaining health when sleeping 
 
 ---
 

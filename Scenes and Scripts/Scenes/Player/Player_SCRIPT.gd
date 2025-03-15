@@ -1560,9 +1560,10 @@ func on_sleep_cycle_hold_finished(fadeOutTime, time : int):
 			PlayerManager.WORLD.set_time(time)
 	
 	PlayerData.GAME_STATE = "NORMAL"
-	PlayerData.Health += 5
+	PlayerData.Health += 10
 	if PlayerData.Health > MaxHealth:
 		PlayerData.Health = MaxHealth
+	update_bar("HEALTH", true, PlayerData.Health)
 	
 	var tween = get_tree().create_tween().set_parallel()
 	tween.tween_property(DayText_Label, "modulate", Color(1, 1, 1, 0), fadeOutTime / 2)
@@ -1596,8 +1597,8 @@ func _on_health_regen_timeout() -> void:
 		else:
 			PlayerData.Health += 10
 		
-		if PlayerData.Health >= 100:
-			PlayerData.Health = 100
+	if PlayerData.Health > MaxHealth:
+		PlayerData.Health = MaxHealth
 		
 		update_bar("HEALTH", true, PlayerData.Health)
 
