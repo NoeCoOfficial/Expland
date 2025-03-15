@@ -250,13 +250,20 @@ var mainMenuStoryModeDialogue_2 = [
 ################################################
 
 var StoryMode_StartCutsceneDialogue_1 = [
-		{"message": "Three days out here already... hard to believe it has been so long since I have seen Doc.", "time": 2.5},
-		{"message": "Just me and the waves and the smell of the sea, huh? Could get used to this, but I better not.", "time": 2.5},
-		{"message": "This trip is only the beginning of something much bigger. Bigger?", "time": 2.5}
+		{"message": 
+			'"Three days out here already... hard to believe it has been so long since I have seen Doc."', 
+			"time": 2.5},
+		{"message": 
+			'Just me and the waves and the smell of the sea, huh? Could get used to this, but I better not."', 
+			"time": 2.5},
+		{"message": 
+			'"This trip is only the beginning of something much bigger. Bigger?"', 
+			"time": 2.5}
 	]
 
 var StoryMode_StartCutsceneDialogue_2 = [
-		{"message": "Three days out here already... hard to believe it has been so long since I have seen Doc.", "time": 2.5},
-		{"message": "Just me and the waves and the smell of the sea, huh? Could get used to this, but I better not.", "time": 2.5},
-		{"message": "This trip is only the beginning of something much bigger. Bigger?", "time": 2.5}
+		{"message": 
+			'"This job... it’s the chance I’ve been waiting for. Sunshine Co. doesn’t
+			just hire anyone. What makes me special?"', 
+			"time": 4.0},
 	]
