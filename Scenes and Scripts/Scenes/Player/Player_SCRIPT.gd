@@ -1561,8 +1561,10 @@ func on_sleep_cycle_hold_finished(fadeOutTime, time : int):
 	
 	PlayerData.GAME_STATE = "NORMAL"
 	PlayerData.Health += 10
+	
 	if PlayerData.Health > MaxHealth:
 		PlayerData.Health = MaxHealth
+	
 	update_bar("HEALTH", true, PlayerData.Health)
 	
 	var tween = get_tree().create_tween().set_parallel()
