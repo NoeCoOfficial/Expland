@@ -36,7 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://coh5374nhy6fl" path="res://Textures/Explorer Notes/2_Sheet.png" id="21_rd3qm"]
 [ext_resource type="PackedScene" uid="uid://lf4vntqbl3c6" path="res://Scenes and Scripts/Scenes/General/UI/KeyUI.tscn" id="21_xhl03"]
 [ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="22_7sfup"]
-[ext_resource type="AudioStream" uid="uid://ce5warv2uju61" path="res://Audio/SFX/swipe.mp3" id="22_jy0m8"]
+[ext_resource type="AudioStream" path="res://Audio/SFX/swipe.mp3" id="22_jy0m8"]
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="24_6y28d"]
 [ext_resource type="PackedScene" uid="uid://djenc4llne53s" path="res://Scenes and Scripts/Scenes/Credits/CreditsLayer.tscn" id="24_qhsvo"]
 [ext_resource type="StyleBox" uid="uid://c1a26qv61p5kw" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkgreyBGwithWhiteBorder.tres" id="25_8giff"]
