@@ -1,9 +1,10 @@
 <h1 align="center">Expland Changelog</h1>
 
-
 # v0.7.5 (unreleased)
 
+---
 
+- added procedural health regeneration to the player
 
 ---
 
