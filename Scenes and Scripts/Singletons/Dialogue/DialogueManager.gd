@@ -280,3 +280,49 @@ var StoryMode_StartCutsceneDialogue_2 = [
 			"time": 2.8},
 			
 	]
+
+var StoryMode_StartCutsceneDialogue_3 = [
+		{"message": 
+			'"It’s kind of wild, though. Me. An amateur bodybuilder, getting a job like this."', 
+			"time": 2.5},
+			
+		{"message": 
+			'"Guess all those hours in the gym paid off after all. 
+			They wanted someone strong, and I’m their guy."',
+			"time": 3.0},
+			
+		{"message": 
+			'"Gavin, the strongest, now working with Sunshine Co. Kind of has a ring to it."',
+			"time": 2.8},
+			
+	]
+
+var StoryMode_StartCutsceneDialogue_4 = [
+		{"message": 
+			'"Mom thought I was crazy for taking the job. 
+			‘You’re throwing your life away,’ she said. She doesn’t get it."', 
+			"time": 4.0},
+			
+		{"message": 
+			'"But hey, I didn’t want to spend the rest of my life
+			behind some desk. I need something that challenges me."',
+			"time": 3.0},
+			
+		{"message": 
+			'"This is it. Building solar panels for a company that’s 
+			changing the world. It’s big. And I’m part of it."',
+			"time": 3.0},
+			
+	]
+
+var StoryMode_StartCutsceneDialogue_5 = [
+		{"message": 
+			'"I didn’t even want to take the plane. Way too expensive. 
+			This yacht? My friends pitched in for it."', 
+			"time": 3.0},
+			
+		{"message": 
+			'"Good friends, huh? They know this is my shot, and they’ve had my back since day one."',
+			"time": 2.5},
+			
+	]
