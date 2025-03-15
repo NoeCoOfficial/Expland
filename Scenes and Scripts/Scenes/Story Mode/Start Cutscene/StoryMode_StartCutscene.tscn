@@ -5,7 +5,7 @@
 [ext_resource type="Environment" uid="uid://d1cbu0qgvxnuh" path="res://Resources/Environment/StoryMode_StartCutscene_WorldEnvironment.tres" id="2_g8pos"]
 [ext_resource type="Script" uid="uid://dudqfc8y403pg" path="res://Textures/Icons/Script Icons/Scripts/RiverIcon_SCRIPT.gd" id="3_os8dc"]
 [ext_resource type="PackedScene" uid="uid://cn1krf62jowgb" path="res://Scenes and Scripts/Scenes/Dialogue/MinimalDialogue.tscn" id="4_7s4ab"]
-[ext_resource type="PackedScene" uid="uid://ck0guuhifgbmr" path="res://Assets/3D Models/Cutscenes/Story Mode/Start Cutscene/Yacht.blend" id="4_os8dc"]
+[ext_resource type="PackedScene" uid="uid://ck0guuhifgbmr" path="res://Assets/3D Models/Cutscenes/Story Mode/Start Cutscene/Models/Yacht.blend" id="4_os8dc"]
 [ext_resource type="Shader" uid="uid://brub6nkftipc1" path="res://Resources/Shaders/Clouds.gdshader" id="5_encjm"]
 [ext_resource type="Script" uid="uid://dn1b1gnwe5iap" path="res://Textures/Icons/Script Icons/Scripts/LightbulbIcon_SCRIPT.gd" id="6_to1x2"]
 
