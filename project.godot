@@ -65,6 +65,7 @@ gdscript/warnings/unused_signal=0
 
 [display]
 
+window/size/mode=4
 window/stretch/mode="canvas_items"
 display_server/driver.linuxbsd="wayland"
 
