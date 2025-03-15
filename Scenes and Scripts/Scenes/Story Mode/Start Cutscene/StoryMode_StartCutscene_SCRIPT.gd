@@ -89,9 +89,9 @@ func onfadeInGreyOverlay_Finished():
 	player_instance.nodeSetup()
 	$Camera3D.clear_current(true)
 	$Camera3D/MainLayer/BlackFade.hide()
-	new_player_dialogue_timeline(player_instance)
+	new_player_dialogue_timeline()
 
-func new_player_dialogue_timeline(player_node : Node):
+func new_player_dialogue_timeline():
 	await get_tree().create_timer(5.0).timeout
 	if DialogueManager.MinimalDialogueInterface:
 		DialogueManager.MinimalDialogueInterface.spawnMinimalDialogue(
