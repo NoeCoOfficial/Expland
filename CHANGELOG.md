@@ -1,9 +1,12 @@
 <h1 align="center">Expland Changelog</h1>
 
-
 # v0.7.5 (unreleased)
 
+---
 
+- added procedural health regeneration to the player
+- changed health regeneration value to 10 instead of 5 when sleeping
+- fixed health bar not updating after gaining health when sleeping 
 
 ---
 
