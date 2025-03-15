@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://nlp0xy1m65tp"]
+[gd_scene load_steps=41 format=3 uid="uid://nlp0xy1m65tp"]
 
 [ext_resource type="Script" uid="uid://uvb2g81nntt2" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/StoryMode_StartCutscene_SCRIPT.gd" id="1_4d7y3"]
 [ext_resource type="Shader" uid="uid://b2gi30s113t00" path="res://Scenes and Scripts/Scenes/The Island/TheIslandSeaWater.gdshader" id="2_cfn0j"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ck0guuhifgbmr" path="res://Assets/3D Models/Cutscenes/Story Mode/Start Cutscene/Yacht.blend" id="4_os8dc"]
 [ext_resource type="Shader" uid="uid://brub6nkftipc1" path="res://Resources/Shaders/Clouds.gdshader" id="5_encjm"]
 [ext_resource type="Script" uid="uid://dn1b1gnwe5iap" path="res://Textures/Icons/Script Icons/Scripts/LightbulbIcon_SCRIPT.gd" id="6_to1x2"]
+[ext_resource type="PackedScene" uid="uid://cjm5lrxicdgsf" path="res://Scenes and Scripts/Scenes/Player/Player.tscn" id="9_f3l76"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_oopga"]
 
@@ -268,7 +269,7 @@ script = ExtResource("3_os8dc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22068, -15.4248, -17.6352)
 
 [node name="Yacht" parent="Yacht Rig" instance=ExtResource("4_os8dc")]
-transform = Transform3D(-0.965833, 0.0137354, 0.258801, 0.0132673, 0.999906, -0.003555, -0.258825, 6.10016e-08, -0.965924, 0, 0.09, 0)
+transform = Transform3D(-1.14421, 0.0162721, 0.306598, 0.0157176, 1.18457, -0.00421156, -0.306627, 7.22678e-08, -1.14432, 0, -0.0732861, 0)
 
 [node name="Collision" type="StaticBody3D" parent="Yacht Rig/Yacht"]
 
@@ -363,5 +364,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_44ck5")
 }
 autoplay = "camera_sutle_movement"
+
+[node name="Player" parent="." instance=ExtResource("9_f3l76")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.87628, -15.1882, -16.8991)
 
 [editable path="Yacht Rig/Yacht"]

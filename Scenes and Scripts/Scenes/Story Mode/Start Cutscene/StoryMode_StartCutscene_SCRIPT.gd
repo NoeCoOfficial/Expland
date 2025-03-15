@@ -82,10 +82,10 @@ func fadeInGreyOverlay():
 func onfadeInGreyOverlay_Finished():
 	var player_instance = player_scene.instantiate()
 	$Camera_Sutle_Movement.stop()
-	$"Yacht Bob".stop()
+	#$"Yacht Bob".stop()
 	self.add_child(player_instance)
-	player_instance.position = Vector3(2.567, -15.306, -17.342)
-	player_instance.ResetPOS = Vector3(2.567, -15.306, -17.342)
+	player_instance.position = Vector3(2.876, -15.188, -16.899)
+	player_instance.ResetPOS = Vector3(2.876, -15.188, -16.899)
 	player_instance.nodeSetup()
 	$Camera3D.clear_current(true)
 	$Camera3D/MainLayer/BlackFade.hide()
