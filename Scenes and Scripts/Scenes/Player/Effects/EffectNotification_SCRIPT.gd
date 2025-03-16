@@ -67,6 +67,9 @@ func init(E_time : float, E_name : String):
 	
 	PlayerManager.PLAYER.init_effect(E_name)
 
+func add_time(E_time : float):
+	Effect_Timer.start(Effect_Timer.time_left + E_time)
+
 func finished_effect() -> void:
 	EffectManager.Current_Effects.erase(Current_Effect_Local)
 	PlayerManager.PLAYER.stop_effect(Current_Effect_Local)

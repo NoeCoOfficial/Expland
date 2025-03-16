@@ -431,13 +431,19 @@ func _input(_event: InputEvent) -> void:
 						InventoryManager.is_dragging = false
 						slot_inside.set_populated(false)
 						self.queue_free()
-						var instance = EffectNotificationScene.instantiate()
-						PlayerManager.PLAYER.EffectNotificationGrid.add_child(instance)
 						
-						instance.init(
-							EffectManager.EFFECT_INFO[ITEM_TYPE]["EFFECT_TIME"],
-							ITEM_TYPE
-							)
+						if !ITEM_TYPE in EffectManager.Current_Effects:
+							var instance = EffectNotificationScene.instantiate()
+							PlayerManager.PLAYER.EffectNotificationGrid.add_child(instance)
+							
+							instance.init(
+								EffectManager.EFFECT_INFO[ITEM_TYPE]["EFFECT_TIME"],
+								ITEM_TYPE
+								)
+						else:
+							for child in PlayerManager.PLAYER.EffectNotificationGrid.get_children():
+								if str(child.name) == "Effect_" + ITEM_TYPE:
+									child.add_time(EffectManager.EFFECT_INFO[ITEM_TYPE]["EFFECT_TIME"])
 					
 					debounce_timer = 0.2
 

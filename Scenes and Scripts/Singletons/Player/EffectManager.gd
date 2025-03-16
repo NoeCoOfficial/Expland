@@ -52,5 +52,9 @@ var Current_Effects = []
 var EFFECT_INFO = {
 	"HASTEPOTION" : {
 		"EFFECT_TIME" : 30.0
-	}
+	},
+	
+	"STAMINAPOTION" : {
+		"EFFECT_TIME" : 60.0
+	},
 }
