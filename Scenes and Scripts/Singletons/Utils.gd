@@ -225,3 +225,8 @@ func sum_array(arr):
 
 func get_total_node_count():
 	return get_tree().get_node_count()
+
+func convert_seconds(seconds: int) -> String:
+	var minutes = seconds / 60  # Integer division
+	var remaining_seconds = seconds % 60  # Get remaining seconds
+	return str(minutes) + "m " + str(remaining_seconds) + "sec"
