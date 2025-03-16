@@ -69,11 +69,12 @@ func saveData(Island_Name : String) -> void:
 		Utils.createIslandSaveFolder(Island_Name, "PARKOUR")
 		SAVE_PATH = "user://saveData/Parkour Mode/Runs/" + Island_Name + "/player.save"
 	
-	var player = get_node("/root/World/Player")
+	var Effect_data = PlayerManager.PLAYER
+	
 	var playerHead = get_node("/root/World/Player/Head")
 	var playerCamera = get_node("/root/World/Player/Head/Camera3D")
 	
-	if player:
+	if PlayerManager.PLAYER:
 		var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 		var data = {
 			"CURRENT_TIME" : TimeManager.CURRENT_TIME,
@@ -81,7 +82,7 @@ func saveData(Island_Name : String) -> void:
 			"GAME_STATE" : GAME_STATE,
 			"Health" : Health,
 			"Hunger" : Hunger,
-			"Position" : Utils.vector3_to_dict(player.position),
+			"Position" : Utils.vector3_to_dict(PlayerManager.PLAYER.position),
 			"HeadRotationY" : playerHead.rotation_degrees.y,
 			"CameraRotationX" : playerCamera.rotation_degrees.x,
 		}
@@ -124,14 +125,13 @@ func loadData(Island_Name : String, withOutput : bool) -> void:
 			Hunger = current_line["Hunger"]
 			GAME_STATE = current_line["GAME_STATE"]
 			
-			var player = get_node("/root/World/Player")
 			var playerHead = get_node("/root/World/Player/Head")
 			var playerCamera = get_node("/root/World/Player/Head/Camera3D")
 			
-			if player:
+			if PlayerManager.PLAYER:
 				
 				
-				player.position = Utils.dict_to_vector3(current_line["Position"]) ## Player Position
+				PlayerManager.PLAYER.position = Utils.dict_to_vector3(current_line["Position"]) ## Player Position
 				
 				playerHead.rotation_degrees.y = current_line["HeadRotationY"] ## Restore head rotation (only Y-axis)
 				
@@ -145,7 +145,7 @@ func loadData(Island_Name : String, withOutput : bool) -> void:
 					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Health: " + str(Health) + "[/font][/font_size][/center]")
 					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Hunger: " + str(Hunger) + "[/font][/font_size][/center]")
 					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Game State: " + GAME_STATE + "[/font][/font_size][/center]")
-					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Player Position: " + str(player.position) + "[/font][/font_size][/center]")
+					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Player Position: " + str(PlayerManager.PLAYER.position) + "[/font][/font_size][/center]")
 					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Head Y-Axis Rotation: " + str(playerHead.rotation_degrees.y) + "[/font][/font_size][/center]")
 					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Camera X-Axis Rotation: " + str(playerCamera.rotation_degrees.x) + "[/font][/font_size][/center]")
 			else:
