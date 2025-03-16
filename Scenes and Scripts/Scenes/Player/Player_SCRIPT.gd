@@ -729,6 +729,11 @@ func _process(_delta):
 #region On startup
 
 func _ready():
+	PlayerManager.PLAYER = $"."
+	PlayerManager.CHEST_SLOTS = ChestSlots
+	PlayerManager.MINIMAL_ALERT_PLAYER = MinimalAlert
+	PlayerManager.INVENTORY_LAYER = InventoryLayer
+	
 	SignalBus.spawn_crafted_item.connect(Craft)
 	
 	initInventorySlots() # Link local inventory slots to singleton arrays

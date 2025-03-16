@@ -129,7 +129,8 @@ func loadData(Island_Name : String, withOutput : bool) -> void:
 			
 			if PlayerManager.PLAYER:
 				
-				for effect in current_line["Effects"]:
+				for effect_key in current_line["Effects"].keys():
+					var effect = current_line["Effects"][effect_key]
 					var instance = EffectNotificationScene.instantiate()
 					PlayerManager.PLAYER.EffectNotificationGrid.add_child(instance)
 					instance.init(effect["E_time"], effect["E_name"])
