@@ -12,12 +12,13 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 anti_aliasing_size = 0.2
 
-[node name="Effect_TEMPLATE" type="Control" node_paths=PackedStringArray("Effect_Timer", "Effect_Image")]
+[node name="Effect_TEMPLATE" type="Control" node_paths=PackedStringArray("Effect_Timer", "Effect_Image", "Effect_Time_Label")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_urpvj")
 Effect_Timer = NodePath("Effect_Timer")
 Effect_Image = NodePath("Effect_Image")
+Effect_Time_Label = NodePath("Effect_Time_Label")
 
 [node name="Effect_Timer" type="Timer" parent="."]
 wait_time = 30.0
@@ -36,7 +37,7 @@ offset_bottom = 57.0
 texture = ExtResource("1_62wnj")
 expand_mode = 1
 
-[node name="Effect_Time" type="Label" parent="."]
+[node name="Effect_Time_Label" type="Label" parent="."]
 layout_mode = 0
 offset_top = -3.0
 offset_right = 46.0
