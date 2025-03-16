@@ -1399,6 +1399,16 @@ func on_add_item_buttons_workshop_pressed(ITEM_TYPE : String):
 
 #endregion
 
+#region Potions and Effects
+
+func init_effect(E_name : String):
+	pass
+
+func stop_effect(E_name : String):
+	pass
+
+#endregion
+
 #region Pausing
 
 func pauseGame():
