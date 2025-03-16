@@ -62,4 +62,5 @@ func init(E_time : float, E_name : String):
 	EffectManager.Current_Effects.append(E_name)
 
 func finished_effect() -> void:
-	pass
+	EffectManager.Current_Effects.erase(Current_Effect_Local)
+	queue_free()
