@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://jajswfbkaut2"]
+[gd_scene load_steps=5 format=3 uid="uid://jajswfbkaut2"]
 
+[ext_resource type="Texture2D" uid="uid://o3u6sxubmrbg" path="res://Textures/Inventory/HASTEPOTION.png" id="1_62wnj"]
 [ext_resource type="Script" uid="uid://blk6r05c14orw" path="res://Scenes and Scripts/Scenes/Player/Effects/EffectNotification_SCRIPT.gd" id="1_urpvj"]
+[ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="3_7rsul"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_urpvj"]
 bg_color = Color(0.489622, 0.489622, 0.489622, 1)
@@ -23,14 +25,26 @@ one_shot = true
 
 [node name="Effect_Border" type="Panel" parent="."]
 offset_right = 46.0
-offset_bottom = 46.0
+offset_bottom = 59.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_urpvj")
 
 [node name="Effect_Image" type="TextureRect" parent="."]
 offset_left = 2.0
-offset_top = 2.0
+offset_top = 15.0
 offset_right = 44.0
-offset_bottom = 44.0
+offset_bottom = 57.0
+texture = ExtResource("1_62wnj")
 expand_mode = 1
+
+[node name="Effect_Time" type="Label" parent="."]
+layout_mode = 0
+offset_top = -3.0
+offset_right = 46.0
+offset_bottom = 20.0
+theme = ExtResource("3_7rsul")
+theme_override_font_sizes/font_size = 9
+text = "99m 99sec"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="timeout" from="Effect_Timer" to="." method="finished_effect"]
