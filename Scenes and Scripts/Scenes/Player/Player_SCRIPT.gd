@@ -1402,7 +1402,10 @@ func on_add_item_buttons_workshop_pressed(ITEM_TYPE : String):
 #region Potions and Effects
 
 func init_effect(E_name : String):
-	pass
+	if E_name == "HASTEPOTION":
+		WALK_SPEED *= 1.5
+		SPRINT_SPEED *= 1.5
+		CROUCH_SPEED *= 1.5
 
 func stop_effect(E_name : String):
 	pass
