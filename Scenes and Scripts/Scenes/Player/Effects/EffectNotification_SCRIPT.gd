@@ -53,8 +53,8 @@ extends Control
 
 var Current_Effect_Local : String = ""
 
-func _process(delta: float) -> void:
-	Effect_Time_Label.text = Utils.convert_seconds(Effect_Timer.time_left)
+func _process(_delta: float) -> void:
+	Effect_Time_Label.text = Utils.convert_seconds(int(Effect_Timer.time_left))
 
 func init(E_time : float, E_name : String):
 	self.name = "Effect_" + E_name
