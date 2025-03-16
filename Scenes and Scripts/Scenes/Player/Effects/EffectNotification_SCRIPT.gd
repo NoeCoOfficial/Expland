@@ -53,6 +53,8 @@ extends Control
 func init(E_time : float, E_name : String):
 	self.name = "Effect_" + E_name
 	
+	Effect_Timer.start(E_time)
+	
 
 func finished_effect() -> void:
 	pass # Replace with function body.
