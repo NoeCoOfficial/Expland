@@ -65,10 +65,9 @@ func saveData(Island_Name : String) -> void:
 		Utils.createIslandSaveFolder(Island_Name, "STORY")
 		SAVE_PATH = "user://saveData/Story Mode/Islands/" + Island_Name + "/player.save"
 		
-	elif IslandManager.Current_Game_Mode == "STORY":
-		Utils.createIslandSaveFolder(Island_Name, "STORY")
+	elif IslandManager.Current_Game_Mode == "PARKOUR":
+		Utils.createIslandSaveFolder(Island_Name, "PARKOUR")
 		SAVE_PATH = "user://saveData/Parkour Mode/Runs/" + Island_Name + "/player.save"
-	
 	
 	var player = get_node("/root/World/Player")
 	var playerHead = get_node("/root/World/Player/Head")
