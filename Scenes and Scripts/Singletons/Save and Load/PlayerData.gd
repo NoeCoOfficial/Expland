@@ -55,6 +55,8 @@ var Health := 100
 var Hunger := 100
 var Hydration := 100
 
+var EffectNotificationScene = preload("uid://jajswfbkaut2")
+
 func saveData(Island_Name : String) -> void:
 	
 	if IslandManager.Current_Game_Mode == "FREE":
@@ -127,13 +129,14 @@ func loadData(Island_Name : String, withOutput : bool) -> void:
 			
 			if PlayerManager.PLAYER:
 				
+				for effect in current_line["Effects"]:
+					var instance = EffectNotificationScene.instantiate()
+					PlayerManager.PLAYER.EffectNotificationGrid.add_child(instance)
+					instance.init(effect["E_time"], effect["E_name"])
 				
 				PlayerManager.PLAYER.position = Utils.dict_to_vector3(current_line["Position"]) ## Player Position
-				
 				PlayerManager.PLAYER.head.rotation_degrees.y = current_line["HeadRotationY"] ## Restore head rotation (only Y-axis)
-				
 				PlayerManager.PLAYER.camera.rotation_degrees.x = current_line["CameraRotationX"] ## Restore camera rotation (only X-axis)
-				
 				
 				if withOutput:
 					print_rich("[center][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf][font_size=30]-- PLAYER DATA HAS BEEN LOADED --[/font_size][/font][/center]")
