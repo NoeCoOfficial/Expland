@@ -54,6 +54,7 @@ func init(E_time : float, E_name : String):
 	self.name = "Effect_" + E_name
 	
 	Effect_Timer.start(E_time)
+	Effect_Image.texture = load("res://Textures/Inventory/" + E_name + ".png")
 	
 
 func finished_effect() -> void:

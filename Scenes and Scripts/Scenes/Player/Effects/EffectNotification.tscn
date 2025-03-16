@@ -1,6 +1,5 @@
-[gd_scene load_steps=4 format=3 uid="uid://jajswfbkaut2"]
+[gd_scene load_steps=3 format=3 uid="uid://jajswfbkaut2"]
 
-[ext_resource type="Texture2D" uid="uid://o3u6sxubmrbg" path="res://Textures/Inventory/HASTEPOTION.png" id="1_62wnj"]
 [ext_resource type="Script" uid="uid://blk6r05c14orw" path="res://Scenes and Scripts/Scenes/Player/Effects/EffectNotification_SCRIPT.gd" id="1_urpvj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_urpvj"]
@@ -32,7 +31,6 @@ offset_left = 2.0
 offset_top = 2.0
 offset_right = 44.0
 offset_bottom = 44.0
-texture = ExtResource("1_62wnj")
 expand_mode = 1
 
 [connection signal="timeout" from="Effect_Timer" to="." method="finished_effect"]
