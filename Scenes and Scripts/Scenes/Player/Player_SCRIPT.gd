@@ -1418,12 +1418,18 @@ func init_effect(E_name : String):
 		WALK_SPEED *= 1.5
 		SPRINT_SPEED *= 1.5
 		CROUCH_SPEED *= 1.5
+	
+	if E_name == "STAMINAPOTION":
+		DEPLETE_STAMINA = false
 
 func stop_effect(E_name : String):
 	if E_name == "HASTEPOTION":
 		WALK_SPEED /= 1.5
 		SPRINT_SPEED /= 1.5
 		CROUCH_SPEED /= 1.5
+		
+	if E_name == "STAMINAPOTION":
+		DEPLETE_STAMINA = true
 
 #endregion
 
