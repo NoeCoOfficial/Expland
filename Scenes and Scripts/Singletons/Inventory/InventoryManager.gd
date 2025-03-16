@@ -76,7 +76,6 @@ const CONSUMABLE_ITEMS = [
 	"BERRY",
 	"BLUEBERRY",
 	"STRAWBERRY",
-	
 ]
 
 const FOOD_ITEMS = {
