@@ -32,3 +32,5 @@ offset_right = 44.0
 offset_bottom = 44.0
 texture = ExtResource("1_62wnj")
 expand_mode = 1
+
+[connection signal="timeout" from="Effect_Time" to="." method="finished_effect"]
