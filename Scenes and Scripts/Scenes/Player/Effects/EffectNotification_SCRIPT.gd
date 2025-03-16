@@ -49,8 +49,12 @@ extends Control
 
 @export var Effect_Timer : Timer
 @export var Effect_Image : TextureRect
+@export var Effect_Time_Label : Label
 
 var Current_Effect_Local : String = ""
+
+func _process(delta: float) -> void:
+	Effect_Time_Label.text = Utils.convert_seconds(Effect_Timer.time_left)
 
 func init(E_time : float, E_name : String):
 	self.name = "Effect_" + E_name
