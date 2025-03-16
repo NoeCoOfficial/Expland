@@ -71,9 +71,6 @@ func saveData(Island_Name : String) -> void:
 	
 	var Effect_data = PlayerManager.PLAYER
 	
-	var playerHead = get_node("/root/World/Player/Head")
-	var playerCamera = get_node("/root/World/Player/Head/Camera3D")
-	
 	if PlayerManager.PLAYER:
 		var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 		var data = {
@@ -83,8 +80,8 @@ func saveData(Island_Name : String) -> void:
 			"Health" : Health,
 			"Hunger" : Hunger,
 			"Position" : Utils.vector3_to_dict(PlayerManager.PLAYER.position),
-			"HeadRotationY" : playerHead.rotation_degrees.y,
-			"CameraRotationX" : playerCamera.rotation_degrees.x,
+			"HeadRotationY" : PlayerManager.PLAYER.head.rotation_degrees.y,
+			"CameraRotationX" : PlayerManager.PLAYER.camera.rotation_degrees.x,
 		}
 		
 		var jstr = JSON.stringify(data)
@@ -125,17 +122,14 @@ func loadData(Island_Name : String, withOutput : bool) -> void:
 			Hunger = current_line["Hunger"]
 			GAME_STATE = current_line["GAME_STATE"]
 			
-			var playerHead = get_node("/root/World/Player/Head")
-			var playerCamera = get_node("/root/World/Player/Head/Camera3D")
-			
 			if PlayerManager.PLAYER:
 				
 				
 				PlayerManager.PLAYER.position = Utils.dict_to_vector3(current_line["Position"]) ## Player Position
 				
-				playerHead.rotation_degrees.y = current_line["HeadRotationY"] ## Restore head rotation (only Y-axis)
+				PlayerManager.PLAYER.head.rotation_degrees.y = current_line["HeadRotationY"] ## Restore head rotation (only Y-axis)
 				
-				playerCamera.rotation_degrees.x = current_line["CameraRotationX"] ## Restore camera rotation (only X-axis)
+				PlayerManager.PLAYER.camera.rotation_degrees.x = current_line["CameraRotationX"] ## Restore camera rotation (only X-axis)
 				
 				
 				if withOutput:
@@ -146,8 +140,8 @@ func loadData(Island_Name : String, withOutput : bool) -> void:
 					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Hunger: " + str(Hunger) + "[/font][/font_size][/center]")
 					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Game State: " + GAME_STATE + "[/font][/font_size][/center]")
 					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Player Position: " + str(PlayerManager.PLAYER.position) + "[/font][/font_size][/center]")
-					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Head Y-Axis Rotation: " + str(playerHead.rotation_degrees.y) + "[/font][/font_size][/center]")
-					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Camera X-Axis Rotation: " + str(playerCamera.rotation_degrees.x) + "[/font][/font_size][/center]")
+					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Head Y-Axis Rotation: " + str(PlayerManager.PLAYER.head.rotation_degrees.y) + "[/font][/font_size][/center]")
+					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Camera X-Axis Rotation: " + str(PlayerManager.PLAYER.camera.rotation_degrees.x) + "[/font][/font_size][/center]")
 			else:
 				printerr("[PlayerData] Player node not found. LoadData failed. 
 				THIS MAY BE DUE TO YOUR PLAYER SCENE NOT BEING INSTANTIATED PROPERLY! 
