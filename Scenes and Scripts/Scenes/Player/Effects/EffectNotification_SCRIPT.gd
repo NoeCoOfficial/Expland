@@ -55,6 +55,9 @@ var Current_Effect_Local : String = ""
 
 func _process(_delta: float) -> void:
 	Effect_Time_Label.text = Utils.convert_seconds(int(Effect_Timer.time_left))
+	
+	if Effect_Timer.wait_time >= 6039:
+		Effect_Timer.wait_time = 6039
 
 func init(E_time : float, E_name : String):
 	self.name = "Effect_" + E_name
