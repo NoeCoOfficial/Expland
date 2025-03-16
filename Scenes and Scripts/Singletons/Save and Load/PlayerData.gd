@@ -73,7 +73,7 @@ func saveData(Island_Name : String) -> void:
 	
 	var Effects = {}
 	for child in PlayerManager.PLAYER.EffectNotificationGrid.get_children():
-		Effects.append(child.get_data_dict())
+		Effects[child.Current_Effect_Local] = (child.get_data_dict())
 	
 	if PlayerManager.PLAYER:
 		var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)

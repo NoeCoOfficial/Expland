@@ -80,3 +80,5 @@ func get_data_dict():
 		"E_name" : Current_Effect_Local,
 		"E_time" : Effect_Timer.time_left
 	}
+	
+	return data
