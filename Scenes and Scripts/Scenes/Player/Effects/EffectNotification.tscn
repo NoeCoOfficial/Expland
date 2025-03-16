@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://jajswfbkaut2"]
+
+[node name="Effect_TEMPLATE" type="Node"]
+
+[node name="Effect_Time" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
