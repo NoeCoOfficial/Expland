@@ -613,7 +613,12 @@ func _physics_process(delta):
 		
 		# Apply view bobbing only if the player is moving
 		if is_moving:
-			Wave_Length += delta * velocity.length()
+			
+			if "HASTEPOTION" in EffectManager.Current_Effects:
+				Wave_Length += delta * velocity.length() / 1.5
+			else:
+				Wave_Length += delta * velocity.length()
+			
 			camera.transform.origin = _headbob(Wave_Length)
 			HandItem.bob(delta)
 		else:
