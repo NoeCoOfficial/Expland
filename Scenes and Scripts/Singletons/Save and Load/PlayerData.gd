@@ -69,7 +69,9 @@ func saveData(Island_Name : String) -> void:
 		Utils.createIslandSaveFolder(Island_Name, "PARKOUR")
 		SAVE_PATH = "user://saveData/Parkour Mode/Runs/" + Island_Name + "/player.save"
 	
-	var Effect_data = PlayerManager.PLAYER
+	var Effects = {}
+	for child in PlayerManager.PLAYER.EffectNotificationGrid.get_children():
+		Effects.append(child.get_data_dict())
 	
 	if PlayerManager.PLAYER:
 		var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
@@ -79,6 +81,7 @@ func saveData(Island_Name : String) -> void:
 			"GAME_STATE" : GAME_STATE,
 			"Health" : Health,
 			"Hunger" : Hunger,
+			"Effects" : Effects,
 			"Position" : Utils.vector3_to_dict(PlayerManager.PLAYER.position),
 			"HeadRotationY" : PlayerManager.PLAYER.head.rotation_degrees.y,
 			"CameraRotationX" : PlayerManager.PLAYER.camera.rotation_degrees.x,

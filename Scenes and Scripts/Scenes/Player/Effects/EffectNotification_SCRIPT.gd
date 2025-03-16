@@ -74,3 +74,9 @@ func finished_effect() -> void:
 	EffectManager.Current_Effects.erase(Current_Effect_Local)
 	PlayerManager.PLAYER.stop_effect(Current_Effect_Local)
 	queue_free()
+
+func get_data_dict():
+	var data = {
+		"E_name" : Current_Effect_Local,
+		"E_time" : Effect_Timer.time_left
+	}
