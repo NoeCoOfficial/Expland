@@ -48,3 +48,9 @@
 extends Node
 
 var Current_Effects = []
+
+var EFFECT_INFO = {
+	"HASTEPOTION" : {
+		"EFFECT_TIME" : 30.0
+	}
+}
