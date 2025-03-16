@@ -386,7 +386,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			
 		else:
 			
-			if !DialogueManager.is_in_absolute_interface and !InventoryManager.inventory_open and !PauseManager.is_inside_alert and !InventoryManager.is_in_workbench_interface and !InventoryManager.in_chest_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !PauseManager.inside_absolute_item_workshop and !PauseManager.inside_explorer_note_ui:
+			if !DialogueManager.is_in_absolute_interface and !InventoryManager.inventory_open and !PauseManager.is_inside_alert and !InventoryManager.is_in_workbench_interface and !InventoryManager.in_chest_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !PauseManager.inside_absolute_item_workshop and !PauseManager.inside_explorer_note_ui and !StoryModeManager.is_in_story_mode_first_cutscene_world:
 				pauseGame()
 			
 			if InventoryManager.inventory_open and !InventoryManager.in_chest_interface and !InventoryManager.is_in_explorer_notes_interface and !InventoryManager.is_dragging:
@@ -409,24 +409,24 @@ func _input(_event): # A built-in function that listens for input using the inpu
 				closeExplorerNotes()
 	
 	if Input.is_action_just_pressed("Quit") and Quit == true and OS.is_debug_build(): # if the Quit input is pressed and the Quit variable is true
-		SaveManager.saveAllData()
+		if !StoryModeManager.is_in_story_mode_first_cutscene_world:
+			SaveManager.saveAllData()
 		get_tree().quit() # quit the game
 	
 	if Input.is_action_just_pressed("Reset") and !PauseManager.inside_absolute_item_workshop and Reset == true and !PauseManager.is_paused and !PauseManager.is_inside_alert and OS.is_debug_build():
 		if PlayerData.GAME_STATE == "NORMAL" or InventoryManager.inventory_open:
 			if ResetPOS == Vector3(999, 999, 999):
 				self.position = StartPOS # set the player's position to the Start position
-				velocity.y = 0.0 # set the player's velocity to 0
 			else:
 				self.position = ResetPOS # set the player's position to the Reset position 
-				velocity.y = 0.0 # set the player's velocity to 0 
+			velocity.y = 0.0 # set the player's velocity to 0 
 	
 	if Input.is_action_just_pressed("SaveGame") and OS.is_debug_build() and IslandManager.Current_Game_Mode == "FREE":
 		if !StoryModeManager.is_in_story_mode_first_cutscene_world:
 			Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
 			SaveManager.saveAllData()
 	
-	if Input.is_action_just_pressed("Inventory") and !InventoryManager.is_in_explorer_notes_interface and !PauseManager.inside_explorer_note_ui and !PauseManager.inside_absolute_item_workshop and !PauseManager.is_paused and !InventoryManager.in_chest_interface and !InventoryManager.is_in_workbench_interface and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !InventoryManager.is_dragging and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING":
+	if Input.is_action_just_pressed("Inventory") and !InventoryManager.is_in_explorer_notes_interface and !PauseManager.inside_explorer_note_ui and !PauseManager.inside_absolute_item_workshop and !PauseManager.is_paused and !InventoryManager.in_chest_interface and !InventoryManager.is_in_workbench_interface and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !InventoryManager.is_dragging and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !StoryModeManager.is_in_story_mode_first_cutscene_world:
 		if !InventoryManager.inventory_open:
 			openInventory()
 		else:
@@ -719,6 +719,7 @@ func _ready():
 	SignalBus.spawn_crafted_item.connect(Craft)
 	
 	initInventorySlots() # Link local inventory slots to singleton arrays
+	init_for_story_mode_cutscene()
 	
 	Utils.set_center_offset($Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Right_Arrow)
 	Utils.set_center_offset($Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Left_Arrow)
@@ -741,6 +742,7 @@ func _ready():
 	PlayerManager.EXPLORER_NOTE_TEXTURE_RECT = $Head/Camera3D/ExplorerNoteLayer/Contents/ExplorerNoteSheet
 	ExplorerNotesManager.EXPLORER_NOTES_MAIN_LAYER = $Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer
 	
+	DialogueManager.MinimalDialogueInterface = $Head/Camera3D/MinimalDialogueLayer/MinimalDialogue
 	DialogueManager.DialogueInterface = DialogueInterface
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Lock mouse
 	$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saving/SpinningAnimation.play(&"spin")
@@ -876,6 +878,20 @@ func initInventorySlots():
 	]
 	
 	InventoryManager.WORKSHOP_OUTPUT_SLOT = Slot10_Output_Workbench_Ref
+
+func init_for_story_mode_cutscene():
+	if StoryModeManager.is_in_story_mode_first_cutscene_world:
+		UseHealth = false
+		head.rotation_degrees.y = -125.3
+		camera.rotation_degrees.x = -6.0
+		$Head/Camera3D/HotbarLayer/HotbarMainLayer/Background.hide()
+		$Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarOutlines.hide()
+		$Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots.hide()
+		$Head/Camera3D/HUDLayer/HungerBar.hide()
+		$Head/Camera3D/HUDLayer/HealthBar.hide()
+		$Head/Camera3D/HUDLayer/StaminaBar.hide()
+		$Head/Camera3D/HUDLayer/WhiteHamIcon.hide()
+		$Head/Camera3D/HUDLayer/WhiteHeartIcon.hide()
 
 #endregion
 
@@ -1544,9 +1560,12 @@ func on_sleep_cycle_hold_finished(fadeOutTime, time : int):
 			PlayerManager.WORLD.set_time(time)
 	
 	PlayerData.GAME_STATE = "NORMAL"
-	PlayerData.Health += 5
+	PlayerData.Health += 10
+	
 	if PlayerData.Health > MaxHealth:
 		PlayerData.Health = MaxHealth
+	
+	update_bar("HEALTH", true, PlayerData.Health)
 	
 	var tween = get_tree().create_tween().set_parallel()
 	tween.tween_property(DayText_Label, "modulate", Color(1, 1, 1, 0), fadeOutTime / 2)
@@ -1573,8 +1592,20 @@ func _on_pickup_object_detector_body_entered(body: Node3D) -> void:
 
 #region Player Stats
 
+func _on_health_regen_timeout() -> void:
+	if PlayerData.GAME_STATE != "DEAD":
+		if PlayerManager.is_sprinting_moving:
+			PlayerData.Health += 5
+		else:
+			PlayerData.Health += 10
+		
+	if PlayerData.Health > MaxHealth:
+		PlayerData.Health = MaxHealth
+		
+	update_bar("HEALTH", true, PlayerData.Health)
+
 func _on_hunger_depletion_timeout() -> void:
-	if !is_sprinting:
+	if !PlayerManager.is_sprinting_moving:
 		PlayerData.Hunger -= 2
 	else:
 		PlayerData.Hunger -= 4

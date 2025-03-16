@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=106 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" uid="uid://6516a37cmejq" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" uid="uid://dilocovfy7y5b" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -36,7 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://coh5374nhy6fl" path="res://Textures/Explorer Notes/2_Sheet.png" id="21_rd3qm"]
 [ext_resource type="PackedScene" uid="uid://lf4vntqbl3c6" path="res://Scenes and Scripts/Scenes/General/UI/KeyUI.tscn" id="21_xhl03"]
 [ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="22_7sfup"]
-[ext_resource type="AudioStream" uid="uid://ce5warv2uju61" path="res://Audio/SFX/swipe.mp3" id="22_jy0m8"]
+[ext_resource type="AudioStream" uid="uid://cj0mcts2nwgq5" path="res://Audio/SFX/General/swipe.mp3" id="22_yqbml"]
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="24_6y28d"]
 [ext_resource type="PackedScene" uid="uid://djenc4llne53s" path="res://Scenes and Scripts/Scenes/Credits/CreditsLayer.tscn" id="24_qhsvo"]
 [ext_resource type="StyleBox" uid="uid://c1a26qv61p5kw" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkgreyBGwithWhiteBorder.tres" id="25_8giff"]
@@ -61,6 +61,7 @@
 [ext_resource type="Texture2D" uid="uid://dq8jg5iy6tfyc" path="res://Textures/Inventory/AXE.png" id="42_bm4qo"]
 [ext_resource type="Texture2D" uid="uid://dixs8s5v2su7q" path="res://Textures/Inventory/SWORD.png" id="43_0oip2"]
 [ext_resource type="PackedScene" uid="uid://cjxbcx2vhofs" path="res://Scenes and Scripts/Scenes/Achievements/AchievementNotification.tscn" id="45_4wdcp"]
+[ext_resource type="PackedScene" uid="uid://cn1krf62jowgb" path="res://Scenes and Scripts/Scenes/Dialogue/MinimalDialogue.tscn" id="48_yqbml"]
 [ext_resource type="PackedScene" uid="uid://bbc10j8mbwjbn" path="res://Scenes and Scripts/Scenes/Audio/AudioNotification.tscn" id="50_wwm5q"]
 [ext_resource type="Texture2D" uid="uid://64jg78rc6wkb" path="res://Textures/Icons/Loading_Icon.png" id="52_xwypu"]
 [ext_resource type="Texture2D" uid="uid://cliv00fuliseq" path="res://Textures/Icons/TickGreen_Icon.png" id="53_i3m63"]
@@ -1945,6 +1946,11 @@ wait_time = 60.0
 autostart = true
 script = ExtResource("2_t6toi")
 
+[node name="HealthRegen" type="Timer" parent="."]
+wait_time = 75.0
+autostart = true
+script = ExtResource("2_t6toi")
+
 [node name="HealthDepletingFromHunger" type="Timer" parent="."]
 wait_time = 10.0
 autostart = true
@@ -1972,27 +1978,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 transform = Transform3D(-0.651061, 0, -5.69176e-08, 0, 0.651061, 0, 5.69176e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Head/Player_Character_Shadow/Armature_003" index="0"]
-bones/0/position = Vector3(2.79777, -3.00868, -196.094)
-bones/0/rotation = Quaternion(-0.684384, -0.270545, 0.248764, 0.629715)
-bones/1/rotation = Quaternion(0.0790592, 0.0408869, -0.0084459, 0.995995)
-bones/2/rotation = Quaternion(0.0960181, 0.0792849, -0.0222594, 0.991967)
-bones/3/rotation = Quaternion(0.0960181, 0.0792849, -0.0222593, 0.991967)
-bones/4/rotation = Quaternion(-0.0548874, -0.0103167, 0.00211918, 0.998437)
-bones/5/rotation = Quaternion(-0.0702649, 0.178305, -0.00421759, 0.981454)
-bones/7/rotation = Quaternion(0.584169, 0.415589, -0.567432, 0.405035)
-bones/8/rotation = Quaternion(0.429997, -0.100567, 0.0893977, 0.892747)
-bones/9/rotation = Quaternion(-0.0351721, 0.0635002, 0.415116, 0.906868)
-bones/11/rotation = Quaternion(0.630884, -0.377932, 0.525433, 0.42787)
-bones/12/rotation = Quaternion(0.423637, 0.0986782, 0.147501, 0.888278)
-bones/13/rotation = Quaternion(0.0335621, 0.00543564, -0.367105, 0.929558)
-bones/15/rotation = Quaternion(0.0800892, 0.23355, 0.963392, -0.104481)
-bones/16/rotation = Quaternion(-0.361815, 0.119441, -0.0366303, 0.923841)
-bones/17/rotation = Quaternion(0.566099, -0.00157176, -0.0244433, 0.823973)
-bones/18/rotation = Quaternion(0.289416, -0.0366439, -0.00958866, 0.956454)
-bones/20/rotation = Quaternion(-0.125092, 0.026906, 0.982824, 0.132989)
-bones/21/rotation = Quaternion(-0.344192, 0.072124, -0.0258734, 0.935767)
-bones/22/rotation = Quaternion(0.674402, 0.0552643, 0.106286, 0.728582)
-bones/23/rotation = Quaternion(0.278255, 0.0570875, -0.0171619, 0.958656)
+bones/0/position = Vector3(2.78047, -3.1289, -195.972)
+bones/0/rotation = Quaternion(-0.684262, -0.27052, 0.248987, 0.629769)
+bones/1/rotation = Quaternion(0.0793146, 0.040901, -0.00855791, 0.995974)
+bones/2/rotation = Quaternion(0.0965083, 0.0792675, -0.0223579, 0.991919)
+bones/3/rotation = Quaternion(0.0965082, 0.0792675, -0.0223579, 0.991919)
+bones/4/rotation = Quaternion(-0.0561834, -0.010358, 0.00226305, 0.998364)
+bones/5/rotation = Quaternion(-0.0693942, 0.178437, -0.00517922, 0.981488)
+bones/7/rotation = Quaternion(0.585632, 0.413874, -0.567415, 0.404702)
+bones/8/rotation = Quaternion(0.428729, -0.101409, 0.0892048, 0.89328)
+bones/9/rotation = Quaternion(-0.0355746, 0.0628572, 0.413759, 0.907517)
+bones/11/rotation = Quaternion(0.632381, -0.376164, 0.525248, 0.427445)
+bones/12/rotation = Quaternion(0.421505, 0.100313, 0.147708, 0.889074)
+bones/13/rotation = Quaternion(0.0322079, 0.00772928, -0.366434, 0.929855)
+bones/15/rotation = Quaternion(0.0799327, 0.234502, 0.963155, -0.104649)
+bones/16/rotation = Quaternion(-0.362296, 0.119372, -0.0366273, 0.923662)
+bones/17/rotation = Quaternion(0.566239, -0.00170108, -0.0246544, 0.823871)
+bones/18/rotation = Quaternion(0.289416, -0.0366595, -0.00957295, 0.956453)
+bones/20/rotation = Quaternion(-0.125056, 0.0281363, 0.982795, 0.132977)
+bones/21/rotation = Quaternion(-0.346454, 0.072037, -0.0260128, 0.934935)
+bones/22/rotation = Quaternion(0.675282, 0.0552807, 0.106254, 0.72777)
+bones/23/rotation = Quaternion(0.278272, 0.0571119, -0.0171734, 0.958649)
 
 [node name="Model_004" parent="Head/Player_Character_Shadow/Armature_003/Skeleton3D" index="0"]
 cast_shadow = 3
@@ -2001,27 +2007,27 @@ cast_shadow = 3
 transform = Transform3D(-0.651061, 0, 5.69175e-08, 0, 0.651061, 0, -5.69175e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Head/Player_Character/Armature_003" index="0"]
-bones/0/position = Vector3(2.79777, -3.00868, -196.094)
-bones/0/rotation = Quaternion(-0.684384, -0.270545, 0.248764, 0.629715)
-bones/1/rotation = Quaternion(0.0790592, 0.0408869, -0.0084459, 0.995995)
-bones/2/rotation = Quaternion(0.0960181, 0.0792849, -0.0222594, 0.991967)
-bones/3/rotation = Quaternion(0.0960181, 0.0792849, -0.0222593, 0.991967)
-bones/4/rotation = Quaternion(-0.0548874, -0.0103167, 0.00211918, 0.998437)
-bones/5/rotation = Quaternion(-0.0702649, 0.178305, -0.00421759, 0.981454)
-bones/7/rotation = Quaternion(0.584169, 0.415589, -0.567432, 0.405035)
-bones/8/rotation = Quaternion(0.429997, -0.100567, 0.0893977, 0.892747)
-bones/9/rotation = Quaternion(-0.0351721, 0.0635002, 0.415116, 0.906868)
-bones/11/rotation = Quaternion(0.630884, -0.377932, 0.525433, 0.42787)
-bones/12/rotation = Quaternion(0.423637, 0.0986782, 0.147501, 0.888278)
-bones/13/rotation = Quaternion(0.0335621, 0.00543564, -0.367105, 0.929558)
-bones/15/rotation = Quaternion(0.0800892, 0.23355, 0.963392, -0.104481)
-bones/16/rotation = Quaternion(-0.361815, 0.119441, -0.0366303, 0.923841)
-bones/17/rotation = Quaternion(0.566099, -0.00157176, -0.0244433, 0.823973)
-bones/18/rotation = Quaternion(0.289416, -0.0366439, -0.00958866, 0.956454)
-bones/20/rotation = Quaternion(-0.125092, 0.026906, 0.982824, 0.132989)
-bones/21/rotation = Quaternion(-0.344192, 0.072124, -0.0258734, 0.935767)
-bones/22/rotation = Quaternion(0.674402, 0.0552643, 0.106286, 0.728582)
-bones/23/rotation = Quaternion(0.278255, 0.0570875, -0.0171619, 0.958656)
+bones/0/position = Vector3(2.78047, -3.1289, -195.972)
+bones/0/rotation = Quaternion(-0.684262, -0.27052, 0.248987, 0.629769)
+bones/1/rotation = Quaternion(0.0793146, 0.040901, -0.00855791, 0.995974)
+bones/2/rotation = Quaternion(0.0965083, 0.0792675, -0.0223579, 0.991919)
+bones/3/rotation = Quaternion(0.0965082, 0.0792675, -0.0223579, 0.991919)
+bones/4/rotation = Quaternion(-0.0561834, -0.010358, 0.00226305, 0.998364)
+bones/5/rotation = Quaternion(-0.0693942, 0.178437, -0.00517922, 0.981488)
+bones/7/rotation = Quaternion(0.585632, 0.413874, -0.567415, 0.404702)
+bones/8/rotation = Quaternion(0.428729, -0.101409, 0.0892048, 0.89328)
+bones/9/rotation = Quaternion(-0.0355746, 0.0628572, 0.413759, 0.907517)
+bones/11/rotation = Quaternion(0.632381, -0.376164, 0.525248, 0.427445)
+bones/12/rotation = Quaternion(0.421505, 0.100313, 0.147708, 0.889074)
+bones/13/rotation = Quaternion(0.0322079, 0.00772928, -0.366434, 0.929855)
+bones/15/rotation = Quaternion(0.0799327, 0.234502, 0.963155, -0.104649)
+bones/16/rotation = Quaternion(-0.362296, 0.119372, -0.0366273, 0.923662)
+bones/17/rotation = Quaternion(0.566239, -0.00170108, -0.0246544, 0.823871)
+bones/18/rotation = Quaternion(0.289416, -0.0366595, -0.00957295, 0.956453)
+bones/20/rotation = Quaternion(-0.125056, 0.0281363, 0.982795, 0.132977)
+bones/21/rotation = Quaternion(-0.346454, 0.072037, -0.0260128, 0.934935)
+bones/22/rotation = Quaternion(0.675282, 0.0552807, 0.106254, 0.72777)
+bones/23/rotation = Quaternion(0.278272, 0.0571119, -0.0171734, 0.958649)
 
 [node name="Model_004" parent="Head/Player_Character/Armature_003/Skeleton3D" index="0"]
 cast_shadow = 0
@@ -2971,7 +2977,7 @@ Shadow = NodePath("FocusedNote/Shadow")
 metadata/_edit_use_anchors_ = true
 
 [node name="Switch_sfx" type="AudioStreamPlayer" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
-stream = ExtResource("22_jy0m8")
+stream = ExtResource("22_yqbml")
 bus = &"sfx"
 
 [node name="GreyLayer" type="ColorRect" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
@@ -4702,6 +4708,10 @@ metadata/_tab_index = 3
 [node name="DialogueInterface" parent="Head/Camera3D/DialogueLayer" instance=ExtResource("17_pkmg7")]
 visible = false
 
+[node name="MinimalDialogueLayer" type="CanvasLayer" parent="Head/Camera3D"]
+
+[node name="MinimalDialogue" parent="Head/Camera3D/MinimalDialogueLayer" instance=ExtResource("48_yqbml")]
+
 [node name="AudioNotificationLayer" type="CanvasLayer" parent="Head/Camera3D"]
 
 [node name="AudioNotification" parent="Head/Camera3D/AudioNotificationLayer" instance=ExtResource("50_wwm5q")]
@@ -5487,6 +5497,7 @@ metadata/_edit_use_anchors_ = true
 [connection signal="timeout" from="is_inside_boundary_false_inventory_debounce" to="." method="_on_is_inside_boundary_false_inventory_debounce_timeout"]
 [connection signal="timeout" from="AutoSaveTimer" to="." method="_on_auto_save_timer_timeout"]
 [connection signal="timeout" from="HungerDepletion" to="." method="_on_hunger_depletion_timeout"]
+[connection signal="timeout" from="HealthRegen" to="." method="_on_health_regen_timeout"]
 [connection signal="timeout" from="HealthDepletingFromHunger" to="." method="_on_health_depleting_from_hunger_timeout"]
 [connection signal="area_entered" from="PickupObjectDetector" to="." method="_on_pickup_object_detector_area_entered"]
 [connection signal="body_entered" from="PickupObjectDetector" to="." method="_on_pickup_object_detector_body_entered"]

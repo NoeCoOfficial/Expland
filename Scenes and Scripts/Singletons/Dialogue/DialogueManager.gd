@@ -53,15 +53,13 @@ extends Node
 
 
 
-
-
-
 var is_in_interface = false
 var is_in_absolute_interface = false
 
 var current_dialogue_index = 0
 var dialogue_messages = []
 var DialogueInterface
+var MinimalDialogueInterface
 var Current_StoryModeID
 
 func _ready():
@@ -238,3 +236,93 @@ var mainMenuStoryModeDialogue_2 = [
 	"duration": 2},
 	
 ]
+
+################################################
+################################################
+################################################
+################################################
+################################################
+################################################
+################################################
+################################################
+################################################
+################################################
+################################################
+
+var StoryMode_StartCutsceneDialogue_1 = [
+		{"message": 
+			'"Three days out here already... hard to believe it has been so long since I have seen Doc."', 
+			"time": 2.5},
+			
+		{"message": 
+			'Just me and the waves and the smell of the sea, huh? Could get used to this, but I better not."', 
+			"time": 2.5},
+			
+		{"message": 
+			'"This trip is only the beginning of something much bigger. Bigger?"', 
+			"time": 2.5}
+	]
+
+var StoryMode_StartCutsceneDialogue_2 = [
+		{"message": 
+			'"This job... it’s the chance I’ve been waiting for. Sunshine Co. doesn’t
+			just hire anyone. What makes me special?"', 
+			"time": 4.0},
+			
+		{"message": 
+			'"A six-figure salary, building solar panels? I never
+			thought I’d land something like that. Am I doing the right thing?"',
+			"time": 4.0},
+			
+		{"message": 
+			'"But here I am, on this yacht, heading to what
+			could be the best decision of my life. Right?"',
+			"time": 2.8},
+			
+	]
+
+var StoryMode_StartCutsceneDialogue_3 = [
+		{"message": 
+			'"It’s kind of wild, though. Me. An amateur bodybuilder, getting a job like this."', 
+			"time": 2.5},
+			
+		{"message": 
+			'"Guess all those hours in the gym paid off after all. 
+			They wanted someone strong, and I’m their guy."',
+			"time": 3.0},
+			
+		{"message": 
+			'"Gavin, the strongest, now working with Sunshine Co. Kind of has a ring to it."',
+			"time": 2.8},
+			
+	]
+
+var StoryMode_StartCutsceneDialogue_4 = [
+		{"message": 
+			'"Mom thought I was crazy for taking the job. 
+			‘You’re throwing your life away,’ she said. She doesn’t get it."', 
+			"time": 4.0},
+			
+		{"message": 
+			'"But hey, I didn’t want to spend the rest of my life
+			behind some desk. I need something that challenges me."',
+			"time": 3.0},
+			
+		{"message": 
+			'"This is it. Building solar panels for a company that’s 
+			changing the world. It’s big. And I’m part of it."',
+			"time": 3.0},
+			
+	]
+
+var StoryMode_StartCutsceneDialogue_5 = [
+		{"message": 
+			'"I didn’t even want to take the plane. Way too expensive. 
+			This yacht? My friends pitched in for it."', 
+			"time": 3.0},
+			
+		{"message": 
+			'"Good friends, huh? They know this is my shot, and they’ve had my back since day one."',
+			"time": 2.5},
+			
+	]

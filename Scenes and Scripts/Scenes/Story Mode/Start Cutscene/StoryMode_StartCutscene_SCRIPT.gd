@@ -52,11 +52,13 @@ extends Node3D
 
 
 func _ready() -> void:
+	Global.is_in_main_menu = false
+	$"Yacht Rig/Yacht".position.y = -0.086
 	StoryModeManager.is_in_story_mode_first_cutscene_world = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	print("ENTERED STORY MODE START CUTSCENE")
 	fadeOutGreyOverlay()
 	cutscene_timeline()
-	$Camera3D/MainLayer/MinimalDialogue/Text.hide()
 
 #####################################
 
@@ -80,33 +82,51 @@ func fadeInGreyOverlay():
 func onfadeInGreyOverlay_Finished():
 	var player_instance = player_scene.instantiate()
 	$Camera_Sutle_Movement.stop()
-	$"Yacht Bob".stop()
+	
+	$"Yacht Rig/Yacht".position.y = 0.11
 	self.add_child(player_instance)
-	player_instance.position = Vector3(2.029, -12.001, -16.889)
+	player_instance.position = Vector3(2.876, -15.188, -16.899)
+	player_instance.ResetPOS = Vector3(2.876, -15.188, -16.899)
 	player_instance.nodeSetup()
 	$Camera3D.clear_current(true)
 	$Camera3D/MainLayer/BlackFade.hide()
+	new_player_dialogue_timeline()
+
+func new_player_dialogue_timeline():
+	await get_tree().create_timer(5.0).timeout
+	var dialogues = [
+		DialogueManager.StoryMode_StartCutsceneDialogue_2,
+		DialogueManager.StoryMode_StartCutsceneDialogue_3,
+		DialogueManager.StoryMode_StartCutsceneDialogue_4,
+		DialogueManager.StoryMode_StartCutsceneDialogue_5,
+	]
+	
+	var break_times = [27.0, 27.0, 27.0]
+	
+	var total_duration = 0.0
+	for i in range(dialogues.size()):
+		var dialogue = dialogues[i]
+		# Schedule the dialogue to be played after the total_duration
+		get_tree().create_timer(total_duration).connect("timeout", Callable(self, "_play_dialogue").bind(dialogue))
+		# Calculate the duration of the current dialogue
+		var dialogue_duration = 0.0
+		for message in dialogue:
+			dialogue_duration += message["time"]
+		# Add the dialogue duration to the total duration
+		total_duration += dialogue_duration
+		# Add the break time to the total duration if it's not the last dialogue
+		if i < break_times.size():
+			total_duration += break_times[i]
+
+func _play_dialogue(dialogue):
+	MD.spawnMinimalDialogue(dialogue)
 
 #####################################
 
 func cutscene_timeline():
-	await get_tree().create_timer(2).timeout
-	print("Dialogue 1")
-	MD.spawnMinimalDialogue(
-	2.5, 
-	'"Three days out here already... hard to believe it has been so long since I have seen Doc."')
+	await get_tree().create_timer(3).timeout
+	MD.spawnMinimalDialogue(DialogueManager.StoryMode_StartCutsceneDialogue_1)
 	
-	await get_tree().create_timer(6).timeout
-	print("Dialogue 2")
-	MD.spawnMinimalDialogue(
-	2.5, 
-	'"Just me and the waves and the smell of the sea, huh? Could get used to this, but I better not."')
-	
-	await get_tree().create_timer(6).timeout
-	print("Dialogue 3")
-	MD.spawnMinimalDialogue(
-	2.5, 
-	'"This trip is only the beginning of something much bigger. Bigger?"')
-	
-	await get_tree().create_timer(6).timeout
-	fadeInGreyOverlay()
+	# Assuming fadeInGreyOverlay should be called after the last dialogue
+	var total_duration = 2 + 6 * (DialogueManager.StoryMode_StartCutsceneDialogue_1.size() - 1) + DialogueManager.StoryMode_StartCutsceneDialogue_1[-1]["time"]
+	get_tree().create_timer(total_duration).connect("timeout", fadeInGreyOverlay)
