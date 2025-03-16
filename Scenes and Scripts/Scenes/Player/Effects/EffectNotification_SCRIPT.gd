@@ -47,8 +47,12 @@
 
 extends Control
 
+@export var Effect_Timer : Timer
+@export var Effect_Image : TextureRect
+
 func init(E_time : float, E_name : String):
 	self.name = "Effect_" + E_name
+	
 
 func finished_effect() -> void:
 	pass # Replace with function body.
