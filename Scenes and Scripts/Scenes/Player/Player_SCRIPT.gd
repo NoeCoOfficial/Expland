@@ -1408,7 +1408,10 @@ func init_effect(E_name : String):
 		CROUCH_SPEED *= 1.5
 
 func stop_effect(E_name : String):
-	pass
+	if E_name == "HASTEPOTION":
+		WALK_SPEED /= 1.5
+		SPRINT_SPEED /= 1.5
+		CROUCH_SPEED /= 1.5
 
 #endregion
 
