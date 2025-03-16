@@ -1,30 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://jajswfbkaut2"]
+[gd_scene load_steps=4 format=3 uid="uid://jajswfbkaut2"]
 
 [ext_resource type="Texture2D" uid="uid://o3u6sxubmrbg" path="res://Textures/Inventory/HASTEPOTION.png" id="1_62wnj"]
+[ext_resource type="Script" uid="uid://blk6r05c14orw" path="res://Scenes and Scripts/Scenes/Player/Effects/EffectNotification_SCRIPT.gd" id="1_urpvj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_urpvj"]
-bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 9
-corner_radius_top_right = 9
-corner_radius_bottom_right = 9
-corner_radius_bottom_left = 9
+bg_color = Color(0.489622, 0.489622, 0.489622, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 anti_aliasing_size = 0.2
 
-[node name="Effect_TEMPLATE" type="Node"]
+[node name="Effect_TEMPLATE" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_urpvj")
 
 [node name="Effect_Time" type="Timer" parent="."]
 wait_time = 30.0
 one_shot = true
 
 [node name="Effect_Border" type="Panel" parent="."]
-offset_right = 85.0
-offset_bottom = 85.0
+offset_right = 46.0
+offset_bottom = 46.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_urpvj")
 
 [node name="Effect_Image" type="TextureRect" parent="."]
 offset_left = 2.0
 offset_top = 2.0
-offset_right = 83.0
-offset_bottom = 83.0
+offset_right = 44.0
+offset_bottom = 44.0
 texture = ExtResource("1_62wnj")
 expand_mode = 1
