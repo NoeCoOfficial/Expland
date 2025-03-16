@@ -59,6 +59,8 @@ extends Node2D
 @export var mouse_over_timer : Timer
 @export var populated_on_startup_timer : Timer
 
+var EffectNotification = preload("uid://jajswfbkaut2")
+
 var draggable = false
 var is_inside_dropable = false
 var body_ref
@@ -423,6 +425,13 @@ func _input(_event: InputEvent) -> void:
 						InventoryManager.is_dragging = false
 						slot_inside.set_populated(false)
 						self.queue_free()
+					
+					if ITEM_TYPE in InventoryManager.EFFECT_ITEMS:
+						
+						InventoryManager.is_dragging = false
+						slot_inside.set_populated(false)
+						self.queue_free()
+					
 					debounce_timer = 0.2
 
 func _on_area_2d_body_entered(body):
