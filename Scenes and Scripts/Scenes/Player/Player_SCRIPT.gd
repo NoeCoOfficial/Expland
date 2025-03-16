@@ -308,6 +308,7 @@ var stamina_restoring_from_0 = false
 @export_subgroup("HUD")
 @export var Crosshair_Rect : TextureRect
 @export var StaminaBar : ProgressBar
+@export var EffectNotificationGrid : GridContainer
 
 @export_subgroup("Camera")
 @export var DialogueInterface : Control
