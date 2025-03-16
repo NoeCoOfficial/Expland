@@ -79,6 +79,8 @@ func resetAttributes():
 	PauseManager.is_inside_settings = false
 	PauseManager.is_paused = false
 	
+	EffectManager.Current_Effects = []
+	
 	PlayerData.GAME_STATE = "NORMAL"
 	PlayerData.Health = 100
 	PlayerData.Hunger = 100

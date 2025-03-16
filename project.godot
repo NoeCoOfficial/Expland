@@ -52,6 +52,7 @@ InventoryManager="*res://Scenes and Scripts/Singletons/Inventory/InventoryManage
 HandManager="*res://Scenes and Scripts/Singletons/Inventory/HandManager.gd"
 HotbarManager="*res://Scenes and Scripts/Singletons/Inventory/HotbarManager.gd"
 CraftingManager="*res://Scenes and Scripts/Singletons/Crafting/CraftingManager.gd"
+EffectManager="*res://Scenes and Scripts/Singletons/Player/EffectManager.gd"
 InputManager="*res://Scenes and Scripts/Singletons/Input/InputManager.gd"
 InteractionManager="*res://Scenes and Scripts/Singletons/Interaction/InteractionManager.gd"
 AudioManager="*res://Scenes and Scripts/Singletons/Audio/AudioManager.gd"
