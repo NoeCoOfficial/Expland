@@ -45,8 +45,8 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-@icon("res://Textures/Icons/Script Icons/32x32/character.png") # Give the node an icon (so it looks cool)
-extends CharacterBody3D # Inheritance
+@icon("res://Textures/Icons/Script Icons/32x32/character.png")
+extends CharacterBody3D
 
 #region Variables
 
@@ -160,6 +160,7 @@ var is_crouching = false
 @export var gravity = 12.0 ## Was originally 9.8 (Earth's gravitational pull) but I felt it to be too unrealistic. This is the gravity of the player. The higher this value is, the faster the player falls.
 
 @export_subgroup("Stamina")
+@export var DEPLETE_STAMINA : bool
 @export var STAMINA_DECREMENT : float
 @export var STAMINA_INCREMENT : float
 @export var STAMINA_MIN_ENERGY : float
@@ -528,27 +529,33 @@ func _physics_process(delta):
 		PlayerManager.is_crouching_moving = false
 
 	## Player stamina
-	if is_sprinting and is_movement_input_active:
-		if !stamina_restoring_from_0:
-			PlayerManager.Stamina -= STAMINA_DECREMENT
-			if PlayerManager.Stamina <= 0.0:
-				PlayerManager.Stamina = 0.0
-				stamina_restoring_from_0 = true
-				speed = WALK_SPEED
-				is_walking = true
-				is_sprinting = false
-				is_crouching = false
+	if DEPLETE_STAMINA:
+		if is_sprinting and is_movement_input_active:
+			if !stamina_restoring_from_0:
+				PlayerManager.Stamina -= STAMINA_DECREMENT
+				if PlayerManager.Stamina <= 0.0:
+					PlayerManager.Stamina = 0.0
+					stamina_restoring_from_0 = true
+					speed = WALK_SPEED
+					is_walking = true
+					is_sprinting = false
+					is_crouching = false
+		else:
+			if !stamina_restoring_from_0 and PlayerManager.Stamina < 100.0:
+				PlayerManager.Stamina += STAMINA_INCREMENT
+				if PlayerManager.Stamina >= 100.0:
+					PlayerManager.Stamina = 100.0
+		
+		if stamina_restoring_from_0:
+			PlayerManager.Stamina += STAMINA_INCREMENT
+			if PlayerManager.Stamina >= 50.0:
+				PlayerManager.Stamina = 50.0
+				stamina_restoring_from_0 = false
 	else:
-		if !stamina_restoring_from_0 and PlayerManager.Stamina < 100.0:
+		if PlayerManager.Stamina < 100.0:
 			PlayerManager.Stamina += STAMINA_INCREMENT
 			if PlayerManager.Stamina >= 100.0:
 				PlayerManager.Stamina = 100.0
-	
-	if stamina_restoring_from_0:
-		PlayerManager.Stamina += STAMINA_INCREMENT
-		if PlayerManager.Stamina >= 50.0:
-			PlayerManager.Stamina = 50.0
-			stamina_restoring_from_0 = false
 	
 	## Player movement and physics
 	if !InventoryManager.inventory_open and PlayerData.GAME_STATE not in ["DEAD", "SLEEPING"] and is_on_floor() and !InventoryManager.in_chest_interface and !PauseManager.is_paused and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !PauseManager.inside_can_move_item_workshop:
