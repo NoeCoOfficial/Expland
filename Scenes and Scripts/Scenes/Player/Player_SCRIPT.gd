@@ -160,7 +160,7 @@ var is_crouching = false
 @export var gravity = 12.0 ## Was originally 9.8 (Earth's gravitational pull) but I felt it to be too unrealistic. This is the gravity of the player. The higher this value is, the faster the player falls.
 
 @export_subgroup("Stamina")
-@export var DEPLETE_STAMINA : bool
+@export var DEPLETE_STAMINA : bool = true
 @export var STAMINA_DECREMENT : float
 @export var STAMINA_INCREMENT : float
 @export var STAMINA_MIN_ENERGY : float
