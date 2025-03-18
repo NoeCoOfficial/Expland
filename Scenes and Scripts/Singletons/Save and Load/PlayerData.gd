@@ -55,6 +55,8 @@ var Health := 100
 var Hunger := 100
 var Hydration := 100
 
+var EffectNotificationScene = preload("uid://jajswfbkaut2")
+
 func saveData(Island_Name : String) -> void:
 	
 	if IslandManager.Current_Game_Mode == "FREE":
@@ -65,16 +67,15 @@ func saveData(Island_Name : String) -> void:
 		Utils.createIslandSaveFolder(Island_Name, "STORY")
 		SAVE_PATH = "user://saveData/Story Mode/Islands/" + Island_Name + "/player.save"
 		
-	elif IslandManager.Current_Game_Mode == "STORY":
-		Utils.createIslandSaveFolder(Island_Name, "STORY")
+	elif IslandManager.Current_Game_Mode == "PARKOUR":
+		Utils.createIslandSaveFolder(Island_Name, "PARKOUR")
 		SAVE_PATH = "user://saveData/Parkour Mode/Runs/" + Island_Name + "/player.save"
 	
+	var Effects = {}
+	for child in PlayerManager.PLAYER.EffectNotificationGrid.get_children():
+		Effects[child.Current_Effect_Local] = (child.get_data_dict())
 	
-	var player = get_node("/root/World/Player")
-	var playerHead = get_node("/root/World/Player/Head")
-	var playerCamera = get_node("/root/World/Player/Head/Camera3D")
-	
-	if player:
+	if PlayerManager.PLAYER:
 		var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 		var data = {
 			"CURRENT_TIME" : TimeManager.CURRENT_TIME,
@@ -82,9 +83,10 @@ func saveData(Island_Name : String) -> void:
 			"GAME_STATE" : GAME_STATE,
 			"Health" : Health,
 			"Hunger" : Hunger,
-			"Position" : Utils.vector3_to_dict(player.position),
-			"HeadRotationY" : playerHead.rotation_degrees.y,
-			"CameraRotationX" : playerCamera.rotation_degrees.x,
+			"Effects" : Effects,
+			"Position" : Utils.vector3_to_dict(PlayerManager.PLAYER.position),
+			"HeadRotationY" : PlayerManager.PLAYER.head.rotation_degrees.y,
+			"CameraRotationX" : PlayerManager.PLAYER.camera.rotation_degrees.x,
 		}
 		
 		var jstr = JSON.stringify(data)
@@ -125,19 +127,17 @@ func loadData(Island_Name : String, withOutput : bool) -> void:
 			Hunger = current_line["Hunger"]
 			GAME_STATE = current_line["GAME_STATE"]
 			
-			var player = get_node("/root/World/Player")
-			var playerHead = get_node("/root/World/Player/Head")
-			var playerCamera = get_node("/root/World/Player/Head/Camera3D")
-			
-			if player:
+			if PlayerManager.PLAYER:
 				
+				for effect_key in current_line["Effects"].keys():
+					var effect = current_line["Effects"][effect_key]
+					var instance = EffectNotificationScene.instantiate()
+					PlayerManager.PLAYER.EffectNotificationGrid.add_child(instance)
+					instance.init(effect["E_time"], effect["E_name"])
 				
-				player.position = Utils.dict_to_vector3(current_line["Position"]) ## Player Position
-				
-				playerHead.rotation_degrees.y = current_line["HeadRotationY"] ## Restore head rotation (only Y-axis)
-				
-				playerCamera.rotation_degrees.x = current_line["CameraRotationX"] ## Restore camera rotation (only X-axis)
-				
+				PlayerManager.PLAYER.position = Utils.dict_to_vector3(current_line["Position"]) ## Player Position
+				PlayerManager.PLAYER.head.rotation_degrees.y = current_line["HeadRotationY"] ## Restore head rotation (only Y-axis)
+				PlayerManager.PLAYER.camera.rotation_degrees.x = current_line["CameraRotationX"] ## Restore camera rotation (only X-axis)
 				
 				if withOutput:
 					print_rich("[center][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf][font_size=30]-- PLAYER DATA HAS BEEN LOADED --[/font_size][/font][/center]")
@@ -146,9 +146,9 @@ func loadData(Island_Name : String, withOutput : bool) -> void:
 					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Health: " + str(Health) + "[/font][/font_size][/center]")
 					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Hunger: " + str(Hunger) + "[/font][/font_size][/center]")
 					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Game State: " + GAME_STATE + "[/font][/font_size][/center]")
-					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Player Position: " + str(player.position) + "[/font][/font_size][/center]")
-					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Head Y-Axis Rotation: " + str(playerHead.rotation_degrees.y) + "[/font][/font_size][/center]")
-					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Camera X-Axis Rotation: " + str(playerCamera.rotation_degrees.x) + "[/font][/font_size][/center]")
+					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Player Position: " + str(PlayerManager.PLAYER.position) + "[/font][/font_size][/center]")
+					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Head Y-Axis Rotation: " + str(PlayerManager.PLAYER.head.rotation_degrees.y) + "[/font][/font_size][/center]")
+					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Camera X-Axis Rotation: " + str(PlayerManager.PLAYER.camera.rotation_degrees.x) + "[/font][/font_size][/center]")
 			else:
 				printerr("[PlayerData] Player node not found. LoadData failed. 
 				THIS MAY BE DUE TO YOUR PLAYER SCENE NOT BEING INSTANTIATED PROPERLY! 

@@ -45,8 +45,8 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-@icon("res://Textures/Icons/Script Icons/32x32/character.png") # Give the node an icon (so it looks cool)
-extends CharacterBody3D # Inheritance
+@icon("res://Textures/Icons/Script Icons/32x32/character.png")
+extends CharacterBody3D
 
 #region Variables
 
@@ -160,6 +160,7 @@ var is_crouching = false
 @export var gravity = 12.0 ## Was originally 9.8 (Earth's gravitational pull) but I felt it to be too unrealistic. This is the gravity of the player. The higher this value is, the faster the player falls.
 
 @export_subgroup("Stamina")
+@export var DEPLETE_STAMINA : bool = true
 @export var STAMINA_DECREMENT : float
 @export var STAMINA_INCREMENT : float
 @export var STAMINA_MIN_ENERGY : float
@@ -308,6 +309,7 @@ var stamina_restoring_from_0 = false
 @export_subgroup("HUD")
 @export var Crosshair_Rect : TextureRect
 @export var StaminaBar : ProgressBar
+@export var EffectNotificationGrid : GridContainer
 
 @export_subgroup("Camera")
 @export var DialogueInterface : Control
@@ -527,27 +529,33 @@ func _physics_process(delta):
 		PlayerManager.is_crouching_moving = false
 
 	## Player stamina
-	if is_sprinting and is_movement_input_active:
-		if !stamina_restoring_from_0:
-			PlayerManager.Stamina -= STAMINA_DECREMENT
-			if PlayerManager.Stamina <= 0.0:
-				PlayerManager.Stamina = 0.0
-				stamina_restoring_from_0 = true
-				speed = WALK_SPEED
-				is_walking = true
-				is_sprinting = false
-				is_crouching = false
+	if DEPLETE_STAMINA:
+		if is_sprinting and is_movement_input_active:
+			if !stamina_restoring_from_0:
+				PlayerManager.Stamina -= STAMINA_DECREMENT
+				if PlayerManager.Stamina <= 0.0:
+					PlayerManager.Stamina = 0.0
+					stamina_restoring_from_0 = true
+					speed = WALK_SPEED
+					is_walking = true
+					is_sprinting = false
+					is_crouching = false
+		else:
+			if !stamina_restoring_from_0 and PlayerManager.Stamina < 100.0:
+				PlayerManager.Stamina += STAMINA_INCREMENT
+				if PlayerManager.Stamina >= 100.0:
+					PlayerManager.Stamina = 100.0
+		
+		if stamina_restoring_from_0:
+			PlayerManager.Stamina += STAMINA_INCREMENT
+			if PlayerManager.Stamina >= 50.0:
+				PlayerManager.Stamina = 50.0
+				stamina_restoring_from_0 = false
 	else:
-		if !stamina_restoring_from_0 and PlayerManager.Stamina < 100.0:
+		if PlayerManager.Stamina < 100.0:
 			PlayerManager.Stamina += STAMINA_INCREMENT
 			if PlayerManager.Stamina >= 100.0:
 				PlayerManager.Stamina = 100.0
-	
-	if stamina_restoring_from_0:
-		PlayerManager.Stamina += STAMINA_INCREMENT
-		if PlayerManager.Stamina >= 50.0:
-			PlayerManager.Stamina = 50.0
-			stamina_restoring_from_0 = false
 	
 	## Player movement and physics
 	if !InventoryManager.inventory_open and PlayerData.GAME_STATE not in ["DEAD", "SLEEPING"] and is_on_floor() and !InventoryManager.in_chest_interface and !PauseManager.is_paused and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !PauseManager.inside_can_move_item_workshop:
@@ -612,7 +620,12 @@ func _physics_process(delta):
 		
 		# Apply view bobbing only if the player is moving
 		if is_moving:
-			Wave_Length += delta * velocity.length()
+			
+			if "HASTEPOTION" in EffectManager.Current_Effects:
+				Wave_Length += delta * velocity.length() / 1.5
+			else:
+				Wave_Length += delta * velocity.length()
+			
 			camera.transform.origin = _headbob(Wave_Length)
 			HandItem.bob(delta)
 		else:
@@ -716,6 +729,11 @@ func _process(_delta):
 #region On startup
 
 func _ready():
+	PlayerManager.PLAYER = $"."
+	PlayerManager.CHEST_SLOTS = ChestSlots
+	PlayerManager.MINIMAL_ALERT_PLAYER = MinimalAlert
+	PlayerManager.INVENTORY_LAYER = InventoryLayer
+	
 	SignalBus.spawn_crafted_item.connect(Craft)
 	
 	initInventorySlots() # Link local inventory slots to singleton arrays
@@ -1395,6 +1413,28 @@ func on_add_item_buttons_workshop_pressed(ITEM_TYPE : String):
 		InventoryManager.spawn_inventory_dropable(free_slot.global_position, ITEM_TYPE, free_slot, false)
 	else:
 		spawn_minimal_alert_from_player(2.5, 0.3, 0.3, "Can't add item to pockets, inventory full!")
+
+#endregion
+
+#region Potions and Effects
+
+func init_effect(E_name : String):
+	if E_name == "HASTEPOTION":
+		WALK_SPEED *= 1.5
+		SPRINT_SPEED *= 1.5
+		CROUCH_SPEED *= 1.5
+	
+	if E_name == "STAMINAPOTION":
+		DEPLETE_STAMINA = false
+
+func stop_effect(E_name : String):
+	if E_name == "HASTEPOTION":
+		WALK_SPEED /= 1.5
+		SPRINT_SPEED /= 1.5
+		CROUCH_SPEED /= 1.5
+		
+	if E_name == "STAMINAPOTION":
+		DEPLETE_STAMINA = true
 
 #endregion
 

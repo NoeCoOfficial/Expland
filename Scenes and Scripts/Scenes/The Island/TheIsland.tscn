@@ -17,7 +17,7 @@
 [ext_resource type="Script" uid="uid://dbn31kh6cxec8" path="res://Scenes and Scripts/Scenes/The Island/Island_Terrain_Switcher_SCRIPT.gd" id="16_r68ax"]
 [ext_resource type="PackedScene" uid="uid://dble54a2rl76q" path="res://Scenes and Scripts/Scenes/The Island/Explorer Note/ExplorerNote.tscn" id="32_qh5si"]
 [ext_resource type="Texture2D" uid="uid://dhp1lqdlclos" path="res://Textures/Icons/Expland_TextWHITE_Icon.png" id="33_74605"]
-[ext_resource type="PackedScene" uid="uid://dqalod7m5is51" path="res://Scenes and Scripts/Scenes/The Eryv (and related)/The Eryv.tscn" id="34_5odcp"]
+[ext_resource type="PackedScene" uid="uid://dqalod7m5is51" path="res://Scenes and Scripts/Scenes/The Eryv (and related)/The Eryv Statue.tscn" id="34_5odcp"]
 [ext_resource type="Texture2D" uid="uid://d2p266eplnyto" path="res://Textures/Explorer Notes/2_Lucent.png" id="34_agr60"]
 [ext_resource type="PackedScene" uid="uid://cnumc5i62ndco" path="res://Scenes and Scripts/Scenes/Tests/RayCastingTest.tscn" id="37_btdyg"]
 [ext_resource type="Texture2D" uid="uid://dvbcyu3wr00f8" path="res://Textures/Dev Textures/Orange/texture_04.png" id="42_eoiek"]
@@ -930,7 +930,7 @@ transform = Transform3D(-6.98434e-08, 0, 1.59783, 0, 1.59783, 0, -1.59783, 0, -6
 [node name="Chest" parent="." instance=ExtResource("58_rdkag")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -397.588, 0.61203, 300.334)
 
-[node name="TheEryv" parent="." instance=ExtResource("34_5odcp")]
+[node name="TheEryvStatue" parent="." instance=ExtResource("34_5odcp")]
 transform = Transform3D(-1, 1.42694e-08, -8.62504e-08, 0, 0.986589, 0.163223, 8.74228e-08, 0.163223, -0.986589, -376.33, 1.88937, 280.751)
 
 [node name="ExplorerNote" parent="." instance=ExtResource("32_qh5si")]
@@ -956,3 +956,5 @@ NailRotation_Degrees = Vector3(-2.34, -23.005, 2.495)
 [connection signal="timeout" from="Weather Timer" to="." method="_on_weather_timer_timeout"]
 [connection signal="body_entered" from="Terrain Areas/STONE" to="island_Terrain_Switcher" method="_on_stone_body_entered"]
 [connection signal="body_exited" from="Terrain Areas/STONE" to="island_Terrain_Switcher" method="_on_stone_body_exited"]
+
+[editable path="TheEryvStatue"]

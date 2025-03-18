@@ -59,6 +59,8 @@ extends Node2D
 @export var mouse_over_timer : Timer
 @export var populated_on_startup_timer : Timer
 
+var EffectNotificationScene = preload("uid://jajswfbkaut2")
+
 var draggable = false
 var is_inside_dropable = false
 var body_ref
@@ -423,6 +425,26 @@ func _input(_event: InputEvent) -> void:
 						InventoryManager.is_dragging = false
 						slot_inside.set_populated(false)
 						self.queue_free()
+					
+					elif ITEM_TYPE in InventoryManager.EFFECT_ITEMS:
+						
+						InventoryManager.is_dragging = false
+						slot_inside.set_populated(false)
+						self.queue_free()
+						
+						if !ITEM_TYPE in EffectManager.Current_Effects:
+							var instance = EffectNotificationScene.instantiate()
+							PlayerManager.PLAYER.EffectNotificationGrid.add_child(instance)
+							
+							instance.init(
+								EffectManager.EFFECT_INFO[ITEM_TYPE]["EFFECT_TIME"],
+								ITEM_TYPE
+								)
+						else:
+							for child in PlayerManager.PLAYER.EffectNotificationGrid.get_children():
+								if str(child.name) == "Effect_" + ITEM_TYPE:
+									child.add_time(EffectManager.EFFECT_INFO[ITEM_TYPE]["EFFECT_TIME"])
+					
 					debounce_timer = 0.2
 
 func _on_area_2d_body_entered(body):

@@ -251,6 +251,10 @@ var mainMenuStoryModeDialogue_2 = [
 
 var StoryMode_StartCutsceneDialogue_1 = [
 		{"message": 
+			'"I\'m on a journey."',
+			"time": 1},
+		
+		{"message": 
 			'"Three days out here already... hard to believe it has been so long since I have seen Doc."', 
 			"time": 2.5},
 			
@@ -259,7 +263,7 @@ var StoryMode_StartCutsceneDialogue_1 = [
 			"time": 2.5},
 			
 		{"message": 
-			'"This trip is only the beginning of something much bigger. Bigger?"', 
+			'"This trip is only the beginning of something much bigger."', 
 			"time": 2.5}
 	]
 

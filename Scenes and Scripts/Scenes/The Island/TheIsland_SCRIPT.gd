@@ -64,6 +64,7 @@ func initializeIslandProperties(_Island_Name):
 var transitioning_weather = false
 
 func _ready() -> void:
+	PlayerManager.WORLD = $"."
 	randomize()
 	initNodes()
 	
@@ -78,7 +79,6 @@ func _ready() -> void:
 	IslandData.loadData(IslandManager.Current_Island_Name, true)
 	InventoryData.loadInventory(IslandManager.Current_Island_Name)
 	
-	PlayerManager.init()
 	set_dof_blur(PlayerSettingsData.DOFBlur)
 	set_pretty_shadows(PlayerSettingsData.PrettyShadows)
 	

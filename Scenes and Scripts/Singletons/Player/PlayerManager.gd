@@ -66,13 +66,6 @@ var is_walking_moving = false
 var is_sprinting_moving = false
 var is_crouching_moving = false
 
-func init():
-	WORLD = get_node("/root/World/")
-	PLAYER = get_node("/root/World/Player/")
-	CHEST_SLOTS = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots")
-	INVENTORY_LAYER = get_node("/root/World/Player/Head/Camera3D/InventoryLayer")
-	MINIMAL_ALERT_PLAYER = get_node("/root/World/Player//Head/Camera3D/MinimalAlertLayer/MinimalAlert")
-
 func sleep():
 	if PLAYER != null:
 		PLAYER.sleep_cycle(true, true, 2.0, 5.0, 2.0, 360)
