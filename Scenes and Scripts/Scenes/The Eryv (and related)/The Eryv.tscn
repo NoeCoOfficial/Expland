@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://8jr1q0oly2hr"]
+[gd_scene load_steps=18 format=3 uid="uid://8jr1q0oly2hr"]
 
 [ext_resource type="PackedScene" uid="uid://c3d0ykrhcrodu" path="res://Assets/3D Models/The Eryv (and related)/The Eryv Animated.blend" id="1_l86em"]
+[ext_resource type="Curve" uid="uid://dunhv8hktvil5" path="res://Resources/Curves/PlayerCharacter_TransitionCurve.tres" id="2_xsx6w"]
 
 [sub_resource type="Animation" id="Animation_l86em"]
 resource_name = "ArmsBackRun"
@@ -1764,52 +1765,62 @@ _data = {
 &"ZombieRun": SubResource("Animation_t8r7r")
 }
 
-[node name="The Eryv Animated" instance=ExtResource("1_l86em")]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ugvlc"]
+animation = &"ArmsBackRun"
 
-[node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/position = Vector3(-0.880493, 2.64672, -93.8876)
-bones/0/rotation = Quaternion(-0.278263, 0.648642, -0.611504, 0.357625)
-bones/1/rotation = Quaternion(-0.303341, 0.0433186, 0.0249137, 0.951571)
-bones/2/position = Vector3(4.78327e-06, 22.6326, -9.53675e-07)
-bones/2/rotation = Quaternion(-0.1356, 0.0185118, 0.0599036, 0.988778)
-bones/3/position = Vector3(3.83219e-06, 25.8658, -2.19345e-05)
-bones/3/rotation = Quaternion(-0.0328493, 0.0246177, 0.0577116, 0.997489)
-bones/4/position = Vector3(-1.61877e-08, 29.099, -4.03673e-06)
-bones/4/rotation = Quaternion(0.28101, 0.0962061, -0.0788864, 0.951606)
-bones/5/position = Vector3(1.92225e-06, 14.6273, -3.48189)
-bones/5/rotation = Quaternion(0.0792389, 0.216373, 0.0647689, 0.970932)
-bones/7/position = Vector3(-23.8381, 26.6013, -0.743144)
-bones/7/rotation = Quaternion(0.417398, -0.573113, 0.538038, 0.45589)
-bones/8/position = Vector3(-1.45688e-06, 47.5212, -4.5319e-06)
-bones/8/rotation = Quaternion(0.377701, 0.341218, 0.259248, 0.820794)
-bones/9/position = Vector3(-1.2531e-05, 48.8193, -1.46647e-06)
-bones/9/rotation = Quaternion(-0.439623, -0.550132, 0.282656, 0.6513)
-bones/10/position = Vector3(-9.53674e-06, 51.898, 3.8147e-06)
-bones/11/position = Vector3(23.8381, 26.6924, -0.999475)
-bones/11/rotation = Quaternion(-0.36979, -0.622667, 0.559046, -0.403744)
-bones/12/position = Vector3(3.95907e-06, 47.5212, -1.90183e-06)
-bones/12/rotation = Quaternion(0.496423, -0.417576, -0.259143, 0.715569)
-bones/13/position = Vector3(1.66609e-05, 48.4018, 7.68155e-06)
-bones/13/rotation = Quaternion(-0.294479, 0.56332, -0.242009, 0.733065)
-bones/14/position = Vector3(2.86102e-06, 51.8237, 1.43051e-05)
-bones/15/rotation = Quaternion(0.251414, -0.616619, 0.637768, 0.387071)
-bones/16/position = Vector3(9.69152e-07, 85.0929, -1.73544e-06)
-bones/16/rotation = Quaternion(0.786852, 0.146079, 0.124097, 0.586621)
-bones/17/position = Vector3(-3.28903e-06, 85.0713, -3.04973e-06)
-bones/17/rotation = Quaternion(0.368055, 0.571585, -0.556873, 0.477199)
-bones/18/position = Vector3(-4.44216e-06, 2.13073, -2.21224e-06)
-bones/18/rotation = Quaternion(0.108543, 0.0157457, 0.071853, 0.991367)
-bones/19/position = Vector3(1.78814e-06, 3.21693, -1.0133e-06)
-bones/20/position = Vector3(6.81504, -10.1644, -0.912965)
-bones/20/rotation = Quaternion(0.00697805, -0.412978, 0.888968, -0.19783)
-bones/21/position = Vector3(1.95777e-06, 85.0759, 1.91249e-06)
-bones/21/rotation = Quaternion(0.817941, -0.0524312, -0.0267964, 0.57228)
-bones/22/position = Vector3(-2.81712e-06, 85.0858, 7.22146e-07)
-bones/22/rotation = Quaternion(-0.0190134, 0.434625, -0.730257, -0.526748)
-bones/23/rotation = Quaternion(0.166136, 0.545757, -0.0937675, 0.815939)
-bones/24/position = Vector3(2.65241e-06, 3.21671, -5.14079e-07)
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1h3di"]
+animation = &"CrouchWalk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ctwxc"]
+animation = &"CrouchingIdle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t8r7r"]
+animation = &"Falling"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_shi63"]
+animation = &"Run"
+
+[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_tgy0g"]
+xfade_time = 30.0
+xfade_curve = ExtResource("2_xsx6w")
+allow_transition_to_self = true
+input_0/name = "CrouchWalk"
+input_0/auto_advance = false
+input_0/break_loop_at_end = false
+input_0/reset = true
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0cobj"]
+animation = &"ZombieRun"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_bakmx"]
+graph_offset = Vector2(-373.372, -400.587)
+nodes/ArmsBackRun_ANIM/node = SubResource("AnimationNodeAnimation_ugvlc")
+nodes/ArmsBackRun_ANIM/position = Vector2(-180, -120)
+nodes/CrouchWalk_ANIM/node = SubResource("AnimationNodeAnimation_1h3di")
+nodes/CrouchWalk_ANIM/position = Vector2(-380, -120)
+nodes/CrouchingIdle_ANIM/node = SubResource("AnimationNodeAnimation_ctwxc")
+nodes/CrouchingIdle_ANIM/position = Vector2(-380, 40)
+nodes/Falling_ANIM/node = SubResource("AnimationNodeAnimation_t8r7r")
+nodes/Falling_ANIM/position = Vector2(40, -120)
+nodes/Run_ANIM/node = SubResource("AnimationNodeAnimation_shi63")
+nodes/Run_ANIM/position = Vector2(-180, 40)
+nodes/Transition/node = SubResource("AnimationNodeTransition_tgy0g")
+nodes/Transition/position = Vector2(320, 100)
+nodes/ZombieRun_ANIM/node = SubResource("AnimationNodeAnimation_0cobj")
+nodes/ZombieRun_ANIM/position = Vector2(-180, 200)
+nodes/output/position = Vector2(640, -60)
+node_connections = [&"output", 0, &"Transition"]
+
+[node name="The Eryv Animated" instance=ExtResource("1_l86em")]
 
 [node name="AnimationPlayer" parent="." index="1"]
 libraries = {
 &"": SubResource("AnimationLibrary_shi63")
 }
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource("AnimationNodeBlendTree_bakmx")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Transition/current_state = "CrouchWalk"
+parameters/Transition/transition_request = ""
+parameters/Transition/current_index = 0
