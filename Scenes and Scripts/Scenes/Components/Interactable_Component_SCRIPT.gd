@@ -50,10 +50,24 @@ extends Node
 
 @export var Contents_Node : Node3D
 
+@export_subgroup("Action 1")
+@export var UseAction1 : bool = false
 @export var ActionToPress_1 : InputEventAction
+
+@export_subgroup("Action 2")
+@export var UseAction2 : bool = false
 @export var ActionToPress_2 : InputEventAction
+
+@export_subgroup("Action 3")
+@export var UseAction3 : bool = false
 @export var ActionToPress_3 : InputEventAction
+
+@export_subgroup("Action 4")
+@export var UseAction4 : bool = false
 @export var ActionToPress_4 : InputEventAction
 
 func toggle_interacting(interacting : bool):
 	Contents_Node.visible = interacting
+
+func _unhandled_input(event: InputEvent) -> void:
+	pass
