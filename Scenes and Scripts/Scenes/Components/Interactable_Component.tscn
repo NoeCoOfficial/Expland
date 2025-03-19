@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://glib2xuska3j"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_rdv6y"]
+
+[node name="Interactable Component" type="Node"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = SubResource("ViewportTexture_rdv6y")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D"]
+transparent_bg = true
+size = Vector2i(1920, 1080)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://crw6j1eee7306"]
+[gd_scene load_steps=7 format=3 uid="uid://crw6j1eee7306"]
 
 [ext_resource type="PackedScene" uid="uid://c30vwtsrxy0dt" path="res://Assets/3D Models/Cutscenes/Story Mode/Start Cutscene/Models/GreenLever.blend" id="1_13fse"]
+[ext_resource type="Script" uid="uid://dygxt7s3041kp" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/Props/GreenLever_SCRIPT.gd" id="2_4751a"]
 
 [sub_resource type="Animation" id="Animation_13fse"]
 resource_name = "on"
@@ -94,6 +95,7 @@ _data = {
 }
 
 [node name="GreenLever" instance=ExtResource("1_13fse")]
+script = ExtResource("2_4751a")
 
 [node name="Handle" parent="." index="1"]
 transform = Transform3D(0.607989, -0.351023, 0, 0.351023, 0.607989, 0, 0, 0, 0.702045, 0.000315423, -0.0812713, 0)
