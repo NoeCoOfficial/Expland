@@ -1426,6 +1426,10 @@ func init_effect(E_name : String):
 	
 	if E_name == "STAMINAPOTION":
 		DEPLETE_STAMINA = false
+	
+	if E_name == "HEALTHPOTION":
+		PlayerData.Health += 6
+		update_bar("HEALTH", true, PlayerData.Health)
 
 func stop_effect(E_name : String):
 	if E_name == "HASTEPOTION":
