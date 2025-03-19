@@ -222,14 +222,7 @@ func append_random_songs(song_array: Array):
 		AudioManager.IN_FRONT_SONGS.append(shuffled_songs[i])
 
 
-
-
-
-
 ## WEATHER
-
-
-
 
 
 func change_sky(SkyType: String, TOD : int):
@@ -309,11 +302,6 @@ func change_sky_instant(SkyType: String, TOD : int):
 		
 		DayNightCycle.play(&"light_rain_cycle", 0.0)
 		DayNightCycle.seek(TOD * 2)
-		
-
-
-
-
 
 
 
