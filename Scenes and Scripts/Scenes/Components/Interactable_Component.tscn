@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://glib2xuska3j"]
+[gd_scene load_steps=5 format=3 uid="uid://glib2xuska3j"]
 
 [ext_resource type="Script" uid="uid://bi02uk7qwshyf" path="res://Scenes and Scripts/Scenes/Components/Interactable_Component_SCRIPT.gd" id="1_fvca7"]
 [ext_resource type="PackedScene" uid="uid://cmt00ehn4hfne" path="res://Scenes and Scripts/Scenes/General/UI/MessageWithKeyUI.tscn" id="2_fvca7"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_fvca7"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_rdv6y"]
 viewport_path = NodePath("Contents/UI/SubViewport")
@@ -9,6 +11,7 @@ viewport_path = NodePath("Contents/UI/SubViewport")
 [node name="Interactable Component" type="Node" node_paths=PackedStringArray("Contents_Node")]
 script = ExtResource("1_fvca7")
 Contents_Node = NodePath("Contents")
+ActionToPress = SubResource("InputEventAction_fvca7")
 
 [node name="Contents" type="Node3D" parent="."]
 

@@ -1,5 +1,5 @@
 # ============================================================= #
-# Interactable_Component_SCRIPT.gd
+# InteractableComponentManager.gd [AUTOLOAD]
 # ============================================================= #
 #                       COPYRIGHT NOTICE                        #
 #                           Noe Co.                             #
@@ -45,15 +45,4 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-@tool
 extends Node
-
-@export var Contents_Node : Node3D
-
-@export var ActionToPress_1 : InputEventAction
-@export var ActionToPress_2 : InputEventAction
-@export var ActionToPress_3 : InputEventAction
-@export var ActionToPress_4 : InputEventAction
-
-func toggle_interacting(interacting : bool):
-	Contents_Node.visible = interacting
