@@ -1438,7 +1438,7 @@ func stop_effect(E_name : String):
 
 func _on_potion_health_regen_timeout() -> void:
 	if "HEALTHPOTION" in EffectManager.Current_Effects:
-		PlayerData.Health += 5
+		PlayerData.Health += 7
 		if PlayerData.Health >= 100:
 			PlayerData.Health = 100
 		update_bar("HEALTH", true, PlayerData.Health)
