@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://nlp0xy1m65tp"]
+[gd_scene load_steps=49 format=3 uid="uid://nlp0xy1m65tp"]
 
 [ext_resource type="Script" uid="uid://uvb2g81nntt2" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/StoryMode_StartCutscene_SCRIPT.gd" id="1_4d7y3"]
 [ext_resource type="Shader" uid="uid://b2gi30s113t00" path="res://Scenes and Scripts/Scenes/The Island/TheIslandSeaWater.gdshader" id="2_cfn0j"]
@@ -102,6 +102,8 @@ viewport_path = NodePath("Yacht Rig/Yacht/Interactable Component/Contents/UI/Sub
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8kx4n"]
 size = Vector3(0.499466, 2.46471, 2.61694)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3v7iq"]
 
 [sub_resource type="Gradient" id="Gradient_to1x2"]
 offsets = PackedFloat32Array(0.238411, 1)
@@ -520,6 +522,12 @@ transform = Transform3D(1, -1.51996e-06, -8.9407e-08, -4.04555e-07, 1, 1.87477e-
 shape = SubResource("BoxShape3D_8kx4n")
 debug_color = Color(0, 0.650488, 0.0892803, 0.42)
 
+[node name="PlayerMimicRaycastDetector" type="Area3D" parent="Yacht Rig/Yacht/Interactable Component/Contents"]
+transform = Transform3D(1, -1.2328e-09, 0, -2.2233e-09, 1, 6.53166e-10, 0, -5.60831e-11, 1, 0.027019, 0, 0.100836)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Yacht Rig/Yacht/Interactable Component/Contents/PlayerMimicRaycastDetector"]
+shape = SubResource("BoxShape3D_3v7iq")
+
 [node name="Clouds" type="MeshInstance3D" parent="."]
 transform = Transform3D(8192, 0, 0, 0, 128, 0, 0, 0, 8192, 0, 128, 0)
 material_override = SubResource("ShaderMaterial_w18yt")
@@ -539,6 +547,8 @@ autoplay = "camera_sutle_movement"
 
 [connection signal="body_entered" from="Yacht Rig/Yacht/Interactable Component/Contents/PlayerVisibleDetector" to="Yacht Rig/Yacht/Interactable Component" method="_on_player_visible_detector_body_entered"]
 [connection signal="body_exited" from="Yacht Rig/Yacht/Interactable Component/Contents/PlayerVisibleDetector" to="Yacht Rig/Yacht/Interactable Component" method="_on_player_visible_detector_body_exited"]
+[connection signal="area_entered" from="Yacht Rig/Yacht/Interactable Component/Contents/PlayerMimicRaycastDetector" to="Yacht Rig/Yacht/Interactable Component" method="_on_player_mimic_raycast_detector_area_entered"]
+[connection signal="area_exited" from="Yacht Rig/Yacht/Interactable Component/Contents/PlayerMimicRaycastDetector" to="Yacht Rig/Yacht/Interactable Component" method="_on_player_mimic_raycast_detector_area_exited"]
 
 [editable path="Yacht Rig/Yacht"]
 [editable path="Yacht Rig/Yacht/GreenLever"]
