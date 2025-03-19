@@ -6,9 +6,13 @@
 [sub_resource type="ViewportTexture" id="ViewportTexture_rdv6y"]
 viewport_path = NodePath("Contents/UI/SubViewport")
 
-[node name="Interactable Component" type="Node" node_paths=PackedStringArray("Contents_Node")]
+[node name="Interactable Component" type="Node" node_paths=PackedStringArray("Contents_Node", "UI_1", "UI_2", "UI_3", "UI_4")]
 script = ExtResource("1_fvca7")
 Contents_Node = NodePath("Contents")
+UI_1 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_1")
+UI_2 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_2")
+UI_3 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_3")
+UI_4 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_4")
 
 [node name="Contents" type="Node3D" parent="."]
 

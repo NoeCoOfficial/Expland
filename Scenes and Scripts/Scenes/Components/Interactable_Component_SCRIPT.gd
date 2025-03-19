@@ -49,6 +49,10 @@
 extends Node
 
 @export var Contents_Node : Node3D
+@export var UI_1 : Control
+@export var UI_2 : Control
+@export var UI_3 : Control
+@export var UI_4 : Control
 
 @export_subgroup("Action 1")
 @export var UseAction1 : bool = false
@@ -71,13 +75,43 @@ func toggle_interacting(interacting : bool):
 
 func _unhandled_input(event: InputEvent) -> void:
 	if UseAction1 and Input.is_action_just_pressed(ActionToPress_1.action):
-		pass
+		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+		tween.tween_property(UI_1, "scale", Vector2(4.5, 4.5), 0.2)
+	
+	if UseAction1 and Input.is_action_just_released(ActionToPress_1.action):
+		
+		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+		tween.tween_property(UI_1, "scale", Vector2(5.0, 5.0), 0.2)
+		
+		
 		
 	if UseAction2 and Input.is_action_just_pressed(ActionToPress_2.action):
-		pass
+		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+		tween.tween_property(UI_2, "scale", Vector2(4.5, 4.5), 0.2)
+		
+	if UseAction2 and Input.is_action_just_released(ActionToPress_2.action):
+		
+		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+		tween.tween_property(UI_2, "scale", Vector2(5.0, 5.0), 0.2)
+		
+		
 		
 	if UseAction3 and Input.is_action_just_pressed(ActionToPress_3.action):
-		pass
+		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+		tween.tween_property(UI_3, "scale", Vector2(4.5, 4.5), 0.2)
+		
+	if UseAction3 and Input.is_action_just_released(ActionToPress_3.action):
+		
+		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+		tween.tween_property(UI_3, "scale", Vector2(5.0, 5.0), 0.2)
+		
+		
 		
 	if UseAction4 and Input.is_action_just_pressed(ActionToPress_4.action):
-		pass
+		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+		tween.tween_property(UI_4, "scale", Vector2(4.5, 4.5), 0.2)
+		
+	if UseAction4 and Input.is_action_just_released(ActionToPress_4.action):
+		
+		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+		tween.tween_property(UI_4, "scale", Vector2(5.0, 5.0), 0.2)
