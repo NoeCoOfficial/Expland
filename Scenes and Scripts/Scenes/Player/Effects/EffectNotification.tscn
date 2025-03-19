@@ -25,11 +25,13 @@ wait_time = 30.0
 one_shot = true
 
 [node name="Effect_Border" type="Panel" parent="."]
+layout_mode = 0
 offset_right = 46.0
 offset_bottom = 59.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_urpvj")
 
 [node name="Effect_Image" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 2.0
 offset_top = 15.0
 offset_right = 44.0
