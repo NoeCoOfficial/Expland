@@ -48,6 +48,11 @@
 @tool
 extends Node
 
+signal Action1_Triggered
+signal Action2_Triggered
+signal Action3_Triggered
+signal Action4_Triggered
+
 @export var Contents_Node : Node3D
 @export var UI_1 : Control
 @export var UI_2 : Control
@@ -79,7 +84,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		tween.tween_property(UI_1, "scale", Vector2(4.5, 4.5), 0.2)
 	
 	if UseAction1 and Input.is_action_just_released(ActionToPress_1.action):
-		
+		Action1_Triggered.emit()
 		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 		tween.tween_property(UI_1, "scale", Vector2(5.0, 5.0), 0.2)
 		
@@ -90,7 +95,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		tween.tween_property(UI_2, "scale", Vector2(4.5, 4.5), 0.2)
 		
 	if UseAction2 and Input.is_action_just_released(ActionToPress_2.action):
-		
+		Action2_Triggered.emit()
 		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 		tween.tween_property(UI_2, "scale", Vector2(5.0, 5.0), 0.2)
 		
@@ -101,7 +106,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		tween.tween_property(UI_3, "scale", Vector2(4.5, 4.5), 0.2)
 		
 	if UseAction3 and Input.is_action_just_released(ActionToPress_3.action):
-		
+		Action3_Triggered.emit()
 		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 		tween.tween_property(UI_3, "scale", Vector2(5.0, 5.0), 0.2)
 		
@@ -112,6 +117,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		tween.tween_property(UI_4, "scale", Vector2(4.5, 4.5), 0.2)
 		
 	if UseAction4 and Input.is_action_just_released(ActionToPress_4.action):
-		
+		Action4_Triggered.emit()
 		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 		tween.tween_property(UI_4, "scale", Vector2(5.0, 5.0), 0.2)
