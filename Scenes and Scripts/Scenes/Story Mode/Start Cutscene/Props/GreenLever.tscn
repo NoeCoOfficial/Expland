@@ -3,34 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://c30vwtsrxy0dt" path="res://Assets/3D Models/Cutscenes/Story Mode/Start Cutscene/Models/GreenLever.blend" id="1_13fse"]
 [ext_resource type="Script" uid="uid://dygxt7s3041kp" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/Props/GreenLever_SCRIPT.gd" id="2_4751a"]
 
-[sub_resource type="Animation" id="Animation_13fse"]
-resource_name = "on"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Handle:rotation")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, -0.523599), Vector3(0, 0, 0.523599)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Main:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, -0.523599), Vector3(0, 0, 0.523599)]
-}
-
 [sub_resource type="Animation" id="Animation_4751a"]
 length = 0.001
 tracks/0/type = "value"
@@ -85,6 +57,34 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0.523599), Vector3(0, 0, -0.523599)]
+}
+
+[sub_resource type="Animation" id="Animation_13fse"]
+resource_name = "on"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Handle:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -0.523599), Vector3(0, 0, 0.523599)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Main:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -0.523599), Vector3(0, 0, 0.523599)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_farmw"]
