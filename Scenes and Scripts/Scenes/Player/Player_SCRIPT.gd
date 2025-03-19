@@ -1430,6 +1430,26 @@ func init_effect(E_name : String):
 	if E_name == "HEALTHPOTION":
 		PlayerData.Health += 6
 		update_bar("HEALTH", true, PlayerData.Health)
+		
+		await get_tree().create_timer(1).timeout
+		
+		PlayerData.Health += 6
+		update_bar("HEALTH", true, PlayerData.Health)
+		
+		await get_tree().create_timer(1).timeout
+		
+		PlayerData.Health += 6
+		update_bar("HEALTH", true, PlayerData.Health)
+		
+		await get_tree().create_timer(1).timeout
+		
+		PlayerData.Health += 6
+		update_bar("HEALTH", true, PlayerData.Health)
+		
+		await get_tree().create_timer(1).timeout
+		
+		PlayerData.Health += 6
+		update_bar("HEALTH", true, PlayerData.Health)
 
 func stop_effect(E_name : String):
 	if E_name == "HASTEPOTION":
@@ -1439,6 +1459,10 @@ func stop_effect(E_name : String):
 		
 	if E_name == "STAMINAPOTION":
 		DEPLETE_STAMINA = true
+
+	if E_name == "HEALTHPOTION":
+		pass
+		# idk do nothing
 
 #endregion
 
