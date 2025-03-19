@@ -70,4 +70,14 @@ func toggle_interacting(interacting : bool):
 	Contents_Node.visible = interacting
 
 func _unhandled_input(event: InputEvent) -> void:
-	pass
+	if UseAction1 and Input.is_action_just_pressed(ActionToPress_1.action):
+		pass
+		
+	if UseAction2 and Input.is_action_just_pressed(ActionToPress_2.action):
+		pass
+		
+	if UseAction3 and Input.is_action_just_pressed(ActionToPress_3.action):
+		pass
+		
+	if UseAction4 and Input.is_action_just_pressed(ActionToPress_4.action):
+		pass
