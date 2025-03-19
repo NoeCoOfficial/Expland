@@ -133,8 +133,11 @@ offset_bottom = 60.0
 
 [node name="Message" type="Label" parent="Contents"]
 layout_mode = 0
-offset_right = 104.0
-offset_bottom = 56.0
+offset_left = 57.0
+offset_top = 3.0
+offset_right = 279.0
+offset_bottom = 59.0
 theme = ExtResource("2_uipn6")
+theme_override_font_sizes/font_size = 25
 text = "Do Something"
 vertical_alignment = 1
