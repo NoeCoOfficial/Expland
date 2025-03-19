@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://glib2xuska3j"]
+[gd_scene load_steps=5 format=3 uid="uid://glib2xuska3j"]
 
 [ext_resource type="Script" uid="uid://bi02uk7qwshyf" path="res://Scenes and Scripts/Scenes/Components/Interactable Component/Interactable_Component_SCRIPT.gd" id="1_fvca7"]
 [ext_resource type="PackedScene" uid="uid://cmt00ehn4hfne" path="res://Scenes and Scripts/Scenes/General/UI/MessageWithKeyUI.tscn" id="2_fvca7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fvca7"]
 size = Vector3(7, 5, 7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_00rnx"]
 
 [node name="Interactable Component" type="Node3D" node_paths=PackedStringArray("Contents_Node", "SubViewport_Node", "UI_Sprite_Node", "UI_1", "UI_2", "UI_3", "UI_4")]
 script = ExtResource("1_fvca7")
@@ -129,8 +131,15 @@ grow_vertical = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Contents/PlayerVisibleDetector"]
 shape = SubResource("BoxShape3D_fvca7")
 
+[node name="PlayerMimicRaycastDetector" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerMimicRaycastDetector"]
+shape = SubResource("BoxShape3D_00rnx")
+
 [connection signal="body_entered" from="Contents/PlayerVisibleDetector" to="." method="_on_player_visible_detector_body_entered"]
 [connection signal="body_exited" from="Contents/PlayerVisibleDetector" to="." method="_on_player_visible_detector_body_exited"]
+[connection signal="area_entered" from="PlayerMimicRaycastDetector" to="." method="_on_player_mimic_raycast_detector_area_entered"]
+[connection signal="area_exited" from="PlayerMimicRaycastDetector" to="." method="_on_player_mimic_raycast_detector_area_exited"]
 
 [editable path="Contents/UI/SubViewport/MessageWithKeyUI_1"]
 [editable path="Contents/UI/SubViewport/MessageWithKeyUI_2"]

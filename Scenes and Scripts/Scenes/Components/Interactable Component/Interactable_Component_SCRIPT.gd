@@ -54,6 +54,9 @@ signal Action4_Triggered
 
 var interacting : bool = false
 
+var player_in_collision_box : bool = false
+var player_raycast_on : bool = false
+
 @export var Contents_Node : Node3D
 @export var SubViewport_Node : SubViewport
 @export var UI_Sprite_Node : Sprite3D
@@ -84,6 +87,12 @@ func _ready() -> void:
 func toggle_interacting(interacting_val : bool):
 	Contents_Node.visible = interacting_val
 	interacting = interacting_val
+
+func _process(delta: float) -> void:
+	if player_in_collision_box and player_raycast_on:
+		toggle_interacting(true)
+	else:
+		toggle_interacting(false)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if interacting:
@@ -142,10 +151,19 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _on_player_visible_detector_body_entered(body: Node3D) -> void:
 	if body.is_in_group("PlayerBody"):
-		print("skibidi")
-		toggle_interacting(true)
+		player_in_collision_box = true
 
 func _on_player_visible_detector_body_exited(body: Node3D) -> void:
 	if body.is_in_group("PlayerBody"):
-		print("also skibidi")
-		toggle_interacting(false)
+		player_in_collision_box = false
+
+
+
+func _on_player_mimic_raycast_detector_area_entered(area: Area3D) -> void:
+	if area.is_in_group("MimicRayCast3D"):
+		player_raycast_on = true
+
+
+func _on_player_mimic_raycast_detector_area_exited(area: Area3D) -> void:
+	if area.is_in_group("MimicRayCast3D"):
+		player_raycast_on = false
