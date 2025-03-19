@@ -45,7 +45,6 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-@tool
 extends Node3D
 
 signal Action1_Triggered
@@ -80,8 +79,7 @@ var interacting : bool = false
 @export var ActionToPress_4 : InputEventAction
 
 func _ready() -> void:
-	if !Engine.is_editor_hint():
-		toggle_interacting(false)
+	toggle_interacting(false)
 
 func toggle_interacting(interacting_val : bool):
 	Contents_Node.visible = interacting_val
