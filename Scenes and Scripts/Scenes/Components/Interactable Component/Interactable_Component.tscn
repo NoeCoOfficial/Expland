@@ -8,6 +8,7 @@ size = Vector3(7, 5, 7)
 
 [node name="Interactable Component" type="Node3D" node_paths=PackedStringArray("Contents_Node", "SubViewport_Node", "UI_Sprite_Node", "UI_1", "UI_2", "UI_3", "UI_4")]
 script = ExtResource("1_fvca7")
+viewport_texture = null
 Contents_Node = NodePath("Contents")
 SubViewport_Node = NodePath("Contents/UI/SubViewport")
 UI_Sprite_Node = NodePath("Contents/UI")

@@ -55,10 +55,6 @@ signal Action4_Triggered
 
 var interacting : bool = false
 
-@export var viewport_texture : Texture2D:
-	set(value):
-		UI_Sprite_Node.texture = value
-
 @export var Contents_Node : Node3D
 @export var SubViewport_Node : SubViewport
 @export var UI_Sprite_Node : Sprite3D
