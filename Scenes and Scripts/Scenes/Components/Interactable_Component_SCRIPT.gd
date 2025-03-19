@@ -47,10 +47,3 @@
 
 @tool
 extends Node
-
-@export var Contents_Node : Node3D
-
-@export var Contents_Node_Pos : Vector3 = Vector3(0, 0, 0)
-
-func _process(_delta: float) -> void:
-	Contents_Node.position = Contents_Node_Pos
