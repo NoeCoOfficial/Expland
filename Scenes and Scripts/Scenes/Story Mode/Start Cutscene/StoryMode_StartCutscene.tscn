@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://nlp0xy1m65tp"]
+[gd_scene load_steps=43 format=3 uid="uid://nlp0xy1m65tp"]
 
 [ext_resource type="Script" uid="uid://uvb2g81nntt2" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/StoryMode_StartCutscene_SCRIPT.gd" id="1_4d7y3"]
 [ext_resource type="Shader" uid="uid://b2gi30s113t00" path="res://Scenes and Scripts/Scenes/The Island/TheIslandSeaWater.gdshader" id="2_cfn0j"]
@@ -9,6 +9,7 @@
 [ext_resource type="Shader" uid="uid://brub6nkftipc1" path="res://Resources/Shaders/Clouds.gdshader" id="5_encjm"]
 [ext_resource type="Script" uid="uid://dn1b1gnwe5iap" path="res://Textures/Icons/Script Icons/Scripts/LightbulbIcon_SCRIPT.gd" id="6_to1x2"]
 [ext_resource type="PackedScene" uid="uid://crw6j1eee7306" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/Props/GreenLever.tscn" id="8_f3l76"]
+[ext_resource type="PackedScene" uid="uid://glib2xuska3j" path="res://Scenes and Scripts/Scenes/Components/Interactable_Component.tscn" id="9_l057t"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_oopga"]
 
@@ -86,7 +87,7 @@ size = Vector3(9.55203, 0.282715, 0.891492)
 [sub_resource type="BoxShape3D" id="BoxShape3D_l057t"]
 size = Vector3(1.17264, 0.282715, 1.04893)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_f3l76"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_44ck5"]
 viewport_path = NodePath("Yacht Rig/Yacht/GreenLever/Interactable Component/Contents/UI/SubViewport")
 
 [sub_resource type="Gradient" id="Gradient_to1x2"]
@@ -272,7 +273,7 @@ script = ExtResource("3_os8dc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22068, -15.4248, -17.6352)
 
 [node name="Yacht" parent="Yacht Rig" instance=ExtResource("4_os8dc")]
-transform = Transform3D(-1.08173, 0.0153835, 0.289859, 0.0148594, 1.11989, -0.00398162, -0.289884, 6.83216e-08, -1.08184, 0, 0.110003, 0)
+transform = Transform3D(-1.08173, 0.0153835, 0.289859, 0.0148593, 1.11989, -0.00398162, -0.289884, 6.83216e-08, -1.08184, 0, 0.110003, 0)
 
 [node name="Collision" type="StaticBody3D" parent="Yacht Rig/Yacht"]
 
@@ -354,8 +355,19 @@ debug_color = Color(1, 0.21, 0.223166, 1)
 [node name="GreenLever" parent="Yacht Rig/Yacht" instance=ExtResource("8_f3l76")]
 transform = Transform3D(0.364667, 1.08731e-08, -1.49012e-08, -2.26454e-11, 0.364667, -1.70488e-09, 2.23517e-08, 4.67706e-10, 0.364667, -0.719315, 1.3168, 0.740069)
 
+[node name="Interactable Component" parent="Yacht Rig/Yacht/GreenLever" instance=ExtResource("9_l057t")]
+
 [node name="UI" parent="Yacht Rig/Yacht/GreenLever/Interactable Component/Contents" index="0"]
-texture = SubResource("ViewportTexture_f3l76")
+texture = SubResource("ViewportTexture_44ck5")
+
+[node name="MessageWithKeyUI_1" parent="Yacht Rig/Yacht/GreenLever/Interactable Component/Contents/UI/SubViewport" index="0"]
+visible = false
+
+[node name="MessageWithKeyUI_3" parent="Yacht Rig/Yacht/GreenLever/Interactable Component/Contents/UI/SubViewport" index="2"]
+visible = false
+
+[node name="MessageWithKeyUI_4" parent="Yacht Rig/Yacht/GreenLever/Interactable Component/Contents/UI/SubViewport" index="3"]
+visible = false
 
 [node name="Clouds" type="MeshInstance3D" parent="."]
 transform = Transform3D(8192, 0, 0, 0, 128, 0, 0, 0, 8192, 0, 128, 0)
