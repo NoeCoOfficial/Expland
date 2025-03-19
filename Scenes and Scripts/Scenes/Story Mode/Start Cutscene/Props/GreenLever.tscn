@@ -1,5 +1,107 @@
-[gd_scene load_steps=2 format=3 uid="uid://crw6j1eee7306"]
+[gd_scene load_steps=6 format=3 uid="uid://crw6j1eee7306"]
 
 [ext_resource type="PackedScene" uid="uid://c30vwtsrxy0dt" path="res://Assets/3D Models/Cutscenes/Story Mode/Start Cutscene/Models/GreenLever.blend" id="1_13fse"]
 
+[sub_resource type="Animation" id="Animation_13fse"]
+resource_name = "on"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Handle:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -0.523599), Vector3(0, 0, 0.523599)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Main:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -0.523599), Vector3(0, 0, 0.523599)]
+}
+
+[sub_resource type="Animation" id="Animation_4751a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Handle:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0.523599)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Main:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0.523599)]
+}
+
+[sub_resource type="Animation" id="Animation_farmw"]
+resource_name = "off"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Handle:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.523599), Vector3(0, 0, -0.523599)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Main:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.523599), Vector3(0, 0, -0.523599)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_farmw"]
+_data = {
+&"RESET": SubResource("Animation_4751a"),
+&"off": SubResource("Animation_farmw"),
+&"on": SubResource("Animation_13fse")
+}
+
 [node name="GreenLever" instance=ExtResource("1_13fse")]
+
+[node name="Handle" parent="." index="1"]
+transform = Transform3D(0.607989, -0.351023, 0, 0.351023, 0.607989, 0, 0, 0, 0.702045, 0.000315423, -0.0812713, 0)
+
+[node name="Main" parent="." index="2"]
+transform = Transform3D(0.607989, -0.351023, 0, 0.351023, 0.607989, 0, 0, 0, 0.702045, 0.000315419, -0.0812713, 0)
+
+[node name="Switch_Anims" type="AnimationPlayer" parent="." index="3"]
+libraries = {
+&"": SubResource("AnimationLibrary_farmw")
+}
