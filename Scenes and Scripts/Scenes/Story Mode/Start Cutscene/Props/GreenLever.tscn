@@ -98,7 +98,7 @@ _data = {
 [sub_resource type="InputEventAction" id="InputEventAction_farmw"]
 action = &"Interact"
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_f4ejf"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_farmw"]
 viewport_path = NodePath("Interactable Component/Contents/UI/SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_farmw"]
@@ -124,7 +124,7 @@ ActionToPress_2 = SubResource("InputEventAction_farmw")
 
 [node name="UI" parent="Interactable Component/Contents" index="0"]
 transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 0, 0.253, 0.262)
-texture = SubResource("ViewportTexture_f4ejf")
+texture = SubResource("ViewportTexture_farmw")
 
 [node name="MessageWithKeyUI_1" parent="Interactable Component/Contents/UI/SubViewport" index="0"]
 visible = false

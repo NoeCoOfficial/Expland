@@ -369,3 +369,9 @@ libraries = {
 autoplay = "camera_sutle_movement"
 
 [editable path="Yacht Rig/Yacht"]
+[editable path="Yacht Rig/Yacht/GreenLever"]
+[editable path="Yacht Rig/Yacht/GreenLever/Interactable Component"]
+[editable path="Yacht Rig/Yacht/GreenLever/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1"]
+[editable path="Yacht Rig/Yacht/GreenLever/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_2"]
+[editable path="Yacht Rig/Yacht/GreenLever/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_3"]
+[editable path="Yacht Rig/Yacht/GreenLever/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_4"]

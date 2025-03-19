@@ -1,17 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://glib2xuska3j"]
+[gd_scene load_steps=4 format=3 uid="uid://glib2xuska3j"]
 
 [ext_resource type="Script" uid="uid://bi02uk7qwshyf" path="res://Scenes and Scripts/Scenes/Components/Interactable_Component_SCRIPT.gd" id="1_fvca7"]
 [ext_resource type="PackedScene" uid="uid://cmt00ehn4hfne" path="res://Scenes and Scripts/Scenes/General/UI/MessageWithKeyUI.tscn" id="2_fvca7"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_rdv6y"]
-viewport_path = NodePath("Contents/UI/SubViewport")
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_fvca7"]
 size = Vector3(7, 7, 7)
 
-[node name="Interactable Component" type="Node" node_paths=PackedStringArray("Contents_Node", "UI_1", "UI_2", "UI_3", "UI_4")]
+[node name="Interactable Component" type="Node3D" node_paths=PackedStringArray("Contents_Node", "SubViewport_Node", "UI_Sprite_Node", "UI_1", "UI_2", "UI_3", "UI_4")]
 script = ExtResource("1_fvca7")
 Contents_Node = NodePath("Contents")
+SubViewport_Node = NodePath("Contents/UI/SubViewport")
+UI_Sprite_Node = NodePath("Contents/UI")
 UI_1 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_1")
 UI_2 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_2")
 UI_3 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_3")
@@ -23,7 +22,6 @@ UI_4 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_4")
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 billboard = 1
 no_depth_test = true
-texture = SubResource("ViewportTexture_rdv6y")
 
 [node name="SubViewport" type="SubViewport" parent="Contents/UI"]
 transparent_bg = true

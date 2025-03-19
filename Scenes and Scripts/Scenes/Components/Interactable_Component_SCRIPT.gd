@@ -45,7 +45,8 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-extends Node
+@tool
+extends Node3D
 
 signal Action1_Triggered
 signal Action2_Triggered
@@ -54,7 +55,13 @@ signal Action4_Triggered
 
 var interacting : bool = false
 
+@export var viewport_texture : Texture2D:
+	set(value):
+		UI_Sprite_Node.texture = value
+
 @export var Contents_Node : Node3D
+@export var SubViewport_Node : SubViewport
+@export var UI_Sprite_Node : Sprite3D
 @export var UI_1 : Control
 @export var UI_2 : Control
 @export var UI_3 : Control
