@@ -47,3 +47,8 @@
 
 @tool
 extends Node
+
+@export var Contents_Node : Node3D
+
+func toggle_interacting(interacting : bool):
+	Contents_Node.visible = interacting
