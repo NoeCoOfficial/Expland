@@ -1,5 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://tg7t4em0u5km"]
+[gd_scene load_steps=4 format=3 uid="uid://tg7t4em0u5km"]
 
 [ext_resource type="PackedScene" uid="uid://csmjtye22aycc" path="res://Assets/3D Models/Cutscenes/Story Mode/Start Cutscene/Models/GreenLever.blend" id="1_13fse"]
 
+[sub_resource type="Animation" id="Animation_13fse"]
+resource_name = "on"
+length = 0.25
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4751a"]
+_data = {
+&"on": SubResource("Animation_13fse")
+}
+
 [node name="GreenLever" instance=ExtResource("1_13fse")]
+
+[node name="Switch_Anims" type="AnimationPlayer" parent="." index="3"]
+libraries = {
+&"": SubResource("AnimationLibrary_4751a")
+}
