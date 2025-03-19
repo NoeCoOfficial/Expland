@@ -1441,8 +1441,10 @@ func stop_effect(E_name : String):
 		DEPLETE_STAMINA = true
 
 func _on_potion_health_regen_timeout() -> void:
-	if "HASTEPOTION" in EffectManager.Current_Effects:
+	if "HEALTHPOTION" in EffectManager.Current_Effects:
 		PlayerData.Health += 5
+		if PlayerData.Health >= 100:
+			PlayerData.Health = 100
 		update_bar("HEALTH", true, PlayerData.Health)
 
 #endregion

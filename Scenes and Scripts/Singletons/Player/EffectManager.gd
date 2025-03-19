@@ -58,7 +58,7 @@ var EFFECT_INFO = {
 		"EFFECT_TIME" : 120.0
 	},
 	"HEALTHPOTION" : {
-		"EFFECT_TIME" : 0.0
+		"EFFECT_TIME" : 5.0
 	},
 	
 }
