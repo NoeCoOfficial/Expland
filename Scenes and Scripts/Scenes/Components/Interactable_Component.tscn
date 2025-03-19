@@ -13,6 +13,7 @@ UI_1 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_1")
 UI_2 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_2")
 UI_3 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_3")
 UI_4 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_4")
+Action2_Callable = Callable()
 
 [node name="Contents" type="Node3D" parent="."]
 
