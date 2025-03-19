@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://nlp0xy1m65tp"]
+[gd_scene load_steps=42 format=3 uid="uid://nlp0xy1m65tp"]
 
 [ext_resource type="Script" uid="uid://uvb2g81nntt2" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/StoryMode_StartCutscene_SCRIPT.gd" id="1_4d7y3"]
 [ext_resource type="Shader" uid="uid://b2gi30s113t00" path="res://Scenes and Scripts/Scenes/The Island/TheIslandSeaWater.gdshader" id="2_cfn0j"]
@@ -85,6 +85,9 @@ size = Vector3(9.55203, 0.282715, 0.891492)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l057t"]
 size = Vector3(1.17264, 0.282715, 1.04893)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_f3l76"]
+viewport_path = NodePath("Yacht Rig/Yacht/GreenLever/Interactable Component/Contents/UI/SubViewport")
 
 [sub_resource type="Gradient" id="Gradient_to1x2"]
 offsets = PackedFloat32Array(0.238411, 1)
@@ -350,6 +353,9 @@ debug_color = Color(1, 0.21, 0.223166, 1)
 
 [node name="GreenLever" parent="Yacht Rig/Yacht" instance=ExtResource("8_f3l76")]
 transform = Transform3D(0.364667, 1.08731e-08, -1.49012e-08, -2.26454e-11, 0.364667, -1.70488e-09, 2.23517e-08, 4.67706e-10, 0.364667, -0.719315, 1.3168, 0.740069)
+
+[node name="UI" parent="Yacht Rig/Yacht/GreenLever/Interactable Component/Contents" index="0"]
+texture = SubResource("ViewportTexture_f3l76")
 
 [node name="Clouds" type="MeshInstance3D" parent="."]
 transform = Transform3D(8192, 0, 0, 0, 128, 0, 0, 0, 8192, 0, 128, 0)
