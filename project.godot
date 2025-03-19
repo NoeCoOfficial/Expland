@@ -97,6 +97,7 @@ folder_colors={
 [global_group]
 
 PlayerBody="The body for the player."
+RayCastMimic3D=""
 
 [input]
 

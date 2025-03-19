@@ -101,7 +101,7 @@ action = &"Flip_Blue_Lever"
 viewport_path = NodePath("Yacht Rig/Yacht/Interactable Component/Contents/UI/SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8kx4n"]
-size = Vector3(0.499466, 2.46471, 0.844238)
+size = Vector3(0.499466, 2.46471, 2.61694)
 
 [sub_resource type="Gradient" id="Gradient_to1x2"]
 offsets = PackedFloat32Array(0.238411, 1)
@@ -516,8 +516,9 @@ grow_vertical = 2
 [node name="PlayerVisibleDetector" type="Area3D" parent="Yacht Rig/Yacht/Interactable Component/Contents"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Yacht Rig/Yacht/Interactable Component/Contents/PlayerVisibleDetector"]
-transform = Transform3D(1, -1.33467e-06, -8.9407e-08, -4.04555e-07, 1, 1.87477e-10, -2.98023e-08, -1.29975e-07, 1, -1.6518, 0.726872, 1.04003)
+transform = Transform3D(1, -1.51996e-06, -8.9407e-08, -4.04555e-07, 1, 1.87477e-10, -2.98023e-08, -1.58574e-07, 1, -1.65181, 0.726873, 0.153671)
 shape = SubResource("BoxShape3D_8kx4n")
+debug_color = Color(0, 0.650488, 0.0892803, 0.42)
 
 [node name="Clouds" type="MeshInstance3D" parent="."]
 transform = Transform3D(8192, 0, 0, 0, 128, 0, 0, 0, 8192, 0, 128, 0)
