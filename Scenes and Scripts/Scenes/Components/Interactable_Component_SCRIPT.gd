@@ -53,6 +53,8 @@ signal Action2_Triggered
 signal Action3_Triggered
 signal Action4_Triggered
 
+var interacting : bool = false
+
 @export var Contents_Node : Node3D
 @export var UI_1 : Control
 @export var UI_2 : Control
@@ -75,48 +77,60 @@ signal Action4_Triggered
 @export var UseAction4 : bool = false
 @export var ActionToPress_4 : InputEventAction
 
-func toggle_interacting(interacting : bool):
-	Contents_Node.visible = interacting
+func toggle_interacting(interacting_val : bool):
+	Contents_Node.visible = interacting_val
+	interacting = interacting_val
 
 func _unhandled_input(event: InputEvent) -> void:
-	if UseAction1 and Input.is_action_just_pressed(ActionToPress_1.action):
-		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-		tween.tween_property(UI_1, "scale", Vector2(4.5, 4.5), 0.2)
-	
-	if UseAction1 and Input.is_action_just_released(ActionToPress_1.action):
-		Action1_Triggered.emit()
-		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-		tween.tween_property(UI_1, "scale", Vector2(5.0, 5.0), 0.2)
+	if interacting:
 		
+		if UseAction1 and Input.is_action_just_pressed(ActionToPress_1.action):
+			var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+			tween.tween_property(UI_1, "scale", Vector2(4.5, 4.5), 0.2)
 		
-		
-	if UseAction2 and Input.is_action_just_pressed(ActionToPress_2.action):
-		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-		tween.tween_property(UI_2, "scale", Vector2(4.5, 4.5), 0.2)
-		
-	if UseAction2 and Input.is_action_just_released(ActionToPress_2.action):
-		Action2_Triggered.emit()
-		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-		tween.tween_property(UI_2, "scale", Vector2(5.0, 5.0), 0.2)
-		
-		
-		
-	if UseAction3 and Input.is_action_just_pressed(ActionToPress_3.action):
-		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-		tween.tween_property(UI_3, "scale", Vector2(4.5, 4.5), 0.2)
-		
-	if UseAction3 and Input.is_action_just_released(ActionToPress_3.action):
-		Action3_Triggered.emit()
-		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-		tween.tween_property(UI_3, "scale", Vector2(5.0, 5.0), 0.2)
-		
-		
-		
-	if UseAction4 and Input.is_action_just_pressed(ActionToPress_4.action):
-		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-		tween.tween_property(UI_4, "scale", Vector2(4.5, 4.5), 0.2)
-		
-	if UseAction4 and Input.is_action_just_released(ActionToPress_4.action):
-		Action4_Triggered.emit()
-		var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-		tween.tween_property(UI_4, "scale", Vector2(5.0, 5.0), 0.2)
+		if UseAction1 and Input.is_action_just_released(ActionToPress_1.action):
+			Action1_Triggered.emit()
+			var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+			tween.tween_property(UI_1, "scale", Vector2(5.0, 5.0), 0.2)
+			
+			
+			
+		if UseAction2 and Input.is_action_just_pressed(ActionToPress_2.action):
+			var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+			tween.tween_property(UI_2, "scale", Vector2(4.5, 4.5), 0.2)
+			
+		if UseAction2 and Input.is_action_just_released(ActionToPress_2.action):
+			Action2_Triggered.emit()
+			var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+			tween.tween_property(UI_2, "scale", Vector2(5.0, 5.0), 0.2)
+			
+			
+			
+		if UseAction3 and Input.is_action_just_pressed(ActionToPress_3.action):
+			var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+			tween.tween_property(UI_3, "scale", Vector2(4.5, 4.5), 0.2)
+			
+		if UseAction3 and Input.is_action_just_released(ActionToPress_3.action):
+			Action3_Triggered.emit()
+			var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+			tween.tween_property(UI_3, "scale", Vector2(5.0, 5.0), 0.2)
+			
+			
+			
+		if UseAction4 and Input.is_action_just_pressed(ActionToPress_4.action):
+			var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+			tween.tween_property(UI_4, "scale", Vector2(4.5, 4.5), 0.2)
+			
+		if UseAction4 and Input.is_action_just_released(ActionToPress_4.action):
+			Action4_Triggered.emit()
+			var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+			tween.tween_property(UI_4, "scale", Vector2(5.0, 5.0), 0.2)
+
+
+func _on_player_visible_detector_body_entered(body: Node3D) -> void:
+	if body.is_in_group("PlayerBody"):
+		toggle_interacting(true)
+
+func _on_player_visible_detector_body_exited(body: Node3D) -> void:
+	if body.is_in_group("PlayerBody"):
+		toggle_interacting(false)
