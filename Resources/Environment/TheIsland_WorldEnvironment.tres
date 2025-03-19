@@ -14,7 +14,6 @@ ssao_detail = 2.21
 ssao_horizon = 0.59
 glow_enabled = true
 fog_enabled = true
-fog_density = 0.0278
 fog_aerial_perspective = 0.056
 fog_depth_curve = 0.659753
 volumetric_fog_density = 0.0562
