@@ -100,8 +100,8 @@ action = &"Flip_Blue_Lever"
 [sub_resource type="ViewportTexture" id="ViewportTexture_44ck5"]
 viewport_path = NodePath("Yacht Rig/Yacht/Interactable Component/Contents/UI/SubViewport")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_fvca7"]
-size = Vector3(7, 5, 7)
+[sub_resource type="BoxShape3D" id="BoxShape3D_8kx4n"]
+size = Vector3(0.499466, 2.46471, 0.844238)
 
 [sub_resource type="Gradient" id="Gradient_to1x2"]
 offsets = PackedFloat32Array(0.238411, 1)
@@ -385,9 +385,10 @@ UseAction3 = true
 ActionToPress_3 = SubResource("InputEventAction_ec70e")
 
 [node name="Contents" type="Node3D" parent="Yacht Rig/Yacht/Interactable Component"]
+transform = Transform3D(1, 6.29846e-10, 0, 5.70658e-10, 1, -2.78199e-10, 0, -5.60973e-11, 1, -0.0270195, 0, -0.100836)
 
 [node name="UI" type="Sprite3D" parent="Yacht Rig/Yacht/Interactable Component/Contents"]
-transform = Transform3D(0.08, -2.90379e-10, -5.58794e-09, 4.27494e-10, 0.08, -2.57483e-11, 5.58794e-09, -3.97753e-11, 0.08, -0.261559, 1.99268, 0.913365)
+transform = Transform3D(0.065, -3.47339e-10, -4.5402e-09, 3.47339e-10, 0.065, 3.23174e-11, 4.5402e-09, -3.23174e-11, 0.065, -0.261559, 1.99268, 0.913365)
 billboard = 1
 no_depth_test = true
 texture = SubResource("ViewportTexture_44ck5")
@@ -515,7 +516,8 @@ grow_vertical = 2
 [node name="PlayerVisibleDetector" type="Area3D" parent="Yacht Rig/Yacht/Interactable Component/Contents"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Yacht Rig/Yacht/Interactable Component/Contents/PlayerVisibleDetector"]
-shape = SubResource("BoxShape3D_fvca7")
+transform = Transform3D(1, -1.33467e-06, -8.9407e-08, -4.04555e-07, 1, 1.87477e-10, -2.98023e-08, -1.29975e-07, 1, -1.6518, 0.726872, 1.04003)
+shape = SubResource("BoxShape3D_8kx4n")
 
 [node name="Clouds" type="MeshInstance3D" parent="."]
 transform = Transform3D(8192, 0, 0, 0, 128, 0, 0, 0, 8192, 0, 128, 0)
