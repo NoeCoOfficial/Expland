@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=3 uid="uid://c5jkrckgqd0w6"]
+[gd_scene load_steps=105 format=3 uid="uid://c5jkrckgqd0w6"]
 
 [ext_resource type="Script" uid="uid://cucb4fwieubx" path="res://Scenes and Scripts/Scenes/The Island/TheIsland_SCRIPT.gd" id="1_a8sfg"]
 [ext_resource type="Environment" uid="uid://dgtwdwq2n0x1v" path="res://Resources/Environment/TheIsland_WorldEnvironment.tres" id="2_h46kk"]
@@ -20,7 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://dqalod7m5is51" path="res://Scenes and Scripts/Scenes/The Eryv (and related)/The Eryv Statue.tscn" id="34_5odcp"]
 [ext_resource type="Texture2D" uid="uid://d2p266eplnyto" path="res://Textures/Explorer Notes/2_Lucent.png" id="34_agr60"]
 [ext_resource type="PackedScene" uid="uid://cnumc5i62ndco" path="res://Scenes and Scripts/Scenes/Tests/RayCastingTest.tscn" id="37_btdyg"]
-[ext_resource type="PackedScene" uid="uid://bepuygs15gsbg" path="res://Tests/Cave.tscn" id="39_32fgl"]
 [ext_resource type="Texture2D" uid="uid://dvbcyu3wr00f8" path="res://Textures/Dev Textures/Orange/texture_04.png" id="42_eoiek"]
 [ext_resource type="Texture2D" uid="uid://cqkp640cq8j51" path="res://Textures/Dev Textures/Red/texture_12.png" id="43_a63ti"]
 [ext_resource type="Script" uid="uid://br1n0tat1x83f" path="res://Scenes and Scripts/Scenes/The Island/EmailNoeCo_SCRIPT.gd" id="43_layrd"]
@@ -658,6 +657,8 @@ script = ExtResource("16_r68ax")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -385.431, 9.2025, 299.866)
 shape = SubResource("BoxShape3D_747t0")
 
+[node name="Island" parent="." instance=ExtResource("11_kq5pm")]
+
 [node name="RayCastingTest" parent="." instance=ExtResource("37_btdyg")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -388.434, 2.96464, 279.914)
 
@@ -950,11 +951,6 @@ DecalSize = Vector3(5.05, 2, 2.77)
 DecalLowerFade = 8.385
 NailRotation_Degrees = Vector3(-2.34, -23.005, 2.495)
 
-[node name="cave" parent="." instance=ExtResource("39_32fgl")]
-transform = Transform3D(-0.536077, 0, 0.844169, 0, 1, 0, -0.844169, 0, -0.536077, 234.731, -0.998989, -498.508)
-
-[node name="Island" parent="." instance=ExtResource("11_kq5pm")]
-
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="timeout" from="Tick" to="." method="_on_tick"]
 [connection signal="timeout" from="Weather Timer" to="." method="_on_weather_timer_timeout"]
@@ -962,4 +958,3 @@ transform = Transform3D(-0.536077, 0, 0.844169, 0, 1, 0, -0.844169, 0, -0.536077
 [connection signal="body_exited" from="Terrain Areas/STONE" to="island_Terrain_Switcher" method="_on_stone_body_exited"]
 
 [editable path="TheEryvStatue"]
-[editable path="Island"]
