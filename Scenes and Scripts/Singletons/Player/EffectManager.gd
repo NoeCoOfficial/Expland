@@ -57,4 +57,8 @@ var EFFECT_INFO = {
 	"STAMINAPOTION" : {
 		"EFFECT_TIME" : 120.0
 	},
+	"HEALTHPOTION" : {
+		"EFFECT_TIME" : 0.0
+	},
+	
 }

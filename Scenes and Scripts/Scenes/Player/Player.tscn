@@ -1983,6 +1983,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 transform = Transform3D(-0.651061, 0, -5.69176e-08, 0, 0.651061, 0, 5.69176e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Head/Player_Character_Shadow/Armature_003" index="0"]
+
 bones/0/position = Vector3(2.94519, -2.96971, -196.217)
 bones/0/rotation = Quaternion(-0.685136, -0.270607, 0.248363, 0.629028)
 bones/1/rotation = Quaternion(0.0780914, 0.0407438, -0.00811323, 0.99608)
@@ -2015,6 +2016,7 @@ cast_shadow = 3
 transform = Transform3D(-0.651061, 0, 5.69175e-08, 0, 0.651061, 0, -5.69175e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Head/Player_Character/Armature_003" index="0"]
+
 bones/0/position = Vector3(2.94519, -2.96971, -196.217)
 bones/0/rotation = Quaternion(-0.685136, -0.270607, 0.248363, 0.629028)
 bones/1/rotation = Quaternion(0.0780914, 0.0407438, -0.00811323, 0.99608)
@@ -2036,6 +2038,7 @@ bones/20/rotation = Quaternion(-0.125211, 0.0249237, 0.982818, 0.133304)
 bones/21/rotation = Quaternion(-0.342089, 0.0724013, -0.0258709, 0.936517)
 bones/22/rotation = Quaternion(0.673356, 0.0552697, 0.106472, 0.729521)
 bones/23/rotation = Quaternion(0.278029, 0.0567629, -0.017009, 0.958743)
+
 
 [node name="Model_004" parent="Head/Player_Character/Armature_003/Skeleton3D" index="0"]
 cast_shadow = 0
