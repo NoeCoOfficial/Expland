@@ -437,7 +437,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 	if Input.is_action_just_pressed("Workbench_QuickCraft") and InventoryManager.is_in_workbench_interface:
 		SignalBus.pressed_craft.emit()
 	
-	if !PauseManager.is_paused and !InventoryManager.inventory_open and !PauseManager.inside_item_workshop and !DialogueManager.is_in_interface and !PauseManager.inside_explorer_note_ui and PlayerData.GAME_STATE != "DEAD" and PlayerData.GAME_STATE != "SLEEPING":
+	if !PauseManager.is_paused and !InventoryManager.inventory_open and !PauseManager.inside_item_workshop and !DialogueManager.is_in_interface and !PauseManager.inside_explorer_note_ui and PlayerData.GAME_STATE != "DEAD" and PlayerData.GAME_STATE != "SLEEPING" and !StoryModeManager.is_in_story_mode_first_cutscene_world:
 		if Input.is_action_just_pressed("Hotbar_1"):
 			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot1":
 				setHotbarSelectedSlot(1)
