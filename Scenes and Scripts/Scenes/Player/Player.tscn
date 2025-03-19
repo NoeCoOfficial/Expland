@@ -1952,6 +1952,10 @@ wait_time = 75.0
 autostart = true
 script = ExtResource("2_t6toi")
 
+[node name="PotionHealthRegen" type="Timer" parent="."]
+autostart = true
+script = ExtResource("2_t6toi")
+
 [node name="HealthDepletingFromHunger" type="Timer" parent="."]
 wait_time = 10.0
 autostart = true
@@ -1979,30 +1983,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 transform = Transform3D(-0.651061, 0, -5.69176e-08, 0, 0.651061, 0, 5.69176e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Head/Player_Character_Shadow/Armature_003" index="0"]
-bones/0/position = Vector3(2.85468, -2.47342, -196.33)
-bones/0/rotation = Quaternion(-0.684685, -0.270612, 0.248511, 0.629459)
-bones/1/rotation = Quaternion(0.0784247, 0.0408438, -0.00819691, 0.996049)
-bones/2/rotation = Quaternion(0.0938006, 0.0792231, -0.021786, 0.992195)
-bones/3/rotation = Quaternion(0.0936454, 0.079259, -0.0217855, 0.992207)
-bones/4/rotation = Quaternion(-0.049016, -0.0105535, 0.00198697, 0.99874)
-bones/5/rotation = Quaternion(-0.0720688, 0.17744, -0.000907588, 0.981489)
-bones/7/rotation = Quaternion(0.57803, 0.422835, -0.566586, 0.40752)
-bones/8/rotation = Quaternion(0.433788, -0.0981852, 0.0882938, 0.891287)
+bones/0/position = Vector3(2.94519, -2.96971, -196.217)
+bones/0/rotation = Quaternion(-0.685136, -0.270607, 0.248363, 0.629028)
+bones/1/rotation = Quaternion(0.0780914, 0.0407438, -0.00811323, 0.99608)
+bones/2/rotation = Quaternion(0.0939, 0.0791687, -0.0216239, 0.992193)
+bones/3/rotation = Quaternion(0.0940253, 0.0791169, -0.0216611, 0.992185)
+bones/4/rotation = Quaternion(-0.0449332, -0.0106773, 0.00171772, 0.998931)
+bones/5/rotation = Quaternion(-0.0432449, 0.176552, -0.00470092, 0.98333)
+bones/7/rotation = Quaternion(0.575454, 0.425806, -0.56635, 0.4084)
+bones/8/rotation = Quaternion(0.433662, -0.0989085, 0.0887129, 0.891226)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0337452, 0.0653728, 0.417757, 0.905575)
-bones/11/rotation = Quaternion(0.624021, -0.386015, 0.525455, 0.430682)
-bones/12/rotation = Quaternion(0.431197, 0.0931235, 0.146001, 0.885484)
-bones/13/rotation = Quaternion(0.0379247, -0.000811283, -0.368973, 0.928666)
-bones/15/rotation = Quaternion(0.0805389, 0.231232, 0.963991, -0.103764)
+bones/9/rotation = Quaternion(-0.034253, 0.0648456, 0.416748, 0.906059)
+bones/11/rotation = Quaternion(0.621006, -0.389564, 0.525267, 0.432072)
+bones/12/rotation = Quaternion(0.429045, 0.0949613, 0.146081, 0.88632)
+bones/13/rotation = Quaternion(0.0374285, 0.00137414, -0.368384, 0.928919)
+bones/15/rotation = Quaternion(0.0799369, 0.231852, 0.963889, -0.103789)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.359975, 0.119442, -0.0366892, 0.924557)
-bones/17/rotation = Quaternion(0.565919, -0.00128175, -0.0239194, 0.824113)
-bones/18/rotation = Quaternion(0.289416, -0.0365765, -0.00965646, 0.956456)
-bones/20/rotation = Quaternion(-0.12553, 0.0223407, 0.982781, 0.133732)
-bones/21/rotation = Quaternion(-0.338276, 0.0722417, -0.0253241, 0.937928)
-bones/22/rotation = Quaternion(0.672427, 0.0554826, 0.106934, 0.730294)
+bones/16/rotation = Quaternion(-0.359812, 0.119332, -0.0360741, 0.924659)
+bones/17/rotation = Quaternion(0.565686, -0.00129414, -0.0239383, 0.824272)
+bones/18/rotation = Quaternion(0.289218, -0.0362096, -0.00949002, 0.956531)
+bones/20/rotation = Quaternion(-0.125211, 0.0249237, 0.982818, 0.133304)
+bones/21/rotation = Quaternion(-0.342089, 0.0724013, -0.0258709, 0.936517)
+bones/22/rotation = Quaternion(0.673356, 0.0552697, 0.106472, 0.729521)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.278182, 0.0569822, -0.0171123, 0.958684)
+bones/23/rotation = Quaternion(0.278029, 0.0567629, -0.017009, 0.958743)
 
 [node name="Model_004" parent="Head/Player_Character_Shadow/Armature_003/Skeleton3D" index="0"]
 cast_shadow = 3
@@ -2011,30 +2015,27 @@ cast_shadow = 3
 transform = Transform3D(-0.651061, 0, 5.69175e-08, 0, 0.651061, 0, -5.69175e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Head/Player_Character/Armature_003" index="0"]
-bones/0/position = Vector3(2.85468, -2.47342, -196.33)
-bones/0/rotation = Quaternion(-0.684685, -0.270612, 0.248511, 0.629459)
-bones/1/rotation = Quaternion(0.0784247, 0.0408438, -0.00819691, 0.996049)
-bones/2/rotation = Quaternion(0.0938006, 0.0792231, -0.021786, 0.992195)
-bones/3/rotation = Quaternion(0.0936454, 0.079259, -0.0217855, 0.992207)
-bones/4/rotation = Quaternion(-0.049016, -0.0105535, 0.00198697, 0.99874)
-bones/5/rotation = Quaternion(-0.0720688, 0.17744, -0.000907588, 0.981489)
-bones/7/rotation = Quaternion(0.57803, 0.422835, -0.566586, 0.40752)
-bones/8/rotation = Quaternion(0.433788, -0.0981852, 0.0882938, 0.891287)
-bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0337452, 0.0653728, 0.417757, 0.905575)
-bones/11/rotation = Quaternion(0.624021, -0.386015, 0.525455, 0.430682)
-bones/12/rotation = Quaternion(0.431197, 0.0931235, 0.146001, 0.885484)
-bones/13/rotation = Quaternion(0.0379247, -0.000811283, -0.368973, 0.928666)
-bones/15/rotation = Quaternion(0.0805389, 0.231232, 0.963991, -0.103764)
-bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.359975, 0.119442, -0.0366892, 0.924557)
-bones/17/rotation = Quaternion(0.565919, -0.00128175, -0.0239194, 0.824113)
-bones/18/rotation = Quaternion(0.289416, -0.0365765, -0.00965646, 0.956456)
-bones/20/rotation = Quaternion(-0.12553, 0.0223407, 0.982781, 0.133732)
-bones/21/rotation = Quaternion(-0.338276, 0.0722417, -0.0253241, 0.937928)
-bones/22/rotation = Quaternion(0.672427, 0.0554826, 0.106934, 0.730294)
-bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.278182, 0.0569822, -0.0171123, 0.958684)
+bones/0/position = Vector3(2.94519, -2.96971, -196.217)
+bones/0/rotation = Quaternion(-0.685136, -0.270607, 0.248363, 0.629028)
+bones/1/rotation = Quaternion(0.0780914, 0.0407438, -0.00811323, 0.99608)
+bones/2/rotation = Quaternion(0.0939, 0.0791687, -0.0216239, 0.992193)
+bones/3/rotation = Quaternion(0.0940253, 0.0791169, -0.0216611, 0.992185)
+bones/4/rotation = Quaternion(-0.0449332, -0.0106773, 0.00171772, 0.998931)
+bones/5/rotation = Quaternion(-0.0432449, 0.176552, -0.00470092, 0.98333)
+bones/7/rotation = Quaternion(0.575454, 0.425806, -0.56635, 0.4084)
+bones/8/rotation = Quaternion(0.433662, -0.0989085, 0.0887129, 0.891226)
+bones/9/rotation = Quaternion(-0.034253, 0.0648456, 0.416748, 0.906059)
+bones/11/rotation = Quaternion(0.621006, -0.389564, 0.525267, 0.432072)
+bones/12/rotation = Quaternion(0.429045, 0.0949613, 0.146081, 0.88632)
+bones/13/rotation = Quaternion(0.0374285, 0.00137414, -0.368384, 0.928919)
+bones/15/rotation = Quaternion(0.0799369, 0.231852, 0.963889, -0.103789)
+bones/16/rotation = Quaternion(-0.359812, 0.119332, -0.0360741, 0.924659)
+bones/17/rotation = Quaternion(0.565686, -0.00129414, -0.0239383, 0.824272)
+bones/18/rotation = Quaternion(0.289218, -0.0362096, -0.00949002, 0.956531)
+bones/20/rotation = Quaternion(-0.125211, 0.0249237, 0.982818, 0.133304)
+bones/21/rotation = Quaternion(-0.342089, 0.0724013, -0.0258709, 0.936517)
+bones/22/rotation = Quaternion(0.673356, 0.0552697, 0.106472, 0.729521)
+bones/23/rotation = Quaternion(0.278029, 0.0567629, -0.017009, 0.958743)
 
 [node name="Model_004" parent="Head/Player_Character/Armature_003/Skeleton3D" index="0"]
 cast_shadow = 0
@@ -5527,6 +5528,7 @@ metadata/_edit_use_anchors_ = true
 [connection signal="timeout" from="AutoSaveTimer" to="." method="_on_auto_save_timer_timeout"]
 [connection signal="timeout" from="HungerDepletion" to="." method="_on_hunger_depletion_timeout"]
 [connection signal="timeout" from="HealthRegen" to="." method="_on_health_regen_timeout"]
+[connection signal="timeout" from="PotionHealthRegen" to="." method="_on_potion_health_regen_timeout"]
 [connection signal="timeout" from="HealthDepletingFromHunger" to="." method="_on_health_depleting_from_hunger_timeout"]
 [connection signal="area_entered" from="PickupObjectDetector" to="." method="_on_pickup_object_detector_area_entered"]
 [connection signal="body_entered" from="PickupObjectDetector" to="." method="_on_pickup_object_detector_body_entered"]
