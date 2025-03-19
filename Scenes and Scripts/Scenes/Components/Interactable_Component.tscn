@@ -22,6 +22,7 @@ UI_4 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_4")
 [node name="UI" type="Sprite3D" parent="Contents"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 billboard = 1
+no_depth_test = true
 texture = SubResource("ViewportTexture_rdv6y")
 
 [node name="SubViewport" type="SubViewport" parent="Contents/UI"]
