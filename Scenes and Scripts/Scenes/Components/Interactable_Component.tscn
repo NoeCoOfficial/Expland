@@ -1,12 +1,45 @@
-[gd_scene load_steps=2 format=3 uid="uid://glib2xuska3j"]
+[gd_scene load_steps=4 format=3 uid="uid://glib2xuska3j"]
+
+[ext_resource type="PackedScene" uid="uid://lf4vntqbl3c6" path="res://Scenes and Scripts/Scenes/General/UI/KeyUI.tscn" id="1_5a3y2"]
+[ext_resource type="Script" uid="uid://bi02uk7qwshyf" path="res://Scenes and Scripts/Scenes/Components/Interactable_Component_SCRIPT.gd" id="1_fvca7"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_rdv6y"]
+viewport_path = NodePath("UI/SubViewport")
 
 [node name="Interactable Component" type="Node"]
+script = ExtResource("1_fvca7")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
+[node name="UI" type="Sprite3D" parent="."]
+billboard = 1
 texture = SubResource("ViewportTexture_rdv6y")
 
-[node name="SubViewport" type="SubViewport" parent="Sprite3D"]
+[node name="SubViewport" type="SubViewport" parent="UI"]
 transparent_bg = true
+gui_disable_input = true
 size = Vector2i(1920, 1080)
+
+[node name="KeyUI" parent="UI/SubViewport" instance=ExtResource("1_5a3y2")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[node name="Contents" parent="UI/SubViewport/KeyUI" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -30.0
+offset_right = 27.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="KEY" parent="UI/SubViewport/KeyUI/Contents" index="4"]
+text = "E"
+
+[editable path="UI/SubViewport/KeyUI"]
