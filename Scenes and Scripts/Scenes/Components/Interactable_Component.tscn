@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cmt00ehn4hfne" path="res://Scenes and Scripts/Scenes/General/UI/MessageWithKeyUI.tscn" id="2_fvca7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fvca7"]
-size = Vector3(7, 7, 7)
+size = Vector3(7, 5, 7)
 
 [node name="Interactable Component" type="Node3D" node_paths=PackedStringArray("Contents_Node", "SubViewport_Node", "UI_Sprite_Node", "UI_1", "UI_2", "UI_3", "UI_4")]
 script = ExtResource("1_fvca7")

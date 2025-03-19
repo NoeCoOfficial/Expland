@@ -83,6 +83,10 @@ var interacting : bool = false
 @export var UseAction4 : bool = false
 @export var ActionToPress_4 : InputEventAction
 
+func _ready() -> void:
+	if !Engine.is_editor_hint():
+		toggle_interacting(false)
+
 func toggle_interacting(interacting_val : bool):
 	Contents_Node.visible = interacting_val
 	interacting = interacting_val
