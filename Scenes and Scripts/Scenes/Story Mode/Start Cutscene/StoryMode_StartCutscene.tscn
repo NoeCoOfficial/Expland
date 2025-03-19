@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://nlp0xy1m65tp"]
+[gd_scene load_steps=41 format=3 uid="uid://nlp0xy1m65tp"]
 
 [ext_resource type="Script" uid="uid://uvb2g81nntt2" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/StoryMode_StartCutscene_SCRIPT.gd" id="1_4d7y3"]
 [ext_resource type="Shader" uid="uid://b2gi30s113t00" path="res://Scenes and Scripts/Scenes/The Island/TheIslandSeaWater.gdshader" id="2_cfn0j"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ck0guuhifgbmr" path="res://Assets/3D Models/Cutscenes/Story Mode/Start Cutscene/Models/Yacht.blend" id="4_os8dc"]
 [ext_resource type="Shader" uid="uid://brub6nkftipc1" path="res://Resources/Shaders/Clouds.gdshader" id="5_encjm"]
 [ext_resource type="Script" uid="uid://dn1b1gnwe5iap" path="res://Textures/Icons/Script Icons/Scripts/LightbulbIcon_SCRIPT.gd" id="6_to1x2"]
+[ext_resource type="PackedScene" uid="uid://csmjtye22aycc" path="res://Assets/3D Models/Cutscenes/Story Mode/Start Cutscene/Models/GreenLever.blend" id="8_f3l76"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_oopga"]
 
@@ -346,6 +347,9 @@ debug_color = Color(1, 0.21, 0.223166, 1)
 transform = Transform3D(0.866494, 0.00354661, 0.499176, -2.64064e-06, 0.999972, -0.00709808, -0.49919, 0.00614865, 0.866472, -5.74448, 2.76414, -0.912895)
 shape = SubResource("BoxShape3D_l057t")
 debug_color = Color(1, 0.21, 0.223166, 1)
+
+[node name="GreenLever" parent="Yacht Rig/Yacht" instance=ExtResource("8_f3l76")]
+transform = Transform3D(0.228799, -0.0234736, -0.000201929, 0.0234711, 0.228724, 0.00588186, -0.000399478, -0.00587176, 0.229925, -0.749877, 1.32407, 0.732144)
 
 [node name="Clouds" type="MeshInstance3D" parent="."]
 transform = Transform3D(8192, 0, 0, 0, 128, 0, 0, 0, 8192, 0, 128, 0)
