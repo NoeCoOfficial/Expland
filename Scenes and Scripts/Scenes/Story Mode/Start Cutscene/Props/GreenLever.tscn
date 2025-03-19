@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://crw6j1eee7306"]
+[gd_scene load_steps=11 format=3 uid="uid://crw6j1eee7306"]
 
 [ext_resource type="PackedScene" uid="uid://c30vwtsrxy0dt" path="res://Assets/3D Models/Cutscenes/Story Mode/Start Cutscene/Models/GreenLever.blend" id="1_13fse"]
 [ext_resource type="Script" uid="uid://dygxt7s3041kp" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/Props/GreenLever_SCRIPT.gd" id="2_4751a"]
@@ -95,8 +95,14 @@ _data = {
 &"on": SubResource("Animation_13fse")
 }
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_farmw"]
-viewport_path = NodePath("Contents/UI/SubViewport")
+[sub_resource type="InputEventAction" id="InputEventAction_farmw"]
+action = &"Interact"
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_f4ejf"]
+viewport_path = NodePath("Interactable Component/Contents/UI/SubViewport")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_farmw"]
+size = Vector3(3, 3, 3)
 
 [node name="GreenLever" instance=ExtResource("1_13fse")]
 script = ExtResource("2_4751a")
@@ -113,9 +119,27 @@ libraries = {
 }
 
 [node name="Interactable Component" parent="." index="4" instance=ExtResource("3_farmw")]
+UseAction2 = true
+ActionToPress_2 = SubResource("InputEventAction_farmw")
 
 [node name="UI" parent="Interactable Component/Contents" index="0"]
-texture = SubResource("ViewportTexture_farmw")
+transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 0, 0.253, 0.262)
+texture = SubResource("ViewportTexture_f4ejf")
+
+[node name="MessageWithKeyUI_1" parent="Interactable Component/Contents/UI/SubViewport" index="0"]
+visible = false
+
+[node name="Message" parent="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_2/Contents" index="7"]
+text = "Flip Switch"
+
+[node name="MessageWithKeyUI_3" parent="Interactable Component/Contents/UI/SubViewport" index="2"]
+visible = false
+
+[node name="MessageWithKeyUI_4" parent="Interactable Component/Contents/UI/SubViewport" index="3"]
+visible = false
+
+[node name="CollisionShape3D" parent="Interactable Component/Contents/PlayerVisibleDetector" index="0"]
+shape = SubResource("BoxShape3D_farmw")
 
 [editable path="Interactable Component"]
 [editable path="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1"]
