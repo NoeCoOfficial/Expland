@@ -1428,27 +1428,7 @@ func init_effect(E_name : String):
 		DEPLETE_STAMINA = false
 	
 	if E_name == "HEALTHPOTION":
-		PlayerData.Health += 6
-		update_bar("HEALTH", true, PlayerData.Health)
-		
-		await get_tree().create_timer(1).timeout
-		
-		PlayerData.Health += 6
-		update_bar("HEALTH", true, PlayerData.Health)
-		
-		await get_tree().create_timer(1).timeout
-		
-		PlayerData.Health += 6
-		update_bar("HEALTH", true, PlayerData.Health)
-		
-		await get_tree().create_timer(1).timeout
-		
-		PlayerData.Health += 6
-		update_bar("HEALTH", true, PlayerData.Health)
-		
-		await get_tree().create_timer(1).timeout
-		
-		PlayerData.Health += 6
+		PlayerData.Health += 30
 		update_bar("HEALTH", true, PlayerData.Health)
 
 func stop_effect(E_name : String):
