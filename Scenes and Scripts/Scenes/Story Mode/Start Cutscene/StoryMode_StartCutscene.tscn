@@ -94,7 +94,7 @@ action = &"Interact"
 viewport_path = NodePath("Contents/UI/SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8kx4n"]
-size = Vector3(5, 5, 5)
+size = Vector3(1.30939, 5.04773, 2.62524)
 
 [sub_resource type="Gradient" id="Gradient_to1x2"]
 offsets = PackedFloat32Array(0.238411, 1)
@@ -389,7 +389,7 @@ text = "Flip Blue"
 visible = false
 
 [node name="CollisionShape3D" parent="Yacht Rig/Yacht/Interactable Component/Contents/PlayerVisibleDetector" index="0"]
-transform = Transform3D(1, 2.93229e-08, 0, 9.28042e-08, 1.00001, -3.42841e-08, -5.96046e-08, -6.01084e-09, 1, 0, -1, 0)
+transform = Transform3D(1, 2.8242e-08, 0, 1.15726e-07, 1.00001, -3.42353e-08, -5.96046e-08, -4.93921e-09, 1, -1.62119, -0.47287, 0.569462)
 shape = SubResource("BoxShape3D_8kx4n")
 
 [node name="GreenLever" parent="Yacht Rig/Yacht" instance=ExtResource("8_f3l76")]
