@@ -56,8 +56,6 @@ var Current_Effect_Local : String = ""
 func _process(_delta: float) -> void:
 	Effect_Time_Label.text = Utils.convert_seconds(int(Effect_Timer.time_left))
 	
-	if Effect_Timer.wait_time >= 6039:
-		Effect_Timer.wait_time = 6039
 
 func init(E_time : float, E_name : String):
 	self.name = "Effect_" + E_name
@@ -71,7 +69,11 @@ func init(E_time : float, E_name : String):
 	PlayerManager.PLAYER.init_effect(E_name)
 
 func add_time(E_time : float):
-	Effect_Timer.start(Effect_Timer.time_left + E_time)
+	var time_to_set = Effect_Timer.time_left + E_time
+	if time_to_set > 6039: # Make sure it isnt past 99m 99sec
+		time_to_set = 6039
+	
+	Effect_Timer.start(time_to_set)
 
 func finished_effect() -> void:
 	EffectManager.Current_Effects.erase(Current_Effect_Local)
