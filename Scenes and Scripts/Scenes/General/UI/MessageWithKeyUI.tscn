@@ -41,7 +41,7 @@ corner_radius_bottom_left = 4
 corner_detail = 12
 anti_aliasing = false
 
-[node name="KeyUI" type="Control"]
+[node name="MessageWithKeyUI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
