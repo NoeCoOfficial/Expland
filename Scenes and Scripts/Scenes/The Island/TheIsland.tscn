@@ -647,8 +647,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -351.588, 0, 324.606)
 StartPOS = Vector3(-351.588, 0, 324.606)
 ResetPOS = Vector3(-351.588, 0, 324.606)
 
-[node name="Island" parent="." instance=ExtResource("11_kq5pm")]
-
 [node name="island_Terrain_Switcher" type="Node" parent="."]
 script = ExtResource("16_r68ax")
 
@@ -953,7 +951,9 @@ DecalLowerFade = 8.385
 NailRotation_Degrees = Vector3(-2.34, -23.005, 2.495)
 
 [node name="cave" parent="." instance=ExtResource("39_32fgl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 300.863, 70.5094, -397.937)
+transform = Transform3D(-0.536077, 0, 0.844169, 0, 1, 0, -0.844169, 0, -0.536077, 234.731, -0.998989, -498.508)
+
+[node name="Island" parent="." instance=ExtResource("11_kq5pm")]
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="timeout" from="Tick" to="." method="_on_tick"]
@@ -962,3 +962,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 300.863, 70.5094, -397.937)
 [connection signal="body_exited" from="Terrain Areas/STONE" to="island_Terrain_Switcher" method="_on_stone_body_exited"]
 
 [editable path="TheEryvStatue"]
+[editable path="Island"]
