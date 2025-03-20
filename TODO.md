@@ -14,7 +14,7 @@ um
 
 
 
-
+bruh i am getting my laptop keyboard fixed so no Expland for like max a week, so very sad
 
 
 
