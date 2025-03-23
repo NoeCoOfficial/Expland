@@ -55,6 +55,7 @@ extends Node2D
 @export var is_in_chest_slot = false
 @export var is_workshop_dropable = false
 @export var is_workshop_output_dropable = false
+@export var is_hotbar_dropable = false
 
 @export var mouse_over_timer : Timer
 @export var populated_on_startup_timer : Timer
