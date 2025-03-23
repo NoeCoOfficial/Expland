@@ -43,3 +43,5 @@ shape = SubResource("RectangleShape2D_q5yu5")
 
 [connection signal="area_entered" from="Draggable Detector" to="." method="_on_draggable_detector_area_entered"]
 [connection signal="area_exited" from="Draggable Detector" to="." method="_on_draggable_detector_area_exited"]
+[connection signal="mouse_entered" from="Draggable Detector" to="." method="_on_draggable_detector_mouse_entered"]
+[connection signal="mouse_exited" from="Draggable Detector" to="." method="_on_draggable_detector_mouse_exited"]

@@ -55,6 +55,7 @@ extends StaticBody2D
 
 @export var is_hotbar_slot = false
 @export var hotbar_hover_bg_node : Panel
+@export var is_hotbar_hovering_over = false
 
 @export var is_workbench_output_slot = false
 
@@ -131,3 +132,14 @@ func toggle_hotbar_hover_bg(value : bool):
 			hotbar_hover_bg_node.modulate = Color(1, 1, 1, 1)
 		else:
 			hotbar_hover_bg_node.modulate = Color(1, 1, 1, 0)
+
+
+func _on_draggable_detector_mouse_entered() -> void:
+	if is_hotbar_slot:
+		if InventoryManager.is_dragging:
+			toggle_hotbar_hover_bg(true)
+
+func _on_draggable_detector_mouse_exited() -> void:
+	if is_hotbar_slot:
+		if InventoryManager.is_dragging:
+			toggle_hotbar_hover_bg(false)
