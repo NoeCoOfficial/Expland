@@ -1042,6 +1042,7 @@ func showDeathScreen(): # A function to show the death screen
 
 func openInventory():
 	$Head/Camera3D/AudioNotificationLayer.layer = 15
+	$Head/Camera3D/HotbarLayer.layer = 2
 	$is_inside_boundary_false_inventory_debounce.start()
 	
 	if InventoryManager.in_chest_interface:
@@ -1095,6 +1096,7 @@ func openInventory():
 
 func closeInventory():
 	$Head/Camera3D/AudioNotificationLayer.layer = 1
+	$Head/Camera3D/HotbarLayer.layer = 1
 	InventoryLayer_GreyLayer.show()
 	
 	InventoryMainLayer.hide()

@@ -59,6 +59,7 @@ extends StaticBody2D
 
 @export var is_workbench_output_slot = false
 
+
 func _ready():
 	if is_workbench_output_slot:
 		print_rich("[color=purple]Output slot position: " + str(position) + "[/color]")
