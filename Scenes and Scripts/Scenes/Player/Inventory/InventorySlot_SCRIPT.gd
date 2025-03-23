@@ -52,6 +52,7 @@ extends StaticBody2D
 @export var populated = false
 @export var is_chest_slot = false
 @export var is_workbench_slot = false
+@export var is_hotbar_slot = false
 @export var is_workbench_output_slot = false
 
 func _ready():
