@@ -124,3 +124,10 @@ func _on_draggable_detector_area_entered(area: Area2D) -> void:
 func _on_draggable_detector_area_exited(area: Area2D) -> void:
 	if area.is_in_group("draggable"):
 		is_touching_draggable = false
+
+func toggle_hotbar_hover_bg(value : bool):
+	if hotbar_hover_bg_node:
+		if value:
+			hotbar_hover_bg_node.modulate = Color(1, 1, 1, 1)
+		else:
+			hotbar_hover_bg_node.modulate = Color(1, 1, 1, 0)
