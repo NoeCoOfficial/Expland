@@ -543,3 +543,8 @@ func get_is_workshop_output_dropable():
 
 func _on_tree_exited() -> void:
 	mouse_over_timer.disconnect("timeout", Callable(self, "_on_mouse_over_timeout"))
+
+
+func make_hotbar_dropable():
+	self.scale = Vector2(0.745, 0.745)
+	is_hotbar_dropable = true
