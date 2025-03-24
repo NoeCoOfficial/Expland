@@ -141,9 +141,7 @@ func _process(delta):
 			if mouse_over_timer.time_left == 0:
 				initialPos = global_position
 				InventoryManager.is_dragging = true
-				print(str(InventoryManager.currently_dragging_dropable_node))
 				InventoryManager.currently_dragging_dropable_node = $"."
-				print(str(InventoryManager.currently_dragging_dropable_node))
 				if is_in_chest_slot or is_workshop_dropable or is_workshop_output_dropable:
 					top_level = true
 				self.z_index = 10
@@ -231,9 +229,17 @@ func _process(delta):
 								if is_workshop_dropable:
 									CraftingManager.unbindCraftingItem(int(String(slot_inside.name)[-1]) - 1)
 								
+								
 								slot_inside = body_ref
 								
-								if body_ref.get_is_chest_slot(): # If the slot is a chest slot
+								
+								if body_ref.get_is_hotbar_slot():
+										print("skib")
+										InventoryManager.spawn_hotbar_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside)
+										top_level = false
+										queue_free()
+								
+								elif body_ref.get_is_chest_slot(): # If the slot is a chest slot
 									is_in_chest_slot = true
 									InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, true)
 									top_level = false
@@ -251,16 +257,15 @@ func _process(delta):
 									top_level = false
 									queue_free()
 								
-								elif body_ref.get_is_hotbar_slot():
-									if is_inside_hotbar_slot:
-										print("skib")
+								else: # If the slot is a pocket slot
+									
+									if is_hotbar_dropable:
+										is_hotbar_dropable = false
 										InventoryManager.spawn_hotbar_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside)
 										top_level = false
 										queue_free()
-								
-								else: # If the slot is a pocket slot
-									
-									if is_in_chest_slot: # If the draggable was in a chest slot
+										
+									elif is_in_chest_slot: # If the draggable was in a chest slot
 										is_in_chest_slot = false
 										InventoryManager.spawn_inventory_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside, false)
 										top_level = false
