@@ -48,7 +48,21 @@
 @icon("res://Textures/Icons/Script Icons/32x32/inventory.png")
 extends Node2D
 
+@export_group("Node References")
+
+@export var Droppable_Sprite2D : Sprite2D
+@export var Droppable_MouseDetector : Area2D
+@export var Droppable_ITEM_TYPE_Label : Label
+
+
 var ITEM_TYPE : String
+
+func _ready() -> void:
+	pass
+
+func initProperties(ITEM_TYPE : String):
+	pass
+	
 
 
 func _on_mouse_detector_mouse_shape_entered(shape_idx: int) -> void:
