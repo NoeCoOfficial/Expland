@@ -47,3 +47,12 @@
 
 @icon("res://Textures/Icons/Script Icons/32x32/inventory.png")
 extends Node2D
+
+var ITEM_TYPE : String
+
+
+func _on_mouse_detector_mouse_shape_entered(shape_idx: int) -> void:
+	pass # Replace with function body.
+
+func _on_mouse_detector_mouse_shape_exited(shape_idx: int) -> void:
+	pass # Replace with function body.

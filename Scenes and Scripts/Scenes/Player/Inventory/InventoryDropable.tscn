@@ -9,25 +9,16 @@ size = Vector2(40, 40)
 [node name="Dropable" type="Node2D"]
 script = ExtResource("1_opaah")
 
-[node name="PopulatedOnStartup" type="Timer" parent="."]
-wait_time = 0.05
-one_shot = true
-autostart = true
-
-[node name="MouseOverTimer" type="Timer" parent="."]
-wait_time = 0.05
-one_shot = true
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.13, 0.13)
 
-[node name="SlotDetector" type="Area2D" parent="." groups=["draggable"]]
+[node name="MouseDetector" type="Area2D" parent="." groups=["draggable"]]
 collision_priority = 3.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SlotDetector"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseDetector"]
 shape = SubResource("RectangleShape2D_mgv10")
 
-[node name="ITEM_TYPE" type="Label" parent="."]
+[node name="ITEM_TYPE_Label" type="Label" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -46,3 +37,5 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
+[connection signal="mouse_shape_entered" from="MouseDetector" to="." method="_on_mouse_detector_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="MouseDetector" to="." method="_on_mouse_detector_mouse_shape_exited"]
