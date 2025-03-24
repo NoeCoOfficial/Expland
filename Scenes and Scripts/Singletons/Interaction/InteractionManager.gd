@@ -77,7 +77,7 @@ func despawn_interaction_notification():
 			print("[InteractionManager] Despawned interaction notification")
 
 func _input(_event: InputEvent) -> void:
-	if !PlayerData.GAME_STATE == "SLEEPING" and !InventoryManager.in_chest_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !InventoryManager.is_in_workbench_interface and !InventoryManager.inventory_open and !PauseManager.is_paused:
+	if !PlayerData.GAME_STATE == "SLEEPING" and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !PauseManager.is_paused:
 		if Input.is_action_just_pressed("Interact") and is_hovering_over_test_obj:
 			pass
 		
