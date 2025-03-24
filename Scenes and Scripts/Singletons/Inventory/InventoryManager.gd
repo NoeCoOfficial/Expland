@@ -119,8 +119,10 @@ func openPockets():
 	PlayerManager.PLAYER.InventoryLayer_CanvasLayer.visible = true
 	PlayerManager.PLAYER.InventoryLayer_Pockets.visible = true
 	pockets_ui_open = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func closePockets():
 	PlayerManager.PLAYER.InventoryLayer_CanvasLayer.visible = false
 	PlayerManager.PLAYER.InventoryLayer_Pockets.visible = false
 	pockets_ui_open = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
