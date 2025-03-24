@@ -69,7 +69,6 @@ func resetAttributes():
 	# IT'S NAME AND IT'S DEFAULT VALUE MUST BE SET HERE!
 	# VERY IMPORTANT!
 	
-	PauseManager.inside_explorer_note_ui = false
 	PauseManager.inside_can_move_item_workshop = false
 	PauseManager.inside_absolute_item_workshop = false
 	PauseManager.inside_item_workshop = false

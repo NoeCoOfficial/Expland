@@ -384,14 +384,11 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			
 		else:
 			
-			if !DialogueManager.is_in_absolute_interface and !PauseManager.is_inside_alert and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !PauseManager.inside_absolute_item_workshop and !PauseManager.inside_explorer_note_ui and !StoryModeManager.is_in_story_mode_first_cutscene_world:
+			if !DialogueManager.is_in_absolute_interface and !PauseManager.is_inside_alert and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !PauseManager.inside_absolute_item_workshop and !StoryModeManager.is_in_story_mode_first_cutscene_world:
 				pauseGame()
 			
 			if PauseManager.inside_item_workshop:
 				closeItemWorkshop()
-			
-			if PauseManager.inside_explorer_note_ui:
-				ExplorerNotesManager.hideCloseUp()
 	
 	if Input.is_action_just_pressed("Quit") and Quit == true and OS.is_debug_build(): # if the Quit input is pressed and the Quit variable is true
 		if !StoryModeManager.is_in_story_mode_first_cutscene_world:
