@@ -388,6 +388,13 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			if PauseManager.inside_item_workshop:
 				closeItemWorkshop()
 	
+	if Input.is_action_just_pressed("Pockets"):
+		# UI checks
+		if !PauseManager.is_paused and !DialogueManager.is_in_interface and !PauseManager.inside_absolute_item_workshop and !StoryModeManager.is_in_story_mode_first_cutscene_world:
+			InventoryManager.openPockets()
+			
+			
+			
 	if Input.is_action_just_pressed("Quit") and Quit == true and OS.is_debug_build(): # if the Quit input is pressed and the Quit variable is true
 		if !StoryModeManager.is_in_story_mode_first_cutscene_world:
 			SaveManager.saveAllData()
@@ -645,7 +652,7 @@ func _process(_delta):
 func _ready():
 	PlayerManager.PLAYER = $"."
 	PlayerManager.CHEST_SLOTS = ChestSlots
-	PlayerManager.MINIMAL_ALERT_PLAYER = MinimalAlert	
+	PlayerManager.MINIMAL_ALERT_PLAYER = MinimalAlert
 	
 	initInventorySlots() # Link local inventory slots to singleton arrays
 	init_for_story_mode_cutscene()
