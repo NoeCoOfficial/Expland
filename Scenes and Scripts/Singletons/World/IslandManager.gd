@@ -98,16 +98,6 @@ func resetAttributes():
 	
 	ExplorerNotesManager.COLLECTED_NOTES.clear()
 	
-	InteractionManager.is_notification_on_screen = false
-	InteractionManager.is_colliding = false
-	InteractionManager.is_hovering_over_email_noeco = false
-	InteractionManager.is_hovering_over_feedback_github = false
-	InteractionManager.is_hovering_over_test_obj = false
-	InteractionManager.is_hovering_over_sackcloth_bed = false
-	InteractionManager.is_hovering_over_chest = false
-	InteractionManager.is_hovering_over_workbench = false
-	InteractionManager.is_hovering_over_explorer_note = false
-	
 	AchievementsManager.NotificationOnScreen = false
 	
 	TerrainManager.on_terrain = ""
