@@ -439,7 +439,7 @@ func _physics_process(delta):
 	PlayerManager.isIdle = !is_movement_input_active
 	HandItem.sway(delta, PlayerManager.isIdle)
 	
-	if PauseManager.is_paused or InventoryManager.inventory_open or DialogueManager.is_in_interface or PauseManager.inside_item_workshop or PauseManager.inside_explorer_note_ui:
+	if PauseManager.is_paused or DialogueManager.is_in_interface or PauseManager.inside_item_workshop:
 		is_sprinting = false
 	
 	if !is_moving_absolute:
@@ -490,7 +490,7 @@ func _physics_process(delta):
 				PlayerManager.Stamina = 100.0
 	
 	## Player movement and physics
-	if !InventoryManager.inventory_open and PlayerData.GAME_STATE not in ["DEAD", "SLEEPING"] and is_on_floor() and !InventoryManager.in_chest_interface and !PauseManager.is_paused and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !PauseManager.inside_can_move_item_workshop:
+	if PlayerData.GAME_STATE not in ["DEAD", "SLEEPING"] and is_on_floor() and !InventoryManager.in_chest_interface and !PauseManager.is_paused and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !PauseManager.inside_can_move_item_workshop:
 		if Input.is_action_pressed("Crouch"):
 			self.scale.y = lerp(self.scale.y, 0.5, CROUCH_INTERPOLATION * delta)
 		else:
@@ -686,7 +686,6 @@ func _ready():
 	PlayerManager.AudioNotification = $Head/Camera3D/AudioNotificationLayer/AudioNotification
 	PlayerManager.EXPLORER_NOTE_CONTENTS = $Head/Camera3D/ExplorerNoteLayer/Contents
 	PlayerManager.EXPLORER_NOTE_TEXTURE_RECT = $Head/Camera3D/ExplorerNoteLayer/Contents/ExplorerNoteSheet
-	ExplorerNotesManager.EXPLORER_NOTES_MAIN_LAYER = $Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer
 	
 	DialogueManager.MinimalDialogueInterface = $Head/Camera3D/MinimalDialogueLayer/MinimalDialogue
 	DialogueManager.DialogueInterface = DialogueInterface
@@ -716,7 +715,6 @@ func _ready():
 		PauseLayer.hide()
 		StartDebugging_Btn.hide()
 	
-	InventoryManager.is_inside_boundary = false
 
 func on_fade_in_tween_finished():
 	if !StoryModeManager.is_in_story_mode_first_cutscene_world:
@@ -730,9 +728,6 @@ func nodeSetup(): # A function to setup the nodes. Called in the _ready function
 	HUDLayer_HungerBar.value = PlayerData.Hunger
 	HUDLayer_HealthBar.value = PlayerData.Health
 	setAutosaveInterval(PlayerSettingsData.autosaveInterval)
-	
-	InventoryLayer.hide()
-	InventoryMainLayer.hide()
 	
 	GetUp_Label.self_modulate = Color(0, 0, 0, 0) # set the get up self modulate to black
 	RandomText_Label.self_modulate = Color(0, 0, 0, 0) # set the random text self modulate to black

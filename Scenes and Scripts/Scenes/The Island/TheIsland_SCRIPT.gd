@@ -77,7 +77,6 @@ func _ready() -> void:
 	
 	PlayerData.loadData(IslandManager.Current_Island_Name, true)
 	IslandData.loadData(IslandManager.Current_Island_Name, true)
-	InventoryData.loadInventory(IslandManager.Current_Island_Name)
 	
 	set_dof_blur(PlayerSettingsData.DOFBlur)
 	set_pretty_shadows(PlayerSettingsData.PrettyShadows)
@@ -92,11 +91,6 @@ func _ready() -> void:
 	init_weather_instant() # NOTE: Important line right here (initalize weather)
 	
 	Player.nodeSetup()
-	Player.setHotbarSelectedSlot(int(str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME)[-1]))
-	
-	InventoryManager.chestNode = $Chest
-	
-	SignalBus.populate_explorer_note_ui.emit()
 
 func _on_ready() -> void:
 	AudioManager.initNotificaton(PlayerManager.AudioNotification)
