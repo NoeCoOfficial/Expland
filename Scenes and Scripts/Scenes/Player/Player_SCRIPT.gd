@@ -341,7 +341,6 @@ var stamina_restoring_from_0 = false
 @export var Is_Sprinting_Label : Label
 @export var Is_Crouching_Label : Label
 @export var Is_In_Dialogue_Interface_Label : Label
-@export var Showing_Interaction_Notification_Label : Label
 @export var Current_Time_Label : Label
 @export var Current_FPS_Label : Label
 @export var Player_Position_Label : Label
@@ -608,14 +607,12 @@ func _process(_delta):
 		DebugLayer.hide()
 		StartDebugging_Btn.text = "START DEBUGGING"
 	
-	Is_Raycast_Colliding_Label.text = "RayCast colliding? " + str(InteractionManager.is_colliding)
 	Is_Inside_Settings_Label.text = "is_inside_settings = " + str(PauseManager.is_inside_settings)
 	Is_Moving_Label.text = "is_moving = " + str(is_moving)
 	Is_Walking_Label.text = "is_walking = " + str(is_walking)
 	Is_Sprinting_Label.text = "is_sprinting = " + str(is_sprinting)
 	Is_Crouching_Label.text = "is_crouching = " + str(is_crouching)
 	Is_In_Dialogue_Interface_Label.text = "In dialogue interface? " + str(DialogueManager.is_in_interface)
-	Showing_Interaction_Notification_Label.text = "Showing notification? " + str(InteractionManager.is_notification_on_screen)
 	Current_Time_Label.text = time_string
 	Current_FPS_Label.text = "FPS: %d" % Engine.get_frames_per_second()
 	Player_Position_Label.text = "Player position: " + str(self.position)
