@@ -218,7 +218,7 @@ func spawn_workbench_output_dropable(ITEM_TYPE):
 
 func spawn_hotbar_dropable(atPos : Vector2, ITEM_TYPE, slotToPopulate):
 	if get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer") != null:
-		var HotbarSlots = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots")
+		var HotbarSlots = get_node("/root/World/Player/Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots")
 		var DropableInstance = Dropable_Scene.instantiate()
 		DropableInstance.set_ITEM_TYPE(ITEM_TYPE)
 		
