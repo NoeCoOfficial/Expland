@@ -62,8 +62,6 @@ func get_free_slot(Slots : Array):
 			return free_slot
 
 
-
-
 const ITEM_TYPES = {
 	"AXE" : {
 		"NAME" : "AXE",
@@ -73,8 +71,6 @@ const ITEM_TYPES = {
 		"MAX_STACK" : 1,
 	},
 }
-
-
 
 
 const CONSUMABLE_ITEMS = [
