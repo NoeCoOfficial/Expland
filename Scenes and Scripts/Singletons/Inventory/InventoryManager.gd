@@ -111,3 +111,13 @@ const EFFECT_ITEMS = [
 	"STRENGTH POTION",
 	"HOLY GRAIL",
 ]
+
+var pockets_ui_open : bool = false
+
+func openPockets():
+	pass
+	# TODO: Logic
+
+func closePockets():
+	pass
+	# TODO: Logic

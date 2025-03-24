@@ -208,6 +208,12 @@ var stamina_restoring_from_0 = false
 @export var Slot16_Pocket_Ref : StaticBody2D
 
 @export_subgroup("Layers and UI")
+@export var InventoryLayer_CanvasLayer : CanvasLayer
+@export var InventoryLayer_Pockets : Control
+@export var InventoryLayer_Chest : Control
+@export var InventoryLayer_Workbench : Control
+
+
 @export var PocketsCollisionBoundary : Area2D
 @export var ChestCollisionBoundary : Area2D
 @export var WorkbenchCollisionBoundary : Area2D
