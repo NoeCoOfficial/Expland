@@ -57,10 +57,8 @@ extends Node2D
 
 @export_group("Properties")
 
-@export var ITEM_TYPE : String
-
-func _ready() -> void:
-	pass
+@export var ITEM_TYPE : String = ""
+@export var Mouse_Inside_Droppable : bool = false
 
 # Initialize the properties. Called when a new droppable is created.
 func initProperties(ip_ITEM_TYPE : String):
@@ -69,8 +67,23 @@ func initProperties(ip_ITEM_TYPE : String):
 	Droppable_ITEM_TYPE_Label.text = ip_ITEM_TYPE.capitalize()
 
 
+
+
+# Where the magic happens.
+func _process(delta: float) -> void:
+	
+	# First, we check if the player wants to start dragging a droppable.
+	# We do is_action_pressed because it checks for every frame the input is pressed down.
+	if Input.is_action_pressed("LeftClick"):
+		# Next we do some checks to make sure the player is not dragging
+		# A droppable when they're not meant to.
+		pass
+
+
+
+
 func _on_mouse_detector_mouse_shape_entered(shape_idx: int) -> void:
-	pass # Replace with function body.
+	Mouse_Inside_Droppable = true
 
 func _on_mouse_detector_mouse_shape_exited(shape_idx: int) -> void:
-	pass # Replace with function body.
+	Mouse_Inside_Droppable = false

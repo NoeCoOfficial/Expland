@@ -39,6 +39,5 @@ text = "ITEM_TYPE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
 [connection signal="mouse_shape_entered" from="Droppable_MouseDetector" to="." method="_on_mouse_detector_mouse_shape_entered"]
 [connection signal="mouse_shape_exited" from="Droppable_MouseDetector" to="." method="_on_mouse_detector_mouse_shape_exited"]
