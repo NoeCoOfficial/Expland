@@ -334,7 +334,6 @@ var stamina_restoring_from_0 = false
 @export var StartDebugging_Btn : Button
 @export var SetTime_SpinBox : SpinBox
 @export var SetTime_Button : Button
-@export var Is_Raycast_Colliding_Label : Label
 @export var Is_Inside_Settings_Label : Label
 @export var Is_Moving_Label : Label
 @export var Is_Walking_Label : Label
