@@ -61,6 +61,22 @@ func get_free_slot(Slots : Array):
 			free_slot = Slots[i]
 			return free_slot
 
+
+
+
+const ITEM_TYPES = {
+	"AXE" : {
+		"NAME" : "AXE",
+		"DESCRIPTION" : "A tool used for cutting down trees.",
+		"IMAGE_LOAD" : preload("uid://dq8jg5iy6tfyc"),
+		"PICKUP_LOAD" : preload("uid://mmat24b7ftxq"),
+		"MAX_STACK" : 1,
+	},
+}
+
+
+
+
 const CONSUMABLE_ITEMS = [
 	
 	"HEALTH POTION", 
