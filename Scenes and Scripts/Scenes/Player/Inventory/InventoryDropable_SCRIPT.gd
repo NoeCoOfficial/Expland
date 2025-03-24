@@ -246,7 +246,9 @@ func _process(delta):
 									queue_free()
 								
 								elif body_ref.get_is_hotbar_slot():
-									
+									make_hotbar_dropable()
+									InventoryManager.spawn_hotbar_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside)
+									top_level = false
 									queue_free()
 								
 								else: # If the slot is a pocket slot
