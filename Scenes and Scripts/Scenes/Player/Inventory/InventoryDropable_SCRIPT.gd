@@ -63,7 +63,7 @@ extends Node2D
 var EffectNotificationScene = preload("uid://jajswfbkaut2")
 
 var draggable = false
-var is_inside_dropable = false
+var is_inside_slot = false
 var body_ref
 var initialPos: Vector2
 var offset: Vector2
@@ -166,7 +166,7 @@ func _process(delta):
 				
 				InventoryManager.is_dragging = false
 				self.z_index = 0
-				if is_inside_dropable and !InventoryManager.is_inside_checker:
+				if is_inside_slot and !InventoryManager.is_inside_checker:
 					if body_ref == slot_inside:
 						# If the draggable is placed back into its current slot, do nothing
 						global_position = body_ref.global_position
@@ -458,13 +458,13 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("slot") and !InventoryManager.is_inside_checker:  
 		if populated_on_startup_timer.time_left > 0.0:
 			slot_inside = body
-		is_inside_dropable = true
+		is_inside_slot = true
 		
 		body_ref = body
 
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("slot"):
-		is_inside_dropable = false
+		is_inside_slot = false
 
 func _on_area_2d_mouse_entered():
 	can_quick_switch = true
@@ -546,7 +546,7 @@ func get_is_workshop_dropable():
 func set_is_workshop_output_dropable(value : bool):
 	is_workshop_output_dropable = value
 	body_ref = InventoryManager.WORKSHOP_OUTPUT_SLOT
-	is_inside_dropable = true
+	is_inside_slot = true
 
 func get_is_workshop_output_dropable():
 	return is_workshop_output_dropable
