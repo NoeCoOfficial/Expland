@@ -115,9 +115,12 @@ const EFFECT_ITEMS = [
 var pockets_ui_open : bool = false
 
 func openPockets():
-	pass
-	# TODO: Logic
+	# Show UI
+	PlayerManager.PLAYER.InventoryLayer_CanvasLayer.visible = true
+	PlayerManager.PLAYER.InventoryLayer_Pockets.visible = true
+	pockets_ui_open = true
 
 func closePockets():
-	pass
-	# TODO: Logic
+	PlayerManager.PLAYER.InventoryLayer_CanvasLayer.visible = false
+	PlayerManager.PLAYER.InventoryLayer_Pockets.visible = false
+	pockets_ui_open = false
