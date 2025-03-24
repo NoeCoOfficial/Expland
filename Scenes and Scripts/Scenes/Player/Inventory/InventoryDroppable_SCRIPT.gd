@@ -57,17 +57,17 @@ extends Node2D
 
 @export_group("Properties")
 
-@export var ITEM_TYPE : String = ""
+@export var ITEM_TYPE : Dictionary
 @export var Mouse_Inside_Droppable : bool = false
 
+func _ready() -> void:
+	initProperties("AXE")
+
 # Initialize the properties. Called when a new droppable is created.
-func initProperties(ip_ITEM_TYPE : String):
-	ITEM_TYPE = ip_ITEM_TYPE
-	Droppable_Sprite2D.texture = load("res://Textures/Inventory/" + ip_ITEM_TYPE + ".png")
-	Droppable_ITEM_TYPE_Label.text = ip_ITEM_TYPE.capitalize()
-
-
-
+func initProperties(txt_ITEM_TYPE : String):
+	ITEM_TYPE = InventoryManager.ITEM_TYPES[txt_ITEM_TYPE]
+	Droppable_Sprite2D.texture = ITEM_TYPE["IMAGE_LOAD"]
+	Droppable_ITEM_TYPE_Label.text = txt_ITEM_TYPE.capitalize()
 
 # Where the magic happens.
 func _process(delta: float) -> void:
