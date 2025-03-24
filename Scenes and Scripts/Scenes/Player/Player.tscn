@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=80 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" uid="uid://6516a37cmejq" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" uid="uid://dilocovfy7y5b" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://djnu0mq7nqgk2" path="res://Textures/Icons/Script Icons/Scripts/ClockIcon_SCRIPT.gd" id="2_t6toi"]
 [ext_resource type="PackedScene" uid="uid://befvxrvmvcjab" path="res://Scenes and Scripts/Scenes/Audio/Footstep Sounds/FootstepSounds_GRASS.tscn" id="2_x8es6"]
 [ext_resource type="PackedScene" uid="uid://jdu8drxlcfv5" path="res://Scenes and Scripts/Scenes/Player/Character/PlayerCharacterShadow.tscn" id="3_1fhva"]
-[ext_resource type="Script" uid="uid://c6ou0e14j1o15" path="res://Scenes and Scripts/Scenes/Player/Interaction/RayCast3D_SCRIPT.gd" id="3_2qtqn"]
 [ext_resource type="PackedScene" uid="uid://22st751melpi" path="res://Scenes and Scripts/Scenes/Audio/Footstep Sounds/FootstepSounds_STONE.tscn" id="3_esl0a"]
 [ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="3_yecwp"]
 [ext_resource type="PackedScene" uid="uid://djwgy3b85xfpn" path="res://Scenes and Scripts/Scenes/Player/Hand Item/HandItem.tscn" id="4_476v6"]
@@ -1642,7 +1641,7 @@ _data = {
 &"spin": SubResource("Animation_wpbcy")
 }
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "HandItem", "PickupAttractionPos", "Character_Body", "Character_Anim_Player", "Character_Shadow_Body", "Character_Shadow_Anim_Player", "PocketsCollisionBoundary", "ChestCollisionBoundary", "WorkbenchCollisionBoundary", "ChestMainLayer", "ChestSlots", "Slot1_Chest_Ref", "Slot2_Chest_Ref", "Slot3_Chest_Ref", "Slot4_Chest_Ref", "Slot5_Chest_Ref", "Slot6_Chest_Ref", "Slot7_Chest_Ref", "Slot8_Chest_Ref", "Slot9_Chest_Ref", "Slot10_Chest_Ref", "Slot11_Chest_Ref", "Slot12_Chest_Ref", "Slot13_Chest_Ref", "Slot14_Chest_Ref", "Slot15_Chest_Ref", "Slot16_Chest_Ref", "Slot17_Chest_Ref", "Slot18_Chest_Ref", "Slot19_Chest_Ref", "Slot20_Chest_Ref", "Slot21_Chest_Ref", "Slot22_Chest_Ref", "Slot23_Chest_Ref", "Slot24_Chest_Ref", "Slot25_Chest_Ref", "Slot26_Chest_Ref", "Slot27_Chest_Ref", "Slot28_Chest_Ref", "Slot29_Chest_Ref", "Slot30_Chest_Ref", "Slot31_Chest_Ref", "Slot32_Chest_Ref", "Slot33_Chest_Ref", "Slot34_Chest_Ref", "Slot35_Chest_Ref", "Slot36_Chest_Ref", "Slot37_Chest_Ref", "Slot38_Chest_Ref", "Slot39_Chest_Ref", "Slot40_Chest_Ref", "Slot41_Chest_Ref", "Slot42_Chest_Ref", "Slot43_Chest_Ref", "Slot44_Chest_Ref", "Slot45_Chest_Ref", "Slot46_Chest_Ref", "Slot47_Chest_Ref", "Slot48_Chest_Ref", "Slot49_Chest_Ref", "WorkbenchMainLayer", "WorkbenchSlots", "Slot1_Workbench_Ref", "Slot2_Workbench_Ref", "Slot3_Workbench_Ref", "Slot4_Workbench_Ref", "Slot5_Workbench_Ref", "Slot6_Workbench_Ref", "Slot7_Workbench_Ref", "Slot8_Workbench_Ref", "Slot9_Workbench_Ref", "Slot10_Output_Workbench_Ref", "HUDLayer", "PauseLayer", "DebugLayer", "SettingsUI", "AchievementsUI", "AlertLayer", "CreditsLayer", "MinimalAlert", "TopLayerBlackOverlay", "SleepLayerBlackOverlay", "DayText_Label", "ProtectiveLayer", "Crosshair_Rect", "StaminaBar", "EffectNotificationGrid", "DialogueInterface", "DeathScreen_BlackOverlay", "OverlayLayer_Overlay", "ItemWorkshopLayer_MainLayer", "ItemWorkshopLayer_GreyLayer", "HUDLayer_HealthBar", "HUDLayer_HungerBar", "GetUp_Label", "RandomText_Label", "OverlayLayer_RedOverlay", "ManualSaveCooldown", "AutoSaveTimer", "StartDebugging_Btn", "SetTime_SpinBox", "SetTime_Button", "Is_Raycast_Colliding_Label", "Is_Inside_Settings_Label", "Is_Moving_Label", "Is_Walking_Label", "Is_Sprinting_Label", "Is_Crouching_Label", "Is_In_Dialogue_Interface_Label", "Showing_Interaction_Notification_Label", "Current_Time_Label", "Current_FPS_Label", "Player_Position_Label", "Player_VelocityY_Label", "Player_VelocityY_Accurate_Label", "Is_On_Floor_Label", "Inputs_Currently_Pressing_Label", "DAY_STATE_Label", "GAME_STATE_Label", "CURRENT_DAY_Label", "CURRENT_TIME_Label", "CURRENT_WEATHER_Label", "CURRENT_WEATHER_ARR_INDEX_Label", "WEATHER_TIMER_TIME_LEFT_Label") groups=["PlayerBody"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "HandItem", "PickupAttractionPos", "Character_Body", "Character_Anim_Player", "Character_Shadow_Body", "Character_Shadow_Anim_Player", "HUDLayer", "PauseLayer", "DebugLayer", "SettingsUI", "AchievementsUI", "AlertLayer", "CreditsLayer", "MinimalAlert", "TopLayerBlackOverlay", "SleepLayerBlackOverlay", "DayText_Label", "ProtectiveLayer", "Crosshair_Rect", "StaminaBar", "EffectNotificationGrid", "DialogueInterface", "DeathScreen_BlackOverlay", "OverlayLayer_Overlay", "ItemWorkshopLayer_MainLayer", "ItemWorkshopLayer_GreyLayer", "HUDLayer_HealthBar", "HUDLayer_HungerBar", "GetUp_Label", "RandomText_Label", "OverlayLayer_RedOverlay", "ManualSaveCooldown", "AutoSaveTimer", "StartDebugging_Btn", "SetTime_SpinBox", "SetTime_Button", "Is_Raycast_Colliding_Label", "Is_Inside_Settings_Label", "Is_Moving_Label", "Is_Walking_Label", "Is_Sprinting_Label", "Is_Crouching_Label", "Is_In_Dialogue_Interface_Label", "Showing_Interaction_Notification_Label", "Current_Time_Label", "Current_FPS_Label", "Player_Position_Label", "Player_VelocityY_Label", "Player_VelocityY_Accurate_Label", "Is_On_Floor_Label", "Inputs_Currently_Pressing_Label", "DAY_STATE_Label", "GAME_STATE_Label", "CURRENT_DAY_Label", "CURRENT_TIME_Label", "CURRENT_WEATHER_Label", "CURRENT_WEATHER_ARR_INDEX_Label", "WEATHER_TIMER_TIME_LEFT_Label") groups=["PlayerBody"]]
 collision_mask = 3
 script = ExtResource("1_5mhs1")
 Fade_In = true
@@ -1661,72 +1660,6 @@ Character_Body = NodePath("Head/Player_Character")
 Character_Anim_Player = NodePath("Head/Player_Character/AnimationPlayer_Character")
 Character_Shadow_Body = NodePath("Head/Player_Character_Shadow")
 Character_Shadow_Anim_Player = NodePath("Head/Player_Character_Shadow/AnimationPlayer_Character")
-PocketsCollisionBoundary = NodePath("")
-ChestCollisionBoundary = NodePath("")
-WorkbenchCollisionBoundary = NodePath("")
-ChestMainLayer = NodePath("")
-ChestSlots = NodePath("")
-Slot1_Chest_Ref = NodePath("")
-Slot2_Chest_Ref = NodePath("")
-Slot3_Chest_Ref = NodePath("")
-Slot4_Chest_Ref = NodePath("")
-Slot5_Chest_Ref = NodePath("")
-Slot6_Chest_Ref = NodePath("")
-Slot7_Chest_Ref = NodePath("")
-Slot8_Chest_Ref = NodePath("")
-Slot9_Chest_Ref = NodePath("")
-Slot10_Chest_Ref = NodePath("")
-Slot11_Chest_Ref = NodePath("")
-Slot12_Chest_Ref = NodePath("")
-Slot13_Chest_Ref = NodePath("")
-Slot14_Chest_Ref = NodePath("")
-Slot15_Chest_Ref = NodePath("")
-Slot16_Chest_Ref = NodePath("")
-Slot17_Chest_Ref = NodePath("")
-Slot18_Chest_Ref = NodePath("")
-Slot19_Chest_Ref = NodePath("")
-Slot20_Chest_Ref = NodePath("")
-Slot21_Chest_Ref = NodePath("")
-Slot22_Chest_Ref = NodePath("")
-Slot23_Chest_Ref = NodePath("")
-Slot24_Chest_Ref = NodePath("")
-Slot25_Chest_Ref = NodePath("")
-Slot26_Chest_Ref = NodePath("")
-Slot27_Chest_Ref = NodePath("")
-Slot28_Chest_Ref = NodePath("")
-Slot29_Chest_Ref = NodePath("")
-Slot30_Chest_Ref = NodePath("")
-Slot31_Chest_Ref = NodePath("")
-Slot32_Chest_Ref = NodePath("")
-Slot33_Chest_Ref = NodePath("")
-Slot34_Chest_Ref = NodePath("")
-Slot35_Chest_Ref = NodePath("")
-Slot36_Chest_Ref = NodePath("")
-Slot37_Chest_Ref = NodePath("")
-Slot38_Chest_Ref = NodePath("")
-Slot39_Chest_Ref = NodePath("")
-Slot40_Chest_Ref = NodePath("")
-Slot41_Chest_Ref = NodePath("")
-Slot42_Chest_Ref = NodePath("")
-Slot43_Chest_Ref = NodePath("")
-Slot44_Chest_Ref = NodePath("")
-Slot45_Chest_Ref = NodePath("")
-Slot46_Chest_Ref = NodePath("")
-Slot47_Chest_Ref = NodePath("")
-Slot48_Chest_Ref = NodePath("")
-Slot49_Chest_Ref = NodePath("")
-WorkbenchMainLayer = NodePath("")
-WorkbenchSlots = NodePath("")
-Slot1_Workbench_Ref = NodePath("")
-Slot2_Workbench_Ref = NodePath("")
-Slot3_Workbench_Ref = NodePath("")
-Slot4_Workbench_Ref = NodePath("")
-Slot5_Workbench_Ref = NodePath("")
-Slot6_Workbench_Ref = NodePath("")
-Slot7_Workbench_Ref = NodePath("")
-Slot8_Workbench_Ref = NodePath("")
-Slot9_Workbench_Ref = NodePath("")
-Slot10_Output_Workbench_Ref = NodePath("")
 HUDLayer = NodePath("Head/Camera3D/HUDLayer")
 PauseLayer = NodePath("Head/Camera3D/PauseLayer")
 DebugLayer = NodePath("Head/Camera3D/DebugLayer")
@@ -1852,30 +1785,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 transform = Transform3D(-0.651061, 0, -5.69176e-08, 0, 0.651061, 0, 5.69176e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Head/Player_Character_Shadow/Armature_003" index="0"]
-bones/0/position = Vector3(2.85161, -2.50446, -196.302)
-bones/0/rotation = Quaternion(-0.684667, -0.270608, 0.248519, 0.629476)
-bones/1/rotation = Quaternion(0.078453, 0.0408462, -0.00820653, 0.996047)
-bones/2/rotation = Quaternion(0.0938562, 0.0792272, -0.0218052, 0.992189)
-bones/3/rotation = Quaternion(0.0938228, 0.0792397, -0.0218091, 0.992191)
-bones/4/rotation = Quaternion(-0.0492108, -0.0105578, 0.00194852, 0.998731)
-bones/5/rotation = Quaternion(-0.0719788, 0.177438, -0.00103656, 0.981496)
-bones/7/rotation = Quaternion(0.57858, 0.422223, -0.566599, 0.407356)
-bones/8/rotation = Quaternion(0.433506, -0.0983037, 0.088453, 0.891395)
+bones/0/position = Vector3(2.89984, -2.35882, -196.468)
+bones/0/rotation = Quaternion(-0.684926, -0.270666, 0.248394, 0.629219)
+bones/1/rotation = Quaternion(0.0780284, 0.040811, -0.00806233, 0.996083)
+bones/2/rotation = Quaternion(0.0930219, 0.0791651, -0.0215158, 0.992279)
+bones/3/rotation = Quaternion(0.0922927, 0.0791846, -0.0213955, 0.992348)
+bones/4/rotation = Quaternion(-0.0461283, -0.0105247, 0.00190619, 0.998878)
+bones/5/rotation = Quaternion(-0.0640511, 0.177542, -0.0014896, 0.982026)
+bones/7/rotation = Quaternion(0.571648, 0.429928, -0.566817, 0.408777)
+bones/8/rotation = Quaternion(0.435911, -0.0976301, 0.0885253, 0.890288)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0337714, 0.0653364, 0.417536, 0.905679)
-bones/11/rotation = Quaternion(0.624465, -0.385498, 0.525465, 0.430489)
-bones/12/rotation = Quaternion(0.430884, 0.0933831, 0.145994, 0.88561)
-bones/13/rotation = Quaternion(0.0375974, -0.000399755, -0.369005, 0.928667)
-bones/15/rotation = Quaternion(0.0805527, 0.231277, 0.963977, -0.103784)
+bones/9/rotation = Quaternion(-0.0334169, 0.0659394, 0.419208, 0.904876)
+bones/11/rotation = Quaternion(0.618323, -0.3925, 0.525796, 0.432619)
+bones/12/rotation = Quaternion(0.43309, 0.0913711, 0.146081, 0.884729)
+bones/13/rotation = Quaternion(0.040132, -0.00360364, -0.368744, 0.928657)
+bones/15/rotation = Quaternion(0.0803461, 0.230611, 0.964185, -0.10349)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.360157, 0.119555, -0.0367485, 0.924469)
-bones/17/rotation = Quaternion(0.565925, -0.00129776, -0.0239495, 0.824108)
-bones/18/rotation = Quaternion(0.289416, -0.036581, -0.00965197, 0.956456)
-bones/20/rotation = Quaternion(-0.12554, 0.0225603, 0.982777, 0.133717)
-bones/21/rotation = Quaternion(-0.338785, 0.0722522, -0.0253078, 0.937744)
-bones/22/rotation = Quaternion(0.67247, 0.0554788, 0.106923, 0.730256)
+bones/16/rotation = Quaternion(-0.35886, 0.119532, -0.0363836, 0.924991)
+bones/17/rotation = Quaternion(0.565821, -0.00105757, -0.0234983, 0.824192)
+bones/18/rotation = Quaternion(0.289366, -0.0364569, -0.00964187, 0.956475)
+bones/20/rotation = Quaternion(-0.12554, 0.0208838, 0.982806, 0.133779)
+bones/21/rotation = Quaternion(-0.335885, 0.0727472, -0.0255787, 0.938741)
+bones/22/rotation = Quaternion(0.671828, 0.0555354, 0.107087, 0.730819)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.278187, 0.0569892, -0.0171156, 0.958682)
+bones/23/rotation = Quaternion(0.278114, 0.0568845, -0.0170663, 0.958711)
 
 [node name="Model_004" parent="Head/Player_Character_Shadow/Armature_003/Skeleton3D" index="0"]
 cast_shadow = 3
@@ -1884,30 +1817,30 @@ cast_shadow = 3
 transform = Transform3D(-0.651061, 0, 5.69175e-08, 0, 0.651061, 0, -5.69175e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Head/Player_Character/Armature_003" index="0"]
-bones/0/position = Vector3(2.85161, -2.50446, -196.302)
-bones/0/rotation = Quaternion(-0.684667, -0.270608, 0.248519, 0.629476)
-bones/1/rotation = Quaternion(0.078453, 0.0408462, -0.00820653, 0.996047)
-bones/2/rotation = Quaternion(0.0938562, 0.0792272, -0.0218052, 0.992189)
-bones/3/rotation = Quaternion(0.0938228, 0.0792397, -0.0218091, 0.992191)
-bones/4/rotation = Quaternion(-0.0492108, -0.0105578, 0.00194852, 0.998731)
-bones/5/rotation = Quaternion(-0.0719788, 0.177438, -0.00103656, 0.981496)
-bones/7/rotation = Quaternion(0.57858, 0.422223, -0.566599, 0.407356)
-bones/8/rotation = Quaternion(0.433506, -0.0983037, 0.088453, 0.891395)
+bones/0/position = Vector3(2.89984, -2.35882, -196.468)
+bones/0/rotation = Quaternion(-0.684926, -0.270666, 0.248394, 0.629219)
+bones/1/rotation = Quaternion(0.0780284, 0.040811, -0.00806233, 0.996083)
+bones/2/rotation = Quaternion(0.0930219, 0.0791651, -0.0215158, 0.992279)
+bones/3/rotation = Quaternion(0.0922927, 0.0791846, -0.0213955, 0.992348)
+bones/4/rotation = Quaternion(-0.0461283, -0.0105247, 0.00190619, 0.998878)
+bones/5/rotation = Quaternion(-0.0640511, 0.177542, -0.0014896, 0.982026)
+bones/7/rotation = Quaternion(0.571648, 0.429928, -0.566817, 0.408777)
+bones/8/rotation = Quaternion(0.435911, -0.0976301, 0.0885253, 0.890288)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0337714, 0.0653364, 0.417536, 0.905679)
-bones/11/rotation = Quaternion(0.624465, -0.385498, 0.525465, 0.430489)
-bones/12/rotation = Quaternion(0.430884, 0.0933831, 0.145994, 0.88561)
-bones/13/rotation = Quaternion(0.0375974, -0.000399755, -0.369005, 0.928667)
-bones/15/rotation = Quaternion(0.0805527, 0.231277, 0.963977, -0.103784)
+bones/9/rotation = Quaternion(-0.0334169, 0.0659394, 0.419208, 0.904876)
+bones/11/rotation = Quaternion(0.618323, -0.3925, 0.525796, 0.432619)
+bones/12/rotation = Quaternion(0.43309, 0.0913711, 0.146081, 0.884729)
+bones/13/rotation = Quaternion(0.040132, -0.00360364, -0.368744, 0.928657)
+bones/15/rotation = Quaternion(0.0803461, 0.230611, 0.964185, -0.10349)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.360157, 0.119555, -0.0367485, 0.924469)
-bones/17/rotation = Quaternion(0.565925, -0.00129776, -0.0239495, 0.824108)
-bones/18/rotation = Quaternion(0.289416, -0.036581, -0.00965197, 0.956456)
-bones/20/rotation = Quaternion(-0.12554, 0.0225603, 0.982777, 0.133717)
-bones/21/rotation = Quaternion(-0.338785, 0.0722522, -0.0253078, 0.937744)
-bones/22/rotation = Quaternion(0.67247, 0.0554788, 0.106923, 0.730256)
+bones/16/rotation = Quaternion(-0.35886, 0.119532, -0.0363836, 0.924991)
+bones/17/rotation = Quaternion(0.565821, -0.00105757, -0.0234983, 0.824192)
+bones/18/rotation = Quaternion(0.289366, -0.0364569, -0.00964187, 0.956475)
+bones/20/rotation = Quaternion(-0.12554, 0.0208838, 0.982806, 0.133779)
+bones/21/rotation = Quaternion(-0.335885, 0.0727472, -0.0255787, 0.938741)
+bones/22/rotation = Quaternion(0.671828, 0.0555354, 0.107087, 0.730819)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.278187, 0.0569892, -0.0171156, 0.958682)
+bones/23/rotation = Quaternion(0.278114, 0.0568845, -0.0170663, 0.958711)
 
 [node name="Model_004" parent="Head/Player_Character/Armature_003/Skeleton3D" index="0"]
 cast_shadow = 0
@@ -1944,12 +1877,6 @@ transform = Transform3D(0.381675, 0.132152, 0.29472, -0.159635, 0.473798, -0.005
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Head/Camera3D/RayCastMimic3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.49683)
 shape = SubResource("BoxShape3D_yqbml")
-
-[node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.0158332)
-target_position = Vector3(0, -3, 0)
-debug_shape_custom_color = Color(1, 0, 0, 1)
-script = ExtResource("3_2qtqn")
 
 [node name="HUDLayer" type="CanvasLayer" parent="Head/Camera3D"]
 
@@ -2031,6 +1958,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="EffectNotificationGrid" type="GridContainer" parent="Head/Camera3D/HUDLayer/EffectNotificationLayer/EffectNotificationMainLayer"]
 layout_mode = 1
@@ -2061,6 +1989,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 0.643137)
 script = ExtResource("16_wg7d4")
 metadata/_edit_use_anchors_ = true
@@ -3561,6 +3490,7 @@ visible = false
 layer = 10
 
 [node name="MinimalAlert" parent="Head/Camera3D/MinimalAlertLayer" instance=ExtResource("27_5o6is")]
+mouse_filter = 2
 
 [node name="SleepLayer" type="CanvasLayer" parent="Head/Camera3D"]
 

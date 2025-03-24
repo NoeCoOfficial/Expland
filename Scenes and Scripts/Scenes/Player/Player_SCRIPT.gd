@@ -668,8 +668,6 @@ func _ready():
 	loadAchivementElementsThread.wait_to_finish()
 	
 	PlayerManager.AudioNotification = $Head/Camera3D/AudioNotificationLayer/AudioNotification
-	PlayerManager.EXPLORER_NOTE_CONTENTS = $Head/Camera3D/ExplorerNoteLayer/Contents
-	PlayerManager.EXPLORER_NOTE_TEXTURE_RECT = $Head/Camera3D/ExplorerNoteLayer/Contents/ExplorerNoteSheet
 	
 	DialogueManager.MinimalDialogueInterface = $Head/Camera3D/MinimalDialogueLayer/MinimalDialogue
 	DialogueManager.DialogueInterface = DialogueInterface

@@ -46,18 +46,3 @@
 # ============================================================= #
 
 extends StaticBody3D
-
-@export var root : Node3D
-
-func on_raycast_hit_explorer_note():
-	ExplorerNotesManager.CurrentlyInteracting_ID = root.NoteID
-	InteractionManager.is_hovering_over_explorer_note = true
-
-func on_raycast_exit_explorer_note():
-	InteractionManager.is_hovering_over_explorer_note = false
-
-func setCurrentlyInteractingNode():
-	ExplorerNotesManager.CurrentlyInteracting_Node = root
-
-func removeCurrentlyInteractingNode():
-	ExplorerNotesManager.CurrentlyInteracting_Node = null
