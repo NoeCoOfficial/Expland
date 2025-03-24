@@ -64,6 +64,9 @@ var EffectNotificationScene = preload("uid://jajswfbkaut2")
 
 var draggable = false
 var is_inside_slot = false
+
+var is_inside_hotbar_slot = false
+
 var body_ref
 var initialPos: Vector2
 var offset: Vector2
@@ -121,7 +124,6 @@ func _ready():
 	
 	mouse_over_timer.connect("timeout", Callable(self, "_on_mouse_over_timeout"))
 	
-	# Ensure the timer is added to the scene tree
 	if not mouse_over_timer.is_inside_tree():
 		add_child(mouse_over_timer)
 
@@ -139,16 +141,20 @@ func _process(delta):
 			if mouse_over_timer.time_left == 0:
 				initialPos = global_position
 				InventoryManager.is_dragging = true
+				print(str(InventoryManager.currently_dragging_dropable_node))
+				InventoryManager.currently_dragging_dropable_node = $"."
+				print(str(InventoryManager.currently_dragging_dropable_node))
 				if is_in_chest_slot or is_workshop_dropable or is_workshop_output_dropable:
 					top_level = true
 				self.z_index = 10
 				InventoryManager.item_ref = ITEM_TYPE
-				
-				
+			
+			
 		if Input.is_action_pressed("LeftClick") and InventoryManager.is_dragging:
 			global_position = get_global_mouse_position()
 		
 		elif Input.is_action_just_released("LeftClick"):
+			InventoryManager.currently_dragging_dropable_node = null
 			
 			if InventoryManager.is_inside_boundary and can_create_pickup:
 				InventoryManager.is_dragging = false
@@ -246,10 +252,11 @@ func _process(delta):
 									queue_free()
 								
 								elif body_ref.get_is_hotbar_slot():
-									print("skib")
-									InventoryManager.spawn_hotbar_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside)
-									top_level = false
-									queue_free()
+									if is_inside_hotbar_slot:
+										print("skib")
+										InventoryManager.spawn_hotbar_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside)
+										top_level = false
+										queue_free()
 								
 								else: # If the slot is a pocket slot
 									

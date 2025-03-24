@@ -107,6 +107,8 @@ var in_chest_interface = false
 var is_in_workbench_interface = false
 var is_in_explorer_notes_interface = false
 
+var currently_dragging_dropable_node
+
 var is_dragging = false
 var is_inside_boundary = false
 var item_ref := ""
