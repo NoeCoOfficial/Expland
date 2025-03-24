@@ -25,10 +25,10 @@ one_shot = true
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.13, 0.13)
 
-[node name="Area2D" type="Area2D" parent="." groups=["draggable"]]
+[node name="SlotDetector" type="Area2D" parent="." groups=["draggable"]]
 collision_priority = 3.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlotDetector"]
 shape = SubResource("RectangleShape2D_mgv10")
 
 [node name="ITEM_TYPE" type="Label" parent="."]
@@ -50,9 +50,3 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
-[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
