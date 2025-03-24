@@ -108,6 +108,8 @@ func set_populated(populatedValue : bool):
 	if populatedValue:
 		populated = true
 		print("{LOCAL} [InventorySlot_SCRIPT.gd] Populated, Slot: " + str(name))
+		if is_hotbar_slot:
+			toggle_hotbar_hover_bg(false)
 	else:
 		print("{LOCAL} [InventorySlot_SCRIPT.gd] Empty, Slot: " + str(name))
 		populated = false
