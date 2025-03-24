@@ -52,6 +52,8 @@ var CHEST_SLOTS = []
 var WORKSHOP_SLOTS = []
 var WORKSHOP_OUTPUT_SLOT
 
+var Dropable_Scene = preload("res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDropable.tscn")
+
 func get_free_slot(Slots : Array):
 	var free_slot = null
 	for i in range(Slots.size()):
@@ -141,8 +143,7 @@ func spawn_inventory_dropable(atPos : Vector2, ITEM_TYPE, slotToPopulate, is_in_
 	if get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer") != null:
 		var ChestSlotsControl = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots")
 		var InventoryLayer = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer")
-		var NewDropable = load("res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDropable.tscn")
-		var DropableInstance = NewDropable.instantiate()
+		var DropableInstance = Dropable_Scene.instantiate()
 		DropableInstance.set_ITEM_TYPE(ITEM_TYPE)
 		
 		if is_in_chest_slot:
@@ -163,8 +164,7 @@ func spawn_inventory_dropable_from_load(atPos : Vector2, ITEM_TYPE, is_in_chest_
 	if get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer") != null:
 		var ChestSlotsControl = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots")
 		var InventoryLayer = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer")
-		var NewDropable = load("res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDropable.tscn")
-		var DropableInstance = NewDropable.instantiate()
+		var DropableInstance = Dropable_Scene.instantiate()
 		
 		DropableInstance.set_ITEM_TYPE(ITEM_TYPE)
 		DropableInstance.set_is_in_chest_slot(is_in_chest_slot)
@@ -181,8 +181,7 @@ func spawn_inventory_dropable_from_load(atPos : Vector2, ITEM_TYPE, is_in_chest_
 func spawn_workshop_dropable(atPos : Vector2, ITEM_TYPE, slotToPopulate):
 	if get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer") != null:
 		var WorkbenchSlots = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots")
-		var NewDropable = load("res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDropable.tscn")
-		var DropableInstance = NewDropable.instantiate()
+		var DropableInstance = Dropable_Scene.instantiate()
 		DropableInstance.set_ITEM_TYPE(ITEM_TYPE)
 		
 		WorkbenchSlots.add_child(DropableInstance)
@@ -200,8 +199,7 @@ func spawn_workshop_dropable(atPos : Vector2, ITEM_TYPE, slotToPopulate):
 func spawn_workbench_output_dropable(ITEM_TYPE):
 	if get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer") != null:
 		var WorkbenchSlots = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots")
-		var NewDropable = load("res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDropable.tscn")
-		var DropableInstance = NewDropable.instantiate()
+		var DropableInstance = Dropable_Scene.instantiate()
 		DropableInstance.set_ITEM_TYPE(ITEM_TYPE)
 		DropableInstance.set_is_workshop_output_dropable(true)
 		DropableInstance.global_position = InventoryManager.WORKSHOP_OUTPUT_SLOT.global_position
@@ -215,6 +213,23 @@ func spawn_workbench_output_dropable(ITEM_TYPE):
 		
 		DropableInstance.set_slot_inside(InventoryManager.WORKSHOP_OUTPUT_SLOT)
 		InventoryManager.WORKSHOP_OUTPUT_SLOT.set_populated(true)
+		
+		return DropableInstance
+
+func spawn_hotbar_dropable(atPos : Vector2, ITEM_TYPE, slotToPopulate):
+	if get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer") != null:
+		var HotbarSlots = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots")
+		var DropableInstance = Dropable_Scene.instantiate()
+		DropableInstance.set_ITEM_TYPE(ITEM_TYPE)
+		
+		HotbarSlots.add_child(DropableInstance)
+		DropableInstance.position = atPos
+		DropableInstance.top_level = true
+		
+		DropableInstance.set_slot_inside(slotToPopulate)
+		DropableInstance.make_hotbar_dropable()
+		slotToPopulate.set_populated(true)
+		
 		
 		return DropableInstance
 

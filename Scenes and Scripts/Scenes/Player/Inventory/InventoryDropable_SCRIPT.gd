@@ -245,6 +245,10 @@ func _process(delta):
 									top_level = false
 									queue_free()
 								
+								elif body_ref.get_is_hotbar_slot():
+									
+									queue_free()
+								
 								else: # If the slot is a pocket slot
 									
 									if is_in_chest_slot: # If the draggable was in a chest slot

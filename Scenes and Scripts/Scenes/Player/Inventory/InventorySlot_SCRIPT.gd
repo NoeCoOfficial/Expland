@@ -134,6 +134,8 @@ func toggle_hotbar_hover_bg(value : bool):
 		else:
 			hotbar_hover_bg_node.modulate = Color(1, 1, 1, 0)
 
+func get_is_hotbar_slot():
+	return is_hotbar_slot
 
 func _on_draggable_detector_mouse_entered() -> void:
 	if is_hotbar_slot:
