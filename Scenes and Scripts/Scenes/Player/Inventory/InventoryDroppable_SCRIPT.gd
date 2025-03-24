@@ -55,14 +55,18 @@ extends Node2D
 @export var Droppable_ITEM_TYPE_Label : Label
 
 
-var ITEM_TYPE : String
+@export_group("Properties")
+
+@export var ITEM_TYPE : String
 
 func _ready() -> void:
 	pass
 
-func initProperties(ITEM_TYPE : String):
-	pass
-	
+# Initialize the properties. Called when a new droppable is created.
+func initProperties(ip_ITEM_TYPE : String):
+	ITEM_TYPE = ip_ITEM_TYPE
+	Droppable_Sprite2D.texture = load("res://Textures/Inventory/" + ip_ITEM_TYPE + ".png")
+	Droppable_ITEM_TYPE_Label.texture
 
 
 func _on_mouse_detector_mouse_shape_entered(shape_idx: int) -> void:

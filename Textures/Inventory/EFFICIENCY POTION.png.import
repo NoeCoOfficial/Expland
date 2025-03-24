@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu54o8nhdxuoh"
-path="res://.godot/imported/BLANKFLOWER.png-bfa19c28735165b378ef2139b2a554dd.ctex"
+uid="uid://don2d5onyupya"
+path="res://.godot/imported/EFFICIENCY POTION.png-20d737db1a0a22251b0220b1f2ec43d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Inventory/BLANKFLOWER.png"
-dest_files=["res://.godot/imported/BLANKFLOWER.png-bfa19c28735165b378ef2139b2a554dd.ctex"]
+source_file="res://Textures/Inventory/EFFICIENCY POTION.png"
+dest_files=["res://.godot/imported/EFFICIENCY POTION.png-20d737db1a0a22251b0220b1f2ec43d5.ctex"]
 
 [params]
 

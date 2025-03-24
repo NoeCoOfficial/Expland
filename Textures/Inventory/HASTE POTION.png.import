@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://o3u6sxubmrbg"
-path="res://.godot/imported/HASTEPOTION.png-1c328ba308cee6dff7ffab4d8552bbea.ctex"
+path="res://.godot/imported/HASTE POTION.png-65e1096cbc73c3df17eb0d8d991ab856.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Inventory/HASTEPOTION.png"
-dest_files=["res://.godot/imported/HASTEPOTION.png-1c328ba308cee6dff7ffab4d8552bbea.ctex"]
+source_file="res://Textures/Inventory/HASTE POTION.png"
+dest_files=["res://.godot/imported/HASTE POTION.png-65e1096cbc73c3df17eb0d8d991ab856.ctex"]
 
 [params]
 
