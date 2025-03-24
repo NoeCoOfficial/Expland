@@ -52,7 +52,7 @@ var CHEST_SLOTS = []
 var WORKSHOP_SLOTS = []
 var WORKSHOP_OUTPUT_SLOT
 
-var Dropable_Scene = preload("res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDropable.tscn")
+var Dropable_Scene = preload("res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDroppable.tscn")
 
 func get_free_slot(Slots : Array):
 	var free_slot = null
@@ -63,18 +63,18 @@ func get_free_slot(Slots : Array):
 
 const CONSUMABLE_ITEMS = [
 	
-	"HEALTHPOTION", 
-	"EFFICIENCYPOTION", 
-	"HASTEPOTION",
-	"LUCKPOTION",
-	"NIGHTVISIONPOTION",
-	"REGENERATINGPOTION",
-	"STAMINAPOTION",
-	"STRENGTHPOTION",
-	"HOLYGRAIL",
+	"HEALTH POTION", 
+	"EFFICIENCY POTION", 
+	"HASTE POTION",
+	"LUCK POTION",
+	"NIGHT VISION POTION",
+	"REGENERATING POTION",
+	"STAMINA POTION",
+	"STRENGTH POTION",
+	"HOLY GRAIL",
 	
 	"COCONUT",
-	"COCONUTCAKE",
+	"COCONUT CAKE",
 	"BERRY",
 	"BLUEBERRY",
 	"STRAWBERRY",
@@ -82,20 +82,20 @@ const CONSUMABLE_ITEMS = [
 
 const FOOD_ITEMS = {
 	"COCONUT": 20,
-	"COCONUTCAKE": 40,
+	"COCONUT CAKE": 40,
 	"BERRY": 5,
 	"BLUEBERRY": 7,
 	"STRAWBERRY": 10,
 }
 
 const EFFECT_ITEMS = [
-	"HEALTHPOTION", 
-	"EFFICIENCYPOTION", 
-	"HASTEPOTION",
-	"LUCKPOTION",
-	"NIGHTVISIONPOTION",
-	"REGENERATINGPOTION",
-	"STAMINAPOTION",
-	"STRENGTHPOTION",
-	"HOLYGRAIL",
+	"HEALTH POTION", 
+	"EFFICIENCY POTION", 
+	"HASTE POTION",
+	"LUCK POTION",
+	"NIGH TVISION POTION",
+	"REGENERATING POTION",
+	"STAMINA POTION",
+	"STRENGTH POTION",
+	"HOLY GRAIL",
 ]
