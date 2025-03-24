@@ -137,7 +137,6 @@ func create_pickup_object():
 	PlayerManager.WORLD.add_child(PICKUP)
 	
 	is_creating_pickup = false
-	
 
 func spawn_inventory_dropable(atPos : Vector2, ITEM_TYPE, slotToPopulate, is_in_chest_slot : bool):
 	if get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer") != null:
@@ -217,21 +216,20 @@ func spawn_workbench_output_dropable(ITEM_TYPE):
 		return DropableInstance
 
 func spawn_hotbar_dropable(atPos : Vector2, ITEM_TYPE, slotToPopulate):
-	if get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer") != null:
-		var HotbarSlots = get_node("/root/World/Player/Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots")
-		var DropableInstance = Dropable_Scene.instantiate()
-		DropableInstance.set_ITEM_TYPE(ITEM_TYPE)
-		
-		HotbarSlots.add_child(DropableInstance)
-		DropableInstance.position = atPos
-		DropableInstance.top_level = true
-		
-		DropableInstance.set_slot_inside(slotToPopulate)
-		DropableInstance.make_hotbar_dropable()
-		slotToPopulate.set_populated(true)
-		
-		
-		return DropableInstance
+	var HotbarSlots = get_node("/root/World/Player/Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots")
+	var DropableInstance = Dropable_Scene.instantiate()
+	DropableInstance.set_ITEM_TYPE(ITEM_TYPE)
+	
+	HotbarSlots.add_child(DropableInstance)
+	DropableInstance.position = atPos
+	DropableInstance.top_level = true
+	
+	DropableInstance.set_slot_inside(slotToPopulate)
+	DropableInstance.make_hotbar_dropable()
+	slotToPopulate.set_populated(true)
+	
+	
+	return DropableInstance
 
 func get_hunger_restoration_value(item: String) -> int:
 	if item in FOOD_ITEMS:

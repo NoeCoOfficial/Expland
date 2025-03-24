@@ -246,7 +246,7 @@ func _process(delta):
 									queue_free()
 								
 								elif body_ref.get_is_hotbar_slot():
-									make_hotbar_dropable()
+									print("skib")
 									InventoryManager.spawn_hotbar_dropable(slot_inside.global_position, ITEM_TYPE, slot_inside)
 									top_level = false
 									queue_free()
@@ -473,7 +473,9 @@ func _on_area_2d_mouse_entered():
 	if !InventoryManager.is_dragging:
 		is_hovering_over = true
 		mouse_over_timer.start()
-		scale = Vector2(1.05, 1.05)
+		var csX = scale.x
+		var csY = scale.y
+		scale = Vector2(csX * 1.05, csY * 1.05)
 		
 	if InventoryManager.inventory_open and !InventoryManager.is_creating_pickup and !InventoryManager.is_dragging:
 		if ITEM_TYPE in InventoryManager.CONSUMABLE_ITEMS:
@@ -487,7 +489,9 @@ func _on_area_2d_mouse_exited():
 		is_hovering_over = false
 		mouse_over_timer.stop()
 		draggable = false
-		scale = Vector2(1.0, 1.0)
+		var csX = scale.x
+		var csY = scale.y
+		scale = Vector2(csX / 1.05, csY / 1.05)
 		
 		if ITEM_TYPE in InventoryManager.CONSUMABLE_ITEMS:
 			PlayerManager.MINIMAL_ALERT_PLAYER.hide_minimal_alert(0.1)
