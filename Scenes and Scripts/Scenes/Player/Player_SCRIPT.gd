@@ -188,23 +188,25 @@ var stamina_restoring_from_0 = false
 
 @export_group("Inventory")
 
+@export_subgroup("Hotbar Slots")
+
 @export_subgroup("Pocket Slots")
-@export var Slot1_Inventory_Ref : StaticBody2D
-@export var Slot2_Inventory_Ref : StaticBody2D
-@export var Slot3_Inventory_Ref : StaticBody2D
-@export var Slot4_Inventory_Ref : StaticBody2D
-@export var Slot5_Inventory_Ref : StaticBody2D
-@export var Slot6_Inventory_Ref : StaticBody2D
-@export var Slot7_Inventory_Ref : StaticBody2D
-@export var Slot8_Inventory_Ref : StaticBody2D
-@export var Slot9_Inventory_Ref : StaticBody2D
-@export var Slot10_Inventory_Ref : StaticBody2D
-@export var Slot11_Inventory_Ref : StaticBody2D
-@export var Slot12_Inventory_Ref : StaticBody2D
-@export var Slot13_Inventory_Ref : StaticBody2D
-@export var Slot14_Inventory_Ref : StaticBody2D
-@export var Slot15_Inventory_Ref : StaticBody2D
-@export var Slot16_Inventory_Ref : StaticBody2D
+@export var Slot1_Pocket_Ref : StaticBody2D
+@export var Slot2_Pocket_Ref : StaticBody2D
+@export var Slot3_Pocket_Ref : StaticBody2D
+@export var Slot4_Pocket_Ref : StaticBody2D
+@export var Slot5_Pocket_Ref : StaticBody2D
+@export var Slot6_Pocket_Ref : StaticBody2D
+@export var Slot7_Pocket_Ref : StaticBody2D
+@export var Slot8_Pocket_Ref : StaticBody2D
+@export var Slot9_Pocket_Ref : StaticBody2D
+@export var Slot10_Pocket_Ref : StaticBody2D
+@export var Slot11_Pocket_Ref : StaticBody2D
+@export var Slot12_Pocket_Ref : StaticBody2D
+@export var Slot13_Pocket_Ref : StaticBody2D
+@export var Slot14_Pocket_Ref : StaticBody2D
+@export var Slot15_Pocket_Ref : StaticBody2D
+@export var Slot16_Pocket_Ref : StaticBody2D
 
 @export_subgroup("Layers and UI")
 @export var PocketsCollisionBoundary : Area2D
@@ -813,22 +815,22 @@ func nodeSetup(): # A function to setup the nodes. Called in the _ready function
 
 func initInventorySlots():
 	InventoryManager.POCKET_SLOTS = [
-		Slot1_Inventory_Ref,
-		Slot2_Inventory_Ref,
-		Slot3_Inventory_Ref,
-		Slot4_Inventory_Ref,
-		Slot5_Inventory_Ref,
-		Slot6_Inventory_Ref,
-		Slot7_Inventory_Ref,
-		Slot8_Inventory_Ref,
-		Slot9_Inventory_Ref,
-		Slot10_Inventory_Ref,
-		Slot11_Inventory_Ref,
-		Slot12_Inventory_Ref,
-		Slot13_Inventory_Ref,
-		Slot14_Inventory_Ref,
-		Slot15_Inventory_Ref,
-		Slot16_Inventory_Ref,
+		Slot1_Pocket_Ref,
+		Slot2_Pocket_Ref,
+		Slot3_Pocket_Ref,
+		Slot4_Pocket_Ref,
+		Slot5_Pocket_Ref,
+		Slot6_Pocket_Ref,
+		Slot7_Pocket_Ref,
+		Slot8_Pocket_Ref,
+		Slot9_Pocket_Ref,
+		Slot10_Pocket_Ref,
+		Slot11_Pocket_Ref,
+		Slot12_Pocket_Ref,
+		Slot13_Pocket_Ref,
+		Slot14_Pocket_Ref,
+		Slot15_Pocket_Ref,
+		Slot16_Pocket_Ref,
 	]
 	
 	InventoryManager.CHEST_SLOTS = [
@@ -1041,77 +1043,10 @@ func showDeathScreen(): # A function to show the death screen
 #region Inventory
 
 func openInventory():
-	$Head/Camera3D/AudioNotificationLayer.layer = 15
-	$Head/Camera3D/HotbarLayer.layer = 2
-	$is_inside_boundary_false_inventory_debounce.start()
-	
-	if InventoryManager.in_chest_interface:
-		InventoryMainLayer.offset.x = -290.28
-		
-		ChestCollisionBoundary.set_deferred("monitorable", true)
-		ChestCollisionBoundary.set_deferred("monitoring", true)
-		
-		PocketsCollisionBoundary.set_deferred("monitorable", false)
-		PocketsCollisionBoundary.set_deferred("monitoring", false)
-		
-		WorkbenchCollisionBoundary.set_deferred("monitorable", false)
-		WorkbenchCollisionBoundary.set_deferred("monitoring", false)
-		$Head/Camera3D/InventoryLayer/ChestKeys.show()
-		
-	elif InventoryManager.is_in_workbench_interface:
-		InventoryMainLayer.offset.x = -155.09
-		
-		WorkbenchCollisionBoundary.set_deferred("monitorable", true)
-		WorkbenchCollisionBoundary.set_deferred("monitoring", true)
-		
-		ChestCollisionBoundary.set_deferred("monitorable", false)
-		ChestCollisionBoundary.set_deferred("monitoring", false)
-		
-		PocketsCollisionBoundary.set_deferred("monitorable", false)
-		PocketsCollisionBoundary.set_deferred("monitoring", false)
-		$Head/Camera3D/InventoryLayer/WorkbenchKeys.show()
-	
-	else:
-		
-		InventoryMainLayer.offset.x = 0
-		ChestMainLayer.hide()
-		
-		PocketsCollisionBoundary.set_deferred("monitorable", true)
-		PocketsCollisionBoundary.set_deferred("monitoring", true)
-		
-		ChestCollisionBoundary.set_deferred("monitorable", false)
-		ChestCollisionBoundary.set_deferred("monitoring", false)
-		
-		WorkbenchCollisionBoundary.set_deferred("monitorable", false)
-		WorkbenchCollisionBoundary.set_deferred("monitoring", false)
-		$Head/Camera3D/InventoryLayer/PocketKeys.show()
-	
-	InventoryMainLayer.show()
-	InventoryLayer.show() # show the inventory UI
-	
-	Utils.center_mouse_cursor() # center the mouse cursor
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # set the mouse mode to visible
-	InventoryManager.inventory_open = true
-	inventory_opened_in_air = not is_on_floor() # Set the flag when inventory is opened in the air
+	pass
 
 func closeInventory():
-	$Head/Camera3D/AudioNotificationLayer.layer = 1
-	$Head/Camera3D/HotbarLayer.layer = 1
-	InventoryLayer_GreyLayer.show()
-	
-	InventoryMainLayer.hide()
-	InventoryLayer.hide() # hide the inventory UI
-	$Head/Camera3D/InventoryLayer/PocketKeys.hide()
-	$Head/Camera3D/InventoryLayer/ChestKeys.hide()
-	$Head/Camera3D/InventoryLayer/WorkbenchKeys.hide()
-	
-	
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor
-	Utils.center_mouse_cursor() # center the mouse cursor
-	InventoryManager.inventory_open = false
-	inventory_opened_in_air = false  # Reset the flag when inventory is closed
-	MinimalAlert.hide_minimal_alert(0.1)
-
+	pass
 
 func _on_pockets_boundary_area_entered(area: Area2D) -> void:
 	if area.is_in_group("draggable"):
