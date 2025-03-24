@@ -1,16 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhhjltxmoydio"]
+[gd_scene load_steps=4 format=3 uid="uid://dhhjltxmoydio"]
 
 [ext_resource type="Script" uid="uid://qp1u2d0q1xmp" path="res://Scenes and Scripts/Scenes/Player/Inventory/InventorySlot_SCRIPT.gd" id="1_bxl3d"]
 [ext_resource type="Texture2D" uid="uid://dynk4aytqg20" path="res://Textures/Inventory/Slot/InventorySlotTexture.png" id="2_2mtlq"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5hbs3"]
-size = Vector2(32, 32)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3cn48"]
 size = Vector2(70, 70)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q5yu5"]
-size = Vector2(32, 32)
 
 [node name="InventorySlot" type="StaticBody2D" groups=["slot"]]
 script = ExtResource("1_bxl3d")
@@ -36,20 +30,10 @@ scale = Vector2(0.78, 0.78)
 texture = ExtResource("2_2mtlq")
 expand_mode = 1
 
-[node name="Draggable Detector" type="Area2D" parent="."]
+[node name="MouseDetector" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Draggable Detector"]
-shape = SubResource("RectangleShape2D_5hbs3")
-
-[node name="HotbarMouseDetector" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HotbarMouseDetector"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseDetector"]
 shape = SubResource("RectangleShape2D_3cn48")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_q5yu5")
-
-[connection signal="area_entered" from="Draggable Detector" to="." method="_on_draggable_detector_area_entered"]
-[connection signal="area_exited" from="Draggable Detector" to="." method="_on_draggable_detector_area_exited"]
-[connection signal="mouse_entered" from="HotbarMouseDetector" to="." method="_on_draggable_detector_mouse_entered"]
-[connection signal="mouse_exited" from="HotbarMouseDetector" to="." method="_on_draggable_detector_mouse_exited"]
+[connection signal="mouse_shape_entered" from="MouseDetector" to="." method="_on_mouse_detector_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="MouseDetector" to="." method="_on_mouse_detector_mouse_shape_exited"]
