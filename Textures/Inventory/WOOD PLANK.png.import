@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1dbgnxe1pe1i"
-path="res://.godot/imported/HEALTHPOTION.png-12190b49adb62ffb9d32688ff831bc25.ctex"
+uid="uid://d2o42bjls3sl3"
+path="res://.godot/imported/WOOD PLANK.png-9bed1494026e674e410646bc0ea56089.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Inventory/HEALTHPOTION.png"
-dest_files=["res://.godot/imported/HEALTHPOTION.png-12190b49adb62ffb9d32688ff831bc25.ctex"]
+source_file="res://Textures/Inventory/WOOD PLANK.png"
+dest_files=["res://.godot/imported/WOOD PLANK.png-9bed1494026e674e410646bc0ea56089.ctex"]
 
 [params]
 

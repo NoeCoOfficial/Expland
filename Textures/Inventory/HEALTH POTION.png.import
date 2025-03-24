@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://m8ohdtvo6rfr"
-path="res://.godot/imported/REDFLOWER.png-918a637c7e7b0e221ea462d136070d6e.ctex"
+uid="uid://1dbgnxe1pe1i"
+path="res://.godot/imported/HEALTH POTION.png-d84c7eb3e85fda16a7e1bd703f3566d7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Inventory/REDFLOWER.png"
-dest_files=["res://.godot/imported/REDFLOWER.png-918a637c7e7b0e221ea462d136070d6e.ctex"]
+source_file="res://Textures/Inventory/HEALTH POTION.png"
+dest_files=["res://.godot/imported/HEALTH POTION.png-d84c7eb3e85fda16a7e1bd703f3566d7.ctex"]
 
 [params]
 

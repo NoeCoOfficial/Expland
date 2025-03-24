@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2o42bjls3sl3"
-path="res://.godot/imported/WOODPLANK.png-a0650ea949753e085795a46b3af293ac.ctex"
+uid="uid://cqvxhihjcesqw"
+path="res://.godot/imported/YELLOW FLOWER.png-2484b7a4cd71604ae35b204848100710.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Inventory/WOODPLANK.png"
-dest_files=["res://.godot/imported/WOODPLANK.png-a0650ea949753e085795a46b3af293ac.ctex"]
+source_file="res://Textures/Inventory/YELLOW FLOWER.png"
+dest_files=["res://.godot/imported/YELLOW FLOWER.png-2484b7a4cd71604ae35b204848100710.ctex"]
 
 [params]
 

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ic1v407ic2h3"
-path="res://.godot/imported/REGENERATINGPOTION.blend-6f46268e9bd49b1f17049edf3422205f.scn"
+uid="uid://bk1v1bbw07mkj"
+path="res://.godot/imported/STAMINA POTION.blend-d391d1a390f742aff755391286e8bb65.scn"
 
 [deps]
 
-source_file="res://Assets/3D Models/Inventory Pickup Items/REGENERATINGPOTION.blend"
-dest_files=["res://.godot/imported/REGENERATINGPOTION.blend-6f46268e9bd49b1f17049edf3422205f.scn"]
+source_file="res://Assets/3D Models/Inventory Pickup Items/STAMINA POTION.blend"
+dest_files=["res://.godot/imported/STAMINA POTION.blend-d391d1a390f742aff755391286e8bb65.scn"]
 
 [params]
 

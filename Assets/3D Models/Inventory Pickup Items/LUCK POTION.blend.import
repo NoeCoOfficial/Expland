@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d1krxi2vcrc4m"
-path="res://.godot/imported/WOODPLANK.blend-91f7b20ef1077e0fc52d31ab38b6e273.scn"
+uid="uid://dehytmc8mbpxu"
+path="res://.godot/imported/LUCK POTION.blend-84fdc4ac3c5c33158c6a00118d84b6d1.scn"
 
 [deps]
 
-source_file="res://Assets/3D Models/Inventory Pickup Items/WOODPLANK.blend"
-dest_files=["res://.godot/imported/WOODPLANK.blend-91f7b20ef1077e0fc52d31ab38b6e273.scn"]
+source_file="res://Assets/3D Models/Inventory Pickup Items/LUCK POTION.blend"
+dest_files=["res://.godot/imported/LUCK POTION.blend-84fdc4ac3c5c33158c6a00118d84b6d1.scn"]
 
 [params]
 

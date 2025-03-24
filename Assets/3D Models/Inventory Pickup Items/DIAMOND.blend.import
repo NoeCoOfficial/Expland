@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cdxp232v4i2lr"
-path="res://.godot/imported/PINKFLOWER.blend-1f4890d811f57d22068d6e65b2796c52.scn"
+uid="uid://bu3hjk6lud3vi"
+path="res://.godot/imported/DIAMOND.blend-cfe136b540355ee83a3884ffd7a245af.scn"
 
 [deps]
 
-source_file="res://Assets/3D Models/Inventory Pickup Items/PINKFLOWER.blend"
-dest_files=["res://.godot/imported/PINKFLOWER.blend-1f4890d811f57d22068d6e65b2796c52.scn"]
+source_file="res://Assets/3D Models/Inventory Pickup Items/DIAMOND.blend"
+dest_files=["res://.godot/imported/DIAMOND.blend-cfe136b540355ee83a3884ffd7a245af.scn"]
 
 [params]
 

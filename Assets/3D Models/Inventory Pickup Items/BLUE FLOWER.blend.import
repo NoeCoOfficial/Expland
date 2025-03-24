@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cyxxp35iw0434"
-path="res://.godot/imported/YELLOWFLOWER.blend-6f693c6ae697fe9c5871c2fa199d2b3c.scn"
+uid="uid://cynuvm6lnyih2"
+path="res://.godot/imported/BLUE FLOWER.blend-ad9aa80dc37c48d723759016ee49dde6.scn"
 
 [deps]
 
-source_file="res://Assets/3D Models/Inventory Pickup Items/YELLOWFLOWER.blend"
-dest_files=["res://.godot/imported/YELLOWFLOWER.blend-6f693c6ae697fe9c5871c2fa199d2b3c.scn"]
+source_file="res://Assets/3D Models/Inventory Pickup Items/BLUE FLOWER.blend"
+dest_files=["res://.godot/imported/BLUE FLOWER.blend-ad9aa80dc37c48d723759016ee49dde6.scn"]
 
 [params]
 

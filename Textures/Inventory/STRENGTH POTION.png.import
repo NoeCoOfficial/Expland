@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mwa55qklwxe3"
-path="res://.godot/imported/REGENERATINGPOTION.png-b73a4c9d6c3cd959008d24a4c4163533.ctex"
+uid="uid://bfiqh1ceg7rmt"
+path="res://.godot/imported/STRENGTH POTION.png-23dcd5eaa235479e9b25774efc3e00d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Inventory/REGENERATINGPOTION.png"
-dest_files=["res://.godot/imported/REGENERATINGPOTION.png-b73a4c9d6c3cd959008d24a4c4163533.ctex"]
+source_file="res://Textures/Inventory/STRENGTH POTION.png"
+dest_files=["res://.godot/imported/STRENGTH POTION.png-23dcd5eaa235479e9b25774efc3e00d9.ctex"]
 
 [params]
 

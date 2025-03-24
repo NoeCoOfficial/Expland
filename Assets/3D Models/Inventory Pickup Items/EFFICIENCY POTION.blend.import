@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dehytmc8mbpxu"
-path="res://.godot/imported/LUCKPOTION.blend-8471d78587e8e7e77bf840c645867a39.scn"
+uid="uid://b8dojl031i6vl"
+path="res://.godot/imported/EFFICIENCY POTION.blend-26710549170dca85df405aef085449a1.scn"
 
 [deps]
 
-source_file="res://Assets/3D Models/Inventory Pickup Items/LUCKPOTION.blend"
-dest_files=["res://.godot/imported/LUCKPOTION.blend-8471d78587e8e7e77bf840c645867a39.scn"]
+source_file="res://Assets/3D Models/Inventory Pickup Items/EFFICIENCY POTION.blend"
+dest_files=["res://.godot/imported/EFFICIENCY POTION.blend-26710549170dca85df405aef085449a1.scn"]
 
 [params]
 

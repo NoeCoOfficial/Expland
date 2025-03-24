@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fj1pvfgfyamb"
-path="res://.godot/imported/STAMINAPOTION.png-937130db6ddd82c215acc802f62eb5df.ctex"
+uid="uid://dkol2o53q7rck"
+path="res://.godot/imported/LUCK POTION.png-9d6fecea311b0fa91ed45eba22129537.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Inventory/STAMINAPOTION.png"
-dest_files=["res://.godot/imported/STAMINAPOTION.png-937130db6ddd82c215acc802f62eb5df.ctex"]
+source_file="res://Textures/Inventory/LUCK POTION.png"
+dest_files=["res://.godot/imported/LUCK POTION.png-9d6fecea311b0fa91ed45eba22129537.ctex"]
 
 [params]
 

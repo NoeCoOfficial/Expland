@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bkrrrciwr0l51"
-path="res://.godot/imported/HEALTHPOTION.blend-4d9df05c25a9ba5eda1bacfec17b88b7.scn"
+uid="uid://cyxxp35iw0434"
+path="res://.godot/imported/YELLOW FLOWER.blend-c644437037383c367ddbd5fa5f1e83ca.scn"
 
 [deps]
 
-source_file="res://Assets/3D Models/Inventory Pickup Items/HEALTHPOTION.blend"
-dest_files=["res://.godot/imported/HEALTHPOTION.blend-4d9df05c25a9ba5eda1bacfec17b88b7.scn"]
+source_file="res://Assets/3D Models/Inventory Pickup Items/YELLOW FLOWER.blend"
+dest_files=["res://.godot/imported/YELLOW FLOWER.blend-c644437037383c367ddbd5fa5f1e83ca.scn"]
 
 [params]
 

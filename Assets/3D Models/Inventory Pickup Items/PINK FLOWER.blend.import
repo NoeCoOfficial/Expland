@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cynuvm6lnyih2"
-path="res://.godot/imported/BLUEFLOWER.blend-4291d7d137c6afc5410e3e9fe4908446.scn"
+uid="uid://cdxp232v4i2lr"
+path="res://.godot/imported/PINK FLOWER.blend-c907ac6dfab79533945099d8d57e6f36.scn"
 
 [deps]
 
-source_file="res://Assets/3D Models/Inventory Pickup Items/BLUEFLOWER.blend"
-dest_files=["res://.godot/imported/BLUEFLOWER.blend-4291d7d137c6afc5410e3e9fe4908446.scn"]
+source_file="res://Assets/3D Models/Inventory Pickup Items/PINK FLOWER.blend"
+dest_files=["res://.godot/imported/PINK FLOWER.blend-c907ac6dfab79533945099d8d57e6f36.scn"]
 
 [params]
 

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bu3hjk6lud3vi"
-path="res://.godot/imported/diemond.blend-91c33ae9df87ebac3f7fcdf476d532a8.scn"
+uid="uid://bkrrrciwr0l51"
+path="res://.godot/imported/HEALTH POTION.blend-a73e7c731f1d0eba222e36deb029e9f9.scn"
 
 [deps]
 
-source_file="res://Assets/3D Models/Inventory Pickup Items/diemond.blend"
-dest_files=["res://.godot/imported/diemond.blend-91c33ae9df87ebac3f7fcdf476d532a8.scn"]
+source_file="res://Assets/3D Models/Inventory Pickup Items/HEALTH POTION.blend"
+dest_files=["res://.godot/imported/HEALTH POTION.blend-a73e7c731f1d0eba222e36deb029e9f9.scn"]
 
 [params]
 

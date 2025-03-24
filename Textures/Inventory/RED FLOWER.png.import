@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://da0briqsyhmau"
-path="res://.godot/imported/PINKFLOWER.png-ef66f160c1170d7c5a9be50c258d46de.ctex"
+uid="uid://m8ohdtvo6rfr"
+path="res://.godot/imported/RED FLOWER.png-939e53f71aa3c3f43aaa5fca8e7e3aa0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Inventory/PINKFLOWER.png"
-dest_files=["res://.godot/imported/PINKFLOWER.png-ef66f160c1170d7c5a9be50c258d46de.ctex"]
+source_file="res://Textures/Inventory/RED FLOWER.png"
+dest_files=["res://.godot/imported/RED FLOWER.png-939e53f71aa3c3f43aaa5fca8e7e3aa0.ctex"]
 
 [params]
 

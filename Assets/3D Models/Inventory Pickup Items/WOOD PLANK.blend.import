@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b8dojl031i6vl"
-path="res://.godot/imported/EFFICIENCYPOTION.blend-d2f0a58b08c5050e9950660d2c176852.scn"
+uid="uid://d1krxi2vcrc4m"
+path="res://.godot/imported/WOOD PLANK.blend-1b0e640ef37d480f0eabd3fbc304b28b.scn"
 
 [deps]
 
-source_file="res://Assets/3D Models/Inventory Pickup Items/EFFICIENCYPOTION.blend"
-dest_files=["res://.godot/imported/EFFICIENCYPOTION.blend-d2f0a58b08c5050e9950660d2c176852.scn"]
+source_file="res://Assets/3D Models/Inventory Pickup Items/WOOD PLANK.blend"
+dest_files=["res://.godot/imported/WOOD PLANK.blend-1b0e640ef37d480f0eabd3fbc304b28b.scn"]
 
 [params]
 

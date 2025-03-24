@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://gy86venr6fii"
-path="res://.godot/imported/NIGHTVISIONPOTION.blend-2bf01b4b57302052549d060591fa1ea2.scn"
+uid="uid://c5kig8oo8rel3"
+path="res://.godot/imported/BLANK FLOWER.blend-b459b0661d873b748764a05d1d654e97.scn"
 
 [deps]
 
-source_file="res://Assets/3D Models/Inventory Pickup Items/NIGHTVISIONPOTION.blend"
-dest_files=["res://.godot/imported/NIGHTVISIONPOTION.blend-2bf01b4b57302052549d060591fa1ea2.scn"]
+source_file="res://Assets/3D Models/Inventory Pickup Items/BLANK FLOWER.blend"
+dest_files=["res://.godot/imported/BLANK FLOWER.blend-b459b0661d873b748764a05d1d654e97.scn"]
 
 [params]
 

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cje4v10u317y"
-path="res://.godot/imported/REDFLOWER.blend-a7a6514e2318b6dbec2512fd7b8d9610.scn"
+uid="uid://c3f07o736s1fc"
+path="res://.godot/imported/HASTE POTION.blend-ea784a0184a714e7504ea9860a7314ba.scn"
 
 [deps]
 
-source_file="res://Assets/3D Models/Inventory Pickup Items/REDFLOWER.blend"
-dest_files=["res://.godot/imported/REDFLOWER.blend-a7a6514e2318b6dbec2512fd7b8d9610.scn"]
+source_file="res://Assets/3D Models/Inventory Pickup Items/HASTE POTION.blend"
+dest_files=["res://.godot/imported/HASTE POTION.blend-ea784a0184a714e7504ea9860a7314ba.scn"]
 
 [params]
 

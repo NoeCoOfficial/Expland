@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d0ut80c3jd0lu"
-path="res://.godot/imported/STRENGTHPOTION.blend-54b0ce6a9044141cae8176614058f5ed.scn"
+uid="uid://gy86venr6fii"
+path="res://.godot/imported/NIGHT VISION POTION.blend-cc6593d2087c6a7d72bb23487687ea98.scn"
 
 [deps]
 
-source_file="res://Assets/3D Models/Inventory Pickup Items/STRENGTHPOTION.blend"
-dest_files=["res://.godot/imported/STRENGTHPOTION.blend-54b0ce6a9044141cae8176614058f5ed.scn"]
+source_file="res://Assets/3D Models/Inventory Pickup Items/NIGHT VISION POTION.blend"
+dest_files=["res://.godot/imported/NIGHT VISION POTION.blend-cc6593d2087c6a7d72bb23487687ea98.scn"]
 
 [params]
 

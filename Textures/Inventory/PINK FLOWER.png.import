@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkol2o53q7rck"
-path="res://.godot/imported/LUCKPOTION.png-ff60a82b731df7a79c43989521ade196.ctex"
+uid="uid://da0briqsyhmau"
+path="res://.godot/imported/PINK FLOWER.png-404a890a6fd7a1a736b29853993b60bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Inventory/LUCKPOTION.png"
-dest_files=["res://.godot/imported/LUCKPOTION.png-ff60a82b731df7a79c43989521ade196.ctex"]
+source_file="res://Textures/Inventory/PINK FLOWER.png"
+dest_files=["res://.godot/imported/PINK FLOWER.png-404a890a6fd7a1a736b29853993b60bd.ctex"]
 
 [params]
 

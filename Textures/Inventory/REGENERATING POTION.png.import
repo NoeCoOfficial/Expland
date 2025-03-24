@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0q61bcnprn5o"
-path="res://.godot/imported/NIGHTVISIONPOTION.png-4bf284e61ad3de6bc595bb69ebc657c0.ctex"
+uid="uid://mwa55qklwxe3"
+path="res://.godot/imported/REGENERATING POTION.png-12ff6bce2812da0dac1a1164a00d04de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Inventory/NIGHTVISIONPOTION.png"
-dest_files=["res://.godot/imported/NIGHTVISIONPOTION.png-4bf284e61ad3de6bc595bb69ebc657c0.ctex"]
+source_file="res://Textures/Inventory/REGENERATING POTION.png"
+dest_files=["res://.godot/imported/REGENERATING POTION.png-12ff6bce2812da0dac1a1164a00d04de.ctex"]
 
 [params]
 

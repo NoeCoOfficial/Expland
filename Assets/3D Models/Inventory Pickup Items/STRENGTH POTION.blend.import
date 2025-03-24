@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c3f07o736s1fc"
-path="res://.godot/imported/HASTEPOTION.blend-190fab2e94f3456912c3096972bf030a.scn"
+uid="uid://d0ut80c3jd0lu"
+path="res://.godot/imported/STRENGTH POTION.blend-436ddc247ddbe0a689848ab9edc4db06.scn"
 
 [deps]
 
-source_file="res://Assets/3D Models/Inventory Pickup Items/HASTEPOTION.blend"
-dest_files=["res://.godot/imported/HASTEPOTION.blend-190fab2e94f3456912c3096972bf030a.scn"]
+source_file="res://Assets/3D Models/Inventory Pickup Items/STRENGTH POTION.blend"
+dest_files=["res://.godot/imported/STRENGTH POTION.blend-436ddc247ddbe0a689848ab9edc4db06.scn"]
 
 [params]
 
