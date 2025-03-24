@@ -66,7 +66,7 @@ func _ready() -> void:
 func initProperties(ip_ITEM_TYPE : String):
 	ITEM_TYPE = ip_ITEM_TYPE
 	Droppable_Sprite2D.texture = load("res://Textures/Inventory/" + ip_ITEM_TYPE + ".png")
-	Droppable_ITEM_TYPE_Label.texture
+	Droppable_ITEM_TYPE_Label.text = ip_ITEM_TYPE.capitalize()
 
 
 func _on_mouse_detector_mouse_shape_entered(shape_idx: int) -> void:
