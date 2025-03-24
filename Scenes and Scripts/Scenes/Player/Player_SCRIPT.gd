@@ -393,24 +393,11 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			if !DialogueManager.is_in_absolute_interface and !InventoryManager.inventory_open and !PauseManager.is_inside_alert and !InventoryManager.is_in_workbench_interface and !InventoryManager.in_chest_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !PauseManager.inside_absolute_item_workshop and !PauseManager.inside_explorer_note_ui and !StoryModeManager.is_in_story_mode_first_cutscene_world:
 				pauseGame()
 			
-			if InventoryManager.inventory_open and !InventoryManager.in_chest_interface and !InventoryManager.is_in_explorer_notes_interface and !InventoryManager.is_dragging:
-				closeInventory()
-			
-			if InventoryManager.in_chest_interface and !InventoryManager.is_dragging and !InventoryManager.is_in_explorer_notes_interface:
-				if !InventoryManager.chestNode.is_animating():
-					closeChest()
-			
-			if InventoryManager.is_in_workbench_interface and !InventoryManager.is_dragging and !InventoryManager.is_in_explorer_notes_interface:
-				closeWorkbench()
-			
 			if PauseManager.inside_item_workshop:
 				closeItemWorkshop()
 			
 			if PauseManager.inside_explorer_note_ui:
 				ExplorerNotesManager.hideCloseUp()
-			
-			if InventoryManager.is_in_explorer_notes_interface:
-				closeExplorerNotes()
 	
 	if Input.is_action_just_pressed("Quit") and Quit == true and OS.is_debug_build(): # if the Quit input is pressed and the Quit variable is true
 		if !StoryModeManager.is_in_story_mode_first_cutscene_world:
@@ -430,65 +417,8 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
 			SaveManager.saveAllData()
 	
-	if Input.is_action_just_pressed("Inventory") and !InventoryManager.is_in_explorer_notes_interface and !PauseManager.inside_explorer_note_ui and !PauseManager.inside_absolute_item_workshop and !PauseManager.is_paused and !InventoryManager.in_chest_interface and !InventoryManager.is_in_workbench_interface and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !InventoryManager.is_dragging and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !StoryModeManager.is_in_story_mode_first_cutscene_world:
-		if !InventoryManager.inventory_open:
-			openInventory()
-		else:
-			closeInventory()
-	
 	if Input.is_action_just_pressed("Workbench_QuickCraft") and InventoryManager.is_in_workbench_interface:
 		SignalBus.pressed_craft.emit()
-	
-	if !PauseManager.is_paused and !DialogueManager.is_in_interface and !PauseManager.inside_explorer_note_ui and PlayerData.GAME_STATE != "DEAD" and PlayerData.GAME_STATE != "SLEEPING" and !StoryModeManager.is_in_story_mode_first_cutscene_world:
-		if Input.is_action_just_pressed("Hotbar_1"):
-			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot1":
-				setHotbarSelectedSlot(1)
-			else:
-				setHotbarSelectedSlot(null)
-		elif Input.is_action_just_pressed("Hotbar_2"):
-			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot2":
-				setHotbarSelectedSlot(2)
-			else:
-				setHotbarSelectedSlot(null)
-		elif Input.is_action_just_pressed("Hotbar_3"):
-			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot3":
-				setHotbarSelectedSlot(3)
-			else:
-				setHotbarSelectedSlot(null)
-		elif Input.is_action_just_pressed("Hotbar_4"):
-			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot4":
-				setHotbarSelectedSlot(4)
-			else:
-				setHotbarSelectedSlot(null)
-		elif Input.is_action_just_pressed("Hotbar_5"):
-			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot5":
-				setHotbarSelectedSlot(5)
-			else:
-				setHotbarSelectedSlot(null)
-		elif Input.is_action_just_pressed("Hotbar_6"):
-			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot6":
-				setHotbarSelectedSlot(6)
-			else:
-				setHotbarSelectedSlot(null)
-		elif Input.is_action_just_pressed("Hotbar_7"):
-			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot7":
-				setHotbarSelectedSlot(7)
-			else:
-				setHotbarSelectedSlot(null)
-		elif Input.is_action_just_pressed("Hotbar_8"):
-			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot8":
-				setHotbarSelectedSlot(8)
-				#HandManager.HAND_ITEM_NODE.swap_items("PICKAXE")
-			else:
-				setHotbarSelectedSlot(null)
-				#HandManager.HAND_ITEM_NODE.swap_items("")
-		elif Input.is_action_just_pressed("Hotbar_9"):
-			if !str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME) == "Slot9":
-				setHotbarSelectedSlot(9)
-				#HandManager.HAND_ITEM_NODE.swap_items("SWORD")
-			else:
-				setHotbarSelectedSlot(null)
-				#HandManager.HAND_ITEM_NODE.swap_items("")
 
 func _unhandled_input(event): # A built-in function that listens for input all the time
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
@@ -736,7 +666,6 @@ func _ready():
 	PlayerManager.MINIMAL_ALERT_PLAYER = MinimalAlert
 	PlayerManager.INVENTORY_LAYER = InventoryLayer
 	
-	SignalBus.spawn_crafted_item.connect(Craft)
 	
 	initInventorySlots() # Link local inventory slots to singleton arrays
 	init_for_story_mode_cutscene()
@@ -961,10 +890,7 @@ func takeDamage(DamageToTake): # A function to take damage from the player
 			PlayerData.Health = 0 # set the health to 0
 			
 			resumeGame()
-			closeInventory()
-			closeChest()
 			closeItemWorkshop()
-			closeWorkbench()
 			ExplorerNotesManager.hideCloseUp()
 			SettingsUI.closeSettings(0.5)
 			AlertLayer.despawnAlert(0.5)
@@ -1037,128 +963,6 @@ func showDeathScreen(): # A function to show the death screen
 	
 	tween.tween_property(DeathScreen_BlackOverlay, "color", Color(1, 1, 1, 1), 0) # tween the black overlay's color to white
 	tween.tween_property(DeathScreen_BlackOverlay, "self_modulate", Color(1, 1, 1, 1), 3) # tween the black overlay's self modulate to white
-
-#endregion
-
-#region Inventory
-
-func openInventory():
-	pass
-
-func closeInventory():
-	pass
-
-func _on_pockets_boundary_area_entered(area: Area2D) -> void:
-	if area.is_in_group("draggable"):
-		InventoryManager.is_inside_boundary = true
-
-func _on_pockets_boundary_area_exited(area: Area2D) -> void:
-	if area.is_in_group("draggable"):
-		InventoryManager.is_inside_boundary = false
-
-
-func _on_chest_boundary_area_entered(area: Area2D) -> void:
-	if area.is_in_group("draggable"):
-		InventoryManager.is_inside_boundary = true
-
-func _on_chest_boundary_area_exited(area: Area2D) -> void:
-	if area.is_in_group("draggable"):
-		InventoryManager.is_inside_boundary = false
-
-
-func _on_pickup_object_detector_area_entered(area: Area3D) -> void:
-	
-	if area.is_in_group("pickup_player_detector"):
-		
-		var free_slot = null
-		
-		# Get the free slot
-		free_slot = InventoryManager.get_free_slot(InventoryManager.POCKET_SLOTS)
-		
-		if free_slot != null and !free_slot.is_populated():
-			
-			free_slot.set_populated(true)
-			
-			area.set_deferred("monitorable", false)
-			area.set_deferred("monitoring", false)
-			
-			print("{LOCAL} [Player_SCRIPT.gd] Free slot found: " + free_slot.name)
-			
-			var PickupObject = area.get_parent()
-			var PickupItemType = PickupObject.get_ITEM_TYPE()
-			var PlayerPos = PickupAttractionPos.global_position
-			
-			print("{LOCAL} [Player_SCRIPT.gd] Collided with pickup player detector! Item: " + PickupItemType)
-			
-			var tween1 = get_tree().create_tween().set_parallel()
-			
-			tween1.tween_property(PickupObject, "position", PlayerPos, 0.1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
-			tween1.tween_property(PickupObject, "scale", Vector3(0.00001, 0.00001, 0.00001), 0.1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
-			
-			await get_tree().create_timer(0.1).timeout
-			
-			delete_pickup_object(PickupObject)
-			InventoryManager.spawn_inventory_dropable(free_slot.global_position, PickupItemType, free_slot, false)
-			
-		else:
-			print("{LOCAL} [Player_SCRIPT.gd] No free slot available.")
-
-func delete_pickup_object(pickupobj):
-	if pickupobj != null:
-		pickupobj.queue_free()
-
-func hide_chest_dropables(parent_node: Node):
-	for child in parent_node.get_children():
-		# Check if the child's name starts with "Dropable"
-		if child.name.begins_with("Dropable"):
-			# Ensure the child has the method `get_is_in_chest_slot`
-			if child.has_method("get_is_in_chest_slot"):
-				if child.get_is_in_chest_slot():
-					# Set visibility to false
-					child.visible = false
-
-func show_chest_dropables(parent_node: Node):
-	for child in parent_node.get_children():
-		# Check if the child's name starts with "Dropable"
-		if child.name.begins_with("Dropable"):
-			# Ensure the child has the method `get_is_in_chest_slot`
-			if child.has_method("get_is_in_chest_slot"):
-				if child.get_is_in_chest_slot():
-					# Set visibility to false
-					child.visible = false
-
-func _on_is_inside_boundary_false_startup_timeout() -> void:
-	InventoryManager.is_inside_boundary = false
-
-func _on_is_inside_boundary_false_inventory_debounce_timeout() -> void:
-	InventoryManager.is_inside_boundary = false
-
-#endregion
-
-#region Hotbar
-
-func setHotbarSelectedSlot(Slot_Number):
-	if Slot_Number != null:
-		print("Setting hotbar slot to: ", Slot_Number)
-		for child in $Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots.get_children():
-			if str(child.name) == "Slot" + str(Slot_Number):
-				print("Found slot: ", child.name)
-				HotbarManager.CURRENTLY_SELECTED_SLOT = child
-				HotbarManager.CURRENTLY_SELECTED_SLOT_NAME = child.name
-		
-		for child in $Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarOutlines.get_children():
-			if str(child.name) == "Slot" + str(Slot_Number) + "_Outline":
-				print("Showing outline for: ", child.name)
-				child.visible = true
-			else:
-				child.visible = false
-	else:
-		
-		for child in $Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarOutlines.get_children():
-				child.visible = false
-		
-		HotbarManager.CURRENTLY_SELECTED_SLOT = null
-		HotbarManager.CURRENTLY_SELECTED_SLOT_NAME = null
 
 #endregion
 

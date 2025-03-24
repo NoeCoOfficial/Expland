@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=107 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" uid="uid://6516a37cmejq" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" uid="uid://dilocovfy7y5b" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -11,6 +11,7 @@
 [ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="3_yecwp"]
 [ext_resource type="PackedScene" uid="uid://djwgy3b85xfpn" path="res://Scenes and Scripts/Scenes/Player/Hand Item/HandItem.tscn" id="4_476v6"]
 [ext_resource type="Script" uid="uid://bm52qfp1sskfh" path="res://Scenes and Scripts/Scenes/Player/OverlayLayer/RedOverlay_SCRIPT.gd" id="7_gnu1v"]
+[ext_resource type="PackedScene" uid="uid://dhhjltxmoydio" path="res://Scenes and Scripts/Scenes/Player/Inventory/InventorySlot.tscn" id="8_ads4s"]
 [ext_resource type="FontFile" uid="uid://c4h0gd5a2e2qb" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf" id="8_cdk3a"]
 [ext_resource type="Texture2D" uid="uid://bg100aqmtgfn4" path="res://Textures/Icons/WhiteHam_Icon.png" id="8_l231k"]
 [ext_resource type="Texture2D" uid="uid://b20d3fbxr6vhx" path="res://Textures/Icons/WhiteHeart_Icon.png" id="8_ty1rt"]
@@ -21,15 +22,21 @@
 [ext_resource type="Script" uid="uid://8qfa2wch42ao" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/GetUp_SCRIPT.gd" id="11_0enap"]
 [ext_resource type="PackedScene" uid="uid://bin1awyog56pg" path="res://Scenes and Scripts/Scenes/Player/Interaction/InteractionHUD.tscn" id="16_8a1wo"]
 [ext_resource type="Script" uid="uid://bd3squcstkss1" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="16_wg7d4"]
+[ext_resource type="Texture2D" uid="uid://dgt5qdmjgbdsv" path="res://Textures/Icons/UpArrow_Icon.png" id="17_60kit"]
 [ext_resource type="PackedScene" uid="uid://du1ak3ldg8x4e" path="res://Scenes and Scripts/Scenes/Dialogue/DialogueInterface.tscn" id="17_pkmg7"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="17_rhxkt"]
+[ext_resource type="Script" uid="uid://c5qc0uayrbxpk" path="res://Scenes and Scripts/Scenes/Player/ExplorerNoteLayer/ExplorerNotesMainLayer.gd" id="18_i4l12"]
+[ext_resource type="Texture2D" uid="uid://fih3i4yk6pip" path="res://Textures/Icons/PlayBtn_Icon.png" id="19_0wg4t"]
 [ext_resource type="PackedScene" uid="uid://ceabjbnv3nnyr" path="res://Scenes and Scripts/Scenes/Settings/SettingsUI.tscn" id="19_kj00b"]
 [ext_resource type="PackedScene" uid="uid://b7la7o37o5gld" path="res://Scenes and Scripts/Scenes/Achievements/AchievementsUI.tscn" id="20_3vll1"]
 [ext_resource type="StyleBox" uid="uid://b13po6off8nno" path="res://Resources/Styles and Themes/Styles/Default/Button/WithMarginDefaultDarkGrey.tres" id="20_b68th"]
 [ext_resource type="Script" uid="uid://dbw4gstfj8x4u" path="res://Scenes and Scripts/Scenes/Player/Debug/Inputs_currently_pressing_label_SCRIPT.gd" id="20_bmbkh"]
 [ext_resource type="StyleBox" uid="uid://com3tix0pshhk" path="res://Resources/Styles and Themes/Styles/Default/Label/Default_Label.tres" id="21_k6ube"]
 [ext_resource type="PackedScene" uid="uid://ynckscwc0643" path="res://Scenes and Scripts/Scenes/Alert/AlertLayer.tscn" id="21_r1ny7"]
+[ext_resource type="Texture2D" uid="uid://coh5374nhy6fl" path="res://Textures/Explorer Notes/2_Sheet.png" id="21_rd3qm"]
+[ext_resource type="PackedScene" uid="uid://lf4vntqbl3c6" path="res://Scenes and Scripts/Scenes/General/UI/KeyUI.tscn" id="21_xhl03"]
 [ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="22_7sfup"]
+[ext_resource type="AudioStream" uid="uid://cj0mcts2nwgq5" path="res://Audio/SFX/General/swipe.mp3" id="22_yqbml"]
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="24_6y28d"]
 [ext_resource type="PackedScene" uid="uid://djenc4llne53s" path="res://Scenes and Scripts/Scenes/Credits/CreditsLayer.tscn" id="24_qhsvo"]
 [ext_resource type="StyleBox" uid="uid://c1a26qv61p5kw" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkgreyBGwithWhiteBorder.tres" id="25_8giff"]
@@ -61,6 +68,9 @@
 [ext_resource type="PackedScene" uid="uid://32wjv1fmedim" path="res://Scenes and Scripts/Scenes/Player/Character/PlayerCharacter.tscn" id="62_d4k5t"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bmd81"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_16v4h"]
+size = Vector3(1.7, 2.07, 1.7)
 
 [sub_resource type="Animation" id="Animation_bwve4"]
 resource_name = "CrouchWalk_2"
@@ -1575,6 +1585,100 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 anti_aliasing = false
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqbml"]
+bg_color = Color(0.219501, 0.219501, 0.219501, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ml3g1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2kg3l"]
+bg_color = Color(0.151276, 0.151276, 0.151276, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="GDScript" id="GDScript_tq46f"]
+script/source = "extends Panel
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	self.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+	pass
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xa5l0"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7tmhy"]
+bg_color = Color(0.103744, 0.103744, 0.103744, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qujvk"]
+bg_color = Color(0.107, 0.107, 0.107, 0)
+shadow_size = 15
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bx3eh"]
+size = Vector2(474, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fv14n"]
+size = Vector2(471, 116)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_18jxt"]
+size = Vector2(77, 648)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c8e23"]
+size = Vector2(1152, 61)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dx77i"]
+size = Vector2(686, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ix2dd"]
+size = Vector2(238, 431)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s11mi"]
+size = Vector2(211, 614)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5c121"]
+size = Vector2(626, 61)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ixul"]
+size = Vector2(1152, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ch6l8"]
+size = Vector2(385, 648)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b78jw"]
+size = Vector2(385, 648)
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_47ywp"]
 load_path = "res://.godot/imported/STONE.png-927cdf3755e2c3b65afc36a4cfc41a45.ctex"
 
@@ -1661,75 +1765,75 @@ Character_Body = NodePath("Head/Player_Character")
 Character_Anim_Player = NodePath("Head/Player_Character/AnimationPlayer_Character")
 Character_Shadow_Body = NodePath("Head/Player_Character_Shadow")
 Character_Shadow_Anim_Player = NodePath("Head/Player_Character_Shadow/AnimationPlayer_Character")
-PocketsCollisionBoundary = NodePath("")
-ChestCollisionBoundary = NodePath("")
-WorkbenchCollisionBoundary = NodePath("")
-ChestMainLayer = NodePath("")
-ChestSlots = NodePath("")
-Slot1_Chest_Ref = NodePath("")
-Slot2_Chest_Ref = NodePath("")
-Slot3_Chest_Ref = NodePath("")
-Slot4_Chest_Ref = NodePath("")
-Slot5_Chest_Ref = NodePath("")
-Slot6_Chest_Ref = NodePath("")
-Slot7_Chest_Ref = NodePath("")
-Slot8_Chest_Ref = NodePath("")
-Slot9_Chest_Ref = NodePath("")
-Slot10_Chest_Ref = NodePath("")
-Slot11_Chest_Ref = NodePath("")
-Slot12_Chest_Ref = NodePath("")
-Slot13_Chest_Ref = NodePath("")
-Slot14_Chest_Ref = NodePath("")
-Slot15_Chest_Ref = NodePath("")
-Slot16_Chest_Ref = NodePath("")
-Slot17_Chest_Ref = NodePath("")
-Slot18_Chest_Ref = NodePath("")
-Slot19_Chest_Ref = NodePath("")
-Slot20_Chest_Ref = NodePath("")
-Slot21_Chest_Ref = NodePath("")
-Slot22_Chest_Ref = NodePath("")
-Slot23_Chest_Ref = NodePath("")
-Slot24_Chest_Ref = NodePath("")
-Slot25_Chest_Ref = NodePath("")
-Slot26_Chest_Ref = NodePath("")
-Slot27_Chest_Ref = NodePath("")
-Slot28_Chest_Ref = NodePath("")
-Slot29_Chest_Ref = NodePath("")
-Slot30_Chest_Ref = NodePath("")
-Slot31_Chest_Ref = NodePath("")
-Slot32_Chest_Ref = NodePath("")
-Slot33_Chest_Ref = NodePath("")
-Slot34_Chest_Ref = NodePath("")
-Slot35_Chest_Ref = NodePath("")
-Slot36_Chest_Ref = NodePath("")
-Slot37_Chest_Ref = NodePath("")
-Slot38_Chest_Ref = NodePath("")
-Slot39_Chest_Ref = NodePath("")
-Slot40_Chest_Ref = NodePath("")
-Slot41_Chest_Ref = NodePath("")
-Slot42_Chest_Ref = NodePath("")
-Slot43_Chest_Ref = NodePath("")
-Slot44_Chest_Ref = NodePath("")
-Slot45_Chest_Ref = NodePath("")
-Slot46_Chest_Ref = NodePath("")
-Slot47_Chest_Ref = NodePath("")
-Slot48_Chest_Ref = NodePath("")
-Slot49_Chest_Ref = NodePath("")
-WorkbenchMainLayer = NodePath("")
-WorkbenchSlots = NodePath("")
-Slot1_Workbench_Ref = NodePath("")
-Slot2_Workbench_Ref = NodePath("")
-Slot3_Workbench_Ref = NodePath("")
-Slot4_Workbench_Ref = NodePath("")
-Slot5_Workbench_Ref = NodePath("")
-Slot6_Workbench_Ref = NodePath("")
-Slot7_Workbench_Ref = NodePath("")
-Slot8_Workbench_Ref = NodePath("")
-Slot9_Workbench_Ref = NodePath("")
-Slot10_Output_Workbench_Ref = NodePath("")
+PocketsCollisionBoundary = NodePath("Head/Camera3D/InventoryLayer/PocketsBoundary")
+ChestCollisionBoundary = NodePath("Head/Camera3D/InventoryLayer/ChestBoundary")
+WorkbenchCollisionBoundary = NodePath("Head/Camera3D/InventoryLayer/WorkbenchBoundary")
+ChestMainLayer = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer")
+ChestSlots = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots")
+Slot1_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot1")
+Slot2_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot2")
+Slot3_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot3")
+Slot4_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot4")
+Slot5_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot5")
+Slot6_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot6")
+Slot7_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot7")
+Slot8_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot8")
+Slot9_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot9")
+Slot10_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot10")
+Slot11_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot11")
+Slot12_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot12")
+Slot13_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot13")
+Slot14_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot14")
+Slot15_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot15")
+Slot16_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot16")
+Slot17_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot17")
+Slot18_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot18")
+Slot19_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot19")
+Slot20_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot20")
+Slot21_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot21")
+Slot22_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot22")
+Slot23_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot23")
+Slot24_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot24")
+Slot25_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot25")
+Slot26_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot26")
+Slot27_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot27")
+Slot28_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot28")
+Slot29_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot29")
+Slot30_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot30")
+Slot31_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot31")
+Slot32_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot32")
+Slot33_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot33")
+Slot34_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot34")
+Slot35_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot35")
+Slot36_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot36")
+Slot37_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot37")
+Slot38_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot38")
+Slot39_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot39")
+Slot40_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot40")
+Slot41_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot41")
+Slot42_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot42")
+Slot43_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot43")
+Slot44_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot44")
+Slot45_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot45")
+Slot46_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot46")
+Slot47_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot47")
+Slot48_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot48")
+Slot49_Chest_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots/Slot49")
+WorkbenchMainLayer = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer")
+WorkbenchSlots = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots")
+Slot1_Workbench_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots/Slot1")
+Slot2_Workbench_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots/Slot2")
+Slot3_Workbench_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots/Slot3")
+Slot4_Workbench_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots/Slot4")
+Slot5_Workbench_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots/Slot5")
+Slot6_Workbench_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots/Slot6")
+Slot7_Workbench_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots/Slot7")
+Slot8_Workbench_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots/Slot8")
+Slot9_Workbench_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots/Slot9")
+Slot10_Output_Workbench_Ref = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots/Slot10")
 HUDLayer = NodePath("Head/Camera3D/HUDLayer")
-InventoryLayer = NodePath("")
-InventoryMainLayer = NodePath("")
+InventoryLayer = NodePath("Head/Camera3D/InventoryLayer")
+InventoryMainLayer = NodePath("Head/Camera3D/InventoryLayer/InventoryMainLayer")
 PauseLayer = NodePath("Head/Camera3D/PauseLayer")
 DebugLayer = NodePath("Head/Camera3D/DebugLayer")
 SettingsUI = NodePath("Head/Camera3D/SettingsLayer/SettingsUI")
@@ -1747,7 +1851,7 @@ EffectNotificationGrid = NodePath("Head/Camera3D/HUDLayer/EffectNotificationLaye
 DialogueInterface = NodePath("Head/Camera3D/DialogueLayer/DialogueInterface")
 DeathScreen_BlackOverlay = NodePath("Head/Camera3D/DeathScreen/BlackOverlay")
 OverlayLayer_Overlay = NodePath("Head/Camera3D/OverlayLayer/Overlay")
-InventoryLayer_GreyLayer = NodePath("")
+InventoryLayer_GreyLayer = NodePath("Head/Camera3D/InventoryLayer/GreyLayer")
 ItemWorkshopLayer_MainLayer = NodePath("Head/Camera3D/ItemWorkshopLayer/MainLayer")
 ItemWorkshopLayer_GreyLayer = NodePath("Head/Camera3D/ItemWorkshopLayer/GreyLayer")
 HUDLayer_HealthBar = NodePath("Head/Camera3D/HUDLayer/HealthBar")
@@ -1806,6 +1910,17 @@ wait_time = 0.7
 autostart = true
 script = ExtResource("2_t6toi")
 
+[node name="is_inside_boundary_false_startup" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+autostart = true
+script = ExtResource("2_t6toi")
+
+[node name="is_inside_boundary_false_inventory_debounce" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+script = ExtResource("2_t6toi")
+
 [node name="AutoSaveTimer" type="Timer" parent="."]
 wait_time = 60.0
 autostart = true
@@ -1850,6 +1965,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_bmd81")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
+[node name="PickupObjectDetector" type="Area3D" parent="." groups=["pickup_object_detector"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PickupObjectDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1972, 0)
+shape = SubResource("BoxShape3D_16v4h")
+debug_color = Color(0.172549, 0.643137, 0, 1)
+
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 
@@ -1857,30 +1979,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 transform = Transform3D(-0.651061, 0, -5.69176e-08, 0, 0.651061, 0, 5.69176e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Head/Player_Character_Shadow/Armature_003" index="0"]
-bones/0/position = Vector3(2.75461, -4.31697, -195.351)
-bones/0/rotation = Quaternion(-0.682821, -0.269963, 0.250563, 0.630947)
-bones/1/rotation = Quaternion(0.0812182, 0.0410683, -0.00955022, 0.995804)
-bones/2/rotation = Quaternion(0.10031, 0.0795304, -0.0234152, 0.991496)
-bones/3/rotation = Quaternion(0.10031, 0.0795304, -0.0234151, 0.991496)
-bones/4/rotation = Quaternion(-0.0678301, -0.0110306, 0.00239019, 0.997633)
-bones/5/rotation = Quaternion(-0.0535351, 0.17658, -0.0125234, 0.98275)
-bones/7/rotation = Quaternion(0.596418, 0.400828, -0.567459, 0.40201)
-bones/8/rotation = Quaternion(0.419086, -0.108722, 0.0882498, 0.897083)
+bones/0/position = Vector3(2.71164, -4.18106, -195.374)
+bones/0/rotation = Quaternion(-0.682979, -0.270045, 0.250539, 0.63075)
+bones/1/rotation = Quaternion(0.0811518, 0.0411576, -0.00948568, 0.995806)
+bones/2/rotation = Quaternion(0.100229, 0.0797545, -0.0233395, 0.991488)
+bones/3/rotation = Quaternion(0.100229, 0.0797546, -0.0233395, 0.991488)
+bones/4/rotation = Quaternion(-0.0670123, -0.01082, 0.00210205, 0.997691)
+bones/5/rotation = Quaternion(-0.0566787, 0.176868, -0.0117542, 0.982531)
+bones/7/rotation = Quaternion(0.595129, 0.402174, -0.56782, 0.402066)
+bones/8/rotation = Quaternion(0.420136, -0.107899, 0.0879601, 0.89672)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0394452, 0.0578714, 0.403847, 0.912142)
-bones/11/rotation = Quaternion(0.644116, -0.361803, 0.524628, 0.423058)
-bones/12/rotation = Quaternion(0.402751, 0.115549, 0.148118, 0.895824)
-bones/13/rotation = Quaternion(0.0208932, 0.0282496, -0.361953, 0.931534)
-bones/15/rotation = Quaternion(0.0790947, 0.241201, 0.961389, -0.106285)
+bones/9/rotation = Quaternion(-0.0393218, 0.0585241, 0.40512, 0.911541)
+bones/11/rotation = Quaternion(0.643254, -0.362863, 0.524534, 0.423579)
+bones/12/rotation = Quaternion(0.403857, 0.114113, 0.148853, 0.895388)
+bones/13/rotation = Quaternion(0.0216631, 0.0256002, -0.362259, 0.931474)
+bones/15/rotation = Quaternion(0.0791164, 0.240611, 0.961547, -0.106179)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.366019, 0.118069, -0.0367265, 0.922356)
-bones/17/rotation = Quaternion(0.566009, -0.00292993, -0.0267678, 0.823959)
-bones/18/rotation = Quaternion(0.289152, -0.0362183, -0.00929294, 0.956553)
-bones/20/rotation = Quaternion(-0.12438, 0.0400714, 0.982592, 0.132046)
-bones/21/rotation = Quaternion(-0.360705, 0.0704256, -0.0273378, 0.929616)
-bones/22/rotation = Quaternion(0.680243, 0.0547399, 0.104755, 0.723394)
+bones/16/rotation = Quaternion(-0.366183, 0.118118, -0.0367024, 0.922286)
+bones/17/rotation = Quaternion(0.566342, -0.00277844, -0.0266715, 0.823734)
+bones/18/rotation = Quaternion(0.289416, -0.0368046, -0.00942691, 0.956449)
+bones/20/rotation = Quaternion(-0.12453, 0.0392497, 0.982568, 0.13233)
+bones/21/rotation = Quaternion(-0.359988, 0.0701852, -0.0271466, 0.929917)
+bones/22/rotation = Quaternion(0.680192, 0.0548006, 0.104794, 0.723432)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.277836, 0.056487, -0.016879, 0.958818)
+bones/23/rotation = Quaternion(0.278149, 0.0567908, -0.0169834, 0.958707)
 
 [node name="Model_004" parent="Head/Player_Character_Shadow/Armature_003/Skeleton3D" index="0"]
 cast_shadow = 3
@@ -1889,30 +2011,30 @@ cast_shadow = 3
 transform = Transform3D(-0.651061, 0, 5.69175e-08, 0, 0.651061, 0, -5.69175e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Head/Player_Character/Armature_003" index="0"]
-bones/0/position = Vector3(2.75461, -4.31697, -195.351)
-bones/0/rotation = Quaternion(-0.682821, -0.269963, 0.250563, 0.630947)
-bones/1/rotation = Quaternion(0.0812182, 0.0410683, -0.00955022, 0.995804)
-bones/2/rotation = Quaternion(0.10031, 0.0795304, -0.0234152, 0.991496)
-bones/3/rotation = Quaternion(0.10031, 0.0795304, -0.0234151, 0.991496)
-bones/4/rotation = Quaternion(-0.0678301, -0.0110306, 0.00239019, 0.997633)
-bones/5/rotation = Quaternion(-0.0535351, 0.17658, -0.0125234, 0.98275)
-bones/7/rotation = Quaternion(0.596418, 0.400828, -0.567459, 0.40201)
-bones/8/rotation = Quaternion(0.419086, -0.108722, 0.0882498, 0.897083)
+bones/0/position = Vector3(2.71164, -4.18106, -195.374)
+bones/0/rotation = Quaternion(-0.682979, -0.270045, 0.250539, 0.63075)
+bones/1/rotation = Quaternion(0.0811518, 0.0411576, -0.00948568, 0.995806)
+bones/2/rotation = Quaternion(0.100229, 0.0797545, -0.0233395, 0.991488)
+bones/3/rotation = Quaternion(0.100229, 0.0797546, -0.0233395, 0.991488)
+bones/4/rotation = Quaternion(-0.0670123, -0.01082, 0.00210205, 0.997691)
+bones/5/rotation = Quaternion(-0.0566787, 0.176868, -0.0117542, 0.982531)
+bones/7/rotation = Quaternion(0.595129, 0.402174, -0.56782, 0.402066)
+bones/8/rotation = Quaternion(0.420136, -0.107899, 0.0879601, 0.89672)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0394452, 0.0578714, 0.403847, 0.912142)
-bones/11/rotation = Quaternion(0.644116, -0.361803, 0.524628, 0.423058)
-bones/12/rotation = Quaternion(0.402751, 0.115549, 0.148118, 0.895824)
-bones/13/rotation = Quaternion(0.0208932, 0.0282496, -0.361953, 0.931534)
-bones/15/rotation = Quaternion(0.0790947, 0.241201, 0.961389, -0.106285)
+bones/9/rotation = Quaternion(-0.0393218, 0.0585241, 0.40512, 0.911541)
+bones/11/rotation = Quaternion(0.643254, -0.362863, 0.524534, 0.423579)
+bones/12/rotation = Quaternion(0.403857, 0.114113, 0.148853, 0.895388)
+bones/13/rotation = Quaternion(0.0216631, 0.0256002, -0.362259, 0.931474)
+bones/15/rotation = Quaternion(0.0791164, 0.240611, 0.961547, -0.106179)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.366019, 0.118069, -0.0367265, 0.922356)
-bones/17/rotation = Quaternion(0.566009, -0.00292993, -0.0267678, 0.823959)
-bones/18/rotation = Quaternion(0.289152, -0.0362183, -0.00929294, 0.956553)
-bones/20/rotation = Quaternion(-0.12438, 0.0400714, 0.982592, 0.132046)
-bones/21/rotation = Quaternion(-0.360705, 0.0704256, -0.0273378, 0.929616)
-bones/22/rotation = Quaternion(0.680243, 0.0547399, 0.104755, 0.723394)
+bones/16/rotation = Quaternion(-0.366183, 0.118118, -0.0367024, 0.922286)
+bones/17/rotation = Quaternion(0.566342, -0.00277844, -0.0266715, 0.823734)
+bones/18/rotation = Quaternion(0.289416, -0.0368046, -0.00942691, 0.956449)
+bones/20/rotation = Quaternion(-0.12453, 0.0392497, 0.982568, 0.13233)
+bones/21/rotation = Quaternion(-0.359988, 0.0701852, -0.0271466, 0.929917)
+bones/22/rotation = Quaternion(0.680192, 0.0548006, 0.104794, 0.723432)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.277836, 0.056487, -0.016879, 0.958818)
+bones/23/rotation = Quaternion(0.278149, 0.0567908, -0.0169834, 0.958707)
 
 [node name="Model_004" parent="Head/Player_Character/Armature_003/Skeleton3D" index="0"]
 cast_shadow = 0
@@ -2049,6 +2171,246 @@ theme_override_constants/v_separation = -61
 columns = 3
 metadata/_edit_use_anchors_ = true
 
+[node name="HotbarLayer" type="CanvasLayer" parent="Head/Camera3D"]
+
+[node name="HotbarMainLayer" type="Control" parent="Head/Camera3D/HotbarLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Background" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer"]
+modulate = Color(1, 1, 1, 0.762)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -238.5
+offset_top = -64.0
+offset_right = 238.5
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("24_6y28d")
+
+[node name="HotbarHoverBGs" type="Control" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Slot1_HoverBG" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarHoverBGs"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 342.76
+offset_top = 587.0
+offset_right = 393.96
+offset_bottom = 638.585
+theme_override_styles/panel = SubResource("StyleBoxFlat_yqbml")
+
+[node name="Slot2_HoverBG" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarHoverBGs"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 394.76
+offset_top = 587.0
+offset_right = 445.96
+offset_bottom = 638.585
+theme_override_styles/panel = SubResource("StyleBoxFlat_yqbml")
+
+[node name="Slot3_HoverBG" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarHoverBGs"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 446.76
+offset_top = 587.0
+offset_right = 497.96
+offset_bottom = 638.585
+theme_override_styles/panel = SubResource("StyleBoxFlat_yqbml")
+
+[node name="Slot4_HoverBG" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarHoverBGs"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 498.76
+offset_top = 587.0
+offset_right = 549.96
+offset_bottom = 638.585
+theme_override_styles/panel = SubResource("StyleBoxFlat_yqbml")
+
+[node name="Slot5_HoverBG" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarHoverBGs"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 550.76
+offset_top = 587.0
+offset_right = 601.96
+offset_bottom = 638.585
+theme_override_styles/panel = SubResource("StyleBoxFlat_yqbml")
+
+[node name="Slot6_HoverBG" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarHoverBGs"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 602.76
+offset_top = 587.0
+offset_right = 653.96
+offset_bottom = 638.585
+theme_override_styles/panel = SubResource("StyleBoxFlat_yqbml")
+
+[node name="Slot7_HoverBG" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarHoverBGs"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 654.76
+offset_top = 587.0
+offset_right = 705.96
+offset_bottom = 638.585
+theme_override_styles/panel = SubResource("StyleBoxFlat_yqbml")
+
+[node name="Slot8_HoverBG" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarHoverBGs"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 706.76
+offset_top = 587.0
+offset_right = 757.96
+offset_bottom = 638.585
+theme_override_styles/panel = SubResource("StyleBoxFlat_yqbml")
+
+[node name="Slot9_HoverBG" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarHoverBGs"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 758.76
+offset_top = 587.0
+offset_right = 809.96
+offset_bottom = 638.585
+theme_override_styles/panel = SubResource("StyleBoxFlat_yqbml")
+
+[node name="HotbarOutlines" type="Control" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Slot1_Outline" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarOutlines"]
+layout_mode = 0
+offset_left = 342.76
+offset_top = 587.0
+offset_right = 393.96
+offset_bottom = 638.585
+theme_override_styles/panel = SubResource("StyleBoxFlat_ml3g1")
+
+[node name="Slot2_Outline" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarOutlines"]
+layout_mode = 0
+offset_left = 394.76
+offset_top = 587.0
+offset_right = 445.96
+offset_bottom = 638.585
+theme_override_styles/panel = SubResource("StyleBoxFlat_ml3g1")
+
+[node name="Slot3_Outline" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarOutlines"]
+layout_mode = 0
+offset_left = 446.76
+offset_top = 587.0
+offset_right = 497.96
+offset_bottom = 638.585
+theme_override_styles/panel = SubResource("StyleBoxFlat_ml3g1")
+
+[node name="Slot4_Outline" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarOutlines"]
+layout_mode = 0
+offset_left = 498.76
+offset_top = 587.0
+offset_right = 549.96
+offset_bottom = 638.585
+theme_override_styles/panel = SubResource("StyleBoxFlat_ml3g1")
+
+[node name="Slot5_Outline" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarOutlines"]
+layout_mode = 0
+offset_left = 550.76
+offset_top = 587.0
+offset_right = 601.96
+offset_bottom = 638.585
+theme_override_styles/panel = SubResource("StyleBoxFlat_ml3g1")
+
+[node name="Slot6_Outline" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarOutlines"]
+layout_mode = 0
+offset_left = 602.76
+offset_top = 587.0
+offset_right = 653.96
+offset_bottom = 638.585
+theme_override_styles/panel = SubResource("StyleBoxFlat_ml3g1")
+
+[node name="Slot7_Outline" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarOutlines"]
+layout_mode = 0
+offset_left = 654.76
+offset_top = 587.0
+offset_right = 705.96
+offset_bottom = 638.585
+theme_override_styles/panel = SubResource("StyleBoxFlat_ml3g1")
+
+[node name="Slot8_Outline" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarOutlines"]
+layout_mode = 0
+offset_left = 706.76
+offset_top = 587.0
+offset_right = 757.96
+offset_bottom = 638.585
+theme_override_styles/panel = SubResource("StyleBoxFlat_ml3g1")
+
+[node name="Slot9_Outline" type="Panel" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarOutlines"]
+layout_mode = 0
+offset_left = 758.76
+offset_top = 587.0
+offset_right = 809.96
+offset_bottom = 638.585
+theme_override_styles/panel = SubResource("StyleBoxFlat_ml3g1")
+
+[node name="HotbarSlots" type="Control" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -232.0
+offset_top = -59.9999
+offset_right = 483.0
+offset_bottom = 17.0001
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.65, 0.65)
+mouse_filter = 1
+
+[node name="Slot1" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(38, 38)
+
+[node name="Slot2" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(118, 38)
+
+[node name="Slot3" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(198, 38)
+
+[node name="Slot4" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(278, 38)
+
+[node name="Slot5" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(358, 38)
+
+[node name="Slot6" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(438, 38)
+
+[node name="Slot7" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(518, 38)
+
+[node name="Slot8" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(598, 38)
+
+[node name="Slot9" parent="Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(678, 38)
+
 [node name="InteractionLayer" type="CanvasLayer" parent="Head/Camera3D"]
 
 [node name="InteractionHUD" parent="Head/Camera3D/InteractionLayer" instance=ExtResource("16_8a1wo")]
@@ -2056,6 +2418,1123 @@ offset_left = -183.0
 offset_top = 17.0
 offset_right = -1107.0
 offset_bottom = -571.0
+
+[node name="ExplorerNoteLayer" type="CanvasLayer" parent="Head/Camera3D"]
+
+[node name="Contents" type="Control" parent="Head/Camera3D/ExplorerNoteLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GreyLayer" type="ColorRect" parent="Head/Camera3D/ExplorerNoteLayer/Contents"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.643137)
+script = ExtResource("16_wg7d4")
+metadata/_edit_use_anchors_ = true
+
+[node name="ExplorerNoteSheet" type="TextureRect" parent="Head/Camera3D/ExplorerNoteLayer/Contents"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -470.0
+offset_top = -265.0
+offset_right = 470.0
+offset_bottom = 265.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Collect_Btn" type="Button" parent="Head/Camera3D/ExplorerNoteLayer/Contents"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = 208.0
+offset_right = 66.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 25
+text = "Collect"
+
+[node name="InventoryLayer" type="CanvasLayer" parent="Head/Camera3D"]
+
+[node name="GreyLayer" type="ColorRect" parent="Head/Camera3D/InventoryLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.643137)
+script = ExtResource("16_wg7d4")
+metadata/_edit_use_anchors_ = true
+
+[node name="InventoryMainLayer" type="CanvasLayer" parent="Head/Camera3D/InventoryLayer"]
+layer = 3
+visible = false
+
+[node name="Background" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -179.0
+offset_top = -208.0
+offset_right = 179.0
+offset_bottom = 208.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2kg3l")
+script = SubResource("GDScript_tq46f")
+
+[node name="Background_2" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
+modulate = Color(0, 0, 0, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.0
+offset_top = -199.5
+offset_right = 171.0
+offset_bottom = 199.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xa5l0")
+script = SubResource("GDScript_tq46f")
+
+[node name="Background_3" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.0
+offset_top = -199.932
+offset_right = 171.0
+offset_bottom = -130.068
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7tmhy")
+script = SubResource("GDScript_tq46f")
+
+[node name="Title" type="Label" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -129.5
+offset_top = -190.5
+offset_right = 129.5
+offset_bottom = -131.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("8_cdk3a")
+theme_override_font_sizes/font_size = 45
+text = "POCKETS"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("9_svfxy")
+
+[node name="Slot1" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
+position = Vector2(453, 236)
+
+[node name="Slot2" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
+position = Vector2(533, 236)
+
+[node name="Slot3" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
+position = Vector2(613, 236)
+
+[node name="Slot4" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
+position = Vector2(693, 236)
+
+[node name="Slot5" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
+position = Vector2(453, 316)
+
+[node name="Slot6" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
+position = Vector2(533, 316)
+
+[node name="Slot7" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
+position = Vector2(613, 316)
+
+[node name="Slot8" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
+position = Vector2(693, 316)
+
+[node name="Slot9" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
+position = Vector2(453, 396)
+
+[node name="Slot10" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
+position = Vector2(533, 396)
+
+[node name="Slot11" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
+position = Vector2(613, 396)
+
+[node name="Slot12" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
+position = Vector2(693, 396)
+
+[node name="Slot13" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
+position = Vector2(453, 476)
+
+[node name="Slot14" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
+position = Vector2(533, 476)
+
+[node name="Slot15" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
+position = Vector2(613, 476)
+
+[node name="Slot16" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer" groups=["Slot1"] instance=ExtResource("8_ads4s")]
+position = Vector2(693, 476)
+
+[node name="ChestMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
+visible = false
+layout_mode = 3
+anchor_left = 0.243924
+anchor_right = 1.25347
+anchor_bottom = 1.0
+offset_left = -78.0
+offset_right = -78.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Background2" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.4984
+offset_top = -318.0
+offset_right = 576.502
+offset_bottom = 311.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2kg3l")
+script = SubResource("GDScript_tq46f")
+
+[node name="Background_4" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.4984
+offset_top = -281.0
+offset_right = 569.502
+offset_bottom = 304.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xa5l0")
+script = SubResource("GDScript_tq46f")
+
+[node name="Background_5" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -10.4984
+offset_top = 13.0
+offset_right = 569.502
+offset_bottom = 66.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7tmhy")
+script = SubResource("GDScript_tq46f")
+
+[node name="Title" type="Label" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 149.5
+offset_top = 15.0
+offset_right = 408.5
+offset_bottom = 74.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("8_cdk3a")
+theme_override_font_sizes/font_size = 45
+text = "CHEST"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("9_svfxy")
+
+[node name="ChestSlots" type="Control" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer"]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 602.0
+offset_top = 95.0
+offset_right = 602.0
+offset_bottom = 95.0
+script = ExtResource("16_wg7d4")
+
+[node name="Slot1" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(18, 13)
+
+[node name="Slot2" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(98, 13)
+
+[node name="Slot3" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(178, 13)
+
+[node name="Slot4" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(258, 13)
+
+[node name="Slot5" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(338, 13)
+
+[node name="Slot6" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(418, 13)
+
+[node name="Slot7" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(498, 13)
+
+[node name="Slot8" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(18, 93)
+
+[node name="Slot9" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(98, 93)
+
+[node name="Slot10" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(178, 93)
+
+[node name="Slot11" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(258, 93)
+
+[node name="Slot12" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(338, 93)
+
+[node name="Slot13" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(418, 93)
+
+[node name="Slot14" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(498, 93)
+
+[node name="Slot15" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(18, 173)
+
+[node name="Slot16" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(98, 173)
+
+[node name="Slot17" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(178, 173)
+
+[node name="Slot18" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(258, 173)
+
+[node name="Slot19" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(338, 173)
+
+[node name="Slot20" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(418, 173)
+
+[node name="Slot21" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(498, 173)
+
+[node name="Slot22" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(18, 253)
+
+[node name="Slot23" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(98, 253)
+
+[node name="Slot24" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(178, 253)
+
+[node name="Slot25" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(258, 253)
+
+[node name="Slot26" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(338, 253)
+
+[node name="Slot27" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(418, 253)
+
+[node name="Slot28" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(498, 253)
+
+[node name="Slot29" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(18, 333)
+
+[node name="Slot30" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(98, 333)
+
+[node name="Slot31" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(178, 333)
+
+[node name="Slot32" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(258, 333)
+
+[node name="Slot33" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(338, 333)
+
+[node name="Slot34" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(418, 333)
+
+[node name="Slot35" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(498, 333)
+
+[node name="Slot36" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(18, 413)
+
+[node name="Slot37" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(98, 413)
+
+[node name="Slot38" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(178, 413)
+
+[node name="Slot39" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(258, 413)
+
+[node name="Slot40" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(338, 413)
+
+[node name="Slot41" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(418, 413)
+
+[node name="Slot42" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(498, 413)
+
+[node name="Slot43" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(18, 493)
+
+[node name="Slot44" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(98, 493)
+
+[node name="Slot45" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(178, 493)
+
+[node name="Slot46" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(258, 493)
+
+[node name="Slot47" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(338, 493)
+
+[node name="Slot48" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(418, 493)
+
+[node name="Slot49" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(498, 493)
+
+[node name="WorkbenchMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
+visible = false
+layout_mode = 3
+anchor_left = 0.243924
+anchor_top = 1.54321
+anchor_right = 1.24392
+anchor_bottom = 2.54321
+offset_left = -188.0
+offset_top = -0.00012207
+offset_right = -188.0
+offset_bottom = -0.00012207
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Background2" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 118.002
+offset_top = -203.0
+offset_right = 415.002
+offset_bottom = 301.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2kg3l")
+script = SubResource("GDScript_tq46f")
+
+[node name="Background_4" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 124.002
+offset_top = -154.0
+offset_right = 409.002
+offset_bottom = 295.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xa5l0")
+script = SubResource("GDScript_tq46f")
+
+[node name="Background_5" type="Panel" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 124.002
+offset_top = 128.0
+offset_right = 409.002
+offset_bottom = 188.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7tmhy")
+script = SubResource("GDScript_tq46f")
+
+[node name="Title" type="Label" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 133.5
+offset_top = 132.0
+offset_right = 392.5
+offset_bottom = 191.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("8_cdk3a")
+theme_override_font_sizes/font_size = 35
+text = "WORKBENCH"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("9_svfxy")
+
+[node name="WorkbenchSlots" type="Control" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer"]
+layout_mode = 1
+anchor_left = 0.742188
+anchor_top = 0.243827
+anchor_right = 0.742188
+anchor_bottom = 0.243827
+offset_left = -15.9966
+offset_top = 108.0
+offset_right = -15.9966
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Slot1" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(-78.001, -31)
+
+[node name="Slot2" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(1.99902, -31)
+
+[node name="Slot3" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(81.999, -31)
+
+[node name="Slot4" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(-78.001, 49)
+
+[node name="Slot5" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(1.99902, 49)
+
+[node name="Slot6" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(81.999, 49)
+
+[node name="Slot7" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(-78.001, 129)
+
+[node name="Slot8" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(1.99902, 129)
+
+[node name="Slot9" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(81.999, 129)
+
+[node name="UpArrowIcon" type="Sprite2D" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots"]
+modulate = Color(1, 1, 1, 0.562)
+position = Vector2(1.99609, 186)
+rotation = -3.14159
+scale = Vector2(0.0195631, 0.0195631)
+texture = ExtResource("17_60kit")
+
+[node name="Slot10" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots" instance=ExtResource("8_ads4s")]
+position = Vector2(1.99902, 245)
+
+[node name="CraftButton" type="Button" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.743
+anchor_top = 0.396
+anchor_right = 0.743
+anchor_bottom = 0.396
+offset_left = -108.926
+offset_top = 300.392
+offset_right = 78.0739
+offset_bottom = 355.392
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 37
+text = "CRAFT"
+
+[node name="ExplorerNotes_Btn" type="Button" parent="Head/Camera3D/InventoryLayer/InventoryMainLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = 211.0
+offset_right = 180.0
+offset_bottom = 237.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 17
+text = "Explorer Notes"
+
+[node name="ExplorerNotesLayer" type="CanvasLayer" parent="Head/Camera3D/InventoryLayer"]
+layer = 3
+visible = false
+
+[node name="ExplorerNotesMainLayer" type="Control" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer" node_paths=PackedStringArray("RightNoteImage", "LeftNoteImage", "FocusedNoteImage", "NoteIndex_Label", "RightButton", "LeftButton", "Shadow")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("18_i4l12")
+RightNoteImage = NodePath("RightNote/SheetImage")
+LeftNoteImage = NodePath("LeftNote/SheetImage")
+FocusedNoteImage = NodePath("FocusedNote/SheetImage")
+NoteIndex_Label = NodePath("NoteIndex_Label")
+RightButton = NodePath("Right_Arrow_Btn")
+LeftButton = NodePath("Left_Arrow_Btn")
+Shadow = NodePath("FocusedNote/Shadow")
+metadata/_edit_use_anchors_ = true
+
+[node name="Switch_sfx" type="AudioStreamPlayer" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
+stream = ExtResource("22_yqbml")
+bus = &"sfx"
+
+[node name="GreyLayer" type="ColorRect" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.643137)
+script = ExtResource("16_wg7d4")
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="Panel" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -323.0
+offset_top = -215.5
+offset_right = 323.0
+offset_bottom = 215.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = ExtResource("24_6y28d")
+
+[node name="Title" type="Label" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -85.5
+offset_top = 12.0
+offset_right = 85.5
+offset_bottom = 42.0
+grow_horizontal = 2
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 26
+text = "Explorer Notes"
+
+[node name="Right_Arrow" type="TextureRect" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 282.5
+offset_top = -29.5
+offset_right = 309.5
+offset_bottom = 29.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("19_0wg4t")
+expand_mode = 1
+
+[node name="Left_Arrow" type="TextureRect" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -309.5
+offset_top = -29.5
+offset_right = -282.5
+offset_bottom = 29.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("19_0wg4t")
+expand_mode = 1
+flip_h = true
+
+[node name="LeftNote" type="Control" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -299.0
+offset_top = -41.0
+offset_right = -73.0
+offset_bottom = 94.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.10276
+mouse_filter = 1
+
+[node name="SheetImage" type="TextureRect" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/LeftNote"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.5
+offset_top = -65.5
+offset_right = 116.5
+offset_bottom = 65.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("21_rd3qm")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="RightNote" type="Control" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 81.0
+offset_top = -62.0
+offset_right = 307.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0799293
+mouse_filter = 1
+
+[node name="SheetImage" type="TextureRect" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/RightNote"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.5
+offset_top = -65.5
+offset_right = 116.5
+offset_bottom = 65.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("21_rd3qm")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="FocusedNote" type="Control" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -199.0
+offset_top = -119.0
+offset_right = 199.0
+offset_bottom = 119.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Shadow" type="Panel" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/FocusedNote"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0452261
+anchor_top = -0.00840336
+anchor_right = 0.949749
+anchor_bottom = 1.02101
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qujvk")
+metadata/_edit_use_anchors_ = true
+
+[node name="SheetImage" type="TextureRect" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/FocusedNote"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -231.0
+offset_top = -130.0
+offset_right = 231.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("21_rd3qm")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Right_Arrow_Btn" type="Button" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 287.0
+offset_top = -25.0
+offset_right = 308.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Left_Arrow_Btn" type="Button" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -307.0
+offset_top = -25.0
+offset_right = -286.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NoteIndex_Label" type="Label" parent="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer"]
+modulate = Color(0.548963, 0.548963, 0.548963, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.5
+offset_top = -147.5
+offset_right = 50.5
+offset_bottom = -124.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_rhxkt")
+text = "1/1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ChestBoundary" type="Area2D" parent="Head/Camera3D/InventoryLayer"]
+visible = false
+
+[node name="Boundary1" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/ChestBoundary"]
+position = Vector2(237, 53)
+shape = SubResource("RectangleShape2D_bx3eh")
+debug_color = Color(0.92549, 0, 0.109804, 0.396078)
+
+[node name="Boundary2" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/ChestBoundary"]
+position = Vector2(235.5, 590)
+shape = SubResource("RectangleShape2D_fv14n")
+debug_color = Color(0.92549, 0, 0.109804, 0.396078)
+
+[node name="Boundary3" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/ChestBoundary"]
+position = Vector2(49, 324)
+shape = SubResource("RectangleShape2D_18jxt")
+debug_color = Color(0.92549, 0, 0.109804, 0.396078)
+
+[node name="Boundary4" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/ChestBoundary"]
+position = Vector2(1113.5, 324)
+shape = SubResource("RectangleShape2D_18jxt")
+debug_color = Color(0.92549, 0, 0.109804, 0.396078)
+
+[node name="WorkbenchBoundary" type="Area2D" parent="Head/Camera3D/InventoryLayer"]
+visible = false
+position = Vector2(155.09, 0)
+
+[node name="Boundary1" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/WorkbenchBoundary"]
+position = Vector2(576, 30.5)
+shape = SubResource("RectangleShape2D_c8e23")
+debug_color = Color(0.92549, 0, 0.109804, 0.396078)
+
+[node name="Boundary2" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/WorkbenchBoundary"]
+position = Vector2(343, 590)
+shape = SubResource("RectangleShape2D_dx77i")
+debug_color = Color(0.92549, 0, 0.109804, 0.396078)
+
+[node name="Boundary3" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/WorkbenchBoundary"]
+position = Vector2(119, 321.5)
+shape = SubResource("RectangleShape2D_ix2dd")
+debug_color = Color(0.92549, 0, 0.109804, 0.396078)
+
+[node name="Boundary4" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/WorkbenchBoundary"]
+position = Vector2(1046.5, 332)
+shape = SubResource("RectangleShape2D_s11mi")
+debug_color = Color(0.92549, 0, 0.109804, 0.396078)
+
+[node name="Boundary5" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/WorkbenchBoundary"]
+position = Vector2(1023, 632)
+shape = SubResource("RectangleShape2D_dx77i")
+debug_color = Color(0.92549, 0, 0.109804, 0.396078)
+
+[node name="Boundary6" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/WorkbenchBoundary"]
+position = Vector2(316, 75)
+shape = SubResource("RectangleShape2D_5c121")
+debug_color = Color(0.92549, 0, 0.109804, 0.396078)
+
+[node name="PocketsBoundary" type="Area2D" parent="Head/Camera3D/InventoryLayer"]
+visible = false
+
+[node name="Boundary1" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/PocketsBoundary"]
+position = Vector2(576, 53)
+shape = SubResource("RectangleShape2D_4ixul")
+debug_color = Color(0.92549, 0, 0.109804, 0.396078)
+
+[node name="Boundary3" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/PocketsBoundary"]
+position = Vector2(192.5, 324)
+shape = SubResource("RectangleShape2D_ch6l8")
+debug_color = Color(0.92549, 0, 0.109804, 0.396078)
+
+[node name="Boundary4" type="CollisionShape2D" parent="Head/Camera3D/InventoryLayer/PocketsBoundary"]
+position = Vector2(959.5, 324)
+shape = SubResource("RectangleShape2D_b78jw")
+debug_color = Color(0.92549, 0, 0.109804, 0.396078)
+
+[node name="PocketKeys" type="Control" parent="Head/Camera3D/InventoryLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="KeyUI_Q" parent="Head/Camera3D/InventoryLayer/PocketKeys" instance=ExtResource("21_xhl03")]
+layout_mode = 1
+offset_left = 1111.0
+offset_top = 606.0
+offset_right = 1111.0
+offset_bottom = 606.0
+scale = Vector2(0.670759, 0.670759)
+
+[node name="KEY" parent="Head/Camera3D/InventoryLayer/PocketKeys/KeyUI_Q/Contents" index="4"]
+offset_top = 12.483
+offset_bottom = 47.483
+text = "Q"
+
+[node name="KeyUI_X" parent="Head/Camera3D/InventoryLayer/PocketKeys" instance=ExtResource("21_xhl03")]
+layout_mode = 1
+offset_left = 1111.0
+offset_top = 569.0
+offset_right = 1111.0
+offset_bottom = 569.0
+scale = Vector2(0.670759, 0.670759)
+
+[node name="KEY" parent="Head/Camera3D/InventoryLayer/PocketKeys/KeyUI_X/Contents" index="4"]
+offset_top = 14.833
+offset_bottom = 49.833
+text = "X"
+
+[node name="Quick_Drop_LBL" type="Label" parent="Head/Camera3D/InventoryLayer/PocketKeys"]
+layout_mode = 0
+offset_left = 1017.0
+offset_top = 578.0
+offset_right = 1110.0
+offset_bottom = 601.0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 12
+text = "Quick Drop"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Quick_Switch_LBL" type="Label" parent="Head/Camera3D/InventoryLayer/PocketKeys"]
+layout_mode = 0
+offset_left = 1017.0
+offset_top = 615.0
+offset_right = 1110.0
+offset_bottom = 638.0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 12
+text = "Quick Switch"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ChestKeys" type="Control" parent="Head/Camera3D/InventoryLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="KeyUI_Q" parent="Head/Camera3D/InventoryLayer/ChestKeys" instance=ExtResource("21_xhl03")]
+layout_mode = 1
+offset_left = 7.00009
+offset_top = 40.0
+offset_right = 7.00012
+offset_bottom = 40.0
+scale = Vector2(0.670759, 0.670759)
+
+[node name="KEY" parent="Head/Camera3D/InventoryLayer/ChestKeys/KeyUI_Q/Contents" index="4"]
+offset_top = 12.483
+offset_bottom = 47.483
+text = "Q"
+
+[node name="KeyUI_X" parent="Head/Camera3D/InventoryLayer/ChestKeys" instance=ExtResource("21_xhl03")]
+layout_mode = 1
+offset_left = 7.00009
+offset_top = 3.0
+offset_right = 7.00012
+offset_bottom = 3.0
+scale = Vector2(0.670759, 0.670759)
+
+[node name="KEY" parent="Head/Camera3D/InventoryLayer/ChestKeys/KeyUI_X/Contents" index="4"]
+offset_top = 14.833
+offset_bottom = 49.833
+text = "X"
+
+[node name="Quick_Drop_LBL" type="Label" parent="Head/Camera3D/InventoryLayer/ChestKeys"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 11.9999
+offset_right = 137.0
+offset_bottom = 34.9999
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 12
+text = "Quick Drop"
+vertical_alignment = 1
+
+[node name="Quick_Switch_LBL" type="Label" parent="Head/Camera3D/InventoryLayer/ChestKeys"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 48.9999
+offset_right = 137.0
+offset_bottom = 71.9999
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 12
+text = "Quick Switch"
+vertical_alignment = 1
+
+[node name="WorkbenchKeys" type="Control" parent="Head/Camera3D/InventoryLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="KeyUI_Q" parent="Head/Camera3D/InventoryLayer/WorkbenchKeys" instance=ExtResource("21_xhl03")]
+layout_mode = 1
+offset_left = 1111.0
+offset_top = 568.0
+offset_right = 1111.0
+offset_bottom = 568.0
+scale = Vector2(0.670759, 0.670759)
+
+[node name="KEY" parent="Head/Camera3D/InventoryLayer/WorkbenchKeys/KeyUI_Q/Contents" index="4"]
+offset_top = 12.483
+offset_bottom = 47.483
+text = "Q"
+
+[node name="KeyUI_X" parent="Head/Camera3D/InventoryLayer/WorkbenchKeys" instance=ExtResource("21_xhl03")]
+layout_mode = 1
+offset_left = 1111.0
+offset_top = 531.0
+offset_right = 1111.0
+offset_bottom = 531.0
+scale = Vector2(0.670759, 0.670759)
+
+[node name="KEY" parent="Head/Camera3D/InventoryLayer/WorkbenchKeys/KeyUI_X/Contents" index="4"]
+offset_top = 14.833
+offset_bottom = 49.833
+text = "X"
+
+[node name="KeyUI_C" parent="Head/Camera3D/InventoryLayer/WorkbenchKeys" instance=ExtResource("21_xhl03")]
+layout_mode = 1
+offset_left = 1111.0
+offset_top = 605.0
+offset_right = 1111.0
+offset_bottom = 605.0
+scale = Vector2(0.670759, 0.670759)
+
+[node name="KEY" parent="Head/Camera3D/InventoryLayer/WorkbenchKeys/KeyUI_C/Contents" index="4"]
+offset_top = 14.833
+offset_bottom = 49.833
+text = "C"
+
+[node name="Quick_Drop_LBL" type="Label" parent="Head/Camera3D/InventoryLayer/WorkbenchKeys"]
+layout_mode = 0
+offset_left = 1017.0
+offset_top = 540.0
+offset_right = 1110.0
+offset_bottom = 563.0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 12
+text = "Quick Drop"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Quick_Switch_LBL" type="Label" parent="Head/Camera3D/InventoryLayer/WorkbenchKeys"]
+layout_mode = 0
+offset_left = 1017.0
+offset_top = 577.0
+offset_right = 1110.0
+offset_bottom = 600.0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 12
+text = "Quick Switch"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Quick_Craft_LBL" type="Label" parent="Head/Camera3D/InventoryLayer/WorkbenchKeys"]
+layout_mode = 0
+offset_left = 1017.0
+offset_top = 615.0
+offset_right = 1110.0
+offset_bottom = 638.0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 12
+text = "Quick Craft"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="ItemWorkshopLayer" type="CanvasLayer" parent="Head/Camera3D"]
 
@@ -4054,11 +5533,30 @@ metadata/_edit_use_anchors_ = true
 [connection signal="timeout" from="WalkingSpeedSounds" to="." method="_on_walking_speed_sounds_timeout"]
 [connection signal="timeout" from="SprintingSpeedSounds" to="." method="_on_sprinting_speed_sounds_timeout"]
 [connection signal="timeout" from="CrouchingSpeedSounds" to="." method="_on_crouching_speed_sounds_timeout"]
+[connection signal="timeout" from="is_inside_boundary_false_startup" to="." method="_on_is_inside_boundary_false_startup_timeout"]
+[connection signal="timeout" from="is_inside_boundary_false_inventory_debounce" to="." method="_on_is_inside_boundary_false_inventory_debounce_timeout"]
 [connection signal="timeout" from="AutoSaveTimer" to="." method="_on_auto_save_timer_timeout"]
 [connection signal="timeout" from="HungerDepletion" to="." method="_on_hunger_depletion_timeout"]
 [connection signal="timeout" from="HealthRegen" to="." method="_on_health_regen_timeout"]
 [connection signal="timeout" from="PotionHealthRegen" to="." method="_on_potion_health_regen_timeout"]
 [connection signal="timeout" from="HealthDepletingFromHunger" to="." method="_on_health_depleting_from_hunger_timeout"]
+[connection signal="area_entered" from="PickupObjectDetector" to="." method="_on_pickup_object_detector_area_entered"]
+[connection signal="body_entered" from="PickupObjectDetector" to="." method="_on_pickup_object_detector_body_entered"]
+[connection signal="pressed" from="Head/Camera3D/ExplorerNoteLayer/Contents/Collect_Btn" to="." method="_on_collect_btn_pressed"]
+[connection signal="pressed" from="Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/CraftButton" to="." method="_on_craft_button_pressed"]
+[connection signal="pressed" from="Head/Camera3D/InventoryLayer/InventoryMainLayer/ExplorerNotes_Btn" to="." method="_on_explorer_notes_btn_pressed"]
+[connection signal="mouse_entered" from="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Right_Arrow_Btn" to="." method="_on_right_arrow_btn_mouse_entered"]
+[connection signal="mouse_exited" from="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Right_Arrow_Btn" to="." method="_on_right_arrow_btn_mouse_exited"]
+[connection signal="pressed" from="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Right_Arrow_Btn" to="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer" method="_on_right_arrow_btn_pressed"]
+[connection signal="mouse_entered" from="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Left_Arrow_Btn" to="." method="_on_left_arrow_btn_mouse_entered"]
+[connection signal="mouse_exited" from="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Left_Arrow_Btn" to="." method="_on_left_arrow_btn_mouse_exited"]
+[connection signal="pressed" from="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Left_Arrow_Btn" to="Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer" method="_on_left_arrow_btn_pressed"]
+[connection signal="area_entered" from="Head/Camera3D/InventoryLayer/ChestBoundary" to="." method="_on_chest_boundary_area_entered"]
+[connection signal="area_exited" from="Head/Camera3D/InventoryLayer/ChestBoundary" to="." method="_on_chest_boundary_area_exited"]
+[connection signal="area_entered" from="Head/Camera3D/InventoryLayer/WorkbenchBoundary" to="." method="_on_pockets_boundary_area_entered"]
+[connection signal="area_exited" from="Head/Camera3D/InventoryLayer/WorkbenchBoundary" to="." method="_on_pockets_boundary_area_exited"]
+[connection signal="area_entered" from="Head/Camera3D/InventoryLayer/PocketsBoundary" to="." method="_on_pockets_boundary_area_entered"]
+[connection signal="area_exited" from="Head/Camera3D/InventoryLayer/PocketsBoundary" to="." method="_on_pockets_boundary_area_exited"]
 [connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/ROCK/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["ROCK"]]
 [connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/STONE/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["STONE"]]
 [connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/REDFLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["REDFLOWER"]]
@@ -4091,4 +5589,11 @@ metadata/_edit_use_anchors_ = true
 [editable path="Head/Player_Character_Shadow"]
 [editable path="Head/Player_Character"]
 [editable path="Head/Camera3D/HandItemRig/HandItem"]
+[editable path="Head/Camera3D/InventoryLayer/PocketKeys/KeyUI_Q"]
+[editable path="Head/Camera3D/InventoryLayer/PocketKeys/KeyUI_X"]
+[editable path="Head/Camera3D/InventoryLayer/ChestKeys/KeyUI_Q"]
+[editable path="Head/Camera3D/InventoryLayer/ChestKeys/KeyUI_X"]
+[editable path="Head/Camera3D/InventoryLayer/WorkbenchKeys/KeyUI_Q"]
+[editable path="Head/Camera3D/InventoryLayer/WorkbenchKeys/KeyUI_X"]
+[editable path="Head/Camera3D/InventoryLayer/WorkbenchKeys/KeyUI_C"]
 [editable path="Head/Camera3D/AchievementsLayer/AchievementsUI"]

@@ -86,7 +86,6 @@ func resetAttributes():
 	PlayerData.Hunger = 100
 	PlayerData.Hydration = 100
 	PlayerManager.Stamina = 100
-	InventoryData.CURRENT_ITEM_IN_HAND = ""
 	IslandManager.Current_Island_Name = ""
 	IslandManager.Current_Game_Mode = ""
 	IslandManager.transitioningFromNewIsland = false
@@ -99,33 +98,6 @@ func resetAttributes():
 	WeatherManager.WEATHER_TIMER_TIME_LEFT = 0
 	
 	ExplorerNotesManager.COLLECTED_NOTES.clear()
-	ExplorerNotesManager.CurrentlyInteracting_ID = null
-	ExplorerNotesManager.CurrentlyShowing_ID = null
-	ExplorerNotesManager.CurrentlyInteracting_Node = null
-	ExplorerNotesManager.CurrentlyShowing_Node = null
-	ExplorerNotesManager.UI_CurrentlyFocusedIndex = null
-	ExplorerNotesManager.UI_CurrentLeftIndex = null
-	ExplorerNotesManager.UI_CurrentRightIndex = null
-	ExplorerNotesManager.UI_CurrentlyFocusedID = null
-	ExplorerNotesManager.UI_CurrentLeftID = null
-	ExplorerNotesManager.UI_CurrentRightID = null
-	ExplorerNotesManager.EXPLORER_NOTES_MAIN_LAYER = null
-	
-	InventoryManager.creatingFromInventory = false
-	InventoryManager.inventory_open = false
-	InventoryManager.in_chest_interface = false
-	InventoryManager.is_in_workbench_interface = false
-	InventoryManager.is_dragging = false
-	InventoryManager.is_inside_boundary = false
-	InventoryManager.item_ref = ""
-	InventoryManager.item_ref_not_at_inventory = ""
-	InventoryManager.is_creating_pickup = false
-	InventoryManager.is_inside_checker = false
-	InventoryManager.chestNode = null
-	
-	CraftingManager.resetCurrentCraftingItems()
-	
-	HotbarManager.CURRENTLY_SELECTED_SLOT_NAME = null
 	
 	InteractionManager.is_notification_on_screen = false
 	InteractionManager.is_colliding = false
