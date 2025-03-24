@@ -77,7 +77,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("LeftClick"):
 		# Next we do some checks to make sure the player is not dragging
 		# A droppable when they're not meant to.
-		pass
+		if InventoryManager.pockets_ui_open:
+			global_position = get_global_mouse_position()
 
 
 
