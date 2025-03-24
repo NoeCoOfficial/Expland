@@ -670,9 +670,6 @@ func _ready():
 	initInventorySlots() # Link local inventory slots to singleton arrays
 	init_for_story_mode_cutscene()
 	
-	Utils.set_center_offset($Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Right_Arrow)
-	Utils.set_center_offset($Head/Camera3D/InventoryLayer/ExplorerNotesLayer/ExplorerNotesMainLayer/Left_Arrow)
-	
 	HandManager.HAND_ITEM_NODE = HandItem
 	
 	GlobalData.loadGlobal()
