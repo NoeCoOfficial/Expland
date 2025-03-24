@@ -64,7 +64,6 @@ var loadAchivementElementsThread : Thread
 # Utility
 ######################################
 
-var inventory_opened_in_air := false ## Checks if the inventory UI is opened in the air (so the same velocity can be kept, used in _physics_process()
 var speed : float ## The speed of the player. Used in _physics_process, this variable changes to SPRINT_SPEED, CROUCH_SPEED or WALK_SPEED depending on what input is pressed.
 var transitioning_to_menu = false
 
@@ -292,8 +291,6 @@ var stamina_restoring_from_0 = false
 
 @export_subgroup("CanvasLayers")
 @export var HUDLayer : CanvasLayer
-@export var InventoryLayer : CanvasLayer
-@export var InventoryMainLayer : CanvasLayer
 @export var PauseLayer : CanvasLayer
 @export var DebugLayer : CanvasLayer
 
@@ -317,7 +314,6 @@ var stamina_restoring_from_0 = false
 @export var DialogueInterface : Control
 @export var DeathScreen_BlackOverlay : Control
 @export var OverlayLayer_Overlay : Control
-@export var InventoryLayer_GreyLayer : ColorRect
 @export var ItemWorkshopLayer_MainLayer : Control
 @export var ItemWorkshopLayer_GreyLayer : ColorRect
 @export var SaveOverlay_LighterBG : ColorRect
@@ -338,10 +334,8 @@ var stamina_restoring_from_0 = false
 @export var StartDebugging_Btn : Button
 @export var SetTime_SpinBox : SpinBox
 @export var SetTime_Button : Button
-@export var Inventory_Item_Ref_Label : Label
 @export var Is_Raycast_Colliding_Label : Label
 @export var Is_Inside_Settings_Label : Label
-@export var Is_Inventory_Open_Label : Label
 @export var Is_Moving_Label : Label
 @export var Is_Walking_Label : Label
 @export var Is_Sprinting_Label : Label
@@ -390,7 +384,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			
 		else:
 			
-			if !DialogueManager.is_in_absolute_interface and !InventoryManager.inventory_open and !PauseManager.is_inside_alert and !InventoryManager.is_in_workbench_interface and !InventoryManager.in_chest_interface and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !PauseManager.inside_absolute_item_workshop and !PauseManager.inside_explorer_note_ui and !StoryModeManager.is_in_story_mode_first_cutscene_world:
+			if !DialogueManager.is_in_absolute_interface and !PauseManager.is_inside_alert and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !PauseManager.inside_absolute_item_workshop and !PauseManager.inside_explorer_note_ui and !StoryModeManager.is_in_story_mode_first_cutscene_world:
 				pauseGame()
 			
 			if PauseManager.inside_item_workshop:
@@ -405,7 +399,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		get_tree().quit() # quit the game
 	
 	if Input.is_action_just_pressed("Reset") and !PauseManager.inside_absolute_item_workshop and Reset == true and !PauseManager.is_paused and !PauseManager.is_inside_alert and OS.is_debug_build():
-		if PlayerData.GAME_STATE == "NORMAL" or InventoryManager.inventory_open:
+		if PlayerData.GAME_STATE == "NORMAL":
 			if ResetPOS == Vector3(999, 999, 999):
 				self.position = StartPOS # set the player's position to the Start position
 			else:
@@ -416,13 +410,10 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		if !StoryModeManager.is_in_story_mode_first_cutscene_world:
 			Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
 			SaveManager.saveAllData()
-	
-	if Input.is_action_just_pressed("Workbench_QuickCraft") and InventoryManager.is_in_workbench_interface:
-		SignalBus.pressed_craft.emit()
 
 func _unhandled_input(event): # A built-in function that listens for input all the time
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
-		if InventoryManager.inventory_open or PauseManager.is_paused or PauseManager.is_inside_alert or DialogueManager.is_in_interface or InventoryManager.in_chest_interface or PauseManager.inside_can_move_item_workshop: # Check if the game state is inventory, or paused, or viewing dialogue.
+		if PauseManager.is_paused or PauseManager.is_inside_alert or DialogueManager.is_in_interface or PauseManager.inside_can_move_item_workshop:
 			head.rotate_y(-event.relative.x * SENSITIVITY/20) # rotate the head on the y-axis
 			camera.rotate_x(-event.relative.y * SENSITIVITY/20) # rotate the camera on the x-axis
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90)) # clamp the camera rotation on the x-axis
@@ -490,7 +481,7 @@ func _physics_process(delta):
 				PlayerManager.Stamina = 100.0
 	
 	## Player movement and physics
-	if PlayerData.GAME_STATE not in ["DEAD", "SLEEPING"] and is_on_floor() and !InventoryManager.in_chest_interface and !PauseManager.is_paused and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !PauseManager.inside_can_move_item_workshop:
+	if PlayerData.GAME_STATE not in ["DEAD", "SLEEPING"] and is_on_floor() and !PauseManager.is_paused and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !PauseManager.inside_can_move_item_workshop:
 		if Input.is_action_pressed("Crouch"):
 			self.scale.y = lerp(self.scale.y, 0.5, CROUCH_INTERPOLATION * delta)
 		else:
@@ -504,19 +495,19 @@ func _physics_process(delta):
 			velocity.y -= gravity * delta
 		
 		# Jumping
-		if Input.is_action_just_pressed("Jump") and !Input.is_action_pressed("Crouch") and is_on_floor() and !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and !PauseManager.is_inside_alert and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.in_chest_interface and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface:
+		if Input.is_action_just_pressed("Jump") and !Input.is_action_pressed("Crouch") and is_on_floor() and !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and !PauseManager.is_inside_alert and PlayerData.GAME_STATE != "SLEEPING" and !DialogueManager.is_in_absolute_interface:
 			velocity.y = JUMP_VELOCITY
 		
 		# Handle Speed
 		if Input.is_action_pressed("Sprint") and !Input.is_action_pressed("Crouch"):
-			if !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface and !InventoryManager.in_chest_interface:
+			if !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !DialogueManager.is_in_absolute_interface:
 				if !stamina_restoring_from_0:
 					speed = SPRINT_SPEED
 					is_sprinting = true
 					is_crouching = false
 					is_walking = false
 		elif Input.is_action_pressed("Crouch"):
-			if !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface and !InventoryManager.in_chest_interface:
+			if !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !DialogueManager.is_in_absolute_interface:
 				speed = CROUCH_SPEED
 				is_crouching = true
 				is_sprinting = false
@@ -533,7 +524,7 @@ func _physics_process(delta):
 		var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		
 		if is_on_floor():
-			if direction != Vector3.ZERO and !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !PauseManager.is_inside_alert and !InventoryManager.in_chest_interface and !InventoryManager.inventory_open and !DialogueManager.is_in_absolute_interface:
+			if direction != Vector3.ZERO and !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface:
 				velocity.x = direction.x * speed
 				velocity.z = direction.z * speed
 			else:
@@ -620,10 +611,8 @@ func _process(_delta):
 		DebugLayer.hide()
 		StartDebugging_Btn.text = "START DEBUGGING"
 	
-	Inventory_Item_Ref_Label.text = "item_ref = " + InventoryManager.item_ref
 	Is_Raycast_Colliding_Label.text = "RayCast colliding? " + str(InteractionManager.is_colliding)
 	Is_Inside_Settings_Label.text = "is_inside_settings = " + str(PauseManager.is_inside_settings)
-	Is_Inventory_Open_Label.text = "inventory_open? " + str(InventoryManager.inventory_open)
 	Is_Moving_Label.text = "is_moving = " + str(is_moving)
 	Is_Walking_Label.text = "is_walking = " + str(is_walking)
 	Is_Sprinting_Label.text = "is_sprinting = " + str(is_sprinting)
@@ -663,9 +652,7 @@ func _process(_delta):
 func _ready():
 	PlayerManager.PLAYER = $"."
 	PlayerManager.CHEST_SLOTS = ChestSlots
-	PlayerManager.MINIMAL_ALERT_PLAYER = MinimalAlert
-	PlayerManager.INVENTORY_LAYER = InventoryLayer
-	
+	PlayerManager.MINIMAL_ALERT_PLAYER = MinimalAlert	
 	
 	initInventorySlots() # Link local inventory slots to singleton arrays
 	init_for_story_mode_cutscene()
@@ -891,7 +878,6 @@ func takeDamage(DamageToTake): # A function to take damage from the player
 			MinimalAlert.hide_minimal_alert(0.1)
 			AudioManager.Current_Playlist.audibleOnlyFadeOutAllSongs()
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # lock mouse
-			InventoryData.clearInventory(InventoryMainLayer)
 			
 			showDeathScreen() # call the death screen function 
 			
@@ -995,6 +981,8 @@ func on_item_workshop_close_finished():
 	ItemWorkshopLayer_GreyLayer.visible = false
 
 func on_add_item_buttons_workshop_pressed(ITEM_TYPE : String):
+	pass
+"""
 	var free_slot = null
 	
 	# Get the free slot
@@ -1002,9 +990,10 @@ func on_add_item_buttons_workshop_pressed(ITEM_TYPE : String):
 	
 	if free_slot != null and !free_slot.is_populated():
 		free_slot.set_populated(true)
-		InventoryManager.spawn_inventory_dropable(free_slot.global_position, ITEM_TYPE, free_slot, false)
+		pass
 	else:
 		spawn_minimal_alert_from_player(2.5, 0.3, 0.3, "Can't add item to pockets, inventory full!")
+"""
 
 #endregion
 
@@ -1216,7 +1205,7 @@ func _on_pickup_object_detector_body_entered(body: Node3D) -> void:
 		takeDamage(14)
 	
 	if body.is_in_group("item_workshop"):
-		if !PauseManager.is_paused and !InventoryManager.inventory_open:
+		if !PauseManager.is_paused:
 			openItemWorkshop()
 	
 	if body.is_in_group("dialogue_test"):

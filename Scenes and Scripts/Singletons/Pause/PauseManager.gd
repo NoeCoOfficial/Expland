@@ -55,4 +55,3 @@ var is_inside_achievements_ui = false
 var inside_item_workshop = false
 var inside_absolute_item_workshop = false
 var inside_can_move_item_workshop = false
-var inside_explorer_note_ui = false
