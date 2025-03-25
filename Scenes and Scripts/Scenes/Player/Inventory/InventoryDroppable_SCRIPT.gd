@@ -59,6 +59,7 @@ extends Node2D
 
 @export var ITEM_TYPE : Dictionary
 @export var Mouse_Inside_Droppable : bool = false
+@export var Debounce_Timer_0 : bool = false
 
 func _ready() -> void:
 	initProperties("AXE")
@@ -84,14 +85,16 @@ func _process(delta: float) -> void:
 	# Stuff we want to happen when we drag but not every frame
 	if Input.is_action_just_pressed("LeftClick"):
 		if InventoryManager.pockets_ui_open and Mouse_Inside_Droppable:
+			# Do this so we can communicate with the currently
+			# dragging slot from all over the project.
 			InventoryManager.currently_dragging_node = self
 	 
+	# When we release the droppable. Not much done here as
+	# most of the stuff happens in InventorySlot_SCRIPT.gd.
 	if Input.is_action_just_released("LeftClick"):
 		if InventoryManager.pockets_ui_open and InventoryManager.is_dragging:
 			InventoryManager.is_dragging = false
 			InventoryManager.currently_dragging_node = null
-	
-	
 
 
 
@@ -100,3 +103,6 @@ func _on_mouse_detector_mouse_shape_entered(shape_idx: int) -> void:
 
 func _on_mouse_detector_mouse_shape_exited(shape_idx: int) -> void:
 	Mouse_Inside_Droppable = false
+
+func _on_debounce_timer_timeout() -> void:
+	Debounce_Timer_0 = true
