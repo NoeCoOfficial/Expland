@@ -79,6 +79,7 @@ func _process(delta: float) -> void:
 		# A droppable when they're not meant to.
 		if InventoryManager.pockets_ui_open and Mouse_Inside_Droppable:
 			global_position = get_global_mouse_position()
+			InventoryManager.is_dragging = true
 	
 	# Stuff we want to happen when we drag but not every frame
 	if Input.is_action_just_pressed("LeftClick"):

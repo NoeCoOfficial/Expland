@@ -113,6 +113,7 @@ const EFFECT_ITEMS = [
 ]
 
 var pockets_ui_open : bool = false
+var is_dragging : bool = false
 var currently_dragging_node : Node
 
 func openPockets():
