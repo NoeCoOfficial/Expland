@@ -6,13 +6,14 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10470"]
 size = Vector2(62, 62)
 
-[node name="Droppable" type="Node2D" node_paths=PackedStringArray("Droppable_Sprite2D", "Droppable_MouseDetector", "Droppable_ITEM_TYPE_Label")]
+[node name="Droppable" type="Node2D" node_paths=PackedStringArray("Droppable_Sprite2D", "Droppable_MouseDetector", "Droppable_ITEM_TYPE_Label", "Droppable_DebounceTimer")]
 script = ExtResource("1_cwpvm")
 Droppable_Sprite2D = NodePath("Droppable_Sprite2D")
 Droppable_MouseDetector = NodePath("Droppable_MouseDetector")
 Droppable_ITEM_TYPE_Label = NodePath("Droppable_ITEM_TYPE_Label")
+Droppable_DebounceTimer = NodePath("Droppable_DebounceTimer")
 
-[node name="DebounceTimer" type="Timer" parent="."]
+[node name="Droppable_DebounceTimer" type="Timer" parent="."]
 wait_time = 0.05
 one_shot = true
 
@@ -43,6 +44,6 @@ text = "ITEM_TYPE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="timeout" from="DebounceTimer" to="." method="_on_debounce_timer_timeout"]
+[connection signal="timeout" from="Droppable_DebounceTimer" to="." method="_on_debounce_timer_timeout"]
 [connection signal="mouse_shape_entered" from="Droppable_MouseDetector" to="." method="_on_mouse_detector_mouse_shape_entered"]
 [connection signal="mouse_shape_exited" from="Droppable_MouseDetector" to="." method="_on_mouse_detector_mouse_shape_exited"]

@@ -48,11 +48,13 @@
 @icon("res://Textures/Icons/Script Icons/32x32/inventory.png")
 extends Node2D
 
+
 @export_group("Node References")
 
 @export var Droppable_Sprite2D : Sprite2D
 @export var Droppable_MouseDetector : Area2D
 @export var Droppable_ITEM_TYPE_Label : Label
+@export var Droppable_DebounceTimer : Timer
 
 
 @export_group("Properties")
@@ -78,13 +80,13 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("LeftClick"):
 		# Next we do some checks to make sure the player is not dragging
 		# A droppable when they're not meant to.
-		if InventoryManager.pockets_ui_open and Mouse_Inside_Droppable:
+		if InventoryManager.pockets_ui_open and Mouse_Inside_Droppable and Debounce_Timer_0:
 			global_position = get_global_mouse_position()
 			InventoryManager.is_dragging = true
 	
 	# Stuff we want to happen when we drag but not every frame
 	if Input.is_action_just_pressed("LeftClick"):
-		if InventoryManager.pockets_ui_open and Mouse_Inside_Droppable:
+		if InventoryManager.pockets_ui_open and Mouse_Inside_Droppable and Debounce_Timer_0:
 			# Do this so we can communicate with the currently
 			# dragging slot from all over the project.
 			InventoryManager.currently_dragging_node = self
@@ -100,6 +102,12 @@ func _process(delta: float) -> void:
 
 func _on_mouse_detector_mouse_shape_entered(shape_idx: int) -> void:
 	Mouse_Inside_Droppable = true
+	# Reset the debounce variable then start the timer.
+	# This will happen only when the player hovers over
+	# the droppable.
+	Debounce_Timer_0 = false
+	Droppable_DebounceTimer.start()
+	
 
 func _on_mouse_detector_mouse_shape_exited(shape_idx: int) -> void:
 	Mouse_Inside_Droppable = false
