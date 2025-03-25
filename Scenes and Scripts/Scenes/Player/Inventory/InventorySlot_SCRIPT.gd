@@ -48,15 +48,29 @@
 @icon("res://Textures/Icons/Script Icons/32x32/ui_inventory.png")
 extends StaticBody2D
 
-
+@export var Mouse_In_Collision_Shape : bool = false
 
 func _input(event: InputEvent) -> void:
+	# What we want to happen when LeftClick is released.
 	if Input.is_action_just_released("LeftClick"):
+		# First check if any inventories are actually open:
 		if InventoryManager.pockets_ui_open:
-			pass
+			# Then check if we are dragging and inside the collision shape
+			if InventoryManager.is_dragging and Mouse_In_Collision_Shape:
+				# Check if the currently dragging node exists
+				if InventoryManager.currently_dragging_node:
+					# If it does exist, add it as a child to self, 
+					# setting the position to (0,0).
+					
+					if InventoryManager.currently_dragging_node.get_parent():
+						InventoryManager.currently_dragging_node.get_parent().remove_child(InventoryManager.currently_dragging_node)
+					
+					add_child(InventoryManager.currently_dragging_node)
+					InventoryManager.currently_dragging_node.position = Vector2(0, 0)
+					InventoryManager.currently_dragging_node = null
 
 func _on_mouse_detector_mouse_shape_entered(shape_idx: int) -> void:
-	pass # Replace with function body.
+	Mouse_In_Collision_Shape = true
 
 func _on_mouse_detector_mouse_shape_exited(shape_idx: int) -> void:
-	pass # Replace with function body.
+	Mouse_In_Collision_Shape = false
