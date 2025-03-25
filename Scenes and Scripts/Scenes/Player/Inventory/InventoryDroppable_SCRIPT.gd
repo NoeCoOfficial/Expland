@@ -85,6 +85,11 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("LeftClick"):
 		if InventoryManager.pockets_ui_open and Mouse_Inside_Droppable:
 			InventoryManager.currently_dragging_node = self
+	 
+	if Input.is_action_just_released("LeftClick"):
+		if InventoryManager.pockets_ui_open and InventoryManager.is_dragging:
+			InventoryManager.is_dragging = false
+			InventoryManager.currently_dragging_node = null
 	
 	
 

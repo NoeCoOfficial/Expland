@@ -67,7 +67,6 @@ func _input(event: InputEvent) -> void:
 					
 					add_child(InventoryManager.currently_dragging_node)
 					InventoryManager.currently_dragging_node.position = Vector2(0, 0)
-					InventoryManager.currently_dragging_node = null
 
 func _on_mouse_detector_mouse_shape_entered(shape_idx: int) -> void:
 	Mouse_In_Collision_Shape = true
