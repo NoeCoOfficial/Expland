@@ -15,6 +15,7 @@ one_shot = true
 autostart = true
 
 [node name="Texture" type="TextureRect" parent="."]
+modulate = Color(0.306923, 0.306923, 0.306923, 1)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -31,6 +32,7 @@ texture = ExtResource("2_2mtlq")
 expand_mode = 1
 
 [node name="MouseDetector" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseDetector"]
 shape = SubResource("RectangleShape2D_3cn48")
