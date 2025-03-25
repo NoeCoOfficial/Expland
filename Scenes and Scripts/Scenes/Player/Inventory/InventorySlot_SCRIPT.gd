@@ -50,7 +50,10 @@ extends StaticBody2D
 
 
 
-
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_released("LeftClick"):
+		if InventoryManager.pockets_ui_open:
+			pass
 
 func _on_mouse_detector_mouse_shape_entered(shape_idx: int) -> void:
 	pass # Replace with function body.

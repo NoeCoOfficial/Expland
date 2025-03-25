@@ -77,9 +77,15 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("LeftClick"):
 		# Next we do some checks to make sure the player is not dragging
 		# A droppable when they're not meant to.
-		if InventoryManager.pockets_ui_open:
+		if InventoryManager.pockets_ui_open and Mouse_Inside_Droppable:
 			global_position = get_global_mouse_position()
-
+	
+	# Stuff we want to happen when we drag but not every frame
+	if Input.is_action_just_pressed("LeftClick"):
+		if InventoryManager.pockets_ui_open and Mouse_Inside_Droppable:
+			InventoryManager.currently_dragging_node = self
+	
+	
 
 
 
