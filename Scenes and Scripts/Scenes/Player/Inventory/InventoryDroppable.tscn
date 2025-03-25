@@ -14,7 +14,7 @@ Droppable_ITEM_TYPE_Label = NodePath("Droppable_ITEM_TYPE_Label")
 Droppable_DebounceTimer = NodePath("Droppable_DebounceTimer")
 
 [node name="Droppable_DebounceTimer" type="Timer" parent="."]
-wait_time = 0.05
+wait_time = 0.1
 one_shot = true
 
 [node name="Droppable_Sprite2D" type="Sprite2D" parent="."]
@@ -45,5 +45,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="timeout" from="Droppable_DebounceTimer" to="." method="_on_debounce_timer_timeout"]
+[connection signal="mouse_entered" from="Droppable_MouseDetector" to="." method="_on_droppable_mouse_detector_mouse_entered"]
 [connection signal="mouse_shape_entered" from="Droppable_MouseDetector" to="." method="_on_mouse_detector_mouse_shape_entered"]
 [connection signal="mouse_shape_exited" from="Droppable_MouseDetector" to="." method="_on_mouse_detector_mouse_shape_exited"]

@@ -80,9 +80,9 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("LeftClick"):
 		# Next we do some checks to make sure the player is not dragging
 		# A droppable when they're not meant to.
-		if InventoryManager.pockets_ui_open and Mouse_Inside_Droppable and Debounce_Timer_0:
+		
+		if InventoryManager.currently_dragging_node == self:
 			global_position = get_global_mouse_position()
-			InventoryManager.is_dragging = true
 	
 	# Stuff we want to happen when we drag but not every frame
 	if Input.is_action_just_pressed("LeftClick"):
@@ -90,6 +90,10 @@ func _process(delta: float) -> void:
 			# Do this so we can communicate with the currently
 			# dragging slot from all over the project.
 			InventoryManager.currently_dragging_node = self
+			global_position = get_global_mouse_position()
+			# To show on top of all UI
+			z_index = 10
+			InventoryManager.is_dragging = true
 	 
 	# When we release the droppable. Not much done here as
 	# most of the stuff happens in InventorySlot_SCRIPT.gd.
@@ -97,26 +101,29 @@ func _process(delta: float) -> void:
 		if InventoryManager.pockets_ui_open and InventoryManager.is_dragging:
 			InventoryManager.is_dragging = false
 			InventoryManager.currently_dragging_node = null
+			z_index = 0
 
 
 
 func _on_mouse_detector_mouse_shape_entered(shape_idx: int) -> void:
 	Mouse_Inside_Droppable = true
-	# Reset the debounce variable then start the timer.
-	# This will happen only when the player hovers over
-	# the droppable.
-	Debounce_Timer_0 = false
-	Droppable_DebounceTimer.start()
 	
 	# Slightly scale up the droppable for a nice effect
 	scale = Vector2(scale.x * 1.05, scale.y * 1.05)
-	
 
 func _on_mouse_detector_mouse_shape_exited(shape_idx: int) -> void:
 	Mouse_Inside_Droppable = false
 	
 	# Scale down the droppable to the original size
 	scale = Vector2(scale.x / 1.05, scale.y / 1.05)
+
+
+func _on_droppable_mouse_detector_mouse_entered() -> void:
+	# Reset the debounce variable then start the timer.
+	# This will happen only when the player hovers over
+	# the droppable.
+	Debounce_Timer_0 = false
+	Droppable_DebounceTimer.start()
 
 func _on_debounce_timer_timeout() -> void:
 	Debounce_Timer_0 = true

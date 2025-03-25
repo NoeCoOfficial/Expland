@@ -53,20 +53,22 @@ extends StaticBody2D
 func _input(event: InputEvent) -> void:
 	# What we want to happen when LeftClick is released.
 	if Input.is_action_just_released("LeftClick"):
+		var droppable_node_ref = InventoryManager.currently_dragging_node
 		# First check if any inventories are actually open:
 		if InventoryManager.pockets_ui_open:
 			# Then check if we are dragging and inside the collision shape
 			if InventoryManager.is_dragging and Mouse_In_Collision_Shape:
 				# Check if the currently dragging node exists
-				if InventoryManager.currently_dragging_node:
+				if droppable_node_ref:
 					# If it does exist, add it as a child to self, 
 					# setting the position to (0,0).
 					
-					if InventoryManager.currently_dragging_node.get_parent():
-						InventoryManager.currently_dragging_node.get_parent().remove_child(InventoryManager.currently_dragging_node)
+					if droppable_node_ref.get_parent():
+						droppable_node_ref.get_parent().remove_child(droppable_node_ref)
 					
-					add_child(InventoryManager.currently_dragging_node)
-					InventoryManager.currently_dragging_node.position = Vector2(0, 0)
+					add_child(droppable_node_ref)
+					droppable_node_ref.position = Vector2(0, 0)
+					droppable_node_ref.z_index = 0
 
 func _on_mouse_detector_mouse_shape_entered(shape_idx: int) -> void:
 	Mouse_In_Collision_Shape = true
