@@ -52,37 +52,54 @@ extends StaticBody2D
 @export var Populated : bool = false
 @export var Mouse_In_Collision_Shape : bool = false
 
+func _ready() -> void:
+	name = "Slot1"
+
 func _input(event: InputEvent) -> void:
 	# What we want to happen when LeftClick is released.
 	if Input.is_action_just_released("LeftClick"):
 		var droppable_node_ref = InventoryManager.currently_dragging_node
 		var is_dragging_ref = InventoryManager.is_dragging
 		
-		
-		
 		# First check if any inventories are actually open:
 		if InventoryManager.pockets_ui_open:
-			
+			# Then check if we are dragging, based 
+			# off of the reference we made.
 			if is_dragging_ref:
-				
 				# We want to put the droppable into the slot
+				print(str(Mouse_In_Collision_Shape))
 				if Mouse_In_Collision_Shape:
+					
 					# Check if the currently dragging node exists
 					if droppable_node_ref:
 						# If it does exist, add it as a child to self, 
 						# setting the position to (0,0).
 						
+						# Also do some other stuff like setting
+						# local variables (e.g. Populated = true)
+						
+						Populated = true
+						droppable_node_ref.Populating_Slot_Node = self
+						
+						
 						if droppable_node_ref.get_parent():
 							droppable_node_ref.get_parent().remove_child(droppable_node_ref)
+							if str(droppable_node_ref.get_parent().name).begins_with("Slot"):
+								droppable_node_ref.Populated = false
 						
 						add_child(droppable_node_ref)
 						droppable_node_ref.position = Vector2(0, 0)
 						droppable_node_ref.z_index = 0
 				else:
-					print("skib")
+					# This code runs if we did not release in the slot.
+					# What we wanna do is, snap back to the original slot
+					if droppable_node_ref.Populating_Slot_Node:
+						droppable_node_ref.position = Vector2(0, 0)
+					
 
 func _on_mouse_detector_mouse_shape_entered(shape_idx: int) -> void:
 	Mouse_In_Collision_Shape = true
+	print("skib")
 
 func _on_mouse_detector_mouse_shape_exited(shape_idx: int) -> void:
 	Mouse_In_Collision_Shape = false

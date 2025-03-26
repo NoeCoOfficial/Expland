@@ -59,9 +59,13 @@ extends Node2D
 
 @export_group("Properties")
 
+@export_subgroup("General")
 @export var ITEM_TYPE : Dictionary
 @export var Mouse_Inside_Droppable : bool = false
 @export var Debounce_Timer_0 : bool = false
+
+@export_subgroup("Slot Related")
+@export var Populating_Slot_Node : Node
 
 func _ready() -> void:
 	initProperties("AXE")

@@ -32,7 +32,6 @@ texture = ExtResource("2_2mtlq")
 expand_mode = 1
 
 [node name="MouseDetector" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseDetector"]
 shape = SubResource("RectangleShape2D_3cn48")
