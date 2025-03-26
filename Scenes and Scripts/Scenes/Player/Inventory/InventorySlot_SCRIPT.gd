@@ -61,7 +61,7 @@ func _input(event: InputEvent) -> void:
 	var is_dragging_ref = InventoryManager.is_dragging
 	
 	# What we want to happen when LeftClick is released.
-	if Input.is_action_just_released("LeftClick"):
+	if Input.is_action_just_released("LeftClick", true):
 		# First check if any inventories are actually open:
 		if InventoryManager.pockets_ui_open:
 			# Then check if we are dragging, based 

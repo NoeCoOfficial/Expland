@@ -158,7 +158,6 @@ func _on_player_visible_detector_body_exited(body: Node3D) -> void:
 		player_in_collision_box = false
 
 
-
 func _on_player_mimic_raycast_detector_area_entered(area: Area3D) -> void:
 	if area.is_in_group("RayCastMimic3D"):
 		player_raycast_on = true
