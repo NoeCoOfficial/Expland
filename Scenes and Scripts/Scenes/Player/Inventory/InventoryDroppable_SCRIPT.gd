@@ -96,7 +96,7 @@ func _process(delta: float) -> void:
 			InventoryManager.currently_dragging_node = self
 			global_position = get_global_mouse_position()
 			# To show on top of all UI
-			z_index = 10
+			z_index = 20
 			InventoryManager.is_dragging = true
 	 
 	# When we release the droppable. Not much done here as

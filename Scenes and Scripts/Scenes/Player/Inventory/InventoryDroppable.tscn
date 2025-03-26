@@ -14,7 +14,7 @@ Droppable_ITEM_TYPE_Label = NodePath("Droppable_ITEM_TYPE_Label")
 Droppable_DebounceTimer = NodePath("Droppable_DebounceTimer")
 
 [node name="Droppable_DebounceTimer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.05
 one_shot = true
 
 [node name="Droppable_Sprite2D" type="Sprite2D" parent="."]
