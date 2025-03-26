@@ -61,8 +61,8 @@ func get_free_slot(Slots : Array):
 			free_slot = Slots[i]
 			return free_slot
 
-
 const ITEM_TYPES = {
+	# Tools
 	"AXE" : {
 		"NAME" : "AXE",
 		"DESCRIPTION" : "A tool used for cutting down trees.",
@@ -70,8 +70,32 @@ const ITEM_TYPES = {
 		"PICKUP_LOAD" : preload("uid://mmat24b7ftxq"),
 		"MAX_STACK" : 1,
 	},
+	
+	"PICKAXE" : {
+		"NAME" : "PICKAXE",
+		"DESCRIPTION" : "A tool for mining and breaking rocks.",
+		"IMAGE_LOAD" : preload("uid://bxxnhb6vulkry"),
+		"PICKUP_LOAD" : preload("uid://dplpg1yhca1b2"),
+		"MAX_STACK" : 1,
+	},
+	
+	# Flowers
+	"BLANK FLOWER" : {
+		"NAME" : "BLANK FLOWER",
+		"DESCRIPTION" : "A blank flower.",
+		"IMAGE_LOAD" : preload("uid://bu54o8nhdxuoh"),
+		"PICKUP_LOAD" : preload("uid://c5kig8oo8rel3"),
+		"MAX_STACK" : 10,
+	},
+	
+	"BLUE FLOWER" : {
+		"NAME" : "BLUE FLOWER",
+		"DESCRIPTION" : "A blue flower.",
+		"IMAGE_LOAD" : preload("uid://cavoja22gxr3s"),
+		"PICKUP_LOAD" : preload("uid://cynuvm6lnyih2"),
+		"MAX_STACK" : 10,
+	},
 }
-
 
 const CONSUMABLE_ITEMS = [
 	
