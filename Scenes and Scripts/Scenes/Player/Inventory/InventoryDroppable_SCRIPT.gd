@@ -61,6 +61,7 @@ extends Node2D
 
 @export_subgroup("General")
 @export var ITEM_TYPE : Dictionary
+@export var Stack_Count : int = 1
 @export var Mouse_Inside_Droppable : bool = false
 @export var Debounce_Timer_0 : bool = false
 

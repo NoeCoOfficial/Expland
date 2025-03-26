@@ -79,6 +79,14 @@ const ITEM_TYPES = {
 		"MAX_STACK" : 1,
 	},
 	
+	"SWORD" : {
+		"NAME" : "SWORD",
+		"DESCRIPTION" : "A bladed weapon for cutting and thrusting.",
+		"IMAGE_LOAD" : preload("uid://dixs8s5v2su7q"),
+		"PICKUP_LOAD" : preload("uid://bgqxctsm6c3w6"),
+		"MAX_STACK" : 1,
+	},
+	
 	# Flowers
 	"BLANK FLOWER" : {
 		"NAME" : "BLANK FLOWER",
