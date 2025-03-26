@@ -705,7 +705,7 @@ ActionToPress_1 = SubResource("InputEventAction_32fgl")
 [node name="Contents" type="Node3D" parent="Item_Workshop/Interactable Component"]
 
 [node name="UI" type="Sprite3D" parent="Item_Workshop/Interactable Component/Contents"]
-transform = Transform3D(0.11, 0, 0, 0, 0.11, 0, 0, 0, 0.11, -0.0470276, -0.209965, 0)
+transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, -0.0470276, -0.209965, 0)
 billboard = 1
 no_depth_test = true
 texture = SubResource("ViewportTexture_32fgl")
