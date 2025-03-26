@@ -57,9 +57,11 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	# What we want to happen when LeftClick is released.
+	
+	var droppable_node_ref = InventoryManager.currently_dragging_node
+	var is_dragging_ref = InventoryManager.is_dragging
+	
 	if Input.is_action_just_released("LeftClick"):
-		var droppable_node_ref = InventoryManager.currently_dragging_node
-		var is_dragging_ref = InventoryManager.is_dragging
 		
 		# First check if any inventories are actually open:
 		if InventoryManager.pockets_ui_open:
@@ -67,7 +69,6 @@ func _input(event: InputEvent) -> void:
 			# off of the reference we made.
 			if is_dragging_ref:
 				# We want to put the droppable into the slot
-				print(str(Mouse_In_Collision_Shape))
 				if Mouse_In_Collision_Shape:
 					
 					# Check if the currently dragging node exists
@@ -83,9 +84,9 @@ func _input(event: InputEvent) -> void:
 						
 						
 						if droppable_node_ref.get_parent():
-							droppable_node_ref.get_parent().remove_child(droppable_node_ref)
 							if str(droppable_node_ref.get_parent().name).begins_with("Slot"):
-								droppable_node_ref.Populated = false
+								Populated = false
+							droppable_node_ref.get_parent().remove_child(droppable_node_ref)
 						
 						add_child(droppable_node_ref)
 						droppable_node_ref.position = Vector2(0, 0)
@@ -99,7 +100,6 @@ func _input(event: InputEvent) -> void:
 
 func _on_mouse_detector_mouse_shape_entered(shape_idx: int) -> void:
 	Mouse_In_Collision_Shape = true
-	print("skib")
 
 func _on_mouse_detector_mouse_shape_exited(shape_idx: int) -> void:
 	Mouse_In_Collision_Shape = false
