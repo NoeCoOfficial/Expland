@@ -1001,7 +1001,7 @@ func on_item_workshop_close_finished():
 	ItemWorkshopLayer_GreyLayer.visible = false
 
 func on_add_item_buttons_workshop_pressed(ITEM_TYPE : String):
-	pass
+	InventoryManager.get_free_slot(InventoryManager.POCKET_SLOTS).spawn_droppable(ITEM_TYPE)
 
 #endregion
 

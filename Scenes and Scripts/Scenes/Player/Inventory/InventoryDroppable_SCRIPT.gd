@@ -1,5 +1,5 @@
 # ============================================================= #
-# InventoryDropable_SCRIPT.gd
+# InventoryDroppable_SCRIPT.gd
 # ============================================================= #
 #                       COPYRIGHT NOTICE                        #
 #                           Noe Co.                             #
@@ -66,9 +66,6 @@ extends Node2D
 
 @export_subgroup("Slot Related")
 @export var Populating_Slot_Node : Node
-
-func _ready() -> void:
-	initProperties("AXE")
 
 # Initialize the properties. Called when a new droppable is created.
 func initProperties(txt_ITEM_TYPE : String):

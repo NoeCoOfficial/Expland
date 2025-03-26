@@ -90,6 +90,14 @@ func _input(event: InputEvent) -> void:
 						droppable_node_ref.position = Vector2(0, 0)
 						droppable_node_ref.z_index = 0
 
+func spawn_droppable(ITEM_TYPE : String):
+	var droppable_instance = InventoryManager.Droppable_Scene.instantiate()
+	add_child(droppable_instance)
+	droppable_instance.initProperties(ITEM_TYPE)
+	droppable_instance.position = Vector2(0, 0)
+	droppable_instance.Populating_Slot_Node = $"."
+	droppable_instance.z_index = 0
+	Populated = true
 
 func _on_mouse_detector_mouse_shape_entered(shape_idx: int) -> void:
 	Mouse_In_Collision_Shape = true
