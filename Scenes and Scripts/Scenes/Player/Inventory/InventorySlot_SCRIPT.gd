@@ -56,41 +56,37 @@ func _ready() -> void:
 	name = "Slot1"
 
 func _input(event: InputEvent) -> void:
-	# What we want to happen when LeftClick is released.
 	
 	var droppable_node_ref = InventoryManager.currently_dragging_node
 	var is_dragging_ref = InventoryManager.is_dragging
 	
+	# What we want to happen when LeftClick is released.
 	if Input.is_action_just_released("LeftClick"):
 		
 		# First check if any inventories are actually open:
 		if InventoryManager.pockets_ui_open:
+			
 			# Then check if we are dragging, based 
 			# off of the reference we made.
 			if is_dragging_ref:
-				# We want to put the droppable into the slot
-				if Mouse_In_Collision_Shape:
-					
+				# Check if the Mouse is in the collision shape
+				# and if the slot is not populated by another slot
+				if Mouse_In_Collision_Shape and !Populated:
 					# Check if the currently dragging node exists
 					if droppable_node_ref:
-						# If it does exist, add it as a child to self, 
-						# setting the position to (0,0).
 						
-						# Also do some other stuff like setting
-						# local variables (e.g. Populated = true)
+						# So we get the slot that is being populated  by the droppable. 
+						# Then we set that slots Populated property to false, as we want to
+						# Populate another slot. We then reparent the droppable to self.
 						
-						Populated = true
-						droppable_node_ref.Populating_Slot_Node = self
+						if droppable_node_ref.Populating_Slot_Node:
+							droppable_node_ref.Populating_Slot_Node.Populated = false
 						
-						
-						if droppable_node_ref.get_parent():
-							if str(droppable_node_ref.get_parent().name).begins_with("Slot"):
-								Populated = false
-							droppable_node_ref.get_parent().remove_child(droppable_node_ref)
-						
-						add_child(droppable_node_ref)
+						droppable_node_ref.reparent(self)
 						droppable_node_ref.position = Vector2(0, 0)
 						droppable_node_ref.z_index = 0
+						Populated = true
+						droppable_node_ref.Populating_Slot_Node = $"."
 				else:
 					# This code runs if we did not release in the slot.
 					# What we wanna do is, snap back to the original slot
