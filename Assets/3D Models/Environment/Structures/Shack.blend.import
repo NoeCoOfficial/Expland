@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dtbhqm0soc52d"
-path="res://.godot/imported/shack.blend-63f32c026632d90ec533c57db8d55491.scn"
+path="res://.godot/imported/Shack.blend-f995e49451c78aebd8c9fe0394fd7fe1.scn"
 
 [deps]
 
-source_file="res://Assets/3D Models/Environment/shack.blend"
-dest_files=["res://.godot/imported/shack.blend-63f32c026632d90ec533c57db8d55491.scn"]
+source_file="res://Assets/3D Models/Environment/Structures/Shack.blend"
+dest_files=["res://.godot/imported/Shack.blend-f995e49451c78aebd8c9fe0394fd7fe1.scn"]
 
 [params]
 
@@ -32,7 +32,18 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"Material": {
+"use_external/enabled": true,
+"use_external/path": "uid://d1q3trggohbjn"
+},
+"Material.001": {
+"use_external/enabled": true,
+"use_external/path": "uid://bhmwnmiv7ajfd"
+}
+}
+}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true
