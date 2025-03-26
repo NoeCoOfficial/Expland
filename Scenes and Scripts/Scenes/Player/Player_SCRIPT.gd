@@ -1002,18 +1002,6 @@ func on_item_workshop_close_finished():
 
 func on_add_item_buttons_workshop_pressed(ITEM_TYPE : String):
 	pass
-"""
-	var free_slot = null
-	
-	# Get the free slot
-	free_slot = InventoryManager.get_free_slot(InventoryManager.POCKET_SLOTS)
-	
-	if free_slot != null and !free_slot.is_populated():
-		free_slot.set_populated(true)
-		pass
-	else:
-		spawn_minimal_alert_from_player(2.5, 0.3, 0.3, "Can't add item to pockets, inventory full!")
-"""
 
 #endregion
 

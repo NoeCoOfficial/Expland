@@ -55,12 +55,9 @@ var WORKSHOP_OUTPUT_SLOT
 var Dropable_Scene = preload("res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDroppable.tscn")
 
 func get_free_slot(Slots : Array):
-	var free_slot = null
 	for i in range(Slots.size()):
-		if not Slots[i].is_populated():
-			free_slot = Slots[i]
-			return free_slot
-
+		if !Slots[i].Populated:
+			return Slots[i]
 
 const ITEM_TYPES = {
 	"AXE" : {
