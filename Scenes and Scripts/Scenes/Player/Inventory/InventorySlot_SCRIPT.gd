@@ -86,11 +86,13 @@ func _input(event: InputEvent) -> void:
 						droppable_node_ref.position = Vector2(0, 0)
 						Populated = true
 						droppable_node_ref.Populating_Slot_Node = $"."
+						droppable_node_ref.z_index = 0
 				else:
 					# This code runs if we did not release in the slot.
 					# What we wanna do is, snap back to the original slot
 					if droppable_node_ref.Populating_Slot_Node:
 						droppable_node_ref.position = Vector2(0, 0)
+						droppable_node_ref.z_index = 0
 					
 
 func _on_mouse_detector_mouse_shape_entered(shape_idx: int) -> void:
