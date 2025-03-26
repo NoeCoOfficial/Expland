@@ -206,6 +206,15 @@ var stamina_restoring_from_0 = false
 @export var Slot14_Pocket_Ref : StaticBody2D
 @export var Slot15_Pocket_Ref : StaticBody2D
 @export var Slot16_Pocket_Ref : StaticBody2D
+@export var Slot17_Pocket_Ref : StaticBody2D
+@export var Slot18_Pocket_Ref : StaticBody2D
+@export var Slot19_Pocket_Ref : StaticBody2D
+@export var Slot20_Pocket_Ref : StaticBody2D
+@export var Slot21_Pocket_Ref : StaticBody2D
+@export var Slot22_Pocket_Ref : StaticBody2D
+@export var Slot23_Pocket_Ref : StaticBody2D
+@export var Slot24_Pocket_Ref : StaticBody2D
+@export var Slot25_Pocket_Ref : StaticBody2D
 
 @export_subgroup("Layers and UI")
 @export var InventoryLayer_CanvasLayer : CanvasLayer
