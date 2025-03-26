@@ -52,7 +52,7 @@ var CHEST_SLOTS = []
 var WORKSHOP_SLOTS = []
 var WORKSHOP_OUTPUT_SLOT
 
-var Dropable_Scene = preload("res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDroppable.tscn")
+var Droppable_Scene = preload("res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDroppable.tscn")
 
 func get_free_slot(Slots : Array):
 	var free_slot = null

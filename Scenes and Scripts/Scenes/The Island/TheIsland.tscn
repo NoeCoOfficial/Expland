@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=3 uid="uid://c5jkrckgqd0w6"]
+[gd_scene load_steps=109 format=3 uid="uid://c5jkrckgqd0w6"]
 
 [ext_resource type="Script" uid="uid://cucb4fwieubx" path="res://Scenes and Scripts/Scenes/The Island/TheIsland_SCRIPT.gd" id="1_a8sfg"]
 [ext_resource type="Environment" uid="uid://dgtwdwq2n0x1v" path="res://Resources/Environment/TheIsland_WorldEnvironment.tres" id="2_h46kk"]
@@ -15,6 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://bf802csj5h2uu" path="res://Assets/3D Models/The Island Deco/TheIslandDeco.tscn" id="11_kq5pm"]
 [ext_resource type="PackedScene" uid="uid://cjm5lrxicdgsf" path="res://Scenes and Scripts/Scenes/Player/Player.tscn" id="16_52bg8"]
 [ext_resource type="Script" uid="uid://dbn31kh6cxec8" path="res://Scenes and Scripts/Scenes/The Island/Island_Terrain_Switcher_SCRIPT.gd" id="16_r68ax"]
+[ext_resource type="Script" uid="uid://chtfjr2bbc4jd" path="res://Scenes and Scripts/Scenes/The Island/Item_Workshop_StaticBody3D_SCRIPT.gd" id="19_747t0"]
+[ext_resource type="Script" uid="uid://bi02uk7qwshyf" path="res://Scenes and Scripts/Scenes/Components/Interactable Component/Interactable_Component_SCRIPT.gd" id="21_32fgl"]
+[ext_resource type="PackedScene" uid="uid://cmt00ehn4hfne" path="res://Scenes and Scripts/Scenes/General/UI/MessageWithKeyUI.tscn" id="22_1rf0p"]
 [ext_resource type="PackedScene" uid="uid://dble54a2rl76q" path="res://Scenes and Scripts/Scenes/The Island/Explorer Note/ExplorerNote.tscn" id="32_qh5si"]
 [ext_resource type="Texture2D" uid="uid://dhp1lqdlclos" path="res://Textures/Icons/Expland_TextWHITE_Icon.png" id="33_74605"]
 [ext_resource type="PackedScene" uid="uid://dqalod7m5is51" path="res://Scenes and Scripts/Scenes/The Eryv (and related)/The Eryv Statue.tscn" id="34_5odcp"]
@@ -22,9 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://cnumc5i62ndco" path="res://Scenes and Scripts/Scenes/Tests/RayCastingTest.tscn" id="37_btdyg"]
 [ext_resource type="Texture2D" uid="uid://dvbcyu3wr00f8" path="res://Textures/Dev Textures/Orange/texture_04.png" id="42_eoiek"]
 [ext_resource type="Texture2D" uid="uid://cqkp640cq8j51" path="res://Textures/Dev Textures/Red/texture_12.png" id="43_a63ti"]
-[ext_resource type="Script" uid="uid://br1n0tat1x83f" path="res://Scenes and Scripts/Scenes/The Island/EmailNoeCo_SCRIPT.gd" id="43_layrd"]
 [ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="43_wohm1"]
-[ext_resource type="Script" uid="uid://dxej0ilt0iapv" path="res://Scenes and Scripts/Scenes/The Island/OpenFeedbackIssue_SCRIPT.gd" id="45_fuui5"]
 [ext_resource type="Texture2D" uid="uid://hq2wahi8kffb" path="res://Textures/Dev Textures/Green/texture_01.png" id="45_x50q0"]
 [ext_resource type="Texture2D" uid="uid://bt0tmvpctigpn" path="res://Textures/Dev Textures/Orange/texture_01.png" id="46_h84sd"]
 [ext_resource type="Texture2D" uid="uid://dpivfw7kf4k2h" path="res://Textures/Dev Textures/Dark/texture_12.png" id="48_8kecl"]
@@ -405,6 +406,17 @@ albedo_texture = ExtResource("46_h84sd")
 uv1_scale = Vector3(0.8, 0.8, 0.8)
 uv1_triplanar = true
 
+[sub_resource type="InputEventAction" id="InputEventAction_32fgl"]
+action = &"Interact"
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_32fgl"]
+viewport_path = NodePath("Item_Workshop/Interactable Component/Contents/UI/SubViewport")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1rf0p"]
+size = Vector3(4.19315, 5, 7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_00rnx"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_svbei"]
 albedo_texture = ExtResource("43_a63ti")
 uv1_scale = Vector3(0.5, 0.5, 0.5)
@@ -419,8 +431,7 @@ size = Vector3(1, 1, 0.166443)
 size = Vector3(1, 1, 0.165283)
 
 [sub_resource type="TextMesh" id="TextMesh_g0pfk"]
-text = "Touch the green box
- for some dialogue!"
+text = "Dialogue test"
 font = ExtResource("43_wohm1")
 
 [sub_resource type="TextMesh" id="TextMesh_hpsde"]
@@ -462,10 +473,6 @@ text = "(Touch to open)
 "
 font = ExtResource("43_wohm1")
 font_size = 12
-
-[sub_resource type="TextMesh" id="TextMesh_5ry0j"]
-text = "(Currently doesn't do anything)"
-font = ExtResource("43_wohm1")
 
 [sub_resource type="TextMesh" id="TextMesh_5j5js"]
 text = "Get a feel of Expland!"
@@ -672,8 +679,9 @@ mesh = SubResource("BoxMesh_o20mk")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DialogueTester"]
 shape = SubResource("ConvexPolygonShape3D_yln1k")
 
-[node name="Item_Workshop" type="StaticBody3D" parent="." groups=["item_workshop"]]
+[node name="Item_Workshop" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -381.024, 1.11121, 280.266)
+script = ExtResource("19_747t0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Item_Workshop"]
 material_override = SubResource("StandardMaterial3D_cfqaf")
@@ -682,9 +690,146 @@ mesh = SubResource("BoxMesh_o20mk")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Item_Workshop"]
 shape = SubResource("ConvexPolygonShape3D_yln1k")
 
+[node name="Interactable Component" type="Node3D" parent="Item_Workshop" node_paths=PackedStringArray("Contents_Node", "SubViewport_Node", "UI_Sprite_Node", "UI_1", "UI_2", "UI_3", "UI_4")]
+script = ExtResource("21_32fgl")
+Contents_Node = NodePath("Contents")
+SubViewport_Node = NodePath("Contents/UI/SubViewport")
+UI_Sprite_Node = NodePath("Contents/UI")
+UI_1 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_1")
+UI_2 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_2")
+UI_3 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_3")
+UI_4 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_4")
+UseAction1 = true
+ActionToPress_1 = SubResource("InputEventAction_32fgl")
+
+[node name="Contents" type="Node3D" parent="Item_Workshop/Interactable Component"]
+
+[node name="UI" type="Sprite3D" parent="Item_Workshop/Interactable Component/Contents"]
+transform = Transform3D(0.11, 0, 0, 0, 0.11, 0, 0, 0, 0.11, -0.0470276, -0.209965, 0)
+billboard = 1
+no_depth_test = true
+texture = SubResource("ViewportTexture_32fgl")
+
+[node name="SubViewport" type="SubViewport" parent="Item_Workshop/Interactable Component/Contents/UI"]
+transparent_bg = true
+gui_disable_input = true
+size = Vector2i(3720, 2225)
+
+[node name="MessageWithKeyUI_1" parent="Item_Workshop/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -385.795
+offset_bottom = -385.795
+scale = Vector2(5, 5)
+
+[node name="Contents" parent="Item_Workshop/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -30.0
+offset_right = 27.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Message" parent="Item_Workshop/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1/Contents" index="7"]
+text = "Open"
+
+[node name="MessageWithKeyUI_2" parent="Item_Workshop/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -112.5
+offset_bottom = -112.5
+scale = Vector2(5, 5)
+
+[node name="Contents" parent="Item_Workshop/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_2" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -30.0
+offset_right = 27.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MessageWithKeyUI_3" parent="Item_Workshop/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 160.15
+offset_bottom = 160.15
+scale = Vector2(5, 5)
+
+[node name="Contents" parent="Item_Workshop/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_3" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -30.0
+offset_right = 27.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MessageWithKeyUI_4" parent="Item_Workshop/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 432.205
+offset_bottom = 432.205
+scale = Vector2(5, 5)
+
+[node name="Contents" parent="Item_Workshop/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_4" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -30.0
+offset_right = 27.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerVisibleDetector" type="Area3D" parent="Item_Workshop/Interactable Component/Contents"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Item_Workshop/Interactable Component/Contents/PlayerVisibleDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0975952, 0, 0)
+shape = SubResource("BoxShape3D_1rf0p")
+
+[node name="PlayerMimicRaycastDetector" type="Area3D" parent="Item_Workshop/Interactable Component"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Item_Workshop/Interactable Component/PlayerMimicRaycastDetector"]
+shape = SubResource("BoxShape3D_00rnx")
+
 [node name="EmailNoeCo" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -394.383, 1.11121, 279.523)
-script = ExtResource("43_layrd")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="EmailNoeCo"]
 material_override = SubResource("StandardMaterial3D_svbei")
@@ -696,7 +841,6 @@ shape = SubResource("BoxShape3D_mlfxk")
 
 [node name="OpenFeedBackIssue" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -397.787, 1.11121, 279.523)
-script = ExtResource("45_fuui5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="OpenFeedBackIssue"]
 material_override = SubResource("StandardMaterial3D_svbei")
@@ -749,11 +893,6 @@ skeleton = NodePath("")
 [node name="Notice_Interaction7" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.6904, 0, 0, 0, 1.6904, 0, 0, 0, 1.6904, -381.028, 2.04084, 279.848)
 mesh = SubResource("TextMesh_hwm75")
-skeleton = NodePath("")
-
-[node name="Notice_Interaction4" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.786085, 0, 0, 0, 0.786085, 0, 0, 0, 0.786085, -388.457, 1.19345, 279.848)
-mesh = SubResource("TextMesh_5ry0j")
 skeleton = NodePath("")
 
 [node name="Notice_Interaction2" type="MeshInstance3D" parent="."]
@@ -921,6 +1060,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -376.278, 1.51891, 280.991)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0125732, 0.593811, 0.43219)
 shape = SubResource("BoxShape3D_sdnyt")
 
+[node name="Parkour" type="Node" parent="."]
+
 [node name="SackclothBed" parent="." instance=ExtResource("56_1u12x")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -397.331, 0.61203, 295.761)
 
@@ -956,5 +1097,14 @@ NailRotation_Degrees = Vector3(-2.34, -23.005, 2.495)
 [connection signal="timeout" from="Weather Timer" to="." method="_on_weather_timer_timeout"]
 [connection signal="body_entered" from="Terrain Areas/STONE" to="island_Terrain_Switcher" method="_on_stone_body_entered"]
 [connection signal="body_exited" from="Terrain Areas/STONE" to="island_Terrain_Switcher" method="_on_stone_body_exited"]
+[connection signal="Action1_Triggered" from="Item_Workshop/Interactable Component" to="Item_Workshop" method="_on_interactable_component_action_1_triggered"]
+[connection signal="body_entered" from="Item_Workshop/Interactable Component/Contents/PlayerVisibleDetector" to="Item_Workshop/Interactable Component" method="_on_player_visible_detector_body_entered"]
+[connection signal="body_exited" from="Item_Workshop/Interactable Component/Contents/PlayerVisibleDetector" to="Item_Workshop/Interactable Component" method="_on_player_visible_detector_body_exited"]
+[connection signal="area_entered" from="Item_Workshop/Interactable Component/PlayerMimicRaycastDetector" to="Item_Workshop/Interactable Component" method="_on_player_mimic_raycast_detector_area_entered"]
+[connection signal="area_exited" from="Item_Workshop/Interactable Component/PlayerMimicRaycastDetector" to="Item_Workshop/Interactable Component" method="_on_player_mimic_raycast_detector_area_exited"]
 
+[editable path="Item_Workshop/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1"]
+[editable path="Item_Workshop/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_2"]
+[editable path="Item_Workshop/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_3"]
+[editable path="Item_Workshop/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_4"]
 [editable path="TheEryvStatue"]

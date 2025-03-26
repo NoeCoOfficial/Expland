@@ -1,5 +1,5 @@
-# ============================================================= #
-# EmailNoeCo_SCRIPT.gd
+#============================================================= #
+# Item_Workshop_StaticBody3D_SCRIPT.gd
 # ============================================================= #
 #                       COPYRIGHT NOTICE                        #
 #                           Noe Co.                             #
@@ -47,8 +47,6 @@
 
 extends StaticBody3D
 
-func on_raycast_hit_email_noeco():
-	InteractionManager.is_hovering_over_email_noeco = true
 
-func on_raycast_exit_email_noeco():
-	InteractionManager.is_hovering_over_email_noeco = false
+func _on_interactable_component_action_1_triggered() -> void:
+	PlayerManager.PLAYER.openItemWorkshop()

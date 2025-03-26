@@ -107,7 +107,6 @@ func _unhandled_input(event: InputEvent) -> void:
 				Action1_Triggered.emit()
 				var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 				tween.tween_property(UI_1, "scale", Vector2(5.0, 5.0), 0.2)
-				
 			
 			
 			
@@ -151,12 +150,10 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _on_player_visible_detector_body_entered(body: Node3D) -> void:
 	if body.is_in_group("PlayerBody"):
-		print("player body entered")
 		player_in_collision_box = true
 
 func _on_player_visible_detector_body_exited(body: Node3D) -> void:
 	if body.is_in_group("PlayerBody"):
-		print("player body exited")
 		player_in_collision_box = false
 
 
