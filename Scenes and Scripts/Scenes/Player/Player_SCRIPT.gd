@@ -832,9 +832,6 @@ func init_for_story_mode_cutscene():
 		UseHealth = false
 		head.rotation_degrees.y = -125.3
 		camera.rotation_degrees.x = -6.0
-		$Head/Camera3D/HotbarLayer/HotbarMainLayer/Background.hide()
-		$Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarOutlines.hide()
-		$Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots.hide()
 		$Head/Camera3D/HUDLayer/HungerBar.hide()
 		$Head/Camera3D/HUDLayer/HealthBar.hide()
 		$Head/Camera3D/HUDLayer/StaminaBar.hide()
