@@ -62,10 +62,8 @@ func _input(event: InputEvent) -> void:
 	
 	# What we want to happen when LeftClick is released.
 	if Input.is_action_just_released("LeftClick"):
-		
 		# First check if any inventories are actually open:
 		if InventoryManager.pockets_ui_open:
-			
 			# Then check if we are dragging, based 
 			# off of the reference we made.
 			if is_dragging_ref:
@@ -74,11 +72,9 @@ func _input(event: InputEvent) -> void:
 				if Mouse_In_Collision_Shape and !Populated:
 					# Check if the currently dragging node exists
 					if droppable_node_ref:
-						
 						# So we get the slot that is being populated  by the droppable. 
 						# Then we set that slots Populated property to false, as we want to
 						# Populate another slot. We then reparent the droppable to self.
-						
 						if droppable_node_ref.Populating_Slot_Node:
 							droppable_node_ref.Populating_Slot_Node.Populated = false
 						
@@ -93,7 +89,7 @@ func _input(event: InputEvent) -> void:
 					if droppable_node_ref.Populating_Slot_Node:
 						droppable_node_ref.position = Vector2(0, 0)
 						droppable_node_ref.z_index = 0
-					
+
 
 func _on_mouse_detector_mouse_shape_entered(shape_idx: int) -> void:
 	Mouse_In_Collision_Shape = true
