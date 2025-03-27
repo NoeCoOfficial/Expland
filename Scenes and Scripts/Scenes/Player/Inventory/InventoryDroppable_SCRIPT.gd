@@ -111,13 +111,15 @@ func _on_mouse_detector_mouse_shape_entered(shape_idx: int) -> void:
 	Mouse_Inside_Droppable = true
 	
 	# Slightly scale up the droppable for a nice effect
-	scale = Vector2(scale.x * 1.05, scale.y * 1.05)
+	if !InventoryManager.is_dragging:
+		scale = Vector2(scale.x * 1.05, scale.y * 1.05)
 
 func _on_mouse_detector_mouse_shape_exited(shape_idx: int) -> void:
 	Mouse_Inside_Droppable = false
 	
 	# Scale down the droppable to the original size
-	scale = Vector2(scale.x / 1.05, scale.y / 1.05)
+	if !InventoryManager.is_dragging:	
+		scale = Vector2(scale.x / 1.05, scale.y / 1.05)
 
 
 func _on_droppable_mouse_detector_mouse_entered() -> void:

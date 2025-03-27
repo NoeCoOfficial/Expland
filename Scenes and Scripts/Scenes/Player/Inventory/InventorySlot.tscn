@@ -9,8 +9,9 @@ size = Vector2(70, 70)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a4x7p"]
 size = Vector2(0, 0)
 
-[node name="InventorySlot" type="StaticBody2D" groups=["slot"]]
+[node name="InventorySlot" type="StaticBody2D" node_paths=PackedStringArray("Dashed_Texture") groups=["slot"]]
 script = ExtResource("1_bxl3d")
+Dashed_Texture = NodePath("Texture")
 
 [node name="AlreadyPopulatedChecker" type="Timer" parent="."]
 wait_time = 0.05
