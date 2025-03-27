@@ -103,6 +103,81 @@ const ITEM_TYPES = {
 		"PICKUP_LOAD" : preload("uid://cynuvm6lnyih2"),
 		"MAX_STACK" : 10,
 	},
+
+	"RED FLOWER" : {
+		"NAME" : "RED FLOWER",
+		"DESCRIPTION" : "A red flower.",
+		"IMAGE_LOAD" : preload("uid://m8ohdtvo6rfr"),
+		"PICKUP_LOAD" : preload("uid://cje4v10u317y"),
+		"MAX_STACK" : 10,
+	},
+
+	"PINK FLOWER" : {
+		"NAME" : "PINK FLOWER",
+		"DESCRIPTION" : "A pink flower.",
+		"IMAGE_LOAD" : preload("uid://da0briqsyhmau"),
+		"PICKUP_LOAD" : preload("uid://cdxp232v4i2lr"),
+		"MAX_STACK" : 10,
+	},
+	
+	"YELLOW FLOWER" : {
+		"NAME" : "YELLOW FLOWER",
+		"DESCRIPTION" : "A yellow flower.",
+		"IMAGE_LOAD" : preload("uid://cqvxhihjcesqw"),
+		"PICKUP_LOAD" : preload("uid://cyxxp35iw0434"),
+		"MAX_STACK" : 10,
+	},
+
+	# Food
+	"COCONUT" : {
+		"NAME" : "COCNUT",
+		"DESCRIPTION" : "A hard-shelled tropical fruit with white flesh and liquid inside.",
+		"IMAGE_LOAD" : preload("uid://dmyiq1y00bivg"),
+		"PICKUP_LOAD" : preload("uid://dm1ck0k7tfmel"),
+		"MAX_STACK" : 5,
+	},
+	
+	# General
+	"ROCK" : {
+		"NAME" : "ROCK",
+		"DESCRIPTION" : "A solid, natural mineral.",
+		"IMAGE_LOAD" : preload("uid://b2eggg0vffmo4"),
+		"PICKUP_LOAD" : preload("uid://0uyecq8yw6t"),
+		"MAX_STACK" : 7,
+	},
+	
+	"STONE" : {
+		"NAME" : "STONE",
+		"DESCRIPTION" : "A solid, natural mineral.",
+		"IMAGE_LOAD" : preload("uid://b1rh5wtv0cotk"),
+		"PICKUP_LOAD" : preload("uid://cnca041yt8f3j"),
+		"MAX_STACK" : 7,
+	},
+	
+	"WODD PLANK" : {
+		"NAME" : "WOOD PLANK",
+		"DESCRIPTION" : "A flat piece of timber.",
+		"IMAGE_LOAD" : preload("uid://d2o42bjls3sl3"),
+		"PICKUP_LOAD" : preload("uid://d1krxi2vcrc4m"),
+		"MAX_STACK" : 5,
+	},
+
+	# Potions
+	"EFFICIENCY POTION" : {
+		"NAME" : "EFFICIENCY POTION",
+		"DESCRIPTION" : "A potion that makes you more efficient, boosting output. This potion lasts for 60 seconds.",
+		"IMAGE_LOAD" : preload("uid://don2d5onyupya"),
+		"PICKUP_LOAD" : preload("uid://b8dojl031i6vl"),
+		"MAX_STACK" : 3,
+	},
+
+	"HASTE POTION" : {
+		"NAME" : "HASTE POTION",
+		"DESCRIPTION" : "A potion that makes you move faster. This potion's effect lasts for 30 seconds",
+		"IMAGE_LOAD" : preload("uid://o3u6sxubmrbg"),
+		"PICKUP_LOAD" : preload("uid://c3f07o736s1fc"),
+		"MAX_STACK" : 3,
+	},
 }
 
 const CONSUMABLE_ITEMS = [
