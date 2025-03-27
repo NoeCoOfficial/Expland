@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bah2p5efhcjtx"]
+[gd_scene load_steps=5 format=3 uid="uid://bah2p5efhcjtx"]
 
 [ext_resource type="Script" uid="uid://cptco2so25hse" path="res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDroppable_SCRIPT.gd" id="1_cwpvm"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="2_e0qvl"]
+[ext_resource type="Texture2D" uid="uid://bxxnhb6vulkry" path="res://Textures/Inventory/PICKAXE.png" id="2_rao5u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10470"]
 size = Vector2(62, 62)
@@ -20,8 +21,10 @@ one_shot = true
 
 [node name="Droppable_Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.13, 0.13)
+texture = ExtResource("2_rao5u")
 
 [node name="Droppable_MouseDetector" type="Area2D" parent="." groups=["draggable"]]
+visible = false
 collision_priority = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Droppable_MouseDetector"]
@@ -43,6 +46,25 @@ theme = ExtResource("2_e0qvl")
 theme_override_font_sizes/font_size = 8
 text = "ITEM_TYPE"
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Droppable_StackNumber" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = 11.0
+offset_right = 31.0
+offset_bottom = 37.496
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_e0qvl")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 17
+text = "15"
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [connection signal="timeout" from="Droppable_DebounceTimer" to="." method="_on_debounce_timer_timeout"]
