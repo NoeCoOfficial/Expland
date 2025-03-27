@@ -97,12 +97,14 @@ func _process(delta: float) -> void:
 			# To show on top of all UI
 			z_index = 20
 			InventoryManager.is_dragging = true
+			scale = Vector2(Default_Size.x * 1.05, Default_Size.y * 1.05)
 	 
 	# When we release the droppable. Not much done here as
 	# most of the stuff happens in InventorySlot_SCRIPT.gd.
 	if Input.is_action_just_released("LeftClick", true):
 		if InventoryManager.pockets_ui_open and InventoryManager.is_dragging:
 			InventoryManager.is_dragging = false
+			scale = Vector2(Default_Size.x / 1.05, Default_Size.y / 1.05)
 			InventoryManager.currently_dragging_node = null
 			z_index = 0
 
