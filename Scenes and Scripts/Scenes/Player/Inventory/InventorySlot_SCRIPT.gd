@@ -50,7 +50,10 @@ extends StaticBody2D
 
 
 @export var Populated : bool = false
+@export var Populating_Dropable : Node
 @export var Mouse_In_Collision_Shape : bool = false
+
+@export var Dashed_Texture : TextureRect
 
 func _ready() -> void:
 	name = "Slot1"
@@ -61,11 +64,9 @@ func _input(event: InputEvent) -> void:
 	var is_dragging_ref = InventoryManager.is_dragging
 	
 	# What we want to happen when LeftClick is released.
-	if Input.is_action_just_released("LeftClick"):
-		
+	if Input.is_action_just_released("LeftClick", true):
 		# First check if any inventories are actually open:
 		if InventoryManager.pockets_ui_open:
-			
 			# Then check if we are dragging, based 
 			# off of the reference we made.
 			if is_dragging_ref:
@@ -74,17 +75,18 @@ func _input(event: InputEvent) -> void:
 				if Mouse_In_Collision_Shape and !Populated:
 					# Check if the currently dragging node exists
 					if droppable_node_ref:
-						
 						# So we get the slot that is being populated  by the droppable. 
 						# Then we set that slots Populated property to false, as we want to
 						# Populate another slot. We then reparent the droppable to self.
-						
 						if droppable_node_ref.Populating_Slot_Node:
 							droppable_node_ref.Populating_Slot_Node.Populated = false
+							droppable_node_ref.Populating_Slot_Node.Dashed_Texture.self_modulate = Color(1, 1, 1, 1)
 						
 						droppable_node_ref.reparent(self)
 						droppable_node_ref.position = Vector2(0, 0)
 						Populated = true
+						Populating_Dropable = droppable_node_ref
+						Dashed_Texture.self_modulate = Color(1, 1, 1, 0)
 						droppable_node_ref.Populating_Slot_Node = $"."
 						droppable_node_ref.z_index = 0
 				else:
@@ -93,7 +95,17 @@ func _input(event: InputEvent) -> void:
 					if droppable_node_ref.Populating_Slot_Node:
 						droppable_node_ref.position = Vector2(0, 0)
 						droppable_node_ref.z_index = 0
-					
+
+func spawn_droppable(ITEM_TYPE : String):
+	var droppable_instance = InventoryManager.Droppable_Scene.instantiate()
+	add_child(droppable_instance)
+	droppable_instance.initProperties(ITEM_TYPE)
+	droppable_instance.position = Vector2(0, 0)
+	droppable_instance.Populating_Slot_Node = $"."
+	droppable_instance.z_index = 0
+	Populated = true
+	Populating_Dropable = droppable_instance
+	Dashed_Texture.self_modulate = Color(1, 1, 1, 0)
 
 func _on_mouse_detector_mouse_shape_entered(shape_idx: int) -> void:
 	Mouse_In_Collision_Shape = true

@@ -206,6 +206,15 @@ var stamina_restoring_from_0 = false
 @export var Slot14_Pocket_Ref : StaticBody2D
 @export var Slot15_Pocket_Ref : StaticBody2D
 @export var Slot16_Pocket_Ref : StaticBody2D
+@export var Slot17_Pocket_Ref : StaticBody2D
+@export var Slot18_Pocket_Ref : StaticBody2D
+@export var Slot19_Pocket_Ref : StaticBody2D
+@export var Slot20_Pocket_Ref : StaticBody2D
+@export var Slot21_Pocket_Ref : StaticBody2D
+@export var Slot22_Pocket_Ref : StaticBody2D
+@export var Slot23_Pocket_Ref : StaticBody2D
+@export var Slot24_Pocket_Ref : StaticBody2D
+@export var Slot25_Pocket_Ref : StaticBody2D
 
 @export_subgroup("Layers and UI")
 @export var InventoryLayer_CanvasLayer : CanvasLayer
@@ -823,9 +832,6 @@ func init_for_story_mode_cutscene():
 		UseHealth = false
 		head.rotation_degrees.y = -125.3
 		camera.rotation_degrees.x = -6.0
-		$Head/Camera3D/HotbarLayer/HotbarMainLayer/Background.hide()
-		$Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarOutlines.hide()
-		$Head/Camera3D/HotbarLayer/HotbarMainLayer/HotbarSlots.hide()
 		$Head/Camera3D/HUDLayer/HungerBar.hide()
 		$Head/Camera3D/HUDLayer/HealthBar.hide()
 		$Head/Camera3D/HUDLayer/StaminaBar.hide()
@@ -992,19 +998,10 @@ func on_item_workshop_close_finished():
 	ItemWorkshopLayer_GreyLayer.visible = false
 
 func on_add_item_buttons_workshop_pressed(ITEM_TYPE : String):
-	pass
-"""
-	var free_slot = null
+	var free_slot = InventoryManager.get_free_slot(InventoryManager.POCKET_SLOTS)
 	
-	# Get the free slot
-	free_slot = InventoryManager.get_free_slot(InventoryManager.POCKET_SLOTS)
-	
-	if free_slot != null and !free_slot.is_populated():
-		free_slot.set_populated(true)
-		pass
-	else:
-		spawn_minimal_alert_from_player(2.5, 0.3, 0.3, "Can't add item to pockets, inventory full!")
-"""
+	if free_slot != null:
+		free_slot.spawn_droppable(ITEM_TYPE)
 
 #endregion
 

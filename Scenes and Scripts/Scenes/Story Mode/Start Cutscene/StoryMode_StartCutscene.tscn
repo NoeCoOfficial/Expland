@@ -104,6 +104,7 @@ viewport_path = NodePath("Yacht Rig/Yacht/Interactable Component/Contents/UI/Sub
 size = Vector3(0.499466, 2.46471, 2.61694)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3v7iq"]
+size = Vector3(0.476172, 0.498706, 0.810141)
 
 [sub_resource type="Gradient" id="Gradient_to1x2"]
 offsets = PackedFloat32Array(0.238411, 1)
@@ -532,6 +533,7 @@ debug_color = Color(0, 0.650488, 0.0892803, 0.42)
 transform = Transform3D(1, -1.2328e-09, 0, -2.2233e-09, 1, 6.53166e-10, 0, -5.60831e-11, 1, 0.027019, 0, 0.100836)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Yacht Rig/Yacht/Interactable Component/Contents/PlayerMimicRaycastDetector"]
+transform = Transform3D(0.984598, -0.174782, 0.00412687, 0.174782, 0.983493, -0.0468337, 0.00412697, 0.0468337, 0.998894, -0.64479, 1.42761, 1.00341)
 shape = SubResource("BoxShape3D_3v7iq")
 
 [node name="Clouds" type="MeshInstance3D" parent="."]

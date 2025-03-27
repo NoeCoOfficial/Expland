@@ -6,7 +6,8 @@
 
 - added procedural health regeneration to the player
 - changed health regeneration value to 10 instead of 5 when sleeping
-- fixed health bar not updating after gaining health when sleeping 
+- fixed health bar not updating after gaining health when sleeping
+- entire inventory revamp, you now have 25 slots in pockets instead of 16
 
 ---
 
