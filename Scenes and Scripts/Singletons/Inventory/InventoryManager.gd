@@ -178,6 +178,54 @@ const ITEM_TYPES = {
 		"PICKUP_LOAD" : preload("uid://c3f07o736s1fc"),
 		"MAX_STACK" : 3,
 	},
+
+	"HEALTH POTION" : {
+		"NAME" : "HEALTH POTION",
+		"DESCRIPTION" : "A potion that regenerates health. This potion's effect lasts for 10 seconds",
+		"IMAGE_LOAD" : preload("uid://1dbgnxe1pe1i"),
+		"PICKUP_LOAD" : preload("uid://bkrrrciwr0l51"),
+		"MAX_STACK" : 3,
+	},
+
+	"LUCK POTION" : {
+		"NAME" : "LUCK POTION",
+		"DESCRIPTION" : "A potion that boosts your luck. This potion's effect lasts for 120 seconds",
+		"IMAGE_LOAD" : preload("uid://dkol2o53q7rck"),
+		"PICKUP_LOAD" : preload("uid://dehytmc8mbpxu"),
+		"MAX_STACK" : 3,
+	},
+
+	"NIGHT VISION POTION" : {
+		"NAME" : "NIGHT VISION POTION",
+		"DESCRIPTION" : "A potion that gives you night vision. This potion's effect lasts for 120 seconds",
+		"IMAGE_LOAD" : preload("uid://d0q61bcnprn5o"),
+		"PICKUP_LOAD" : preload("uid://gy86venr6fii"),
+		"MAX_STACK" : 3,
+	},
+
+	"REGENERATING POTION" : {
+		"NAME" : "REGENERATING POTION",
+		"DESCRIPTION" : "A potion that regenerates your stats. This potion's effect lasts for 15 seconds",
+		"IMAGE_LOAD" : preload("uid://mwa55qklwxe3"),
+		"PICKUP_LOAD" : preload("uid://ic1v407ic2h3"),
+		"MAX_STACK" : 3,
+	},
+
+	"STAMINA POTION" : {
+		"NAME" : "STAMINA POTION",
+		"DESCRIPTION" : "A potion that boosts endurace. This potion's effect lasts for 60 seconds",
+		"IMAGE_LOAD" : preload("uid://ic1v407ic2h3"),
+		"PICKUP_LOAD" : preload("uid://bk1v1bbw07mkj"),
+		"MAX_STACK" : 3,
+	},
+
+	"STRENGTH POTION" : {
+		"NAME" : "STRENGTH POTION",
+		"DESCRIPTION" : "A potion that boosts your strength. This potion's effect lasts for 60 seconds",
+		"IMAGE_LOAD" : preload("uid://bfiqh1ceg7rmt"),
+		"PICKUP_LOAD" : preload("uid://d0ut80c3jd0lu"),
+		"MAX_STACK" : 3,
+	},
 }
 
 const CONSUMABLE_ITEMS = [
