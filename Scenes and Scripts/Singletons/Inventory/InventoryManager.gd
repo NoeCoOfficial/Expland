@@ -64,18 +64,18 @@ func get_free_slot(Slots : Array):
 func get_free_slot_using_stacks(Slots : Array, TARGET_ITEM_NAME : String):
 	var free_slot = null
 	
-	for slot in range(Slots.size()):
+	for slot in Slots:
 		# If 1 of the slots are free
-		if !Slots[slot].Populated:
+		if !slot.Populated:
 			free_slot = slot
 			break
 		# If there are no free slots. Then we check if we can stack.
 		else:
 			# If there is a slot with the same name as the target name
-			if Slots[slot].Populating_Droppable.ITEM_TYPE["NAME"] == TARGET_ITEM_NAME:
+			if slot.Populating_Droppable.ITEM_TYPE["NAME"] == TARGET_ITEM_NAME:
 				# We want this to happen if the stack count is SMALLER than the max.
-				if Slots[slot].Populating_Droppable.Stack_Count < Slots[slot].Populating_Droppable.ITEM_TYPE["MAX_STACK"]:
-					increment_droppable_stack(Slots[slot].Populating_Droppable)
+				if slot.Populating_Droppable.Stack_Count < slot.Populating_Droppable.ITEM_TYPE["MAX_STACK"]:
+					increment_droppable_stack(slot.Populating_Droppable)
 					break
 				# Inventory is full. Can't add item because although
 				# there are items that have the same name, their stack count is at the max
