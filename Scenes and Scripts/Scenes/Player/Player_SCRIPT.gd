@@ -1010,8 +1010,6 @@ func on_add_item_buttons_workshop_pressed(ITEM_TYPE : String):
 		InventoryManager.POCKET_SLOTS,
 		ITEM_TYPE)
 	
-	print(str(free_slot))
-	
 	if free_slot != null:
 		free_slot.spawn_droppable(ITEM_TYPE)
 
