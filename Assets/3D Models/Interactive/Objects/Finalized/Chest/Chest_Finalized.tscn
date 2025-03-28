@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dvh658edbkjrn"]
+[gd_scene load_steps=13 format=3 uid="uid://dvh658edbkjrn"]
 
 [ext_resource type="PackedScene" uid="uid://bxy2ihf8ehq18" path="res://Assets/3D Models/Interactive/Objects/Models/Chest.blend" id="1_5yx1o"]
 [ext_resource type="Script" uid="uid://yqpm53nh5cdk" path="res://Assets/3D Models/Interactive/Objects/Finalized/Chest/Chest_Finalized_SCRIPT.gd" id="2_f51ac"]
@@ -47,6 +47,9 @@ _data = {
 &"open": SubResource("Animation_ye7vl")
 }
 
+[sub_resource type="InputEventAction" id="InputEventAction_dqik0"]
+action = &"Interact"
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_5450r"]
 viewport_path = NodePath("Interactable Component/Contents/UI/SubViewport")
 
@@ -79,6 +82,8 @@ UI_1 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_1")
 UI_2 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_2")
 UI_3 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_3")
 UI_4 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_4")
+UseAction1 = true
+ActionToPress_1 = SubResource("InputEventAction_dqik0")
 
 [node name="Contents" type="Node3D" parent="Interactable Component" index="0"]
 
