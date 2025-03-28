@@ -63,12 +63,6 @@ extends Node2D
 @export_subgroup("General")
 @export var ITEM_TYPE : Dictionary
 
-@export var Stack_Count: int = 1:
-	set(value):
-		print("Stack Count:", str(value))
-		if Droppable_StackNumber_Label:
-			Droppable_StackNumber_Label.text = str(value)
-
 @export var Mouse_Inside_Droppable : bool = false
 @export var Debounce_Timer_0 : bool = false
 @export var Default_Size : Vector2 = Vector2(1.0, 1.0)
@@ -81,10 +75,6 @@ func initProperties(txt_ITEM_TYPE : String):
 	ITEM_TYPE = InventoryManager.ITEM_TYPES[txt_ITEM_TYPE]
 	Droppable_Sprite2D.texture = ITEM_TYPE["IMAGE_LOAD"]
 	Droppable_ITEM_TYPE_Label.text = txt_ITEM_TYPE.capitalize()
-
-# A function that manages the stack count, incrementing and decrementing the stack count.
-func mngStack_Count(increment : int):
-	Stack_Count += increment # This will auto matically set the text
 
 # Where the magic happens.
 func _process(delta: float) -> void:

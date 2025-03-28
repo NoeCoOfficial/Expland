@@ -887,7 +887,6 @@ func takeDamage(DamageToTake): # A function to take damage from the player
 			
 			resumeGame()
 			closeItemWorkshop()
-			ExplorerNotesManager.hideCloseUp()
 			SettingsUI.closeSettings(0.5)
 			AlertLayer.despawnAlert(0.5)
 			AchievementsUI.despawnAchievements(0.5)
@@ -998,23 +997,7 @@ func on_item_workshop_close_finished():
 	ItemWorkshopLayer_GreyLayer.visible = false
 
 func on_add_item_buttons_workshop_pressed(ITEM_TYPE : String):
-	var info = InventoryManager.get_free_slot_with_stacks(
-		InventoryManager.POCKET_SLOTS, 
-		InventoryManager.ITEM_TYPES[ITEM_TYPE])
-	
-	if info[0] != null:
-		
-		# If we are gonna add to a stack
-		if info[1]:
-			info[0].Populating_Droppable.mngStack_Count(1) # Increment stack by 1
-		
-		# If we are NOT gonna add to a stack (create new independant item)
-		else:
-			info[0].spawn_droppable(ITEM_TYPE)
-	
-	# If the free slot doesn't exist (i.e. there is no free slot)
-	else:
-		MinimalAlert.spawn_minimal_alert(2, 0.3, 0.3, "Can't add item, pockets full!")
+	pass
 
 #endregion
 
