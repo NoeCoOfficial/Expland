@@ -1005,8 +1005,12 @@ func on_add_item_buttons_workshop_pressed(ITEM_TYPE : String):
 	#mngStack_Count
 	
 	if info[0] != null:
+		
+		# If we are gonna add to a stack
 		if info[1]:
 			info[0].Populating_Dropable
+		
+		# If we are NOT gonna add to a stack (create new independant item)
 		else:
 			pass
 	else:
