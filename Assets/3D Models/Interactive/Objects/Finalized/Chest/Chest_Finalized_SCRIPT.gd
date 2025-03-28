@@ -61,9 +61,11 @@ func animate(TYPE : String):
 	
 	if TYPE == "OPEN":
 		$OpenAndCloseAnim.play("open")
+		$"Interactable Component/Contents/UI".hide()
 	
 	elif TYPE == "CLOSE":
 		$OpenAndCloseAnim.play("close")
+		$"Interactable Component/Contents/UI".show()
 
 
 func _on_debounce_timer_timeout() -> void:
