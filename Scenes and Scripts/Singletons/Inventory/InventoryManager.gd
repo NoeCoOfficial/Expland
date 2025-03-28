@@ -84,6 +84,7 @@ func get_free_slot_using_stacks(Slots : Array, TARGET_ITEM_NAME : String):
 			# Inventory is full. Can't add item because no other items have the same name
 			else:
 				pass
+	
 	return free_slot
 
 func increment_droppable_stack(droppable_node : Node):
