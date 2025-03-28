@@ -63,10 +63,15 @@ extends Node2D
 @export_subgroup("General")
 @export var ITEM_TYPE : Dictionary
 
-var Stack_Count : int = 1:
+@export var Stack_Count : int = 1:
 	set(value):
-		print("Stack count is now: ", str(value))
+		Stack_Count = value
 		Droppable_StackNumber_Label.text = str(value)
+		
+		if value < 2:
+			Droppable_StackNumber_Label.hide()
+		else:
+			Droppable_StackNumber_Label.show()
 
 @export var Mouse_Inside_Droppable : bool = false
 @export var Debounce_Timer_0 : bool = false
