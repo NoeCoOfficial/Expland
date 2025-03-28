@@ -63,6 +63,7 @@ func get_free_slot(Slots : Array):
 
 func get_free_slot_using_stacks(Slots : Array, TARGET_ITEM_NAME : String):
 	var free_slot = null
+	var stack_slot = null
 	
 	for slot in Slots:
 		# If 1 of the slots are free
@@ -76,14 +77,11 @@ func get_free_slot_using_stacks(Slots : Array, TARGET_ITEM_NAME : String):
 				# We want this to happen if the stack count is SMALLER than the max.
 				if slot.Populating_Droppable.Stack_Count < slot.Populating_Droppable.ITEM_TYPE["MAX_STACK"]:
 					increment_droppable_stack(slot.Populating_Droppable)
+					stack_slot = true
 					break
-				# Inventory is full. Can't add item because although
-				# there are items that have the same name, their stack count is at the max
-				else:
-					pass
-			# Inventory is full. Can't add item because no other items have the same name
-			else:
-				pass
+	
+	if !stack_slot and free_slot == null:
+		PlayerManager.MINIMAL_ALERT_PLAYER.spawn_minimal_alert(1.5, 0.3, 0.3, "Can't add item, pockets full!")
 	
 	return free_slot
 
