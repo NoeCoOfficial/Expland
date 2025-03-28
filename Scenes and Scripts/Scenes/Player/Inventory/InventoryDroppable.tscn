@@ -26,7 +26,6 @@ scale = Vector2(0.13, 0.13)
 texture = ExtResource("2_rao5u")
 
 [node name="Droppable_MouseDetector" type="Area2D" parent="." groups=["draggable"]]
-visible = false
 collision_priority = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Droppable_MouseDetector"]

@@ -61,22 +61,25 @@ func get_free_slot(Slots : Array):
 			free_slot = Slots[i]
 		return free_slot
  
-func get_free_slot_with_stacks(Slots : Array, ITEM_TYPE_TO_STACK : Dictionary):
+func get_free_slot_with_stacks(Slots: Array, ITEM_TYPE_TO_STACK: Dictionary):
 	var free_slot = null
 	var adding_to_existing_slot = false
+
 	for i in range(Slots.size()):
-		# Check if the populating droppable actually exists first:
+		# Check if the slot has a droppable item (i.e. if it exists
 		if Slots[i].Populating_Droppable:
+			# Check if the item type matches
 			if Slots[i].Populating_Droppable.ITEM_TYPE["NAME"] == ITEM_TYPE_TO_STACK["NAME"]:
-				if Slots[i].Populating_Droppable.Stack_Count <= Slots[i].Populating_Droppable.ITEM_TYPE["MAX_STACK"]:
+				# Check if the stack count is less than the max stack size
+				if Slots[i].Populating_Droppable.Stack_Count < ITEM_TYPE_TO_STACK["MAX_STACK"]:
 					free_slot = Slots[i]
 					adding_to_existing_slot = true
-		else:
-			for s in range(Slots.size()):
-				if !Slots[s].Populated:
-					free_slot = Slots[s]
-					adding_to_existing_slot = false
-	
+					break  # Prioritize stacking and exit the loop
+		# If the slot is empty and no stacking slot has been found yet
+		elif !Slots[i].Populated and free_slot == null:
+			free_slot = Slots[i]
+			adding_to_existing_slot = false
+
 	return [free_slot, adding_to_existing_slot]
 
 const ITEM_TYPES = {
