@@ -159,7 +159,7 @@ const ITEM_TYPES = {
 
 	# Food
 	"COCONUT" : {
-		"NAME" : "COCNUT",
+		"NAME" : "COCONUT",
 		"DESCRIPTION" : "A hard-shelled tropical fruit with white flesh and liquid inside.",
 		"IMAGE_LOAD" : preload("uid://dmyiq1y00bivg"),
 		"PICKUP_LOAD" : preload("uid://dm1ck0k7tfmel"),
@@ -243,7 +243,7 @@ const ITEM_TYPES = {
 	"STAMINA POTION" : {
 		"NAME" : "STAMINA POTION",
 		"DESCRIPTION" : "A potion that boosts endurace. This potion's effect lasts for 60 seconds",
-		"IMAGE_LOAD" : preload("uid://ic1v407ic2h3"),
+		"IMAGE_LOAD" : preload("uid://fj1pvfgfyamb"),
 		"PICKUP_LOAD" : preload("uid://bk1v1bbw07mkj"),
 		"MAX_STACK" : 3,
 	},

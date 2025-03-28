@@ -68,7 +68,7 @@ extends Node2D
 		Stack_Count = value
 		Droppable_StackNumber_Label.text = str(value)
 		
-		if value < 2:
+		if Stack_Count < 2:
 			Droppable_StackNumber_Label.hide()
 		else:
 			Droppable_StackNumber_Label.show()
@@ -86,6 +86,7 @@ func initProperties(txt_ITEM_TYPE : String):
 	Droppable_Sprite2D.texture = ITEM_TYPE["IMAGE_LOAD"]
 	Droppable_ITEM_TYPE_Label.text = txt_ITEM_TYPE.capitalize()
 	Droppable_StackNumber_Label.text = str(Stack_Count)
+	Droppable_StackNumber_Label.hide()
 
 # Where the magic happens.
 func _process(delta: float) -> void:
