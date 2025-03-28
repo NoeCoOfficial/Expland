@@ -183,7 +183,7 @@ const ITEM_TYPES = {
 		"MAX_STACK" : 7,
 	},
 	
-	"WODD PLANK" : {
+	"WOOD PLANK" : {
 		"NAME" : "WOOD PLANK",
 		"DESCRIPTION" : "A flat piece of timber.",
 		"IMAGE_LOAD" : preload("uid://d2o42bjls3sl3"),
