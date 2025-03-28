@@ -59,7 +59,7 @@ func get_free_slot(Slots : Array):
 	for i in range(Slots.size()):
 		if !Slots[i].Populated:
 			free_slot = Slots[i]
-			return free_slot
+		return free_slot
 
 const ITEM_TYPES = {
 	# Tools
