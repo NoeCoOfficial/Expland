@@ -1812,30 +1812,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 transform = Transform3D(-0.651061, 0, -5.69176e-08, 0, 0.651061, 0, 5.69176e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Head/Player_Character_Shadow/Armature_003" index="0"]
-bones/0/position = Vector3(2.80841, -2.78659, -196.224)
-bones/0/rotation = Quaternion(-0.684524, -0.270576, 0.248588, 0.629618)
-bones/1/rotation = Quaternion(0.0786872, 0.0408655, -0.00828604, 0.996027)
-bones/2/rotation = Quaternion(0.0951219, 0.0792512, -0.0220758, 0.99206)
-bones/3/rotation = Quaternion(0.0951389, 0.0792381, -0.0220631, 0.99206)
-bones/4/rotation = Quaternion(-0.0518189, -0.0105098, 0.00208897, 0.998599)
-bones/5/rotation = Quaternion(-0.0711683, 0.177806, -0.00253781, 0.981486)
-bones/7/rotation = Quaternion(0.581812, 0.41838, -0.567168, 0.405923)
-bones/8/rotation = Quaternion(0.43197, -0.099401, 0.0895097, 0.891913)
+bones/0/position = Vector3(2.67441, -3.86852, -195.588)
+bones/0/rotation = Quaternion(-0.683558, -0.270268, 0.249991, 0.630244)
+bones/1/rotation = Quaternion(0.0805724, 0.0410906, -0.00923617, 0.995859)
+bones/2/rotation = Quaternion(0.0988624, 0.0796359, -0.0230775, 0.991641)
+bones/3/rotation = Quaternion(0.0988625, 0.0796359, -0.0230774, 0.991641)
+bones/4/rotation = Quaternion(-0.0627638, -0.0107219, 0.00208823, 0.997969)
+bones/5/rotation = Quaternion(-0.0612326, 0.176916, -0.00906758, 0.982278)
+bones/7/rotation = Quaternion(0.592031, 0.406154, -0.56733, 0.403331)
+bones/8/rotation = Quaternion(0.422276, -0.105412, 0.0882775, 0.895979)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0346059, 0.0643617, 0.416679, 0.906112)
-bones/11/rotation = Quaternion(0.628297, -0.380989, 0.525575, 0.428791)
-bones/12/rotation = Quaternion(0.427141, 0.0961857, 0.14712, 0.886936)
-bones/13/rotation = Quaternion(0.0352383, 0.00290225, -0.368293, 0.929037)
-bones/15/rotation = Quaternion(0.0803644, 0.232395, 0.963677, -0.10422)
+bones/9/rotation = Quaternion(-0.0379427, 0.0601661, 0.408944, 0.909783)
+bones/11/rotation = Quaternion(0.639445, -0.367627, 0.524663, 0.425076)
+bones/12/rotation = Quaternion(0.411451, 0.108663, 0.148206, 0.892713)
+bones/13/rotation = Quaternion(0.0249853, 0.0189251, -0.364682, 0.930605)
+bones/15/rotation = Quaternion(0.079361, 0.23819, 0.962178, -0.105742)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.361211, 0.119639, -0.0367636, 0.924046)
-bones/17/rotation = Quaternion(0.565983, -0.00143021, -0.0241984, 0.82406)
-bones/18/rotation = Quaternion(0.289416, -0.0366179, -0.0096148, 0.956454)
-bones/20/rotation = Quaternion(-0.125318, 0.0245704, 0.982832, 0.133168)
-bones/21/rotation = Quaternion(-0.341195, 0.0724708, -0.0255865, 0.936846)
-bones/22/rotation = Quaternion(0.673428, 0.0553501, 0.106545, 0.729437)
+bones/16/rotation = Quaternion(-0.364549, 0.118545, -0.0364808, 0.922887)
+bones/17/rotation = Quaternion(0.56641, -0.00254081, -0.0261969, 0.823703)
+bones/18/rotation = Quaternion(0.289416, -0.0367423, -0.00948957, 0.956451)
+bones/20/rotation = Quaternion(-0.124526, 0.0352831, 0.982721, 0.132316)
+bones/21/rotation = Quaternion(-0.355469, 0.071103, -0.0269012, 0.931591)
+bones/22/rotation = Quaternion(0.678611, 0.0548923, 0.105215, 0.724847)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.278227, 0.0570469, -0.0171428, 0.958667)
+bones/23/rotation = Quaternion(0.278342, 0.057201, -0.0172125, 0.958623)
 
 [node name="Model_004" parent="Head/Player_Character_Shadow/Armature_003/Skeleton3D" index="0"]
 cast_shadow = 3
@@ -1844,30 +1844,30 @@ cast_shadow = 3
 transform = Transform3D(-0.651061, 0, 5.69175e-08, 0, 0.651061, 0, -5.69175e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Head/Player_Character/Armature_003" index="0"]
-bones/0/position = Vector3(2.80841, -2.78659, -196.224)
-bones/0/rotation = Quaternion(-0.684524, -0.270576, 0.248588, 0.629618)
-bones/1/rotation = Quaternion(0.0786872, 0.0408655, -0.00828604, 0.996027)
-bones/2/rotation = Quaternion(0.0951219, 0.0792512, -0.0220758, 0.99206)
-bones/3/rotation = Quaternion(0.0951389, 0.0792381, -0.0220631, 0.99206)
-bones/4/rotation = Quaternion(-0.0518189, -0.0105098, 0.00208897, 0.998599)
-bones/5/rotation = Quaternion(-0.0711683, 0.177806, -0.00253781, 0.981486)
-bones/7/rotation = Quaternion(0.581812, 0.41838, -0.567168, 0.405923)
-bones/8/rotation = Quaternion(0.43197, -0.099401, 0.0895097, 0.891913)
+bones/0/position = Vector3(2.67441, -3.86852, -195.588)
+bones/0/rotation = Quaternion(-0.683558, -0.270268, 0.249991, 0.630244)
+bones/1/rotation = Quaternion(0.0805724, 0.0410906, -0.00923617, 0.995859)
+bones/2/rotation = Quaternion(0.0988624, 0.0796359, -0.0230775, 0.991641)
+bones/3/rotation = Quaternion(0.0988625, 0.0796359, -0.0230774, 0.991641)
+bones/4/rotation = Quaternion(-0.0627638, -0.0107219, 0.00208823, 0.997969)
+bones/5/rotation = Quaternion(-0.0612326, 0.176916, -0.00906758, 0.982278)
+bones/7/rotation = Quaternion(0.592031, 0.406154, -0.56733, 0.403331)
+bones/8/rotation = Quaternion(0.422276, -0.105412, 0.0882775, 0.895979)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0346059, 0.0643617, 0.416679, 0.906112)
-bones/11/rotation = Quaternion(0.628297, -0.380989, 0.525575, 0.428791)
-bones/12/rotation = Quaternion(0.427141, 0.0961857, 0.14712, 0.886936)
-bones/13/rotation = Quaternion(0.0352383, 0.00290225, -0.368293, 0.929037)
-bones/15/rotation = Quaternion(0.0803644, 0.232395, 0.963677, -0.10422)
+bones/9/rotation = Quaternion(-0.0379427, 0.0601661, 0.408944, 0.909783)
+bones/11/rotation = Quaternion(0.639445, -0.367627, 0.524663, 0.425076)
+bones/12/rotation = Quaternion(0.411451, 0.108663, 0.148206, 0.892713)
+bones/13/rotation = Quaternion(0.0249853, 0.0189251, -0.364682, 0.930605)
+bones/15/rotation = Quaternion(0.079361, 0.23819, 0.962178, -0.105742)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.361211, 0.119639, -0.0367636, 0.924046)
-bones/17/rotation = Quaternion(0.565983, -0.00143021, -0.0241984, 0.82406)
-bones/18/rotation = Quaternion(0.289416, -0.0366179, -0.0096148, 0.956454)
-bones/20/rotation = Quaternion(-0.125318, 0.0245704, 0.982832, 0.133168)
-bones/21/rotation = Quaternion(-0.341195, 0.0724708, -0.0255865, 0.936846)
-bones/22/rotation = Quaternion(0.673428, 0.0553501, 0.106545, 0.729437)
+bones/16/rotation = Quaternion(-0.364549, 0.118545, -0.0364808, 0.922887)
+bones/17/rotation = Quaternion(0.56641, -0.00254081, -0.0261969, 0.823703)
+bones/18/rotation = Quaternion(0.289416, -0.0367423, -0.00948957, 0.956451)
+bones/20/rotation = Quaternion(-0.124526, 0.0352831, 0.982721, 0.132316)
+bones/21/rotation = Quaternion(-0.355469, 0.071103, -0.0269012, 0.931591)
+bones/22/rotation = Quaternion(0.678611, 0.0548923, 0.105215, 0.724847)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.278227, 0.0570469, -0.0171428, 0.958667)
+bones/23/rotation = Quaternion(0.278342, 0.057201, -0.0172125, 0.958623)
 
 [node name="Model_004" parent="Head/Player_Character/Armature_003/Skeleton3D" index="0"]
 cast_shadow = 0
@@ -4127,6 +4127,26 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/AchievementsButton" to="." method="_on_achievements_button_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="Head/Camera3D/PauseLayer/SetTime_Button" to="." method="_on_set_time_button_pressed"]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/ROCK/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["ROCK"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/STONE/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["STONE"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/RED FLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["RED FLOWER"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/BLUE FLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["BLUE FLOWER"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/PINK FLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["PINK FLOWER"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/YELLOW FLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["YELLOW FLOWER"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/BLANK FLOWER/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["BLANK FLOWER"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/General/ScrollContainer/GridContainer/WOOD PLANK/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["WOOD PLANK"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Food/ScrollContainer/GridContainer/COCONUT/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["COCONUT"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/HEALTHPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["HEALTH POTION"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/HASTEPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["HASTE POTION"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/LUCKPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["LUCK POTION"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/EFFICIENCYPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["EFFICIENCYPOTION"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/NIGHTVISIONPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["NIGHTVISIONPOTION"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/REGENERATINGPOTION2/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["REGENERATINGPOTION"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/STAMINAPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["STAMINAPOTION"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Consumables/ConsumablesTabs/Potions/ScrollContainer/GridContainer/STRENGTHPOTION/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["STRENGTHPOTION"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Tools and Weapons/ScrollContainer/GridContainer/PICKAXE/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["PICKAXE"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Tools and Weapons/ScrollContainer/GridContainer/AXE/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["AXE"]]
+[connection signal="pressed" from="Head/Camera3D/ItemWorkshopLayer/MainLayer/ItemWorkshopTabs/Tools and Weapons/ScrollContainer/GridContainer/SWORD/AddButton" to="." method="on_add_item_buttons_workshop_pressed" binds= ["SWORD"]]
 
 [editable path="Head/Player_Character_Shadow"]
 [editable path="Head/Player_Character"]
