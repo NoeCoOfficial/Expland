@@ -50,7 +50,7 @@ extends StaticBody2D
 
 
 @export var Populated : bool = false
-@export var Populating_Dropable : Node
+@export var Populating_Droppable : Node
 @export var Mouse_In_Collision_Shape : bool = false
 
 @export var Dashed_Texture : TextureRect
@@ -80,13 +80,13 @@ func _input(event: InputEvent) -> void:
 						# Populate another slot. We then reparent the droppable to self.
 						if droppable_node_ref.Populating_Slot_Node:
 							droppable_node_ref.Populating_Slot_Node.Populated = false
-							droppable_node_ref.Populating_Slot_Node.Populating_Dropable = null
+							droppable_node_ref.Populating_Slot_Node.Populating_Droppable = null
 							droppable_node_ref.Populating_Slot_Node.Dashed_Texture.self_modulate = Color(1, 1, 1, 1)
 						
 						droppable_node_ref.reparent(self)
 						droppable_node_ref.position = Vector2(0, 0)
 						Populated = true
-						Populating_Dropable = droppable_node_ref
+						Populating_Droppable = droppable_node_ref
 						Dashed_Texture.self_modulate = Color(1, 1, 1, 0)
 						droppable_node_ref.Populating_Slot_Node = $"."
 						droppable_node_ref.z_index = 0
@@ -106,7 +106,7 @@ func spawn_droppable(ITEM_TYPE : String):
 	droppable_instance.z_index = 0
 	droppable_instance.Stack_Count = 1
 	Populated = true
-	Populating_Dropable = droppable_instance
+	Populating_Droppable = droppable_instance
 	Dashed_Texture.self_modulate = Color(1, 1, 1, 0)
 
 func _on_mouse_detector_mouse_shape_entered(shape_idx: int) -> void:
