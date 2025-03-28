@@ -63,10 +63,11 @@ size = Vector3(1.23145, 1.26669, 2.32037)
 script = ExtResource("2_f51ac")
 
 [node name="DebounceTimer" type="Timer" parent="." index="0"]
-wait_time = 0.2
+wait_time = 0.1
+one_shot = true
 
 [node name="TopLayer" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, -0.521861, 0.00816223, 0, -0.00220359, -1.933, 0.587934, 0.719454, 0)
+transform = Transform3D(1, 0, 0, 0, -0.521861, 0.00816222, 0, -0.00220359, -1.933, 0.587934, 0.719454, 0)
 
 [node name="OpenAndCloseAnim" type="AnimationPlayer" parent="." index="4"]
 libraries = {

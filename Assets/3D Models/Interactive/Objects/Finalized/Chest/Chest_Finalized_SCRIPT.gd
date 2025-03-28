@@ -50,7 +50,6 @@ extends Node3D
 
 var ANIMATING
 
-
 func _on_anim_finished(anim_name: StringName) -> void:
 	
 	if anim_name == &"open":
@@ -67,13 +66,14 @@ func animate(TYPE : String):
 	elif TYPE == "CLOSE":
 		$OpenAndCloseAnim.play("close")
 
-func is_animating():
-	return ANIMATING
-
 
 func _on_debounce_timer_timeout() -> void:
 	ANIMATING = false
 
 
 func _on_interactable_component_action_1_triggered() -> void:
-	pass # Replace with function body.
+	if !ANIMATING:
+		if InventoryManager.chest_ui_open:
+			PlayerManager.PLAYER.closeChest()
+		else:
+			PlayerManager.PLAYER.openChest()
