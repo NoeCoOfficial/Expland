@@ -56,10 +56,38 @@ var Droppable_Scene = preload("res://Scenes and Scripts/Scenes/Player/Inventory/
 
 func get_free_slot(Slots : Array):
 	var free_slot = null
-	for i in range(Slots.size()):
-		if !Slots[i].Populated:
-			free_slot = Slots[i]
+	for slot in Slots:
+		if !slot.Populated:
+			free_slot = slot
 		return free_slot
+
+func get_free_slot_using_stacks(Slots : Array, TARGET_ITEM_NAME : String):
+	var free_slot = null
+	
+	for slot in Slots:
+		# If 1 of the slots are free
+		if !slot.Populated:
+			free_slot = slot
+			break
+		# If there are no free slots. Then we check if we can stack.
+		else:
+			# If there is a slot with the same name as the target name
+			if slot.Populating_Droppable.ITEM_TYPE["NAME"] == TARGET_ITEM_NAME:
+				# We want this to happen if the stack count is SMALLER than the max.
+				if slot.Populating_Droppable.Stack_Count < slot.Populating_Droppable.ITEM_TYPE["MAX_STACK"]:
+					increment_droppable_stack(slot.Populating_Droppable)
+					break
+				# Inventory is full. Can't add item because although
+				# there are items that have the same name, their stack count is at the max
+				else:
+					pass
+			# Inventory is full. Can't add item because no other items have the same name
+			else:
+				pass
+	return free_slot
+
+func increment_droppable_stack(droppable_node : Node):
+	droppable_node.Stack_Count += 1
 
 const ITEM_TYPES = {
 	# Tools

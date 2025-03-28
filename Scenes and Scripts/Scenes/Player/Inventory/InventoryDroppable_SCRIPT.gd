@@ -63,6 +63,11 @@ extends Node2D
 @export_subgroup("General")
 @export var ITEM_TYPE : Dictionary
 
+var Stack_Count : int = 1:
+	set(value):
+		print("Stack count is now: ", str(value))
+		Droppable_StackNumber_Label.text = str(value)
+
 @export var Mouse_Inside_Droppable : bool = false
 @export var Debounce_Timer_0 : bool = false
 @export var Default_Size : Vector2 = Vector2(1.0, 1.0)
@@ -75,6 +80,7 @@ func initProperties(txt_ITEM_TYPE : String):
 	ITEM_TYPE = InventoryManager.ITEM_TYPES[txt_ITEM_TYPE]
 	Droppable_Sprite2D.texture = ITEM_TYPE["IMAGE_LOAD"]
 	Droppable_ITEM_TYPE_Label.text = txt_ITEM_TYPE.capitalize()
+	Droppable_StackNumber_Label.text = str(Stack_Count)
 
 # Where the magic happens.
 func _process(delta: float) -> void:
