@@ -54,6 +54,7 @@ extends Node2D
 @export var Droppable_Sprite2D : Sprite2D
 @export var Droppable_MouseDetector : Area2D
 @export var Droppable_ITEM_TYPE_Label : Label
+@export var Droppable_StackNumber_Label : Label
 @export var Droppable_DebounceTimer : Timer
 
 
@@ -61,7 +62,11 @@ extends Node2D
 
 @export_subgroup("General")
 @export var ITEM_TYPE : Dictionary
-@export var Stack_Count : int = 1
+
+@export var Stack_Count : int = 1:
+	set(value):
+		Droppable_StackNumber_Label.text = str(value)
+
 @export var Mouse_Inside_Droppable : bool = false
 @export var Debounce_Timer_0 : bool = false
 @export var Default_Size : Vector2 = Vector2(1.0, 1.0)
@@ -75,8 +80,14 @@ func initProperties(txt_ITEM_TYPE : String):
 	Droppable_Sprite2D.texture = ITEM_TYPE["IMAGE_LOAD"]
 	Droppable_ITEM_TYPE_Label.text = txt_ITEM_TYPE.capitalize()
 
+# A function that manages the stack count, incrementing and decrementing the stack count.
+func mngStack_Count(increment : int):
+	Stack_Count += increment # This will auto matically set the text
+
 # Where the magic happens.
 func _process(delta: float) -> void:
+	# UI Stuff
+	
 	
 	# First, we check if the player wants to start dragging a droppable.
 	# We do is_action_pressed because it checks for every frame the input is pressed down.

@@ -60,6 +60,14 @@ func get_free_slot(Slots : Array):
 		if !Slots[i].Populated:
 			free_slot = Slots[i]
 		return free_slot
+ 
+func get_free_slot_with_stacks(Slots : Array, ITEM_TYPE_TO_STACK : Dictionary):
+	var free_slot = null
+	for i in range(Slots.size()):
+		if Slots[i].Populating_Dropable.ITEM_TYPE["NAME"] == ITEM_TYPE_TO_STACK["NAME"]:
+			if Slots[i].Populating_Dropable.Stack_Count <= Slots[i].Populating_Dropable.ITEM_TYPE["MAX_STACK"]:
+				free_slot = Slots[i]
+		return free_slot
 
 const ITEM_TYPES = {
 	# Tools

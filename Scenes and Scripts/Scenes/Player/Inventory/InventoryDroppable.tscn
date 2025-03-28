@@ -8,12 +8,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10470"]
 size = Vector2(62, 62)
 
-[node name="Droppable" type="Node2D" node_paths=PackedStringArray("Droppable_Sprite2D", "Droppable_MouseDetector", "Droppable_ITEM_TYPE_Label", "Droppable_DebounceTimer")]
+[node name="Droppable" type="Node2D" node_paths=PackedStringArray("Droppable_Sprite2D", "Droppable_MouseDetector", "Droppable_ITEM_TYPE_Label", "Droppable_StackNumber_Label", "Droppable_DebounceTimer")]
 z_as_relative = false
 script = ExtResource("1_cwpvm")
 Droppable_Sprite2D = NodePath("Droppable_Sprite2D")
 Droppable_MouseDetector = NodePath("Droppable_MouseDetector")
 Droppable_ITEM_TYPE_Label = NodePath("Droppable_ITEM_TYPE_Label")
+Droppable_StackNumber_Label = NodePath("Droppable_StackNumber")
 Droppable_DebounceTimer = NodePath("Droppable_DebounceTimer")
 
 [node name="Droppable_DebounceTimer" type="Timer" parent="."]
