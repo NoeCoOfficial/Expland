@@ -295,8 +295,13 @@ const EFFECT_ITEMS = [
 ]
 
 var pockets_ui_open : bool = false
+
 var chest_ui_open : bool = false
+var current_chest_node : Node = null
+
 var workshop_ui_open : bool = false
+
+
 
 var is_dragging : bool = false
 var currently_dragging_node : Node

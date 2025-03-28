@@ -56,7 +56,6 @@ func _on_anim_finished(anim_name: StringName) -> void:
 		pass
 
 func animate(TYPE : String):
-	
 	ANIMATING = true
 	$DebounceTimer.start()
 	
