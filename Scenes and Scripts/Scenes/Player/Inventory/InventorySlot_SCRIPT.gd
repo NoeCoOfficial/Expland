@@ -80,6 +80,7 @@ func _input(event: InputEvent) -> void:
 						# Populate another slot. We then reparent the droppable to self.
 						if droppable_node_ref.Populating_Slot_Node:
 							droppable_node_ref.Populating_Slot_Node.Populated = false
+							droppable_node_ref.Populating_Slot_Node.Populating_Dropable = null
 							droppable_node_ref.Populating_Slot_Node.Dashed_Texture.self_modulate = Color(1, 1, 1, 1)
 						
 						droppable_node_ref.reparent(self)
