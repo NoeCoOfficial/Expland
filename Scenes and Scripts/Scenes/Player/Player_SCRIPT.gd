@@ -1002,6 +1002,8 @@ func on_add_item_buttons_workshop_pressed(ITEM_TYPE : String):
 	
 	if free_slot != null:
 		free_slot.spawn_droppable(ITEM_TYPE)
+	else:
+		MinimalAlert.spawn_minimal_alert(2, 0.3, 0.3, "Can't add item, pockets full!")
 
 #endregion
 
