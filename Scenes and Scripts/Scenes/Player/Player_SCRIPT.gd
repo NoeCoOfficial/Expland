@@ -998,15 +998,25 @@ func on_item_workshop_close_finished():
 	ItemWorkshopLayer_GreyLayer.visible = false
 
 func on_add_item_buttons_workshop_pressed(ITEM_TYPE : String):
-	var free_slot = InventoryManager.get_free_slot_with_stacks(
+	var info = InventoryManager.get_free_slot_with_stacks(
 		InventoryManager.POCKET_SLOTS, 
 		InventoryManager.ITEM_TYPES[ITEM_TYPE])
 		
 	#mngStack_Count
-	if free_slot != null:
-		free_slot.spawn_droppable(ITEM_TYPE)
+	
+	if info[0] != null:
+		if info[1]:
+			info[0].Populating_Dropable
+		else:
+			pass
 	else:
 		MinimalAlert.spawn_minimal_alert(2, 0.3, 0.3, "Can't add item, pockets full!")
+		
+	
+	#if free_slot != null:
+		#free_slot.spawn_droppable(ITEM_TYPE)
+	#else:
+		#MinimalAlert.spawn_minimal_alert(2, 0.3, 0.3, "Can't add item, pockets full!")
 
 #endregion
 
