@@ -66,6 +66,13 @@ extends Node2D
 @export var Stack_Count : int = 1:
 	set(value):
 		Droppable_StackNumber_Label.text = str(value)
+		if value == 1:
+			Droppable_StackNumber_Label.hide()
+		elif value == 0:
+			Droppable_StackNumber_Label.hide()
+			Stack_Count = 1
+		else:
+			Droppable_StackNumber_Label.show()
 
 @export var Mouse_Inside_Droppable : bool = false
 @export var Debounce_Timer_0 : bool = false
