@@ -73,3 +73,7 @@ func is_animating():
 
 func _on_debounce_timer_timeout() -> void:
 	ANIMATING = false
+
+
+func _on_interactable_component_action_1_triggered() -> void:
+	pass # Replace with function body.
