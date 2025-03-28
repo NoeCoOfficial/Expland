@@ -213,6 +213,7 @@ shape = SubResource("BoxShape3D_00rnx")
 
 [connection signal="timeout" from="DebounceTimer" to="." method="_on_debounce_timer_timeout"]
 [connection signal="animation_finished" from="OpenAndCloseAnim" to="." method="_on_anim_finished"]
+[connection signal="Action1_Triggered" from="Interactable Component" to="." method="_on_interactable_component_action_1_triggered"]
 [connection signal="body_entered" from="Interactable Component/Contents/PlayerVisibleDetector" to="Interactable Component" method="_on_player_visible_detector_body_entered"]
 [connection signal="body_exited" from="Interactable Component/Contents/PlayerVisibleDetector" to="Interactable Component" method="_on_player_visible_detector_body_exited"]
 [connection signal="area_entered" from="Interactable Component/PlayerMimicRaycastDetector" to="Interactable Component" method="_on_player_mimic_raycast_detector_area_entered"]

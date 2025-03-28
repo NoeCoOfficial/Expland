@@ -673,7 +673,6 @@ func _process(_delta):
 
 func _ready():
 	PlayerManager.PLAYER = $"."
-	PlayerManager.CHEST_SLOTS = ChestSlots
 	PlayerManager.MINIMAL_ALERT_PLAYER = MinimalAlert
 	
 	initInventorySlots() # Link local inventory slots to singleton arrays
