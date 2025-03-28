@@ -86,12 +86,9 @@ func mngStack_Count(increment : int):
 
 # Where the magic happens.
 func _process(delta: float) -> void:
-	# UI Stuff
-	
-	
 	# First, we check if the player wants to start dragging a droppable.
 	# We do is_action_pressed because it checks for every frame the input is pressed down.
-	if Input.is_action_pressed("LeftClick", true):
+	if Input.is_action_pressed("LeftClick"):
 		# Next we do some checks to make sure the player is not dragging
 		# A droppable when they're not meant to.
 		
@@ -99,7 +96,7 @@ func _process(delta: float) -> void:
 			global_position = get_global_mouse_position()
 	
 	# Stuff we want to happen when we drag but not every frame
-	if Input.is_action_just_pressed("LeftClick", true):
+	if Input.is_action_just_pressed("LeftClick"):
 		if InventoryManager.pockets_ui_open and Mouse_Inside_Droppable and Debounce_Timer_0:
 			# Do this so we can communicate with the currently
 			# dragging slot from all over the project.
@@ -112,7 +109,7 @@ func _process(delta: float) -> void:
 	 
 	# When we release the droppable. Not much done here as
 	# most of the stuff happens in InventorySlot_SCRIPT.gd.
-	if Input.is_action_just_released("LeftClick", true):
+	if Input.is_action_just_released("LeftClick"):
 		if InventoryManager.pockets_ui_open and InventoryManager.is_dragging:
 			InventoryManager.is_dragging = false
 			scale = Vector2(Default_Size.x / 1.05, Default_Size.y / 1.05)
