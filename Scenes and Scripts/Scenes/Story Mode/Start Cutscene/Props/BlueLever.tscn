@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://tkmo4qdlscsu"]
+[gd_scene load_steps=6 format=3 uid="uid://tkmo4qdlscsu"]
 
 [ext_resource type="PackedScene" uid="uid://dbl3a11frevfd" path="res://Assets/3D Models/Cutscenes/Story Mode/Start Cutscene/Models/BlueLever.blend" id="1_hro7p"]
+[ext_resource type="Script" uid="uid://dygxt7s3041kp" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/Props/Lever_SCRIPT.gd" id="2_15cpk"]
 
 [sub_resource type="Animation" id="Animation_farmw"]
 resource_name = "off"
@@ -66,6 +67,7 @@ _data = {
 }
 
 [node name="BlueLever" instance=ExtResource("1_hro7p")]
+script = ExtResource("2_15cpk")
 
 [node name="Handle" parent="." index="1"]
 transform = Transform3D(0.607989, -0.351023, 0, 0.351023, 0.607989, 0, 0, 0, 0.702045, 0.000315426, -0.0812713, 0)

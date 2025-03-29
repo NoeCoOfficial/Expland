@@ -371,12 +371,6 @@ debug_color = Color(1, 0.21, 0.223166, 1)
 [node name="GreenLever" parent="Yacht Rig/Yacht" instance=ExtResource("8_f3l76")]
 transform = Transform3D(0.364667, 1.08731e-08, -1.49012e-08, -2.26454e-11, 0.364667, -1.70488e-09, 2.23517e-08, 4.67706e-10, 0.364667, -0.719315, 1.3168, 0.740069)
 
-[node name="Handle" parent="Yacht Rig/Yacht/GreenLever" index="1"]
-transform = Transform3D(0.607989, -0.351023, 0, 0.351023, 0.607989, 0, 0, 0, 0.702045, 0.000315423, -0.0812713, 0)
-
-[node name="Main" parent="Yacht Rig/Yacht/GreenLever" index="2"]
-transform = Transform3D(0.607989, -0.351023, 0, 0.351023, 0.607989, 0, 0, 0, 0.702045, 0.000315419, -0.0812713, 0)
-
 [node name="Interactable Component" type="Node3D" parent="Yacht Rig/Yacht" node_paths=PackedStringArray("Contents_Node", "SubViewport_Node", "UI_Sprite_Node", "UI_1", "UI_2", "UI_3", "UI_4")]
 script = ExtResource("9_44ck5")
 Contents_Node = NodePath("Contents")
