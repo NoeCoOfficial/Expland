@@ -48,10 +48,19 @@
 extends Node3D
 
 var state_on : bool = false
+var can_switch : bool = true
 
 func toggle_lever(on : bool):
-	state_on = on
-	if on:
-		$Switch_Anims.play("on")
-	else:
-		$Switch_Anims.play("off")
+	if can_switch:
+		can_switch = false
+		$Cooldown.start()
+		
+		state_on = on
+		if on:
+			$Switch_Anims.play("on")
+		else:
+			$Switch_Anims.play("off")
+
+
+func _on_cooldown_timeout() -> void:
+	can_switch = true

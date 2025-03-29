@@ -69,13 +69,19 @@ _data = {
 [node name="RedLever" instance=ExtResource("1_dw5xs")]
 script = ExtResource("2_4ol2k")
 
-[node name="Handle" parent="." index="1"]
+[node name="Cooldown" type="Timer" parent="." index="0"]
+wait_time = 0.25
+one_shot = true
+
+[node name="Handle" parent="." index="2"]
 transform = Transform3D(0.607989, 0.351023, 0, -0.351023, 0.607989, 0, 0, 0, 0.702045, 0.000315426, -0.0812713, 0)
 
-[node name="Main" parent="." index="2"]
+[node name="Main" parent="." index="3"]
 transform = Transform3D(0.607989, 0.351023, 0, -0.351023, 0.607989, 0, 0, 0, 0.702045, 0.000315416, -0.0812713, 0)
 
-[node name="Switch_Anims" type="AnimationPlayer" parent="." index="3"]
+[node name="Switch_Anims" type="AnimationPlayer" parent="." index="4"]
 libraries = {
 &"": SubResource("AnimationLibrary_dw5xs")
 }
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

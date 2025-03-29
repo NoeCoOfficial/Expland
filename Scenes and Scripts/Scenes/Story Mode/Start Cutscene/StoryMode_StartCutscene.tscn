@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://nlp0xy1m65tp"]
+[gd_scene load_steps=52 format=3 uid="uid://nlp0xy1m65tp"]
 
 [ext_resource type="Script" uid="uid://uvb2g81nntt2" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/StoryMode_StartCutscene_SCRIPT.gd" id="1_4d7y3"]
 [ext_resource type="Shader" uid="uid://b2gi30s113t00" path="res://Scenes and Scripts/Scenes/The Island/TheIslandSeaWater.gdshader" id="2_cfn0j"]
@@ -103,7 +103,10 @@ action = &"Flip_Blue_Lever"
 viewport_path = NodePath("Yacht Rig/Yacht/Interactable Component/Contents/UI/SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8kx4n"]
-size = Vector3(0.499466, 2.46471, 2.61694)
+size = Vector3(0.431252, 2.46471, 2.61694)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g1i2w"]
+size = Vector3(0.353443, 2.06549, 0.717087)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3v7iq"]
 size = Vector3(0.476172, 0.498706, 0.810141)
@@ -527,8 +530,13 @@ grow_vertical = 2
 [node name="PlayerVisibleDetector" type="Area3D" parent="Yacht Rig/Yacht/Interactable Component/Contents"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Yacht Rig/Yacht/Interactable Component/Contents/PlayerVisibleDetector"]
-transform = Transform3D(1, -1.51996e-06, -8.9407e-08, -4.04555e-07, 1, 1.87477e-10, -2.98023e-08, -1.58574e-07, 1, -1.65181, 0.726873, 0.153671)
+transform = Transform3D(1, -1.49164e-06, -2.98023e-08, -3.97104e-07, 1.00001, -1.3317e-08, -2.98023e-08, -1.52321e-07, 1, -1.61334, 0.722335, 0.153477)
 shape = SubResource("BoxShape3D_8kx4n")
+debug_color = Color(0, 0.650488, 0.0892803, 0.42)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Yacht Rig/Yacht/Interactable Component/Contents/PlayerVisibleDetector"]
+transform = Transform3D(1, -1.15863e-06, -5.96046e-08, -3.97104e-07, 1.00006, -1.81425e-07, -2.98023e-08, -8.30788e-08, 1.00005, -1.20412, 0.51003, 0.140562)
+shape = SubResource("BoxShape3D_g1i2w")
 debug_color = Color(0, 0.650488, 0.0892803, 0.42)
 
 [node name="PlayerMimicRaycastDetector" type="Area3D" parent="Yacht Rig/Yacht/Interactable Component/Contents"]
