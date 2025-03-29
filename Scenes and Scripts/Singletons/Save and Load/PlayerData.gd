@@ -96,7 +96,30 @@ func saveData(Island_Name : String) -> void:
 	else:
 		printerr("[PlayerData] Player node not found. SaveData failed.")
 
+func save_data_new(file_path: String, data: Dictionary, key: String, image_path: String):
+	var file = FileAccess.open(file_path, FileAccess.WRITE)
+	if file != null:
+		# Encrypt the data
+		var encrypted_data = EncryptionManager.encrypt_data(data, key)
+		
+		# Save the encrypted data to the file
+		file.store_buffer(encrypted_data)  # Correctly calling it on the 'file' instance
+		
+		# Load the image and save it as bytes
+		var image = Image.new()
+		var img_data = null
+		if image.load(image_path) == OK:
+			img_data = image.save_png_to_buffer()  # Save image as PNG bytes
+		else:
+			# Fallback image if the original is invalid
+			var fallback_image = Image.new()
+			fallback_image.load("res://fallback_image.png")
+			img_data = fallback_image.save_png_to_buffer()
+		
+		# Save the image bytes to the file
+		file.store_buffer(img_data)  # Correctly calling it on the 'file' instance
 
+		file.close()
 
 func loadData(Island_Name : String, withOutput : bool) -> void:
 	
