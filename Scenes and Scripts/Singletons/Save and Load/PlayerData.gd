@@ -96,6 +96,8 @@ func saveData(Island_Name : String) -> void:
 	else:
 		printerr("[PlayerData] Player node not found. SaveData failed.")
 
+
+
 func loadData(Island_Name : String, withOutput : bool) -> void:
 	
 	if IslandManager.Current_Game_Mode == "FREE":
