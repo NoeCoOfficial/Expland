@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://nlp0xy1m65tp"]
+[gd_scene load_steps=51 format=3 uid="uid://nlp0xy1m65tp"]
 
 [ext_resource type="Script" uid="uid://uvb2g81nntt2" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/StoryMode_StartCutscene_SCRIPT.gd" id="1_4d7y3"]
 [ext_resource type="Shader" uid="uid://b2gi30s113t00" path="res://Scenes and Scripts/Scenes/The Island/TheIslandSeaWater.gdshader" id="2_cfn0j"]
@@ -8,8 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://ck0guuhifgbmr" path="res://Assets/3D Models/Cutscenes/Story Mode/Start Cutscene/Models/Yacht.blend" id="4_os8dc"]
 [ext_resource type="Shader" uid="uid://brub6nkftipc1" path="res://Resources/Shaders/Clouds.gdshader" id="5_encjm"]
 [ext_resource type="Script" uid="uid://dn1b1gnwe5iap" path="res://Textures/Icons/Script Icons/Scripts/LightbulbIcon_SCRIPT.gd" id="6_to1x2"]
+[ext_resource type="PackedScene" uid="uid://boh6io7exec3j" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/Props/RedLever.tscn" id="8_ec70e"]
 [ext_resource type="PackedScene" uid="uid://crw6j1eee7306" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/Props/GreenLever.tscn" id="8_f3l76"]
 [ext_resource type="Script" uid="uid://bi02uk7qwshyf" path="res://Scenes and Scripts/Scenes/Components/Interactable Component/Interactable_Component_SCRIPT.gd" id="9_44ck5"]
+[ext_resource type="PackedScene" uid="uid://tkmo4qdlscsu" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/Props/BlueLever.tscn" id="9_yeq2m"]
 [ext_resource type="PackedScene" uid="uid://cmt00ehn4hfne" path="res://Scenes and Scripts/Scenes/General/UI/MessageWithKeyUI.tscn" id="10_w18yt"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_oopga"]
@@ -368,8 +370,14 @@ transform = Transform3D(0.866494, 0.00354661, 0.499176, -2.64064e-06, 0.999972, 
 shape = SubResource("BoxShape3D_l057t")
 debug_color = Color(1, 0.21, 0.223166, 1)
 
+[node name="RedLever" parent="Yacht Rig/Yacht" instance=ExtResource("8_ec70e")]
+transform = Transform3D(0.364809, 4.46471e-05, 0.0118395, -3.95497e-05, 0.365001, -0.000157776, -0.0118395, 0.000156409, 0.364808, -0.793089, 1.31087, 0.721858)
+
+[node name="BlueLever" parent="Yacht Rig/Yacht" instance=ExtResource("9_yeq2m")]
+transform = Transform3D(0.364808, 4.46476e-05, 0.0118395, -3.95511e-05, 0.365001, -0.000157776, -0.0118395, 0.000156409, 0.364808, -0.77502, 1.31963, 1.27857)
+
 [node name="GreenLever" parent="Yacht Rig/Yacht" instance=ExtResource("8_f3l76")]
-transform = Transform3D(0.364667, 1.08731e-08, -1.49012e-08, -2.26454e-11, 0.364667, -1.70488e-09, 2.23517e-08, 4.67706e-10, 0.364667, -0.719315, 1.3168, 0.740069)
+transform = Transform3D(0.364475, 4.46143e-05, 0.0118287, -3.9512e-05, 0.364667, -0.000157634, -0.0118287, 0.000156268, 0.364475, -0.78474, 1.31855, 0.988799)
 
 [node name="Interactable Component" type="Node3D" parent="Yacht Rig/Yacht" node_paths=PackedStringArray("Contents_Node", "SubViewport_Node", "UI_Sprite_Node", "UI_1", "UI_2", "UI_3", "UI_4")]
 script = ExtResource("9_44ck5")
@@ -391,7 +399,7 @@ ActionToPress_3 = SubResource("InputEventAction_ec70e")
 transform = Transform3D(1, 6.29846e-10, 0, 5.70658e-10, 1, -2.78199e-10, 0, -5.60973e-11, 1, -0.0270195, 0, -0.100836)
 
 [node name="UI" type="Sprite3D" parent="Yacht Rig/Yacht/Interactable Component/Contents"]
-transform = Transform3D(0.065, -3.47339e-10, -4.5402e-09, 3.47339e-10, 0.065, 3.23174e-11, 4.5402e-09, -3.23174e-11, 0.065, -0.261559, 1.99268, 0.913365)
+transform = Transform3D(0.065, -3.77544e-10, -3.72529e-09, 4.03486e-10, 0.065, 3.84279e-11, 3.72529e-09, -2.3189e-11, 0.065, -0.481624, 1.86462, 0.972332)
 billboard = 1
 no_depth_test = true
 texture = SubResource("ViewportTexture_44ck5")
@@ -553,6 +561,8 @@ autoplay = "camera_sutle_movement"
 [connection signal="area_exited" from="Yacht Rig/Yacht/Interactable Component/Contents/PlayerMimicRaycastDetector" to="Yacht Rig/Yacht/Interactable Component" method="_on_player_mimic_raycast_detector_area_exited"]
 
 [editable path="Yacht Rig/Yacht"]
+[editable path="Yacht Rig/Yacht/RedLever"]
+[editable path="Yacht Rig/Yacht/BlueLever"]
 [editable path="Yacht Rig/Yacht/GreenLever"]
 [editable path="Yacht Rig/Yacht/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1"]
 [editable path="Yacht Rig/Yacht/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_2"]

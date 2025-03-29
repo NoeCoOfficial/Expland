@@ -46,3 +46,9 @@
 # ============================================================= #
 
 extends Node3D
+
+func toggle_lever(on : bool):
+	if on:
+		$Switch_Anims.play("on")
+	else:
+		$Switch_Anims.play("off")
