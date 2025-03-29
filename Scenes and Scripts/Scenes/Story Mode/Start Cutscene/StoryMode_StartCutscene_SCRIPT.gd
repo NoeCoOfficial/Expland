@@ -50,6 +50,9 @@ extends Node3D
 @onready var MD : Control = $Camera3D/MainLayer/MinimalDialogue
 @onready var player_scene = preload("uid://cjm5lrxicdgsf")
 
+var tap_running : bool = false
+var can_toggle_tap : bool = true
+var tap_water_fill_tween : Tween
 
 func _ready() -> void:
 	Global.is_in_main_menu = false
@@ -140,3 +143,65 @@ func _on_green_lever_triggered() -> void:
 
 func _on_blue_lever_triggered() -> void:
 	$"Yacht Rig/Yacht/GreenLever".toggle_lever(!$"Yacht Rig/Yacht/GreenLever".state_on)
+
+
+func _on_tap_toggled() -> void:
+	if can_toggle_tap:
+		can_toggle_tap = false
+		$"Yacht Rig/Yacht/Tap Cooldown".start()
+		
+		tap_running = !tap_running
+		
+		if tap_running:
+			$"Yacht Rig/Yacht/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1/Contents/Message".text = "Turn off"
+			if tap_water_fill_tween:
+				tap_water_fill_tween.kill()
+			tap_water_fill_tween = get_tree().create_tween().set_parallel()
+			tap_water_fill_tween.tween_property(
+				$"Yacht Rig/Yacht/TapWaterFillMesh", 
+				"position:y", 
+				1.249, 
+				20)
+			
+			tap_water_fill_tween.tween_property(
+				$"Yacht Rig/Yacht/TapWaterMesh", 
+				"position:y", 
+				1.337, 
+				0.3)
+			
+			tap_water_fill_tween.tween_property(
+				$"Yacht Rig/Yacht/TapWaterMesh", 
+				"scale:y", 
+				0.459, 
+				0.3)
+		else:
+			$"Yacht Rig/Yacht/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1/Contents/Message".text = "Turn on"
+			if tap_water_fill_tween:
+				tap_water_fill_tween.kill()
+			tap_water_fill_tween = get_tree().create_tween().set_parallel()
+			tap_water_fill_tween.tween_property(
+				$"Yacht Rig/Yacht/TapWaterFillMesh", 
+				"position:y", 
+				1.172, 
+				10)
+			
+			tap_water_fill_tween.tween_property(
+				$"Yacht Rig/Yacht/TapWaterMesh", 
+				"position:y", 
+				1.117, 
+				0.3)
+				
+			tap_water_fill_tween.tween_property(
+				$"Yacht Rig/Yacht/TapWaterMesh", 
+				"position:y", 
+				1.562, 
+				0.0).set_delay(0.3)
+			
+			tap_water_fill_tween.tween_property(
+				$"Yacht Rig/Yacht/TapWaterMesh", 
+				"scale:y", 
+				0.024, 
+				0.3)
+
+func _on_tap_cooldown_timeout() -> void:
+	can_toggle_tap = true

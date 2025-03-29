@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://nlp0xy1m65tp"]
+[gd_scene load_steps=59 format=3 uid="uid://nlp0xy1m65tp"]
 
 [ext_resource type="Script" uid="uid://uvb2g81nntt2" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/StoryMode_StartCutscene_SCRIPT.gd" id="1_4d7y3"]
 [ext_resource type="Shader" uid="uid://b2gi30s113t00" path="res://Scenes and Scripts/Scenes/The Island/TheIslandSeaWater.gdshader" id="2_cfn0j"]
@@ -119,6 +119,18 @@ material = SubResource("StandardMaterial3D_ec70e")
 
 [sub_resource type="SphereMesh" id="SphereMesh_smf4g"]
 radius = 0.56
+
+[sub_resource type="InputEventAction" id="InputEventAction_yeq2m"]
+action = &"Interact"
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ec70e"]
+viewport_path = NodePath("Yacht Rig/Yacht/Interactable Component/Contents/UI/SubViewport")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8afyb"]
+size = Vector3(2.41559, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_00rnx"]
+size = Vector3(0.307861, 0.352783, 0.299316)
 
 [sub_resource type="Gradient" id="Gradient_to1x2"]
 offsets = PackedFloat32Array(0.238411, 1)
@@ -544,7 +556,7 @@ shape = SubResource("BoxShape3D_8kx4n")
 debug_color = Color(0, 0.650488, 0.0892803, 0.42)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Yacht Rig/Yacht/Lever Interactable Component/Contents/PlayerVisibleDetector"]
-transform = Transform3D(1, -1.15863e-06, -5.96046e-08, -3.97104e-07, 1.00006, -1.81425e-07, -2.98023e-08, -8.30788e-08, 1.00005, -1.20412, 0.51003, 0.140562)
+transform = Transform3D(1, 3.97104e-07, 2.98024e-08, -3.97104e-07, 1, 8.30737e-08, -2.98023e-08, -8.30737e-08, 1, -1.20412, 0.51003, 0.140562)
 shape = SubResource("BoxShape3D_g1i2w")
 debug_color = Color(0, 0.650488, 0.0892803, 0.42)
 
@@ -556,12 +568,157 @@ transform = Transform3D(0.984598, -0.174782, 0.00412687, 0.174782, 0.983493, -0.
 shape = SubResource("BoxShape3D_3v7iq")
 
 [node name="TapWaterMesh" type="MeshInstance3D" parent="Yacht Rig/Yacht"]
-transform = Transform3D(0.0175619, 2.10309e-09, 0, 3.79185e-11, 0.513341, -3.23278e-11, 0, 4.45019e-09, 0.0197764, -4.36068, 1.29587, -1.44752)
+transform = Transform3D(0.018, -5.76679e-11, -5.17401e-10, 4.32509e-11, 0.024, -2.37116e-10, 4.65661e-10, 2.84539e-10, 0.02, -4.358, 1.562, -1.448)
 mesh = SubResource("BoxMesh_yeq2m")
 
 [node name="TapWaterFillMesh" type="MeshInstance3D" parent="Yacht Rig/Yacht"]
 transform = Transform3D(0.639911, 5.7158e-10, -1.49012e-08, 4.23018e-09, 0.0594537, -6.12237e-09, 2.98023e-08, 1.09817e-09, 0.475266, -4.19105, 1.17217, -1.45099)
 mesh = SubResource("SphereMesh_smf4g")
+
+[node name="Tap Cooldown" type="Timer" parent="Yacht Rig/Yacht"]
+wait_time = 0.5
+one_shot = true
+
+[node name="Interactable Component" type="Node3D" parent="Yacht Rig/Yacht" node_paths=PackedStringArray("Contents_Node", "SubViewport_Node", "UI_Sprite_Node", "UI_1", "UI_2", "UI_3", "UI_4")]
+transform = Transform3D(1, 7.97757e-10, -2.98023e-08, 3.78494e-10, 1, -7.62554e-10, 0, 1.7347e-09, 1, -3.31998, 0.0394402, -1.29623)
+script = ExtResource("9_44ck5")
+Contents_Node = NodePath("Contents")
+SubViewport_Node = NodePath("Contents/UI/SubViewport")
+UI_Sprite_Node = NodePath("Contents/UI")
+UI_1 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_1")
+UI_2 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_2")
+UI_3 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_3")
+UI_4 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_4")
+UseAction1 = true
+ActionToPress_1 = SubResource("InputEventAction_yeq2m")
+
+[node name="Contents" type="Node3D" parent="Yacht Rig/Yacht/Interactable Component"]
+
+[node name="UI" type="Sprite3D" parent="Yacht Rig/Yacht/Interactable Component/Contents"]
+transform = Transform3D(0.04, 3.69115e-10, -3.72529e-09, -2.29254e-11, 0.04, -5.63194e-11, -1.86265e-09, -2.30203e-10, 0.04, -1.27476, 1.45056, -0.145339)
+billboard = 1
+no_depth_test = true
+texture = SubResource("ViewportTexture_ec70e")
+
+[node name="SubViewport" type="SubViewport" parent="Yacht Rig/Yacht/Interactable Component/Contents/UI"]
+transparent_bg = true
+gui_disable_input = true
+size = Vector2i(3720, 2225)
+
+[node name="MessageWithKeyUI_1" parent="Yacht Rig/Yacht/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("10_w18yt")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -385.795
+offset_bottom = -385.795
+scale = Vector2(5, 5)
+
+[node name="Contents" parent="Yacht Rig/Yacht/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -30.0
+offset_right = 27.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Message" parent="Yacht Rig/Yacht/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1/Contents" index="7"]
+text = "Turn on"
+
+[node name="MessageWithKeyUI_2" parent="Yacht Rig/Yacht/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("10_w18yt")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -112.5
+offset_bottom = -112.5
+scale = Vector2(5, 5)
+
+[node name="Contents" parent="Yacht Rig/Yacht/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_2" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -30.0
+offset_right = 27.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MessageWithKeyUI_3" parent="Yacht Rig/Yacht/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("10_w18yt")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 160.15
+offset_bottom = 160.15
+scale = Vector2(5, 5)
+
+[node name="Contents" parent="Yacht Rig/Yacht/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_3" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -30.0
+offset_right = 27.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MessageWithKeyUI_4" parent="Yacht Rig/Yacht/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("10_w18yt")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 432.205
+offset_bottom = 432.205
+scale = Vector2(5, 5)
+
+[node name="Contents" parent="Yacht Rig/Yacht/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_4" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -30.0
+offset_right = 27.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerVisibleDetector" type="Area3D" parent="Yacht Rig/Yacht/Interactable Component/Contents"]
+transform = Transform3D(1, -9.26468e-10, -2.98023e-08, -4.56724e-10, 1, -1.7107e-10, 2.98023e-08, -7.69873e-11, 1, -0.288459, 0.00410271, 0.0772934)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Yacht Rig/Yacht/Interactable Component/Contents/PlayerVisibleDetector"]
+transform = Transform3D(1, 1.52262e-07, -5.96047e-08, -1.52262e-07, 1, -4.51187e-10, 5.96047e-08, 4.51196e-10, 1, -0.845968, 0.0469837, 0.509445)
+shape = SubResource("BoxShape3D_8afyb")
+
+[node name="PlayerMimicRaycastDetector" type="Area3D" parent="Yacht Rig/Yacht/Interactable Component"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Yacht Rig/Yacht/Interactable Component/PlayerMimicRaycastDetector"]
+transform = Transform3D(1, -5.09258e-08, -1.49012e-07, -4.18202e-09, 1, -1.10239e-09, 5.96046e-08, -8.3574e-11, 1, -1.15289, 1.47811, -0.126863)
+shape = SubResource("BoxShape3D_00rnx")
 
 [node name="Clouds" type="MeshInstance3D" parent="."]
 transform = Transform3D(8192, 0, 0, 0, 128, 0, 0, 0, 8192, 0, 128, 0)
@@ -587,9 +744,19 @@ autoplay = "camera_sutle_movement"
 [connection signal="body_exited" from="Yacht Rig/Yacht/Lever Interactable Component/Contents/PlayerVisibleDetector" to="Yacht Rig/Yacht/Lever Interactable Component" method="_on_player_visible_detector_body_exited"]
 [connection signal="area_entered" from="Yacht Rig/Yacht/Lever Interactable Component/Contents/PlayerMimicRaycastDetector" to="Yacht Rig/Yacht/Lever Interactable Component" method="_on_player_mimic_raycast_detector_area_entered"]
 [connection signal="area_exited" from="Yacht Rig/Yacht/Lever Interactable Component/Contents/PlayerMimicRaycastDetector" to="Yacht Rig/Yacht/Lever Interactable Component" method="_on_player_mimic_raycast_detector_area_exited"]
+[connection signal="timeout" from="Yacht Rig/Yacht/Tap Cooldown" to="." method="_on_tap_cooldown_timeout"]
+[connection signal="Action1_Triggered" from="Yacht Rig/Yacht/Interactable Component" to="." method="_on_tap_toggled"]
+[connection signal="body_entered" from="Yacht Rig/Yacht/Interactable Component/Contents/PlayerVisibleDetector" to="Yacht Rig/Yacht/Interactable Component" method="_on_player_visible_detector_body_entered"]
+[connection signal="body_exited" from="Yacht Rig/Yacht/Interactable Component/Contents/PlayerVisibleDetector" to="Yacht Rig/Yacht/Interactable Component" method="_on_player_visible_detector_body_exited"]
+[connection signal="area_entered" from="Yacht Rig/Yacht/Interactable Component/PlayerMimicRaycastDetector" to="Yacht Rig/Yacht/Interactable Component" method="_on_player_mimic_raycast_detector_area_entered"]
+[connection signal="area_exited" from="Yacht Rig/Yacht/Interactable Component/PlayerMimicRaycastDetector" to="Yacht Rig/Yacht/Interactable Component" method="_on_player_mimic_raycast_detector_area_exited"]
 
 [editable path="Yacht Rig/Yacht"]
 [editable path="Yacht Rig/Yacht/Lever Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1"]
 [editable path="Yacht Rig/Yacht/Lever Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_2"]
 [editable path="Yacht Rig/Yacht/Lever Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_3"]
 [editable path="Yacht Rig/Yacht/Lever Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_4"]
+[editable path="Yacht Rig/Yacht/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1"]
+[editable path="Yacht Rig/Yacht/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_2"]
+[editable path="Yacht Rig/Yacht/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_3"]
+[editable path="Yacht Rig/Yacht/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_4"]
