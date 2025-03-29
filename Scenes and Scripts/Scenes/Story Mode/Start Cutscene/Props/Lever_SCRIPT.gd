@@ -47,7 +47,10 @@
 
 extends Node3D
 
+var state_on : bool = false
+
 func toggle_lever(on : bool):
+	state_on = on
 	if on:
 		$Switch_Anims.play("on")
 	else:

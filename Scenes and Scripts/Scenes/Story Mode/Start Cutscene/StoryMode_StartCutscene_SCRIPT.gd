@@ -130,3 +130,13 @@ func cutscene_timeline():
 	# Assuming fadeInGreyOverlay should be called after the last dialogue
 	var total_duration = 2 + 6 * (DialogueManager.StoryMode_StartCutsceneDialogue_1.size() - 1) + DialogueManager.StoryMode_StartCutsceneDialogue_1[-1]["time"]
 	get_tree().create_timer(total_duration).connect("timeout", fadeInGreyOverlay)
+
+
+func _on_red_lever_triggered() -> void:
+	$"Yacht Rig/Yacht/RedLever".toggle_lever(!$"Yacht Rig/Yacht/RedLever".state_on)
+
+func _on_green_lever_triggered() -> void:
+	$"Yacht Rig/Yacht/BlueLever".toggle_lever(!$"Yacht Rig/Yacht/BlueLever".state_on)
+
+func _on_blue_lever_triggered() -> void:
+	$"Yacht Rig/Yacht/GreenLever".toggle_lever(!$"Yacht Rig/Yacht/GreenLever".state_on)

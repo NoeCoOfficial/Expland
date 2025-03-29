@@ -373,11 +373,11 @@ debug_color = Color(1, 0.21, 0.223166, 1)
 [node name="RedLever" parent="Yacht Rig/Yacht" instance=ExtResource("8_ec70e")]
 transform = Transform3D(0.364809, 4.46471e-05, 0.0118395, -3.95497e-05, 0.365001, -0.000157776, -0.0118395, 0.000156409, 0.364808, -0.793089, 1.31087, 0.721858)
 
+[node name="GreenLever" parent="Yacht Rig/Yacht" instance=ExtResource("8_f3l76")]
+transform = Transform3D(0.364475, 4.46143e-05, 0.0118286, -3.95115e-05, 0.364667, -0.000157634, -0.0118287, 0.000156268, 0.364475, -0.784739, 1.31855, 0.988799)
+
 [node name="BlueLever" parent="Yacht Rig/Yacht" instance=ExtResource("9_yeq2m")]
 transform = Transform3D(0.364808, 4.46476e-05, 0.0118395, -3.95511e-05, 0.365001, -0.000157776, -0.0118395, 0.000156409, 0.364808, -0.77502, 1.31963, 1.27857)
-
-[node name="GreenLever" parent="Yacht Rig/Yacht" instance=ExtResource("8_f3l76")]
-transform = Transform3D(0.364475, 4.46143e-05, 0.0118287, -3.9512e-05, 0.364667, -0.000157634, -0.0118287, 0.000156268, 0.364475, -0.78474, 1.31855, 0.988799)
 
 [node name="Interactable Component" type="Node3D" parent="Yacht Rig/Yacht" node_paths=PackedStringArray("Contents_Node", "SubViewport_Node", "UI_Sprite_Node", "UI_1", "UI_2", "UI_3", "UI_4")]
 script = ExtResource("9_44ck5")
@@ -555,15 +555,15 @@ libraries = {
 }
 autoplay = "camera_sutle_movement"
 
+[connection signal="Action1_Triggered" from="Yacht Rig/Yacht/Interactable Component" to="." method="_on_red_lever_triggered"]
+[connection signal="Action2_Triggered" from="Yacht Rig/Yacht/Interactable Component" to="." method="_on_blue_lever_triggered"]
+[connection signal="Action3_Triggered" from="Yacht Rig/Yacht/Interactable Component" to="." method="_on_green_lever_triggered"]
 [connection signal="body_entered" from="Yacht Rig/Yacht/Interactable Component/Contents/PlayerVisibleDetector" to="Yacht Rig/Yacht/Interactable Component" method="_on_player_visible_detector_body_entered"]
 [connection signal="body_exited" from="Yacht Rig/Yacht/Interactable Component/Contents/PlayerVisibleDetector" to="Yacht Rig/Yacht/Interactable Component" method="_on_player_visible_detector_body_exited"]
 [connection signal="area_entered" from="Yacht Rig/Yacht/Interactable Component/Contents/PlayerMimicRaycastDetector" to="Yacht Rig/Yacht/Interactable Component" method="_on_player_mimic_raycast_detector_area_entered"]
 [connection signal="area_exited" from="Yacht Rig/Yacht/Interactable Component/Contents/PlayerMimicRaycastDetector" to="Yacht Rig/Yacht/Interactable Component" method="_on_player_mimic_raycast_detector_area_exited"]
 
 [editable path="Yacht Rig/Yacht"]
-[editable path="Yacht Rig/Yacht/RedLever"]
-[editable path="Yacht Rig/Yacht/BlueLever"]
-[editable path="Yacht Rig/Yacht/GreenLever"]
 [editable path="Yacht Rig/Yacht/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1"]
 [editable path="Yacht Rig/Yacht/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_2"]
 [editable path="Yacht Rig/Yacht/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_3"]

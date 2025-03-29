@@ -70,10 +70,10 @@ _data = {
 script = ExtResource("2_15cpk")
 
 [node name="Handle" parent="." index="1"]
-transform = Transform3D(0.607989, -0.351023, 0, 0.351023, 0.607989, 0, 0, 0, 0.702045, 0.000315426, -0.0812713, 0)
+transform = Transform3D(0.607989, 0.351023, 0, -0.351023, 0.607989, 0, 0, 0, 0.702045, 0.000315426, -0.0812713, 0)
 
 [node name="Main" parent="." index="2"]
-transform = Transform3D(0.607989, -0.351023, 0, 0.351023, 0.607989, 0, 0, 0, 0.702045, 0.000315416, -0.0812713, 0)
+transform = Transform3D(0.607989, 0.351023, 0, -0.351023, 0.607989, 0, 0, 0, 0.702045, 0.000315416, -0.0812713, 0)
 
 [node name="Switch_Anims" type="AnimationPlayer" parent="." index="3"]
 libraries = {
