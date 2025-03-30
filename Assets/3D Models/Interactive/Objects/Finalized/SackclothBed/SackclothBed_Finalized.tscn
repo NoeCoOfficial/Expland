@@ -159,6 +159,7 @@ shape = SubResource("BoxShape3D_mwyu2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39077, 0.538835, -0.251129)
 shape = SubResource("BoxShape3D_00rnx")
 
+[connection signal="Action1_Triggered" from="Interactable Component" to="." method="_on_sleep_action_triggered"]
 [connection signal="body_entered" from="Interactable Component/Contents/PlayerVisibleDetector" to="Interactable Component" method="_on_player_visible_detector_body_entered"]
 [connection signal="body_exited" from="Interactable Component/Contents/PlayerVisibleDetector" to="Interactable Component" method="_on_player_visible_detector_body_exited"]
 [connection signal="area_entered" from="Interactable Component/PlayerMimicRaycastDetector" to="Interactable Component" method="_on_player_mimic_raycast_detector_area_entered"]

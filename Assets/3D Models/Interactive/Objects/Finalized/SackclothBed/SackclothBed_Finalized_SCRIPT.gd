@@ -46,3 +46,14 @@
 # ============================================================= #
 
 extends Node3D
+
+func _on_sleep_action_triggered() -> void:
+	if PlayerData.GAME_STATE != "SLEEPING":
+		if TimeManager.DAY_STATE != "DAY":
+			PlayerManager.sleep()
+		else:
+			PlayerManager.PLAYER.spawn_minimal_alert_from_player(
+				2.0, 
+				0.1, 
+				0.5, 
+				"You can only sleep at night.")
