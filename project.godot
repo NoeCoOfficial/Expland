@@ -98,6 +98,7 @@ folder_colors={
 
 PlayerBody="The body for the player."
 RayCastMimic3D=""
+PlayerArea="The area for the player."
 
 [input]
 

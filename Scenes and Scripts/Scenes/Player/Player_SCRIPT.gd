@@ -1217,17 +1217,9 @@ func on_sleep_cycle_hold_finished(fadeOutTime, time : int):
 
 #region Area and body detection
 
-func _on_pickup_object_detector_body_entered(body: Node3D) -> void:
+func _on_area_collision_shape_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("temp_spike"):
 		takeDamage(14)
-	
-	if body.is_in_group("item_workshop"):
-		if !PauseManager.is_paused:
-			openItemWorkshop()
-	
-	if body.is_in_group("dialogue_test"):
-		
-		DialogueManager.startDialogue(DialogueManager.testDialogue)
 
 #endregion
 
