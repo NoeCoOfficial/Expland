@@ -75,6 +75,6 @@ func _on_debounce_timer_timeout() -> void:
 func _on_interactable_component_action_1_triggered() -> void:
 	if !ANIMATING:
 		if InventoryManager.chest_ui_open:
-			PlayerManager.PLAYER.closeChest()
+			PlayerManager.closeChest()
 		else:
-			PlayerManager.PLAYER.openChest()
+			PlayerManager.openChest()

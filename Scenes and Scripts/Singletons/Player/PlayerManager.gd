@@ -75,3 +75,9 @@ func eat(valueToIncreaseBy):
 		
 		PlayerData.Hunger = final_hunger_value
 		PLAYER.update_bar("HUNGER", true, PlayerData.Hunger)
+
+func openChest():
+	pass
+
+func closeChest():
+	pass
