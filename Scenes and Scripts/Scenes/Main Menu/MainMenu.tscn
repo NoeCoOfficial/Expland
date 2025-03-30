@@ -1349,7 +1349,7 @@ vertical_alignment = 1
 [node name="v0_6_0" type="Control" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="v0_7_0_Btn" type="Button" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_6_0"]
+[node name="v0_6_0_Btn" type="Button" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_6_0"]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 4.0
@@ -1373,13 +1373,13 @@ grow_vertical = 2
 theme = ExtResource("4_grlcg")
 theme_override_fonts/font = ExtResource("35_srfqj")
 theme_override_font_sizes/font_size = 25
-text = "v0.7.0"
+text = "v0.6.0"
 vertical_alignment = 1
 
 [node name="v0_5_5" type="Control" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="v0_5_0_Btn" type="Button" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_5_5"]
+[node name="v0_5_5_Btn" type="Button" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_5_5"]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 4.0
@@ -1403,7 +1403,7 @@ grow_vertical = 2
 theme = ExtResource("4_grlcg")
 theme_override_fonts/font = ExtResource("35_srfqj")
 theme_override_font_sizes/font_size = 25
-text = "v0.7.0"
+text = "v0.5.5"
 vertical_alignment = 1
 
 [node name="Title" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer"]
