@@ -52,27 +52,223 @@ var CHEST_SLOTS = []
 var WORKSHOP_SLOTS = []
 var WORKSHOP_OUTPUT_SLOT
 
+var Droppable_Scene = preload("res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDroppable.tscn")
+
 func get_free_slot(Slots : Array):
 	var free_slot = null
-	for i in range(Slots.size()):
-		if not Slots[i].is_populated():
-			free_slot = Slots[i]
-			return free_slot
+	for slot in Slots:
+		if !slot.Populated:
+			free_slot = slot
+		return free_slot
+
+func get_free_slot_using_stacks(Slots : Array, TARGET_ITEM_NAME : String):
+	var free_slot = null
+	var stack_slot = null
+	
+	for slot in Slots:
+		# If 1 of the slots are free
+		if !slot.Populated:
+			free_slot = slot
+			break
+		# If there are no free slots. Then we check if we can stack.
+		else:
+			# If there is a slot with the same name as the target name
+			if slot.Populating_Droppable.ITEM_TYPE["NAME"] == TARGET_ITEM_NAME:
+				# We want this to happen if the stack count is SMALLER than the max.
+				if slot.Populating_Droppable.Stack_Count < slot.Populating_Droppable.ITEM_TYPE["MAX_STACK"]:
+					increment_droppable_stack(slot.Populating_Droppable)
+					stack_slot = true
+					break
+	
+	if !stack_slot and free_slot == null:
+		PlayerManager.MINIMAL_ALERT_PLAYER.spawn_minimal_alert(1.5, 0.3, 0.3, "Can't add item, pockets full!")
+	
+	return free_slot
+
+func increment_droppable_stack(droppable_node : Node):
+	droppable_node.Stack_Count += 1
+
+const ITEM_TYPES = {
+	# Tools
+	"AXE" : {
+		"NAME" : "AXE",
+		"DESCRIPTION" : "A tool used for cutting down trees.",
+		"IMAGE_LOAD" : preload("uid://dq8jg5iy6tfyc"),
+		"PICKUP_LOAD" : preload("uid://mmat24b7ftxq"),
+		"MAX_STACK" : 1,
+	},
+	
+	"PICKAXE" : {
+		"NAME" : "PICKAXE",
+		"DESCRIPTION" : "A tool for mining and breaking rocks.",
+		"IMAGE_LOAD" : preload("uid://bxxnhb6vulkry"),
+		"PICKUP_LOAD" : preload("uid://dplpg1yhca1b2"),
+		"MAX_STACK" : 1,
+	},
+	
+	"SWORD" : {
+		"NAME" : "SWORD",
+		"DESCRIPTION" : "A bladed weapon for cutting and thrusting.",
+		"IMAGE_LOAD" : preload("uid://dixs8s5v2su7q"),
+		"PICKUP_LOAD" : preload("uid://bgqxctsm6c3w6"),
+		"MAX_STACK" : 1,
+	},
+	
+	# Flowers
+	"BLANK FLOWER" : {
+		"NAME" : "BLANK FLOWER",
+		"DESCRIPTION" : "A blank flower.",
+		"IMAGE_LOAD" : preload("uid://bu54o8nhdxuoh"),
+		"PICKUP_LOAD" : preload("uid://c5kig8oo8rel3"),
+		"MAX_STACK" : 10,
+	},
+	
+	"BLUE FLOWER" : {
+		"NAME" : "BLUE FLOWER",
+		"DESCRIPTION" : "A blue flower.",
+		"IMAGE_LOAD" : preload("uid://cavoja22gxr3s"),
+		"PICKUP_LOAD" : preload("uid://cynuvm6lnyih2"),
+		"MAX_STACK" : 10,
+	},
+
+	"RED FLOWER" : {
+		"NAME" : "RED FLOWER",
+		"DESCRIPTION" : "A red flower.",
+		"IMAGE_LOAD" : preload("uid://m8ohdtvo6rfr"),
+		"PICKUP_LOAD" : preload("uid://cje4v10u317y"),
+		"MAX_STACK" : 10,
+	},
+
+	"PINK FLOWER" : {
+		"NAME" : "PINK FLOWER",
+		"DESCRIPTION" : "A pink flower.",
+		"IMAGE_LOAD" : preload("uid://da0briqsyhmau"),
+		"PICKUP_LOAD" : preload("uid://cdxp232v4i2lr"),
+		"MAX_STACK" : 10,
+	},
+	
+	"YELLOW FLOWER" : {
+		"NAME" : "YELLOW FLOWER",
+		"DESCRIPTION" : "A yellow flower.",
+		"IMAGE_LOAD" : preload("uid://cqvxhihjcesqw"),
+		"PICKUP_LOAD" : preload("uid://cyxxp35iw0434"),
+		"MAX_STACK" : 10,
+	},
+
+	# Food
+	"COCONUT" : {
+		"NAME" : "COCONUT",
+		"DESCRIPTION" : "A hard-shelled tropical fruit with white flesh and liquid inside.",
+		"IMAGE_LOAD" : preload("uid://dmyiq1y00bivg"),
+		"PICKUP_LOAD" : preload("uid://dm1ck0k7tfmel"),
+		"MAX_STACK" : 5,
+	},
+	
+	# General
+	"ROCK" : {
+		"NAME" : "ROCK",
+		"DESCRIPTION" : "A solid, natural mineral.",
+		"IMAGE_LOAD" : preload("uid://b2eggg0vffmo4"),
+		"PICKUP_LOAD" : preload("uid://0uyecq8yw6t"),
+		"MAX_STACK" : 7,
+	},
+	
+	"STONE" : {
+		"NAME" : "STONE",
+		"DESCRIPTION" : "A solid, natural mineral.",
+		"IMAGE_LOAD" : preload("uid://b1rh5wtv0cotk"),
+		"PICKUP_LOAD" : preload("uid://cnca041yt8f3j"),
+		"MAX_STACK" : 7,
+	},
+	
+	"WOOD PLANK" : {
+		"NAME" : "WOOD PLANK",
+		"DESCRIPTION" : "A flat piece of timber.",
+		"IMAGE_LOAD" : preload("uid://d2o42bjls3sl3"),
+		"PICKUP_LOAD" : preload("uid://d1krxi2vcrc4m"),
+		"MAX_STACK" : 5,
+	},
+
+	# Potions
+	"EFFICIENCY POTION" : {
+		"NAME" : "EFFICIENCY POTION",
+		"DESCRIPTION" : "A potion that makes you more efficient, boosting output. This potion lasts for 60 seconds.",
+		"IMAGE_LOAD" : preload("uid://don2d5onyupya"),
+		"PICKUP_LOAD" : preload("uid://b8dojl031i6vl"),
+		"MAX_STACK" : 3,
+	},
+
+	"HASTE POTION" : {
+		"NAME" : "HASTE POTION",
+		"DESCRIPTION" : "A potion that makes you move faster. This potion's effect lasts for 30 seconds",
+		"IMAGE_LOAD" : preload("uid://o3u6sxubmrbg"),
+		"PICKUP_LOAD" : preload("uid://c3f07o736s1fc"),
+		"MAX_STACK" : 3,
+	},
+
+	"HEALTH POTION" : {
+		"NAME" : "HEALTH POTION",
+		"DESCRIPTION" : "A potion that regenerates health. This potion's effect lasts for 10 seconds",
+		"IMAGE_LOAD" : preload("uid://1dbgnxe1pe1i"),
+		"PICKUP_LOAD" : preload("uid://bkrrrciwr0l51"),
+		"MAX_STACK" : 3,
+	},
+
+	"LUCK POTION" : {
+		"NAME" : "LUCK POTION",
+		"DESCRIPTION" : "A potion that boosts your luck. This potion's effect lasts for 120 seconds",
+		"IMAGE_LOAD" : preload("uid://dkol2o53q7rck"),
+		"PICKUP_LOAD" : preload("uid://dehytmc8mbpxu"),
+		"MAX_STACK" : 3,
+	},
+
+	"NIGHT VISION POTION" : {
+		"NAME" : "NIGHT VISION POTION",
+		"DESCRIPTION" : "A potion that gives you night vision. This potion's effect lasts for 120 seconds",
+		"IMAGE_LOAD" : preload("uid://d0q61bcnprn5o"),
+		"PICKUP_LOAD" : preload("uid://gy86venr6fii"),
+		"MAX_STACK" : 3,
+	},
+
+	"REGENERATING POTION" : {
+		"NAME" : "REGENERATING POTION",
+		"DESCRIPTION" : "A potion that regenerates your stats. This potion's effect lasts for 15 seconds",
+		"IMAGE_LOAD" : preload("uid://mwa55qklwxe3"),
+		"PICKUP_LOAD" : preload("uid://ic1v407ic2h3"),
+		"MAX_STACK" : 3,
+	},
+
+	"STAMINA POTION" : {
+		"NAME" : "STAMINA POTION",
+		"DESCRIPTION" : "A potion that boosts endurace. This potion's effect lasts for 60 seconds",
+		"IMAGE_LOAD" : preload("uid://fj1pvfgfyamb"),
+		"PICKUP_LOAD" : preload("uid://bk1v1bbw07mkj"),
+		"MAX_STACK" : 3,
+	},
+
+	"STRENGTH POTION" : {
+		"NAME" : "STRENGTH POTION",
+		"DESCRIPTION" : "A potion that boosts your strength. This potion's effect lasts for 60 seconds",
+		"IMAGE_LOAD" : preload("uid://bfiqh1ceg7rmt"),
+		"PICKUP_LOAD" : preload("uid://d0ut80c3jd0lu"),
+		"MAX_STACK" : 3,
+	},
+}
 
 const CONSUMABLE_ITEMS = [
 	
-	"HEALTHPOTION", 
-	"EFFICIENCYPOTION", 
-	"HASTEPOTION",
-	"LUCKPOTION",
-	"NIGHTVISIONPOTION",
-	"REGENERATINGPOTION",
-	"STAMINAPOTION",
-	"STRENGTHPOTION",
-	"HOLYGRAIL",
+	"HEALTH POTION", 
+	"EFFICIENCY POTION", 
+	"HASTE POTION",
+	"LUCK POTION",
+	"NIGHT VISION POTION",
+	"REGENERATING POTION",
+	"STAMINA POTION",
+	"STRENGTH POTION",
+	"HOLY GRAIL",
 	
 	"COCONUT",
-	"COCONUTCAKE",
+	"COCONUT CAKE",
 	"BERRY",
 	"BLUEBERRY",
 	"STRAWBERRY",
@@ -80,145 +276,45 @@ const CONSUMABLE_ITEMS = [
 
 const FOOD_ITEMS = {
 	"COCONUT": 20,
-	"COCONUTCAKE": 40,
+	"COCONUT CAKE": 40,
 	"BERRY": 5,
 	"BLUEBERRY": 7,
 	"STRAWBERRY": 10,
 }
 
 const EFFECT_ITEMS = [
-	"HEALTHPOTION", 
-	"EFFICIENCYPOTION", 
-	"HASTEPOTION",
-	"LUCKPOTION",
-	"NIGHTVISIONPOTION",
-	"REGENERATINGPOTION",
-	"STAMINAPOTION",
-	"STRENGTHPOTION",
-	"HOLYGRAIL",
+	"HEALTH POTION", 
+	"EFFICIENCY POTION", 
+	"HASTE POTION",
+	"LUCK POTION",
+	"NIGH TVISION POTION",
+	"REGENERATING POTION",
+	"STAMINA POTION",
+	"STRENGTH POTION",
+	"HOLY GRAIL",
 ]
 
-var creatingFromInventory = false
+var pockets_ui_open : bool = false
 
-var inventory_open = false
-var in_chest_interface = false
-var is_in_workbench_interface = false
-var is_in_explorer_notes_interface = false
+var chest_ui_open : bool = false
+var current_chest_node : Node = null
 
-var is_dragging = false
-var is_inside_boundary = false
-var item_ref := ""
-var item_ref_not_at_inventory :=  ""
-var is_creating_pickup = false
-var is_inside_checker = false
+var workshop_ui_open : bool = false
 
-var chestNode
 
-func create_pickup_object_at_pos(position : Vector3, ITEM_TYPE):
-	creatingFromInventory = false
-	
-	item_ref_not_at_inventory = ITEM_TYPE
-	
-	var PICKUP_SCENE = load("res://Scenes and Scripts/Scenes/Player/Inventory/ItemPickupObject.tscn")
-	var PICKUP = PICKUP_SCENE.instantiate()
-	PlayerManager.WORLD.add_child(PICKUP)
-	PICKUP.global_position = position
 
-func create_pickup_object():
-	creatingFromInventory = true
-	
-	if is_creating_pickup:
-		return
-	is_creating_pickup = true
-	var PICKUP_SCENE = load("res://Scenes and Scripts/Scenes/Player/Inventory/ItemPickupObject.tscn")
-	var PICKUP = PICKUP_SCENE.instantiate()
-	PlayerManager.WORLD.add_child(PICKUP)
-	
-	is_creating_pickup = false
-	
+var is_dragging : bool = false
+var currently_dragging_node : Node
 
-func spawn_inventory_dropable(atPos : Vector2, ITEM_TYPE, slotToPopulate, is_in_chest_slot : bool):
-	if get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer") != null:
-		var ChestSlotsControl = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots")
-		var InventoryLayer = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer")
-		var NewDropable = load("res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDropable.tscn")
-		var DropableInstance = NewDropable.instantiate()
-		DropableInstance.set_ITEM_TYPE(ITEM_TYPE)
-		
-		if is_in_chest_slot:
-			ChestSlotsControl.add_child(DropableInstance)
-			DropableInstance.position = atPos
-		else:
-			InventoryLayer.add_child(DropableInstance)
-			DropableInstance.global_position = atPos
-		
-		DropableInstance.global_position = atPos
-		DropableInstance.set_slot_inside(slotToPopulate)
-		DropableInstance.set_is_in_chest_slot(is_in_chest_slot)
-		slotToPopulate.set_populated(true)
-		
-		return DropableInstance
+func openPockets():
+	# Show UI
+	PlayerManager.PLAYER.InventoryLayer_CanvasLayer.visible = true
+	PlayerManager.PLAYER.InventoryLayer_Pockets.visible = true
+	pockets_ui_open = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
-func spawn_inventory_dropable_from_load(atPos : Vector2, ITEM_TYPE, is_in_chest_slot : bool):
-	if get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer") != null:
-		var ChestSlotsControl = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots")
-		var InventoryLayer = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer")
-		var NewDropable = load("res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDropable.tscn")
-		var DropableInstance = NewDropable.instantiate()
-		
-		DropableInstance.set_ITEM_TYPE(ITEM_TYPE)
-		DropableInstance.set_is_in_chest_slot(is_in_chest_slot)
-		
-		if DropableInstance.get_is_in_chest_slot():
-			
-			ChestSlotsControl.add_child(DropableInstance)
-			DropableInstance.position = atPos
-			
-		else:
-			InventoryLayer.add_child(DropableInstance)
-			DropableInstance.global_position = atPos
-
-func spawn_workshop_dropable(atPos : Vector2, ITEM_TYPE, slotToPopulate):
-	if get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer") != null:
-		var WorkbenchSlots = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots")
-		var NewDropable = load("res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDropable.tscn")
-		var DropableInstance = NewDropable.instantiate()
-		DropableInstance.set_ITEM_TYPE(ITEM_TYPE)
-		
-		WorkbenchSlots.add_child(DropableInstance)
-		DropableInstance.position = atPos
-		DropableInstance.top_level = true
-		
-		DropableInstance.set_slot_inside(slotToPopulate)
-		DropableInstance.set_is_workshop_dropable(true)
-		slotToPopulate.set_populated(true)
-		
-		CraftingManager.bindCraftingItem(ITEM_TYPE, int(String(slotToPopulate.name)[-1]) - 1)
-		
-		return DropableInstance
-
-func spawn_workbench_output_dropable(ITEM_TYPE):
-	if get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer") != null:
-		var WorkbenchSlots = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer/WorkbenchMainLayer/WorkbenchSlots")
-		var NewDropable = load("res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDropable.tscn")
-		var DropableInstance = NewDropable.instantiate()
-		DropableInstance.set_ITEM_TYPE(ITEM_TYPE)
-		DropableInstance.set_is_workshop_output_dropable(true)
-		DropableInstance.global_position = InventoryManager.WORKSHOP_OUTPUT_SLOT.global_position
-		
-		InventoryManager.WORKSHOP_OUTPUT_SLOT.set_is_touching_draggable(true)
-		
-		WorkbenchSlots.add_child(DropableInstance)
-		
-		print_rich("[color=purple]Output slot position: " + str(InventoryManager.WORKSHOP_OUTPUT_SLOT.global_position) + "[/color]")
-		DropableInstance.top_level = true
-		
-		DropableInstance.set_slot_inside(InventoryManager.WORKSHOP_OUTPUT_SLOT)
-		InventoryManager.WORKSHOP_OUTPUT_SLOT.set_populated(true)
-		
-		return DropableInstance
-
-func get_hunger_restoration_value(item: String) -> int:
-	if item in FOOD_ITEMS:
-		return FOOD_ITEMS[item]
-	return 0
+func closePockets():
+	PlayerManager.PLAYER.InventoryLayer_CanvasLayer.visible = false
+	PlayerManager.PLAYER.InventoryLayer_Pockets.visible = false
+	pockets_ui_open = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

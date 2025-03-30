@@ -140,12 +140,21 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="Divider" type="Line2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
-position = Vector2(20, 131)
+position = Vector2(20, 133)
 points = PackedVector2Array(-2, 0, 264, 0)
 width = 1.5
 default_color = Color(0.233926, 0.233925, 0.233925, 1)
 
 [node name="Space" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("5_ome4s")
+theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_font_sizes/font_size = 2
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Space2" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
@@ -212,6 +221,24 @@ theme_override_font_sizes/font_size = 5
 horizontal_alignment = 1
 autowrap_mode = 3
 
+[node name="Space13" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("5_ome4s")
+theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_font_sizes/font_size = 5
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Space14" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("5_ome4s")
+theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_font_sizes/font_size = 5
+horizontal_alignment = 1
+autowrap_mode = 3
+
 [node name="Text7" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
@@ -223,7 +250,7 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="Divider3" type="Line2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
-position = Vector2(20, 345)
+position = Vector2(20, 351)
 points = PackedVector2Array(-2, 0, 264, 0)
 width = 1.5
 default_color = Color(0.233926, 0.233925, 0.233925, 1)
@@ -316,12 +343,12 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="GodotIcon" type="Sprite2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
-position = Vector2(115, 710)
+position = Vector2(115, 734)
 scale = Vector2(0.06, 0.06)
 texture = ExtResource("15_ny2xt")
 
 [node name="RedHeartIcon" type="Sprite2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
-position = Vector2(189.375, 712.044)
+position = Vector2(189.375, 736.044)
 scale = Vector2(0.0657484, 0.0545605)
 texture = ExtResource("11_m50j2")
 
@@ -370,7 +397,7 @@ theme_override_font_sizes/font_size = 30
 text = "OPEN      "
 
 [node name="OpenExternalLinkWhiteIcon" type="Sprite2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
-position = Vector2(188.375, 837.625)
+position = Vector2(188.375, 861.625)
 scale = Vector2(0.103333, 0.103333)
 texture = ExtResource("12_lbc4b")
 

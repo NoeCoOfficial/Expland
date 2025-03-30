@@ -47,11 +47,9 @@
 
 extends Node
 
-
 func _on_stone_body_entered(body: Node3D) -> void:
 	if body.is_in_group("PlayerBody"):
 		TerrainManager.on_terrain = "STONE"
-
 
 ##################
 ## On body exited (return to default terrain type)

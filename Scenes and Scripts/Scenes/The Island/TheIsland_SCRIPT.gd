@@ -65,6 +65,7 @@ var transitioning_weather = false
 
 func _ready() -> void:
 	PlayerManager.WORLD = $"."
+	InventoryManager.current_chest_node = $Chest
 	randomize()
 	initNodes()
 	
@@ -77,7 +78,6 @@ func _ready() -> void:
 	
 	PlayerData.loadData(IslandManager.Current_Island_Name, true)
 	IslandData.loadData(IslandManager.Current_Island_Name, true)
-	InventoryData.loadInventory(IslandManager.Current_Island_Name)
 	
 	set_dof_blur(PlayerSettingsData.DOFBlur)
 	set_pretty_shadows(PlayerSettingsData.PrettyShadows)
@@ -92,11 +92,6 @@ func _ready() -> void:
 	init_weather_instant() # NOTE: Important line right here (initalize weather)
 	
 	Player.nodeSetup()
-	Player.setHotbarSelectedSlot(int(str(HotbarManager.CURRENTLY_SELECTED_SLOT_NAME)[-1]))
-	
-	InventoryManager.chestNode = $Chest
-	
-	SignalBus.populate_explorer_note_ui.emit()
 
 func _on_ready() -> void:
 	AudioManager.initNotificaton(PlayerManager.AudioNotification)
@@ -421,9 +416,6 @@ func change_weather_instant(GOTO_WEATHER_STR : String, PREVIOUS_WEATHER_STR : St
 		pass
 
 
-
-
-
 func _on_rain_color_fade_out_finished():
 	$Rain.emitting = false
 
@@ -441,3 +433,17 @@ func init_weather_instant():
 	$"Weather Timer".stop()
 	#$"Weather Timer".wait_time = randi_range(400, 1000)
 	$"Weather Timer".start()
+
+#####################################
+
+func _on_item_workshop_test_action_triggered() -> void:
+	PlayerManager.PLAYER.openItemWorkshop()
+
+func _on_test_dialogue_start_action_triggered() -> void:
+	DialogueManager.startDialogue(DialogueManager.testDialogue)
+
+func _on_email_noe_co_action_triggered() -> void:
+	OS.shell_open("https://mail.google.com/mail/?view=cm&fs=1&to=noeco.official@gmail.com")
+
+func _on_open_feedback_issue_action_triggered() -> void:
+	OS.shell_open("https://github.com/NoeCoOfficial/Expland/issues/new?assignees=&labels=&projects=&template=feedback.md")
