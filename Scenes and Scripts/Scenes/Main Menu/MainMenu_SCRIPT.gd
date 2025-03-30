@@ -204,6 +204,9 @@ func _input(_event: InputEvent) -> void:
 			if PauseManager.is_inside_settings:
 				$Camera3D/MainLayer/SettingsUI.closeSettings(0.5)
 			
+			if PauseManager.is_inside_updates_popup:
+				$Camera3D/MainLayer/UpdatesLayer/UpdatesLayer.despawnAlert(0.5)
+			
 			if PauseManager.is_inside_achievements_ui:
 				$Camera3D/MainLayer/AchievementsUI.despawnAchievements(0.5)
 			

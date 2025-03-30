@@ -79,6 +79,9 @@ func spawnAlert(title : String, text : String, textFontSize : int, animationTime
 func despawnAlert(animationTime : float):
 	PauseManager.is_inside_alert = false
 	
+	if str(name) == "UpdatesLayer":
+		PauseManager.is_inside_updates_popup = false
+	
 	if PlayerSettingsData.quickAnimations:
 		$MainLayer.scale = Vector2(0.0, 0.0)
 		$GreyLayer.modulate = Color(1, 1, 1, 0)
@@ -92,8 +95,13 @@ func despawnAlert(animationTime : float):
 		
 		self.visible = false
 
+
+
 func popupAlert(animationTime : float):
 	PauseManager.is_inside_alert = true
+	
+	if str(name) == "UpdatesLayer":
+		PauseManager.is_inside_updates_popup = true
 	
 	self.visible = true
 	

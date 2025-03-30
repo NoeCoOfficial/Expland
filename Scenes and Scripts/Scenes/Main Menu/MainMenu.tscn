@@ -1267,6 +1267,7 @@ offset_left = 7.0
 offset_top = 4.0
 offset_right = 281.0
 offset_bottom = 55.0
+focus_mode = 0
 theme = ExtResource("4_grlcg")
 
 [node name="Title" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_7_1"]
@@ -1297,6 +1298,7 @@ offset_left = 7.0
 offset_top = 4.0
 offset_right = 281.0
 offset_bottom = 55.0
+focus_mode = 0
 theme = ExtResource("4_grlcg")
 disabled = true
 
@@ -1400,6 +1402,7 @@ offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_grlcg")
+theme_override_fonts/font = ExtResource("35_hsmjp")
 theme_override_font_sizes/font_size = 26
 text = "Player"
 vertical_alignment = 1
@@ -1446,6 +1449,7 @@ offset_bottom = 334.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_grlcg")
+theme_override_fonts/font = ExtResource("35_hsmjp")
 theme_override_font_sizes/font_size = 26
 text = "Inventory"
 vertical_alignment = 1
