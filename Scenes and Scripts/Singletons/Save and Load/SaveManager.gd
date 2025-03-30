@@ -55,7 +55,4 @@ func saveAllData():
 		PlayerData.saveData(IslandManager.Current_Island_Name)
 		IslandData.saveData(IslandManager.Current_Island_Name)
 	
-	if PlayerManager.PLAYER != null and IslandManager.Current_Island_Name != "":
-		PlayerManager.PLAYER.saveInventory()
-	
 	PlayerSettingsData.saveSettings()

@@ -48,103 +48,68 @@
 @icon("res://Textures/Icons/Script Icons/32x32/ui_inventory.png")
 extends StaticBody2D
 
-@export var is_touching_draggable = false
-@export var populated = false
-@export var is_chest_slot = false
-@export var is_workbench_slot = false
 
-@export var is_hotbar_slot = false
-@export var hotbar_hover_bg_node : Panel
-@export var is_hotbar_hovering_over = false
+@export var Populated : bool = false
+@export var Populating_Droppable : Node
+@export var Mouse_In_Collision_Shape : bool = false
 
-@export var is_workbench_output_slot = false
+@export var Dashed_Texture : TextureRect
 
+func _ready() -> void:
+	name = "Slot1"
 
-func _ready():
-	if is_workbench_output_slot:
-		print_rich("[color=purple]Output slot position: " + str(position) + "[/color]")
-		print_rich("[color=purple]Output slot position: " + str(global_position) + "[/color]")
+func _input(event: InputEvent) -> void:
 	
-	modulate = Color(1, 1, 1, 0.2)
+	var droppable_node_ref = InventoryManager.currently_dragging_node
+	var is_dragging_ref = InventoryManager.is_dragging
+	
+	# What we want to happen when LeftClick is released.
+	if Input.is_action_just_released("LeftClick"):
+		# First check if any inventories are actually open:
+		if InventoryManager.pockets_ui_open:
+			# Then check if we are dragging, based 
+			# off of the reference we made.
+			if is_dragging_ref:
+				# Check if the Mouse is in the collision shape
+				# and if the slot is not populated by another slot
+				if Mouse_In_Collision_Shape and !Populated:
+					# Check if the currently dragging node exists
+					if droppable_node_ref:
+						# So we get the slot that is being populated  by the droppable. 
+						# Then we set that slots Populated property to false, as we want to
+						# Populate another slot. We then reparent the droppable to self.
+						if droppable_node_ref.Populating_Slot_Node:
+							droppable_node_ref.Populating_Slot_Node.Populated = false
+							droppable_node_ref.Populating_Slot_Node.Populating_Droppable = null
+							droppable_node_ref.Populating_Slot_Node.Dashed_Texture.self_modulate = Color(1, 1, 1, 1)
+						
+						droppable_node_ref.reparent(self)
+						droppable_node_ref.position = Vector2(0, 0)
+						Populated = true
+						Populating_Droppable = droppable_node_ref
+						Dashed_Texture.self_modulate = Color(1, 1, 1, 0)
+						droppable_node_ref.Populating_Slot_Node = $"."
+						droppable_node_ref.z_index = 0
+				else:
+					# This code runs if we did not release in the slot.
+					# What we wanna do is, snap back to the original slot
+					if droppable_node_ref.Populating_Slot_Node:
+						droppable_node_ref.position = Vector2(0, 0)
+						droppable_node_ref.z_index = 0
 
-func _process(_delta):
-	if !populated:
-		visible = true
-	else:
-		visible = false
+func spawn_droppable(ITEM_TYPE: String):
+	var droppable_instance = InventoryManager.Droppable_Scene.instantiate()
+	add_child(droppable_instance)
+	droppable_instance.initProperties(ITEM_TYPE)
+	droppable_instance.position = Vector2(0, 0)
+	droppable_instance.Populating_Slot_Node = $"."
+	droppable_instance.z_index = 0
+	Populated = true
+	Populating_Droppable = droppable_instance
+	Dashed_Texture.self_modulate = Color(1, 1, 1, 0)
 
-func set_is_chest_slot(value : bool):
-	is_chest_slot = value
+func _on_mouse_detector_mouse_shape_entered(shape_idx: int) -> void:
+	Mouse_In_Collision_Shape = true
 
-func get_is_chest_slot():
-	return is_chest_slot
-
-
-func set_is_workbench_slot(value : bool):
-	is_workbench_slot = value
-
-func get_is_workbench_slot():
-	return is_workbench_slot
-
-
-func set_is_workbench_output_slot(value : bool):
-	is_workbench_output_slot = value
-
-func get_is_workbench_output_slot():
-	return is_workbench_output_slot
-
-
-func set_is_touching_draggable(value : bool):
-	is_touching_draggable = value
-
-func get_is_touching_draggable():
-	return is_touching_draggable
-
-
-func is_populated():
-	return populated
-
-func set_populated(populatedValue : bool):
-	if populatedValue:
-		populated = true
-		print("{LOCAL} [InventorySlot_SCRIPT.gd] Populated, Slot: " + str(name))
-		if is_hotbar_slot:
-			toggle_hotbar_hover_bg(false)
-	else:
-		print("{LOCAL} [InventorySlot_SCRIPT.gd] Empty, Slot: " + str(name))
-		populated = false
-
-
-func _on_draggable_detector_area_entered(area: Area2D) -> void:
-	if area.is_in_group("draggable"):
-		if $AlreadyPopulatedChecker.time_left > 0.0:
-			set_populated(true)
-		else:
-			if !populated:
-				InventoryManager.is_inside_checker = false
-				
-			is_touching_draggable = true
-
-func _on_draggable_detector_area_exited(area: Area2D) -> void:
-	if area.is_in_group("draggable"):
-		is_touching_draggable = false
-
-func toggle_hotbar_hover_bg(value : bool):
-	if hotbar_hover_bg_node:
-		if value:
-			hotbar_hover_bg_node.modulate = Color(1, 1, 1, 1)
-		else:
-			hotbar_hover_bg_node.modulate = Color(1, 1, 1, 0)
-
-func get_is_hotbar_slot():
-	return is_hotbar_slot
-
-func _on_draggable_detector_mouse_entered() -> void:
-	if is_hotbar_slot:
-		if InventoryManager.is_dragging:
-			toggle_hotbar_hover_bg(true)
-
-func _on_draggable_detector_mouse_exited() -> void:
-	if is_hotbar_slot:
-		if InventoryManager.is_dragging:
-			toggle_hotbar_hover_bg(false)
+func _on_mouse_detector_mouse_shape_exited(shape_idx: int) -> void:
+	Mouse_In_Collision_Shape = false

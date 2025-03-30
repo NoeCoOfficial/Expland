@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://jajswfbkaut2"]
 
-[ext_resource type="Texture2D" uid="uid://o3u6sxubmrbg" path="res://Textures/Inventory/HASTEPOTION.png" id="1_62wnj"]
+[ext_resource type="Texture2D" uid="uid://o3u6sxubmrbg" path="res://Textures/Inventory/HASTE POTION.png" id="1_62wnj"]
 [ext_resource type="Script" uid="uid://blk6r05c14orw" path="res://Scenes and Scripts/Scenes/Player/Effects/EffectNotification_SCRIPT.gd" id="1_urpvj"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="3_7rsul"]
 

@@ -1,17 +1,171 @@
-[gd_scene load_steps=4 format=3 uid="uid://ceeflh1bhg0ei"]
+[gd_scene load_steps=9 format=3 uid="uid://ceeflh1bhg0ei"]
 
 [ext_resource type="PackedScene" uid="uid://vnk7463heub8" path="res://Assets/3D Models/Interactive/Objects/Models/SackclothBed.blend" id="1_vw55b"]
-[ext_resource type="Script" uid="uid://bqmgeym8ihac0" path="res://Assets/3D Models/Interactive/Objects/Finalized/SackclothBed/SackclothBed_Finalized_StaticBody3D_SCRIPT.gd" id="2_h6dgk"]
+[ext_resource type="Script" uid="uid://cjjnevo5pn5cx" path="res://Assets/3D Models/Interactive/Objects/Finalized/SackclothBed/SackclothBed_Finalized_SCRIPT.gd" id="2_4txhd"]
+[ext_resource type="Script" uid="uid://bi02uk7qwshyf" path="res://Scenes and Scripts/Scenes/Components/Interactable Component/Interactable_Component_SCRIPT.gd" id="2_mwyu2"]
+[ext_resource type="PackedScene" uid="uid://cmt00ehn4hfne" path="res://Scenes and Scripts/Scenes/General/UI/MessageWithKeyUI.tscn" id="3_4txhd"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bv106"]
-points = PackedVector3Array(1.70159, 0.411032, 0.767976, -1.58815, -0.36, -0.722685, -1.70159, 0.411032, -0.774087, -1.70159, 0.411032, 0.767976, 1.70159, 0.411032, -0.774087, 1.58815, -0.36, 0.716574, -1.58815, -0.36, 0.716574, 1.58815, -0.36, -0.722685)
+[sub_resource type="InputEventAction" id="InputEventAction_dklh4"]
+action = &"Interact"
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_mwyu2"]
+viewport_path = NodePath("Interactable Component/Contents/UI/SubViewport")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mwyu2"]
+size = Vector3(5, 5, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_00rnx"]
+size = Vector3(3.53358, 1.04309, 1.63141)
 
 [node name="SackclothBed" instance=ExtResource("1_vw55b")]
+script = ExtResource("2_4txhd")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." index="22"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.369905, 0.369904, -0.26164)
-collision_layer = 3
-script = ExtResource("2_h6dgk")
+[node name="Interactable Component" type="Node3D" parent="." index="22" node_paths=PackedStringArray("Contents_Node", "SubViewport_Node", "UI_Sprite_Node", "UI_1", "UI_2", "UI_3", "UI_4")]
+script = ExtResource("2_mwyu2")
+Contents_Node = NodePath("Contents")
+SubViewport_Node = NodePath("Contents/UI/SubViewport")
+UI_Sprite_Node = NodePath("Contents/UI")
+UI_1 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_1")
+UI_2 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_2")
+UI_3 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_3")
+UI_4 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_4")
+UseAction1 = true
+ActionToPress_1 = SubResource("InputEventAction_dklh4")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
-shape = SubResource("ConvexPolygonShape3D_bv106")
+[node name="Contents" type="Node3D" parent="Interactable Component" index="0"]
+
+[node name="UI" type="Sprite3D" parent="Interactable Component/Contents" index="0"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.241689, 0.851049, -0.210252)
+billboard = 1
+no_depth_test = true
+texture = SubResource("ViewportTexture_mwyu2")
+
+[node name="SubViewport" type="SubViewport" parent="Interactable Component/Contents/UI" index="0"]
+transparent_bg = true
+gui_disable_input = true
+size = Vector2i(3720, 2225)
+
+[node name="MessageWithKeyUI_1" parent="Interactable Component/Contents/UI/SubViewport" index="0" instance=ExtResource("3_4txhd")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -385.795
+offset_bottom = -385.795
+scale = Vector2(5, 5)
+
+[node name="Contents" parent="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -30.0
+offset_right = 27.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Message" parent="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1/Contents" index="7"]
+text = "Sleep"
+
+[node name="MessageWithKeyUI_2" parent="Interactable Component/Contents/UI/SubViewport" index="1" instance=ExtResource("3_4txhd")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -112.5
+offset_bottom = -112.5
+scale = Vector2(5, 5)
+
+[node name="Contents" parent="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_2" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -30.0
+offset_right = 27.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MessageWithKeyUI_3" parent="Interactable Component/Contents/UI/SubViewport" index="2" instance=ExtResource("3_4txhd")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 160.15
+offset_bottom = 160.15
+scale = Vector2(5, 5)
+
+[node name="Contents" parent="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_3" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -30.0
+offset_right = 27.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MessageWithKeyUI_4" parent="Interactable Component/Contents/UI/SubViewport" index="3" instance=ExtResource("3_4txhd")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 432.205
+offset_bottom = 432.205
+scale = Vector2(5, 5)
+
+[node name="Contents" parent="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_4" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -30.0
+offset_right = 27.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerVisibleDetector" type="Area3D" parent="Interactable Component/Contents" index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable Component/Contents/PlayerVisibleDetector" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.319917, 0, -0.199948)
+shape = SubResource("BoxShape3D_mwyu2")
+
+[node name="PlayerMimicRaycastDetector" type="Area3D" parent="Interactable Component" index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable Component/PlayerMimicRaycastDetector" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39077, 0.538835, -0.251129)
+shape = SubResource("BoxShape3D_00rnx")
+
+[connection signal="Action1_Triggered" from="Interactable Component" to="." method="_on_sleep_action_triggered"]
+[connection signal="body_entered" from="Interactable Component/Contents/PlayerVisibleDetector" to="Interactable Component" method="_on_player_visible_detector_body_entered"]
+[connection signal="body_exited" from="Interactable Component/Contents/PlayerVisibleDetector" to="Interactable Component" method="_on_player_visible_detector_body_exited"]
+[connection signal="area_entered" from="Interactable Component/PlayerMimicRaycastDetector" to="Interactable Component" method="_on_player_mimic_raycast_detector_area_entered"]
+[connection signal="area_exited" from="Interactable Component/PlayerMimicRaycastDetector" to="Interactable Component" method="_on_player_mimic_raycast_detector_area_exited"]
+
+[editable path="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1"]
+[editable path="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_2"]
+[editable path="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_3"]
+[editable path="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_4"]
