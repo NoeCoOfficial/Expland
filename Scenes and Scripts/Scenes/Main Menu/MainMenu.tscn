@@ -452,9 +452,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = 582.0
-offset_top = -90.0
+offset_top = -140.0
 offset_right = 784.0
-offset_bottom = -52.0
+offset_bottom = -102.0
 grow_horizontal = 2
 grow_vertical = 0
 focus_mode = 0
@@ -462,6 +462,24 @@ theme = SubResource("Theme_u5css")
 theme_override_fonts/font = ExtResource("11_1cstc")
 theme_override_font_sizes/font_size = 27
 text = "ACHIEVEMENTS"
+
+[node name="UpdatesButton" type="Button" parent="Camera3D/MainLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 582.0
+offset_top = -92.0
+offset_right = 713.0
+offset_bottom = -54.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme = SubResource("Theme_u5css")
+theme_override_fonts/font = ExtResource("11_1cstc")
+theme_override_font_sizes/font_size = 27
+text = "UPDATES"
 
 [node name="CreditsButton" type="Button" parent="Camera3D/MainLayer"]
 anchors_preset = 7
@@ -1147,9 +1165,9 @@ vertical_alignment = 1
 
 [node name="AudioNotification" parent="Camera3D/MainLayer/AudioNotificationLayer" instance=ExtResource("31_xncp6")]
 offset_left = 1152.0
-offset_top = 459.0
+offset_top = 387.0
 offset_right = 197.0
-offset_bottom = -101.0
+offset_bottom = -173.0
 
 [node name="ProtectiveLayer" type="Control" parent="Camera3D/MainLayer"]
 layout_mode = 3
@@ -1419,6 +1437,7 @@ transform = Transform3D(1.98326, -0.0362428, 0.0278266, 0.0357732, 1.98318, 0.03
 [connection signal="mouse_exited" from="Camera3D/MainLayer/QuitButtonTrigger" to="." method="_on_quit_button_trigger_mouse_exited"]
 [connection signal="pressed" from="Camera3D/MainLayer/QuitButtonTrigger" to="." method="_on_quit_button_trigger_pressed"]
 [connection signal="pressed" from="Camera3D/MainLayer/AchievementsButton" to="." method="_on_achievements_button_pressed"]
+[connection signal="pressed" from="Camera3D/MainLayer/UpdatesButton" to="." method="_on_updates_button_pressed"]
 [connection signal="pressed" from="Camera3D/MainLayer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="Camera3D/MainLayer/ExitGamemodeLayerButton" to="." method="_on_exit_gamemode_layer_button_pressed"]
 [connection signal="pressed" from="Camera3D/MainLayer/GameModeLayer/BG_StoryMode/PlayStoryModeButton" to="." method="_on_play_story_mode_button_pressed"]
