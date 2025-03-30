@@ -13,12 +13,12 @@
 ### Changed:
 - Changed health regeneration to +10 instead of +5 when sleeping
 
-## Fixed:
+### Fixed:
 - Fixed health bar not updating after gaining health when sleeping
 
 ## Inventory
 
-## Changed
+### Changed
 - In the process of an entire revamp; you now have 25 slots in your pockets instead of 16
 - Removed chest and crafting systems
 - Removed the ability to eat items
