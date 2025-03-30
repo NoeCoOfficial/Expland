@@ -49,12 +49,7 @@ extends Node
 
 var WORLD = null
 var PLAYER = null
-var INVENTORY_LAYER = null
-var CHEST_SLOTS = null
 var MINIMAL_ALERT_PLAYER = null
-
-var EXPLORER_NOTE_CONTENTS = null
-var EXPLORER_NOTE_TEXTURE_RECT = null
 
 var AudioNotification
 
@@ -65,13 +60,6 @@ var isIdle = true
 var is_walking_moving = false
 var is_sprinting_moving = false
 var is_crouching_moving = false
-
-func init():
-	WORLD = get_node("/root/World/")
-	PLAYER = get_node("/root/World/Player/")
-	CHEST_SLOTS = get_node("/root/World/Player/Head/Camera3D/InventoryLayer/InventoryMainLayer/ChestMainLayer/ChestSlots")
-	INVENTORY_LAYER = get_node("/root/World/Player/Head/Camera3D/InventoryLayer")
-	MINIMAL_ALERT_PLAYER = get_node("/root/World/Player//Head/Camera3D/MinimalAlertLayer/MinimalAlert")
 
 func sleep():
 	if PLAYER != null:
@@ -87,3 +75,9 @@ func eat(valueToIncreaseBy):
 		
 		PlayerData.Hunger = final_hunger_value
 		PLAYER.update_bar("HUNGER", true, PlayerData.Hunger)
+
+func openChest():
+	pass
+
+func closeChest():
+	pass

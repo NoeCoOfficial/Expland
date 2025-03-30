@@ -1,7 +1,30 @@
 <h1 align="center">Expland Changelog</h1>
 
+# v0.7.1 (released)
+
+---
+
+## Player
+
+### Added:
+- Added procedural health regeneration to the player
+
+### Changed:
+- Changed health regeneration to +10 instead of +5 when sleeping
+
+## Fixed:
+- Fixed health bar not updating after gaining health when sleeping
+
+## Inventory
+
+## Changed
+- In the process of an entire revamp; you now have 25 slots in your pockets instead of 16
+
+---
+
 # v0.7.0 (released)
 
+---
 
 ## Main Menu
 

@@ -47,9 +47,11 @@
 
 extends Node
 
-const VERSION = "v0.7.0"
+const VERSION = "v0.7.1"
 
 var is_first_time_in_menu = true
+var is_first_time_in_menu_no_startup = true
 var is_in_main_menu = true
+var is_main_menu_fading_out = true
 var the_island_transitioning_scene = false
 var main_menu_transitioning_scene = false

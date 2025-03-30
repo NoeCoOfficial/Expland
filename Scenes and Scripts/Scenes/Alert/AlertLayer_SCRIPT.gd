@@ -79,6 +79,9 @@ func spawnAlert(title : String, text : String, textFontSize : int, animationTime
 func despawnAlert(animationTime : float):
 	PauseManager.is_inside_alert = false
 	
+	if str(name) == "UpdatesLayer":
+		PauseManager.is_inside_updates_popup = false
+	
 	if PlayerSettingsData.quickAnimations:
 		$MainLayer.scale = Vector2(0.0, 0.0)
 		$GreyLayer.modulate = Color(1, 1, 1, 0)
@@ -91,6 +94,24 @@ func despawnAlert(animationTime : float):
 		await get_tree().create_timer(animationTime).timeout
 		
 		self.visible = false
+
+
+
+func popupAlert(animationTime : float):
+	PauseManager.is_inside_alert = true
+	
+	if str(name) == "UpdatesLayer":
+		PauseManager.is_inside_updates_popup = true
+	
+	self.visible = true
+	
+	if PlayerSettingsData.quickAnimations:
+		$MainLayer.scale = Vector2(1.0, 1.0)
+		$GreyLayer.modulate = Color(1, 1, 1, 1)
+	else:
+		var tween = get_tree().create_tween().set_parallel()
+		tween.tween_property($MainLayer, "scale", Vector2(1.0, 1.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+		tween.tween_property($GreyLayer, "modulate", Color(1, 1, 1, 1), animationTime)
 
 func _on_close_button_mouse_exited() -> void:
 	var tween = get_tree().create_tween()

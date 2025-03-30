@@ -53,7 +53,8 @@ var SAVE_PATH = ""
 var GAME_STATE = "NORMAL"
 var Health := 100
 var Hunger := 100
-var Hydration := 100
+
+var EffectNotificationScene = preload("uid://jajswfbkaut2")
 
 func saveData(Island_Name : String) -> void:
 	
@@ -65,16 +66,15 @@ func saveData(Island_Name : String) -> void:
 		Utils.createIslandSaveFolder(Island_Name, "STORY")
 		SAVE_PATH = "user://saveData/Story Mode/Islands/" + Island_Name + "/player.save"
 		
-	elif IslandManager.Current_Game_Mode == "STORY":
-		Utils.createIslandSaveFolder(Island_Name, "STORY")
+	elif IslandManager.Current_Game_Mode == "PARKOUR":
+		Utils.createIslandSaveFolder(Island_Name, "PARKOUR")
 		SAVE_PATH = "user://saveData/Parkour Mode/Runs/" + Island_Name + "/player.save"
 	
+	var Effects = {}
+	for child in PlayerManager.PLAYER.EffectNotificationGrid.get_children():
+		Effects[child.Current_Effect_Local] = (child.get_data_dict())
 	
-	var player = get_node("/root/World/Player")
-	var playerHead = get_node("/root/World/Player/Head")
-	var playerCamera = get_node("/root/World/Player/Head/Camera3D")
-	
-	if player:
+	if PlayerManager.PLAYER:
 		var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 		var data = {
 			"CURRENT_TIME" : TimeManager.CURRENT_TIME,
@@ -82,9 +82,10 @@ func saveData(Island_Name : String) -> void:
 			"GAME_STATE" : GAME_STATE,
 			"Health" : Health,
 			"Hunger" : Hunger,
-			"Position" : Utils.vector3_to_dict(player.position),
-			"HeadRotationY" : playerHead.rotation_degrees.y,
-			"CameraRotationX" : playerCamera.rotation_degrees.x,
+			"Effects" : Effects,
+			"Position" : Utils.vector3_to_dict(PlayerManager.PLAYER.position),
+			"HeadRotationY" : PlayerManager.PLAYER.head.rotation_degrees.y,
+			"CameraRotationX" : PlayerManager.PLAYER.camera.rotation_degrees.x,
 		}
 		
 		var jstr = JSON.stringify(data)
@@ -93,6 +94,31 @@ func saveData(Island_Name : String) -> void:
 		print("[PlayerData] --Saved Player Data--")
 	else:
 		printerr("[PlayerData] Player node not found. SaveData failed.")
+
+func save_data_new(file_path: String, data: Dictionary, key: String, image_path: String):
+	var file = FileAccess.open(file_path, FileAccess.WRITE)
+	if file != null:
+		# Encrypt the data
+		var encrypted_data = EncryptionManager.encrypt_data(data, key)
+		
+		# Save the encrypted data to the file
+		file.store_buffer(encrypted_data)  # Correctly calling it on the 'file' instance
+		
+		# Load the image and save it as bytes
+		var image = Image.new()
+		var img_data = null
+		if image.load(image_path) == OK:
+			img_data = image.save_png_to_buffer()  # Save image as PNG bytes
+		else:
+			# Fallback image if the original is invalid
+			var fallback_image = Image.new()
+			fallback_image.load("res://fallback_image.png")
+			img_data = fallback_image.save_png_to_buffer()
+		
+		# Save the image bytes to the file
+		file.store_buffer(img_data)  # Correctly calling it on the 'file' instance
+		
+		file.close()
 
 func loadData(Island_Name : String, withOutput : bool) -> void:
 	
@@ -125,19 +151,17 @@ func loadData(Island_Name : String, withOutput : bool) -> void:
 			Hunger = current_line["Hunger"]
 			GAME_STATE = current_line["GAME_STATE"]
 			
-			var player = get_node("/root/World/Player")
-			var playerHead = get_node("/root/World/Player/Head")
-			var playerCamera = get_node("/root/World/Player/Head/Camera3D")
-			
-			if player:
+			if PlayerManager.PLAYER:
 				
+				for effect_key in current_line["Effects"].keys():
+					var effect = current_line["Effects"][effect_key]
+					var instance = EffectNotificationScene.instantiate()
+					PlayerManager.PLAYER.EffectNotificationGrid.add_child(instance)
+					instance.init(effect["E_time"], effect["E_name"])
 				
-				player.position = Utils.dict_to_vector3(current_line["Position"]) ## Player Position
-				
-				playerHead.rotation_degrees.y = current_line["HeadRotationY"] ## Restore head rotation (only Y-axis)
-				
-				playerCamera.rotation_degrees.x = current_line["CameraRotationX"] ## Restore camera rotation (only X-axis)
-				
+				PlayerManager.PLAYER.position = Utils.dict_to_vector3(current_line["Position"]) ## Player Position
+				PlayerManager.PLAYER.head.rotation_degrees.y = current_line["HeadRotationY"] ## Restore head rotation (only Y-axis)
+				PlayerManager.PLAYER.camera.rotation_degrees.x = current_line["CameraRotationX"] ## Restore camera rotation (only X-axis)
 				
 				if withOutput:
 					print_rich("[center][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf][font_size=30]-- PLAYER DATA HAS BEEN LOADED --[/font_size][/font][/center]")
@@ -146,9 +170,9 @@ func loadData(Island_Name : String, withOutput : bool) -> void:
 					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Health: " + str(Health) + "[/font][/font_size][/center]")
 					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Hunger: " + str(Hunger) + "[/font][/font_size][/center]")
 					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Game State: " + GAME_STATE + "[/font][/font_size][/center]")
-					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Player Position: " + str(player.position) + "[/font][/font_size][/center]")
-					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Head Y-Axis Rotation: " + str(playerHead.rotation_degrees.y) + "[/font][/font_size][/center]")
-					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Camera X-Axis Rotation: " + str(playerCamera.rotation_degrees.x) + "[/font][/font_size][/center]")
+					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Player Position: " + str(PlayerManager.PLAYER.position) + "[/font][/font_size][/center]")
+					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Head Y-Axis Rotation: " + str(PlayerManager.PLAYER.head.rotation_degrees.y) + "[/font][/font_size][/center]")
+					print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Camera X-Axis Rotation: " + str(PlayerManager.PLAYER.camera.rotation_degrees.x) + "[/font][/font_size][/center]")
 			else:
 				printerr("[PlayerData] Player node not found. LoadData failed. 
 				THIS MAY BE DUE TO YOUR PLAYER SCENE NOT BEING INSTANTIATED PROPERLY! 
@@ -157,3 +181,44 @@ func loadData(Island_Name : String, withOutput : bool) -> void:
 				AND THE PLAYER NEEDS TO BE A CHILD OF THAT ROOT NODE AND CALLED 'Player'.")
 			
 		file.close()
+
+func load_data(file_path: String, key: String) -> Dictionary:
+	var file = FileAccess.open(file_path, FileAccess.READ)
+	var result = {}
+
+	if file != null:
+		# Read encrypted data from the file
+		var encrypted_data = file.get_buffer(file.get_length())
+		
+		# Decrypt the data
+		var decrypted_data = EncryptionManager.decrypt_data(encrypted_data, key)
+		
+		# Convert the decrypted data back to a Dictionary (assuming JSON format)
+		var json = JSON.new()
+		var error = json.parse(decrypted_data)
+		if error != OK:
+			print("Error parsing JSON")
+			file.close()
+			return result
+		
+		# Extract the decrypted dictionary
+		result = json.get_data()
+
+		# Read image bytes from the file
+		var img_data = file.get_buffer(file.get_length())
+		var image = Image.new()
+		if image.load_png_from_buffer(img_data) != OK:
+			# Fallback image if the original is invalid
+			var fallback_image = Image.new()
+			fallback_image.load("res://fallback_image.png")
+			image = fallback_image
+		
+		# You can return the image or process it further as needed.
+		# Here, we are returning the data and image (or fallback image).
+		result["image"] = image
+		
+		file.close()
+		return result
+	else:
+		print("Failed to open file for reading")
+		return result
