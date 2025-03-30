@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=57 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" uid="uid://uvd1eie30b14" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="PackedScene" uid="uid://jb61th5px5nt" path="res://Assets/3D Models/Tests/Island/Island 2.blend" id="2_0llf6"]
@@ -44,6 +44,7 @@
 [ext_resource type="PackedScene" uid="uid://bbc10j8mbwjbn" path="res://Scenes and Scripts/Scenes/Audio/AudioNotification.tscn" id="31_xncp6"]
 [ext_resource type="Script" uid="uid://b2koo4upy744h" path="res://Scenes and Scripts/Scenes/Alert/AlertLayer_SCRIPT.gd" id="34_so3ya"]
 [ext_resource type="FontFile" uid="uid://b2o44xwqnsb5k" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf" id="35_hsmjp"]
+[ext_resource type="FontFile" uid="uid://c4h0gd5a2e2qb" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf" id="35_srfqj"]
 [ext_resource type="RibbonTrailMesh" uid="uid://dg43yr7xlvtnq" path="res://Resources/Meshes/Rain_Mesh.tres" id="43_cjd7a"]
 
 [sub_resource type="Animation" id="Animation_6cyol"]
@@ -1141,7 +1142,7 @@ offset_bottom = -548.0
 
 [node name="UpdatesLayer" type="CanvasLayer" parent="Camera3D/MainLayer"]
 
-[node name="AlertLayer" type="Control" parent="Camera3D/MainLayer/UpdatesLayer"]
+[node name="UpdatesLayer" type="Control" parent="Camera3D/MainLayer/UpdatesLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1150,7 +1151,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("34_so3ya")
 
-[node name="GreyLayer" type="ColorRect" parent="Camera3D/MainLayer/UpdatesLayer/AlertLayer"]
+[node name="GreyLayer" type="ColorRect" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1160,7 +1161,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.643)
 script = ExtResource("10_y68f7")
 
-[node name="MainLayer" type="Control" parent="Camera3D/MainLayer/UpdatesLayer/AlertLayer"]
+[node name="MainLayer" type="Control" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1168,7 +1169,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BG" type="Button" parent="Camera3D/MainLayer/UpdatesLayer/AlertLayer/MainLayer"]
+[node name="BG" type="Button" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1186,7 +1187,7 @@ theme_override_styles/hover = ExtResource("11_613mu")
 theme_override_styles/pressed = ExtResource("11_613mu")
 theme_override_styles/normal = ExtResource("11_613mu")
 
-[node name="TextBG" type="Button" parent="Camera3D/MainLayer/UpdatesLayer/AlertLayer/MainLayer"]
+[node name="TextBG" type="Button" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1204,7 +1205,7 @@ theme_override_styles/hover = ExtResource("21_v2lsw")
 theme_override_styles/pressed = ExtResource("21_v2lsw")
 theme_override_styles/normal = ExtResource("21_v2lsw")
 
-[node name="VersionBG" type="Button" parent="Camera3D/MainLayer/UpdatesLayer/AlertLayer/MainLayer"]
+[node name="VersionBG" type="Button" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1222,7 +1223,7 @@ theme_override_styles/hover = ExtResource("21_v2lsw")
 theme_override_styles/pressed = ExtResource("21_v2lsw")
 theme_override_styles/normal = ExtResource("21_v2lsw")
 
-[node name="Title_Version" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/AlertLayer/MainLayer"]
+[node name="Title_Version" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1243,22 +1244,22 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="VersionScrollContainer" type="ScrollContainer" parent="Camera3D/MainLayer/UpdatesLayer/AlertLayer/MainLayer"]
+[node name="VersionScrollContainer" type="ScrollContainer" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer"]
 layout_mode = 0
 offset_left = 227.0
 offset_top = 179.0
 offset_right = 527.0
 offset_bottom = 545.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Camera3D/MainLayer/UpdatesLayer/AlertLayer/MainLayer/VersionScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer"]
 layout_mode = 2
 theme_override_constants/separation = 55
 alignment = 1
 
-[node name="v0_7_1" type="Control" parent="Camera3D/MainLayer/UpdatesLayer/AlertLayer/MainLayer/VersionScrollContainer/VBoxContainer"]
+[node name="v0_7_1" type="Control" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Btn" type="Button" parent="Camera3D/MainLayer/UpdatesLayer/AlertLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_7_1"]
+[node name="v0_7_1_Btn" type="Button" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_7_1"]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 4.0
@@ -1266,7 +1267,146 @@ offset_right = 281.0
 offset_bottom = 55.0
 theme = ExtResource("4_grlcg")
 
-[node name="Title" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/AlertLayer/MainLayer"]
+[node name="Title" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_7_1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 14.0
+offset_top = 16.0
+offset_right = 272.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_grlcg")
+theme_override_fonts/font = ExtResource("35_srfqj")
+theme_override_font_sizes/font_size = 25
+text = "v0.7.1 (Latest)"
+vertical_alignment = 1
+
+[node name="v0_7_0" type="Control" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="v0_7_0_Btn" type="Button" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_7_0"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = 281.0
+offset_bottom = 55.0
+theme = ExtResource("4_grlcg")
+
+[node name="Title" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_7_0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 14.0
+offset_top = 16.0
+offset_right = 272.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_grlcg")
+theme_override_fonts/font = ExtResource("35_srfqj")
+theme_override_font_sizes/font_size = 25
+text = "v0.7.0"
+vertical_alignment = 1
+
+[node name="v0_6_5" type="Control" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="v0_6_5_Btn" type="Button" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_6_5"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = 281.0
+offset_bottom = 55.0
+theme = ExtResource("4_grlcg")
+
+[node name="Title" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_6_5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 14.0
+offset_top = 16.0
+offset_right = 272.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_grlcg")
+theme_override_fonts/font = ExtResource("35_srfqj")
+theme_override_font_sizes/font_size = 25
+text = "v0.6.5"
+vertical_alignment = 1
+
+[node name="v0_6_0" type="Control" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="v0_7_0_Btn" type="Button" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_6_0"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = 281.0
+offset_bottom = 55.0
+theme = ExtResource("4_grlcg")
+
+[node name="Title" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_6_0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 14.0
+offset_top = 16.0
+offset_right = 272.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_grlcg")
+theme_override_fonts/font = ExtResource("35_srfqj")
+theme_override_font_sizes/font_size = 25
+text = "v0.7.0"
+vertical_alignment = 1
+
+[node name="v0_5_5" type="Control" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="v0_5_0_Btn" type="Button" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_5_5"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = 281.0
+offset_bottom = 55.0
+theme = ExtResource("4_grlcg")
+
+[node name="Title" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_5_5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 14.0
+offset_top = 16.0
+offset_right = 272.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_grlcg")
+theme_override_fonts/font = ExtResource("35_srfqj")
+theme_override_font_sizes/font_size = 25
+text = "v0.7.0"
+vertical_alignment = 1
+
+[node name="Title" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1286,12 +1426,12 @@ text = "Updates"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CloseButton" type="TextureButton" parent="Camera3D/MainLayer/UpdatesLayer/AlertLayer/MainLayer"]
+[node name="CloseButton" type="TextureButton" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.199653
+anchor_left = 0.19184
 anchor_top = 0.125
-anchor_right = 0.231771
+anchor_right = 0.223958
 anchor_bottom = 0.182099
 texture_normal = ExtResource("8_rn1to")
 ignore_texture_size = true
@@ -1612,9 +1752,9 @@ transform = Transform3D(1.98326, -0.0362428, 0.0278266, 0.0357732, 1.98318, 0.03
 [connection signal="pressed" from="Camera3D/MainLayer/DeleteIslandPopup/DeleteIslandPopupMain/DeleteIsland_No" to="." method="_on_delete_island_no_pressed"]
 [connection signal="pressed" from="Camera3D/MainLayer/DeleteIslandPopup/DeleteIslandPopupMain/DeleteIsland_Yes" to="." method="_on_delete_island_yes_pressed"]
 [connection signal="FinishedDialogue" from="Camera3D/MainLayer/DialogueLayer/DialogueInterface" to="." method="_on_dialogue_interface_finished_dialogue"]
-[connection signal="mouse_entered" from="Camera3D/MainLayer/UpdatesLayer/AlertLayer/MainLayer/CloseButton" to="Camera3D/MainLayer/UpdatesLayer/AlertLayer" method="_on_close_button_mouse_entered"]
-[connection signal="mouse_exited" from="Camera3D/MainLayer/UpdatesLayer/AlertLayer/MainLayer/CloseButton" to="Camera3D/MainLayer/UpdatesLayer/AlertLayer" method="_on_close_button_mouse_exited"]
-[connection signal="pressed" from="Camera3D/MainLayer/UpdatesLayer/AlertLayer/MainLayer/CloseButton" to="Camera3D/MainLayer/UpdatesLayer/AlertLayer" method="_on_close_button_pressed"]
+[connection signal="mouse_entered" from="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/CloseButton" to="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer" method="_on_close_button_mouse_entered"]
+[connection signal="mouse_exited" from="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/CloseButton" to="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer" method="_on_close_button_mouse_exited"]
+[connection signal="pressed" from="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/CloseButton" to="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer" method="_on_close_button_pressed"]
 [connection signal="mouse_entered" from="Camera3D/AlertLayer/AlertLayer/MainLayer/CloseButton" to="Camera3D/AlertLayer/AlertLayer" method="_on_close_button_mouse_entered"]
 [connection signal="mouse_exited" from="Camera3D/AlertLayer/AlertLayer/MainLayer/CloseButton" to="Camera3D/AlertLayer/AlertLayer" method="_on_close_button_mouse_exited"]
 [connection signal="pressed" from="Camera3D/AlertLayer/AlertLayer/MainLayer/CloseButton" to="Camera3D/AlertLayer/AlertLayer" method="_on_close_button_pressed"]
