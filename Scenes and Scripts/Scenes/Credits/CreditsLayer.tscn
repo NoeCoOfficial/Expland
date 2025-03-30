@@ -114,6 +114,7 @@ offset_left = 417.0
 offset_top = 162.0
 offset_right = 735.0
 offset_bottom = 533.0
+scroll_vertical = 510
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainLayer/ScrollContainer"]
 layout_mode = 2
@@ -343,12 +344,12 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="GodotIcon" type="Sprite2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
-position = Vector2(115, 710)
+position = Vector2(115, 734)
 scale = Vector2(0.06, 0.06)
 texture = ExtResource("15_ny2xt")
 
 [node name="RedHeartIcon" type="Sprite2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
-position = Vector2(189.375, 712.044)
+position = Vector2(189.375, 736.044)
 scale = Vector2(0.0657484, 0.0545605)
 texture = ExtResource("11_m50j2")
 
@@ -397,7 +398,7 @@ theme_override_font_sizes/font_size = 30
 text = "OPEN      "
 
 [node name="OpenExternalLinkWhiteIcon" type="Sprite2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
-position = Vector2(188.375, 837.625)
+position = Vector2(188.375, 861.625)
 scale = Vector2(0.103333, 0.103333)
 texture = ExtResource("12_lbc4b")
 

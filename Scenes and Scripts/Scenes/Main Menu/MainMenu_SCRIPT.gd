@@ -75,6 +75,8 @@ var is_tweening = false
 # ---------------------------------------------------------------------------- #
 
 func _ready() -> void:
+	if !Global.is_first_time_in_menu:
+		Global.is_first_time_in_menu_no_startup = true
 	initialize_audio()
 	initialize_globals()
 	initialize_ui()
@@ -158,7 +160,7 @@ func onStartup():
 		$Camera3D/MainLayer/AudioNotificationLayer/fade_timer_time_left.hide()
 		$Camera3D/MainLayer/AudioNotificationLayer/fade_timer_time_left_title.hide()
 	
-	if Global.is_first_time_in_menu:
+	if Global.is_first_time_in_menu_no_startup:
 		$Camera3D/AlertLayer/AlertLayer.spawnAlert("v0.7.1 notice", "", 15, 0.5)
 	
 	fadeOut($Camera3D/TopLayer/FadeOut)
@@ -583,8 +585,8 @@ func _on_tree_entered() -> void:
 	Global.is_in_main_menu = true
 
 func _on_tree_exited() -> void:
+	Global.is_first_time_in_menu_no_startup = false
 	Global.is_in_main_menu = false
-	
 
 func _on_checks_timer_timeout() -> void:
 	if Global.is_first_time_in_menu:
