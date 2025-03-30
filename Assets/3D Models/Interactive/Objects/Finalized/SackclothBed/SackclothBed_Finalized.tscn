@@ -1,8 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://ceeflh1bhg0ei"]
+[gd_scene load_steps=9 format=3 uid="uid://ceeflh1bhg0ei"]
 
 [ext_resource type="PackedScene" uid="uid://vnk7463heub8" path="res://Assets/3D Models/Interactive/Objects/Models/SackclothBed.blend" id="1_vw55b"]
+[ext_resource type="Script" uid="uid://cjjnevo5pn5cx" path="res://Assets/3D Models/Interactive/Objects/Finalized/SackclothBed/SackclothBed_Finalized_SCRIPT.gd" id="2_4txhd"]
 [ext_resource type="Script" uid="uid://bi02uk7qwshyf" path="res://Scenes and Scripts/Scenes/Components/Interactable Component/Interactable_Component_SCRIPT.gd" id="2_mwyu2"]
 [ext_resource type="PackedScene" uid="uid://cmt00ehn4hfne" path="res://Scenes and Scripts/Scenes/General/UI/MessageWithKeyUI.tscn" id="3_4txhd"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_dklh4"]
+action = &"Interact"
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_mwyu2"]
 viewport_path = NodePath("Interactable Component/Contents/UI/SubViewport")
@@ -14,6 +18,7 @@ size = Vector3(5, 5, 5)
 size = Vector3(3.53358, 1.04309, 1.63141)
 
 [node name="SackclothBed" instance=ExtResource("1_vw55b")]
+script = ExtResource("2_4txhd")
 
 [node name="Interactable Component" type="Node3D" parent="." index="22" node_paths=PackedStringArray("Contents_Node", "SubViewport_Node", "UI_Sprite_Node", "UI_1", "UI_2", "UI_3", "UI_4")]
 script = ExtResource("2_mwyu2")
@@ -24,6 +29,8 @@ UI_1 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_1")
 UI_2 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_2")
 UI_3 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_3")
 UI_4 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_4")
+UseAction1 = true
+ActionToPress_1 = SubResource("InputEventAction_dklh4")
 
 [node name="Contents" type="Node3D" parent="Interactable Component" index="0"]
 
