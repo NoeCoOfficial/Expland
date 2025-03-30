@@ -157,8 +157,10 @@ func onStartup():
 	if !OS.is_debug_build():
 		$Camera3D/MainLayer/AudioNotificationLayer/fade_timer_time_left.hide()
 		$Camera3D/MainLayer/AudioNotificationLayer/fade_timer_time_left_title.hide()
-		
+	
+	
 	fadeOut($Camera3D/TopLayer/FadeOut)
+	$Camera3D/AlertLayer/AlertLayer.spawnAlert("v0.7.5 notice", "", 15, 0.5)
 	$Camera3D/MainLayer/Version_LBL.visible = true
 	
 	# Menu animation (in the form of tweens)
