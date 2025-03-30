@@ -1525,6 +1525,7 @@ NailRotation_Degrees = Vector3(-2.34, -23.005, 2.495)
 [connection signal="timeout" from="Weather Timer" to="." method="_on_weather_timer_timeout"]
 [connection signal="body_entered" from="Terrain Areas/STONE" to="island_Terrain_Switcher" method="_on_stone_body_entered"]
 [connection signal="body_exited" from="Terrain Areas/STONE" to="island_Terrain_Switcher" method="_on_stone_body_exited"]
+[connection signal="Action1_Triggered" from="DialogueTest/Interactable Component" to="." method="_on_test_dialogue_start_action_triggered"]
 [connection signal="body_entered" from="DialogueTest/Interactable Component/Contents/PlayerVisibleDetector" to="DialogueTest/Interactable Component" method="_on_player_visible_detector_body_entered"]
 [connection signal="body_exited" from="DialogueTest/Interactable Component/Contents/PlayerVisibleDetector" to="DialogueTest/Interactable Component" method="_on_player_visible_detector_body_exited"]
 [connection signal="area_entered" from="DialogueTest/Interactable Component/PlayerMimicRaycastDetector" to="DialogueTest/Interactable Component" method="_on_player_mimic_raycast_detector_area_entered"]

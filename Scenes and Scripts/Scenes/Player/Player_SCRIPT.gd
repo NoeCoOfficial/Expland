@@ -1221,6 +1221,9 @@ func _on_area_collision_shape_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("temp_spike"):
 		takeDamage(14)
 
+func _on_area_collision_shape_3d_area_entered(area: Area3D) -> void:
+	pass
+
 #endregion
 
 #region Player Stats
