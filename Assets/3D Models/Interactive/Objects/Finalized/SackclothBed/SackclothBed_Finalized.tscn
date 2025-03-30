@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ceeflh1bhg0ei"]
+[gd_scene load_steps=7 format=3 uid="uid://ceeflh1bhg0ei"]
 
 [ext_resource type="PackedScene" uid="uid://vnk7463heub8" path="res://Assets/3D Models/Interactive/Objects/Models/SackclothBed.blend" id="1_vw55b"]
 [ext_resource type="Script" uid="uid://bi02uk7qwshyf" path="res://Scenes and Scripts/Scenes/Components/Interactable Component/Interactable_Component_SCRIPT.gd" id="2_mwyu2"]
 [ext_resource type="PackedScene" uid="uid://cmt00ehn4hfne" path="res://Scenes and Scripts/Scenes/General/UI/MessageWithKeyUI.tscn" id="3_4txhd"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_mwyu2"]
+viewport_path = NodePath("Interactable Component/Contents/UI/SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mwyu2"]
 size = Vector3(5, 5, 5)
@@ -25,9 +28,10 @@ UI_4 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_4")
 [node name="Contents" type="Node3D" parent="Interactable Component" index="0"]
 
 [node name="UI" type="Sprite3D" parent="Interactable Component/Contents" index="0"]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.241689, 0.851049, -0.210252)
 billboard = 1
 no_depth_test = true
+texture = SubResource("ViewportTexture_mwyu2")
 
 [node name="SubViewport" type="SubViewport" parent="Interactable Component/Contents/UI" index="0"]
 transparent_bg = true
