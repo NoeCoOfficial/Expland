@@ -405,7 +405,7 @@ func _on_achievements_button_pressed() -> void:
 	$Camera3D/MainLayer/AchievementsUI.spawnAchievements(0.5)
 
 func _on_updates_button_pressed() -> void:
-	pass # Replace with function body.
+	$Camera3D/MainLayer/UpdatesLayer/UpdatesLayer.popupAlert(0.5)
 
 func _on_credits_button_pressed() -> void:
 	$Camera3D/MainLayer/CreditsLayer.spawnCredits(0.5)
@@ -651,3 +651,12 @@ func _on_tree_exiting() -> void:
 		if loadIslandThread.is_alive():
 			loadIslandThread.wait_to_finish()
 			loadIslandThread = null
+
+############################################
+
+func _on_v_0_7_1_btn_pressed() -> void:
+	for child in $Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer.get_children():
+		if str(child.name) == "v0_7_1":
+			child.visible = true	
+		else:
+			child.visible = false

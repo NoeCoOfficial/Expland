@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=58 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" uid="uid://uvd1eie30b14" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="PackedScene" uid="uid://jb61th5px5nt" path="res://Assets/3D Models/Tests/Island/Island 2.blend" id="2_0llf6"]
@@ -45,6 +45,7 @@
 [ext_resource type="Script" uid="uid://b2koo4upy744h" path="res://Scenes and Scripts/Scenes/Alert/AlertLayer_SCRIPT.gd" id="34_so3ya"]
 [ext_resource type="FontFile" uid="uid://b2o44xwqnsb5k" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf" id="35_hsmjp"]
 [ext_resource type="FontFile" uid="uid://c4h0gd5a2e2qb" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf" id="35_srfqj"]
+[ext_resource type="FontFile" uid="uid://duhkn1q8s6i3m" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Medium.otf" id="36_srfqj"]
 [ext_resource type="RibbonTrailMesh" uid="uid://dg43yr7xlvtnq" path="res://Resources/Meshes/Rain_Mesh.tres" id="43_cjd7a"]
 
 [sub_resource type="Animation" id="Animation_6cyol"]
@@ -1143,6 +1144,7 @@ offset_bottom = -548.0
 [node name="UpdatesLayer" type="CanvasLayer" parent="Camera3D/MainLayer"]
 
 [node name="UpdatesLayer" type="Control" parent="Camera3D/MainLayer/UpdatesLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1286,18 +1288,20 @@ theme_override_font_sizes/font_size = 25
 text = "v0.7.1 (Latest)"
 vertical_alignment = 1
 
-[node name="v0_7_0" type="Control" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer"]
+[node name="MoreComingSoon" type="Control" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="v0_7_0_Btn" type="Button" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_7_0"]
+[node name="MoreComingSoonBtn" type="Button" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/MoreComingSoon"]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 4.0
 offset_right = 281.0
 offset_bottom = 55.0
 theme = ExtResource("4_grlcg")
+disabled = true
 
-[node name="Title" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_7_0"]
+[node name="Title" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/MoreComingSoon"]
+modulate = Color(0.332881, 0.332881, 0.332881, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1313,97 +1317,7 @@ grow_vertical = 2
 theme = ExtResource("4_grlcg")
 theme_override_fonts/font = ExtResource("35_srfqj")
 theme_override_font_sizes/font_size = 25
-text = "v0.7.0"
-vertical_alignment = 1
-
-[node name="v0_6_5" type="Control" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="v0_6_5_Btn" type="Button" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_6_5"]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 4.0
-offset_right = 281.0
-offset_bottom = 55.0
-theme = ExtResource("4_grlcg")
-
-[node name="Title" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_6_5"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 14.0
-offset_top = 16.0
-offset_right = 272.0
-offset_bottom = 45.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("4_grlcg")
-theme_override_fonts/font = ExtResource("35_srfqj")
-theme_override_font_sizes/font_size = 25
-text = "v0.6.5"
-vertical_alignment = 1
-
-[node name="v0_6_0" type="Control" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="v0_6_0_Btn" type="Button" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_6_0"]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 4.0
-offset_right = 281.0
-offset_bottom = 55.0
-theme = ExtResource("4_grlcg")
-
-[node name="Title" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_6_0"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 14.0
-offset_top = 16.0
-offset_right = 272.0
-offset_bottom = 45.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("4_grlcg")
-theme_override_fonts/font = ExtResource("35_srfqj")
-theme_override_font_sizes/font_size = 25
-text = "v0.6.0"
-vertical_alignment = 1
-
-[node name="v0_5_5" type="Control" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="v0_5_5_Btn" type="Button" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_5_5"]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 4.0
-offset_right = 281.0
-offset_bottom = 55.0
-theme = ExtResource("4_grlcg")
-
-[node name="Title" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_5_5"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 14.0
-offset_top = 16.0
-offset_right = 272.0
-offset_bottom = 45.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("4_grlcg")
-theme_override_fonts/font = ExtResource("35_srfqj")
-theme_override_font_sizes/font_size = 25
-text = "v0.5.5"
+text = "More coming soon"
 vertical_alignment = 1
 
 [node name="VersionInfoTextScrollContainer" type="ScrollContainer" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer"]
@@ -1412,37 +1326,52 @@ offset_left = 540.0
 offset_top = 138.0
 offset_right = 926.0
 offset_bottom = 542.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer"]
 layout_mode = 2
-theme_override_constants/separation = 55
+theme_override_constants/separation = 1565
 alignment = 1
 
 [node name="v0_7_1" type="Control" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 659.214)
 layout_mode = 2
 
-[node name="Title" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer/v0_7_1"]
-layout_mode = 0
-offset_left = 135.0
-offset_top = 8.0
-offset_right = 243.0
-offset_bottom = 60.992
-theme = ExtResource("4_grlcg")
-theme_override_fonts/font = ExtResource("35_srfqj")
-theme_override_font_sizes/font_size = 46
-text = "v0.7.1"
+[node name="Main" type="Control" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer/v0_7_1"]
+anchors_preset = 0
+offset_right = 386.0
+offset_bottom = 404.0
 
-[node name="Decription1" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer/v0_7_1"]
+[node name="Title" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer/v0_7_1/Main"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 46.0
-offset_top = 56.136
-offset_right = 342.0
-offset_bottom = 138.864
+offset_left = -54.0
+offset_top = -189.496
+offset_right = 54.0
+offset_bottom = -136.504
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_grlcg")
+theme_override_fonts/font = ExtResource("35_srfqj")
+theme_override_font_sizes/font_size = 46
+text = "v0.7.1"
+
+[node name="Decription1" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer/v0_7_1/Main"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = -138.364
+offset_right = 148.0
+offset_bottom = -55.636
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_grlcg")
@@ -1451,23 +1380,96 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Decription2" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer/v0_7_1"]
+[node name="Divider" type="Line2D" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer/v0_7_1/Main"]
+position = Vector2(62, 159.136)
+points = PackedVector2Array(-2, 0, 264, 0)
+width = 1.5
+default_color = Color(0.233926, 0.233925, 0.233925, 1)
+
+[node name="Decription2" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer/v0_7_1/Main"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 46.0
-offset_top = 144.136
-offset_right = 342.0
-offset_bottom = 226.864
+offset_left = -148.0
+offset_top = -33.0
+offset_right = 148.0
+offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_grlcg")
+theme_override_font_sizes/font_size = 26
 text = "Player"
-horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Decription3" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer/v0_7_1/Main"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = 6.62393
+offset_right = 148.0
+offset_bottom = 281.376
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_grlcg")
+theme_override_fonts/font = ExtResource("36_srfqj")
+text = "Added:
+- Added procedural health regeneration to the player
+- An all new interaction system with world UI
+
+Changed:
+- Changed health regeneration to +10 instead of +5 when sleeping
+
+Fixed:
+- Fixed health bar not updating after gaining health when sleeping"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Decription4" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer/v0_7_1/Main"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = 295.0
+offset_right = 148.0
+offset_bottom = 334.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_grlcg")
+theme_override_font_sizes/font_size = 26
+text = "Inventory"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Decription5" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer/v0_7_1/Main"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = 334.0
+offset_right = 148.0
+offset_bottom = 459.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_grlcg")
+theme_override_fonts/font = ExtResource("36_srfqj")
+text = "Changed:
+- Pockets now have 25 slots instead of 16 slots to store items
+- Removed chest and crafting systems
+- Removed to ability to eat items"
 autowrap_mode = 3
 
 [node name="Title" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer"]
@@ -1543,7 +1545,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="AlertLayer" type="CanvasLayer" parent="Camera3D"]
 layer = 2
-visible = false
 
 [node name="AlertLayer" type="Control" parent="Camera3D/AlertLayer"]
 layout_mode = 3
@@ -1709,7 +1710,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="TopLayer" type="CanvasLayer" parent="Camera3D"]
 layer = 128
-visible = false
 
 [node name="FadeOut" type="ColorRect" parent="Camera3D/TopLayer"]
 anchors_preset = 15
@@ -1816,6 +1816,7 @@ transform = Transform3D(1.98326, -0.0362428, 0.0278266, 0.0357732, 1.98318, 0.03
 [connection signal="pressed" from="Camera3D/MainLayer/DeleteIslandPopup/DeleteIslandPopupMain/DeleteIsland_No" to="." method="_on_delete_island_no_pressed"]
 [connection signal="pressed" from="Camera3D/MainLayer/DeleteIslandPopup/DeleteIslandPopupMain/DeleteIsland_Yes" to="." method="_on_delete_island_yes_pressed"]
 [connection signal="FinishedDialogue" from="Camera3D/MainLayer/DialogueLayer/DialogueInterface" to="." method="_on_dialogue_interface_finished_dialogue"]
+[connection signal="pressed" from="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_7_1/v0_7_1_Btn" to="." method="_on_v_0_7_1_btn_pressed"]
 [connection signal="mouse_entered" from="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/CloseButton" to="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer" method="_on_close_button_mouse_entered"]
 [connection signal="mouse_exited" from="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/CloseButton" to="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer" method="_on_close_button_mouse_exited"]
 [connection signal="pressed" from="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/CloseButton" to="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer" method="_on_close_button_pressed"]
