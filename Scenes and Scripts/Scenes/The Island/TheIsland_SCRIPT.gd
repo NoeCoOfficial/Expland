@@ -416,9 +416,6 @@ func change_weather_instant(GOTO_WEATHER_STR : String, PREVIOUS_WEATHER_STR : St
 		pass
 
 
-
-
-
 func _on_rain_color_fade_out_finished():
 	$Rain.emitting = false
 
@@ -436,3 +433,9 @@ func init_weather_instant():
 	$"Weather Timer".stop()
 	#$"Weather Timer".wait_time = randi_range(400, 1000)
 	$"Weather Timer".start()
+
+#####################################
+
+
+func _on_test_dialogue_start_action_triggered() -> void:
+	DialogueManager.startDialogue(DialogueManager.testDialogue)

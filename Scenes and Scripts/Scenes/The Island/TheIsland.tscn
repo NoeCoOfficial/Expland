@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=3 uid="uid://c5jkrckgqd0w6"]
+[gd_scene load_steps=113 format=3 uid="uid://c5jkrckgqd0w6"]
 
 [ext_resource type="Script" uid="uid://cucb4fwieubx" path="res://Scenes and Scripts/Scenes/The Island/TheIsland_SCRIPT.gd" id="1_a8sfg"]
 [ext_resource type="Environment" uid="uid://dgtwdwq2n0x1v" path="res://Resources/Environment/TheIsland_WorldEnvironment.tres" id="2_h46kk"]
@@ -401,6 +401,17 @@ uv1_triplanar = true
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_yln1k"]
 points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
 
+[sub_resource type="InputEventAction" id="InputEventAction_1rf0p"]
+action = &"Interact"
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_1rf0p"]
+viewport_path = NodePath("DialogueTest/Interactable Component/Contents/UI/SubViewport")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fvca7"]
+size = Vector3(4.19315, 5, 7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_00rnx"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cfqaf"]
 albedo_texture = ExtResource("46_h84sd")
 uv1_scale = Vector3(0.8, 0.8, 0.8)
@@ -415,7 +426,7 @@ viewport_path = NodePath("Item_Workshop/Interactable Component/Contents/UI/SubVi
 [sub_resource type="BoxShape3D" id="BoxShape3D_1rf0p"]
 size = Vector3(4.19315, 5, 7)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_00rnx"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_5oxf6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_svbei"]
 albedo_texture = ExtResource("43_a63ti")
@@ -669,15 +680,152 @@ shape = SubResource("BoxShape3D_747t0")
 [node name="RayCastingTest" parent="." instance=ExtResource("37_btdyg")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -388.434, 2.96464, 279.914)
 
-[node name="DialogueTester" type="StaticBody3D" parent="." groups=["dialogue_test"]]
+[node name="DialogueTest" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -391.523, 1.11121, 280.266)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="DialogueTester"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DialogueTest"]
 material_override = SubResource("StandardMaterial3D_agd54")
 mesh = SubResource("BoxMesh_o20mk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DialogueTester"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DialogueTest"]
 shape = SubResource("ConvexPolygonShape3D_yln1k")
+
+[node name="Interactable Component" type="Node3D" parent="DialogueTest" node_paths=PackedStringArray("Contents_Node", "SubViewport_Node", "UI_Sprite_Node", "UI_1", "UI_2", "UI_3", "UI_4")]
+script = ExtResource("21_32fgl")
+Contents_Node = NodePath("Contents")
+SubViewport_Node = NodePath("Contents/UI/SubViewport")
+UI_Sprite_Node = NodePath("Contents/UI")
+UI_1 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_1")
+UI_2 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_2")
+UI_3 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_3")
+UI_4 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_4")
+UseAction1 = true
+ActionToPress_1 = SubResource("InputEventAction_1rf0p")
+
+[node name="Contents" type="Node3D" parent="DialogueTest/Interactable Component"]
+
+[node name="UI" type="Sprite3D" parent="DialogueTest/Interactable Component/Contents"]
+transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 0, 0, 0)
+billboard = 1
+no_depth_test = true
+texture = SubResource("ViewportTexture_1rf0p")
+
+[node name="SubViewport" type="SubViewport" parent="DialogueTest/Interactable Component/Contents/UI"]
+transparent_bg = true
+gui_disable_input = true
+size = Vector2i(3720, 2225)
+
+[node name="MessageWithKeyUI_1" parent="DialogueTest/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -385.795
+offset_bottom = -385.795
+scale = Vector2(5, 5)
+
+[node name="Contents" parent="DialogueTest/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -30.0
+offset_right = 27.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Message" parent="DialogueTest/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1/Contents" index="7"]
+text = "Start"
+
+[node name="MessageWithKeyUI_2" parent="DialogueTest/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -112.5
+offset_bottom = -112.5
+scale = Vector2(5, 5)
+
+[node name="Contents" parent="DialogueTest/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_2" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -30.0
+offset_right = 27.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MessageWithKeyUI_3" parent="DialogueTest/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 160.15
+offset_bottom = 160.15
+scale = Vector2(5, 5)
+
+[node name="Contents" parent="DialogueTest/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_3" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -30.0
+offset_right = 27.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MessageWithKeyUI_4" parent="DialogueTest/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 432.205
+offset_bottom = 432.205
+scale = Vector2(5, 5)
+
+[node name="Contents" parent="DialogueTest/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_4" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -30.0
+offset_right = 27.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerVisibleDetector" type="Area3D" parent="DialogueTest/Interactable Component/Contents"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DialogueTest/Interactable Component/Contents/PlayerVisibleDetector"]
+shape = SubResource("BoxShape3D_fvca7")
+
+[node name="PlayerMimicRaycastDetector" type="Area3D" parent="DialogueTest/Interactable Component"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DialogueTest/Interactable Component/PlayerMimicRaycastDetector"]
+shape = SubResource("BoxShape3D_00rnx")
 
 [node name="Item_Workshop" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -381.024, 1.11121, 280.266)
@@ -826,7 +974,7 @@ shape = SubResource("BoxShape3D_1rf0p")
 [node name="PlayerMimicRaycastDetector" type="Area3D" parent="Item_Workshop/Interactable Component"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Item_Workshop/Interactable Component/PlayerMimicRaycastDetector"]
-shape = SubResource("BoxShape3D_00rnx")
+shape = SubResource("BoxShape3D_5oxf6")
 
 [node name="EmailNoeCo" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -394.383, 1.11121, 279.523)
@@ -1097,12 +1245,21 @@ NailRotation_Degrees = Vector3(-2.34, -23.005, 2.495)
 [connection signal="timeout" from="Weather Timer" to="." method="_on_weather_timer_timeout"]
 [connection signal="body_entered" from="Terrain Areas/STONE" to="island_Terrain_Switcher" method="_on_stone_body_entered"]
 [connection signal="body_exited" from="Terrain Areas/STONE" to="island_Terrain_Switcher" method="_on_stone_body_exited"]
+[connection signal="Action1_Triggered" from="DialogueTest/Interactable Component" to="." method="_on_test_dialogue_start_action_triggered"]
+[connection signal="body_entered" from="DialogueTest/Interactable Component/Contents/PlayerVisibleDetector" to="DialogueTest/Interactable Component" method="_on_player_visible_detector_body_entered"]
+[connection signal="body_exited" from="DialogueTest/Interactable Component/Contents/PlayerVisibleDetector" to="DialogueTest/Interactable Component" method="_on_player_visible_detector_body_exited"]
+[connection signal="area_entered" from="DialogueTest/Interactable Component/PlayerMimicRaycastDetector" to="DialogueTest/Interactable Component" method="_on_player_mimic_raycast_detector_area_entered"]
+[connection signal="area_exited" from="DialogueTest/Interactable Component/PlayerMimicRaycastDetector" to="DialogueTest/Interactable Component" method="_on_player_mimic_raycast_detector_area_exited"]
 [connection signal="Action1_Triggered" from="Item_Workshop/Interactable Component" to="Item_Workshop" method="_on_interactable_component_action_1_triggered"]
 [connection signal="body_entered" from="Item_Workshop/Interactable Component/Contents/PlayerVisibleDetector" to="Item_Workshop/Interactable Component" method="_on_player_visible_detector_body_entered"]
 [connection signal="body_exited" from="Item_Workshop/Interactable Component/Contents/PlayerVisibleDetector" to="Item_Workshop/Interactable Component" method="_on_player_visible_detector_body_exited"]
 [connection signal="area_entered" from="Item_Workshop/Interactable Component/PlayerMimicRaycastDetector" to="Item_Workshop/Interactable Component" method="_on_player_mimic_raycast_detector_area_entered"]
 [connection signal="area_exited" from="Item_Workshop/Interactable Component/PlayerMimicRaycastDetector" to="Item_Workshop/Interactable Component" method="_on_player_mimic_raycast_detector_area_exited"]
 
+[editable path="DialogueTest/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1"]
+[editable path="DialogueTest/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_2"]
+[editable path="DialogueTest/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_3"]
+[editable path="DialogueTest/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_4"]
 [editable path="Item_Workshop/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1"]
 [editable path="Item_Workshop/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_2"]
 [editable path="Item_Workshop/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_3"]
