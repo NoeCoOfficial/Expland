@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cqpe66170hb56"
-path="res://.godot/imported/Cave.blend-0d33ecee08b97e0a3aa4cef5e31001ce.scn"
+path="res://.godot/imported/cave.blend-925dc32f5daf4de3928b92a2dad6728c.scn"
 
 [deps]
 
-source_file="res://Assets/3D Models/Tests/Island/Cave.blend"
-dest_files=["res://.godot/imported/Cave.blend-0d33ecee08b97e0a3aa4cef5e31001ce.scn"]
+source_file="res://Assets/3D Models/Tests/Island/cave.blend"
+dest_files=["res://.godot/imported/cave.blend-925dc32f5daf4de3928b92a2dad6728c.scn"]
 
 [params]
 
