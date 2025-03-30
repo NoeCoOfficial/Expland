@@ -65,6 +65,7 @@ var transitioning_weather = false
 
 func _ready() -> void:
 	PlayerManager.WORLD = $"."
+	InventoryManager.current_chest_node = $Chest
 	randomize()
 	initNodes()
 	

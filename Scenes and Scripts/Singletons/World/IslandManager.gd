@@ -83,7 +83,6 @@ func resetAttributes():
 	PlayerData.GAME_STATE = "NORMAL"
 	PlayerData.Health = 100
 	PlayerData.Hunger = 100
-	PlayerData.Hydration = 100
 	PlayerManager.Stamina = 100
 	IslandManager.Current_Island_Name = ""
 	IslandManager.Current_Game_Mode = ""

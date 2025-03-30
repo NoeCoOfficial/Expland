@@ -157,8 +157,10 @@ func onStartup():
 	if !OS.is_debug_build():
 		$Camera3D/MainLayer/AudioNotificationLayer/fade_timer_time_left.hide()
 		$Camera3D/MainLayer/AudioNotificationLayer/fade_timer_time_left_title.hide()
-		
+	
+	
 	fadeOut($Camera3D/TopLayer/FadeOut)
+	$Camera3D/AlertLayer/AlertLayer.spawnAlert("v0.7.1 notice", "", 15, 0.5)
 	$Camera3D/MainLayer/Version_LBL.visible = true
 	
 	# Menu animation (in the form of tweens)
@@ -170,7 +172,8 @@ func onStartup():
 		$Camera3D/MainLayer/SettingsButtonTrigger.position = Vector2(0, 297)
 		$Camera3D/MainLayer/QuitButton.position = Vector2(0, 383)
 		$Camera3D/MainLayer/QuitButtonTrigger.position = Vector2(0, 383)
-		$Camera3D/MainLayer/AchievementsButton.position = Vector2(947, 558)
+		$Camera3D/MainLayer/AchievementsButton.position = Vector2(947, 508.0)
+		$Camera3D/MainLayer/UpdatesButton.position = Vector2(1018, 556)
 		$Camera3D/MainLayer/CreditsButton.position = Vector2(1018, 605)
 	else:
 		var tween = get_tree().create_tween().set_parallel()
@@ -181,8 +184,9 @@ func onStartup():
 		tween.tween_property($Camera3D/MainLayer/SettingsButtonTrigger, "position", Vector2(0, 297), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.2)
 		tween.tween_property($Camera3D/MainLayer/QuitButton, "position", Vector2(0, 383), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.4)
 		tween.tween_property($Camera3D/MainLayer/QuitButtonTrigger, "position", Vector2(0, 383), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.4)
-		tween.tween_property($Camera3D/MainLayer/AchievementsButton, "position", Vector2(947, 558), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.2)
-		tween.tween_property($Camera3D/MainLayer/CreditsButton, "position", Vector2(1018, 605), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.2)
+		tween.tween_property($Camera3D/MainLayer/AchievementsButton, "position", Vector2(947, 508), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.2)
+		tween.tween_property($Camera3D/MainLayer/UpdatesButton, "position", Vector2(1018, 556), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.3)
+		tween.tween_property($Camera3D/MainLayer/CreditsButton, "position", Vector2(1018, 605), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.4)
 
 # ---------------------------------------------------------------------------- #
 #                                     INPUT                                    #
@@ -397,6 +401,9 @@ func _on_play_parkour_mode_button_pressed() -> void:
 
 func _on_achievements_button_pressed() -> void:
 	$Camera3D/MainLayer/AchievementsUI.spawnAchievements(0.5)
+
+func _on_updates_button_pressed() -> void:
+	pass # Replace with function body.
 
 func _on_credits_button_pressed() -> void:
 	$Camera3D/MainLayer/CreditsLayer.spawnCredits(0.5)

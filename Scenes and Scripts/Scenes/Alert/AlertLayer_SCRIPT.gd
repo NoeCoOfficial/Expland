@@ -92,6 +92,19 @@ func despawnAlert(animationTime : float):
 		
 		self.visible = false
 
+func popupAlert(animationTime : float):
+	PauseManager.is_inside_alert = true
+	
+	self.visible = true
+	
+	if PlayerSettingsData.quickAnimations:
+		$MainLayer.scale = Vector2(1.0, 1.0)
+		$GreyLayer.modulate = Color(1, 1, 1, 1)
+	else:
+		var tween = get_tree().create_tween().set_parallel()
+		tween.tween_property($MainLayer, "scale", Vector2(1.0, 1.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+		tween.tween_property($GreyLayer, "modulate", Color(1, 1, 1, 1), animationTime)
+
 func _on_close_button_mouse_exited() -> void:
 	var tween = get_tree().create_tween()
 	tween.tween_property($MainLayer/CloseButton, "scale", Vector2(1.0, 1.0), 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)

@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://crw6j1eee7306"]
+[gd_scene load_steps=6 format=3 uid="uid://boh6io7exec3j"]
 
-[ext_resource type="PackedScene" uid="uid://c30vwtsrxy0dt" path="res://Assets/3D Models/Cutscenes/Story Mode/Start Cutscene/Models/GreenLever.blend" id="1_13fse"]
-[ext_resource type="Script" uid="uid://dygxt7s3041kp" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/Props/Lever_SCRIPT.gd" id="2_4751a"]
+[ext_resource type="PackedScene" uid="uid://c072m6w7kwx1j" path="res://Assets/3D Models/Cutscenes/Story Mode/Start Cutscene/Models/RedLever.blend" id="1_dw5xs"]
+[ext_resource type="Script" uid="uid://dygxt7s3041kp" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/Props/Lever_SCRIPT.gd" id="2_4ol2k"]
 
 [sub_resource type="Animation" id="Animation_farmw"]
 resource_name = "off"
@@ -60,28 +60,28 @@ tracks/1/keys = {
 "values": [Vector3(0, 0, -0.523599), Vector3(0, 0, 0.523599)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_4751a"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dw5xs"]
 _data = {
 &"off": SubResource("Animation_farmw"),
 &"on": SubResource("Animation_13fse")
 }
 
-[node name="GreenLever" instance=ExtResource("1_13fse")]
-script = ExtResource("2_4751a")
+[node name="RedLever" instance=ExtResource("1_dw5xs")]
+script = ExtResource("2_4ol2k")
 
 [node name="Cooldown" type="Timer" parent="." index="0"]
 wait_time = 0.25
 one_shot = true
 
 [node name="Handle" parent="." index="2"]
-transform = Transform3D(0.607989, 0.351023, 0, -0.351023, 0.607989, 0, 0, 0, 0.702045, 0.000315423, -0.0812713, 0)
+transform = Transform3D(0.607989, 0.351023, 0, -0.351023, 0.607989, 0, 0, 0, 0.702045, 0.000315426, -0.0812713, 0)
 
 [node name="Main" parent="." index="3"]
-transform = Transform3D(0.607989, 0.351023, 0, -0.351023, 0.607989, 0, 0, 0, 0.702045, 0.000315419, -0.0812713, 0)
+transform = Transform3D(0.607989, 0.351023, 0, -0.351023, 0.607989, 0, 0, 0, 0.702045, 0.000315416, -0.0812713, 0)
 
 [node name="Switch_Anims" type="AnimationPlayer" parent="." index="4"]
 libraries = {
-&"": SubResource("AnimationLibrary_4751a")
+&"": SubResource("AnimationLibrary_dw5xs")
 }
 
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

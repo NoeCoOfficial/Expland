@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bd4t2hfx41567"
-path="res://.godot/imported/Berry.blend-fd1b2d4725a57f2e7688b224ad3e4322.scn"
+uid="uid://c072m6w7kwx1j"
+path="res://.godot/imported/RedLever.blend-cc317bafadfc0bcb5cdb8484c22ee28a.scn"
 
 [deps]
 
-source_file="res://Assets/3D Models/Consumables/Food/Berry.blend"
-dest_files=["res://.godot/imported/Berry.blend-fd1b2d4725a57f2e7688b224ad3e4322.scn"]
+source_file="res://Assets/3D Models/Cutscenes/Story Mode/Start Cutscene/Models/RedLever.blend"
+dest_files=["res://.godot/imported/RedLever.blend-cc317bafadfc0bcb5cdb8484c22ee28a.scn"]
 
 [params]
 
