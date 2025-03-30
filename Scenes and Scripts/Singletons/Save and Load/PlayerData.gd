@@ -53,7 +53,6 @@ var SAVE_PATH = ""
 var GAME_STATE = "NORMAL"
 var Health := 100
 var Hunger := 100
-var Hydration := 100
 
 var EffectNotificationScene = preload("uid://jajswfbkaut2")
 
@@ -118,7 +117,7 @@ func save_data_new(file_path: String, data: Dictionary, key: String, image_path:
 		
 		# Save the image bytes to the file
 		file.store_buffer(img_data)  # Correctly calling it on the 'file' instance
-
+		
 		file.close()
 
 func loadData(Island_Name : String, withOutput : bool) -> void:
@@ -182,3 +181,44 @@ func loadData(Island_Name : String, withOutput : bool) -> void:
 				AND THE PLAYER NEEDS TO BE A CHILD OF THAT ROOT NODE AND CALLED 'Player'.")
 			
 		file.close()
+
+func load_data(file_path: String, key: String) -> Dictionary:
+	var file = FileAccess.open(file_path, FileAccess.READ)
+	var result = {}
+
+	if file != null:
+		# Read encrypted data from the file
+		var encrypted_data = file.get_buffer(file.get_length())
+		
+		# Decrypt the data
+		var decrypted_data = EncryptionManager.decrypt_data(encrypted_data, key)
+		
+		# Convert the decrypted data back to a Dictionary (assuming JSON format)
+		var json = JSON.new()
+		var error = json.parse(decrypted_data)
+		if error != OK:
+			print("Error parsing JSON")
+			file.close()
+			return result
+		
+		# Extract the decrypted dictionary
+		result = json.get_data()
+
+		# Read image bytes from the file
+		var img_data = file.get_buffer(file.get_length())
+		var image = Image.new()
+		if image.load_png_from_buffer(img_data) != OK:
+			# Fallback image if the original is invalid
+			var fallback_image = Image.new()
+			fallback_image.load("res://fallback_image.png")
+			image = fallback_image
+		
+		# You can return the image or process it further as needed.
+		# Here, we are returning the data and image (or fallback image).
+		result["image"] = image
+		
+		file.close()
+		return result
+	else:
+		print("Failed to open file for reading")
+		return result

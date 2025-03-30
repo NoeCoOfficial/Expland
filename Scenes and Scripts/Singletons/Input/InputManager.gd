@@ -65,7 +65,4 @@ func _input(_event: InputEvent) -> void:
 				"sus" : 2,
 			}
 			
-			print(str(EncryptionManager.encrypt_data(data, "1234567890123456")))
-			
-			print(str(EncryptionManager.decrypt_data(EncryptionManager.encrypt_data(data, "1234567890123456"), "1234567890123456")))
 			
