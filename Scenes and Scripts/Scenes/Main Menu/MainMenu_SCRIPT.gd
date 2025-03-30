@@ -160,7 +160,7 @@ func onStartup():
 	
 	
 	fadeOut($Camera3D/TopLayer/FadeOut)
-	$Camera3D/AlertLayer/AlertLayer.spawnAlert("v0.7.5 notice", "", 15, 0.5)
+	$Camera3D/AlertLayer/AlertLayer.spawnAlert("v0.7.1 notice", "", 15, 0.5)
 	$Camera3D/MainLayer/Version_LBL.visible = true
 	
 	# Menu animation (in the form of tweens)
