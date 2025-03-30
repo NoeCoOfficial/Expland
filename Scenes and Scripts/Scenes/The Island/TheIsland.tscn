@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=3 uid="uid://c5jkrckgqd0w6"]
+[gd_scene load_steps=110 format=3 uid="uid://c5jkrckgqd0w6"]
 
 [ext_resource type="Script" uid="uid://cucb4fwieubx" path="res://Scenes and Scripts/Scenes/The Island/TheIsland_SCRIPT.gd" id="1_a8sfg"]
 [ext_resource type="Environment" uid="uid://dgtwdwq2n0x1v" path="res://Resources/Environment/TheIsland_WorldEnvironment.tres" id="2_h46kk"]
@@ -15,14 +15,12 @@
 [ext_resource type="PackedScene" uid="uid://bf802csj5h2uu" path="res://Assets/3D Models/The Island Deco/TheIslandDeco.tscn" id="11_kq5pm"]
 [ext_resource type="PackedScene" uid="uid://cjm5lrxicdgsf" path="res://Scenes and Scripts/Scenes/Player/Player.tscn" id="16_52bg8"]
 [ext_resource type="Script" uid="uid://dbn31kh6cxec8" path="res://Scenes and Scripts/Scenes/The Island/Island_Terrain_Switcher_SCRIPT.gd" id="16_r68ax"]
-[ext_resource type="Script" uid="uid://chtfjr2bbc4jd" path="res://Scenes and Scripts/Scenes/The Island/Item_Workshop_StaticBody3D_SCRIPT.gd" id="19_747t0"]
 [ext_resource type="Script" uid="uid://bi02uk7qwshyf" path="res://Scenes and Scripts/Scenes/Components/Interactable Component/Interactable_Component_SCRIPT.gd" id="21_32fgl"]
 [ext_resource type="PackedScene" uid="uid://cmt00ehn4hfne" path="res://Scenes and Scripts/Scenes/General/UI/MessageWithKeyUI.tscn" id="22_1rf0p"]
 [ext_resource type="PackedScene" uid="uid://dble54a2rl76q" path="res://Scenes and Scripts/Scenes/The Island/Explorer Note/ExplorerNote.tscn" id="32_qh5si"]
 [ext_resource type="Texture2D" uid="uid://dhp1lqdlclos" path="res://Textures/Icons/Expland_TextWHITE_Icon.png" id="33_74605"]
 [ext_resource type="PackedScene" uid="uid://dqalod7m5is51" path="res://Scenes and Scripts/Scenes/The Eryv (and related)/The Eryv Statue.tscn" id="34_5odcp"]
 [ext_resource type="Texture2D" uid="uid://d2p266eplnyto" path="res://Textures/Explorer Notes/2_Lucent.png" id="34_agr60"]
-[ext_resource type="PackedScene" uid="uid://cnumc5i62ndco" path="res://Scenes and Scripts/Scenes/Tests/RayCastingTest.tscn" id="37_btdyg"]
 [ext_resource type="Texture2D" uid="uid://dvbcyu3wr00f8" path="res://Textures/Dev Textures/Orange/texture_04.png" id="42_eoiek"]
 [ext_resource type="Texture2D" uid="uid://cqkp640cq8j51" path="res://Textures/Dev Textures/Red/texture_12.png" id="43_a63ti"]
 [ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="43_wohm1"]
@@ -462,11 +460,6 @@ font = ExtResource("43_wohm1")
 text = "(On Gmail)"
 font = ExtResource("43_wohm1")
 
-[sub_resource type="TextMesh" id="TextMesh_0jlu0"]
-text = "Look at the purple box
-for some interaction!"
-font = ExtResource("43_wohm1")
-
 [sub_resource type="TextMesh" id="TextMesh_14v3m"]
 text = "Run into the spike to
 take some damage!
@@ -677,11 +670,8 @@ shape = SubResource("BoxShape3D_747t0")
 
 [node name="Island" parent="." instance=ExtResource("11_kq5pm")]
 
-[node name="RayCastingTest" parent="." instance=ExtResource("37_btdyg")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -388.434, 2.96464, 279.914)
-
 [node name="DialogueTest" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -391.523, 1.11121, 280.266)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -388.55, 1.11121, 280.266)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="DialogueTest"]
 material_override = SubResource("StandardMaterial3D_agd54")
@@ -828,8 +818,7 @@ shape = SubResource("BoxShape3D_fvca7")
 shape = SubResource("BoxShape3D_00rnx")
 
 [node name="Item_Workshop" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -381.024, 1.11121, 280.266)
-script = ExtResource("19_747t0")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -381.368, 1.11121, 280.266)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Item_Workshop"]
 material_override = SubResource("StandardMaterial3D_cfqaf")
@@ -1021,11 +1010,6 @@ skeleton = NodePath("")
 [node name="Notice4" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.513984, 0, 0, 0, 0.513984, 0, 0, 0, 0.513984, -394.368, 1.95252, 279.843)
 mesh = SubResource("TextMesh_nmn8y")
-skeleton = NodePath("")
-
-[node name="Notice_Interaction" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.6904, 0, 0, 0, 1.6904, 0, 0, 0, 1.6904, -388.457, 1.58489, 279.848)
-mesh = SubResource("TextMesh_0jlu0")
 skeleton = NodePath("")
 
 [node name="Notice_Interaction5" type="MeshInstance3D" parent="."]
@@ -1245,12 +1229,11 @@ NailRotation_Degrees = Vector3(-2.34, -23.005, 2.495)
 [connection signal="timeout" from="Weather Timer" to="." method="_on_weather_timer_timeout"]
 [connection signal="body_entered" from="Terrain Areas/STONE" to="island_Terrain_Switcher" method="_on_stone_body_entered"]
 [connection signal="body_exited" from="Terrain Areas/STONE" to="island_Terrain_Switcher" method="_on_stone_body_exited"]
-[connection signal="Action1_Triggered" from="DialogueTest/Interactable Component" to="." method="_on_test_dialogue_start_action_triggered"]
 [connection signal="body_entered" from="DialogueTest/Interactable Component/Contents/PlayerVisibleDetector" to="DialogueTest/Interactable Component" method="_on_player_visible_detector_body_entered"]
 [connection signal="body_exited" from="DialogueTest/Interactable Component/Contents/PlayerVisibleDetector" to="DialogueTest/Interactable Component" method="_on_player_visible_detector_body_exited"]
 [connection signal="area_entered" from="DialogueTest/Interactable Component/PlayerMimicRaycastDetector" to="DialogueTest/Interactable Component" method="_on_player_mimic_raycast_detector_area_entered"]
 [connection signal="area_exited" from="DialogueTest/Interactable Component/PlayerMimicRaycastDetector" to="DialogueTest/Interactable Component" method="_on_player_mimic_raycast_detector_area_exited"]
-[connection signal="Action1_Triggered" from="Item_Workshop/Interactable Component" to="Item_Workshop" method="_on_interactable_component_action_1_triggered"]
+[connection signal="Action1_Triggered" from="Item_Workshop/Interactable Component" to="." method="_on_item_workshop_test_action_triggered"]
 [connection signal="body_entered" from="Item_Workshop/Interactable Component/Contents/PlayerVisibleDetector" to="Item_Workshop/Interactable Component" method="_on_player_visible_detector_body_entered"]
 [connection signal="body_exited" from="Item_Workshop/Interactable Component/Contents/PlayerVisibleDetector" to="Item_Workshop/Interactable Component" method="_on_player_visible_detector_body_exited"]
 [connection signal="area_entered" from="Item_Workshop/Interactable Component/PlayerMimicRaycastDetector" to="Item_Workshop/Interactable Component" method="_on_player_mimic_raycast_detector_area_entered"]

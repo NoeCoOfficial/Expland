@@ -436,6 +436,8 @@ func init_weather_instant():
 
 #####################################
 
+func _on_item_workshop_test_action_triggered() -> void:
+	PlayerManager.PLAYER.openItemWorkshop()
 
 func _on_test_dialogue_start_action_triggered() -> void:
 	DialogueManager.startDialogue(DialogueManager.testDialogue)
