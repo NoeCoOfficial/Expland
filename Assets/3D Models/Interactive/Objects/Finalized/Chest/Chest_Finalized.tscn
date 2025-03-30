@@ -124,7 +124,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Message" parent="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1/Contents" index="7"]
-text = "Open Chest"
+text = "Open"
 
 [node name="MessageWithKeyUI_2" parent="Interactable Component/Contents/UI/SubViewport" index="1" instance=ExtResource("4_j4u0o")]
 visible = false
