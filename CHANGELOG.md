@@ -8,6 +8,7 @@
 
 ### Added:
 - Added procedural health regeneration to the player
+- An all-new interaction system with world UI
 
 ### Changed:
 - Changed health regeneration to +10 instead of +5 when sleeping
