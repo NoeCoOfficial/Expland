@@ -1432,6 +1432,24 @@ theme_override_fonts/font = ExtResource("35_srfqj")
 theme_override_font_sizes/font_size = 46
 text = "v0.7.1"
 
+[node name="Decription1" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer/v0_7_1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 46.0
+offset_top = 47.0
+offset_right = 342.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_grlcg")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
 [node name="Title" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer"]
 layout_mode = 1
 anchors_preset = 8
