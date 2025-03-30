@@ -441,3 +441,9 @@ func _on_item_workshop_test_action_triggered() -> void:
 
 func _on_test_dialogue_start_action_triggered() -> void:
 	DialogueManager.startDialogue(DialogueManager.testDialogue)
+
+func _on_email_noe_co_action_triggered() -> void:
+	OS.shell_open("https://mail.google.com/mail/?view=cm&fs=1&to=noeco.official@gmail.com")
+
+func _on_open_feedback_issue_action_triggered() -> void:
+	OS.shell_open("https://github.com/NoeCoOfficial/Expland/issues/new?assignees=&labels=&projects=&template=feedback.md")
