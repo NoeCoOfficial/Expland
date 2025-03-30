@@ -52,6 +52,7 @@ extends StaticBody2D
 @export var Populated : bool = false
 @export var Populating_Droppable : Node
 @export var Mouse_In_Collision_Shape : bool = false
+@export var Hotbar_Slot : bool = false
 
 @export var Dashed_Texture : TextureRect
 
