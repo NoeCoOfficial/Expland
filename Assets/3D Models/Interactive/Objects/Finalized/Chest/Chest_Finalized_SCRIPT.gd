@@ -48,44 +48,33 @@
 @icon("res://Textures/Icons/Script Icons/32x32/chest.png")
 extends Node3D
 
-@export var BillboardLabel : Label3D
 var ANIMATING
-
-func _ready() -> void:
-	BillboardLabel.visible = false
 
 func _on_anim_finished(anim_name: StringName) -> void:
 	
 	if anim_name == &"open":
 		pass
-	
-	elif anim_name == &"close":
-		BillboardLabel.visible = true
 
 func animate(TYPE : String):
-	
 	ANIMATING = true
 	$DebounceTimer.start()
 	
 	if TYPE == "OPEN":
 		$OpenAndCloseAnim.play("open")
-		BillboardLabel.visible = false
+		$"Interactable Component/Contents/UI".hide()
 	
 	elif TYPE == "CLOSE":
 		$OpenAndCloseAnim.play("close")
-
-func is_animating():
-	return ANIMATING
+		$"Interactable Component/Contents/UI".show()
 
 
 func _on_debounce_timer_timeout() -> void:
 	ANIMATING = false
 
 
-func _on_billboard_label_detection_body_entered(body: Node3D) -> void:
-	if body.is_in_group("PlayerBody"):
-		BillboardLabel.visible = true
-
-func _on_billboard_label_detection_body_exited(body: Node3D) -> void:
-	if body.is_in_group("PlayerBody"):
-		BillboardLabel.visible = false
+func _on_interactable_component_action_1_triggered() -> void:
+	if !ANIMATING:
+		if InventoryManager.chest_ui_open:
+			PlayerManager.closeChest()
+		else:
+			PlayerManager.openChest()

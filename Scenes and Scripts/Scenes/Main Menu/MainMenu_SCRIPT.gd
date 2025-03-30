@@ -75,6 +75,8 @@ var is_tweening = false
 # ---------------------------------------------------------------------------- #
 
 func _ready() -> void:
+	if !Global.is_first_time_in_menu:
+		Global.is_first_time_in_menu_no_startup = true
 	initialize_audio()
 	initialize_globals()
 	initialize_ui()
@@ -142,8 +144,13 @@ func change_to_startup_notice() -> void:
 	get_tree().change_scene_to_packed(StartupNotice)
 
 func fadeOut(node):
+	Global.is_main_menu_fading_out = true
 	var tween = get_tree().create_tween()
+	tween.connect("finished", onfadeOutFinished)
 	tween.tween_property(node, "modulate", Color(0, 0, 0, 0), 3)
+
+func onfadeOutFinished():
+	Global.is_main_menu_fading_out = false
 
 func _on_ready() -> void:
 	pass
@@ -152,8 +159,12 @@ func onStartup():
 	if !OS.is_debug_build():
 		$Camera3D/MainLayer/AudioNotificationLayer/fade_timer_time_left.hide()
 		$Camera3D/MainLayer/AudioNotificationLayer/fade_timer_time_left_title.hide()
-		
+	
+	if Global.is_first_time_in_menu_no_startup:
+		$Camera3D/AlertLayer/AlertLayer.spawnAlert("v0.7.1 notice", "", 15, 0.5)
+	
 	fadeOut($Camera3D/TopLayer/FadeOut)
+	
 	$Camera3D/MainLayer/Version_LBL.visible = true
 	
 	# Menu animation (in the form of tweens)
@@ -165,7 +176,8 @@ func onStartup():
 		$Camera3D/MainLayer/SettingsButtonTrigger.position = Vector2(0, 297)
 		$Camera3D/MainLayer/QuitButton.position = Vector2(0, 383)
 		$Camera3D/MainLayer/QuitButtonTrigger.position = Vector2(0, 383)
-		$Camera3D/MainLayer/AchievementsButton.position = Vector2(947, 558)
+		$Camera3D/MainLayer/AchievementsButton.position = Vector2(947, 508.0)
+		$Camera3D/MainLayer/UpdatesButton.position = Vector2(1018, 556)
 		$Camera3D/MainLayer/CreditsButton.position = Vector2(1018, 605)
 	else:
 		var tween = get_tree().create_tween().set_parallel()
@@ -176,8 +188,9 @@ func onStartup():
 		tween.tween_property($Camera3D/MainLayer/SettingsButtonTrigger, "position", Vector2(0, 297), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.2)
 		tween.tween_property($Camera3D/MainLayer/QuitButton, "position", Vector2(0, 383), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.4)
 		tween.tween_property($Camera3D/MainLayer/QuitButtonTrigger, "position", Vector2(0, 383), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.4)
-		tween.tween_property($Camera3D/MainLayer/AchievementsButton, "position", Vector2(947, 558), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.2)
-		tween.tween_property($Camera3D/MainLayer/CreditsButton, "position", Vector2(1018, 605), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.2)
+		tween.tween_property($Camera3D/MainLayer/AchievementsButton, "position", Vector2(947, 508), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.2)
+		tween.tween_property($Camera3D/MainLayer/UpdatesButton, "position", Vector2(1018, 556), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.3)
+		tween.tween_property($Camera3D/MainLayer/CreditsButton, "position", Vector2(1018, 605), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.4)
 
 # ---------------------------------------------------------------------------- #
 #                                     INPUT                                    #
@@ -192,6 +205,9 @@ func _input(_event: InputEvent) -> void:
 		if Input.is_action_just_pressed("Exit") and !DialogueManager.is_in_absolute_interface:
 			if PauseManager.is_inside_settings:
 				$Camera3D/MainLayer/SettingsUI.closeSettings(0.5)
+			
+			if PauseManager.is_inside_updates_popup:
+				$Camera3D/MainLayer/UpdatesLayer/UpdatesLayer.despawnAlert(0.5)
 			
 			if PauseManager.is_inside_achievements_ui:
 				$Camera3D/MainLayer/AchievementsUI.despawnAchievements(0.5)
@@ -393,6 +409,9 @@ func _on_play_parkour_mode_button_pressed() -> void:
 func _on_achievements_button_pressed() -> void:
 	$Camera3D/MainLayer/AchievementsUI.spawnAchievements(0.5)
 
+func _on_updates_button_pressed() -> void:
+	$Camera3D/MainLayer/UpdatesLayer/UpdatesLayer.popupAlert(0.5)
+
 func _on_credits_button_pressed() -> void:
 	$Camera3D/MainLayer/CreditsLayer.spawnCredits(0.5)
 
@@ -566,8 +585,8 @@ func _on_tree_entered() -> void:
 	Global.is_in_main_menu = true
 
 func _on_tree_exited() -> void:
+	Global.is_first_time_in_menu_no_startup = false
 	Global.is_in_main_menu = false
-	
 
 func _on_checks_timer_timeout() -> void:
 	if Global.is_first_time_in_menu:
@@ -637,3 +656,12 @@ func _on_tree_exiting() -> void:
 		if loadIslandThread.is_alive():
 			loadIslandThread.wait_to_finish()
 			loadIslandThread = null
+
+############################################
+
+func _on_v_0_7_1_btn_pressed() -> void:
+	for child in $Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer.get_children():
+		if str(child.name) == "v0_7_1":
+			child.visible = true	
+		else:
+			child.visible = false

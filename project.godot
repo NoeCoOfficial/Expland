@@ -13,7 +13,7 @@ config_version=5
 config/name="Expland"
 config/description="Expland
 "
-config/version="0.7.5"
+config/version="0.7.1"
 config/tags=PackedStringArray("3d", "noeco", "official")
 run/main_scene="res://Scenes and Scripts/Scenes/Main Menu/MainMenu.tscn"
 config/use_custom_user_dir=true
@@ -32,11 +32,11 @@ ThreadManager="*res://Scenes and Scripts/Singletons/Thread/ThreadManager.gd"
 Global="*res://Scenes and Scripts/Singletons/Global.gd"
 SignalBus="*res://Scenes and Scripts/Singletons/SignalBus.gd"
 DebugManager="*res://Scenes and Scripts/Singletons/Debug/DebugManager.gd"
+EncryptionManager="*res://Scenes and Scripts/Singletons/Encryption/EncryptionManager.gd"
 GlobalData="*res://Scenes and Scripts/Singletons/Save and Load/GlobalData.gd"
 PlayerData="*res://Scenes and Scripts/Singletons/Save and Load/PlayerData.gd"
 PlayerManager="*res://Scenes and Scripts/Singletons/Player/PlayerManager.gd"
 IslandData="*res://Scenes and Scripts/Singletons/Save and Load/IslandData.gd"
-InventoryData="*res://Scenes and Scripts/Singletons/Save and Load/InventoryData.gd"
 PlayerSettingsData="*res://Scenes and Scripts/Singletons/Save and Load/PlayerSettingsData.gd"
 SaveManager="*res://Scenes and Scripts/Singletons/Save and Load/SaveManager.gd"
 IslandAccessOrder="*res://Scenes and Scripts/Singletons/World/IslandAccessOrder.gd"
@@ -83,7 +83,7 @@ movie_writer/fps=120
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/SphynxMotionBlurToolkit/plugin.cfg", "res://addons/anthonyec.camera_preview/plugin.cfg", "res://addons/notes_tab/plugin.cfg")
+enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg", "res://addons/notes_tab/plugin.cfg")
 
 [file_customization]
 
@@ -97,6 +97,8 @@ folder_colors={
 [global_group]
 
 PlayerBody="The body for the player."
+RayCastMimic3D=""
+PlayerArea="The area for the player."
 
 [input]
 
@@ -146,7 +148,7 @@ Exit={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
-Inventory={
+Pockets={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
 ]
@@ -278,6 +280,21 @@ print_objects={
 DoButton={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194435,"key_label":0,"unicode":45,"location":0,"echo":false,"script":null)
+]
+}
+Flip_Red_Lever={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":49,"key_label":0,"unicode":49,"location":0,"echo":false,"script":null)
+]
+}
+Flip_Green_Lever={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":50,"key_label":0,"unicode":50,"location":0,"echo":false,"script":null)
+]
+}
+Flip_Blue_Lever={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":51,"key_label":0,"unicode":51,"location":0,"echo":false,"script":null)
 ]
 }
 
