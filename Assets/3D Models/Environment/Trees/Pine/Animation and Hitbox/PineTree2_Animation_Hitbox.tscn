@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://b1yduglvo05vb"]
+[gd_scene load_steps=11 format=3 uid="uid://b1yduglvo05vb"]
 
 [ext_resource type="PackedScene" uid="uid://dhh4fpm6bmtxb" path="res://Assets/3D Models/Environment/Trees/Pine/Models/PineTree2.blend" id="1_v37lp"]
 [ext_resource type="Script" uid="uid://be2hbme5pe50y" path="res://Assets/3D Models/Environment/Trees/Scripts/Tree_Animation_SCRIPT.gd" id="2_6xnp8"]
-[ext_resource type="ArrayOccluder3D" uid="uid://lp5sjnexrdr3" path="res://Resources/Occluders/PineTree2_Animation_Hitbox.occ" id="3_vtb2u"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2v4kc"]
 points = PackedVector3Array(-0.330085, 4.93663, -0.40548, -0.215815, 5.98001, 0.0292652, -0.139705, 9.18543, -0.53245, 0.0504516, 3.09698, -0.34215, 0.0504516, 9.37591, -0.278634, 0.0504516, 2.9065, 0.038387, -0.302902, 3.09342, 0.014226, 0.18507, 5.56726, 0.0399458, 0.113874, 4.23861, -0.40548, -0.330085, 2.77929, -0.34215, -0.330085, 3.98484, 0.101841, -0.203184, 8.42413, -0.278634, 0.0504516, 9.37591, -0.40548, -0.0129712, 8.55069, -0.53245, 0.171749, 5.6933, -0.215304, 0.177297, 4.5563, -0.0250669, -0.0762823, 9.37591, -0.278634, 0.118186, 6.30974, -0.401386, -0.0129712, 2.77929, -0.34215, -0.0129712, 2.77929, 0.038387, -0.203184, 4.04812, 0.101841, -0.203184, 8.55069, -0.40548, -0.139705, 8.61397, -0.53245, -0.0129712, 9.18543, -0.53245, -0.0129712, 4.23861, -0.40548, 0.166995, 5.89039, 0.019862, -0.139705, 9.18543, -0.34215, 0.0504516, 2.9065, -0.0884587, 0.178527, 5.63178, -0.165738, -0.0762823, 9.37591, -0.40548, -0.139705, 9.24871, -0.40548, 0.129927, 5.12986, -0.364892)
@@ -135,9 +134,6 @@ script = ExtResource("2_6xnp8")
 
 [node name="Plane" parent="." index="0"]
 lod_bias = 0.5
-visibility_range_end = 300.0
-visibility_range_end_margin = 5.0
-visibility_range_fade_mode = 1
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Plane" index="0"]
 
@@ -159,43 +155,24 @@ shape = SubResource("ConvexPolygonShape3D_ncrco")
 [node name="Circle" parent="." index="1"]
 transform = Transform3D(3.69481, -0.0293551, 0, 0.0322441, 3.36376, 0, 0, 0, 3.27432, -0.157261, 2.15982, 0.0704203)
 lod_bias = 0.5
-visibility_range_end = 300.0
-visibility_range_end_margin = 5.0
-visibility_range_fade_mode = 1
 
 [node name="Circle_001" parent="." index="2"]
 transform = Transform3D(-1.14918, 7.93574e-08, 2.48196, 0.0333375, 3.87288, 0.0121214, -2.8006, 0.0461016, -1.01829, 0.00232995, 3.70586, -0.0228727)
 lod_bias = 0.5
-visibility_range_end = 300.0
-visibility_range_end_margin = 5.0
-visibility_range_fade_mode = 1
 
 [node name="Circle_002" parent="." index="3"]
 transform = Transform3D(-0.865652, 0.265105, -2.20551, -0.00967366, 2.39686, 0.27595, 2.50579, 0.100836, -0.760852, -0.208852, 5.53089, -0.00858164)
 lod_bias = 0.5
-visibility_range_end = 300.0
-visibility_range_end_margin = 5.0
-visibility_range_fade_mode = 1
 
 [node name="Circle_003" parent="." index="4"]
 transform = Transform3D(1.98946, -0.0444276, 2.76815e-15, 0.0347262, 2.54525, -2.76129e-07, 5.4382e-09, 3.98592e-07, 1.76325, 0.0508388, 6.68221, -0.0451188)
 lod_bias = 0.5
-visibility_range_end = 300.0
-visibility_range_end_margin = 5.0
-visibility_range_fade_mode = 1
 
 [node name="Circle_004" parent="." index="5"]
 transform = Transform3D(-0.529607, 7.23135e-08, 1.14383, 0.0153638, 1.78484, 0.00558621, -1.29067, 0.0212462, -0.469287, -0.0980563, 7.77653, -0.150862)
 lod_bias = 0.5
-visibility_range_end = 300.0
-visibility_range_end_margin = 5.0
-visibility_range_fade_mode = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
 libraries = {
 &"": SubResource("AnimationLibrary_jcqct")
 }
-
-[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." index="7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.94257, 0)
-occluder = ExtResource("3_vtb2u")
