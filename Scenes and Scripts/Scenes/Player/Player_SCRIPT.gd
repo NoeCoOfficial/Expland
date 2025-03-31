@@ -227,7 +227,9 @@ var stamina_restoring_from_0 = false
 
 @export_subgroup("Layers and UI")
 @export var InventoryLayer_CanvasLayer : CanvasLayer
+@export var InventoryLayer_GreyLayer : ColorRect
 @export var InventoryLayer_Pockets : Control
+@export var InventoryLayer_Hotbar : Control
 @export var InventoryLayer_Chest : Control
 @export var InventoryLayer_Workbench : Control
 
