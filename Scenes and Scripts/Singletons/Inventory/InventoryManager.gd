@@ -296,14 +296,9 @@ const EFFECT_ITEMS = [
 ]
 
 var pockets_ui_open : bool = false
-
 var chest_ui_open : bool = false
 var current_chest_node : Node = null
-
 var workshop_ui_open : bool = false
-
-
-
 var is_dragging : bool = false
 var currently_dragging_node : Node
 
@@ -311,6 +306,7 @@ func openPockets():
 	# Show UI
 	PlayerManager.PLAYER.InventoryLayer_CanvasLayer.visible = true
 	PlayerManager.PLAYER.InventoryLayer_Pockets.visible = true
+	#PlayerManager.PLAYER.HotbarLayer_CanvasLayer.layer = 2
 	pockets_ui_open = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 

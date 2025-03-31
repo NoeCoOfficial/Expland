@@ -230,7 +230,6 @@ var stamina_restoring_from_0 = false
 @export var InventoryLayer_Pockets : Control
 @export var InventoryLayer_Chest : Control
 @export var InventoryLayer_Workbench : Control
-@export var HotbarLayer_CanvasLayer : CanvasLayer
 
 @export var PocketsCollisionBoundary : Area2D
 @export var ChestCollisionBoundary : Area2D
