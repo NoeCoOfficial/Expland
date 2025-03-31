@@ -64,7 +64,6 @@ extends Node3D
 var mouse_movement : Vector2
 var weapon_bob_amount := Vector2(0, 0)
 
-
 var random_sway_x
 var random_sway_y
 var random_sway_amount : float
@@ -127,7 +126,9 @@ func sway(delta, isIdle : bool):
 		
 		if isIdle:
 			var sway_random : float = get_sway_noise()
-			var sway_random_adjusted : float = sway_random * idle_sway_adjustment
+			var sway_random_adjusted
+			
+			sway_random_adjusted = sway_random * idle_sway_adjustment
 			
 			time += delta * (sway_speed + sway_random)
 			random_sway_x = sin(time * 1.5 + sway_random_adjusted) / random_sway_amount

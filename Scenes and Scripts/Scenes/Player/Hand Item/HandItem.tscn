@@ -1,12 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://djwgy3b85xfpn"]
+[gd_scene load_steps=3 format=3 uid="uid://djwgy3b85xfpn"]
 
 [ext_resource type="Script" uid="uid://b1iphrk07ning" path="res://Scenes and Scripts/Scenes/Player/Hand Item/init_hand_item_SCRIPT.gd" id="1_eo1qg"]
-[ext_resource type="Resource" uid="uid://bfl2kn5tjktpm" path="res://Resources/Hand Items/SWORD.tres" id="2_c8ekc"]
 [ext_resource type="Texture2D" uid="uid://sfcr0rgs6jwb" path="res://Resources/Noise/HandItemSwayNoise.tres" id="2_uqh4v"]
 
 [node name="HandItem" type="Node3D"]
 script = ExtResource("1_eo1qg")
-HAND_ITEM = ExtResource("2_c8ekc")
 sway_noise = ExtResource("2_uqh4v")
 
 [node name="HandMesh" type="Node3D" parent="."]
