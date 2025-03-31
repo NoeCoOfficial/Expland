@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=76 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" uid="uid://6516a37cmejq" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" uid="uid://dilocovfy7y5b" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -9,16 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://22st751melpi" path="res://Scenes and Scripts/Scenes/Audio/Footstep Sounds/FootstepSounds_STONE.tscn" id="3_esl0a"]
 [ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="3_yecwp"]
 [ext_resource type="PackedScene" uid="uid://djwgy3b85xfpn" path="res://Scenes and Scripts/Scenes/Player/Hand Item/HandItem.tscn" id="4_476v6"]
-[ext_resource type="Script" uid="uid://bm52qfp1sskfh" path="res://Scenes and Scripts/Scenes/Player/OverlayLayer/RedOverlay_SCRIPT.gd" id="7_gnu1v"]
 [ext_resource type="PackedScene" uid="uid://dhhjltxmoydio" path="res://Scenes and Scripts/Scenes/Player/Inventory/InventorySlot.tscn" id="8_ads4s"]
 [ext_resource type="FontFile" uid="uid://c4h0gd5a2e2qb" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf" id="8_cdk3a"]
 [ext_resource type="Texture2D" uid="uid://bg100aqmtgfn4" path="res://Textures/Icons/WhiteHam_Icon.png" id="8_l231k"]
 [ext_resource type="Texture2D" uid="uid://b20d3fbxr6vhx" path="res://Textures/Icons/WhiteHeart_Icon.png" id="8_ty1rt"]
-[ext_resource type="Script" uid="uid://di02ml8prlof0" path="res://Scenes and Scripts/Scenes/Player/OverlayLayer/Overlay_SCRIPT.gd" id="8_uxqns"]
-[ext_resource type="Script" uid="uid://ddsobh5x3h3qn" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/BlackOverlay_SCRIPT.gd" id="9_g6nwl"]
 [ext_resource type="Script" uid="uid://snus4y53incu" path="res://Scenes and Scripts/Utility Scripts/IgnoreMouseFilter.gd" id="9_svfxy"]
-[ext_resource type="Script" uid="uid://can8cebn2rm5a" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/RandomText_SCRIPT.gd" id="10_6w37c"]
-[ext_resource type="Script" uid="uid://8qfa2wch42ao" path="res://Scenes and Scripts/Scenes/Player/DeathScreen/GetUp_SCRIPT.gd" id="11_0enap"]
 [ext_resource type="Script" uid="uid://bd3squcstkss1" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="16_wg7d4"]
 [ext_resource type="PackedScene" uid="uid://du1ak3ldg8x4e" path="res://Scenes and Scripts/Scenes/Dialogue/DialogueInterface.tscn" id="17_pkmg7"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="17_rhxkt"]
@@ -1824,30 +1819,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 transform = Transform3D(-0.651061, 0, -5.69176e-08, 0, 0.651061, 0, 5.69176e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Head/Player_Character_Shadow/Armature_003" index="0"]
-bones/0/position = Vector3(2.8222, -4.24484, -195.453)
-bones/0/rotation = Quaternion(-0.683224, -0.270064, 0.250113, 0.630645)
-bones/1/rotation = Quaternion(0.080834, 0.0408907, -0.00934638, 0.995845)
-bones/2/rotation = Quaternion(0.0997405, 0.0792235, -0.0231589, 0.991584)
-bones/3/rotation = Quaternion(0.0997406, 0.0792235, -0.0231588, 0.991584)
-bones/4/rotation = Quaternion(-0.0639232, -0.0109537, 0.0023637, 0.997892)
-bones/5/rotation = Quaternion(-0.0486485, 0.176538, -0.0101251, 0.983039)
-bones/7/rotation = Quaternion(0.594088, 0.403725, -0.567141, 0.40301)
-bones/8/rotation = Quaternion(0.420689, -0.107988, 0.0884129, 0.896405)
+bones/0/position = Vector3(2.75668, -3.2363, -195.892)
+bones/0/rotation = Quaternion(-0.684148, -0.270497, 0.249198, 0.629821)
+bones/1/rotation = Quaternion(0.0795548, 0.0409142, -0.00866329, 0.995953)
+bones/2/rotation = Quaternion(0.0969692, 0.0792509, -0.0224505, 0.991873)
+bones/3/rotation = Quaternion(0.0969692, 0.0792508, -0.0224505, 0.991873)
+bones/4/rotation = Quaternion(-0.0573466, -0.0104494, 0.00232605, 0.998297)
+bones/5/rotation = Quaternion(-0.0678626, 0.178164, -0.00589756, 0.98164)
+bones/7/rotation = Quaternion(0.586754, 0.412525, -0.567414, 0.404456)
+bones/8/rotation = Quaternion(0.427792, -0.102141, 0.0888963, 0.893677)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0391976, 0.0579041, 0.405083, 0.911602)
-bones/11/rotation = Quaternion(0.641495, -0.365147, 0.524569, 0.424239)
-bones/12/rotation = Quaternion(0.405839, 0.113321, 0.147242, 0.894859)
-bones/13/rotation = Quaternion(0.0236981, 0.0239804, -0.363793, 0.93087)
-bones/15/rotation = Quaternion(0.0791967, 0.240037, 0.961696, -0.106072)
+bones/9/rotation = Quaternion(-0.0360196, 0.0623734, 0.412837, 0.907953)
+bones/11/rotation = Quaternion(0.633771, -0.374504, 0.525123, 0.426997)
+bones/12/rotation = Quaternion(0.419577, 0.101927, 0.148002, 0.889754)
+bones/13/rotation = Quaternion(0.0309144, 0.00983412, -0.365933, 0.930076)
+bones/15/rotation = Quaternion(0.0798203, 0.235156, 0.962986, -0.104826)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.365046, 0.118493, -0.0366488, 0.922691)
-bones/17/rotation = Quaternion(0.565614, -0.00272953, -0.0265102, 0.824239)
-bones/18/rotation = Quaternion(0.28895, -0.0357626, -0.00921558, 0.956632)
-bones/20/rotation = Quaternion(-0.124338, 0.0386992, 0.982656, 0.132023)
-bones/21/rotation = Quaternion(-0.359023, 0.0709318, -0.0271827, 0.930232)
-bones/22/rotation = Quaternion(0.679494, 0.0546899, 0.104795, 0.724096)
+bones/16/rotation = Quaternion(-0.362974, 0.119402, -0.0367722, 0.923386)
+bones/17/rotation = Quaternion(0.56637, -0.00182275, -0.024853, 0.823774)
+bones/18/rotation = Quaternion(0.289416, -0.0366742, -0.00955818, 0.956453)
+bones/20/rotation = Quaternion(-0.125022, 0.0292924, 0.982767, 0.132965)
+bones/21/rotation = Quaternion(-0.348063, 0.0719035, -0.0262562, 0.934341)
+bones/22/rotation = Quaternion(0.675922, 0.0552657, 0.106166, 0.727189)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.277876, 0.0565432, -0.0169055, 0.958803)
+bones/23/rotation = Quaternion(0.278288, 0.0571348, -0.0171842, 0.958643)
 
 [node name="Model_004" parent="Head/Player_Character_Shadow/Armature_003/Skeleton3D" index="0"]
 cast_shadow = 3
@@ -1856,30 +1851,30 @@ cast_shadow = 3
 transform = Transform3D(-0.651061, 0, 5.69175e-08, 0, 0.651061, 0, -5.69175e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Head/Player_Character/Armature_003" index="0"]
-bones/0/position = Vector3(2.8222, -4.24484, -195.453)
-bones/0/rotation = Quaternion(-0.683224, -0.270064, 0.250113, 0.630645)
-bones/1/rotation = Quaternion(0.080834, 0.0408907, -0.00934638, 0.995845)
-bones/2/rotation = Quaternion(0.0997405, 0.0792235, -0.0231589, 0.991584)
-bones/3/rotation = Quaternion(0.0997406, 0.0792235, -0.0231588, 0.991584)
-bones/4/rotation = Quaternion(-0.0639232, -0.0109537, 0.0023637, 0.997892)
-bones/5/rotation = Quaternion(-0.0486485, 0.176538, -0.0101251, 0.983039)
-bones/7/rotation = Quaternion(0.594088, 0.403725, -0.567141, 0.40301)
-bones/8/rotation = Quaternion(0.420689, -0.107988, 0.0884129, 0.896405)
+bones/0/position = Vector3(2.75668, -3.2363, -195.892)
+bones/0/rotation = Quaternion(-0.684148, -0.270497, 0.249198, 0.629821)
+bones/1/rotation = Quaternion(0.0795548, 0.0409142, -0.00866329, 0.995953)
+bones/2/rotation = Quaternion(0.0969692, 0.0792509, -0.0224505, 0.991873)
+bones/3/rotation = Quaternion(0.0969692, 0.0792508, -0.0224505, 0.991873)
+bones/4/rotation = Quaternion(-0.0573466, -0.0104494, 0.00232605, 0.998297)
+bones/5/rotation = Quaternion(-0.0678626, 0.178164, -0.00589756, 0.98164)
+bones/7/rotation = Quaternion(0.586754, 0.412525, -0.567414, 0.404456)
+bones/8/rotation = Quaternion(0.427792, -0.102141, 0.0888963, 0.893677)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0391976, 0.0579041, 0.405083, 0.911602)
-bones/11/rotation = Quaternion(0.641495, -0.365147, 0.524569, 0.424239)
-bones/12/rotation = Quaternion(0.405839, 0.113321, 0.147242, 0.894859)
-bones/13/rotation = Quaternion(0.0236981, 0.0239804, -0.363793, 0.93087)
-bones/15/rotation = Quaternion(0.0791967, 0.240037, 0.961696, -0.106072)
+bones/9/rotation = Quaternion(-0.0360196, 0.0623734, 0.412837, 0.907953)
+bones/11/rotation = Quaternion(0.633771, -0.374504, 0.525123, 0.426997)
+bones/12/rotation = Quaternion(0.419577, 0.101927, 0.148002, 0.889754)
+bones/13/rotation = Quaternion(0.0309144, 0.00983412, -0.365933, 0.930076)
+bones/15/rotation = Quaternion(0.0798203, 0.235156, 0.962986, -0.104826)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.365046, 0.118493, -0.0366488, 0.922691)
-bones/17/rotation = Quaternion(0.565614, -0.00272953, -0.0265102, 0.824239)
-bones/18/rotation = Quaternion(0.28895, -0.0357626, -0.00921558, 0.956632)
-bones/20/rotation = Quaternion(-0.124338, 0.0386992, 0.982656, 0.132023)
-bones/21/rotation = Quaternion(-0.359023, 0.0709318, -0.0271827, 0.930232)
-bones/22/rotation = Quaternion(0.679494, 0.0546899, 0.104795, 0.724096)
+bones/16/rotation = Quaternion(-0.362974, 0.119402, -0.0367722, 0.923386)
+bones/17/rotation = Quaternion(0.56637, -0.00182275, -0.024853, 0.823774)
+bones/18/rotation = Quaternion(0.289416, -0.0366742, -0.00955818, 0.956453)
+bones/20/rotation = Quaternion(-0.125022, 0.0292924, 0.982767, 0.132965)
+bones/21/rotation = Quaternion(-0.348063, 0.0719035, -0.0262562, 0.934341)
+bones/22/rotation = Quaternion(0.675922, 0.0552657, 0.106166, 0.727189)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.277876, 0.0565432, -0.0169055, 0.958803)
+bones/23/rotation = Quaternion(0.278288, 0.0571348, -0.0171842, 0.958643)
 
 [node name="Model_004" parent="Head/Player_Character/Armature_003/Skeleton3D" index="0"]
 cast_shadow = 0
@@ -2012,6 +2007,7 @@ columns = 3
 metadata/_edit_use_anchors_ = true
 
 [node name="ItemWorkshopLayer" type="CanvasLayer" parent="Head/Camera3D"]
+layer = 4
 
 [node name="GreyLayer" type="ColorRect" parent="Head/Camera3D/ItemWorkshopLayer"]
 visible = false
@@ -3230,7 +3226,6 @@ offset_right = 197.0
 offset_bottom = -101.0
 
 [node name="InventoryLayer" type="CanvasLayer" parent="Head/Camera3D"]
-layer = 128
 
 [node name="GreyLayer" type="ColorRect" parent="Head/Camera3D/InventoryLayer"]
 visible = false
@@ -3239,7 +3234,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
+mouse_filter = 2
 color = Color(0, 0, 0, 0.643137)
 metadata/_edit_use_anchors_ = true
 
@@ -3390,6 +3385,7 @@ offset_left = 319.0
 offset_top = 581.0
 offset_right = 834.0
 offset_bottom = 642.0
+mouse_filter = 2
 theme_override_styles/panel = ExtResource("24_6y28d")
 
 [node name="Slot1" parent="Head/Camera3D/InventoryLayer/Hotbar" instance=ExtResource("8_ads4s")]
@@ -3458,6 +3454,7 @@ grow_vertical = 2
 mouse_filter = 1
 
 [node name="DeathScreen" type="CanvasLayer" parent="Head/Camera3D"]
+layer = 5
 
 [node name="BlackOverlay" type="ColorRect" parent="Head/Camera3D/DeathScreen"]
 anchors_preset = 15
@@ -3465,8 +3462,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
-script = ExtResource("9_g6nwl")
 
 [node name="RandomText" type="Label" parent="Head/Camera3D/DeathScreen/BlackOverlay"]
 layout_mode = 1
@@ -3486,7 +3483,6 @@ theme_override_font_sizes/font_size = 30
 text = "What have you done?"
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("10_6w37c")
 
 [node name="GetUp" type="Label" parent="Head/Camera3D/DeathScreen/BlackOverlay"]
 layout_mode = 1
@@ -3506,9 +3502,9 @@ theme_override_font_sizes/font_size = 30
 text = "Get Up."
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("11_0enap")
 
 [node name="OverlayLayer" type="CanvasLayer" parent="Head/Camera3D"]
+layer = 5
 
 [node name="RedOverlay" type="ColorRect" parent="Head/Camera3D/OverlayLayer"]
 process_priority = 10
@@ -3519,8 +3515,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(1, 0.016, 0, 0.808)
-script = ExtResource("7_gnu1v")
 
 [node name="Overlay" type="ColorRect" parent="Head/Camera3D/OverlayLayer"]
 process_priority = 10
@@ -3531,8 +3527,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
-script = ExtResource("8_uxqns")
 
 [node name="PauseLayer" type="CanvasLayer" parent="Head/Camera3D"]
 visible = false
