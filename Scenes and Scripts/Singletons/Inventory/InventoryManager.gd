@@ -306,6 +306,7 @@ func openPockets():
 	# Show UI
 	PlayerManager.PLAYER.InventoryLayer_Pockets.visible = true
 	PlayerManager.PLAYER.InventoryLayer_GreyLayer.visible = true
+	PlayerManager.PLAYER.InventoryLayer_Hotbar.mouse_filter = Control.MOUSE_FILTER_PASS
 	pockets_ui_open = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
@@ -313,5 +314,6 @@ func closePockets():
 	# Hide UI
 	PlayerManager.PLAYER.InventoryLayer_Pockets.visible = false
 	PlayerManager.PLAYER.InventoryLayer_GreyLayer.visible = false
+	PlayerManager.PLAYER.InventoryLayer_Hotbar.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	pockets_ui_open = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
