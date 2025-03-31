@@ -132,6 +132,9 @@ _data = {
 [node name="PineTree2" instance=ExtResource("1_v37lp")]
 script = ExtResource("2_6xnp8")
 
+[node name="Plane" parent="." index="0"]
+lod_bias = 0.5
+
 [node name="StaticBody3D" type="StaticBody3D" parent="Plane" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Plane/StaticBody3D" index="0"]
@@ -151,18 +154,23 @@ shape = SubResource("ConvexPolygonShape3D_ncrco")
 
 [node name="Circle" parent="." index="1"]
 transform = Transform3D(3.69481, -0.0293551, 0, 0.0322441, 3.36376, 0, 0, 0, 3.27432, -0.157261, 2.15982, 0.0704203)
+lod_bias = 0.5
 
 [node name="Circle_001" parent="." index="2"]
 transform = Transform3D(-1.14918, 7.93574e-08, 2.48196, 0.0333375, 3.87288, 0.0121214, -2.8006, 0.0461016, -1.01829, 0.00232995, 3.70586, -0.0228727)
+lod_bias = 0.5
 
 [node name="Circle_002" parent="." index="3"]
 transform = Transform3D(-0.865652, 0.265105, -2.20551, -0.00967366, 2.39686, 0.27595, 2.50579, 0.100836, -0.760852, -0.208852, 5.53089, -0.00858164)
+lod_bias = 0.5
 
 [node name="Circle_003" parent="." index="4"]
 transform = Transform3D(1.98946, -0.0444276, 2.71614e-15, 0.0347262, 2.54525, -2.76129e-07, 5.4382e-09, 3.98592e-07, 1.76325, 0.0508388, 6.68221, -0.0451188)
+lod_bias = 0.5
 
 [node name="Circle_004" parent="." index="5"]
 transform = Transform3D(-0.529607, 5.81833e-08, 1.14383, 0.0153638, 1.78484, 0.00558622, -1.29067, 0.0212462, -0.469287, -0.0980563, 7.77653, -0.150862)
+lod_bias = 0.5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
 libraries = {
