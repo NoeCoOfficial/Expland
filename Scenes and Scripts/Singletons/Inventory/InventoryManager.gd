@@ -48,6 +48,7 @@
 extends Node
 
 var POCKET_SLOTS = []
+var HOTBAR_SLOTS = []
 var CHEST_SLOTS = []
 var WORKSHOP_SLOTS = []
 var WORKSHOP_OUTPUT_SLOT

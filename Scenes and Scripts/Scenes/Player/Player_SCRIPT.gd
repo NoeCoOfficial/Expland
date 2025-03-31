@@ -188,6 +188,15 @@ var stamina_restoring_from_0 = false
 @export_group("Inventory")
 
 @export_subgroup("Hotbar Slots")
+@export var Slot1_Hotbar_Ref : StaticBody2D
+@export var Slot2_Hotbar_Ref : StaticBody2D
+@export var Slot3_Hotbar_Ref : StaticBody2D
+@export var Slot4_Hotbar_Ref : StaticBody2D
+@export var Slot5_Hotbar_Ref : StaticBody2D
+@export var Slot6_Hotbar_Ref : StaticBody2D
+@export var Slot7_Hotbar_Ref : StaticBody2D
+@export var Slot8_Hotbar_Ref : StaticBody2D
+@export var Slot9_Hotbar_Ref : StaticBody2D
 
 @export_subgroup("Pocket Slots")
 @export var Slot1_Pocket_Ref : StaticBody2D
@@ -221,7 +230,7 @@ var stamina_restoring_from_0 = false
 @export var InventoryLayer_Pockets : Control
 @export var InventoryLayer_Chest : Control
 @export var InventoryLayer_Workbench : Control
-
+@export var HotbarLayer_CanvasLayer : CanvasLayer
 
 @export var PocketsCollisionBoundary : Area2D
 @export var ChestCollisionBoundary : Area2D
@@ -767,6 +776,18 @@ func initInventorySlots():
 		Slot23_Pocket_Ref,
 		Slot24_Pocket_Ref,
 		Slot25_Pocket_Ref,
+	]
+	
+	InventoryManager.HOTBAR_SLOTS = [
+		Slot1_Hotbar_Ref,
+		Slot2_Hotbar_Ref,
+		Slot3_Hotbar_Ref,
+		Slot4_Hotbar_Ref,
+		Slot5_Hotbar_Ref,
+		Slot6_Hotbar_Ref,
+		Slot7_Hotbar_Ref,
+		Slot8_Hotbar_Ref,
+		Slot9_Hotbar_Ref,
 	]
 	
 	InventoryManager.CHEST_SLOTS = [
