@@ -9,12 +9,6 @@
 ### Changed:
 - Adjusted the y-position of the audio notification to be a touch lower
 
-## Player
-
-### Changed:
-
-- Adjusted the y-position of the audio notification to be a touch lower
-
 ## Inventory
 
 ### Fixed:
