@@ -305,11 +305,34 @@ var is_dragging : bool = false
 var currently_dragging_node : Node
 
 func setSelectedHotbarSlot(slotNode : Node, slotOutlineNode : Node, updateHandItem : bool = true):
-	currently_selected_hotbar_slot = slotNode
-	slotOutlineNode.visible = true
-	if updateHandItem:
-		HandManager.HAND_ITEM_NODE.HAND_ITEM = load("res://Resources/Hand Items/" + slotNode.Populating_Droppable.ITEM_TYPE["NAME"] + ".tres")
-		HandManager.HAND_ITEM_NODE.load_hand_item()
+	var previously_selected_hotbar_slot = currently_selected_hotbar_slot
+	#currently_selected_hotbar_slot = slotNode
+	
+	
+	# We check first if the previously selected hotbar slot
+	# is the same as the one we want to go to
+	# If yes, then deselect slot and hold nothing.
+	if previously_selected_hotbar_slot == slotNode:
+		for child in PlayerManager.PLAYER.InventoryLayer_HotbarSlotOutlines.get_children():
+			if str(child.name).begins_with("Slot"):
+				child.hide()
+		
+		currently_selected_hotbar_slot = null
+		PlayerManager.PLAYER.HandItem.swap_items("")
+	
+	else:
+		
+		for child in PlayerManager.PLAYER.InventoryLayer_HotbarSlotOutlines.get_children():
+			if child == slotOutlineNode:
+				child.show()
+			else:
+				child.hide()
+		
+		currently_selected_hotbar_slot = slotNode
+		if slotNode.Populating_Droppable:
+			PlayerManager.PLAYER.HandItem.swap_items(slotNode.Populating_Droppable.ITEM_TYPE["NAME"])
+		else:
+			PlayerManager.PLAYER.HandItem.swap_items("")
 
 func openPockets():
 	# Show UI

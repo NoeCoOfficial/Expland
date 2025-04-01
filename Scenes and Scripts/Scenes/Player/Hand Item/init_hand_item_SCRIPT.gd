@@ -89,7 +89,7 @@ func swap_items(toITEM : String):
 	goToITEM = toITEM
 	
 	# If we are currently holding nothing
-	if HandManager.CURRENTLY_HOLDING_ITEM == "":
+	if HandManager.CURRENTLY_HOLDING_ITEM == "" and goToITEM != "":
 		
 		if hand_mesh.get_child_count() > 0: # Check if there are any models left, if so then remove them
 			for child in hand_mesh.get_children():
