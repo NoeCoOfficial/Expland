@@ -198,6 +198,17 @@ var stamina_restoring_from_0 = false
 @export var Slot8_Hotbar_Ref : StaticBody2D
 @export var Slot9_Hotbar_Ref : StaticBody2D
 
+@export_subgroup("Hotbar Outlines")
+@export var Outline_Slot1_Hotbar_Ref : Panel
+@export var Outline_Slot2_Hotbar_Ref : Panel
+@export var Outline_Slot3_Hotbar_Ref : Panel
+@export var Outline_Slot4_Hotbar_Ref : Panel
+@export var Outline_Slot5_Hotbar_Ref : Panel
+@export var Outline_Slot6_Hotbar_Ref : Panel
+@export var Outline_Slot7_Hotbar_Ref : Panel
+@export var Outline_Slot8_Hotbar_Ref : Panel
+@export var Outline_Slot9_Hotbar_Ref : Panel
+
 @export_subgroup("Pocket Slots")
 @export var Slot1_Pocket_Ref : StaticBody2D
 @export var Slot2_Pocket_Ref : StaticBody2D
@@ -236,6 +247,7 @@ var stamina_restoring_from_0 = false
 @export var PocketsCollisionBoundary : Area2D
 @export var ChestCollisionBoundary : Area2D
 @export var WorkbenchCollisionBoundary : Area2D
+
 
 @export_group("Chest")
 
@@ -294,6 +306,7 @@ var stamina_restoring_from_0 = false
 @export var Slot48_Chest_Ref : StaticBody2D
 @export var Slot49_Chest_Ref : StaticBody2D
 
+
 @export_group("Workbench")
 
 @export_subgroup("Layers and UI")
@@ -311,6 +324,7 @@ var stamina_restoring_from_0 = false
 @export var Slot8_Workbench_Ref : StaticBody2D
 @export var Slot9_Workbench_Ref : StaticBody2D
 @export var Slot10_Output_Workbench_Ref : StaticBody2D
+
 
 @export_group("General Nodes")
 
