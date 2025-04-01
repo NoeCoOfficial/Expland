@@ -2,9 +2,22 @@
 
 # v0.7.5 (unreleased)
 
+---
+
+## Main Menu
+
+### Changed:
+- Adjusted the y-position of the audio notification to be a touch lower
+
+## Player
+
+### Changed:
+
+- Adjusted the y-position of the audio notification to be a touch lower
+
 ## Inventory
 
-### Fixed
+### Fixed:
 - Fixed default droppable size shrinking after hovering over
 
 ---
