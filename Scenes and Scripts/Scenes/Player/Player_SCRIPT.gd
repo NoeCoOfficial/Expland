@@ -458,7 +458,6 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
 			SaveManager.saveAllData()
 	
-	
 	if Input.is_action_just_pressed("Hotbar_1"):
 		InventoryManager.setHotbarSlot(Slot1_Hotbar_Ref, Outline_Slot1_Hotbar_Ref)
 	if Input.is_action_just_pressed("Hotbar_2"):
@@ -477,9 +476,6 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		InventoryManager.setHotbarSlot(Slot8_Hotbar_Ref, Outline_Slot8_Hotbar_Ref)
 	if Input.is_action_just_pressed("Hotbar_9"):
 		InventoryManager.setHotbarSlot(Slot9_Hotbar_Ref, Outline_Slot9_Hotbar_Ref)
-	
-	
-	
 
 func _unhandled_input(event): # A built-in function that listens for input all the time
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
