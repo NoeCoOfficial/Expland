@@ -295,6 +295,8 @@ const EFFECT_ITEMS = [
 	"HOLY GRAIL",
 ]
 
+var currently_selected_hotbar_slot : Node = null
+
 var pockets_ui_open : bool = false
 var chest_ui_open : bool = false
 var current_chest_node : Node = null
@@ -302,8 +304,11 @@ var workshop_ui_open : bool = false
 var is_dragging : bool = false
 var currently_dragging_node : Node
 
-func setSelectedHotbarSlot(SlotNumber : int):
-	PlayerManager.PLAYER.
+func setSelectedHotbarSlot(slotNode : Node, slotOutlineNode : Node, updateHandItem : bool = true):
+	currently_selected_hotbar_slot = slotNode
+	slotOutlineNode.visible = true
+	if updateHandItem:
+		pass # TODO: Implement hand item update logic
 
 func openPockets():
 	# Show UI
