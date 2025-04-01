@@ -92,6 +92,10 @@ func _input(event: InputEvent) -> void:
 						droppable_node_ref.Populating_Slot_Node = $"."
 						droppable_node_ref.z_index = 0
 						droppable_node_ref.scale = droppable_node_ref.Default_Size
+						if Hotbar_Slot:
+							droppable_node_ref.Droppable_ITEM_TYPE_Label.visible = false
+						else:
+							droppable_node_ref.Droppable_ITEM_TYPE_Label.visible = true
 				else:
 					# This code runs if we did not release in the slot.
 					# What we wanna do is, snap back to the original slot
