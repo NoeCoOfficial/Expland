@@ -308,7 +308,8 @@ func setSelectedHotbarSlot(slotNode : Node, slotOutlineNode : Node, updateHandIt
 	currently_selected_hotbar_slot = slotNode
 	slotOutlineNode.visible = true
 	if updateHandItem:
-		pass # TODO: Implement hand item update logic
+		HandManager.HAND_ITEM_NODE.HAND_ITEM = load("res://Resources/Hand Items/" + slotNode.Populating_Droppable.ITEM_TYPE["NAME"] + ".tres")
+		HandManager.HAND_ITEM_NODE.load_hand_item()
 
 func openPockets():
 	# Show UI

@@ -241,6 +241,7 @@ var stamina_restoring_from_0 = false
 @export var InventoryLayer_GreyLayer : ColorRect
 @export var InventoryLayer_Pockets : Control
 @export var InventoryLayer_Hotbar : Control
+@export var InventoryLayer_HotbarSlotOutlines : Control
 @export var InventoryLayer_Chest : Control
 @export var InventoryLayer_Workbench : Control
 
@@ -459,23 +460,23 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			SaveManager.saveAllData()
 	
 	if Input.is_action_just_pressed("Hotbar_1"):
-		InventoryManager.setHotbarSlot(Slot1_Hotbar_Ref, Outline_Slot1_Hotbar_Ref)
+		InventoryManager.setSelectedHotbarSlot(Slot1_Hotbar_Ref, Outline_Slot1_Hotbar_Ref)
 	if Input.is_action_just_pressed("Hotbar_2"):
-		InventoryManager.setHotbarSlot(Slot2_Hotbar_Ref, Outline_Slot2_Hotbar_Ref)
+		InventoryManager.setSelectedHotbarSlot(Slot2_Hotbar_Ref, Outline_Slot2_Hotbar_Ref)
 	if Input.is_action_just_pressed("Hotbar_3"):
-		InventoryManager.setHotbarSlot(Slot3_Hotbar_Ref, Outline_Slot3_Hotbar_Ref)
+		InventoryManager.setSelectedHotbarSlot(Slot3_Hotbar_Ref, Outline_Slot3_Hotbar_Ref)
 	if Input.is_action_just_pressed("Hotbar_4"):
-		InventoryManager.setHotbarSlot(Slot4_Hotbar_Ref, Outline_Slot4_Hotbar_Ref)
+		InventoryManager.setSelectedHotbarSlot(Slot4_Hotbar_Ref, Outline_Slot4_Hotbar_Ref)
 	if Input.is_action_just_pressed("Hotbar_5"):
-		InventoryManager.setHotbarSlot(Slot5_Hotbar_Ref, Outline_Slot5_Hotbar_Ref)
+		InventoryManager.setSelectedHotbarSlot(Slot5_Hotbar_Ref, Outline_Slot5_Hotbar_Ref)
 	if Input.is_action_just_pressed("Hotbar_6"):
-		InventoryManager.setHotbarSlot(Slot6_Hotbar_Ref, Outline_Slot6_Hotbar_Ref)
+		InventoryManager.setSelectedHotbarSlot(Slot6_Hotbar_Ref, Outline_Slot6_Hotbar_Ref)
 	if Input.is_action_just_pressed("Hotbar_7"):
-		InventoryManager.setHotbarSlot(Slot7_Hotbar_Ref, Outline_Slot7_Hotbar_Ref)
+		InventoryManager.setSelectedHotbarSlot(Slot7_Hotbar_Ref, Outline_Slot7_Hotbar_Ref)
 	if Input.is_action_just_pressed("Hotbar_8"):
-		InventoryManager.setHotbarSlot(Slot8_Hotbar_Ref, Outline_Slot8_Hotbar_Ref)
+		InventoryManager.setSelectedHotbarSlot(Slot8_Hotbar_Ref, Outline_Slot8_Hotbar_Ref)
 	if Input.is_action_just_pressed("Hotbar_9"):
-		InventoryManager.setHotbarSlot(Slot9_Hotbar_Ref, Outline_Slot9_Hotbar_Ref)
+		InventoryManager.setSelectedHotbarSlot(Slot9_Hotbar_Ref, Outline_Slot9_Hotbar_Ref)
 
 func _unhandled_input(event): # A built-in function that listens for input all the time
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
