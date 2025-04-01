@@ -460,8 +460,23 @@ func _input(_event): # A built-in function that listens for input using the inpu
 	
 	
 	if Input.is_action_just_pressed("Hotbar_1"):
-		pass
-	
+		InventoryManager.setHotbarSlot(Slot1_Hotbar_Ref, Outline_Slot1_Hotbar_Ref)
+	if Input.is_action_just_pressed("Hotbar_2"):
+		InventoryManager.setHotbarSlot(Slot2_Hotbar_Ref, Outline_Slot2_Hotbar_Ref)
+	if Input.is_action_just_pressed("Hotbar_3"):
+		InventoryManager.setHotbarSlot(Slot3_Hotbar_Ref, Outline_Slot3_Hotbar_Ref)
+	if Input.is_action_just_pressed("Hotbar_4"):
+		InventoryManager.setHotbarSlot(Slot4_Hotbar_Ref, Outline_Slot4_Hotbar_Ref)
+	if Input.is_action_just_pressed("Hotbar_5"):
+		InventoryManager.setHotbarSlot(Slot5_Hotbar_Ref, Outline_Slot5_Hotbar_Ref)
+	if Input.is_action_just_pressed("Hotbar_6"):
+		InventoryManager.setHotbarSlot(Slot6_Hotbar_Ref, Outline_Slot6_Hotbar_Ref)
+	if Input.is_action_just_pressed("Hotbar_7"):
+		InventoryManager.setHotbarSlot(Slot7_Hotbar_Ref, Outline_Slot7_Hotbar_Ref)
+	if Input.is_action_just_pressed("Hotbar_8"):
+		InventoryManager.setHotbarSlot(Slot8_Hotbar_Ref, Outline_Slot8_Hotbar_Ref)
+	if Input.is_action_just_pressed("Hotbar_9"):
+		InventoryManager.setHotbarSlot(Slot9_Hotbar_Ref, Outline_Slot9_Hotbar_Ref)
 	
 	
 	
