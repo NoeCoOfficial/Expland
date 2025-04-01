@@ -91,12 +91,14 @@ func _input(event: InputEvent) -> void:
 						Dashed_Texture.self_modulate = Color(1, 1, 1, 0)
 						droppable_node_ref.Populating_Slot_Node = $"."
 						droppable_node_ref.z_index = 0
+						droppable_node_ref.scale = droppable_node_ref.Default_Size
 				else:
 					# This code runs if we did not release in the slot.
 					# What we wanna do is, snap back to the original slot
 					if droppable_node_ref.Populating_Slot_Node:
 						droppable_node_ref.position = Vector2(0, 0)
 						droppable_node_ref.z_index = 0
+						droppable_node_ref.scale = droppable_node_ref.Default_Size
 
 func spawn_droppable(ITEM_TYPE: String):
 	var droppable_instance = InventoryManager.Droppable_Scene.instantiate()

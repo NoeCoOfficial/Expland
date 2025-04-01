@@ -116,7 +116,6 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_released("LeftClick"):
 		if InventoryManager.pockets_ui_open and InventoryManager.is_dragging:
 			InventoryManager.is_dragging = false
-			scale = Default_Size
 			InventoryManager.currently_dragging_node = null
 			z_index = 0
 
