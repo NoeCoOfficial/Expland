@@ -1534,9 +1534,9 @@ vertical_alignment = 1
 
 [node name="AudioNotification" parent="Camera3D/MainLayer/AudioNotificationLayer" instance=ExtResource("31_xncp6")]
 offset_left = 1152.0
-offset_top = 387.0
+offset_top = 401.0
 offset_right = 197.0
-offset_bottom = -173.0
+offset_bottom = -159.0
 
 [node name="ProtectiveLayer" type="Control" parent="Camera3D/MainLayer"]
 layout_mode = 3
