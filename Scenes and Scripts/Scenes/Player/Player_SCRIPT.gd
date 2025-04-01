@@ -457,6 +457,14 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		if !StoryModeManager.is_in_story_mode_first_cutscene_world:
 			Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
 			SaveManager.saveAllData()
+	
+	
+	if Input.is_action_just_pressed("Hotbar_1"):
+		pass
+	
+	
+	
+	
 
 func _unhandled_input(event): # A built-in function that listens for input all the time
 	if event is InputEventMouseMotion: # if the input is a mouse motion event

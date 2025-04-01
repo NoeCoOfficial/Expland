@@ -302,6 +302,9 @@ var workshop_ui_open : bool = false
 var is_dragging : bool = false
 var currently_dragging_node : Node
 
+func setSelectedHotbarSlot(SlotNumber : int):
+	PlayerManager.PLAYER.
+
 func openPockets():
 	# Show UI
 	PlayerManager.PLAYER.InventoryLayer_Pockets.visible = true
