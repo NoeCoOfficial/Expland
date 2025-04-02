@@ -9,4 +9,4 @@ sway_noise = ExtResource("2_uqh4v")
 
 [node name="HandMesh" type="Node3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(0.654455, 0.054496, 0.456857, -0.0663857, 0.797241, 0, -0.455282, -0.037911, 0.65672, 0.145, -0.385, -0.765)
+transform = Transform3D(0.381675, 0.132152, 0.29472, -0.159635, 0.473798, -0.00571583, -0.280786, -0.0897318, 0.403866, 0.265, -0.3, -1.24)
