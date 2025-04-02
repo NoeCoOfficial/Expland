@@ -5,8 +5,8 @@
 [resource]
 script = ExtResource("1_twciq")
 ITEM_TYPE = "PICKAXE"
-mesh_position = Vector3(0.265, -0.3, -1.24)
-mesh_rotation = Vector3(0.655, 36.12, -18.62)
+mesh_position = Vector3(0.265, -0.3, -0.85)
+mesh_rotation = Vector3(0.655, 30.445, -14.33)
 mesh_scale = Vector3(0.5, 0.5, 0.5)
 model_path = "res://Assets/3D Models/Inventory Hand Items/PICKAXE.blend"
 sway_min = Vector2(-20, -20)

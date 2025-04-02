@@ -87,6 +87,8 @@ func _input(event: InputEvent) -> void:
 
 func swap_items(toITEM : String):
 	goToITEM = toITEM
+	position = Vector3.ZERO
+	rotation_degrees = Vector3.ZERO
 	
 	# If we are currently holding nothing
 	if HandManager.CURRENTLY_HOLDING_ITEM == "" and goToITEM != "":
@@ -157,7 +159,7 @@ func sway(delta, isIdle : bool):
 		HAND_ITEM.sway_amount_rotation) * delta, HAND_ITEM.sway_speed_rotation)
 
 func get_sway_noise():
-	var player_position := Vector3(0, 0, 0)
+	var player_position := Vector3.ZERO
 	if !Engine.is_editor_hint():
 		player_position = PlayerManager.PLAYER.global_position
 	
