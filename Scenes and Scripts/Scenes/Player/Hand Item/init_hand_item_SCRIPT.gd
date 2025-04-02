@@ -86,9 +86,12 @@ func _input(event: InputEvent) -> void:
 
 
 func swap_items(toITEM : String):
+	var resource_to_load = load("res://Resources/Hand Items/" + goToITEM + ".tres")
+	HAND_ITEM = resource_to_load
+	
 	goToITEM = toITEM
-	position = Vector3.ZERO
-	rotation_degrees = Vector3.ZERO
+	position = HAND_ITEM.mesh_reset_position
+	rotation_degrees = HAND_ITEM.mesh_reset_rotation
 	
 	# If we are currently holding nothing
 	if HandManager.CURRENTLY_HOLDING_ITEM == "" and goToITEM != "":
@@ -97,8 +100,7 @@ func swap_items(toITEM : String):
 			for child in hand_mesh.get_children():
 				child.queue_free()
 		
-		var resource_to_load = load("res://Resources/Hand Items/" + goToITEM + ".tres")
-		HAND_ITEM = resource_to_load
+
 		load_hand_item()
 		HandManager.CURRENTLY_HOLDING_ITEM = goToITEM
 	
@@ -118,8 +120,8 @@ func swap_items(toITEM : String):
 			for child in hand_mesh.get_children():
 				child.queue_free()
 		
-		var resource_to_load = load("res://Resources/Hand Items/" + goToITEM + ".tres")
-		HAND_ITEM = resource_to_load
+		var resource_to_load_2 = load("res://Resources/Hand Items/" + goToITEM + ".tres")
+		HAND_ITEM = resource_to_load_2
 		load_hand_item()
 
 func sway(delta, isIdle : bool):
