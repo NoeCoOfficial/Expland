@@ -205,3 +205,7 @@ func _on_tap_toggled() -> void:
 
 func _on_tap_cooldown_timeout() -> void:
 	can_toggle_tap = true
+
+
+func _on_storm_timer() -> void:
+	pass # Replace with function body.

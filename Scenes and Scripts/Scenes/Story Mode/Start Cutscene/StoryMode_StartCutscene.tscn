@@ -280,6 +280,10 @@ _data = {
 [node name="World" type="Node3D"]
 script = ExtResource("1_4d7y3")
 
+[node name="StormTimer" type="Timer" parent="."]
+wait_time = 287.9
+one_shot = true
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_g8pos")
 
@@ -745,6 +749,7 @@ libraries = {
 }
 autoplay = "camera_sutle_movement"
 
+[connection signal="timeout" from="StormTimer" to="." method="_on_storm_timer"]
 [connection signal="Action1_Triggered" from="Yacht Rig/Yacht/Lever Interactable Component" to="." method="_on_red_lever_triggered"]
 [connection signal="Action2_Triggered" from="Yacht Rig/Yacht/Lever Interactable Component" to="." method="_on_blue_lever_triggered"]
 [connection signal="Action3_Triggered" from="Yacht Rig/Yacht/Lever Interactable Component" to="." method="_on_green_lever_triggered"]
