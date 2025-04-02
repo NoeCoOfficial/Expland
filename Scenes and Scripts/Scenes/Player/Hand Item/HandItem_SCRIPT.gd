@@ -53,6 +53,9 @@ class_name HandItems extends Resource
 @export var mesh_position : Vector3
 @export var mesh_rotation : Vector3
 @export var mesh_scale : Vector3 = Vector3(1, 1, 1)
+@export_category("Reset")
+@export var mesh_reset_position : Vector3
+@export var mesh_reset_rotation : Vector3
 @export_category("Visual")
 @export var model_path : String
 @export_group("Sway")
