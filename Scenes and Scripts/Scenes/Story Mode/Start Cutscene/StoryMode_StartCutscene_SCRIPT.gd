@@ -208,4 +208,4 @@ func _on_tap_cooldown_timeout() -> void:
 
 
 func _on_storm_timer() -> void:
-	pass # Replace with function body.
+	print("STARTING STORM")
