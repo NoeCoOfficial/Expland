@@ -88,6 +88,7 @@ func onfadeInGreyOverlay_Finished():
 	
 	$"Yacht Rig/Yacht".position.y = 0.11
 	self.add_child(player_instance)
+	$StormTimer.start()
 	player_instance.position = Vector3(2.876, -15.188, -16.899)
 	player_instance.ResetPOS = Vector3(2.876, -15.188, -16.899)
 	player_instance.nodeSetup()
