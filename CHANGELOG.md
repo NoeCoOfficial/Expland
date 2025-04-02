@@ -8,6 +8,7 @@
 
 ### Changed:
 - Adjusted the y-position of the audio notification to be a touch lower
+- Made Story Mode locked again. You weren't supposed to see that!
 
 ## Inventory
 
