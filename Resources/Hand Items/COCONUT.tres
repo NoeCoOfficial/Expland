@@ -5,8 +5,8 @@
 [resource]
 script = ExtResource("1_ldw6j")
 ITEM_TYPE = "SWORD"
-mesh_position = Vector3(0.145, -0.385, -0.765)
-mesh_rotation = Vector3(0, -138.5, -4.76)
+mesh_position = Vector3(-0.305, -0.37, 1.855)
+mesh_rotation = Vector3(0, 114.07, -4.76)
 mesh_scale = Vector3(0.8, 0.8, 0.8)
 model_path = "res://Assets/3D Models/Inventory Hand Items/COCONUT.blend"
 sway_min = Vector2(-20, -20)
