@@ -517,7 +517,7 @@ uv1_triplanar = true
 
 [sub_resource type="PrismMesh" id="PrismMesh_2b0j5"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_skxi6"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_iixfe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sdnyt"]
 size = Vector3(3.10474, 2.18762, 1.86438)
@@ -1335,7 +1335,7 @@ material_override = SubResource("StandardMaterial3D_0hh2e")
 mesh = SubResource("PrismMesh_2b0j5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RedDamageSpike"]
-shape = SubResource("BoxShape3D_skxi6")
+shape = SubResource("BoxShape3D_iixfe")
 
 [node name="EryvBoundary" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -376.278, 1.51891, 280.991)
