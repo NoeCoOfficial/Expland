@@ -104,6 +104,7 @@ const ITEM_TYPES = {
 		"DESCRIPTION" : "A tool for mining and breaking rocks.",
 		"IMAGE_LOAD" : preload("uid://bxxnhb6vulkry"),
 		"PICKUP_LOAD" : preload("uid://dplpg1yhca1b2"),
+		"HAND_ITEM_RES" : preload("uid://blcr3veqy5vd7"),
 		"MAX_STACK" : 1,
 	},
 	
@@ -112,6 +113,7 @@ const ITEM_TYPES = {
 		"DESCRIPTION" : "A bladed weapon for cutting and thrusting.",
 		"IMAGE_LOAD" : preload("uid://dixs8s5v2su7q"),
 		"PICKUP_LOAD" : preload("uid://bgqxctsm6c3w6"),
+		"HAND_ITEM_RES" : preload("uid://bfl2kn5tjktpm"),
 		"MAX_STACK" : 1,
 	},
 	
@@ -162,6 +164,7 @@ const ITEM_TYPES = {
 		"DESCRIPTION" : "A hard-shelled tropical fruit with white flesh and liquid inside.",
 		"IMAGE_LOAD" : preload("uid://dmyiq1y00bivg"),
 		"PICKUP_LOAD" : preload("uid://dm1ck0k7tfmel"),
+		"HAND_ITEM_RES" : preload("uid://c4tfusakf730y"),
 		"MAX_STACK" : 5,
 	},
 	
