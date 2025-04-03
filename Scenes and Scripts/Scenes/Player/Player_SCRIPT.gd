@@ -1278,6 +1278,9 @@ func on_sleep_cycle_hold_finished(fadeOutTime, time : int):
 func _on_area_collision_shape_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("temp_spike"):
 		takeDamage(14)
+		
+	if body.is_in_group("temp_spike_ik"):
+		takeDamage(100)
 
 func _on_area_collision_shape_3d_area_entered(area: Area3D) -> void:
 	pass
