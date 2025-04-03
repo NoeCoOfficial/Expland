@@ -57,7 +57,7 @@ class_name HandItems extends Resource
 @export var mesh_reset_position : Vector3
 @export var mesh_reset_rotation : Vector3
 @export_category("Visual")
-@export var model_path : String
+@export var model_scene : PackedScene
 @export_group("Sway")
 @export var sway_min : Vector2 = Vector2(-20.0, -20.0)
 @export var sway_max : Vector2 = Vector2(20.0, 20.0)

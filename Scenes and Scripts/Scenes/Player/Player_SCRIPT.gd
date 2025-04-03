@@ -459,24 +459,25 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
 			SaveManager.saveAllData()
 	
-	if Input.is_action_just_pressed("Hotbar_1"):
-		InventoryManager.setSelectedHotbarSlot(Slot1_Hotbar_Ref, Outline_Slot1_Hotbar_Ref)
-	if Input.is_action_just_pressed("Hotbar_2"):
-		InventoryManager.setSelectedHotbarSlot(Slot2_Hotbar_Ref, Outline_Slot2_Hotbar_Ref)
-	if Input.is_action_just_pressed("Hotbar_3"):
-		InventoryManager.setSelectedHotbarSlot(Slot3_Hotbar_Ref, Outline_Slot3_Hotbar_Ref)
-	if Input.is_action_just_pressed("Hotbar_4"):
-		InventoryManager.setSelectedHotbarSlot(Slot4_Hotbar_Ref, Outline_Slot4_Hotbar_Ref)
-	if Input.is_action_just_pressed("Hotbar_5"):
-		InventoryManager.setSelectedHotbarSlot(Slot5_Hotbar_Ref, Outline_Slot5_Hotbar_Ref)
-	if Input.is_action_just_pressed("Hotbar_6"):
-		InventoryManager.setSelectedHotbarSlot(Slot6_Hotbar_Ref, Outline_Slot6_Hotbar_Ref)
-	if Input.is_action_just_pressed("Hotbar_7"):
-		InventoryManager.setSelectedHotbarSlot(Slot7_Hotbar_Ref, Outline_Slot7_Hotbar_Ref)
-	if Input.is_action_just_pressed("Hotbar_8"):
-		InventoryManager.setSelectedHotbarSlot(Slot8_Hotbar_Ref, Outline_Slot8_Hotbar_Ref)
-	if Input.is_action_just_pressed("Hotbar_9"):
-		InventoryManager.setSelectedHotbarSlot(Slot9_Hotbar_Ref, Outline_Slot9_Hotbar_Ref)
+	if !StoryModeManager.is_in_story_mode_first_cutscene_world and !PauseManager.is_paused and !DialogueManager.is_in_interface:
+		if Input.is_action_just_pressed("Hotbar_1"):
+			InventoryManager.setSelectedHotbarSlot(Slot1_Hotbar_Ref, Outline_Slot1_Hotbar_Ref)
+		if Input.is_action_just_pressed("Hotbar_2"):
+			InventoryManager.setSelectedHotbarSlot(Slot2_Hotbar_Ref, Outline_Slot2_Hotbar_Ref)
+		if Input.is_action_just_pressed("Hotbar_3"):
+			InventoryManager.setSelectedHotbarSlot(Slot3_Hotbar_Ref, Outline_Slot3_Hotbar_Ref)
+		if Input.is_action_just_pressed("Hotbar_4"):
+			InventoryManager.setSelectedHotbarSlot(Slot4_Hotbar_Ref, Outline_Slot4_Hotbar_Ref)
+		if Input.is_action_just_pressed("Hotbar_5"):
+			InventoryManager.setSelectedHotbarSlot(Slot5_Hotbar_Ref, Outline_Slot5_Hotbar_Ref)
+		if Input.is_action_just_pressed("Hotbar_6"):
+			InventoryManager.setSelectedHotbarSlot(Slot6_Hotbar_Ref, Outline_Slot6_Hotbar_Ref)
+		if Input.is_action_just_pressed("Hotbar_7"):
+			InventoryManager.setSelectedHotbarSlot(Slot7_Hotbar_Ref, Outline_Slot7_Hotbar_Ref)
+		if Input.is_action_just_pressed("Hotbar_8"):
+			InventoryManager.setSelectedHotbarSlot(Slot8_Hotbar_Ref, Outline_Slot8_Hotbar_Ref)
+		if Input.is_action_just_pressed("Hotbar_9"):
+			InventoryManager.setSelectedHotbarSlot(Slot9_Hotbar_Ref, Outline_Slot9_Hotbar_Ref)
 
 func _unhandled_input(event): # A built-in function that listens for input all the time
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
@@ -901,6 +902,7 @@ func init_for_story_mode_cutscene():
 		$Head/Camera3D/HUDLayer/StaminaBar.hide()
 		$Head/Camera3D/HUDLayer/WhiteHamIcon.hide()
 		$Head/Camera3D/HUDLayer/WhiteHeartIcon.hide()
+		InventoryLayer_Hotbar.hide()
 
 #endregion
 
@@ -1276,6 +1278,9 @@ func on_sleep_cycle_hold_finished(fadeOutTime, time : int):
 func _on_area_collision_shape_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("temp_spike"):
 		takeDamage(14)
+		
+	if body.is_in_group("temp_spike_ik"):
+		takeDamage(100)
 
 func _on_area_collision_shape_3d_area_entered(area: Area3D) -> void:
 	pass

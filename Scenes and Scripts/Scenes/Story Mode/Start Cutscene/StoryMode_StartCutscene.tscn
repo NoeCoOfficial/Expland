@@ -1,8 +1,7 @@
-[gd_scene load_steps=59 format=3 uid="uid://nlp0xy1m65tp"]
+[gd_scene load_steps=65 format=3 uid="uid://nlp0xy1m65tp"]
 
 [ext_resource type="Script" uid="uid://uvb2g81nntt2" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/StoryMode_StartCutscene_SCRIPT.gd" id="1_4d7y3"]
 [ext_resource type="Shader" uid="uid://b2gi30s113t00" path="res://Scenes and Scripts/Scenes/The Island/TheIslandSeaWater.gdshader" id="2_cfn0j"]
-[ext_resource type="Environment" uid="uid://d1cbu0qgvxnuh" path="res://Resources/Environment/StoryMode_StartCutscene_WorldEnvironment.tres" id="2_g8pos"]
 [ext_resource type="Script" uid="uid://dudqfc8y403pg" path="res://Textures/Icons/Script Icons/Scripts/RiverIcon_SCRIPT.gd" id="3_os8dc"]
 [ext_resource type="PackedScene" uid="uid://cn1krf62jowgb" path="res://Scenes and Scripts/Scenes/Dialogue/MinimalDialogue.tscn" id="4_7s4ab"]
 [ext_resource type="PackedScene" uid="uid://ck0guuhifgbmr" path="res://Assets/3D Models/Cutscenes/Story Mode/Start Cutscene/Models/Yacht.blend" id="4_os8dc"]
@@ -13,6 +12,25 @@
 [ext_resource type="Script" uid="uid://bi02uk7qwshyf" path="res://Scenes and Scripts/Scenes/Components/Interactable Component/Interactable_Component_SCRIPT.gd" id="9_44ck5"]
 [ext_resource type="PackedScene" uid="uid://tkmo4qdlscsu" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/Props/BlueLever.tscn" id="9_yeq2m"]
 [ext_resource type="PackedScene" uid="uid://cmt00ehn4hfne" path="res://Scenes and Scripts/Scenes/General/UI/MessageWithKeyUI.tscn" id="10_w18yt"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w18yt"]
+sky_top_color = Color(0.25, 0.25, 0.25, 1)
+sky_horizon_color = Color(0.505344, 0.505344, 0.505344, 1)
+sky_curve = 0.0409602
+ground_bottom_color = Color(0.09, 0.09, 0.09, 1)
+ground_horizon_color = Color(0.51, 0.51, 0.51, 1)
+
+[sub_resource type="Sky" id="Sky_ix38m"]
+sky_material = SubResource("ProceduralSkyMaterial_w18yt")
+
+[sub_resource type="Environment" id="Environment_ec70e"]
+background_mode = 2
+sky = SubResource("Sky_ix38m")
+tonemap_mode = 2
+ssao_power = 9.74701
+ssao_detail = 2.21
+ssao_horizon = 0.59
+glow_enabled = true
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_oopga"]
 
@@ -28,10 +46,10 @@ seamless = true
 as_normal_map = true
 noise = SubResource("FastNoiseLite_u6jhm")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_g8pos"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yeq2m"]
 render_priority = 0
 shader = ExtResource("2_cfn0j")
-shader_parameter/albedo = Color(0.12549, 0.584314, 1, 0.839216)
+shader_parameter/albedo = Color(0.1368, 0.262453, 0.38, 0.839216)
 shader_parameter/point_size = 1.0
 shader_parameter/roughness = 0.0
 shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
@@ -55,7 +73,7 @@ shader_parameter/secondary_wave_frequency = 0.1
 shader_parameter/secondary_wave_speed = 0.1
 
 [sub_resource type="BoxMesh" id="BoxMesh_7s4ab"]
-material = SubResource("ShaderMaterial_g8pos")
+material = SubResource("ShaderMaterial_yeq2m")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7s4ab"]
 size = Vector3(10.6402, 0.282715, 2.05533)
@@ -71,6 +89,9 @@ size = Vector3(0.877014, 1.21918, 1.17464)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yeq2m"]
 size = Vector3(0.189156, 2.01709, 2.24771)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5c1th"]
+size = Vector3(0.189156, 2.01709, 3.97495)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_44ck5"]
 size = Vector3(0.189156, 2.01709, 5.67342)
@@ -274,11 +295,112 @@ _data = {
 &"camera_sutle_movement": SubResource("Animation_f3l76")
 }
 
+[sub_resource type="Animation" id="Animation_smf4g"]
+resource_name = "storm_transition"
+length = 50.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WorldEnvironment:environment:sky:sky_material:sky_top_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 50),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.379513, 0.678929, 0.950538, 1), Color(0.25, 0.25, 0.25, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WorldEnvironment:environment:sky:sky_material:sky_horizon_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 50),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.51, 0.755, 1, 1), Color(0.505344, 0.505344, 0.505344, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WorldEnvironment:environment:sky:sky_material:ground_horizon_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 50),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.301961, 0.552941, 0.827451, 1), Color(0.51, 0.51, 0.51, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SeaWater:mesh:material:shader_parameter/albedo")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.12549, 0.584314, 1, 0.839216)]
+}
+
+[sub_resource type="Animation" id="Animation_2wqp2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WorldEnvironment:environment:sky:sky_material:sky_top_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.25, 0.25, 0.25, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WorldEnvironment:environment:sky:sky_material:sky_horizon_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.505344, 0.505344, 0.505344, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WorldEnvironment:environment:sky:sky_material:ground_horizon_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.51, 0.51, 0.51, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gk6k1"]
+_data = {
+&"RESET": SubResource("Animation_2wqp2"),
+&"storm_transition": SubResource("Animation_smf4g")
+}
+
 [node name="World" type="Node3D"]
 script = ExtResource("1_4d7y3")
 
+[node name="StormTimer" type="Timer" parent="."]
+wait_time = 287.9
+one_shot = true
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("2_g8pos")
+environment = SubResource("Environment_ec70e")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.863395, 0.390681, -0.319244, 0, 0.632758, 0.77435, 0.504528, -0.66857, 0.54632, 0, 0, 0)
@@ -340,8 +462,13 @@ shape = SubResource("BoxShape3D_2wqp2")
 debug_color = Color(1, 0.21, 0.223166, 1)
 
 [node name="CollisionShape3D8" type="CollisionShape3D" parent="Yacht Rig/Yacht/MainCollision"]
-transform = Transform3D(0.999099, -0.000139143, -0.0424293, 0.000163697, 1, 0.000559653, 0.0424289, -0.000566228, 0.999099, -2.27902, 0.835771, -1.86305)
+transform = Transform3D(0.999101, -0.000139089, -0.04243, 0.000163709, 1.00001, 0.000559652, 0.0424302, -0.00056625, 0.999104, -2.27902, 0.835772, -1.86305)
 shape = SubResource("BoxShape3D_yeq2m")
+debug_color = Color(1, 0.21, 0.223166, 1)
+
+[node name="CollisionShape3D16" type="CollisionShape3D" parent="Yacht Rig/Yacht/MainCollision"]
+transform = Transform3D(0.999982, -2.18478e-05, -0.00595748, 2.23192e-05, 1, 7.90651e-05, 0.00595748, -7.91966e-05, 0.999982, -0.823712, 0.782778, 0.12667)
+shape = SubResource("BoxShape3D_5c1th")
 debug_color = Color(1, 0.21, 0.223166, 1)
 
 [node name="CollisionShape3D9" type="CollisionShape3D" parent="Yacht Rig/Yacht/MainCollision"]
@@ -737,6 +864,12 @@ libraries = {
 }
 autoplay = "camera_sutle_movement"
 
+[node name="Storm_Transition" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_gk6k1")
+}
+
+[connection signal="timeout" from="StormTimer" to="." method="_on_storm_timer"]
 [connection signal="Action1_Triggered" from="Yacht Rig/Yacht/Lever Interactable Component" to="." method="_on_red_lever_triggered"]
 [connection signal="Action2_Triggered" from="Yacht Rig/Yacht/Lever Interactable Component" to="." method="_on_blue_lever_triggered"]
 [connection signal="Action3_Triggered" from="Yacht Rig/Yacht/Lever Interactable Component" to="." method="_on_green_lever_triggered"]
