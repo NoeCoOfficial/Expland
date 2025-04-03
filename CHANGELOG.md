@@ -12,6 +12,9 @@
 
 ## Inventory
 
+### Added:
+- Added a fully functional hotbar as an easy way to hold items in your hand and switch between them
+
 ### Fixed:
 - Fixed default droppable size shrinking after hovering over
 
