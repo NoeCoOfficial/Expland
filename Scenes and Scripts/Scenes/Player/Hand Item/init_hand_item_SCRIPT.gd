@@ -85,8 +85,11 @@ func _input(event: InputEvent) -> void:
 		mouse_movement = event.relative
 
 
-func swap_items(toITEM : String):
+func swap_items(toITEM : String, useDelay : bool = true, delayTime : float = 0.2):
 	goToITEM = toITEM
+	
+	if useDelay:
+		await get_tree().create_timer(delayTime).timeout
 	
 	# If we are currently holding nothing
 	if HandManager.CURRENTLY_HOLDING_ITEM == "" and goToITEM != "":
