@@ -58,6 +58,7 @@ extends Node3D
 			load_hand_item()
 
 @onready var hand_mesh: Node3D = %HandMesh
+@onready var transition_debounce: Timer = %TransitionDebounce
 
 @export var sway_noise : NoiseTexture2D
 @export var sway_speed : float = 1.2
@@ -90,6 +91,8 @@ func swap_items(toITEM : String, useDelay : bool = true, delayTime : float = 0.2
 	
 	if useDelay:
 		await get_tree().create_timer(delayTime).timeout
+	
+	PlayerManager.PLAYER.HandItemRig.position = Vector3(0.477, 0.0, -0.274) # Reset hand item reig position to default
 	
 	# If we are currently holding nothing
 	if HandManager.CURRENTLY_HOLDING_ITEM == "" and goToITEM != "":
