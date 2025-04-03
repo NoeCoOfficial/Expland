@@ -176,6 +176,7 @@ var stamina_restoring_from_0 = false
 @export var head : Node3D
 @export var camera : Camera3D
 @export var HandItem : Node3D
+@export var HandItemRig : Node3D
 @export var PickupAttractionPos : Node3D
 
 @export var Character_Body : Node3D
@@ -188,6 +189,26 @@ var stamina_restoring_from_0 = false
 @export_group("Inventory")
 
 @export_subgroup("Hotbar Slots")
+@export var Slot1_Hotbar_Ref : StaticBody2D
+@export var Slot2_Hotbar_Ref : StaticBody2D
+@export var Slot3_Hotbar_Ref : StaticBody2D
+@export var Slot4_Hotbar_Ref : StaticBody2D
+@export var Slot5_Hotbar_Ref : StaticBody2D
+@export var Slot6_Hotbar_Ref : StaticBody2D
+@export var Slot7_Hotbar_Ref : StaticBody2D
+@export var Slot8_Hotbar_Ref : StaticBody2D
+@export var Slot9_Hotbar_Ref : StaticBody2D
+
+@export_subgroup("Hotbar Outlines")
+@export var Outline_Slot1_Hotbar_Ref : Panel
+@export var Outline_Slot2_Hotbar_Ref : Panel
+@export var Outline_Slot3_Hotbar_Ref : Panel
+@export var Outline_Slot4_Hotbar_Ref : Panel
+@export var Outline_Slot5_Hotbar_Ref : Panel
+@export var Outline_Slot6_Hotbar_Ref : Panel
+@export var Outline_Slot7_Hotbar_Ref : Panel
+@export var Outline_Slot8_Hotbar_Ref : Panel
+@export var Outline_Slot9_Hotbar_Ref : Panel
 
 @export_subgroup("Pocket Slots")
 @export var Slot1_Pocket_Ref : StaticBody2D
@@ -218,14 +239,17 @@ var stamina_restoring_from_0 = false
 
 @export_subgroup("Layers and UI")
 @export var InventoryLayer_CanvasLayer : CanvasLayer
+@export var InventoryLayer_GreyLayer : ColorRect
 @export var InventoryLayer_Pockets : Control
+@export var InventoryLayer_Hotbar : Control
+@export var InventoryLayer_HotbarSlotOutlines : Control
 @export var InventoryLayer_Chest : Control
 @export var InventoryLayer_Workbench : Control
-
 
 @export var PocketsCollisionBoundary : Area2D
 @export var ChestCollisionBoundary : Area2D
 @export var WorkbenchCollisionBoundary : Area2D
+
 
 @export_group("Chest")
 
@@ -284,6 +308,7 @@ var stamina_restoring_from_0 = false
 @export var Slot48_Chest_Ref : StaticBody2D
 @export var Slot49_Chest_Ref : StaticBody2D
 
+
 @export_group("Workbench")
 
 @export_subgroup("Layers and UI")
@@ -301,6 +326,7 @@ var stamina_restoring_from_0 = false
 @export var Slot8_Workbench_Ref : StaticBody2D
 @export var Slot9_Workbench_Ref : StaticBody2D
 @export var Slot10_Output_Workbench_Ref : StaticBody2D
+
 
 @export_group("General Nodes")
 
@@ -433,6 +459,26 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		if !StoryModeManager.is_in_story_mode_first_cutscene_world:
 			Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
 			SaveManager.saveAllData()
+	
+	if !StoryModeManager.is_in_story_mode_first_cutscene_world and !PauseManager.is_paused and !DialogueManager.is_in_interface:
+		if Input.is_action_just_pressed("Hotbar_1"):
+			InventoryManager.setSelectedHotbarSlot(Slot1_Hotbar_Ref, Outline_Slot1_Hotbar_Ref)
+		if Input.is_action_just_pressed("Hotbar_2"):
+			InventoryManager.setSelectedHotbarSlot(Slot2_Hotbar_Ref, Outline_Slot2_Hotbar_Ref)
+		if Input.is_action_just_pressed("Hotbar_3"):
+			InventoryManager.setSelectedHotbarSlot(Slot3_Hotbar_Ref, Outline_Slot3_Hotbar_Ref)
+		if Input.is_action_just_pressed("Hotbar_4"):
+			InventoryManager.setSelectedHotbarSlot(Slot4_Hotbar_Ref, Outline_Slot4_Hotbar_Ref)
+		if Input.is_action_just_pressed("Hotbar_5"):
+			InventoryManager.setSelectedHotbarSlot(Slot5_Hotbar_Ref, Outline_Slot5_Hotbar_Ref)
+		if Input.is_action_just_pressed("Hotbar_6"):
+			InventoryManager.setSelectedHotbarSlot(Slot6_Hotbar_Ref, Outline_Slot6_Hotbar_Ref)
+		if Input.is_action_just_pressed("Hotbar_7"):
+			InventoryManager.setSelectedHotbarSlot(Slot7_Hotbar_Ref, Outline_Slot7_Hotbar_Ref)
+		if Input.is_action_just_pressed("Hotbar_8"):
+			InventoryManager.setSelectedHotbarSlot(Slot8_Hotbar_Ref, Outline_Slot8_Hotbar_Ref)
+		if Input.is_action_just_pressed("Hotbar_9"):
+			InventoryManager.setSelectedHotbarSlot(Slot9_Hotbar_Ref, Outline_Slot9_Hotbar_Ref)
 
 func _unhandled_input(event): # A built-in function that listens for input all the time
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
@@ -769,6 +815,18 @@ func initInventorySlots():
 		Slot25_Pocket_Ref,
 	]
 	
+	InventoryManager.HOTBAR_SLOTS = [
+		Slot1_Hotbar_Ref,
+		Slot2_Hotbar_Ref,
+		Slot3_Hotbar_Ref,
+		Slot4_Hotbar_Ref,
+		Slot5_Hotbar_Ref,
+		Slot6_Hotbar_Ref,
+		Slot7_Hotbar_Ref,
+		Slot8_Hotbar_Ref,
+		Slot9_Hotbar_Ref,
+	]
+	
 	InventoryManager.CHEST_SLOTS = [
 		Slot1_Chest_Ref,
 		Slot2_Chest_Ref,
@@ -821,7 +879,7 @@ func initInventorySlots():
 		Slot49_Chest_Ref,
 	]
 	
-	InventoryManager.WORKSHOP_SLOTS = [
+	InventoryManager.WORKBENCH_SLOTS = [
 		Slot1_Workbench_Ref,
 		Slot2_Workbench_Ref,
 		Slot3_Workbench_Ref,
@@ -833,7 +891,7 @@ func initInventorySlots():
 		Slot9_Workbench_Ref,
 	]
 	
-	InventoryManager.WORKSHOP_OUTPUT_SLOT = Slot10_Output_Workbench_Ref
+	InventoryManager.WORKBENCH_OUTPUT_SLOT = Slot10_Output_Workbench_Ref
 
 func init_for_story_mode_cutscene():
 	if StoryModeManager.is_in_story_mode_first_cutscene_world:
@@ -845,6 +903,7 @@ func init_for_story_mode_cutscene():
 		$Head/Camera3D/HUDLayer/StaminaBar.hide()
 		$Head/Camera3D/HUDLayer/WhiteHamIcon.hide()
 		$Head/Camera3D/HUDLayer/WhiteHeartIcon.hide()
+		InventoryLayer_Hotbar.hide()
 
 #endregion
 
@@ -1220,6 +1279,9 @@ func on_sleep_cycle_hold_finished(fadeOutTime, time : int):
 func _on_area_collision_shape_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("temp_spike"):
 		takeDamage(14)
+		
+	if body.is_in_group("temp_spike_ik"):
+		takeDamage(100)
 
 func _on_area_collision_shape_3d_area_entered(area: Area3D) -> void:
 	pass

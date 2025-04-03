@@ -64,7 +64,6 @@ extends Node3D
 var mouse_movement : Vector2
 var weapon_bob_amount := Vector2(0, 0)
 
-
 var random_sway_x
 var random_sway_y
 var random_sway_amount : float
@@ -86,19 +85,26 @@ func _input(event: InputEvent) -> void:
 		mouse_movement = event.relative
 
 
-func swap_items(toITEM : String):
+func swap_items(toITEM : String, useDelay : bool = true, delayTime : float = 0.2):
 	goToITEM = toITEM
 	
+	if useDelay:
+		await get_tree().create_timer(delayTime).timeout
+	
+	PlayerManager.PLAYER.HandItemRig.position = Vector3(0.477, 0.0, -0.274) # Reset hand item reig position to default
+	
 	# If we are currently holding nothing
-	if HandManager.CURRENTLY_HOLDING_ITEM == "":
+	if HandManager.CURRENTLY_HOLDING_ITEM == "" and goToITEM != "":
 		
 		if hand_mesh.get_child_count() > 0: # Check if there are any models left, if so then remove them
 			for child in hand_mesh.get_children():
 				child.queue_free()
 		
-		var resource_to_load = load("res://Resources/Hand Items/" + goToITEM + ".tres")
-		HAND_ITEM = resource_to_load
-		load_hand_item()
+		if toITEM != "":
+			HAND_ITEM = InventoryManager.ITEM_TYPES[toITEM]["HAND_ITEM_RES"]
+			position = HAND_ITEM.mesh_reset_position
+			rotation_degrees = HAND_ITEM.mesh_reset_rotation
+			load_hand_item()
 		HandManager.CURRENTLY_HOLDING_ITEM = goToITEM
 	
 	# If we want to unequip everything and have empty hands
@@ -117,9 +123,11 @@ func swap_items(toITEM : String):
 			for child in hand_mesh.get_children():
 				child.queue_free()
 		
-		var resource_to_load = load("res://Resources/Hand Items/" + goToITEM + ".tres")
-		HAND_ITEM = resource_to_load
-		load_hand_item()
+		if goToITEM != "":
+			HAND_ITEM = InventoryManager.ITEM_TYPES[goToITEM]["HAND_ITEM_RES"]
+			position = HAND_ITEM.mesh_reset_position
+			rotation_degrees = HAND_ITEM.mesh_reset_rotation
+			load_hand_item()
 
 func sway(delta, isIdle : bool):
 	if HAND_ITEM != null:
@@ -127,7 +135,9 @@ func sway(delta, isIdle : bool):
 		
 		if isIdle:
 			var sway_random : float = get_sway_noise()
-			var sway_random_adjusted : float = sway_random * idle_sway_adjustment
+			var sway_random_adjusted
+			
+			sway_random_adjusted = sway_random * idle_sway_adjustment
 			
 			time += delta * (sway_speed + sway_random)
 			random_sway_x = sin(time * 1.5 + sway_random_adjusted) / random_sway_amount
@@ -156,7 +166,7 @@ func sway(delta, isIdle : bool):
 		HAND_ITEM.sway_amount_rotation) * delta, HAND_ITEM.sway_speed_rotation)
 
 func get_sway_noise():
-	var player_position := Vector3(0, 0, 0)
+	var player_position := Vector3.ZERO
 	if !Engine.is_editor_hint():
 		player_position = PlayerManager.PLAYER.global_position
 	
@@ -181,7 +191,7 @@ func bob(delta):
 
 func load_hand_item():
 	if HAND_ITEM != null:
-		var hand_model = load(HAND_ITEM.model_path)
+		var hand_model = HAND_ITEM.model_scene
 		var hand_model_instance = hand_model.instantiate()
 		
 		hand_mesh.add_child(hand_model_instance)

@@ -514,7 +514,7 @@ offset_bottom = 39.0
 grow_horizontal = 0
 theme = ExtResource("4_grlcg")
 theme_override_font_sizes/font_size = 26
-text = "v0.7.1"
+text = "v0.7.5"
 
 [node name="GreyLayer" type="ColorRect" parent="Camera3D/MainLayer"]
 visible = false
@@ -633,10 +633,9 @@ focus_mode = 0
 theme = SubResource("Theme_u5css")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/disabled = ExtResource("12_3uklh")
-text = "PLAY"
+disabled = true
 
 [node name="PadlockIcon" type="Sprite2D" parent="Camera3D/MainLayer/GameModeLayer/BG_StoryMode"]
-visible = false
 position = Vector2(98, 479)
 scale = Vector2(0.0927734, 0.0927734)
 texture = ExtResource("16_3n0bi")
@@ -1534,9 +1533,9 @@ vertical_alignment = 1
 
 [node name="AudioNotification" parent="Camera3D/MainLayer/AudioNotificationLayer" instance=ExtResource("31_xncp6")]
 offset_left = 1152.0
-offset_top = 387.0
+offset_top = 401.0
 offset_right = 197.0
-offset_bottom = -173.0
+offset_bottom = -159.0
 
 [node name="ProtectiveLayer" type="Control" parent="Camera3D/MainLayer"]
 layout_mode = 3

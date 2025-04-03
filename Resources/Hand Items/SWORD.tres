@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="HandItems" load_steps=2 format=3 uid="uid://bfl2kn5tjktpm"]
+[gd_resource type="Resource" script_class="HandItems" load_steps=3 format=3 uid="uid://bfl2kn5tjktpm"]
 
 [ext_resource type="Script" uid="uid://dxurlssepa0ek" path="res://Scenes and Scripts/Scenes/Player/Hand Item/HandItem_SCRIPT.gd" id="1_b2yfv"]
+[ext_resource type="PackedScene" uid="uid://cxh2jkyahkrcv" path="res://Assets/3D Models/Inventory Hand Items/SWORD.blend" id="1_ha7gt"]
 
 [resource]
 script = ExtResource("1_b2yfv")
@@ -8,7 +9,9 @@ ITEM_TYPE = "SWORD"
 mesh_position = Vector3(0.145, -0.385, -0.765)
 mesh_rotation = Vector3(0, 34.825, -4.76)
 mesh_scale = Vector3(0.8, 0.8, 0.8)
-model_path = "res://Assets/3D Models/Inventory Hand Items/SWORD.blend"
+mesh_reset_position = Vector3(0, -2, 0)
+mesh_reset_rotation = Vector3(0, 0, 0)
+model_scene = ExtResource("1_ha7gt")
 sway_min = Vector2(-20, -20)
 sway_max = Vector2(20, 20)
 sway_speed_position = 0.07

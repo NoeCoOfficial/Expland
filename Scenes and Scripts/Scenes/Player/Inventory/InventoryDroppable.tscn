@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bah2p5efhcjtx"]
+[gd_scene load_steps=5 format=3 uid="uid://bah2p5efhcjtx"]
 
 [ext_resource type="Script" uid="uid://cptco2so25hse" path="res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDroppable_SCRIPT.gd" id="1_cwpvm"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="2_e0qvl"]
-[ext_resource type="Texture2D" uid="uid://bxxnhb6vulkry" path="res://Textures/Inventory/PICKAXE.png" id="2_rao5u"]
 [ext_resource type="FontFile" uid="uid://bel1qoyfluvci" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Bold.otf" id="4_rao5u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10470"]
@@ -23,7 +22,6 @@ one_shot = true
 
 [node name="Droppable_Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.13, 0.13)
-texture = ExtResource("2_rao5u")
 
 [node name="Droppable_MouseDetector" type="Area2D" parent="." groups=["draggable"]]
 collision_priority = 3.0

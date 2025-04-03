@@ -1,5 +1,22 @@
 <h1 align="center">Expland Changelog</h1>
 
+# v0.7.5 (unreleased)
+
+---
+
+## Main Menu
+
+### Changed:
+- Adjusted the y-position of the audio notification to be a touch lower
+- Made Story Mode locked again. You weren't supposed to see that!
+
+## Inventory
+
+### Fixed:
+- Fixed default droppable size shrinking after hovering over
+
+---
+
 # v0.7.1 (released)
 
 ---

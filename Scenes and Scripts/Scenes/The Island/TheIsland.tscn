@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=3 uid="uid://c5jkrckgqd0w6"]
+[gd_scene load_steps=119 format=3 uid="uid://c5jkrckgqd0w6"]
 
 [ext_resource type="Script" uid="uid://cucb4fwieubx" path="res://Scenes and Scripts/Scenes/The Island/TheIsland_SCRIPT.gd" id="1_a8sfg"]
 [ext_resource type="Environment" uid="uid://dgtwdwq2n0x1v" path="res://Resources/Environment/TheIsland_WorldEnvironment.tres" id="2_h46kk"]
@@ -517,7 +517,7 @@ uv1_triplanar = true
 
 [sub_resource type="PrismMesh" id="PrismMesh_2b0j5"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_skxi6"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_iixfe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sdnyt"]
 size = Vector3(3.10474, 2.18762, 1.86438)
@@ -547,6 +547,12 @@ uv1_triplanar = true
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6mfdv"]
 points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_747t0"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_r68ax"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y53po"]
 albedo_texture = ExtResource("48_ck77s")
@@ -1335,7 +1341,37 @@ material_override = SubResource("StandardMaterial3D_0hh2e")
 mesh = SubResource("PrismMesh_2b0j5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RedDamageSpike"]
-shape = SubResource("BoxShape3D_skxi6")
+shape = SubResource("BoxShape3D_iixfe")
+
+[node name="RedDamageSpike2" type="StaticBody3D" parent="." groups=["temp_spike_ik"]]
+transform = Transform3D(-1, 0, 7.45058e-08, 0, 1, 0, -7.45058e-08, 0, -1, -389.159, 5.56874, 287.075)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RedDamageSpike2"]
+material_override = SubResource("StandardMaterial3D_0hh2e")
+mesh = SubResource("PrismMesh_2b0j5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RedDamageSpike2"]
+shape = SubResource("BoxShape3D_iixfe")
+
+[node name="RedDamageSpike3" type="StaticBody3D" parent="." groups=["temp_spike_ik"]]
+transform = Transform3D(-0.537049, 0, 0.843551, 0, 1, 0, -0.843551, 0, -0.537049, -386.018, 5.56874, 288.813)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RedDamageSpike3"]
+material_override = SubResource("StandardMaterial3D_0hh2e")
+mesh = SubResource("PrismMesh_2b0j5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RedDamageSpike3"]
+shape = SubResource("BoxShape3D_iixfe")
+
+[node name="RedDamageSpike4" type="StaticBody3D" parent="." groups=["temp_spike_ik"]]
+transform = Transform3D(-0.955412, 0, 0.295275, 0, 1, 0, -0.295275, 0, -0.955412, -382.627, 5.56874, 287.07)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RedDamageSpike4"]
+material_override = SubResource("StandardMaterial3D_0hh2e")
+mesh = SubResource("PrismMesh_2b0j5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RedDamageSpike4"]
+shape = SubResource("BoxShape3D_iixfe")
 
 [node name="EryvBoundary" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -376.278, 1.51891, 280.991)
@@ -1400,7 +1436,79 @@ material_override = SubResource("StandardMaterial3D_p6kt8")
 mesh = SubResource("BoxMesh_o20mk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Parkour/Parkour Obstacle5"]
+transform = Transform3D(0.155402, 0, 0, 0, 3.24008, 0, 0, 0, 0.154498, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_6mfdv")
+
+[node name="Parkour Obstacle16" type="StaticBody3D" parent="Parkour"]
+transform = Transform3D(-1.44824, 0, 1.43993, 0, 2.04225, 0, -1.43993, 0, -1.44824, -378.169, 5.572, 287.266)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Parkour/Parkour Obstacle16"]
+transform = Transform3D(1.13795, 0, 8.9407e-08, 0, 0.156791, 0, -8.9407e-08, 0, 1.13795, -0.0145721, 0.425979, 0.0410156)
+material_override = SubResource("StandardMaterial3D_5ag7t")
+mesh = SubResource("BoxMesh_o20mk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Parkour/Parkour Obstacle16"]
+transform = Transform3D(1.13795, 0, 8.9407e-08, 0, 0.156791, 0, -8.9407e-08, 0, 1.13795, -0.0145721, 0.425979, 0.0410156)
+shape = SubResource("ConcavePolygonShape3D_6f3gh")
+
+[node name="Parkour Obstacle17" type="StaticBody3D" parent="Parkour"]
+transform = Transform3D(-2.01926, 0, -0.3056, 0, 2.04225, 0, 0.3056, 0, -2.01926, -377.798, 3.24813, 287.06)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Parkour/Parkour Obstacle17"]
+transform = Transform3D(0.0925653, 0, -0.1241, 0, 3.24008, 0, 0.124826, 0, 0.0920268, 0.146042, 0, -0.0467758)
+material_override = SubResource("StandardMaterial3D_p6kt8")
+mesh = SubResource("BoxMesh_o20mk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Parkour/Parkour Obstacle17"]
+transform = Transform3D(0.0925653, 0, -0.1241, 0, 3.24008, 0, 0.124826, 0, 0.0920268, 0.146042, 0, -0.0467758)
+shape = SubResource("ConcavePolygonShape3D_747t0")
+
+[node name="Parkour Obstacle18" type="StaticBody3D" parent="Parkour"]
+transform = Transform3D(-2.01926, 0, -0.3056, 0, 4.39268, 0, 0.3056, 0, -2.01926, -380.655, 3.24813, 287.06)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Parkour/Parkour Obstacle18"]
+transform = Transform3D(0.0925653, 0, -0.1241, 0, 3.24008, 0, 0.124826, 0, 0.0920268, 0.146042, 0, -0.0467758)
+material_override = SubResource("StandardMaterial3D_p6kt8")
+mesh = SubResource("BoxMesh_o20mk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Parkour/Parkour Obstacle18"]
+transform = Transform3D(0.0925653, 0, -0.1241, 0, 3.24008, 0, 0.124826, 0, 0.0920268, 0.146042, 0, -0.0467758)
+shape = SubResource("ConcavePolygonShape3D_r68ax")
+
+[node name="Parkour Obstacle13" type="StaticBody3D" parent="Parkour"]
+transform = Transform3D(-2.01926, 0, -0.3056, 0, 2.04225, 0, 0.3056, 0, -2.01926, -389.158, 2.10329, 287.06)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Parkour/Parkour Obstacle13"]
 transform = Transform3D(0.155402, 0, 2.04891e-08, 0, 3.24008, 0, -1.49012e-08, 0, 0.154498, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_p6kt8")
+mesh = SubResource("BoxMesh_o20mk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Parkour/Parkour Obstacle13"]
+transform = Transform3D(0.155402, 0, 0, 0, 3.24008, 0, 0, 0, 0.154498, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_6mfdv")
+
+[node name="Parkour Obstacle14" type="StaticBody3D" parent="Parkour"]
+transform = Transform3D(-1.34223, 0, 1.53923, 0, 2.04225, 0, -1.53923, 0, -1.34223, -386.005, 2.10329, 288.806)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Parkour/Parkour Obstacle14"]
+transform = Transform3D(0.155402, 0, 2.04891e-08, 0, 3.24008, 0, -1.49012e-08, 0, 0.154498, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_p6kt8")
+mesh = SubResource("BoxMesh_o20mk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Parkour/Parkour Obstacle14"]
+transform = Transform3D(0.155402, 0, 0, 0, 3.24008, 0, 0, 0, 0.154498, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_6mfdv")
+
+[node name="Parkour Obstacle15" type="StaticBody3D" parent="Parkour"]
+transform = Transform3D(-2.01946, 0, 0.304262, 0, 2.04225, 0, -0.304262, 0, -2.01946, -382.621, 2.10329, 287.055)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Parkour/Parkour Obstacle15"]
+transform = Transform3D(0.155402, 0, 2.04891e-08, 0, 3.24008, 0, -1.49012e-08, 0, 0.154498, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_p6kt8")
+mesh = SubResource("BoxMesh_o20mk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Parkour/Parkour Obstacle15"]
+transform = Transform3D(0.155402, 0, 0, 0, 3.24008, 0, 0, 0, 0.154498, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_6mfdv")
 
 [node name="Parkour Obstacle6" type="StaticBody3D" parent="Parkour"]
