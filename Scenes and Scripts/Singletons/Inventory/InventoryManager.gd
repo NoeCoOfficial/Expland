@@ -50,8 +50,8 @@ extends Node
 var POCKET_SLOTS = []
 var HOTBAR_SLOTS = []
 var CHEST_SLOTS = []
-var WORKSHOP_SLOTS = []
-var WORKSHOP_OUTPUT_SLOT
+var WORKBENCH_SLOTS = []
+var WORKBENCH_OUTPUT_SLOT
 
 var Droppable_Scene = preload("res://Scenes and Scripts/Scenes/Player/Inventory/InventoryDroppable.tscn")
 
@@ -304,7 +304,7 @@ var handitem_transition_tween
 var pockets_ui_open : bool = false
 var chest_ui_open : bool = false
 var current_chest_node : Node = null
-var workshop_ui_open : bool = false
+var workbench_ui_open : bool = false
 var is_dragging : bool = false
 var currently_dragging_node : Node
 

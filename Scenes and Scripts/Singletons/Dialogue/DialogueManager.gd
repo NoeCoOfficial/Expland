@@ -69,7 +69,8 @@ func setStoryModeID(StoryModeID):
 	Current_StoryModeID = StoryModeID
 
 func startDialogue(messages: Array) -> void:
-	if !PauseManager.is_inside_settings and !PauseManager.is_paused:
+	
+	if !PauseManager.is_inside_settings and !PauseManager.is_paused and !PauseManager.inside_item_workshop and !InventoryManager.pockets_ui_open and !InventoryManager.chest_ui_open and !InventoryManager.workbench_ui_open:
 		dialogue_messages = messages
 		current_dialogue_index = 0
 		showNextMessage()

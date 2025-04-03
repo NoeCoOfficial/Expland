@@ -879,7 +879,7 @@ func initInventorySlots():
 		Slot49_Chest_Ref,
 	]
 	
-	InventoryManager.WORKSHOP_SLOTS = [
+	InventoryManager.WORKBENCH_SLOTS = [
 		Slot1_Workbench_Ref,
 		Slot2_Workbench_Ref,
 		Slot3_Workbench_Ref,
@@ -891,7 +891,7 @@ func initInventorySlots():
 		Slot9_Workbench_Ref,
 	]
 	
-	InventoryManager.WORKSHOP_OUTPUT_SLOT = Slot10_Output_Workbench_Ref
+	InventoryManager.WORKBENCH_OUTPUT_SLOT = Slot10_Output_Workbench_Ref
 
 func init_for_story_mode_cutscene():
 	if StoryModeManager.is_in_story_mode_first_cutscene_world:
