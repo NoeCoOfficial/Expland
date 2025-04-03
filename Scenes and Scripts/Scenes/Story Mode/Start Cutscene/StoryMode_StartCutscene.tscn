@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://nlp0xy1m65tp"]
+[gd_scene load_steps=64 format=3 uid="uid://nlp0xy1m65tp"]
 
 [ext_resource type="Script" uid="uid://uvb2g81nntt2" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/StoryMode_StartCutscene_SCRIPT.gd" id="1_4d7y3"]
 [ext_resource type="Shader" uid="uid://b2gi30s113t00" path="res://Scenes and Scripts/Scenes/The Island/TheIslandSeaWater.gdshader" id="2_cfn0j"]
@@ -49,7 +49,7 @@ noise = SubResource("FastNoiseLite_u6jhm")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yeq2m"]
 render_priority = 0
 shader = ExtResource("2_cfn0j")
-shader_parameter/albedo = Color(0.1368, 0.262453, 0.38, 0.839216)
+shader_parameter/albedo = Color(0.102823, 0.23492, 0.25956, 0.839216)
 shader_parameter/point_size = 1.0
 shader_parameter/roughness = 0.0
 shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
@@ -74,6 +74,73 @@ shader_parameter/secondary_wave_speed = 0.1
 
 [sub_resource type="BoxMesh" id="BoxMesh_7s4ab"]
 material = SubResource("ShaderMaterial_yeq2m")
+
+[sub_resource type="Gradient" id="Gradient_to1x2"]
+offsets = PackedFloat32Array(0.238411, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_g8pos"]
+noise_type = 3
+seed = 256
+frequency = 0.001
+fractal_octaves = 4
+fractal_lacunarity = 8.0
+fractal_gain = 1.0
+fractal_ping_pong_strength = 4.21
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_7s4ab"]
+seamless = true
+seamless_blend_skirt = 1.0
+color_ramp = SubResource("Gradient_to1x2")
+noise = SubResource("FastNoiseLite_g8pos")
+
+[sub_resource type="Gradient" id="Gradient_f3l76"]
+offsets = PackedFloat32Array(0.309051, 0.671082)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_l057t"]
+noise_type = 2
+seed = 77
+frequency = 0.0295
+fractal_type = 2
+fractal_lacunarity = 3.54
+fractal_weighted_strength = 0.29
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_44ck5"]
+width = 128
+height = 128
+depth = 128
+seamless = true
+seamless_blend_skirt = 0.058
+normalize = false
+color_ramp = SubResource("Gradient_f3l76")
+noise = SubResource("FastNoiseLite_l057t")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w18yt"]
+render_priority = 0
+shader = ExtResource("5_encjm")
+shader_parameter/cloud_noise_texture = SubResource("NoiseTexture3D_7s4ab")
+shader_parameter/CloudNoiseUVTiling = 1.429
+shader_parameter/CloudNoiseTilingMagnitude = 0.379
+shader_parameter/cloud_threshold = 0.141
+shader_parameter/cloud_threshold_multiplier = 4.291
+shader_parameter/GPUKiller = 225
+shader_parameter/GPUSaver = 0.41
+shader_parameter/cloud_scroll_speed = 0.0
+shader_parameter/minBounds = Vector3(-4096, 256, -4096)
+shader_parameter/maxBounds = Vector3(4096, 576, 4096)
+shader_parameter/detail_noise_texture = SubResource("NoiseTexture3D_44ck5")
+shader_parameter/DetailNoiseInfluenceOnFinalResult = 51.373
+shader_parameter/detail_scroll_speed = -10.0
+shader_parameter/DetailNoiseUVTiling = 2.0
+shader_parameter/light_direction = Vector3(2.075, -0.23, 0.5)
+shader_parameter/cloud_movement_direction = Vector3(0.0001, -0.0001, 0.0001)
+shader_parameter/cloud_movement_speed = 0.515
+shader_parameter/cloudMovementMagnitude = 0.0
+shader_parameter/LightCorrection = 0.58
+shader_parameter/cloud_alpha = 4.0
+shader_parameter/cloud_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ec70e"]
+lightmap_size_hint = Vector2i(14, 21)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7s4ab"]
 size = Vector3(10.6402, 0.282715, 2.05533)
@@ -153,73 +220,6 @@ size = Vector3(2.41559, 1, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_00rnx"]
 size = Vector3(0.307861, 0.352783, 0.299316)
 
-[sub_resource type="Gradient" id="Gradient_to1x2"]
-offsets = PackedFloat32Array(0.238411, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_g8pos"]
-noise_type = 3
-seed = 256
-frequency = 0.001
-fractal_octaves = 4
-fractal_lacunarity = 8.0
-fractal_gain = 1.0
-fractal_ping_pong_strength = 4.21
-
-[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_7s4ab"]
-seamless = true
-seamless_blend_skirt = 1.0
-color_ramp = SubResource("Gradient_to1x2")
-noise = SubResource("FastNoiseLite_g8pos")
-
-[sub_resource type="Gradient" id="Gradient_f3l76"]
-offsets = PackedFloat32Array(0.309051, 0.671082)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_l057t"]
-noise_type = 2
-seed = 77
-frequency = 0.0295
-fractal_type = 2
-fractal_lacunarity = 3.54
-fractal_weighted_strength = 0.29
-
-[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_44ck5"]
-width = 128
-height = 128
-depth = 128
-seamless = true
-seamless_blend_skirt = 0.058
-normalize = false
-color_ramp = SubResource("Gradient_f3l76")
-noise = SubResource("FastNoiseLite_l057t")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_w18yt"]
-render_priority = 0
-shader = ExtResource("5_encjm")
-shader_parameter/cloud_noise_texture = SubResource("NoiseTexture3D_7s4ab")
-shader_parameter/CloudNoiseUVTiling = 1.429
-shader_parameter/CloudNoiseTilingMagnitude = 0.379
-shader_parameter/cloud_threshold = 0.141
-shader_parameter/cloud_threshold_multiplier = 4.291
-shader_parameter/GPUKiller = 225
-shader_parameter/GPUSaver = 0.41
-shader_parameter/cloud_scroll_speed = 0.0
-shader_parameter/minBounds = Vector3(-4096, 256, -4096)
-shader_parameter/maxBounds = Vector3(4096, 576, 4096)
-shader_parameter/detail_noise_texture = SubResource("NoiseTexture3D_44ck5")
-shader_parameter/DetailNoiseInfluenceOnFinalResult = 51.373
-shader_parameter/detail_scroll_speed = -10.0
-shader_parameter/DetailNoiseUVTiling = 2.0
-shader_parameter/light_direction = Vector3(2.075, -0.23, 0.5)
-shader_parameter/cloud_movement_direction = Vector3(0.0001, -0.0001, 0.0001)
-shader_parameter/cloud_movement_speed = 0.515
-shader_parameter/cloudMovementMagnitude = 0.0
-shader_parameter/LightCorrection = 0.58
-shader_parameter/cloud_alpha = 4.0
-shader_parameter/cloud_color = Color(0, 0, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_ec70e"]
-lightmap_size_hint = Vector2i(14, 21)
-
 [sub_resource type="Animation" id="Animation_7s4ab"]
 length = 0.001
 tracks/0/type = "value"
@@ -295,45 +295,6 @@ _data = {
 &"camera_sutle_movement": SubResource("Animation_f3l76")
 }
 
-[sub_resource type="Animation" id="Animation_2wqp2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WorldEnvironment:environment:sky:sky_material:sky_top_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.25, 0.25, 0.25, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WorldEnvironment:environment:sky:sky_material:sky_horizon_color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.505344, 0.505344, 0.505344, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("WorldEnvironment:environment:sky:sky_material:ground_horizon_color")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.51, 0.51, 0.51, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_smf4g"]
 resource_name = "storm_transition"
 length = 50.0
@@ -380,15 +341,26 @@ tracks/3/path = NodePath("SeaWater:mesh:material:shader_parameter/albedo")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 50),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.12549, 0.584314, 1, 0.839216)]
+"values": [Color(0.12549, 0.584314, 1, 0.839216), Color(0.102823, 0.23492, 0.25956, 0.839216)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DirectionalLight3D:light_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 50),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.180005, 0.180005, 0.180005, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gk6k1"]
 _data = {
-&"RESET": SubResource("Animation_2wqp2"),
 &"storm_transition": SubResource("Animation_smf4g")
 }
 
@@ -404,6 +376,7 @@ environment = SubResource("Environment_ec70e")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.863395, 0.390681, -0.319244, 0, 0.632758, 0.77435, 0.504528, -0.66857, 0.54632, 0, 0, 0)
+light_color = Color(0.180005, 0.180005, 0.180005, 1)
 light_energy = 1.692
 light_indirect_energy = 0.827
 shadow_enabled = true
@@ -432,6 +405,11 @@ color = Color(0, 0, 0, 1)
 transform = Transform3D(2896.94, 0, 0, 0, 314.222, 0, 0, 0, 3775.78, -0.552, -172.612, -24.36)
 mesh = SubResource("BoxMesh_7s4ab")
 script = ExtResource("3_os8dc")
+
+[node name="Clouds" type="MeshInstance3D" parent="."]
+transform = Transform3D(8192, 0, 0, 0, 128, 0, 0, 0, 8192, 0, 128, 0)
+material_override = SubResource("ShaderMaterial_w18yt")
+mesh = SubResource("BoxMesh_ec70e")
 
 [node name="Yacht Rig" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22068, -15.4248, -17.6352)
@@ -846,11 +824,6 @@ shape = SubResource("BoxShape3D_8afyb")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Yacht Rig/Yacht/Interactable Component/PlayerMimicRaycastDetector"]
 transform = Transform3D(1, -5.09258e-08, -1.49012e-07, -4.18202e-09, 1, -1.10239e-09, 5.96046e-08, -8.3574e-11, 1, -1.15289, 1.47811, -0.126863)
 shape = SubResource("BoxShape3D_00rnx")
-
-[node name="Clouds" type="MeshInstance3D" parent="."]
-transform = Transform3D(8192, 0, 0, 0, 128, 0, 0, 0, 8192, 0, 128, 0)
-material_override = SubResource("ShaderMaterial_w18yt")
-mesh = SubResource("BoxMesh_ec70e")
 
 [node name="Yacht Bob" type="AnimationPlayer" parent="."]
 libraries = {

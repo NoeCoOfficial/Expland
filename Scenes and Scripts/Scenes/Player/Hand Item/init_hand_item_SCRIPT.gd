@@ -99,7 +99,6 @@ func swap_items(toITEM : String, useDelay : bool = true, delayTime : float = 0.2
 		if hand_mesh.get_child_count() > 0: # Check if there are any models left, if so then remove them
 			for child in hand_mesh.get_children():
 				child.queue_free()
-				
 		
 		if toITEM != "":
 			HAND_ITEM = InventoryManager.ITEM_TYPES[toITEM]["HAND_ITEM_RES"]
