@@ -77,7 +77,7 @@ func get_free_slot_using_stacks(Slots : Array, TARGET_ITEM_NAME : String):
 			if slot.Populating_Droppable.ITEM_TYPE["NAME"] == TARGET_ITEM_NAME:
 				# We want this to happen if the stack count is SMALLER than the max.
 				if slot.Populating_Droppable.Stack_Count < slot.Populating_Droppable.ITEM_TYPE["MAX_STACK"]:
-					increment_droppable_stack(slot.Populating_Droppable)
+					increment_droppable_stack(slot.Populating_Droppable, 1)
 					stack_slot = true
 					break
 	
@@ -86,8 +86,8 @@ func get_free_slot_using_stacks(Slots : Array, TARGET_ITEM_NAME : String):
 	
 	return free_slot
 
-func increment_droppable_stack(droppable_node : Node):
-	droppable_node.Stack_Count += 1
+func increment_droppable_stack(droppable_node : Node, increment : int):
+	droppable_node.Stack_Count += increment
 
 const ITEM_TYPES = {
 	# Tools
