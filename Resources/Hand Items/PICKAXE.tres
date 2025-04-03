@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="HandItems" load_steps=2 format=3 uid="uid://blcr3veqy5vd7"]
+[gd_resource type="Resource" script_class="HandItems" load_steps=3 format=3 uid="uid://blcr3veqy5vd7"]
 
+[ext_resource type="PackedScene" uid="uid://ddxbbnf1q2ke7" path="res://Assets/3D Models/Inventory Hand Items/PICKAXE.blend" id="1_mfhmk"]
 [ext_resource type="Script" uid="uid://dxurlssepa0ek" path="res://Scenes and Scripts/Scenes/Player/Hand Item/HandItem_SCRIPT.gd" id="1_twciq"]
 
 [resource]
@@ -10,7 +11,7 @@ mesh_rotation = Vector3(0.655, 30.445, -14.33)
 mesh_scale = Vector3(0.5, 0.5, 0.5)
 mesh_reset_position = Vector3(0, 0, 0)
 mesh_reset_rotation = Vector3(0, 0, 0)
-model_path = "res://Assets/3D Models/Inventory Hand Items/PICKAXE.blend"
+model_scene = ExtResource("1_mfhmk")
 sway_min = Vector2(-20, -20)
 sway_max = Vector2(20, 20)
 sway_speed_position = 0.07

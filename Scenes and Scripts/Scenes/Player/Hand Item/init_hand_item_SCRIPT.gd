@@ -185,7 +185,7 @@ func bob(delta):
 
 func load_hand_item():
 	if HAND_ITEM != null:
-		var hand_model = load(HAND_ITEM.model_path)
+		var hand_model = HAND_ITEM.model_scene
 		var hand_model_instance = hand_model.instantiate()
 		
 		hand_mesh.add_child(hand_model_instance)
