@@ -83,7 +83,17 @@ func _input(event: InputEvent) -> void:
 							droppable_node_ref.Populating_Slot_Node.Populated = false
 							droppable_node_ref.Populating_Slot_Node.Populating_Droppable = null
 							droppable_node_ref.Populating_Slot_Node.Dashed_Texture.self_modulate = Color(1, 1, 1, 1)
-						
+							
+							if droppable_node_ref.Populating_Slot_Node.Hotbar_Slot:
+								droppable_node_ref.Droppable_ITEM_TYPE_Label.visible = false
+								
+								if InventoryManager.currently_selected_hotbar_slot == droppable_node_ref.Populating_Slot_Node:
+									var outline_node
+									for child in PlayerManager.PLAYER.InventoryLayer_HotbarSlotOutlines.get_children():
+										if str(child.name).begins_with(str(droppable_node_ref.Populating_Slot_Node.name)):
+											outline_node = child
+									InventoryManager.setSelectedHotbarSlot(droppable_node_ref.Populating_Slot_Node, outline_node, true, true)
+							
 						droppable_node_ref.reparent(self)
 						droppable_node_ref.position = Vector2(0, 0)
 						Populated = true
