@@ -308,7 +308,7 @@ var workshop_ui_open : bool = false
 var is_dragging : bool = false
 var currently_dragging_node : Node
 
-func setSelectedHotbarSlot(slotNode : Node, slotOutlineNode : Node, updateHandItem : bool = true):
+func setSelectedHotbarSlot(slotNode : Node, slotOutlineNode : Node, updateHandItem : bool = true, dropped_into_selected_hand_item : bool = false):
 	var previously_selected_hotbar_slot = currently_selected_hotbar_slot
 	#currently_selected_hotbar_slot = slotNode
 	
@@ -323,17 +323,33 @@ func setSelectedHotbarSlot(slotNode : Node, slotOutlineNode : Node, updateHandIt
 		Vector3(0.477, -2.0, -0.274),
 		0.1)
 	
-	# We check first if the previously selected hotbar slot
-	# is the same as the one we want to go to
-	# If yes, then deselect slot and hold nothing.
-	if previously_selected_hotbar_slot == slotNode:
-		for child in PlayerManager.PLAYER.InventoryLayer_HotbarSlotOutlines.get_children():
-			if str(child.name).begins_with("Slot"):
-				child.hide()
+	if !dropped_into_selected_hand_item:
+		# We check first if the previously selected hotbar slot
+		# is the same as the one we want to go to
+		# If yes, then deselect slot and hold nothing.
+		if previously_selected_hotbar_slot == slotNode:
+			for child in PlayerManager.PLAYER.InventoryLayer_HotbarSlotOutlines.get_children():
+				if str(child.name).begins_with("Slot"):
+					child.hide()
+			
+			currently_selected_hotbar_slot = null
+			PlayerManager.PLAYER.HandItem.swap_items("")
 		
-		currently_selected_hotbar_slot = null
-		PlayerManager.PLAYER.HandItem.swap_items("")
-	
+		else:
+			
+			for child in PlayerManager.PLAYER.InventoryLayer_HotbarSlotOutlines.get_children():
+				if child == slotOutlineNode:
+					child.show()
+				else:
+					child.hide()
+			
+			currently_selected_hotbar_slot = slotNode
+			if slotNode.Populating_Droppable:
+				PlayerManager.PLAYER.HandItem.swap_items(slotNode.Populating_Droppable.ITEM_TYPE["NAME"])
+			else:
+				PlayerManager.PLAYER.HandItem.swap_items("")
+		
+	# If the droppable was dropped into a selected hotbar slot
 	else:
 		
 		for child in PlayerManager.PLAYER.InventoryLayer_HotbarSlotOutlines.get_children():

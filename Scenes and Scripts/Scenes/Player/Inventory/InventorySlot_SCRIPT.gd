@@ -94,6 +94,13 @@ func _input(event: InputEvent) -> void:
 						droppable_node_ref.scale = droppable_node_ref.Default_Size
 						if Hotbar_Slot:
 							droppable_node_ref.Droppable_ITEM_TYPE_Label.visible = false
+							
+							if InventoryManager.currently_selected_hotbar_slot == self:
+								var outline_node
+								for child in PlayerManager.PLAYER.InventoryLayer_HotbarSlotOutlines.get_children():
+									if str(child.name).begins_with(str(self.name)):
+										outline_node = child
+								InventoryManager.setSelectedHotbarSlot(self, outline_node, true, true)
 						else:
 							droppable_node_ref.Droppable_ITEM_TYPE_Label.visible = true
 				else:
