@@ -58,7 +58,6 @@ extends Node3D
 			load_hand_item()
 
 @onready var hand_mesh: Node3D = %HandMesh
-@onready var transition_debounce: Timer = %TransitionDebounce
 
 @export var sway_noise : NoiseTexture2D
 @export var sway_speed : float = 1.2
@@ -101,11 +100,12 @@ func swap_items(toITEM : String, useDelay : bool = true, delayTime : float = 0.2
 			for child in hand_mesh.get_children():
 				child.queue_free()
 				
-	
-		HAND_ITEM = InventoryManager.ITEM_TYPES[toITEM]["HAND_ITEM_RES"]
-		position = HAND_ITEM.mesh_reset_position
-		rotation_degrees = HAND_ITEM.mesh_reset_rotation
-		load_hand_item()
+		
+		if toITEM != "":
+			HAND_ITEM = InventoryManager.ITEM_TYPES[toITEM]["HAND_ITEM_RES"]
+			position = HAND_ITEM.mesh_reset_position
+			rotation_degrees = HAND_ITEM.mesh_reset_rotation
+			load_hand_item()
 		HandManager.CURRENTLY_HOLDING_ITEM = goToITEM
 	
 	# If we want to unequip everything and have empty hands
@@ -124,10 +124,11 @@ func swap_items(toITEM : String, useDelay : bool = true, delayTime : float = 0.2
 			for child in hand_mesh.get_children():
 				child.queue_free()
 		
-		HAND_ITEM = InventoryManager.ITEM_TYPES[toITEM]["HAND_ITEM_RES"]
-		position = HAND_ITEM.mesh_reset_position
-		rotation_degrees = HAND_ITEM.mesh_reset_rotation
-		load_hand_item()
+		if goToITEM != "":
+			HAND_ITEM = InventoryManager.ITEM_TYPES[goToITEM]["HAND_ITEM_RES"]
+			position = HAND_ITEM.mesh_reset_position
+			rotation_degrees = HAND_ITEM.mesh_reset_rotation
+			load_hand_item()
 
 func sway(delta, isIdle : bool):
 	if HAND_ITEM != null:

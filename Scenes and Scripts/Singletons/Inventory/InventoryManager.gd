@@ -299,6 +299,7 @@ const EFFECT_ITEMS = [
 ]
 
 var currently_selected_hotbar_slot : Node = null
+var handitem_transition_tween
 
 var pockets_ui_open : bool = false
 var chest_ui_open : bool = false
@@ -311,6 +312,16 @@ func setSelectedHotbarSlot(slotNode : Node, slotOutlineNode : Node, updateHandIt
 	var previously_selected_hotbar_slot = currently_selected_hotbar_slot
 	#currently_selected_hotbar_slot = slotNode
 	
+	# Manage animations
+	if handitem_transition_tween:
+		handitem_transition_tween.kill()
+	
+	handitem_transition_tween = get_tree().create_tween()
+	handitem_transition_tween.tween_property(
+		PlayerManager.PLAYER.HandItemRig,
+		"position",
+		Vector3(0.477, -2.0, -0.274),
+		0.1)
 	
 	# We check first if the previously selected hotbar slot
 	# is the same as the one we want to go to
