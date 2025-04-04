@@ -3,12 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://8xlm2pfm4y4h"
-valid=false
+uid="uid://c0c82dneqnts5"
+path="res://.godot/imported/WaterWave.blend-03783b637bd1bdf14f8d17dfe615e896.scn"
 
 [deps]
 
 source_file="res://Assets/3D Models/Cutscenes/Story Mode/Start Cutscene/Models/WaterWave.blend"
+dest_files=["res://.godot/imported/WaterWave.blend-03783b637bd1bdf14f8d17dfe615e896.scn"]
 
 [params]
 
@@ -31,7 +32,14 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"WaveColor": {
+"use_external/enabled": true,
+"use_external/path": "uid://c40d4axu1tugk"
+}
+}
+}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true

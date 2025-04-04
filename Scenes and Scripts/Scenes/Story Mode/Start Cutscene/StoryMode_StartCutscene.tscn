@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://nlp0xy1m65tp"]
+[gd_scene load_steps=65 format=3 uid="uid://nlp0xy1m65tp"]
 
 [ext_resource type="Script" uid="uid://uvb2g81nntt2" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/StoryMode_StartCutscene_SCRIPT.gd" id="1_4d7y3"]
 [ext_resource type="Shader" uid="uid://b2gi30s113t00" path="res://Scenes and Scripts/Scenes/The Island/TheIslandSeaWater.gdshader" id="2_cfn0j"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://bi02uk7qwshyf" path="res://Scenes and Scripts/Scenes/Components/Interactable Component/Interactable_Component_SCRIPT.gd" id="9_44ck5"]
 [ext_resource type="PackedScene" uid="uid://tkmo4qdlscsu" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/Props/BlueLever.tscn" id="9_yeq2m"]
 [ext_resource type="PackedScene" uid="uid://cmt00ehn4hfne" path="res://Scenes and Scripts/Scenes/General/UI/MessageWithKeyUI.tscn" id="10_w18yt"]
+[ext_resource type="PackedScene" uid="uid://c0c82dneqnts5" path="res://Assets/3D Models/Cutscenes/Story Mode/Start Cutscene/Models/WaterWave.blend" id="13_ec70e"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w18yt"]
 sky_top_color = Color(0.25, 0.25, 0.25, 1)
@@ -841,6 +842,9 @@ autoplay = "camera_sutle_movement"
 libraries = {
 &"": SubResource("AnimationLibrary_gk6k1")
 }
+
+[node name="WaterWave" parent="." instance=ExtResource("13_ec70e")]
+transform = Transform3D(10.2237, -0.246847, 1.67396, -0.653629, 4.49093, 2.55887, -2.75844, -1.97905, 5.59789, 0.80537, -15.0753, -31.7028)
 
 [connection signal="timeout" from="StormTimer" to="." method="_on_storm_timer"]
 [connection signal="Action1_Triggered" from="Yacht Rig/Yacht/Lever Interactable Component" to="." method="_on_red_lever_triggered"]
