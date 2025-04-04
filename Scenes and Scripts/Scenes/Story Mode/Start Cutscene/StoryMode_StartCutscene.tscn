@@ -14,11 +14,11 @@
 [ext_resource type="PackedScene" uid="uid://cmt00ehn4hfne" path="res://Scenes and Scripts/Scenes/General/UI/MessageWithKeyUI.tscn" id="10_w18yt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w18yt"]
-sky_top_color = Color(0.379513, 0.678929, 0.950538, 1)
-sky_horizon_color = Color(0.51, 0.755, 1, 1)
+sky_top_color = Color(0.25, 0.25, 0.25, 1)
+sky_horizon_color = Color(0.505344, 0.505344, 0.505344, 1)
 sky_curve = 0.0409602
 ground_bottom_color = Color(0.09, 0.09, 0.09, 1)
-ground_horizon_color = Color(0.301961, 0.552941, 0.827451, 1)
+ground_horizon_color = Color(0.51, 0.51, 0.51, 1)
 
 [sub_resource type="Sky" id="Sky_ix38m"]
 sky_material = SubResource("ProceduralSkyMaterial_w18yt")
@@ -49,7 +49,7 @@ noise = SubResource("FastNoiseLite_u6jhm")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yeq2m"]
 render_priority = 0
 shader = ExtResource("2_cfn0j")
-shader_parameter/albedo = Color(0.12549, 0.584314, 1, 0.839216)
+shader_parameter/albedo = Color(0.1792, 0.2944, 0.64, 0.792157)
 shader_parameter/point_size = 1.0
 shader_parameter/roughness = 0.0
 shader_parameter/metallic_texture_channel = Vector4(0, 0, 0, 0)
@@ -344,7 +344,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 50),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.12549, 0.584314, 1, 0.839216), Color(0.102823, 0.23492, 0.25956, 0.839216)]
+"values": [Color(0.12549, 0.584314, 1, 0.839216), Color(0.1792, 0.2944, 0.64, 0.792157)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -376,6 +376,7 @@ environment = SubResource("Environment_ec70e")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.863395, 0.390681, -0.319244, 0, 0.632758, 0.77435, 0.504528, -0.66857, 0.54632, 0, 0, 0)
+light_color = Color(0.180005, 0.180005, 0.180005, 1)
 light_energy = 1.692
 light_indirect_energy = 0.827
 shadow_enabled = true
