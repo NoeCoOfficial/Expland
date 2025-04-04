@@ -209,4 +209,4 @@ func _on_tap_cooldown_timeout() -> void:
 
 
 func _on_storm_timer() -> void:
-	print("STARTING STORM")
+	$Storm_Transition.play("storm_transition")
