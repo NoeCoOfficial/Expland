@@ -368,7 +368,7 @@ _data = {
 script = ExtResource("1_4d7y3")
 
 [node name="StormTimer" type="Timer" parent="."]
-wait_time = 60.0
+wait_time = 120.0
 one_shot = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
