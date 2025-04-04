@@ -103,9 +103,10 @@ func new_player_dialogue_timeline():
 		DialogueManager.StoryMode_StartCutsceneDialogue_3,
 		DialogueManager.StoryMode_StartCutsceneDialogue_4,
 		DialogueManager.StoryMode_StartCutsceneDialogue_5,
+		DialogueManager.StoryMode_StartCutsceneDialogue_6,
 	]
 	
-	var break_times = [27.0, 27.0, 27.0]
+	var break_times = [27.0, 27.0, 27.0, 27.0]
 	
 	var total_duration = 0.0
 	for i in range(dialogues.size()):

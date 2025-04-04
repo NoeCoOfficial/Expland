@@ -331,3 +331,17 @@ var StoryMode_StartCutsceneDialogue_5 = [
 			"time": 2.5},
 			
 	]
+
+var StoryMode_StartCutsceneDialogue_6 = [
+		{"message": 
+			'"Hold on... what’s that?"', 
+			"time": 1.5},
+			# Probably just a quick storm. No big deal, right?
+		{"message": 
+			'"Those clouds are getting dark fast… way too fast."',
+			"time": 2.0},
+		
+		{"message": 
+			'"Probably just a quick storm. No big deal, right?"',
+			"time": 2.0},
+	]
