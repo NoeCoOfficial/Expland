@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cp2uwanuebke2"
+path="res://.godot/imported/riverside_765854_ jacqueslabusch... _ apr 4, 2025 001_tristan_taylor's st.wav-03b141dd14989e6de88b7bcfb7cf508f.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/Hand/PICKAXE/riverside_765854_ jacqueslabusch... _ apr 4, 2025 001_tristan_taylor's st.wav"
+dest_files=["res://.godot/imported/riverside_765854_ jacqueslabusch... _ apr 4, 2025 001_tristan_taylor's st.wav-03b141dd14989e6de88b7bcfb7cf508f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
