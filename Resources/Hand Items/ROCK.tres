@@ -6,9 +6,9 @@
 [resource]
 script = ExtResource("2_arnu8")
 ITEM_TYPE = "ROCK"
-mesh_position = Vector3(-0.74, -0.515, 4.17)
-mesh_rotation = Vector3(-4.78, 116.13, -16.985)
-mesh_scale = Vector3(0.64, 0.8, 0.8)
+mesh_position = Vector3(-0.45, -0.42, 3)
+mesh_rotation = Vector3(0, 116.13, 0)
+mesh_scale = Vector3(0.6, 0.6, 0.5)
 mesh_reset_position = Vector3(0, 0, 0)
 mesh_reset_rotation = Vector3(0, 0, 0)
 model_scene = ExtResource("1_wib37")
