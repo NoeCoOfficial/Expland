@@ -484,6 +484,9 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		if Input.is_action_just_pressed("Building_Init"):
 			BuildingManager.init_building_system()
 		
+		if Input.is_action_just_released("Building_Init"):
+			BuildingManager.despawn_building_system()
+		
 
 	
 
