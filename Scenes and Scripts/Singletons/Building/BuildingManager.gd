@@ -47,6 +47,9 @@
 
 extends Node
 
+var BA_PhysicalObject = preload("res://Scenes and Scripts/Scenes/Building System/Building Assets/Physical/BA_PhysicalObject.tscn")
+var BA_StaticObject = preload("res://Scenes and Scripts/Scenes/Building System/Building Assets/Static/BA_StaticObject.tscn")
+
 var is_in_building_interface : bool = false
 
 func init_building_system():
