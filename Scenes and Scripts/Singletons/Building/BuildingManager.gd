@@ -46,3 +46,10 @@
 # ============================================================= #
 
 extends Node
+
+var is_in_building_interface : bool = false
+
+func init_building_system():
+	# First check if what we are holding actually exists
+	if HandManager.CURRENTLY_HOLDING_ITEM != "":
+		pass

@@ -479,6 +479,13 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			InventoryManager.setSelectedHotbarSlot(Slot8_Hotbar_Ref, Outline_Slot8_Hotbar_Ref)
 		if Input.is_action_just_pressed("Hotbar_9"):
 			InventoryManager.setSelectedHotbarSlot(Slot9_Hotbar_Ref, Outline_Slot9_Hotbar_Ref)
+	
+	if !StoryModeManager.is_in_story_mode_first_cutscene_world and !PauseManager.is_paused and !DialogueManager.is_in_interface and !InventoryManager.pockets_ui_open and !InventoryManager.chest_ui_open and !InventoryManager.workbench_ui_open:
+		if Input.is_action_just_pressed("Building_Init"):
+			BuildingManager.init_building_system()
+		
+
+	
 
 func _unhandled_input(event): # A built-in function that listens for input all the time
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
