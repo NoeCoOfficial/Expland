@@ -460,7 +460,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
 			SaveManager.saveAllData()
 	
-	if !StoryModeManager.is_in_story_mode_first_cutscene_world and !PauseManager.is_paused and !DialogueManager.is_in_interface:
+	if !StoryModeManager.is_in_story_mode_first_cutscene_world and !PauseManager.is_paused and !DialogueManager.is_in_interface and !BuildingManager.is_in_building_interface:
 		if Input.is_action_just_pressed("Hotbar_1"):
 			InventoryManager.setSelectedHotbarSlot(Slot1_Hotbar_Ref, Outline_Slot1_Hotbar_Ref)
 		if Input.is_action_just_pressed("Hotbar_2"):
