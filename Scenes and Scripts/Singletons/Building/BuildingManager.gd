@@ -50,10 +50,14 @@ extends Node
 var is_in_building_interface : bool = false
 
 func init_building_system():
-	# First check if what we are holding actually exists
-	if HandManager.CURRENTLY_HOLDING_ITEM != "":
-		print("spawned building system")
+	# First, check if we are not in the building interface
+	if !is_in_building_interface:
+	# Check if what we are holding actually exists
+		if HandManager.CURRENTLY_HOLDING_ITEM != "":
+			is_in_building_interface = true
+			print("spawned building system")
 
 func despawn_building_system():
 	if is_in_building_interface:
-		print("despawned buildign system")
+		is_in_building_interface = false
+		print("despawned building system")
