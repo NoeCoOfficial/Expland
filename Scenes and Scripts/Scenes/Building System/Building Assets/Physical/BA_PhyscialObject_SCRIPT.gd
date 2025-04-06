@@ -1,5 +1,5 @@
 # ============================================================= #
-# BlackOverlay_SCRIPT.gd
+# BA_PhysicalObject_SCRIPT.gd
 # ============================================================= #
 #                       COPYRIGHT NOTICE                        #
 #                           Noe Co.                             #
@@ -45,7 +45,4 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-extends ColorRect
-
-func _ready():
-	self.mouse_filter = Control.MOUSE_FILTER_IGNORE
+extends RigidBody3D

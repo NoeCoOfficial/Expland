@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://caxh4l6g6uaus"]
+[gd_scene load_steps=2 format=3 uid="uid://caxh4l6g6uaus"]
+
+[ext_resource type="Script" uid="uid://kpk3ah820urb" path="res://Scenes and Scripts/Scenes/Building System/Building Assets/Physical/BA_PhyscialObject_SCRIPT.gd" id="1_o4p1b"]
 
 [node name="BA_PhysicalObject" type="RigidBody3D"]
+script = ExtResource("1_o4p1b")
