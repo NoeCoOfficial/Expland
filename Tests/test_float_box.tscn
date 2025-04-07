@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://dwlhvjwrcg8lr"]
+
+[node name="test_float_box" type="RigidBody3D"]
