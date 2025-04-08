@@ -96,6 +96,7 @@ const ITEM_TYPES = {
 		"DESCRIPTION" : "A tool used for cutting down trees.",
 		"IMAGE_LOAD" : preload("uid://dq8jg5iy6tfyc"),
 		"PICKUP_LOAD" : preload("uid://mmat24b7ftxq"),
+		"HAND_ITEM_RES" : preload("uid://bpa3rcaw6dav2"),
 		"MAX_STACK" : 1,
 	},
 	
@@ -174,6 +175,7 @@ const ITEM_TYPES = {
 		"DESCRIPTION" : "A solid, natural mineral.",
 		"IMAGE_LOAD" : preload("uid://b2eggg0vffmo4"),
 		"PICKUP_LOAD" : preload("uid://0uyecq8yw6t"),
+		"HAND_ITEM_RES" : preload("uid://bxmgf1s1s7u2l"),
 		"MAX_STACK" : 7,
 	},
 	

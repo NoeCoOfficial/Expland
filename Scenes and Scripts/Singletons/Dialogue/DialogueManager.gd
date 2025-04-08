@@ -270,18 +270,15 @@ var StoryMode_StartCutsceneDialogue_1 = [
 
 var StoryMode_StartCutsceneDialogue_2 = [
 		{"message": 
-			'"This job... it’s the chance I’ve been waiting for. Sunshine Co. doesn’t
-			just hire anyone. What makes me special?"', 
+			'"This job... it’s the chance I’ve been waiting for. Sunshine Co. doesn’t just hire anyone. What makes me special?"', 
 			"time": 4.0},
 			
 		{"message": 
-			'"A six-figure salary, building solar panels? I never
-			thought I’d land something like that. Am I doing the right thing?"',
+			'"A six-figure salary, building solar panels? I never thought I’d land something like that. Am I doing the right thing?"',
 			"time": 4.0},
 			
 		{"message": 
-			'"But here I am, on this yacht, heading to what
-			could be the best decision of my life. Right?"',
+			'"But here I am, on this yacht, heading to what could be the best decision of my life. Right?"',
 			"time": 2.8},
 			
 	]
@@ -292,8 +289,7 @@ var StoryMode_StartCutsceneDialogue_3 = [
 			"time": 2.5},
 			
 		{"message": 
-			'"Guess all those hours in the gym paid off after all. 
-			They wanted someone strong, and I’m their guy."',
+			'"Guess all those hours in the gym paid off after all. They wanted someone strong, and I’m their guy."',
 			"time": 3.0},
 			
 		{"message": 
@@ -304,18 +300,15 @@ var StoryMode_StartCutsceneDialogue_3 = [
 
 var StoryMode_StartCutsceneDialogue_4 = [
 		{"message": 
-			'"Mom thought I was crazy for taking the job. 
-			‘You’re throwing your life away,’ she said. She doesn’t get it."', 
+			'"Mom thought I was crazy for taking the job. ‘You’re throwing your life away,’ she said. She doesn’t get it."', 
 			"time": 4.0},
 			
 		{"message": 
-			'"But hey, I didn’t want to spend the rest of my life
-			behind some desk. I need something that challenges me."',
+			'"But hey, I didn’t want to spend the rest of my life behind some desk. I need something that challenges me."',
 			"time": 3.0},
 			
 		{"message": 
-			'"This is it. Building solar panels for a company that’s 
-			changing the world. It’s big. And I’m part of it."',
+			'"This is it. Building solar panels for a company that’s changing the world. It’s big. And I’m part of it."',
 			"time": 3.0},
 			
 	]
@@ -330,4 +323,18 @@ var StoryMode_StartCutsceneDialogue_5 = [
 			'"Good friends, huh? They know this is my shot, and they’ve had my back since day one."',
 			"time": 2.5},
 			
+	]
+
+var StoryMode_StartCutsceneDialogue_6 = [
+		{"message": 
+			'"Hold on... what’s that?"', 
+			"time": 1.5},
+			# Probably just a quick storm. No big deal, right?
+		{"message": 
+			'"Those clouds are getting dark fast… way too fast."',
+			"time": 2.0},
+		
+		{"message": 
+			'"Probably just a quick storm. No big deal, right?"',
+			"time": 2.0},
 	]
