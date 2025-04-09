@@ -47,10 +47,11 @@
 
 extends Node
 
-var BA_PhysicalObject = preload("res://Scenes and Scripts/Scenes/Building System/Building Assets/Physical/BA_PhysicalObject.tscn")
-var BA_StaticObject = preload("res://Scenes and Scripts/Scenes/Building System/Building Assets/Static/BA_StaticObject.tscn")
+var BA_PhysicalObject : PackedScene = preload("res://Scenes and Scripts/Scenes/Building System/Building Assets/Physical/BA_PhysicalObject.tscn")
+var BA_StaticObject : PackedScene = preload("res://Scenes and Scripts/Scenes/Building System/Building Assets/Static/BA_StaticObject.tscn")
 
 var is_in_building_interface : bool = false
+var is_in_building_edit_interface : bool = false
 
 func init_building_system():
 	# First, check if we are not in the building interface
@@ -67,8 +68,11 @@ func despawn_building_system():
 		PlayerManager.PLAYER.BuildingUILayer.visible = false
 		print("despawned building system")
 
+
 func init_edit():
-	pass
+	is_in_building_edit_interface = true
+	print("in edit interface")
 
 func despawn_edit():
-	pass
+	is_in_building_edit_interface = false
+	print("exited edit interface")

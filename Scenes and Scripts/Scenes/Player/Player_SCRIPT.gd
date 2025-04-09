@@ -331,6 +331,8 @@ var stamina_restoring_from_0 = false
 @export_group("Building")
 @export var BuildingUILayer : CanvasLayer
 @export var BuildingUIEditLayer : CanvasLayer
+@export var BuildingEditKeyMessage : Label
+@export var BuildingMakeStaticMessage : Label
 @export var BuildingInitItemRig : Node3D
 
 
@@ -492,9 +494,13 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		
 		if Input.is_action_just_released("Building_Init"):
 			BuildingManager.despawn_building_system()
-		
-
 	
+	if BuildingManager.is_in_building_interface:
+		if Input.is_action_just_pressed("Building_Edit"):
+			if BuildingManager.is_in_building_edit_interface:
+				BuildingManager.despawn_edit()
+			else:
+				BuildingManager.init_edit()
 
 func _unhandled_input(event): # A built-in function that listens for input all the time
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
