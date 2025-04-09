@@ -4,6 +4,6 @@
 
 [resource]
 shader = ExtResource("1_axmf7")
-shader_parameter/alpha = 0.4
+shader_parameter/alpha = 0.0
 shader_parameter/inner_radius = -0.105
 shader_parameter/outer_radius = 0.71

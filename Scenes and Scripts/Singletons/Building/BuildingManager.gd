@@ -79,7 +79,7 @@ func despawn_building_system():
 		
 		
 		var tween = get_tree().create_tween()
-		tween.tween_property(BuildingVignette, "shader_parameter/alpha", 0.0, 0.4)
+		tween.tween_property(BuildingVignette, "shader_parameter/alpha", 0.0, 0.2)
 		
 		print("despawned building system")
 
