@@ -87,9 +87,11 @@ func despawn_building_system():
 func init_edit():
 	is_in_building_edit_interface = true
 	PlayerManager.PLAYER.BuildingUIEditLayer.visible = true
+	PlayerManager.PLAYER.BuildingEditKeyMessage.text = "Exit Edit"
 	print("in edit interface")
 
 func despawn_edit():
 	is_in_building_edit_interface = false
 	PlayerManager.PLAYER.BuildingUIEditLayer.visible = false
+	PlayerManager.PLAYER.BuildingEditKeyMessage.text = "Edit"
 	print("exited edit interface")
