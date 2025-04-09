@@ -333,6 +333,7 @@ var stamina_restoring_from_0 = false
 @export var BuildingUIEditLayer : CanvasLayer
 @export var BuildingInitItemRig : Node3D
 
+
 @export_group("General Nodes")
 
 @export_subgroup("CanvasLayers")
