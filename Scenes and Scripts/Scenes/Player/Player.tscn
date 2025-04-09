@@ -1893,30 +1893,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 transform = Transform3D(-0.651061, 0, -5.69176e-08, 0, 0.651061, 0, 5.69176e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Head/Player_Character_Shadow/Armature_003" index="0"]
-bones/0/position = Vector3(2.95043, -2.80788, -196.305)
-bones/0/rotation = Quaternion(-0.685152, -0.270717, 0.248285, 0.628994)
-bones/1/rotation = Quaternion(0.0777003, 0.0407784, -0.00795313, 0.996111)
-bones/2/rotation = Quaternion(0.0932824, 0.0791524, -0.0215011, 0.992256)
-bones/3/rotation = Quaternion(0.0932317, 0.0791707, -0.0214728, 0.992259)
-bones/4/rotation = Quaternion(-0.0451761, -0.0106367, 0.00175952, 0.998921)
-bones/5/rotation = Quaternion(-0.0482891, 0.17682, -0.00401148, 0.98305)
-bones/7/rotation = Quaternion(0.573218, 0.428323, -0.566247, 0.409054)
-bones/8/rotation = Quaternion(0.435291, -0.0980436, 0.0887896, 0.89052)
+bones/0/position = Vector3(2.93308, -3.18825, -196.012)
+bones/0/rotation = Quaternion(-0.685008, -0.2703, 0.248607, 0.629203)
+bones/1/rotation = Quaternion(0.0786443, 0.0406949, -0.00833957, 0.996037)
+bones/2/rotation = Quaternion(0.0950881, 0.078948, -0.0218684, 0.992092)
+bones/3/rotation = Quaternion(0.0951472, 0.0790407, -0.0219272, 0.992078)
+bones/4/rotation = Quaternion(-0.0456331, -0.0107464, 0.00188272, 0.998899)
+bones/5/rotation = Quaternion(-0.0378851, 0.176205, -0.00493794, 0.983612)
+bones/7/rotation = Quaternion(0.579135, 0.421625, -0.566387, 0.407481)
+bones/8/rotation = Quaternion(0.43128, -0.100521, 0.0885159, 0.892221)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0338398, 0.0655899, 0.417725, 0.905571)
-bones/11/rotation = Quaternion(0.618975, -0.39184, 0.525403, 0.432762)
-bones/12/rotation = Quaternion(0.43149, 0.0930125, 0.145454, 0.885442)
-bones/13/rotation = Quaternion(0.0388523, -0.00106143, -0.368636, 0.928761)
-bones/15/rotation = Quaternion(0.0800713, 0.231003, 0.9641, -0.103625)
+bones/9/rotation = Quaternion(-0.0350465, 0.0635802, 0.414157, 0.907306)
+bones/11/rotation = Quaternion(0.624719, -0.385319, 0.525181, 0.430629)
+bones/12/rotation = Quaternion(0.423999, 0.0985125, 0.146703, 0.888256)
+bones/13/rotation = Quaternion(0.0352439, 0.00532955, -0.367249, 0.929439)
+bones/15/rotation = Quaternion(0.0797509, 0.233397, 0.963514, -0.103954)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.359243, 0.119219, -0.0359555, 0.924899)
-bones/17/rotation = Quaternion(0.565722, -0.00117192, -0.0237103, 0.824255)
-bones/18/rotation = Quaternion(0.289255, -0.0362712, -0.00952784, 0.956517)
-bones/20/rotation = Quaternion(-0.125325, 0.0236149, 0.982813, 0.133471)
-bones/21/rotation = Quaternion(-0.340099, 0.0723044, -0.0255232, 0.937258)
-bones/22/rotation = Quaternion(0.672601, 0.0552981, 0.10659, 0.730198)
+bones/16/rotation = Quaternion(-0.361406, 0.119733, -0.0366813, 0.923961)
+bones/17/rotation = Quaternion(0.565636, -0.00146694, -0.0242607, 0.824297)
+bones/18/rotation = Quaternion(0.289166, -0.0361225, -0.00943656, 0.956551)
+bones/20/rotation = Quaternion(-0.125223, 0.0271083, 0.982738, 0.133454)
+bones/21/rotation = Quaternion(-0.345999, 0.0725329, -0.0264391, 0.935053)
+bones/22/rotation = Quaternion(0.674825, 0.0553786, 0.106553, 0.728142)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.27805, 0.0567932, -0.0170233, 0.958735)
+bones/23/rotation = Quaternion(0.277999, 0.0567201, -0.0169888, 0.958755)
 
 [node name="Model_004" parent="Head/Player_Character_Shadow/Armature_003/Skeleton3D" index="0"]
 cast_shadow = 3
@@ -1925,30 +1925,30 @@ cast_shadow = 3
 transform = Transform3D(-0.651061, 0, 5.69175e-08, 0, 0.651061, 0, -5.69175e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Head/Player_Character/Armature_003" index="0"]
-bones/0/position = Vector3(2.95043, -2.80788, -196.305)
-bones/0/rotation = Quaternion(-0.685152, -0.270717, 0.248285, 0.628994)
-bones/1/rotation = Quaternion(0.0777003, 0.0407784, -0.00795313, 0.996111)
-bones/2/rotation = Quaternion(0.0932824, 0.0791524, -0.0215011, 0.992256)
-bones/3/rotation = Quaternion(0.0932317, 0.0791707, -0.0214728, 0.992259)
-bones/4/rotation = Quaternion(-0.0451761, -0.0106367, 0.00175952, 0.998921)
-bones/5/rotation = Quaternion(-0.0482891, 0.17682, -0.00401148, 0.98305)
-bones/7/rotation = Quaternion(0.573218, 0.428323, -0.566247, 0.409054)
-bones/8/rotation = Quaternion(0.435291, -0.0980436, 0.0887896, 0.89052)
+bones/0/position = Vector3(2.93308, -3.18825, -196.012)
+bones/0/rotation = Quaternion(-0.685008, -0.2703, 0.248607, 0.629203)
+bones/1/rotation = Quaternion(0.0786443, 0.0406949, -0.00833957, 0.996037)
+bones/2/rotation = Quaternion(0.0950881, 0.078948, -0.0218684, 0.992092)
+bones/3/rotation = Quaternion(0.0951472, 0.0790407, -0.0219272, 0.992078)
+bones/4/rotation = Quaternion(-0.0456331, -0.0107464, 0.00188272, 0.998899)
+bones/5/rotation = Quaternion(-0.0378851, 0.176205, -0.00493794, 0.983612)
+bones/7/rotation = Quaternion(0.579135, 0.421625, -0.566387, 0.407481)
+bones/8/rotation = Quaternion(0.43128, -0.100521, 0.0885159, 0.892221)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0338398, 0.0655899, 0.417725, 0.905571)
-bones/11/rotation = Quaternion(0.618975, -0.39184, 0.525403, 0.432762)
-bones/12/rotation = Quaternion(0.43149, 0.0930125, 0.145454, 0.885442)
-bones/13/rotation = Quaternion(0.0388523, -0.00106143, -0.368636, 0.928761)
-bones/15/rotation = Quaternion(0.0800713, 0.231003, 0.9641, -0.103625)
+bones/9/rotation = Quaternion(-0.0350465, 0.0635802, 0.414157, 0.907306)
+bones/11/rotation = Quaternion(0.624719, -0.385319, 0.525181, 0.430629)
+bones/12/rotation = Quaternion(0.423999, 0.0985125, 0.146703, 0.888256)
+bones/13/rotation = Quaternion(0.0352439, 0.00532955, -0.367249, 0.929439)
+bones/15/rotation = Quaternion(0.0797509, 0.233397, 0.963514, -0.103954)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.359243, 0.119219, -0.0359555, 0.924899)
-bones/17/rotation = Quaternion(0.565722, -0.00117192, -0.0237103, 0.824255)
-bones/18/rotation = Quaternion(0.289255, -0.0362712, -0.00952784, 0.956517)
-bones/20/rotation = Quaternion(-0.125325, 0.0236149, 0.982813, 0.133471)
-bones/21/rotation = Quaternion(-0.340099, 0.0723044, -0.0255232, 0.937258)
-bones/22/rotation = Quaternion(0.672601, 0.0552981, 0.10659, 0.730198)
+bones/16/rotation = Quaternion(-0.361406, 0.119733, -0.0366813, 0.923961)
+bones/17/rotation = Quaternion(0.565636, -0.00146694, -0.0242607, 0.824297)
+bones/18/rotation = Quaternion(0.289166, -0.0361225, -0.00943656, 0.956551)
+bones/20/rotation = Quaternion(-0.125223, 0.0271083, 0.982738, 0.133454)
+bones/21/rotation = Quaternion(-0.345999, 0.0725329, -0.0264391, 0.935053)
+bones/22/rotation = Quaternion(0.674825, 0.0553786, 0.106553, 0.728142)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.27805, 0.0567932, -0.0170233, 0.958735)
+bones/23/rotation = Quaternion(0.277999, 0.0567201, -0.0169888, 0.958755)
 
 [node name="Model_004" parent="Head/Player_Character/Armature_003/Skeleton3D" index="0"]
 cast_shadow = 0
@@ -2083,7 +2083,6 @@ columns = 3
 metadata/_edit_use_anchors_ = true
 
 [node name="BuildingUILayer" type="CanvasLayer" parent="Head/Camera3D"]
-layer = 128
 
 [node name="Build" type="Control" parent="Head/Camera3D/BuildingUILayer"]
 layout_mode = 3
@@ -2406,7 +2405,10 @@ text = "Exit"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="Make Static" type="Control" parent="Head/Camera3D/BuildingUILayer"]
+[node name="BuildingUIEditLayer" type="CanvasLayer" parent="Head/Camera3D/BuildingUILayer"]
+visible = false
+
+[node name="Make Static" type="Control" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -2421,14 +2423,14 @@ scale = Vector2(0.7, 0.7)
 mouse_filter = 2
 script = ExtResource("12_bcco5")
 
-[node name="Contents" type="Control" parent="Head/Camera3D/BuildingUILayer/Make Static"]
+[node name="Contents" type="Control" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Make Static"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 54.0
 offset_bottom = 60.0
 mouse_filter = 2
 
-[node name="BackgroundKEY" type="Button" parent="Head/Camera3D/BuildingUILayer/Make Static/Contents"]
+[node name="BackgroundKEY" type="Button" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Make Static/Contents"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0016129
@@ -2442,7 +2444,7 @@ offset_bottom = 55.8
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_8e5id")
 
-[node name="BackgroundKEY2" type="Button" parent="Head/Camera3D/BuildingUILayer/Make Static/Contents"]
+[node name="BackgroundKEY2" type="Button" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Make Static/Contents"]
 layout_mode = 0
 offset_left = 2.90002
 offset_top = 6.20001
@@ -2451,7 +2453,7 @@ offset_bottom = 54.2
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_8skl1")
 
-[node name="BackgroundKEY3" type="Button" parent="Head/Camera3D/BuildingUILayer/Make Static/Contents"]
+[node name="BackgroundKEY3" type="Button" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Make Static/Contents"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.000967703
@@ -2463,7 +2465,7 @@ offset_bottom = 50.0
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_qr1vc")
 
-[node name="BackgroundKEY4" type="Button" parent="Head/Camera3D/BuildingUILayer/Make Static/Contents"]
+[node name="BackgroundKEY4" type="Button" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Make Static/Contents"]
 layout_mode = 0
 offset_left = 9.1
 offset_top = 12.4
@@ -2472,7 +2474,7 @@ offset_bottom = 48.4
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_jost1")
 
-[node name="KEY" type="Label" parent="Head/Camera3D/BuildingUILayer/Make Static/Contents"]
+[node name="KEY" type="Label" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Make Static/Contents"]
 modulate = Color(0.796243, 0.796243, 0.796243, 1)
 layout_mode = 0
 offset_left = 12.2
@@ -2486,7 +2488,7 @@ text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="KEY_Image" type="TextureRect" parent="Head/Camera3D/BuildingUILayer/Make Static/Contents"]
+[node name="KEY_Image" type="TextureRect" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Make Static/Contents"]
 visible = false
 layout_mode = 0
 offset_left = 7.0
@@ -2496,12 +2498,12 @@ offset_bottom = 50.0
 texture = ExtResource("10_bcco5")
 expand_mode = 1
 
-[node name="ProtectiveLayer" type="Control" parent="Head/Camera3D/BuildingUILayer/Make Static/Contents"]
+[node name="ProtectiveLayer" type="Control" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Make Static/Contents"]
 anchors_preset = 0
 offset_right = 54.0
 offset_bottom = 60.0
 
-[node name="Message" type="Label" parent="Head/Camera3D/BuildingUILayer/Make Static/Contents"]
+[node name="Message" type="Label" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Make Static/Contents"]
 layout_mode = 0
 offset_left = 58.4286
 offset_top = 3.0
@@ -2512,7 +2514,7 @@ theme_override_font_sizes/font_size = 25
 text = "Make Static"
 vertical_alignment = 1
 
-[node name="Set Position" type="Control" parent="Head/Camera3D/BuildingUILayer"]
+[node name="Set Position" type="Control" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -2527,14 +2529,14 @@ scale = Vector2(0.7, 0.7)
 mouse_filter = 2
 script = ExtResource("12_bcco5")
 
-[node name="Contents" type="Control" parent="Head/Camera3D/BuildingUILayer/Set Position"]
+[node name="Contents" type="Control" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Position"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 54.0
 offset_bottom = 60.0
 mouse_filter = 2
 
-[node name="BackgroundKEY" type="Button" parent="Head/Camera3D/BuildingUILayer/Set Position/Contents"]
+[node name="BackgroundKEY" type="Button" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Position/Contents"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0016129
@@ -2548,7 +2550,7 @@ offset_bottom = 55.8
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_8e5id")
 
-[node name="BackgroundKEY2" type="Button" parent="Head/Camera3D/BuildingUILayer/Set Position/Contents"]
+[node name="BackgroundKEY2" type="Button" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Position/Contents"]
 layout_mode = 0
 offset_left = 2.90002
 offset_top = 6.20001
@@ -2557,7 +2559,7 @@ offset_bottom = 54.2
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_8skl1")
 
-[node name="BackgroundKEY3" type="Button" parent="Head/Camera3D/BuildingUILayer/Set Position/Contents"]
+[node name="BackgroundKEY3" type="Button" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Position/Contents"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.000967703
@@ -2569,7 +2571,7 @@ offset_bottom = 50.0
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_qr1vc")
 
-[node name="BackgroundKEY4" type="Button" parent="Head/Camera3D/BuildingUILayer/Set Position/Contents"]
+[node name="BackgroundKEY4" type="Button" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Position/Contents"]
 layout_mode = 0
 offset_left = 9.1
 offset_top = 12.4
@@ -2578,7 +2580,7 @@ offset_bottom = 48.4
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_jost1")
 
-[node name="KEY" type="Label" parent="Head/Camera3D/BuildingUILayer/Set Position/Contents"]
+[node name="KEY" type="Label" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Position/Contents"]
 modulate = Color(0.796243, 0.796243, 0.796243, 1)
 layout_mode = 0
 offset_left = 12.2
@@ -2592,7 +2594,7 @@ text = "2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="KEY_Image" type="TextureRect" parent="Head/Camera3D/BuildingUILayer/Set Position/Contents"]
+[node name="KEY_Image" type="TextureRect" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Position/Contents"]
 visible = false
 layout_mode = 0
 offset_left = 7.0
@@ -2602,12 +2604,12 @@ offset_bottom = 50.0
 texture = ExtResource("11_e1x4n")
 expand_mode = 1
 
-[node name="ProtectiveLayer" type="Control" parent="Head/Camera3D/BuildingUILayer/Set Position/Contents"]
+[node name="ProtectiveLayer" type="Control" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Position/Contents"]
 anchors_preset = 0
 offset_right = 54.0
 offset_bottom = 60.0
 
-[node name="Message" type="Label" parent="Head/Camera3D/BuildingUILayer/Set Position/Contents"]
+[node name="Message" type="Label" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Position/Contents"]
 layout_mode = 0
 offset_left = 58.4286
 offset_top = 3.0
@@ -2618,7 +2620,7 @@ theme_override_font_sizes/font_size = 25
 text = "Set Position"
 vertical_alignment = 1
 
-[node name="Set Rotation" type="Control" parent="Head/Camera3D/BuildingUILayer"]
+[node name="Set Rotation" type="Control" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -2633,14 +2635,14 @@ scale = Vector2(0.7, 0.7)
 mouse_filter = 2
 script = ExtResource("12_bcco5")
 
-[node name="Contents" type="Control" parent="Head/Camera3D/BuildingUILayer/Set Rotation"]
+[node name="Contents" type="Control" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Rotation"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 54.0
 offset_bottom = 60.0
 mouse_filter = 2
 
-[node name="BackgroundKEY" type="Button" parent="Head/Camera3D/BuildingUILayer/Set Rotation/Contents"]
+[node name="BackgroundKEY" type="Button" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Rotation/Contents"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0016129
@@ -2654,7 +2656,7 @@ offset_bottom = 55.8
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_8e5id")
 
-[node name="BackgroundKEY2" type="Button" parent="Head/Camera3D/BuildingUILayer/Set Rotation/Contents"]
+[node name="BackgroundKEY2" type="Button" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Rotation/Contents"]
 layout_mode = 0
 offset_left = 2.90002
 offset_top = 6.20001
@@ -2663,7 +2665,7 @@ offset_bottom = 54.2
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_8skl1")
 
-[node name="BackgroundKEY3" type="Button" parent="Head/Camera3D/BuildingUILayer/Set Rotation/Contents"]
+[node name="BackgroundKEY3" type="Button" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Rotation/Contents"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.000967703
@@ -2675,7 +2677,7 @@ offset_bottom = 50.0
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_qr1vc")
 
-[node name="BackgroundKEY4" type="Button" parent="Head/Camera3D/BuildingUILayer/Set Rotation/Contents"]
+[node name="BackgroundKEY4" type="Button" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Rotation/Contents"]
 layout_mode = 0
 offset_left = 9.1
 offset_top = 12.4
@@ -2684,7 +2686,7 @@ offset_bottom = 48.4
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_jost1")
 
-[node name="KEY" type="Label" parent="Head/Camera3D/BuildingUILayer/Set Rotation/Contents"]
+[node name="KEY" type="Label" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Rotation/Contents"]
 modulate = Color(0.796243, 0.796243, 0.796243, 1)
 layout_mode = 0
 offset_left = 12.2
@@ -2698,7 +2700,7 @@ text = "3"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="KEY_Image" type="TextureRect" parent="Head/Camera3D/BuildingUILayer/Set Rotation/Contents"]
+[node name="KEY_Image" type="TextureRect" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Rotation/Contents"]
 visible = false
 layout_mode = 0
 offset_left = 7.0
@@ -2708,12 +2710,12 @@ offset_bottom = 50.0
 texture = ExtResource("10_bcco5")
 expand_mode = 1
 
-[node name="ProtectiveLayer" type="Control" parent="Head/Camera3D/BuildingUILayer/Set Rotation/Contents"]
+[node name="ProtectiveLayer" type="Control" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Rotation/Contents"]
 anchors_preset = 0
 offset_right = 54.0
 offset_bottom = 60.0
 
-[node name="Message" type="Label" parent="Head/Camera3D/BuildingUILayer/Set Rotation/Contents"]
+[node name="Message" type="Label" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Rotation/Contents"]
 layout_mode = 0
 offset_left = 58.4286
 offset_top = 3.0
@@ -2724,7 +2726,7 @@ theme_override_font_sizes/font_size = 25
 text = "Set Rotation"
 vertical_alignment = 1
 
-[node name="Set Scale" type="Control" parent="Head/Camera3D/BuildingUILayer"]
+[node name="Set Scale" type="Control" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -2739,14 +2741,14 @@ scale = Vector2(0.7, 0.7)
 mouse_filter = 2
 script = ExtResource("12_bcco5")
 
-[node name="Contents" type="Control" parent="Head/Camera3D/BuildingUILayer/Set Scale"]
+[node name="Contents" type="Control" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Scale"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 54.0
 offset_bottom = 60.0
 mouse_filter = 2
 
-[node name="BackgroundKEY" type="Button" parent="Head/Camera3D/BuildingUILayer/Set Scale/Contents"]
+[node name="BackgroundKEY" type="Button" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Scale/Contents"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0016129
@@ -2760,7 +2762,7 @@ offset_bottom = 55.8
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_8e5id")
 
-[node name="BackgroundKEY2" type="Button" parent="Head/Camera3D/BuildingUILayer/Set Scale/Contents"]
+[node name="BackgroundKEY2" type="Button" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Scale/Contents"]
 layout_mode = 0
 offset_left = 2.90002
 offset_top = 6.20001
@@ -2769,7 +2771,7 @@ offset_bottom = 54.2
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_8skl1")
 
-[node name="BackgroundKEY3" type="Button" parent="Head/Camera3D/BuildingUILayer/Set Scale/Contents"]
+[node name="BackgroundKEY3" type="Button" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Scale/Contents"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.000967703
@@ -2781,7 +2783,7 @@ offset_bottom = 50.0
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_qr1vc")
 
-[node name="BackgroundKEY4" type="Button" parent="Head/Camera3D/BuildingUILayer/Set Scale/Contents"]
+[node name="BackgroundKEY4" type="Button" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Scale/Contents"]
 layout_mode = 0
 offset_left = 9.1
 offset_top = 12.4
@@ -2790,7 +2792,7 @@ offset_bottom = 48.4
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxFlat_jost1")
 
-[node name="KEY" type="Label" parent="Head/Camera3D/BuildingUILayer/Set Scale/Contents"]
+[node name="KEY" type="Label" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Scale/Contents"]
 modulate = Color(0.796243, 0.796243, 0.796243, 1)
 layout_mode = 0
 offset_left = 12.2
@@ -2804,7 +2806,7 @@ text = "4"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="KEY_Image" type="TextureRect" parent="Head/Camera3D/BuildingUILayer/Set Scale/Contents"]
+[node name="KEY_Image" type="TextureRect" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Scale/Contents"]
 visible = false
 layout_mode = 0
 offset_left = 7.0
@@ -2814,12 +2816,12 @@ offset_bottom = 50.0
 texture = ExtResource("11_e1x4n")
 expand_mode = 1
 
-[node name="ProtectiveLayer" type="Control" parent="Head/Camera3D/BuildingUILayer/Set Scale/Contents"]
+[node name="ProtectiveLayer" type="Control" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Scale/Contents"]
 anchors_preset = 0
 offset_right = 54.0
 offset_bottom = 60.0
 
-[node name="Message" type="Label" parent="Head/Camera3D/BuildingUILayer/Set Scale/Contents"]
+[node name="Message" type="Label" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Scale/Contents"]
 layout_mode = 0
 offset_left = 58.4286
 offset_top = 3.0
