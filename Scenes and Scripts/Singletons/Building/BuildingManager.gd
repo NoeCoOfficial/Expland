@@ -47,6 +47,8 @@
 
 extends Node
 
+var BuildingVignette : ShaderMaterial = preload("res://Resources/Shader Materials/BuildingVignette.tres")
+
 var BA_PhysicalObject : PackedScene = preload("res://Scenes and Scripts/Scenes/Building System/Building Assets/Physical/BA_PhysicalObject.tscn")
 var BA_StaticObject : PackedScene = preload("res://Scenes and Scripts/Scenes/Building System/Building Assets/Static/BA_StaticObject.tscn")
 
@@ -63,12 +65,9 @@ func init_building_system():
 			is_in_building_interface = true
 			PlayerManager.PLAYER.BuildingUILayer.visible = true
 			
-			if vignette_tween:
-				vignette_tween.stop()
-				vignette_tween.kill()
+			var tween = get_tree().create_tween()
+			tween.tween_property(BuildingVignette, "shader_parameter/alpha", Color(1, 1, 1, 1), 0.2)
 			
-			vignette_tween = get_tree().create_tween()
-			vignette_tween.tween_property(PlayerManager.PLAYER.BuildingVignette, "modulate", Color(1, 1, 1, 1), 0.2)
 			print("spawned building system")
 
 func despawn_building_system():
@@ -79,13 +78,9 @@ func despawn_building_system():
 			despawn_edit()
 		
 		
-		if vignette_tween:
-			vignette_tween.stop()
-			vignette_tween.kill()
+		var tween = get_tree().create_tween()
+		tween.tween_property(BuildingVignette, "shader_parameter/alpha", Color(1, 1, 1, 0), 0.2)
 		
-		vignette_tween = get_tree().create_tween()
-		vignette_tween.tween_property(PlayerManager.PLAYER.BuildingVignette, "modulate", Color(1, 1, 1, 0), 0.2)
-
 		print("despawned building system")
 
 
