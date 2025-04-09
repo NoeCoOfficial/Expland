@@ -403,7 +403,7 @@ points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5
 action = &"Interact"
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_1rf0p"]
-viewport_path = NodePath("DialogueTest/Interactable Component/Contents/UI/SubViewport")
+viewport_path = NodePath("World Contents/DialogueTest/Interactable Component/Contents/UI/SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fvca7"]
 size = Vector3(4.19315, 5, 7)
@@ -419,7 +419,7 @@ uv1_triplanar = true
 action = &"Interact"
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_32fgl"]
-viewport_path = NodePath("Item_Workshop/Interactable Component/Contents/UI/SubViewport")
+viewport_path = NodePath("World Contents/Item_Workshop/Interactable Component/Contents/UI/SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1rf0p"]
 size = Vector3(4.19315, 5, 7)
@@ -440,7 +440,7 @@ size = Vector3(1, 1, 0.166443)
 action = &"Interact"
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_747t0"]
-viewport_path = NodePath("EmailNoeCo/Interactable Component/Contents/UI/SubViewport")
+viewport_path = NodePath("World Contents/EmailNoeCo/Interactable Component/Contents/UI/SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r68ax"]
 size = Vector3(3.43, 5, 5.335)
@@ -454,7 +454,7 @@ size = Vector3(1, 1, 0.165283)
 action = &"Interact"
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_r68ax"]
-viewport_path = NodePath("OpenFeedBackIssue/Interactable Component/Contents/UI/SubViewport")
+viewport_path = NodePath("World Contents/OpenFeedBackIssue/Interactable Component/Contents/UI/SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ksvy8"]
 size = Vector3(3.43, 5, 5.335)
@@ -690,19 +690,21 @@ script = ExtResource("16_r68ax")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -385.431, 9.2025, 299.866)
 shape = SubResource("BoxShape3D_747t0")
 
-[node name="Island" parent="." instance=ExtResource("11_kq5pm")]
+[node name="World Contents" type="Node" parent="."]
 
-[node name="DialogueTest" type="StaticBody3D" parent="."]
+[node name="Island" parent="World Contents" instance=ExtResource("11_kq5pm")]
+
+[node name="DialogueTest" type="StaticBody3D" parent="World Contents"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -388.55, 1.11121, 280.266)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="DialogueTest"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World Contents/DialogueTest"]
 material_override = SubResource("StandardMaterial3D_agd54")
 mesh = SubResource("BoxMesh_o20mk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DialogueTest"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Contents/DialogueTest"]
 shape = SubResource("ConvexPolygonShape3D_yln1k")
 
-[node name="Interactable Component" type="Node3D" parent="DialogueTest" node_paths=PackedStringArray("Contents_Node", "SubViewport_Node", "UI_Sprite_Node", "UI_1", "UI_2", "UI_3", "UI_4")]
+[node name="Interactable Component" type="Node3D" parent="World Contents/DialogueTest" node_paths=PackedStringArray("Contents_Node", "SubViewport_Node", "UI_Sprite_Node", "UI_1", "UI_2", "UI_3", "UI_4")]
 script = ExtResource("21_32fgl")
 Contents_Node = NodePath("Contents")
 SubViewport_Node = NodePath("Contents/UI/SubViewport")
@@ -714,20 +716,20 @@ UI_4 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_4")
 UseAction1 = true
 ActionToPress_1 = SubResource("InputEventAction_1rf0p")
 
-[node name="Contents" type="Node3D" parent="DialogueTest/Interactable Component"]
+[node name="Contents" type="Node3D" parent="World Contents/DialogueTest/Interactable Component"]
 
-[node name="UI" type="Sprite3D" parent="DialogueTest/Interactable Component/Contents"]
+[node name="UI" type="Sprite3D" parent="World Contents/DialogueTest/Interactable Component/Contents"]
 transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 0, 0, 0)
 billboard = 1
 no_depth_test = true
 texture = SubResource("ViewportTexture_1rf0p")
 
-[node name="SubViewport" type="SubViewport" parent="DialogueTest/Interactable Component/Contents/UI"]
+[node name="SubViewport" type="SubViewport" parent="World Contents/DialogueTest/Interactable Component/Contents/UI"]
 transparent_bg = true
 gui_disable_input = true
 size = Vector2i(3720, 2225)
 
-[node name="MessageWithKeyUI_1" parent="DialogueTest/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
+[node name="MessageWithKeyUI_1" parent="World Contents/DialogueTest/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -737,7 +739,7 @@ offset_top = -385.795
 offset_bottom = -385.795
 scale = Vector2(5, 5)
 
-[node name="Contents" parent="DialogueTest/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1" index="0"]
+[node name="Contents" parent="World Contents/DialogueTest/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1" index="0"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -751,10 +753,10 @@ offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Message" parent="DialogueTest/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1/Contents" index="7"]
+[node name="Message" parent="World Contents/DialogueTest/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1/Contents" index="7"]
 text = "Start"
 
-[node name="MessageWithKeyUI_2" parent="DialogueTest/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
+[node name="MessageWithKeyUI_2" parent="World Contents/DialogueTest/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -765,7 +767,7 @@ offset_top = -112.5
 offset_bottom = -112.5
 scale = Vector2(5, 5)
 
-[node name="Contents" parent="DialogueTest/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_2" index="0"]
+[node name="Contents" parent="World Contents/DialogueTest/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_2" index="0"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -779,7 +781,7 @@ offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MessageWithKeyUI_3" parent="DialogueTest/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
+[node name="MessageWithKeyUI_3" parent="World Contents/DialogueTest/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -790,7 +792,7 @@ offset_top = 160.15
 offset_bottom = 160.15
 scale = Vector2(5, 5)
 
-[node name="Contents" parent="DialogueTest/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_3" index="0"]
+[node name="Contents" parent="World Contents/DialogueTest/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_3" index="0"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -804,7 +806,7 @@ offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MessageWithKeyUI_4" parent="DialogueTest/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
+[node name="MessageWithKeyUI_4" parent="World Contents/DialogueTest/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -815,7 +817,7 @@ offset_top = 432.205
 offset_bottom = 432.205
 scale = Vector2(5, 5)
 
-[node name="Contents" parent="DialogueTest/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_4" index="0"]
+[node name="Contents" parent="World Contents/DialogueTest/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_4" index="0"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -829,27 +831,27 @@ offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PlayerVisibleDetector" type="Area3D" parent="DialogueTest/Interactable Component/Contents"]
+[node name="PlayerVisibleDetector" type="Area3D" parent="World Contents/DialogueTest/Interactable Component/Contents"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DialogueTest/Interactable Component/Contents/PlayerVisibleDetector"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Contents/DialogueTest/Interactable Component/Contents/PlayerVisibleDetector"]
 shape = SubResource("BoxShape3D_fvca7")
 
-[node name="PlayerMimicRaycastDetector" type="Area3D" parent="DialogueTest/Interactable Component"]
+[node name="PlayerMimicRaycastDetector" type="Area3D" parent="World Contents/DialogueTest/Interactable Component"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DialogueTest/Interactable Component/PlayerMimicRaycastDetector"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Contents/DialogueTest/Interactable Component/PlayerMimicRaycastDetector"]
 shape = SubResource("BoxShape3D_00rnx")
 
-[node name="Item_Workshop" type="StaticBody3D" parent="."]
+[node name="Item_Workshop" type="StaticBody3D" parent="World Contents"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -381.368, 1.11121, 280.266)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Item_Workshop"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World Contents/Item_Workshop"]
 material_override = SubResource("StandardMaterial3D_cfqaf")
 mesh = SubResource("BoxMesh_o20mk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Item_Workshop"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Contents/Item_Workshop"]
 shape = SubResource("ConvexPolygonShape3D_yln1k")
 
-[node name="Interactable Component" type="Node3D" parent="Item_Workshop" node_paths=PackedStringArray("Contents_Node", "SubViewport_Node", "UI_Sprite_Node", "UI_1", "UI_2", "UI_3", "UI_4")]
+[node name="Interactable Component" type="Node3D" parent="World Contents/Item_Workshop" node_paths=PackedStringArray("Contents_Node", "SubViewport_Node", "UI_Sprite_Node", "UI_1", "UI_2", "UI_3", "UI_4")]
 script = ExtResource("21_32fgl")
 Contents_Node = NodePath("Contents")
 SubViewport_Node = NodePath("Contents/UI/SubViewport")
@@ -861,20 +863,20 @@ UI_4 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_4")
 UseAction1 = true
 ActionToPress_1 = SubResource("InputEventAction_32fgl")
 
-[node name="Contents" type="Node3D" parent="Item_Workshop/Interactable Component"]
+[node name="Contents" type="Node3D" parent="World Contents/Item_Workshop/Interactable Component"]
 
-[node name="UI" type="Sprite3D" parent="Item_Workshop/Interactable Component/Contents"]
+[node name="UI" type="Sprite3D" parent="World Contents/Item_Workshop/Interactable Component/Contents"]
 transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, -0.0470276, -0.209965, 0)
 billboard = 1
 no_depth_test = true
 texture = SubResource("ViewportTexture_32fgl")
 
-[node name="SubViewport" type="SubViewport" parent="Item_Workshop/Interactable Component/Contents/UI"]
+[node name="SubViewport" type="SubViewport" parent="World Contents/Item_Workshop/Interactable Component/Contents/UI"]
 transparent_bg = true
 gui_disable_input = true
 size = Vector2i(3720, 2225)
 
-[node name="MessageWithKeyUI_1" parent="Item_Workshop/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
+[node name="MessageWithKeyUI_1" parent="World Contents/Item_Workshop/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -884,7 +886,7 @@ offset_top = -385.795
 offset_bottom = -385.795
 scale = Vector2(5, 5)
 
-[node name="Contents" parent="Item_Workshop/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1" index="0"]
+[node name="Contents" parent="World Contents/Item_Workshop/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1" index="0"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -898,10 +900,10 @@ offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Message" parent="Item_Workshop/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1/Contents" index="7"]
+[node name="Message" parent="World Contents/Item_Workshop/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1/Contents" index="7"]
 text = "Open"
 
-[node name="MessageWithKeyUI_2" parent="Item_Workshop/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
+[node name="MessageWithKeyUI_2" parent="World Contents/Item_Workshop/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -912,7 +914,7 @@ offset_top = -112.5
 offset_bottom = -112.5
 scale = Vector2(5, 5)
 
-[node name="Contents" parent="Item_Workshop/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_2" index="0"]
+[node name="Contents" parent="World Contents/Item_Workshop/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_2" index="0"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -926,7 +928,7 @@ offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MessageWithKeyUI_3" parent="Item_Workshop/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
+[node name="MessageWithKeyUI_3" parent="World Contents/Item_Workshop/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -937,7 +939,7 @@ offset_top = 160.15
 offset_bottom = 160.15
 scale = Vector2(5, 5)
 
-[node name="Contents" parent="Item_Workshop/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_3" index="0"]
+[node name="Contents" parent="World Contents/Item_Workshop/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_3" index="0"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -951,7 +953,7 @@ offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MessageWithKeyUI_4" parent="Item_Workshop/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
+[node name="MessageWithKeyUI_4" parent="World Contents/Item_Workshop/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -962,7 +964,7 @@ offset_top = 432.205
 offset_bottom = 432.205
 scale = Vector2(5, 5)
 
-[node name="Contents" parent="Item_Workshop/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_4" index="0"]
+[node name="Contents" parent="World Contents/Item_Workshop/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_4" index="0"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -976,29 +978,29 @@ offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PlayerVisibleDetector" type="Area3D" parent="Item_Workshop/Interactable Component/Contents"]
+[node name="PlayerVisibleDetector" type="Area3D" parent="World Contents/Item_Workshop/Interactable Component/Contents"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Item_Workshop/Interactable Component/Contents/PlayerVisibleDetector"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Contents/Item_Workshop/Interactable Component/Contents/PlayerVisibleDetector"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0975952, 0, 0)
 shape = SubResource("BoxShape3D_1rf0p")
 
-[node name="PlayerMimicRaycastDetector" type="Area3D" parent="Item_Workshop/Interactable Component"]
+[node name="PlayerMimicRaycastDetector" type="Area3D" parent="World Contents/Item_Workshop/Interactable Component"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Item_Workshop/Interactable Component/PlayerMimicRaycastDetector"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Contents/Item_Workshop/Interactable Component/PlayerMimicRaycastDetector"]
 shape = SubResource("BoxShape3D_5oxf6")
 
-[node name="EmailNoeCo" type="StaticBody3D" parent="."]
+[node name="EmailNoeCo" type="StaticBody3D" parent="World Contents"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -392.112, 1.11121, 279.523)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="EmailNoeCo"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World Contents/EmailNoeCo"]
 material_override = SubResource("StandardMaterial3D_svbei")
 mesh = SubResource("BoxMesh_13gj2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="EmailNoeCo"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Contents/EmailNoeCo"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.416779)
 shape = SubResource("BoxShape3D_mlfxk")
 
-[node name="Interactable Component" type="Node3D" parent="EmailNoeCo" node_paths=PackedStringArray("Contents_Node", "SubViewport_Node", "UI_Sprite_Node", "UI_1", "UI_2", "UI_3", "UI_4")]
+[node name="Interactable Component" type="Node3D" parent="World Contents/EmailNoeCo" node_paths=PackedStringArray("Contents_Node", "SubViewport_Node", "UI_Sprite_Node", "UI_1", "UI_2", "UI_3", "UI_4")]
 script = ExtResource("21_32fgl")
 Contents_Node = NodePath("Contents")
 SubViewport_Node = NodePath("Contents/UI/SubViewport")
@@ -1010,20 +1012,20 @@ UI_4 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_4")
 UseAction1 = true
 ActionToPress_1 = SubResource("InputEventAction_747t0")
 
-[node name="Contents" type="Node3D" parent="EmailNoeCo/Interactable Component"]
+[node name="Contents" type="Node3D" parent="World Contents/EmailNoeCo/Interactable Component"]
 
-[node name="UI" type="Sprite3D" parent="EmailNoeCo/Interactable Component/Contents"]
+[node name="UI" type="Sprite3D" parent="World Contents/EmailNoeCo/Interactable Component/Contents"]
 transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 0, 0, 0)
 billboard = 1
 no_depth_test = true
 texture = SubResource("ViewportTexture_747t0")
 
-[node name="SubViewport" type="SubViewport" parent="EmailNoeCo/Interactable Component/Contents/UI"]
+[node name="SubViewport" type="SubViewport" parent="World Contents/EmailNoeCo/Interactable Component/Contents/UI"]
 transparent_bg = true
 gui_disable_input = true
 size = Vector2i(3720, 2225)
 
-[node name="MessageWithKeyUI_1" parent="EmailNoeCo/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
+[node name="MessageWithKeyUI_1" parent="World Contents/EmailNoeCo/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1033,7 +1035,7 @@ offset_top = -385.795
 offset_bottom = -385.795
 scale = Vector2(5, 5)
 
-[node name="Contents" parent="EmailNoeCo/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1" index="0"]
+[node name="Contents" parent="World Contents/EmailNoeCo/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1" index="0"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1047,10 +1049,10 @@ offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Message" parent="EmailNoeCo/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1/Contents" index="7"]
+[node name="Message" parent="World Contents/EmailNoeCo/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1/Contents" index="7"]
 text = "Email"
 
-[node name="MessageWithKeyUI_2" parent="EmailNoeCo/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
+[node name="MessageWithKeyUI_2" parent="World Contents/EmailNoeCo/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -1061,7 +1063,7 @@ offset_top = -112.5
 offset_bottom = -112.5
 scale = Vector2(5, 5)
 
-[node name="Contents" parent="EmailNoeCo/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_2" index="0"]
+[node name="Contents" parent="World Contents/EmailNoeCo/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_2" index="0"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1075,7 +1077,7 @@ offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MessageWithKeyUI_3" parent="EmailNoeCo/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
+[node name="MessageWithKeyUI_3" parent="World Contents/EmailNoeCo/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -1086,7 +1088,7 @@ offset_top = 160.15
 offset_bottom = 160.15
 scale = Vector2(5, 5)
 
-[node name="Contents" parent="EmailNoeCo/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_3" index="0"]
+[node name="Contents" parent="World Contents/EmailNoeCo/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_3" index="0"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1100,7 +1102,7 @@ offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MessageWithKeyUI_4" parent="EmailNoeCo/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
+[node name="MessageWithKeyUI_4" parent="World Contents/EmailNoeCo/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -1111,7 +1113,7 @@ offset_top = 432.205
 offset_bottom = 432.205
 scale = Vector2(5, 5)
 
-[node name="Contents" parent="EmailNoeCo/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_4" index="0"]
+[node name="Contents" parent="World Contents/EmailNoeCo/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_4" index="0"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1125,28 +1127,28 @@ offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PlayerVisibleDetector" type="Area3D" parent="EmailNoeCo/Interactable Component/Contents"]
+[node name="PlayerVisibleDetector" type="Area3D" parent="World Contents/EmailNoeCo/Interactable Component/Contents"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="EmailNoeCo/Interactable Component/Contents/PlayerVisibleDetector"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Contents/EmailNoeCo/Interactable Component/Contents/PlayerVisibleDetector"]
 shape = SubResource("BoxShape3D_r68ax")
 
-[node name="PlayerMimicRaycastDetector" type="Area3D" parent="EmailNoeCo/Interactable Component"]
+[node name="PlayerMimicRaycastDetector" type="Area3D" parent="World Contents/EmailNoeCo/Interactable Component"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="EmailNoeCo/Interactable Component/PlayerMimicRaycastDetector"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Contents/EmailNoeCo/Interactable Component/PlayerMimicRaycastDetector"]
 shape = SubResource("BoxShape3D_32fgl")
 
-[node name="OpenFeedBackIssue" type="StaticBody3D" parent="."]
+[node name="OpenFeedBackIssue" type="StaticBody3D" parent="World Contents"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -394.676, 1.11121, 279.523)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="OpenFeedBackIssue"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World Contents/OpenFeedBackIssue"]
 material_override = SubResource("StandardMaterial3D_svbei")
 mesh = SubResource("BoxMesh_13gj2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="OpenFeedBackIssue"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Contents/OpenFeedBackIssue"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.417358)
 shape = SubResource("BoxShape3D_rmtfe")
 
-[node name="Interactable Component" type="Node3D" parent="OpenFeedBackIssue" node_paths=PackedStringArray("Contents_Node", "SubViewport_Node", "UI_Sprite_Node", "UI_1", "UI_2", "UI_3", "UI_4")]
+[node name="Interactable Component" type="Node3D" parent="World Contents/OpenFeedBackIssue" node_paths=PackedStringArray("Contents_Node", "SubViewport_Node", "UI_Sprite_Node", "UI_1", "UI_2", "UI_3", "UI_4")]
 script = ExtResource("21_32fgl")
 Contents_Node = NodePath("Contents")
 SubViewport_Node = NodePath("Contents/UI/SubViewport")
@@ -1158,20 +1160,20 @@ UI_4 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_4")
 UseAction1 = true
 ActionToPress_1 = SubResource("InputEventAction_r68ax")
 
-[node name="Contents" type="Node3D" parent="OpenFeedBackIssue/Interactable Component"]
+[node name="Contents" type="Node3D" parent="World Contents/OpenFeedBackIssue/Interactable Component"]
 
-[node name="UI" type="Sprite3D" parent="OpenFeedBackIssue/Interactable Component/Contents"]
+[node name="UI" type="Sprite3D" parent="World Contents/OpenFeedBackIssue/Interactable Component/Contents"]
 transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 0, 0, 0)
 billboard = 1
 no_depth_test = true
 texture = SubResource("ViewportTexture_r68ax")
 
-[node name="SubViewport" type="SubViewport" parent="OpenFeedBackIssue/Interactable Component/Contents/UI"]
+[node name="SubViewport" type="SubViewport" parent="World Contents/OpenFeedBackIssue/Interactable Component/Contents/UI"]
 transparent_bg = true
 gui_disable_input = true
 size = Vector2i(3720, 2225)
 
-[node name="MessageWithKeyUI_1" parent="OpenFeedBackIssue/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
+[node name="MessageWithKeyUI_1" parent="World Contents/OpenFeedBackIssue/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1181,7 +1183,7 @@ offset_top = -385.795
 offset_bottom = -385.795
 scale = Vector2(5, 5)
 
-[node name="Contents" parent="OpenFeedBackIssue/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1" index="0"]
+[node name="Contents" parent="World Contents/OpenFeedBackIssue/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1" index="0"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1195,10 +1197,10 @@ offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Message" parent="OpenFeedBackIssue/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1/Contents" index="7"]
+[node name="Message" parent="World Contents/OpenFeedBackIssue/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1/Contents" index="7"]
 text = "Open"
 
-[node name="MessageWithKeyUI_2" parent="OpenFeedBackIssue/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
+[node name="MessageWithKeyUI_2" parent="World Contents/OpenFeedBackIssue/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -1209,7 +1211,7 @@ offset_top = -112.5
 offset_bottom = -112.5
 scale = Vector2(5, 5)
 
-[node name="Contents" parent="OpenFeedBackIssue/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_2" index="0"]
+[node name="Contents" parent="World Contents/OpenFeedBackIssue/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_2" index="0"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1223,7 +1225,7 @@ offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MessageWithKeyUI_3" parent="OpenFeedBackIssue/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
+[node name="MessageWithKeyUI_3" parent="World Contents/OpenFeedBackIssue/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -1234,7 +1236,7 @@ offset_top = 160.15
 offset_bottom = 160.15
 scale = Vector2(5, 5)
 
-[node name="Contents" parent="OpenFeedBackIssue/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_3" index="0"]
+[node name="Contents" parent="World Contents/OpenFeedBackIssue/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_3" index="0"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1248,7 +1250,7 @@ offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MessageWithKeyUI_4" parent="OpenFeedBackIssue/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
+[node name="MessageWithKeyUI_4" parent="World Contents/OpenFeedBackIssue/Interactable Component/Contents/UI/SubViewport" instance=ExtResource("22_1rf0p")]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -1259,7 +1261,7 @@ offset_top = 432.205
 offset_bottom = 432.205
 scale = Vector2(5, 5)
 
-[node name="Contents" parent="OpenFeedBackIssue/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_4" index="0"]
+[node name="Contents" parent="World Contents/OpenFeedBackIssue/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_4" index="0"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1273,331 +1275,331 @@ offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PlayerVisibleDetector" type="Area3D" parent="OpenFeedBackIssue/Interactable Component/Contents"]
+[node name="PlayerVisibleDetector" type="Area3D" parent="World Contents/OpenFeedBackIssue/Interactable Component/Contents"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="OpenFeedBackIssue/Interactable Component/Contents/PlayerVisibleDetector"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Contents/OpenFeedBackIssue/Interactable Component/Contents/PlayerVisibleDetector"]
 shape = SubResource("BoxShape3D_ksvy8")
 
-[node name="PlayerMimicRaycastDetector" type="Area3D" parent="OpenFeedBackIssue/Interactable Component"]
+[node name="PlayerMimicRaycastDetector" type="Area3D" parent="World Contents/OpenFeedBackIssue/Interactable Component"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="OpenFeedBackIssue/Interactable Component/PlayerMimicRaycastDetector"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Contents/OpenFeedBackIssue/Interactable Component/PlayerMimicRaycastDetector"]
 shape = SubResource("BoxShape3D_cqxma")
 
-[node name="Dialogue test" type="MeshInstance3D" parent="."]
+[node name="Dialogue test" type="MeshInstance3D" parent="World Contents"]
 transform = Transform3D(1.6904, 0, 0, 0, 1.6904, 0, 0, 0, 1.6904, -388.627, 2.08552, 279.843)
 mesh = SubResource("TextMesh_g0pfk")
 skeleton = NodePath("")
 
-[node name="Open feedback issue" type="MeshInstance3D" parent="."]
+[node name="Open feedback issue" type="MeshInstance3D" parent="World Contents"]
 transform = Transform3D(1.6904, 0, 0, 0, 1.6904, 0, 0, 0, 1.6904, -394.644, 2.08552, 279.843)
 mesh = SubResource("TextMesh_hpsde")
 skeleton = NodePath("")
 
-[node name="Email Noe Co" type="MeshInstance3D" parent="."]
+[node name="Email Noe Co" type="MeshInstance3D" parent="World Contents"]
 transform = Transform3D(1.6904, 0, 0, 0, 1.6904, 0, 0, 0, 1.6904, -392.05, 2.08552, 279.843)
 mesh = SubResource("TextMesh_qi0uv")
 skeleton = NodePath("")
 
-[node name="noeco_official_gmail_com" type="MeshInstance3D" parent="."]
+[node name="noeco_official_gmail_com" type="MeshInstance3D" parent="World Contents"]
 transform = Transform3D(0.856155, 0, 0, 0, 0.856155, 0, 0, 0, 0.856155, -392.097, 1.81187, 279.843)
 mesh = SubResource("TextMesh_dk5s1")
 skeleton = NodePath("")
 
-[node name="(On_Gmail)" type="MeshInstance3D" parent="."]
+[node name="(On_Gmail)" type="MeshInstance3D" parent="World Contents"]
 transform = Transform3D(0.513984, 0, 0, 0, 0.513984, 0, 0, 0, 0.513984, -392.097, 1.95252, 279.843)
 mesh = SubResource("TextMesh_nmn8y")
 skeleton = NodePath("")
 
-[node name="Run_into_spike" type="MeshInstance3D" parent="."]
+[node name="Run_into_spike" type="MeshInstance3D" parent="World Contents"]
 transform = Transform3D(1.6904, 0, 0, 0, 1.6904, 0, 0, 0, 1.6904, -384.954, 2.10951, 279.848)
 mesh = SubResource("TextMesh_14v3m")
 skeleton = NodePath("")
 
-[node name="Item Workshop_Text" type="MeshInstance3D" parent="."]
+[node name="Item Workshop_Text" type="MeshInstance3D" parent="World Contents"]
 transform = Transform3D(1.6904, 0, 0, 0, 1.6904, 0, 0, 0, 1.6904, -381.417, 2.49709, 279.848)
 mesh = SubResource("TextMesh_twn8b")
 skeleton = NodePath("")
 
-[node name="Get a feel of Expland!" type="MeshInstance3D" parent="."]
+[node name="Get a feel of Expland!" type="MeshInstance3D" parent="World Contents"]
 transform = Transform3D(5.66689, 0, 0, 0, 5.66689, 0, 0, 0, 5.66689, -387.82, 5.79587, 279.816)
 mesh = SubResource("TextMesh_5j5js")
 skeleton = NodePath("")
 
-[node name="The Eryv" type="MeshInstance3D" parent="."]
+[node name="The Eryv" type="MeshInstance3D" parent="World Contents"]
 transform = Transform3D(1.6904, 0, 0, 0, 1.6904, 0, 0, 0, 1.6904, -376.39, 3.87282, 279.848)
 mesh = SubResource("TextMesh_ejabk")
 skeleton = NodePath("")
 
-[node name="Description" type="MeshInstance3D" parent="."]
+[node name="Description" type="MeshInstance3D" parent="World Contents"]
 transform = Transform3D(1.87544, 0, 0, 0, 1.87544, 0, 0, 0, 1.87544, -387.82, 4.75521, 279.816)
 mesh = SubResource("TextMesh_ghmtw")
 skeleton = NodePath("")
 
-[node name="RedDamageSpike" type="StaticBody3D" parent="." groups=["temp_spike"]]
+[node name="RedDamageSpike" type="StaticBody3D" parent="World Contents" groups=["temp_spike"]]
 transform = Transform3D(-1, 0, 7.45058e-08, 0, 1, 0, -7.45058e-08, 0, -1, -385.007, 1.11627, 280.304)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RedDamageSpike"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World Contents/RedDamageSpike"]
 material_override = SubResource("StandardMaterial3D_0hh2e")
 mesh = SubResource("PrismMesh_2b0j5")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RedDamageSpike"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Contents/RedDamageSpike"]
 shape = SubResource("BoxShape3D_iixfe")
 
-[node name="RedDamageSpike2" type="StaticBody3D" parent="." groups=["temp_spike_ik"]]
+[node name="RedDamageSpike2" type="StaticBody3D" parent="World Contents" groups=["temp_spike_ik"]]
 transform = Transform3D(-1, 0, 7.45058e-08, 0, 1, 0, -7.45058e-08, 0, -1, -389.159, 5.56874, 287.075)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RedDamageSpike2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World Contents/RedDamageSpike2"]
 material_override = SubResource("StandardMaterial3D_0hh2e")
 mesh = SubResource("PrismMesh_2b0j5")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RedDamageSpike2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Contents/RedDamageSpike2"]
 shape = SubResource("BoxShape3D_iixfe")
 
-[node name="RedDamageSpike3" type="StaticBody3D" parent="." groups=["temp_spike_ik"]]
+[node name="RedDamageSpike3" type="StaticBody3D" parent="World Contents" groups=["temp_spike_ik"]]
 transform = Transform3D(-0.537049, 0, 0.843551, 0, 1, 0, -0.843551, 0, -0.537049, -386.018, 5.56874, 288.813)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RedDamageSpike3"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World Contents/RedDamageSpike3"]
 material_override = SubResource("StandardMaterial3D_0hh2e")
 mesh = SubResource("PrismMesh_2b0j5")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RedDamageSpike3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Contents/RedDamageSpike3"]
 shape = SubResource("BoxShape3D_iixfe")
 
-[node name="RedDamageSpike4" type="StaticBody3D" parent="." groups=["temp_spike_ik"]]
+[node name="RedDamageSpike4" type="StaticBody3D" parent="World Contents" groups=["temp_spike_ik"]]
 transform = Transform3D(-0.955412, 0, 0.295275, 0, 1, 0, -0.295275, 0, -0.955412, -382.627, 5.56874, 287.07)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RedDamageSpike4"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World Contents/RedDamageSpike4"]
 material_override = SubResource("StandardMaterial3D_0hh2e")
 mesh = SubResource("PrismMesh_2b0j5")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RedDamageSpike4"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Contents/RedDamageSpike4"]
 shape = SubResource("BoxShape3D_iixfe")
 
-[node name="EryvBoundary" type="StaticBody3D" parent="."]
+[node name="EryvBoundary" type="StaticBody3D" parent="World Contents"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -376.278, 1.51891, 280.991)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="EryvBoundary"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Contents/EryvBoundary"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0125732, 0.593811, 0.43219)
 shape = SubResource("BoxShape3D_sdnyt")
 
-[node name="Parkour" type="Node" parent="."]
+[node name="TheEryvStatue" parent="World Contents" instance=ExtResource("34_5odcp")]
+transform = Transform3D(-1, 1.42694e-08, -8.62504e-08, 0, 0.986589, 0.163223, 8.74228e-08, 0.163223, -0.986589, -376.33, 1.88937, 280.751)
 
-[node name="Parkour Obstacle1" type="StaticBody3D" parent="Parkour"]
+[node name="SackclothBed" parent="World Contents" instance=ExtResource("56_1u12x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -397.331, 0.61203, 295.761)
+
+[node name="Workbench" parent="World Contents" instance=ExtResource("58_sktol")]
+transform = Transform3D(-6.98434e-08, 0, 1.59783, 0, 1.59783, 0, -1.59783, 0, -6.98434e-08, -398.197, 0.609239, 305.289)
+
+[node name="Chest" parent="World Contents" instance=ExtResource("58_rdkag")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -397.588, 0.61203, 300.334)
+
+[node name="Parkour" type="Node" parent="World Contents"]
+
+[node name="Parkour Obstacle1" type="StaticBody3D" parent="World Contents/Parkour"]
 transform = Transform3D(-1.36817, 0, 1.51621, 0, 2.04225, 0, -1.51621, 0, -1.36817, -395.442, 1.26278, 290.975)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Parkour/Parkour Obstacle1"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World Contents/Parkour/Parkour Obstacle1"]
 material_override = SubResource("StandardMaterial3D_e3d0f")
 mesh = SubResource("BoxMesh_o20mk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Parkour/Parkour Obstacle1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Contents/Parkour/Parkour Obstacle1"]
 shape = SubResource("BoxShape3D_m0i5d")
 
-[node name="Parkour Obstacle2" type="StaticBody3D" parent="Parkour"]
+[node name="Parkour Obstacle2" type="StaticBody3D" parent="World Contents/Parkour"]
 transform = Transform3D(-2.03957, 0, 0.104676, 0, 2.04225, 0, -0.104676, 0, -2.03957, -393.64, 1.26278, 292.338)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Parkour/Parkour Obstacle2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World Contents/Parkour/Parkour Obstacle2"]
 material_override = SubResource("StandardMaterial3D_e3d0f")
 mesh = SubResource("BoxMesh_o20mk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Parkour/Parkour Obstacle2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Contents/Parkour/Parkour Obstacle2"]
 shape = SubResource("BoxShape3D_m0i5d")
 
-[node name="Parkour Obstacle3" type="StaticBody3D" parent="Parkour"]
+[node name="Parkour Obstacle3" type="StaticBody3D" parent="World Contents/Parkour"]
 transform = Transform3D(-2.01926, 0, -0.3056, 0, 2.04225, 0, 0.3056, 0, -2.01926, -394.515, 3.24813, 291.625)
 collision_layer = 2
 collision_mask = 3
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Parkour/Parkour Obstacle3"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World Contents/Parkour/Parkour Obstacle3"]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_7t8vo")
 mesh = SubResource("BoxMesh_o20mk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Parkour/Parkour Obstacle3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Contents/Parkour/Parkour Obstacle3"]
 shape = SubResource("BoxShape3D_m0i5d")
 
-[node name="Parkour Obstacle4" type="StaticBody3D" parent="Parkour"]
+[node name="Parkour Obstacle4" type="StaticBody3D" parent="World Contents/Parkour"]
 transform = Transform3D(-2.01926, 0, -0.3056, 0, 2.04225, 0, 0.3056, 0, -2.01926, -394.515, 5.572, 287.173)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Parkour/Parkour Obstacle4"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World Contents/Parkour/Parkour Obstacle4"]
 transform = Transform3D(1.13795, 0, 8.9407e-08, 0, 0.156791, 0, -8.9407e-08, 0, 1.13795, -0.0145721, 0.425979, 0.0410156)
 material_override = SubResource("StandardMaterial3D_5ag7t")
 mesh = SubResource("BoxMesh_o20mk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Parkour/Parkour Obstacle4"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Contents/Parkour/Parkour Obstacle4"]
 transform = Transform3D(1.13795, 0, 8.9407e-08, 0, 0.156791, 0, -8.9407e-08, 0, 1.13795, -0.0145721, 0.425979, 0.0410156)
 shape = SubResource("ConcavePolygonShape3D_6f3gh")
 
-[node name="Parkour Obstacle5" type="StaticBody3D" parent="Parkour"]
+[node name="Parkour Obstacle5" type="StaticBody3D" parent="World Contents/Parkour"]
 transform = Transform3D(-2.01926, 0, -0.3056, 0, 2.04225, 0, 0.3056, 0, -2.01926, -394.515, 3.24813, 287.06)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Parkour/Parkour Obstacle5"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World Contents/Parkour/Parkour Obstacle5"]
 transform = Transform3D(0.155402, 0, 2.04891e-08, 0, 3.24008, 0, -1.49012e-08, 0, 0.154498, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_p6kt8")
 mesh = SubResource("BoxMesh_o20mk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Parkour/Parkour Obstacle5"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Contents/Parkour/Parkour Obstacle5"]
 transform = Transform3D(0.155402, 0, 0, 0, 3.24008, 0, 0, 0, 0.154498, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_6mfdv")
 
-[node name="Parkour Obstacle16" type="StaticBody3D" parent="Parkour"]
+[node name="Parkour Obstacle16" type="StaticBody3D" parent="World Contents/Parkour"]
 transform = Transform3D(-1.44824, 0, 1.43993, 0, 2.04225, 0, -1.43993, 0, -1.44824, -378.169, 5.572, 287.266)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Parkour/Parkour Obstacle16"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World Contents/Parkour/Parkour Obstacle16"]
 transform = Transform3D(1.13795, 0, 8.9407e-08, 0, 0.156791, 0, -8.9407e-08, 0, 1.13795, -0.0145721, 0.425979, 0.0410156)
 material_override = SubResource("StandardMaterial3D_5ag7t")
 mesh = SubResource("BoxMesh_o20mk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Parkour/Parkour Obstacle16"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Contents/Parkour/Parkour Obstacle16"]
 transform = Transform3D(1.13795, 0, 8.9407e-08, 0, 0.156791, 0, -8.9407e-08, 0, 1.13795, -0.0145721, 0.425979, 0.0410156)
 shape = SubResource("ConcavePolygonShape3D_6f3gh")
 
-[node name="Parkour Obstacle17" type="StaticBody3D" parent="Parkour"]
+[node name="Parkour Obstacle17" type="StaticBody3D" parent="World Contents/Parkour"]
 transform = Transform3D(-2.01926, 0, -0.3056, 0, 2.04225, 0, 0.3056, 0, -2.01926, -377.798, 3.24813, 287.06)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Parkour/Parkour Obstacle17"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World Contents/Parkour/Parkour Obstacle17"]
 transform = Transform3D(0.0925653, 0, -0.1241, 0, 3.24008, 0, 0.124826, 0, 0.0920268, 0.146042, 0, -0.0467758)
 material_override = SubResource("StandardMaterial3D_p6kt8")
 mesh = SubResource("BoxMesh_o20mk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Parkour/Parkour Obstacle17"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Contents/Parkour/Parkour Obstacle17"]
 transform = Transform3D(0.0925653, 0, -0.1241, 0, 3.24008, 0, 0.124826, 0, 0.0920268, 0.146042, 0, -0.0467758)
 shape = SubResource("ConcavePolygonShape3D_747t0")
 
-[node name="Parkour Obstacle18" type="StaticBody3D" parent="Parkour"]
+[node name="Parkour Obstacle18" type="StaticBody3D" parent="World Contents/Parkour"]
 transform = Transform3D(-2.01926, 0, -0.3056, 0, 4.39268, 0, 0.3056, 0, -2.01926, -380.655, 3.24813, 287.06)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Parkour/Parkour Obstacle18"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World Contents/Parkour/Parkour Obstacle18"]
 transform = Transform3D(0.0925653, 0, -0.1241, 0, 3.24008, 0, 0.124826, 0, 0.0920268, 0.146042, 0, -0.0467758)
 material_override = SubResource("StandardMaterial3D_p6kt8")
 mesh = SubResource("BoxMesh_o20mk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Parkour/Parkour Obstacle18"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Contents/Parkour/Parkour Obstacle18"]
 transform = Transform3D(0.0925653, 0, -0.1241, 0, 3.24008, 0, 0.124826, 0, 0.0920268, 0.146042, 0, -0.0467758)
 shape = SubResource("ConcavePolygonShape3D_r68ax")
 
-[node name="Parkour Obstacle13" type="StaticBody3D" parent="Parkour"]
+[node name="Parkour Obstacle13" type="StaticBody3D" parent="World Contents/Parkour"]
 transform = Transform3D(-2.01926, 0, -0.3056, 0, 2.04225, 0, 0.3056, 0, -2.01926, -389.158, 2.10329, 287.06)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Parkour/Parkour Obstacle13"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World Contents/Parkour/Parkour Obstacle13"]
 transform = Transform3D(0.155402, 0, 2.04891e-08, 0, 3.24008, 0, -1.49012e-08, 0, 0.154498, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_p6kt8")
 mesh = SubResource("BoxMesh_o20mk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Parkour/Parkour Obstacle13"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Contents/Parkour/Parkour Obstacle13"]
 transform = Transform3D(0.155402, 0, 0, 0, 3.24008, 0, 0, 0, 0.154498, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_6mfdv")
 
-[node name="Parkour Obstacle14" type="StaticBody3D" parent="Parkour"]
+[node name="Parkour Obstacle14" type="StaticBody3D" parent="World Contents/Parkour"]
 transform = Transform3D(-1.34223, 0, 1.53923, 0, 2.04225, 0, -1.53923, 0, -1.34223, -386.005, 2.10329, 288.806)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Parkour/Parkour Obstacle14"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World Contents/Parkour/Parkour Obstacle14"]
 transform = Transform3D(0.155402, 0, 2.04891e-08, 0, 3.24008, 0, -1.49012e-08, 0, 0.154498, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_p6kt8")
 mesh = SubResource("BoxMesh_o20mk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Parkour/Parkour Obstacle14"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Contents/Parkour/Parkour Obstacle14"]
 transform = Transform3D(0.155402, 0, 0, 0, 3.24008, 0, 0, 0, 0.154498, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_6mfdv")
 
-[node name="Parkour Obstacle15" type="StaticBody3D" parent="Parkour"]
+[node name="Parkour Obstacle15" type="StaticBody3D" parent="World Contents/Parkour"]
 transform = Transform3D(-2.01946, 0, 0.304262, 0, 2.04225, 0, -0.304262, 0, -2.01946, -382.621, 2.10329, 287.055)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Parkour/Parkour Obstacle15"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World Contents/Parkour/Parkour Obstacle15"]
 transform = Transform3D(0.155402, 0, 2.04891e-08, 0, 3.24008, 0, -1.49012e-08, 0, 0.154498, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_p6kt8")
 mesh = SubResource("BoxMesh_o20mk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Parkour/Parkour Obstacle15"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Contents/Parkour/Parkour Obstacle15"]
 transform = Transform3D(0.155402, 0, 0, 0, 3.24008, 0, 0, 0, 0.154498, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_6mfdv")
 
-[node name="Parkour Obstacle6" type="StaticBody3D" parent="Parkour"]
+[node name="Parkour Obstacle6" type="StaticBody3D" parent="World Contents/Parkour"]
 transform = Transform3D(-1.98224, 0, 0.491472, 0, 2.04225, 0, -0.491472, 0, -1.98224, -398.754, 2.22925, 286.291)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Parkour/Parkour Obstacle6"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World Contents/Parkour/Parkour Obstacle6"]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_y53po")
 mesh = SubResource("BoxMesh_o20mk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Parkour/Parkour Obstacle6"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Contents/Parkour/Parkour Obstacle6"]
 shape = SubResource("BoxShape3D_m0i5d")
 
-[node name="Parkour Obstacle7" type="StaticBody3D" parent="Parkour"]
+[node name="Parkour Obstacle7" type="StaticBody3D" parent="World Contents/Parkour"]
 transform = Transform3D(-1.83756, 0, -0.891162, 0, 2.04225, 0, 0.891162, 0, -1.83756, -398.754, 2.77812, 290.359)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Parkour/Parkour Obstacle7"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World Contents/Parkour/Parkour Obstacle7"]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_v74if")
 mesh = SubResource("BoxMesh_o20mk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Parkour/Parkour Obstacle7"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Contents/Parkour/Parkour Obstacle7"]
 shape = SubResource("BoxShape3D_m0i5d")
 
-[node name="Parkour Obstacle8" type="StaticBody3D" parent="Parkour"]
+[node name="Parkour Obstacle8" type="StaticBody3D" parent="World Contents/Parkour"]
 transform = Transform3D(-2.04158, 0, 0.0523917, 0, 2.04225, 0, -0.0523917, 0, -2.04158, -398.754, 2.60016, 288.25)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Parkour/Parkour Obstacle8"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World Contents/Parkour/Parkour Obstacle8"]
 transform = Transform3D(0.981622, 0, -2.79397e-09, 0, 1, 0, 1.67638e-08, 0, 0.283865, 0.0366058, 0.811929, -0.000991821)
 material_override = SubResource("StandardMaterial3D_fjm18")
 mesh = SubResource("BoxMesh_o20mk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Parkour/Parkour Obstacle8"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Contents/Parkour/Parkour Obstacle8"]
 transform = Transform3D(0.981622, 0, -2.79397e-09, 0, 1, 0, 1.67638e-08, 0, 0.283865, 0.0366058, 0.811929, -0.000991821)
 shape = SubResource("ConcavePolygonShape3D_tc5ih")
 
-[node name="Parkour Obstacle9" type="StaticBody3D" parent="Parkour"]
+[node name="Parkour Obstacle9" type="StaticBody3D" parent="World Contents/Parkour"]
 transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, -386.255, 1.11627, 293.582)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Parkour/Parkour Obstacle9"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World Contents/Parkour/Parkour Obstacle9"]
 material_override = SubResource("StandardMaterial3D_0hh2e")
 mesh = SubResource("PrismMesh_2b0j5")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Parkour/Parkour Obstacle9"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Contents/Parkour/Parkour Obstacle9"]
 shape = SubResource("ConcavePolygonShape3D_3k2av")
 
-[node name="Parkour Obstacle10" type="StaticBody3D" parent="Parkour"]
+[node name="Parkour Obstacle10" type="StaticBody3D" parent="World Contents/Parkour"]
 transform = Transform3D(-1, 0, 7.45058e-08, 0, 1, 0, -7.45058e-08, 0, -1, -392.048, 1.11627, 292.407)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Parkour/Parkour Obstacle10"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World Contents/Parkour/Parkour Obstacle10"]
 material_override = SubResource("StandardMaterial3D_0hh2e")
 mesh = SubResource("PrismMesh_2b0j5")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Parkour/Parkour Obstacle10"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Contents/Parkour/Parkour Obstacle10"]
 shape = SubResource("BoxShape3D_hthfu")
 
-[node name="Parkour Obstacle11" type="StaticBody3D" parent="Parkour"]
+[node name="Parkour Obstacle11" type="StaticBody3D" parent="World Contents/Parkour"]
 transform = Transform3D(-0.0260722, 0.99966, 1.94253e-09, 0.99966, 0.0260722, -7.44805e-08, -7.45058e-08, 0, -1, -399.086, 5.94401, 291.089)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Parkour/Parkour Obstacle11"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World Contents/Parkour/Parkour Obstacle11"]
 material_override = SubResource("StandardMaterial3D_0hh2e")
 mesh = SubResource("PrismMesh_2b0j5")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Parkour/Parkour Obstacle11"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Contents/Parkour/Parkour Obstacle11"]
 shape = SubResource("ConcavePolygonShape3D_3k2av")
 
-[node name="Parkour Obstacle12" type="StaticBody3D" parent="Parkour"]
+[node name="Parkour Obstacle12" type="StaticBody3D" parent="World Contents/Parkour"]
 transform = Transform3D(-0.0260722, 0.99966, 1.94253e-09, 0.99966, 0.0260722, -7.44805e-08, -7.45058e-08, 0, -1, -398.898, 6.35197, 289.632)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Parkour/Parkour Obstacle12"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World Contents/Parkour/Parkour Obstacle12"]
 transform = Transform3D(-3.72529e-08, 0.691001, 7.45058e-08, -1.00806, -2.42144e-08, 7.45058e-08, 7.51062e-08, -5.14836e-08, 1, -0.447134, -0.0116577, 0)
 material_override = SubResource("StandardMaterial3D_aaeu5")
 mesh = SubResource("CylinderMesh_cyjoe")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Parkour/Parkour Obstacle12"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World Contents/Parkour/Parkour Obstacle12"]
 transform = Transform3D(-3.72529e-08, 0.691001, 7.45058e-08, -1.00806, -2.42144e-08, 7.45058e-08, 7.51062e-08, -5.14836e-08, 1, -0.447134, -0.0116577, 0)
 shape = SubResource("ConcavePolygonShape3D_krxnn")
-
-[node name="SackclothBed" parent="." instance=ExtResource("56_1u12x")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -397.331, 0.61203, 295.761)
-
-[node name="Workbench" parent="." instance=ExtResource("58_sktol")]
-transform = Transform3D(-6.98434e-08, 0, 1.59783, 0, 1.59783, 0, -1.59783, 0, -6.98434e-08, -398.197, 0.609239, 305.289)
-
-[node name="Chest" parent="." instance=ExtResource("58_rdkag")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -397.588, 0.61203, 300.334)
-
-[node name="TheEryvStatue" parent="." instance=ExtResource("34_5odcp")]
-transform = Transform3D(-1, 1.42694e-08, -8.62504e-08, 0, 0.986589, 0.163223, 8.74228e-08, 0.163223, -0.986589, -376.33, 1.88937, 280.751)
 
 [node name="ExplorerNote" parent="." instance=ExtResource("32_qh5si")]
 transform = Transform3D(6.13225e-16, -1.4029e-08, 0.320945, -0.30798, -0.0902991, -3.9471e-09, 0.0902991, -0.30798, -1.34622e-08, -386.743, 2.3204, 306.001)
@@ -1622,41 +1624,41 @@ NailRotation_Degrees = Vector3(-2.34, -23.005, 2.495)
 [connection signal="timeout" from="Weather Timer" to="." method="_on_weather_timer_timeout"]
 [connection signal="body_entered" from="Terrain Areas/STONE" to="island_Terrain_Switcher" method="_on_stone_body_entered"]
 [connection signal="body_exited" from="Terrain Areas/STONE" to="island_Terrain_Switcher" method="_on_stone_body_exited"]
-[connection signal="Action1_Triggered" from="DialogueTest/Interactable Component" to="." method="_on_test_dialogue_start_action_triggered"]
-[connection signal="body_entered" from="DialogueTest/Interactable Component/Contents/PlayerVisibleDetector" to="DialogueTest/Interactable Component" method="_on_player_visible_detector_body_entered"]
-[connection signal="body_exited" from="DialogueTest/Interactable Component/Contents/PlayerVisibleDetector" to="DialogueTest/Interactable Component" method="_on_player_visible_detector_body_exited"]
-[connection signal="area_entered" from="DialogueTest/Interactable Component/PlayerMimicRaycastDetector" to="DialogueTest/Interactable Component" method="_on_player_mimic_raycast_detector_area_entered"]
-[connection signal="area_exited" from="DialogueTest/Interactable Component/PlayerMimicRaycastDetector" to="DialogueTest/Interactable Component" method="_on_player_mimic_raycast_detector_area_exited"]
-[connection signal="Action1_Triggered" from="Item_Workshop/Interactable Component" to="." method="_on_item_workshop_test_action_triggered"]
-[connection signal="body_entered" from="Item_Workshop/Interactable Component/Contents/PlayerVisibleDetector" to="Item_Workshop/Interactable Component" method="_on_player_visible_detector_body_entered"]
-[connection signal="body_exited" from="Item_Workshop/Interactable Component/Contents/PlayerVisibleDetector" to="Item_Workshop/Interactable Component" method="_on_player_visible_detector_body_exited"]
-[connection signal="area_entered" from="Item_Workshop/Interactable Component/PlayerMimicRaycastDetector" to="Item_Workshop/Interactable Component" method="_on_player_mimic_raycast_detector_area_entered"]
-[connection signal="area_exited" from="Item_Workshop/Interactable Component/PlayerMimicRaycastDetector" to="Item_Workshop/Interactable Component" method="_on_player_mimic_raycast_detector_area_exited"]
-[connection signal="Action1_Triggered" from="EmailNoeCo/Interactable Component" to="." method="_on_email_noe_co_action_triggered"]
-[connection signal="body_entered" from="EmailNoeCo/Interactable Component/Contents/PlayerVisibleDetector" to="EmailNoeCo/Interactable Component" method="_on_player_visible_detector_body_entered"]
-[connection signal="body_exited" from="EmailNoeCo/Interactable Component/Contents/PlayerVisibleDetector" to="EmailNoeCo/Interactable Component" method="_on_player_visible_detector_body_exited"]
-[connection signal="area_entered" from="EmailNoeCo/Interactable Component/PlayerMimicRaycastDetector" to="EmailNoeCo/Interactable Component" method="_on_player_mimic_raycast_detector_area_entered"]
-[connection signal="area_exited" from="EmailNoeCo/Interactable Component/PlayerMimicRaycastDetector" to="EmailNoeCo/Interactable Component" method="_on_player_mimic_raycast_detector_area_exited"]
-[connection signal="Action1_Triggered" from="OpenFeedBackIssue/Interactable Component" to="." method="_on_open_feedback_issue_action_triggered"]
-[connection signal="body_entered" from="OpenFeedBackIssue/Interactable Component/Contents/PlayerVisibleDetector" to="OpenFeedBackIssue/Interactable Component" method="_on_player_visible_detector_body_entered"]
-[connection signal="body_exited" from="OpenFeedBackIssue/Interactable Component/Contents/PlayerVisibleDetector" to="OpenFeedBackIssue/Interactable Component" method="_on_player_visible_detector_body_exited"]
-[connection signal="area_entered" from="OpenFeedBackIssue/Interactable Component/PlayerMimicRaycastDetector" to="OpenFeedBackIssue/Interactable Component" method="_on_player_mimic_raycast_detector_area_entered"]
-[connection signal="area_exited" from="OpenFeedBackIssue/Interactable Component/PlayerMimicRaycastDetector" to="OpenFeedBackIssue/Interactable Component" method="_on_player_mimic_raycast_detector_area_exited"]
+[connection signal="Action1_Triggered" from="World Contents/DialogueTest/Interactable Component" to="." method="_on_test_dialogue_start_action_triggered"]
+[connection signal="body_entered" from="World Contents/DialogueTest/Interactable Component/Contents/PlayerVisibleDetector" to="World Contents/DialogueTest/Interactable Component" method="_on_player_visible_detector_body_entered"]
+[connection signal="body_exited" from="World Contents/DialogueTest/Interactable Component/Contents/PlayerVisibleDetector" to="World Contents/DialogueTest/Interactable Component" method="_on_player_visible_detector_body_exited"]
+[connection signal="area_entered" from="World Contents/DialogueTest/Interactable Component/PlayerMimicRaycastDetector" to="World Contents/DialogueTest/Interactable Component" method="_on_player_mimic_raycast_detector_area_entered"]
+[connection signal="area_exited" from="World Contents/DialogueTest/Interactable Component/PlayerMimicRaycastDetector" to="World Contents/DialogueTest/Interactable Component" method="_on_player_mimic_raycast_detector_area_exited"]
+[connection signal="Action1_Triggered" from="World Contents/Item_Workshop/Interactable Component" to="." method="_on_item_workshop_test_action_triggered"]
+[connection signal="body_entered" from="World Contents/Item_Workshop/Interactable Component/Contents/PlayerVisibleDetector" to="World Contents/Item_Workshop/Interactable Component" method="_on_player_visible_detector_body_entered"]
+[connection signal="body_exited" from="World Contents/Item_Workshop/Interactable Component/Contents/PlayerVisibleDetector" to="World Contents/Item_Workshop/Interactable Component" method="_on_player_visible_detector_body_exited"]
+[connection signal="area_entered" from="World Contents/Item_Workshop/Interactable Component/PlayerMimicRaycastDetector" to="World Contents/Item_Workshop/Interactable Component" method="_on_player_mimic_raycast_detector_area_entered"]
+[connection signal="area_exited" from="World Contents/Item_Workshop/Interactable Component/PlayerMimicRaycastDetector" to="World Contents/Item_Workshop/Interactable Component" method="_on_player_mimic_raycast_detector_area_exited"]
+[connection signal="Action1_Triggered" from="World Contents/EmailNoeCo/Interactable Component" to="." method="_on_email_noe_co_action_triggered"]
+[connection signal="body_entered" from="World Contents/EmailNoeCo/Interactable Component/Contents/PlayerVisibleDetector" to="World Contents/EmailNoeCo/Interactable Component" method="_on_player_visible_detector_body_entered"]
+[connection signal="body_exited" from="World Contents/EmailNoeCo/Interactable Component/Contents/PlayerVisibleDetector" to="World Contents/EmailNoeCo/Interactable Component" method="_on_player_visible_detector_body_exited"]
+[connection signal="area_entered" from="World Contents/EmailNoeCo/Interactable Component/PlayerMimicRaycastDetector" to="World Contents/EmailNoeCo/Interactable Component" method="_on_player_mimic_raycast_detector_area_entered"]
+[connection signal="area_exited" from="World Contents/EmailNoeCo/Interactable Component/PlayerMimicRaycastDetector" to="World Contents/EmailNoeCo/Interactable Component" method="_on_player_mimic_raycast_detector_area_exited"]
+[connection signal="Action1_Triggered" from="World Contents/OpenFeedBackIssue/Interactable Component" to="." method="_on_open_feedback_issue_action_triggered"]
+[connection signal="body_entered" from="World Contents/OpenFeedBackIssue/Interactable Component/Contents/PlayerVisibleDetector" to="World Contents/OpenFeedBackIssue/Interactable Component" method="_on_player_visible_detector_body_entered"]
+[connection signal="body_exited" from="World Contents/OpenFeedBackIssue/Interactable Component/Contents/PlayerVisibleDetector" to="World Contents/OpenFeedBackIssue/Interactable Component" method="_on_player_visible_detector_body_exited"]
+[connection signal="area_entered" from="World Contents/OpenFeedBackIssue/Interactable Component/PlayerMimicRaycastDetector" to="World Contents/OpenFeedBackIssue/Interactable Component" method="_on_player_mimic_raycast_detector_area_entered"]
+[connection signal="area_exited" from="World Contents/OpenFeedBackIssue/Interactable Component/PlayerMimicRaycastDetector" to="World Contents/OpenFeedBackIssue/Interactable Component" method="_on_player_mimic_raycast_detector_area_exited"]
 
-[editable path="DialogueTest/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1"]
-[editable path="DialogueTest/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_2"]
-[editable path="DialogueTest/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_3"]
-[editable path="DialogueTest/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_4"]
-[editable path="Item_Workshop/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1"]
-[editable path="Item_Workshop/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_2"]
-[editable path="Item_Workshop/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_3"]
-[editable path="Item_Workshop/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_4"]
-[editable path="EmailNoeCo/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1"]
-[editable path="EmailNoeCo/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_2"]
-[editable path="EmailNoeCo/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_3"]
-[editable path="EmailNoeCo/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_4"]
-[editable path="OpenFeedBackIssue/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1"]
-[editable path="OpenFeedBackIssue/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_2"]
-[editable path="OpenFeedBackIssue/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_3"]
-[editable path="OpenFeedBackIssue/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_4"]
-[editable path="TheEryvStatue"]
+[editable path="World Contents/DialogueTest/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1"]
+[editable path="World Contents/DialogueTest/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_2"]
+[editable path="World Contents/DialogueTest/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_3"]
+[editable path="World Contents/DialogueTest/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_4"]
+[editable path="World Contents/Item_Workshop/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1"]
+[editable path="World Contents/Item_Workshop/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_2"]
+[editable path="World Contents/Item_Workshop/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_3"]
+[editable path="World Contents/Item_Workshop/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_4"]
+[editable path="World Contents/EmailNoeCo/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1"]
+[editable path="World Contents/EmailNoeCo/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_2"]
+[editable path="World Contents/EmailNoeCo/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_3"]
+[editable path="World Contents/EmailNoeCo/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_4"]
+[editable path="World Contents/OpenFeedBackIssue/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1"]
+[editable path="World Contents/OpenFeedBackIssue/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_2"]
+[editable path="World Contents/OpenFeedBackIssue/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_3"]
+[editable path="World Contents/OpenFeedBackIssue/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_4"]
+[editable path="World Contents/TheEryvStatue"]
