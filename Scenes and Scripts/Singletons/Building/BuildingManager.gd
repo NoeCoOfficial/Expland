@@ -50,6 +50,8 @@ extends Node
 var BA_PhysicalObject : PackedScene = preload("res://Scenes and Scripts/Scenes/Building System/Building Assets/Physical/BA_PhysicalObject.tscn")
 var BA_StaticObject : PackedScene = preload("res://Scenes and Scripts/Scenes/Building System/Building Assets/Static/BA_StaticObject.tscn")
 
+var vignette_tween : Tween
+
 var is_in_building_interface : bool = false
 var is_in_building_edit_interface : bool = false
 
@@ -60,6 +62,13 @@ func init_building_system():
 		if HandManager.CURRENTLY_HOLDING_ITEM != "":
 			is_in_building_interface = true
 			PlayerManager.PLAYER.BuildingUILayer.visible = true
+			
+			if vignette_tween:
+				vignette_tween.stop()
+				vignette_tween.kill()
+			
+			vignette_tween = get_tree().create_tween()
+			vignette_tween.tween_property(PlayerManager.PLAYER.BuildingVignette, "modulate", Color(1, 1, 1, 1), 0.2)
 			print("spawned building system")
 
 func despawn_building_system():
@@ -68,6 +77,15 @@ func despawn_building_system():
 		PlayerManager.PLAYER.BuildingUILayer.visible = false
 		if is_in_building_edit_interface:
 			despawn_edit()
+		
+		
+		if vignette_tween:
+			vignette_tween.stop()
+			vignette_tween.kill()
+		
+		vignette_tween = get_tree().create_tween()
+		vignette_tween.tween_property(PlayerManager.PLAYER.BuildingVignette, "modulate", Color(1, 1, 1, 0), 0.2)
+
 		print("despawned building system")
 
 
