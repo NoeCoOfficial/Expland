@@ -333,6 +333,7 @@ var stamina_restoring_from_0 = false
 @export var BuildingUIEditLayer : CanvasLayer
 @export var BuildingEditKeyMessage : Label
 @export var BuildingMakeStaticMessage : Label
+@export var BuildingVignette : ColorRect
 @export var BuildingInitItemRig : Node3D
 
 
