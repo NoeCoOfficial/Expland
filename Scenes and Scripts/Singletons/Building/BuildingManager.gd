@@ -66,7 +66,7 @@ func init_building_system():
 			PlayerManager.PLAYER.BuildingUILayer.visible = true
 			
 			var tween = get_tree().create_tween()
-			tween.tween_property(BuildingVignette, "shader_parameter/alpha", Color(1, 1, 1, 1), 0.2)
+			tween.tween_property(BuildingVignette, "shader_parameter/alpha", 0.4, 0.2)
 			
 			print("spawned building system")
 
@@ -79,7 +79,7 @@ func despawn_building_system():
 		
 		
 		var tween = get_tree().create_tween()
-		tween.tween_property(BuildingVignette, "shader_parameter/alpha", Color(1, 1, 1, 0), 0.2)
+		tween.tween_property(BuildingVignette, "shader_parameter/alpha", 0.0, 0.4)
 		
 		print("despawned building system")
 
