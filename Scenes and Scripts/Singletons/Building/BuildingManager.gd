@@ -58,9 +58,11 @@ func init_building_system():
 	# Check if what we are holding actually exists
 		if HandManager.CURRENTLY_HOLDING_ITEM != "":
 			is_in_building_interface = true
+			PlayerManager.PLAYER.BuildingUILayer.visible = true
 			print("spawned building system")
 
 func despawn_building_system():
 	if is_in_building_interface:
 		is_in_building_interface = false
+		PlayerManager.PLAYER.BuildingUILayer.visible = false
 		print("despawned building system")

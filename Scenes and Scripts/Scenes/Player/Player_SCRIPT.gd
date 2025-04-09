@@ -328,6 +328,10 @@ var stamina_restoring_from_0 = false
 @export var Slot10_Output_Workbench_Ref : StaticBody2D
 
 
+@export_group("Building")
+@export var BuildingUILayer : CanvasLayer
+@export var BuildingInitItemRig : Node3D
+
 @export_group("General Nodes")
 
 @export_subgroup("CanvasLayers")
