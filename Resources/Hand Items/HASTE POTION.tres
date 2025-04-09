@@ -6,11 +6,11 @@
 [resource]
 script = ExtResource("2_soxjp")
 ITEM_TYPE = "HASTE POTION"
-mesh_position = Vector3(-0.74, -0.515, 4.17)
-mesh_rotation = Vector3(-4.78, 116.13, -16.985)
-mesh_scale = Vector3(0.64, 0.8, 0.8)
-mesh_reset_position = Vector3(0, 0, 0)
-mesh_reset_rotation = Vector3(0, 0, 0)
+mesh_position = Vector3(-0.055, -0.435, 0.65)
+mesh_rotation = Vector3(-4.78, 161.375, -16.985)
+mesh_scale = Vector3(0.64, 0.64, 0.64)
+mesh_reset_position = Vector3(0.975, 0, 0)
+mesh_reset_rotation = Vector3(-4.78, 197.64, -16.985)
 model_scene = ExtResource("1_76ut7")
 sway_min = Vector2(-20, -20)
 sway_max = Vector2(20, 20)
