@@ -66,3 +66,9 @@ func despawn_building_system():
 		is_in_building_interface = false
 		PlayerManager.PLAYER.BuildingUILayer.visible = false
 		print("despawned building system")
+
+func init_edit():
+	pass
+
+func despawn_edit():
+	pass
