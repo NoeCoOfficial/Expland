@@ -444,7 +444,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 	# UI handling for Pockets
 	if Input.is_action_just_pressed("Pockets"):
 		# UI checks
-		if !PauseManager.is_paused and !DialogueManager.is_in_interface and !PauseManager.inside_absolute_item_workshop and !StoryModeManager.is_in_story_mode_first_cutscene_world:
+		if !PauseManager.is_paused and !DialogueManager.is_in_interface and !PauseManager.inside_absolute_item_workshop and !StoryModeManager.is_in_story_mode_first_cutscene_world and !BuildingManager.is_in_building_interface:
 			
 			if !InventoryManager.pockets_ui_open:
 				InventoryManager.openPockets()
