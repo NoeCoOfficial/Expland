@@ -1619,6 +1619,8 @@ DecalSize = Vector3(5.05, 2, 2.77)
 DecalLowerFade = 8.385
 NailRotation_Degrees = Vector3(-2.34, -23.005, 2.495)
 
+[node name="Building_Assets" type="Node" parent="."]
+
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="timeout" from="Tick" to="." method="_on_tick"]
 [connection signal="timeout" from="Weather Timer" to="." method="_on_weather_timer_timeout"]

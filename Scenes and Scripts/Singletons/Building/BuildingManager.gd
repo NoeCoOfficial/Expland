@@ -66,13 +66,17 @@ func despawn_building_system():
 	if is_in_building_interface:
 		is_in_building_interface = false
 		PlayerManager.PLAYER.BuildingUILayer.visible = false
+		if is_in_building_edit_interface:
+			despawn_edit()
 		print("despawned building system")
 
 
 func init_edit():
 	is_in_building_edit_interface = true
+	PlayerManager.PLAYER.BuildingUIEditLayer.visible = true
 	print("in edit interface")
 
 func despawn_edit():
 	is_in_building_edit_interface = false
+	PlayerManager.PLAYER.BuildingUIEditLayer.visible = false
 	print("exited edit interface")
