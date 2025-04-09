@@ -209,6 +209,7 @@ const ITEM_TYPES = {
 		"DESCRIPTION" : "A potion that makes you move faster. This potion's effect lasts for 30 seconds",
 		"IMAGE_LOAD" : preload("uid://o3u6sxubmrbg"),
 		"PICKUP_LOAD" : preload("uid://c3f07o736s1fc"),
+		"HAND_ITEM_RES" : preload("uid://cyck7q8c0tn48"),
 		"MAX_STACK" : 3,
 	},
 
