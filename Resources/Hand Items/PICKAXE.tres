@@ -27,3 +27,6 @@ bob_speed_crouching = 6.0
 hbob_amount = 8.0
 vbob_amount = 8.0
 damage_amount = 0.6
+hand_attatchement_position = Vector3(0, 0, 0)
+hand_attatchement_rotation = Vector3(0, 0, 0)
+hand_attatchement_scale = Vector3(0, 0, 0)
