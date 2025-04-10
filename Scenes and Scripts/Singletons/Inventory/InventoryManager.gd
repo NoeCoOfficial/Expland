@@ -115,6 +115,7 @@ const ITEM_TYPES = {
 		"IMAGE_LOAD" : preload("uid://dixs8s5v2su7q"),
 		"PICKUP_LOAD" : preload("uid://bgqxctsm6c3w6"),
 		"HAND_ITEM_RES" : preload("uid://bfl2kn5tjktpm"),
+		"BUILDING_ASSET_RES" : preload("uid://de6nen0bt078"),
 		"MAX_STACK" : 1,
 	},
 	

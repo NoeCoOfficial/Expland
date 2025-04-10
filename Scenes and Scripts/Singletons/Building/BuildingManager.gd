@@ -68,6 +68,13 @@ func init_building_system():
 			var tween = get_tree().create_tween()
 			tween.tween_property(BuildingVignette, "shader_parameter/alpha", 0.4, 0.2)
 			
+			
+			
+			# TODO: STUFF HERE!
+			# Get resource from item types dict, etc...
+			# yknow, stuff
+			PlayerManager.PLAYER.BuildingItemParent.add_child(true)
+			
 			print("spawned building system")
 
 func despawn_building_system():
@@ -77,9 +84,10 @@ func despawn_building_system():
 		if is_in_building_edit_interface:
 			despawn_edit()
 		
-		
 		var tween = get_tree().create_tween()
 		tween.tween_property(BuildingVignette, "shader_parameter/alpha", 0.0, 0.2)
+		
+		
 		
 		print("despawned building system")
 
