@@ -45,4 +45,10 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-class_name BuildingAsset extends Node
+class_name BuildingAsset extends Resource
+
+@export var ITEM_TYPE : String
+@export_group("Spawn")
+@export var Spawn_Position : Vector3
+@export var Spawn_Rotation : Vector3
+@export var Spawn_Scale : Vector3
