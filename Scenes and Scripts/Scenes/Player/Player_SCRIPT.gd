@@ -329,6 +329,15 @@ var stamina_restoring_from_0 = false
 @export var Slot10_Output_Workbench_Ref : StaticBody2D
 
 
+@export_group("Building")
+@export var BuildingUILayer : CanvasLayer
+@export var BuildingUIEditLayer : CanvasLayer
+@export var BuildingEditKeyMessage : Label
+@export var BuildingMakeStaticMessage : Label
+@export var BuildingVignette : ColorRect
+@export var BuildingInitItemRig : Node3D
+
+
 @export_group("General Nodes")
 
 @export_subgroup("CanvasLayers")
@@ -424,7 +433,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			
 		else:
 			
-			if !InventoryManager.pockets_ui_open and !DialogueManager.is_in_absolute_interface and !PauseManager.is_inside_alert and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !PauseManager.inside_absolute_item_workshop and !StoryModeManager.is_in_story_mode_first_cutscene_world:
+			if !InventoryManager.pockets_ui_open and !DialogueManager.is_in_absolute_interface and !PauseManager.is_inside_alert and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !PauseManager.inside_absolute_item_workshop and !StoryModeManager.is_in_story_mode_first_cutscene_world and !BuildingManager.is_in_building_interface:
 				pauseGame()
 			
 			if PauseManager.inside_item_workshop:
@@ -436,7 +445,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 	# UI handling for Pockets
 	if Input.is_action_just_pressed("Pockets"):
 		# UI checks
-		if !PauseManager.is_paused and !DialogueManager.is_in_interface and !PauseManager.inside_absolute_item_workshop and !StoryModeManager.is_in_story_mode_first_cutscene_world:
+		if !PauseManager.is_paused and !DialogueManager.is_in_interface and !PauseManager.inside_absolute_item_workshop and !StoryModeManager.is_in_story_mode_first_cutscene_world and !BuildingManager.is_in_building_interface:
 			
 			if !InventoryManager.pockets_ui_open:
 				InventoryManager.openPockets()
@@ -487,6 +496,13 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		
 		if Input.is_action_just_released("Building_Init"):
 			BuildingManager.despawn_building_system()
+	
+	if BuildingManager.is_in_building_interface:
+		if Input.is_action_just_pressed("Building_Edit"):
+			if BuildingManager.is_in_building_edit_interface:
+				BuildingManager.despawn_edit()
+			else:
+				BuildingManager.init_edit()
 
 func _unhandled_input(event): # A built-in function that listens for input all the time
 	if event is InputEventMouseMotion: # if the input is a mouse motion event

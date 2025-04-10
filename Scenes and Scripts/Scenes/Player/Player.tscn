@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=86 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" uid="uid://6516a37cmejq" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" uid="uid://dilocovfy7y5b" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -14,6 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://bg100aqmtgfn4" path="res://Textures/Icons/WhiteHam_Icon.png" id="8_l231k"]
 [ext_resource type="Texture2D" uid="uid://b20d3fbxr6vhx" path="res://Textures/Icons/WhiteHeart_Icon.png" id="8_ty1rt"]
 [ext_resource type="Script" uid="uid://snus4y53incu" path="res://Scenes and Scripts/Utility Scripts/IgnoreMouseFilter.gd" id="9_svfxy"]
+[ext_resource type="Texture2D" uid="uid://2qb1qs6h08t" path="res://Textures/Icons/Input Prompts/mouse_left_outline.png" id="10_bcco5"]
+[ext_resource type="Texture2D" uid="uid://c2clf63v0gam8" path="res://Textures/Icons/Input Prompts/mouse_outline.png" id="11_e1x4n"]
+[ext_resource type="Material" uid="uid://bo77d7nagqoh4" path="res://Resources/Shader Materials/BuildingVignette.tres" id="12_4f5g7"]
+[ext_resource type="Script" uid="uid://dux7wdl4tm683" path="res://Textures/Icons/Script Icons/Scripts/KeyIcon_SCRIPT.gd" id="12_bcco5"]
+[ext_resource type="Texture2D" uid="uid://b6qs4d3wecwxo" path="res://Textures/Icons/Input Prompts/mouse_scroll_outline.png" id="16_e1x4n"]
 [ext_resource type="Script" uid="uid://bd3squcstkss1" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="16_wg7d4"]
 [ext_resource type="PackedScene" uid="uid://du1ak3ldg8x4e" path="res://Scenes and Scripts/Scenes/Dialogue/DialogueInterface.tscn" id="17_pkmg7"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="17_rhxkt"]
@@ -1573,6 +1578,42 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 anti_aliasing = false
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8e5id"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 12
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8skl1"]
+bg_color = Color(0.187176, 0.187176, 0.187176, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 12
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qr1vc"]
+bg_color = Color(0.347817, 0.347817, 0.347817, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 12
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jost1"]
+bg_color = Color(0.277528, 0.277528, 0.277528, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 12
+anti_aliasing = false
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_47ywp"]
 load_path = "res://.godot/imported/STONE.png-927cdf3755e2c3b65afc36a4cfc41a45.ctex"
 
@@ -1652,7 +1693,7 @@ _data = {
 &"spin": SubResource("Animation_wpbcy")
 }
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "HandItem", "HandItemRig", "PickupAttractionPos", "Character_Body", "Character_Anim_Player", "Character_Shadow_Body", "Character_Shadow_Anim_Player", "Slot1_Hotbar_Ref", "Slot2_Hotbar_Ref", "Slot3_Hotbar_Ref", "Slot4_Hotbar_Ref", "Slot5_Hotbar_Ref", "Slot6_Hotbar_Ref", "Slot7_Hotbar_Ref", "Slot8_Hotbar_Ref", "Slot9_Hotbar_Ref", "Outline_Slot1_Hotbar_Ref", "Outline_Slot2_Hotbar_Ref", "Outline_Slot3_Hotbar_Ref", "Outline_Slot4_Hotbar_Ref", "Outline_Slot5_Hotbar_Ref", "Outline_Slot6_Hotbar_Ref", "Outline_Slot7_Hotbar_Ref", "Outline_Slot8_Hotbar_Ref", "Outline_Slot9_Hotbar_Ref", "Slot1_Pocket_Ref", "Slot2_Pocket_Ref", "Slot3_Pocket_Ref", "Slot4_Pocket_Ref", "Slot5_Pocket_Ref", "Slot6_Pocket_Ref", "Slot7_Pocket_Ref", "Slot8_Pocket_Ref", "Slot9_Pocket_Ref", "Slot10_Pocket_Ref", "Slot11_Pocket_Ref", "Slot12_Pocket_Ref", "Slot13_Pocket_Ref", "Slot14_Pocket_Ref", "Slot15_Pocket_Ref", "Slot16_Pocket_Ref", "Slot17_Pocket_Ref", "Slot18_Pocket_Ref", "Slot19_Pocket_Ref", "Slot20_Pocket_Ref", "Slot21_Pocket_Ref", "Slot22_Pocket_Ref", "Slot23_Pocket_Ref", "Slot24_Pocket_Ref", "Slot25_Pocket_Ref", "InventoryLayer_CanvasLayer", "InventoryLayer_GreyLayer", "InventoryLayer_Pockets", "InventoryLayer_Hotbar", "InventoryLayer_HotbarSlotOutlines", "InventoryLayer_Chest", "InventoryLayer_Workbench", "HUDLayer", "PauseLayer", "DebugLayer", "SettingsUI", "AchievementsUI", "AlertLayer", "CreditsLayer", "MinimalAlert", "TopLayerBlackOverlay", "SleepLayerBlackOverlay", "DayText_Label", "ProtectiveLayer", "Crosshair_Rect", "StaminaBar", "EffectNotificationGrid", "DialogueInterface", "DeathScreen_BlackOverlay", "OverlayLayer_Overlay", "ItemWorkshopLayer_MainLayer", "ItemWorkshopLayer_GreyLayer", "HUDLayer_HealthBar", "HUDLayer_HungerBar", "GetUp_Label", "RandomText_Label", "OverlayLayer_RedOverlay", "ManualSaveCooldown", "AutoSaveTimer", "StartDebugging_Btn", "SetTime_SpinBox", "SetTime_Button", "Is_Inside_Settings_Label", "Is_Moving_Label", "Is_Walking_Label", "Is_Sprinting_Label", "Is_Crouching_Label", "Is_In_Dialogue_Interface_Label", "Current_Time_Label", "Current_FPS_Label", "Player_Position_Label", "Player_VelocityY_Label", "Player_VelocityY_Accurate_Label", "Is_On_Floor_Label", "Inputs_Currently_Pressing_Label", "DAY_STATE_Label", "GAME_STATE_Label", "CURRENT_DAY_Label", "CURRENT_TIME_Label", "CURRENT_WEATHER_Label", "CURRENT_WEATHER_ARR_INDEX_Label", "WEATHER_TIMER_TIME_LEFT_Label") groups=["PlayerBody"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("head", "camera", "HandItem", "HandItemRig", "PickupAttractionPos", "Character_Body", "Character_Anim_Player", "Character_Shadow_Body", "Character_Shadow_Anim_Player", "Slot1_Hotbar_Ref", "Slot2_Hotbar_Ref", "Slot3_Hotbar_Ref", "Slot4_Hotbar_Ref", "Slot5_Hotbar_Ref", "Slot6_Hotbar_Ref", "Slot7_Hotbar_Ref", "Slot8_Hotbar_Ref", "Slot9_Hotbar_Ref", "Outline_Slot1_Hotbar_Ref", "Outline_Slot2_Hotbar_Ref", "Outline_Slot3_Hotbar_Ref", "Outline_Slot4_Hotbar_Ref", "Outline_Slot5_Hotbar_Ref", "Outline_Slot6_Hotbar_Ref", "Outline_Slot7_Hotbar_Ref", "Outline_Slot8_Hotbar_Ref", "Outline_Slot9_Hotbar_Ref", "Slot1_Pocket_Ref", "Slot2_Pocket_Ref", "Slot3_Pocket_Ref", "Slot4_Pocket_Ref", "Slot5_Pocket_Ref", "Slot6_Pocket_Ref", "Slot7_Pocket_Ref", "Slot8_Pocket_Ref", "Slot9_Pocket_Ref", "Slot10_Pocket_Ref", "Slot11_Pocket_Ref", "Slot12_Pocket_Ref", "Slot13_Pocket_Ref", "Slot14_Pocket_Ref", "Slot15_Pocket_Ref", "Slot16_Pocket_Ref", "Slot17_Pocket_Ref", "Slot18_Pocket_Ref", "Slot19_Pocket_Ref", "Slot20_Pocket_Ref", "Slot21_Pocket_Ref", "Slot22_Pocket_Ref", "Slot23_Pocket_Ref", "Slot24_Pocket_Ref", "Slot25_Pocket_Ref", "InventoryLayer_CanvasLayer", "InventoryLayer_GreyLayer", "InventoryLayer_Pockets", "InventoryLayer_Hotbar", "InventoryLayer_HotbarSlotOutlines", "InventoryLayer_Chest", "InventoryLayer_Workbench", "BuildingUILayer", "BuildingUIEditLayer", "BuildingEditKeyMessage", "BuildingMakeStaticMessage", "BuildingVignette", "BuildingInitItemRig", "HUDLayer", "PauseLayer", "DebugLayer", "SettingsUI", "AchievementsUI", "AlertLayer", "CreditsLayer", "MinimalAlert", "TopLayerBlackOverlay", "SleepLayerBlackOverlay", "DayText_Label", "ProtectiveLayer", "Crosshair_Rect", "StaminaBar", "EffectNotificationGrid", "DialogueInterface", "DeathScreen_BlackOverlay", "OverlayLayer_Overlay", "ItemWorkshopLayer_MainLayer", "ItemWorkshopLayer_GreyLayer", "HUDLayer_HealthBar", "HUDLayer_HungerBar", "GetUp_Label", "RandomText_Label", "OverlayLayer_RedOverlay", "ManualSaveCooldown", "AutoSaveTimer", "StartDebugging_Btn", "SetTime_SpinBox", "SetTime_Button", "Is_Inside_Settings_Label", "Is_Moving_Label", "Is_Walking_Label", "Is_Sprinting_Label", "Is_Crouching_Label", "Is_In_Dialogue_Interface_Label", "Current_Time_Label", "Current_FPS_Label", "Player_Position_Label", "Player_VelocityY_Label", "Player_VelocityY_Accurate_Label", "Is_On_Floor_Label", "Inputs_Currently_Pressing_Label", "DAY_STATE_Label", "GAME_STATE_Label", "CURRENT_DAY_Label", "CURRENT_TIME_Label", "CURRENT_WEATHER_Label", "CURRENT_WEATHER_ARR_INDEX_Label", "WEATHER_TIMER_TIME_LEFT_Label") groups=["PlayerBody"]]
 collision_mask = 3
 script = ExtResource("1_5mhs1")
 Fade_In = true
@@ -1722,6 +1763,12 @@ InventoryLayer_Hotbar = NodePath("Head/Camera3D/InventoryLayer/Hotbar")
 InventoryLayer_HotbarSlotOutlines = NodePath("Head/Camera3D/InventoryLayer/Hotbar/SlotOutlines")
 InventoryLayer_Chest = NodePath("Head/Camera3D/InventoryLayer/Chest")
 InventoryLayer_Workbench = NodePath("Head/Camera3D/InventoryLayer/Workbench")
+BuildingUILayer = NodePath("Head/Camera3D/BuildingUILayer")
+BuildingUIEditLayer = NodePath("Head/Camera3D/BuildingUILayer/BuildingUIEditLayer")
+BuildingEditKeyMessage = NodePath("Head/Camera3D/BuildingUILayer/Edit/Contents/Message")
+BuildingMakeStaticMessage = NodePath("Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Make Static/Contents/Message")
+BuildingVignette = NodePath("Head/Camera3D/BuildingVignetteLayer/Vignette")
+BuildingInitItemRig = NodePath("Head/Camera3D/BuildingInitItemRig")
 HUDLayer = NodePath("Head/Camera3D/HUDLayer")
 PauseLayer = NodePath("Head/Camera3D/PauseLayer")
 DebugLayer = NodePath("Head/Camera3D/DebugLayer")
@@ -1851,6 +1898,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 transform = Transform3D(-0.651061, 0, -5.69176e-08, 0, 0.651061, 0, 5.69176e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Head/Player_Character_Shadow/Armature_003" index="0"]
+
 bones/0/position = Vector3(2.70921, -3.48831, -195.782)
 bones/0/rotation = Quaternion(-0.683906, -0.270447, 0.249642, 0.629929)
 bones/1/rotation = Quaternion(0.0800287, 0.040982, -0.00891499, 0.99591)
@@ -1888,6 +1936,7 @@ bone_idx = 14
 transform = Transform3D(-0.651061, 0, 5.69175e-08, 0, 0.651061, 0, -5.69175e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Head/Player_Character/Armature_003" index="0"]
+
 bones/0/position = Vector3(2.70921, -3.48831, -195.782)
 bones/0/rotation = Quaternion(-0.683906, -0.270447, 0.249642, 0.629929)
 bones/1/rotation = Quaternion(0.0800287, 0.040982, -0.00891499, 0.99591)
@@ -1933,6 +1982,7 @@ fov = 110.0
 script = ExtResource("2_37tst")
 
 [node name="BuildingInitItemRig" type="Node3D" parent="Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
 [node name="HandItemRig" type="Node3D" parent="Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.477025, 0, -0.274263)
@@ -2043,6 +2093,770 @@ theme_override_constants/h_separation = 48
 theme_override_constants/v_separation = -61
 columns = 3
 metadata/_edit_use_anchors_ = true
+
+[node name="BuildingVignetteLayer" type="CanvasLayer" parent="Head/Camera3D"]
+
+[node name="Vignette" type="ColorRect" parent="Head/Camera3D/BuildingVignetteLayer"]
+material = ExtResource("12_4f5g7")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BuildingUILayer" type="CanvasLayer" parent="Head/Camera3D"]
+layer = 2
+visible = false
+
+[node name="Build" type="Control" parent="Head/Camera3D/BuildingUILayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1105.0
+offset_top = 523.0
+offset_right = 1105.0
+offset_bottom = 523.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+mouse_filter = 2
+script = ExtResource("12_bcco5")
+
+[node name="Contents" type="Control" parent="Head/Camera3D/BuildingUILayer/Build"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 54.0
+offset_bottom = 60.0
+mouse_filter = 2
+
+[node name="BackgroundKEY" type="Button" parent="Head/Camera3D/BuildingUILayer/Build/Contents"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0016129
+anchor_top = 0.00224733
+anchor_right = 0.0016129
+anchor_bottom = 0.00224733
+offset_left = 0.50645
+offset_top = 3.79999
+offset_right = 52.5065
+offset_bottom = 55.8
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_8e5id")
+
+[node name="BackgroundKEY2" type="Button" parent="Head/Camera3D/BuildingUILayer/Build/Contents"]
+layout_mode = 0
+offset_left = 2.90002
+offset_top = 6.20001
+offset_right = 50.9
+offset_bottom = 54.2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_8skl1")
+
+[node name="BackgroundKEY3" type="Button" parent="Head/Camera3D/BuildingUILayer/Build/Contents"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.000967703
+anchor_right = 0.000967703
+offset_left = 6.70388
+offset_top = 10.0
+offset_right = 46.7039
+offset_bottom = 50.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qr1vc")
+
+[node name="BackgroundKEY4" type="Button" parent="Head/Camera3D/BuildingUILayer/Build/Contents"]
+layout_mode = 0
+offset_left = 9.1
+offset_top = 12.4
+offset_right = 45.1
+offset_bottom = 48.4
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_jost1")
+
+[node name="KEY" type="Label" parent="Head/Camera3D/BuildingUILayer/Build/Contents"]
+visible = false
+modulate = Color(0.796243, 0.796243, 0.796243, 1)
+layout_mode = 0
+offset_left = 12.2
+offset_top = 13.8
+offset_right = 42.2
+offset_bottom = 48.8
+theme = ExtResource("17_rhxkt")
+theme_override_fonts/font = ExtResource("8_cdk3a")
+theme_override_font_sizes/font_size = 30
+text = "F"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KEY_Image" type="TextureRect" parent="Head/Camera3D/BuildingUILayer/Build/Contents"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 10.0
+offset_right = 47.0
+offset_bottom = 50.0
+texture = ExtResource("10_bcco5")
+expand_mode = 1
+
+[node name="ProtectiveLayer" type="Control" parent="Head/Camera3D/BuildingUILayer/Build/Contents"]
+anchors_preset = 0
+offset_right = 54.0
+offset_bottom = 60.0
+
+[node name="Message" type="Label" parent="Head/Camera3D/BuildingUILayer/Build/Contents"]
+layout_mode = 0
+offset_left = -228.714
+offset_top = 3.0
+offset_right = -6.71423
+offset_bottom = 59.0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 25
+text = "Build"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Edit" type="Control" parent="Head/Camera3D/BuildingUILayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1105.0
+offset_top = 561.0
+offset_right = 1105.0
+offset_bottom = 561.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+mouse_filter = 2
+script = ExtResource("12_bcco5")
+
+[node name="Contents" type="Control" parent="Head/Camera3D/BuildingUILayer/Edit"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 54.0
+offset_bottom = 60.0
+mouse_filter = 2
+
+[node name="BackgroundKEY" type="Button" parent="Head/Camera3D/BuildingUILayer/Edit/Contents"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0016129
+anchor_top = 0.00224733
+anchor_right = 0.0016129
+anchor_bottom = 0.00224733
+offset_left = 0.50645
+offset_top = 3.79999
+offset_right = 52.5065
+offset_bottom = 55.8
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_8e5id")
+
+[node name="BackgroundKEY2" type="Button" parent="Head/Camera3D/BuildingUILayer/Edit/Contents"]
+layout_mode = 0
+offset_left = 2.90002
+offset_top = 6.20001
+offset_right = 50.9
+offset_bottom = 54.2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_8skl1")
+
+[node name="BackgroundKEY3" type="Button" parent="Head/Camera3D/BuildingUILayer/Edit/Contents"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.000967703
+anchor_right = 0.000967703
+offset_left = 6.70388
+offset_top = 10.0
+offset_right = 46.7039
+offset_bottom = 50.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qr1vc")
+
+[node name="BackgroundKEY4" type="Button" parent="Head/Camera3D/BuildingUILayer/Edit/Contents"]
+layout_mode = 0
+offset_left = 9.1
+offset_top = 12.4
+offset_right = 45.1
+offset_bottom = 48.4
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_jost1")
+
+[node name="KEY" type="Label" parent="Head/Camera3D/BuildingUILayer/Edit/Contents"]
+visible = false
+modulate = Color(0.796243, 0.796243, 0.796243, 1)
+layout_mode = 0
+offset_left = 12.2
+offset_top = 13.8
+offset_right = 42.2
+offset_bottom = 48.8
+theme = ExtResource("17_rhxkt")
+theme_override_fonts/font = ExtResource("8_cdk3a")
+theme_override_font_sizes/font_size = 30
+text = "F"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KEY_Image" type="TextureRect" parent="Head/Camera3D/BuildingUILayer/Edit/Contents"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 10.0
+offset_right = 47.0
+offset_bottom = 50.0
+texture = ExtResource("16_e1x4n")
+expand_mode = 1
+
+[node name="ProtectiveLayer" type="Control" parent="Head/Camera3D/BuildingUILayer/Edit/Contents"]
+anchors_preset = 0
+offset_right = 54.0
+offset_bottom = 60.0
+
+[node name="Message" type="Label" parent="Head/Camera3D/BuildingUILayer/Edit/Contents"]
+layout_mode = 0
+offset_left = -228.714
+offset_top = 3.0
+offset_right = -6.71423
+offset_bottom = 59.0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 25
+text = "Edit"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Exit" type="Control" parent="Head/Camera3D/BuildingUILayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1105.0
+offset_top = 599.0
+offset_right = 1105.0
+offset_bottom = 599.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+mouse_filter = 2
+script = ExtResource("12_bcco5")
+
+[node name="Contents" type="Control" parent="Head/Camera3D/BuildingUILayer/Exit"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 54.0
+offset_bottom = 60.0
+mouse_filter = 2
+
+[node name="BackgroundKEY" type="Button" parent="Head/Camera3D/BuildingUILayer/Exit/Contents"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0016129
+anchor_top = 0.00224733
+anchor_right = 0.0016129
+anchor_bottom = 0.00224733
+offset_left = 0.50645
+offset_top = 3.79999
+offset_right = 52.5065
+offset_bottom = 55.8
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_8e5id")
+
+[node name="BackgroundKEY2" type="Button" parent="Head/Camera3D/BuildingUILayer/Exit/Contents"]
+layout_mode = 0
+offset_left = 2.90002
+offset_top = 6.20001
+offset_right = 50.9
+offset_bottom = 54.2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_8skl1")
+
+[node name="BackgroundKEY3" type="Button" parent="Head/Camera3D/BuildingUILayer/Exit/Contents"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.000967703
+anchor_right = 0.000967703
+offset_left = 6.70388
+offset_top = 10.0
+offset_right = 46.7039
+offset_bottom = 50.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qr1vc")
+
+[node name="BackgroundKEY4" type="Button" parent="Head/Camera3D/BuildingUILayer/Exit/Contents"]
+layout_mode = 0
+offset_left = 9.1
+offset_top = 12.4
+offset_right = 45.1
+offset_bottom = 48.4
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_jost1")
+
+[node name="KEY" type="Label" parent="Head/Camera3D/BuildingUILayer/Exit/Contents"]
+visible = false
+modulate = Color(0.796243, 0.796243, 0.796243, 1)
+layout_mode = 0
+offset_left = 12.2
+offset_top = 13.8
+offset_right = 42.2
+offset_bottom = 48.8
+theme = ExtResource("17_rhxkt")
+theme_override_fonts/font = ExtResource("8_cdk3a")
+theme_override_font_sizes/font_size = 30
+text = "F"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KEY_Image" type="TextureRect" parent="Head/Camera3D/BuildingUILayer/Exit/Contents"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 10.0
+offset_right = 47.0
+offset_bottom = 50.0
+texture = ExtResource("11_e1x4n")
+expand_mode = 1
+
+[node name="ProtectiveLayer" type="Control" parent="Head/Camera3D/BuildingUILayer/Exit/Contents"]
+anchors_preset = 0
+offset_right = 54.0
+offset_bottom = 60.0
+
+[node name="Message" type="Label" parent="Head/Camera3D/BuildingUILayer/Exit/Contents"]
+layout_mode = 0
+offset_left = -228.714
+offset_top = 3.0
+offset_right = -6.71423
+offset_bottom = 59.0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 25
+text = "Exit"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="BuildingUIEditLayer" type="CanvasLayer" parent="Head/Camera3D/BuildingUILayer"]
+layer = 2
+visible = false
+
+[node name="Make Static" type="Control" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.99989
+offset_top = 437.0
+offset_right = 9.99988
+offset_bottom = 437.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+mouse_filter = 2
+script = ExtResource("12_bcco5")
+
+[node name="Contents" type="Control" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Make Static"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 54.0
+offset_bottom = 60.0
+mouse_filter = 2
+
+[node name="BackgroundKEY" type="Button" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Make Static/Contents"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0016129
+anchor_top = 0.00224733
+anchor_right = 0.0016129
+anchor_bottom = 0.00224733
+offset_left = 0.50645
+offset_top = 3.79999
+offset_right = 52.5065
+offset_bottom = 55.8
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_8e5id")
+
+[node name="BackgroundKEY2" type="Button" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Make Static/Contents"]
+layout_mode = 0
+offset_left = 2.90002
+offset_top = 6.20001
+offset_right = 50.9
+offset_bottom = 54.2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_8skl1")
+
+[node name="BackgroundKEY3" type="Button" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Make Static/Contents"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.000967703
+anchor_right = 0.000967703
+offset_left = 6.70388
+offset_top = 10.0
+offset_right = 46.7039
+offset_bottom = 50.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qr1vc")
+
+[node name="BackgroundKEY4" type="Button" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Make Static/Contents"]
+layout_mode = 0
+offset_left = 9.1
+offset_top = 12.4
+offset_right = 45.1
+offset_bottom = 48.4
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_jost1")
+
+[node name="KEY" type="Label" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Make Static/Contents"]
+modulate = Color(0.796243, 0.796243, 0.796243, 1)
+layout_mode = 0
+offset_left = 12.2
+offset_top = 13.8
+offset_right = 42.2
+offset_bottom = 48.8
+theme = ExtResource("17_rhxkt")
+theme_override_fonts/font = ExtResource("8_cdk3a")
+theme_override_font_sizes/font_size = 30
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KEY_Image" type="TextureRect" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Make Static/Contents"]
+visible = false
+layout_mode = 0
+offset_left = 7.0
+offset_top = 10.0
+offset_right = 47.0
+offset_bottom = 50.0
+texture = ExtResource("10_bcco5")
+expand_mode = 1
+
+[node name="ProtectiveLayer" type="Control" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Make Static/Contents"]
+anchors_preset = 0
+offset_right = 54.0
+offset_bottom = 60.0
+
+[node name="Message" type="Label" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Make Static/Contents"]
+layout_mode = 0
+offset_left = 58.4286
+offset_top = 3.0
+offset_right = 280.429
+offset_bottom = 59.0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 25
+text = "Make Static"
+vertical_alignment = 1
+
+[node name="Set Position" type="Control" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 475.0
+offset_right = 10.0001
+offset_bottom = 475.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+mouse_filter = 2
+script = ExtResource("12_bcco5")
+
+[node name="Contents" type="Control" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Position"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 54.0
+offset_bottom = 60.0
+mouse_filter = 2
+
+[node name="BackgroundKEY" type="Button" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Position/Contents"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0016129
+anchor_top = 0.00224733
+anchor_right = 0.0016129
+anchor_bottom = 0.00224733
+offset_left = 0.50645
+offset_top = 3.79999
+offset_right = 52.5065
+offset_bottom = 55.8
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_8e5id")
+
+[node name="BackgroundKEY2" type="Button" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Position/Contents"]
+layout_mode = 0
+offset_left = 2.90002
+offset_top = 6.20001
+offset_right = 50.9
+offset_bottom = 54.2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_8skl1")
+
+[node name="BackgroundKEY3" type="Button" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Position/Contents"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.000967703
+anchor_right = 0.000967703
+offset_left = 6.70388
+offset_top = 10.0
+offset_right = 46.7039
+offset_bottom = 50.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qr1vc")
+
+[node name="BackgroundKEY4" type="Button" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Position/Contents"]
+layout_mode = 0
+offset_left = 9.1
+offset_top = 12.4
+offset_right = 45.1
+offset_bottom = 48.4
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_jost1")
+
+[node name="KEY" type="Label" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Position/Contents"]
+modulate = Color(0.796243, 0.796243, 0.796243, 1)
+layout_mode = 0
+offset_left = 12.2
+offset_top = 13.8
+offset_right = 42.2
+offset_bottom = 48.8
+theme = ExtResource("17_rhxkt")
+theme_override_fonts/font = ExtResource("8_cdk3a")
+theme_override_font_sizes/font_size = 30
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KEY_Image" type="TextureRect" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Position/Contents"]
+visible = false
+layout_mode = 0
+offset_left = 7.0
+offset_top = 10.0
+offset_right = 47.0
+offset_bottom = 50.0
+texture = ExtResource("11_e1x4n")
+expand_mode = 1
+
+[node name="ProtectiveLayer" type="Control" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Position/Contents"]
+anchors_preset = 0
+offset_right = 54.0
+offset_bottom = 60.0
+
+[node name="Message" type="Label" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Position/Contents"]
+layout_mode = 0
+offset_left = 58.4286
+offset_top = 3.0
+offset_right = 280.429
+offset_bottom = 59.0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 25
+text = "Set Position"
+vertical_alignment = 1
+
+[node name="Set Rotation" type="Control" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.99989
+offset_top = 513.0
+offset_right = 9.99988
+offset_bottom = 513.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+mouse_filter = 2
+script = ExtResource("12_bcco5")
+
+[node name="Contents" type="Control" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Rotation"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 54.0
+offset_bottom = 60.0
+mouse_filter = 2
+
+[node name="BackgroundKEY" type="Button" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Rotation/Contents"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0016129
+anchor_top = 0.00224733
+anchor_right = 0.0016129
+anchor_bottom = 0.00224733
+offset_left = 0.50645
+offset_top = 3.79999
+offset_right = 52.5065
+offset_bottom = 55.8
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_8e5id")
+
+[node name="BackgroundKEY2" type="Button" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Rotation/Contents"]
+layout_mode = 0
+offset_left = 2.90002
+offset_top = 6.20001
+offset_right = 50.9
+offset_bottom = 54.2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_8skl1")
+
+[node name="BackgroundKEY3" type="Button" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Rotation/Contents"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.000967703
+anchor_right = 0.000967703
+offset_left = 6.70388
+offset_top = 10.0
+offset_right = 46.7039
+offset_bottom = 50.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qr1vc")
+
+[node name="BackgroundKEY4" type="Button" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Rotation/Contents"]
+layout_mode = 0
+offset_left = 9.1
+offset_top = 12.4
+offset_right = 45.1
+offset_bottom = 48.4
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_jost1")
+
+[node name="KEY" type="Label" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Rotation/Contents"]
+modulate = Color(0.796243, 0.796243, 0.796243, 1)
+layout_mode = 0
+offset_left = 12.2
+offset_top = 13.8
+offset_right = 42.2
+offset_bottom = 48.8
+theme = ExtResource("17_rhxkt")
+theme_override_fonts/font = ExtResource("8_cdk3a")
+theme_override_font_sizes/font_size = 30
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KEY_Image" type="TextureRect" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Rotation/Contents"]
+visible = false
+layout_mode = 0
+offset_left = 7.0
+offset_top = 10.0
+offset_right = 47.0
+offset_bottom = 50.0
+texture = ExtResource("10_bcco5")
+expand_mode = 1
+
+[node name="ProtectiveLayer" type="Control" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Rotation/Contents"]
+anchors_preset = 0
+offset_right = 54.0
+offset_bottom = 60.0
+
+[node name="Message" type="Label" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Rotation/Contents"]
+layout_mode = 0
+offset_left = 58.4286
+offset_top = 3.0
+offset_right = 280.429
+offset_bottom = 59.0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 25
+text = "Set Rotation"
+vertical_alignment = 1
+
+[node name="Set Scale" type="Control" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 551.0
+offset_right = 10.0001
+offset_bottom = 551.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+mouse_filter = 2
+script = ExtResource("12_bcco5")
+
+[node name="Contents" type="Control" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Scale"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 54.0
+offset_bottom = 60.0
+mouse_filter = 2
+
+[node name="BackgroundKEY" type="Button" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Scale/Contents"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0016129
+anchor_top = 0.00224733
+anchor_right = 0.0016129
+anchor_bottom = 0.00224733
+offset_left = 0.50645
+offset_top = 3.79999
+offset_right = 52.5065
+offset_bottom = 55.8
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_8e5id")
+
+[node name="BackgroundKEY2" type="Button" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Scale/Contents"]
+layout_mode = 0
+offset_left = 2.90002
+offset_top = 6.20001
+offset_right = 50.9
+offset_bottom = 54.2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_8skl1")
+
+[node name="BackgroundKEY3" type="Button" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Scale/Contents"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.000967703
+anchor_right = 0.000967703
+offset_left = 6.70388
+offset_top = 10.0
+offset_right = 46.7039
+offset_bottom = 50.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_qr1vc")
+
+[node name="BackgroundKEY4" type="Button" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Scale/Contents"]
+layout_mode = 0
+offset_left = 9.1
+offset_top = 12.4
+offset_right = 45.1
+offset_bottom = 48.4
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxFlat_jost1")
+
+[node name="KEY" type="Label" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Scale/Contents"]
+modulate = Color(0.796243, 0.796243, 0.796243, 1)
+layout_mode = 0
+offset_left = 12.2
+offset_top = 13.8
+offset_right = 42.2
+offset_bottom = 48.8
+theme = ExtResource("17_rhxkt")
+theme_override_fonts/font = ExtResource("8_cdk3a")
+theme_override_font_sizes/font_size = 30
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KEY_Image" type="TextureRect" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Scale/Contents"]
+visible = false
+layout_mode = 0
+offset_left = 7.0
+offset_top = 10.0
+offset_right = 47.0
+offset_bottom = 50.0
+texture = ExtResource("11_e1x4n")
+expand_mode = 1
+
+[node name="ProtectiveLayer" type="Control" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Scale/Contents"]
+anchors_preset = 0
+offset_right = 54.0
+offset_bottom = 60.0
+
+[node name="Message" type="Label" parent="Head/Camera3D/BuildingUILayer/BuildingUIEditLayer/Set Scale/Contents"]
+layout_mode = 0
+offset_left = 58.4286
+offset_top = 3.0
+offset_right = 280.429
+offset_bottom = 59.0
+theme = ExtResource("17_rhxkt")
+theme_override_font_sizes/font_size = 25
+text = "Set Scale"
+vertical_alignment = 1
 
 [node name="ItemWorkshopLayer" type="CanvasLayer" parent="Head/Camera3D"]
 layer = 4

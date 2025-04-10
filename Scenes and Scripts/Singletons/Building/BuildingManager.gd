@@ -47,10 +47,15 @@
 
 extends Node
 
-var BA_PhysicalObject = preload("res://Scenes and Scripts/Scenes/Building System/Building Assets/Physical/BA_PhysicalObject.tscn")
-var BA_StaticObject = preload("res://Scenes and Scripts/Scenes/Building System/Building Assets/Static/BA_StaticObject.tscn")
+var BuildingVignette : ShaderMaterial = preload("res://Resources/Shader Materials/BuildingVignette.tres")
+
+var BA_PhysicalObject : PackedScene = preload("res://Scenes and Scripts/Scenes/Building System/Building Assets/Physical/BA_PhysicalObject.tscn")
+var BA_StaticObject : PackedScene = preload("res://Scenes and Scripts/Scenes/Building System/Building Assets/Static/BA_StaticObject.tscn")
+
+var vignette_tween : Tween
 
 var is_in_building_interface : bool = false
+var is_in_building_edit_interface : bool = false
 
 func init_building_system():
 	# First, check if we are not in the building interface
@@ -58,9 +63,35 @@ func init_building_system():
 	# Check if what we are holding actually exists
 		if HandManager.CURRENTLY_HOLDING_ITEM != "":
 			is_in_building_interface = true
+			PlayerManager.PLAYER.BuildingUILayer.visible = true
+			
+			var tween = get_tree().create_tween()
+			tween.tween_property(BuildingVignette, "shader_parameter/alpha", 0.4, 0.2)
+			
 			print("spawned building system")
 
 func despawn_building_system():
 	if is_in_building_interface:
 		is_in_building_interface = false
+		PlayerManager.PLAYER.BuildingUILayer.visible = false
+		if is_in_building_edit_interface:
+			despawn_edit()
+		
+		
+		var tween = get_tree().create_tween()
+		tween.tween_property(BuildingVignette, "shader_parameter/alpha", 0.0, 0.2)
+		
 		print("despawned building system")
+
+
+func init_edit():
+	is_in_building_edit_interface = true
+	PlayerManager.PLAYER.BuildingUIEditLayer.visible = true
+	PlayerManager.PLAYER.BuildingEditKeyMessage.text = "Exit Edit"
+	print("in edit interface")
+
+func despawn_edit():
+	is_in_building_edit_interface = false
+	PlayerManager.PLAYER.BuildingUIEditLayer.visible = false
+	PlayerManager.PLAYER.BuildingEditKeyMessage.text = "Edit"
+	print("exited edit interface")

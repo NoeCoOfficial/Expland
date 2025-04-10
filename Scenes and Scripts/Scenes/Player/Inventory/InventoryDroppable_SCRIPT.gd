@@ -151,3 +151,12 @@ func _on_droppable_mouse_detector_mouse_entered() -> void:
 
 func _on_debounce_timer_timeout() -> void:
 	Debounce_Timer_0 = true
+
+func _notification(what: int) -> void:
+	if what == MainLoop.NOTIFICATION_APPLICATION_FOCUS_OUT:
+		if InventoryManager.is_dragging and InventoryManager.currently_dragging_node == self:
+			position = Vector2(0, 0)
+			z_index = 0
+			scale = Default_Size
+			InventoryManager.is_dragging = false
+			InventoryManager.currently_dragging_node = null
