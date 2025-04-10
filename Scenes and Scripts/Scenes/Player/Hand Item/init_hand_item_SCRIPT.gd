@@ -80,11 +80,6 @@ func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
 		init_hand_item()
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		mouse_movement = event.relative
-
-
 func swap_items(toITEM : String, useDelay : bool = true, delayTime : float = 0.2):
 	goToITEM = toITEM
 	
@@ -131,8 +126,7 @@ func swap_items(toITEM : String, useDelay : bool = true, delayTime : float = 0.2
 
 func sway(delta, isIdle : bool):
 	if HAND_ITEM != null:
-		mouse_movement = mouse_movement.clamp(HAND_ITEM.sway_min, HAND_ITEM.sway_max)
-		
+		mouse_movement = PlayerManager.player_mouse_movement_event_hand_item.clamp(HAND_ITEM.sway_min, HAND_ITEM.sway_max)
 		if isIdle:
 			var sway_random : float = get_sway_noise()
 			var sway_random_adjusted
@@ -201,6 +195,9 @@ func load_hand_item():
 		idle_sway_adjustment = HAND_ITEM.idle_sway_adjustment
 		idle_sway_rotation_strength = HAND_ITEM.idle_sway_rotation_strength
 		random_sway_amount = HAND_ITEM.random_sway_amount
+		for child in hand_model_instance.get_children():
+			if child is MeshInstance3D:
+				child.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 
 func init_hand_item():
 	if HAND_ITEM != null:
@@ -210,3 +207,7 @@ func init_hand_item():
 		idle_sway_adjustment = HAND_ITEM.idle_sway_adjustment
 		idle_sway_rotation_strength = HAND_ITEM.idle_sway_rotation_strength
 		random_sway_amount = HAND_ITEM.random_sway_amount
+		
+		for child in hand_mesh.get_child(0).get_children():
+			if child is MeshInstance3D:
+				child.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
