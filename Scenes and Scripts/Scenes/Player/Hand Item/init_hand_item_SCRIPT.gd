@@ -201,6 +201,9 @@ func load_hand_item():
 		idle_sway_adjustment = HAND_ITEM.idle_sway_adjustment
 		idle_sway_rotation_strength = HAND_ITEM.idle_sway_rotation_strength
 		random_sway_amount = HAND_ITEM.random_sway_amount
+		for child in hand_model_instance.get_children():
+			if child is MeshInstance3D:
+				child.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 
 func init_hand_item():
 	if HAND_ITEM != null:
@@ -210,3 +213,7 @@ func init_hand_item():
 		idle_sway_adjustment = HAND_ITEM.idle_sway_adjustment
 		idle_sway_rotation_strength = HAND_ITEM.idle_sway_rotation_strength
 		random_sway_amount = HAND_ITEM.random_sway_amount
+		
+		for child in hand_mesh.get_child(0).get_children():
+			if child is MeshInstance3D:
+				child.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
