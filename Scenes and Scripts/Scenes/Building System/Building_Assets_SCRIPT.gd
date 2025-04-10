@@ -45,9 +45,11 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
+@icon("res://Textures/Icons/Script Icons/32x32/tools.png")
 class_name BuildingAsset extends Resource
 
 @export var ITEM_TYPE : String
+@export var Model_Scene : PackedScene
 @export_group("Spawn")
 @export var Spawn_Position : Vector3
 @export var Spawn_Rotation : Vector3

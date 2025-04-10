@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BuildingAsset" load_steps=2 format=3 uid="uid://de6nen0bt078"]
+
+[ext_resource type="Script" uid="uid://c1yp645pkxk3d" path="res://Scenes and Scripts/Scenes/Building System/Building_Assets_SCRIPT.gd" id="1_rtmul"]
+
+[resource]
+script = ExtResource("1_rtmul")
+ITEM_TYPE = "SWORD"
+Spawn_Position = Vector3(0, 0, 0)
+Spawn_Rotation = Vector3(0, 0, 0)
+Spawn_Scale = Vector3(0, 0, 0)
+metadata/_custom_type_script = "uid://c1yp645pkxk3d"
