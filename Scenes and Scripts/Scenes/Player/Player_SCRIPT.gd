@@ -177,6 +177,7 @@ var stamina_restoring_from_0 = false
 @export var camera : Camera3D
 @export var HandItem : Node3D
 @export var HandItemRig : Node3D
+@export var HandAttatchmentBone : BoneAttachment3D
 @export var PickupAttractionPos : Node3D
 
 @export var Character_Body : Node3D
