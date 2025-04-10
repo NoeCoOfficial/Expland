@@ -126,7 +126,7 @@ func swap_items(toITEM : String, useDelay : bool = true, delayTime : float = 0.2
 
 func sway(delta, isIdle : bool):
 	if HAND_ITEM != null:
-		mouse_movement = PlayerManager.player_mouse_movement_event.clamp(HAND_ITEM.sway_min, HAND_ITEM.sway_max)
+		mouse_movement = PlayerManager.player_mouse_movement_event_hand_item.clamp(HAND_ITEM.sway_min, HAND_ITEM.sway_max)
 		if isIdle:
 			var sway_random : float = get_sway_noise()
 			var sway_random_adjusted

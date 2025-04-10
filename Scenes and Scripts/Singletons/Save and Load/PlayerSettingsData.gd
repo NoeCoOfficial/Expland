@@ -57,8 +57,8 @@ const SAVE_PATH = "user://saveData/settings.save"
 var showStartupScreen : bool = true
 var autosaveInterval : int = 60
 
-# TODO: Implement these settings
 var quickAnimations : bool = false
+# TODO: Do this setting
 var showTime : bool = false
 
 ######################################
