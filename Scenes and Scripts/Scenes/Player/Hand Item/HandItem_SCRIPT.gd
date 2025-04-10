@@ -76,3 +76,8 @@ class_name HandItems extends Resource
 @export var vbob_amount : float = 3.0
 @export_category("Metadata")
 @export var damage_amount : float
+@export_category("Hand Attatchment")
+@export var hand_attatchement_scene : PackedScene
+@export var hand_attatchement_position : Vector3
+@export var hand_attatchement_rotation : Vector3
+@export var hand_attatchement_scale : Vector3

@@ -177,6 +177,7 @@ var stamina_restoring_from_0 = false
 @export var camera : Camera3D
 @export var HandItem : Node3D
 @export var HandItemRig : Node3D
+@export var HandAttatchmentBone : BoneAttachment3D
 @export var PickupAttractionPos : Node3D
 
 @export var Character_Body : Node3D
@@ -510,11 +511,12 @@ func _unhandled_input(event): # A built-in function that listens for input all t
 			head.rotate_y(-event.relative.x * SENSITIVITY/20) # rotate the head on the y-axis
 			camera.rotate_x(-event.relative.y * SENSITIVITY/20) # rotate the camera on the x-axis
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90)) # clamp the camera rotation on the x-axis
+			PlayerManager.player_mouse_movement_event_hand_item = event.relative * ((SENSITIVITY * 1000)/5)
 		else:
 			head.rotate_y(-event.relative.x * SENSITIVITY) # rotate the head on the y-axis
 			camera.rotate_x(-event.relative.y * SENSITIVITY) # rotate the camera on the x-axis
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90)) # clamp the camera rotation on the x-axis
-
+			PlayerManager.player_mouse_movement_event_hand_item = event.relative * (SENSITIVITY * 1000)
 #endregion
 
 #region Process
