@@ -134,7 +134,7 @@ const ITEM_TYPES = {
 		"PICKUP_LOAD" : preload("uid://cynuvm6lnyih2"),
 		"MAX_STACK" : 10,
 	},
-
+	
 	"RED FLOWER" : {
 		"NAME" : "RED FLOWER",
 		"DESCRIPTION" : "A red flower.",
@@ -142,7 +142,7 @@ const ITEM_TYPES = {
 		"PICKUP_LOAD" : preload("uid://cje4v10u317y"),
 		"MAX_STACK" : 10,
 	},
-
+	
 	"PINK FLOWER" : {
 		"NAME" : "PINK FLOWER",
 		"DESCRIPTION" : "A pink flower.",
@@ -158,7 +158,7 @@ const ITEM_TYPES = {
 		"PICKUP_LOAD" : preload("uid://cyxxp35iw0434"),
 		"MAX_STACK" : 10,
 	},
-
+	
 	# Food
 	"COCONUT" : {
 		"NAME" : "COCONUT",
@@ -194,69 +194,77 @@ const ITEM_TYPES = {
 		"PICKUP_LOAD" : preload("uid://d1krxi2vcrc4m"),
 		"MAX_STACK" : 5,
 	},
-
+	
 	# Potions
 	"EFFICIENCY POTION" : {
 		"NAME" : "EFFICIENCY POTION",
 		"DESCRIPTION" : "A potion that makes you more efficient, boosting output. This potion lasts for 60 seconds.",
 		"IMAGE_LOAD" : preload("uid://don2d5onyupya"),
 		"PICKUP_LOAD" : preload("uid://b8dojl031i6vl"),
+		"HAND_ITEM_RES" : preload("uid://dqlyeqxv8q6i3"),
 		"MAX_STACK" : 3,
 	},
-
+	
 	"HASTE POTION" : {
 		"NAME" : "HASTE POTION",
 		"DESCRIPTION" : "A potion that makes you move faster. This potion's effect lasts for 30 seconds",
 		"IMAGE_LOAD" : preload("uid://o3u6sxubmrbg"),
 		"PICKUP_LOAD" : preload("uid://c3f07o736s1fc"),
+		"HAND_ITEM_RES" : preload("uid://cyck7q8c0tn48"),
 		"MAX_STACK" : 3,
 	},
-
+	
 	"HEALTH POTION" : {
 		"NAME" : "HEALTH POTION",
 		"DESCRIPTION" : "A potion that regenerates health. This potion's effect lasts for 10 seconds",
 		"IMAGE_LOAD" : preload("uid://1dbgnxe1pe1i"),
 		"PICKUP_LOAD" : preload("uid://bkrrrciwr0l51"),
+		"HAND_ITEM_RES" : preload("uid://bmejxgpqaj4x5"),
 		"MAX_STACK" : 3,
 	},
-
+	
 	"LUCK POTION" : {
 		"NAME" : "LUCK POTION",
 		"DESCRIPTION" : "A potion that boosts your luck. This potion's effect lasts for 120 seconds",
 		"IMAGE_LOAD" : preload("uid://dkol2o53q7rck"),
 		"PICKUP_LOAD" : preload("uid://dehytmc8mbpxu"),
+		"HAND_ITEM_RES" : preload("uid://b3j61m3vj3wt1"),
 		"MAX_STACK" : 3,
 	},
-
+	
 	"NIGHT VISION POTION" : {
 		"NAME" : "NIGHT VISION POTION",
 		"DESCRIPTION" : "A potion that gives you night vision. This potion's effect lasts for 120 seconds",
 		"IMAGE_LOAD" : preload("uid://d0q61bcnprn5o"),
 		"PICKUP_LOAD" : preload("uid://gy86venr6fii"),
+		"HAND_ITEM_RES" : preload("uid://cl1mh0eqikdhs"),
 		"MAX_STACK" : 3,
 	},
-
+	
 	"REGENERATING POTION" : {
 		"NAME" : "REGENERATING POTION",
 		"DESCRIPTION" : "A potion that regenerates your stats. This potion's effect lasts for 15 seconds",
 		"IMAGE_LOAD" : preload("uid://mwa55qklwxe3"),
 		"PICKUP_LOAD" : preload("uid://ic1v407ic2h3"),
+		"HAND_ITEM_RES" : preload("uid://eg10f1ki8mlc"),
 		"MAX_STACK" : 3,
 	},
-
+	
 	"STAMINA POTION" : {
 		"NAME" : "STAMINA POTION",
 		"DESCRIPTION" : "A potion that boosts endurace. This potion's effect lasts for 60 seconds",
 		"IMAGE_LOAD" : preload("uid://fj1pvfgfyamb"),
 		"PICKUP_LOAD" : preload("uid://bk1v1bbw07mkj"),
+		"HAND_ITEM_RES" : preload("uid://c8502f5nu4bha"),
 		"MAX_STACK" : 3,
 	},
-
+	
 	"STRENGTH POTION" : {
 		"NAME" : "STRENGTH POTION",
 		"DESCRIPTION" : "A potion that boosts your strength. This potion's effect lasts for 60 seconds",
 		"IMAGE_LOAD" : preload("uid://bfiqh1ceg7rmt"),
 		"PICKUP_LOAD" : preload("uid://d0ut80c3jd0lu"),
+		"HAND_ITEM_RES" : preload("uid://ckwcfjfvp4mw5"),
 		"MAX_STACK" : 3,
 	},
 }
