@@ -106,7 +106,6 @@ func initialize_globals() -> void:
 
 func initialize_ui() -> void:
 	$Camera3D/MainLayer/GreyLayerGamemodeLayer.hide()
-	$Camera3D/MainLayer/GreyLayerGamemodeLayer.modulate = Color(1, 1, 1, 0)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	IslandManager.resetAttributes()
 	IslandAccessOrder.load_order()
@@ -263,10 +262,11 @@ func spawnGameModeMenu():
 	var tween = get_tree().create_tween().set_parallel()
 	tween.connect("finished", Callable(self, "on_spawn_game_mode_menu_tween_finished"))
 	
-	tween.tween_property($Camera3D/MainLayer/GreyLayerGamemodeLayer, "modulate", Color(1, 1, 1, 1), 0.5)
+	var target_mat = $Camera3D/MainLayer/GreyLayerGamemodeLayer.material
+	tween.tween_property(target_mat, "shader_parameter/blur_strength", 5.3, 0.5)
 	
 	tween.tween_property($Camera3D/MainLayer/ExitGamemodeLayerButton, "position", Vector2(15, 11), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-
+	
 	tween.tween_property($Camera3D/MainLayer/GameModeLayer/BG_StoryMode, "position:y", -580, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	tween.tween_property($Camera3D/MainLayer/GameModeLayer/BG_FreeMode, "position:y", -580, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.1)
 	tween.tween_property($Camera3D/MainLayer/GameModeLayer/BG_ParkourMode, "position:y", -580, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.2)
@@ -285,7 +285,9 @@ func deSpawnGameModeMenu():
 		
 		var tween = get_tree().create_tween().set_parallel()
 		
-		tween.tween_property($Camera3D/MainLayer/GreyLayerGamemodeLayer, "modulate", Color(1, 1, 1, 0), 1)
+		var target_mat = $Camera3D/MainLayer/GreyLayerGamemodeLayer.material
+		tween.tween_property(target_mat, "shader_parameter/blur_strength", 0.001, 1)
+		
 		tween.tween_property($Camera3D/MainLayer/GreyLayerGamemodeLayer, "visible", false, 0).set_delay(1)
 		
 		tween.tween_property($Camera3D/MainLayer/ExitGamemodeLayerButton, "position", Vector2(15, -54), 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)

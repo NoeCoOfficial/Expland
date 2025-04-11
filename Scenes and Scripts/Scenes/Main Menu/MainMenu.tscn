@@ -153,11 +153,10 @@ Label/styles/normal = ExtResource("15_8lpeu")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_elslp"]
 shader = ExtResource("5_elslp")
 shader_parameter/blur_radius = 8
-shader_parameter/Darkness = 0.0
-shader_parameter/R = 0.0
-shader_parameter/G = 0.0
-shader_parameter/B = 0.0
-shader_parameter/blur_strength = 5.3
+shader_parameter/blur_strength = 0.1
+shader_parameter/fade_direction = 0
+shader_parameter/fade_cutoff = 0.414
+shader_parameter/fade_intensity = 0.908
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q7bbx"]
 bg_color = Color(0.0177325, 0.0177324, 0.0177324, 1)
