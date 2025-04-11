@@ -7,7 +7,7 @@
 script = ExtResource("1_rtmul")
 ITEM_TYPE = "SWORD"
 Model_Scene = ExtResource("1_yykk4")
-Spawn_Position = Vector3(0, 0, 0)
-Spawn_Rotation = Vector3(0, 0, 0)
-Spawn_Scale = Vector3(0.6, 0.6, 0.6)
+Spawn_Position = Vector3(0, 0, 0.5)
+Spawn_Rotation = Vector3(0, 180, 0)
+Spawn_Scale = Vector3(0.33, 0.33, 0.33)
 metadata/_custom_type_script = "uid://c1yp645pkxk3d"
