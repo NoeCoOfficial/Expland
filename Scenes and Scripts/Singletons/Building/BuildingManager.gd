@@ -80,6 +80,8 @@ func init_building_system():
 			model_instance.position = building_asset_res.Spawn_Position
 			model_instance.rotation_degrees = building_asset_res.Spawn_Rotation
 			model_instance.scale = building_asset_res.Spawn_Scale
+			PlayerManager.PLAYER.CanBuildCollisionArea.position = building_asset_res.Collision_Boundary_Position
+			PlayerManager.PLAYER.CanBuildCollisionArea.scale = building_asset_res.Collision_Boundary_Scale
 			
 			for child in model_instance.get_children():
 				if child is MeshInstance3D:
