@@ -1056,10 +1056,10 @@ func showDeathScreen(): # A function to show the death screen
 #region Building
 
 func _on_can_build_collision_area_body_entered(body: Node3D) -> void:
-	BuildingManager.can_build = false
+	BuildingManager.toggle_can_build(false, true)
 
 func _on_can_build_collision_area_body_exited(body: Node3D) -> void:
-	BuildingManager.can_build = true
+	BuildingManager.toggle_can_build(true, true)
 
 #endregion
 
