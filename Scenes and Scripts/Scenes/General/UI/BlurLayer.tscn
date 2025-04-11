@@ -5,17 +5,19 @@
 [ext_resource type="Shader" uid="uid://ddwwgv2rqfito" path="res://Resources/Shaders/GausianBlur.gdshader" id="2_budx2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l1g7b"]
+resource_local_to_scene = true
 shader = ExtResource("2_budx2")
 shader_parameter/blur_radius = 8
-shader_parameter/blur_strength = 5.3
+shader_parameter/blur_strength = 0.1
 shader_parameter/fade_direction = 0
 shader_parameter/fade_cutoff = 0.331
 shader_parameter/fade_intensity = 0.703
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_do22d"]
+resource_local_to_scene = true
 shader = ExtResource("2_budx2")
 shader_parameter/blur_radius = 8
-shader_parameter/blur_strength = 5.3
+shader_parameter/blur_strength = 0.1
 shader_parameter/fade_direction = 1
 shader_parameter/fade_cutoff = 0.331
 shader_parameter/fade_intensity = 0.703
@@ -41,7 +43,6 @@ texture = ExtResource("2_8m7l4")
 expand_mode = 1
 
 [node name="BlurLeft" type="ColorRect" parent="."]
-visible = false
 material = SubResource("ShaderMaterial_l1g7b")
 layout_mode = 1
 anchors_preset = 15
@@ -51,7 +52,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="BlurRight" type="ColorRect" parent="."]
-visible = false
 material = SubResource("ShaderMaterial_do22d")
 layout_mode = 1
 anchors_preset = 15
