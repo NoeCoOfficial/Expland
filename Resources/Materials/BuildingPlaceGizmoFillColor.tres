@@ -2,6 +2,6 @@
 
 [resource]
 transparency = 1
-albedo_color = Color(0, 1, 0.333333, 0.0352941)
+albedo_color = Color(0, 1, 0.333333, 0.0117647)
 emission_enabled = true
 emission = Color(0, 1, 0.333333, 1)
