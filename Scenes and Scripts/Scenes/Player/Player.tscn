@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=91 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" uid="uid://6516a37cmejq" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" uid="uid://dilocovfy7y5b" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -53,7 +53,8 @@
 [ext_resource type="Texture2D" uid="uid://dq8jg5iy6tfyc" path="res://Textures/Inventory/AXE.png" id="42_bm4qo"]
 [ext_resource type="Texture2D" uid="uid://dixs8s5v2su7q" path="res://Textures/Inventory/SWORD.png" id="43_0oip2"]
 [ext_resource type="PackedScene" uid="uid://cjxbcx2vhofs" path="res://Scenes and Scripts/Scenes/Achievements/AchievementNotification.tscn" id="45_4wdcp"]
-[ext_resource type="Script" uid="uid://bityvasfxmgmh" path="res://Scenes and Scripts/Scenes/General/UI/BlurLayer_SCRIPT.gd" id="47_d86kj"]
+[ext_resource type="PackedScene" uid="uid://bjsti1e663lr8" path="res://Scenes and Scripts/Scenes/General/UI/BlurLayer.tscn" id="47_d86kj"]
+[ext_resource type="FontFile" uid="uid://bel1qoyfluvci" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Bold.otf" id="48_6rn6i"]
 [ext_resource type="PackedScene" uid="uid://cn1krf62jowgb" path="res://Scenes and Scripts/Scenes/Dialogue/MinimalDialogue.tscn" id="48_yqbml"]
 [ext_resource type="PackedScene" uid="uid://bbc10j8mbwjbn" path="res://Scenes and Scripts/Scenes/Audio/AudioNotification.tscn" id="50_wwm5q"]
 [ext_resource type="Texture2D" uid="uid://64jg78rc6wkb" path="res://Textures/Icons/Loading_Icon.png" id="52_xwypu"]
@@ -1638,139 +1639,6 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="Shader" id="Shader_6rn6i"]
-resource_local_to_scene = true
-code = "// A Gaussian blur shader for Godot 4.3
-shader_type canvas_item;
-
-
-uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
-
-// The radius of the blur effect (number of pixels to blur, NOT USED).
-uniform int blur_radius : hint_range(1, 32) = 8;
-
-// Controls the intensity of the blur. (NOT USED)
-uniform float blur_strength : hint_range(0.1, 10.0) = 10.0;
-
-// Direction of the fade: 0 = left, 1 = right, 2 = top, 3 = bottom.
-uniform int fade_direction : hint_range(0, 3) = 0;
-
-// Sets the cutoff point for the blur fade (0.0 to 1.0).
-uniform float fade_cutoff : hint_range(0.0, 1.0) = 0.2;
-
-// Controls the sharpness of the fade transition.
-uniform float fade_intensity : hint_range(0.1, 10.0) = 2.0;
-
-
-// Calculated with with blur_radius of 32 and blur_strength of 10 (16 works nice as well)
-const float gaussian_32[32] = float[](
-    0.039940,0.039741,0.039149,0.038183,0.036869,0.035247,0.033361,0.031261,
-	0.029002,0.026639,0.024225,0.021810,0.019441,0.017157,0.014990,0.012967,
-	0.011105,0.009416,0.007904,0.006569,0.005405,0.004403,0.003552,0.002836,
-	0.002242,0.001755,0.001360,0.001043,0.000792,0.000596,0.000444,0.000327
-);
-
-// Precomputed weights for the Gaussian kernel. (NOT USED)
-float gaussian_weight(float i, float sigma) {
-    return exp(-0.5 * (i * i) / (sigma * sigma));
-}
-
-// Precomputes the weights for the Gaussian kernel.
-void calculate_kernel(out float kernel[32], int radius, float sigma) {
-    float sum = 0.0;
-    for (int i = 0; i <= radius; i++) {
-        kernel[i] = gaussian_weight(float(i), sigma);
-        sum += i == 0 ? kernel[i] : 2.0 * kernel[i];
-    }
-    for (int i = 0; i <= radius; i++) {
-        kernel[i] /= sum;
-    }
-}
-
-// Computes the fade factor based on the direction and UV coordinates.
-float calculate_fade(vec2 uv) {
-    float fade = 0.0;
-    if (fade_direction == 0) {
-        fade = uv.x; // Left to right
-    } else if (fade_direction == 1) {
-        fade = 1.0 - uv.x; // Right to left
-    } else if (fade_direction == 2) {
-        fade = uv.y; // Top to bottom
-    } else {
-        fade = 1.0 - uv.y; // Bottom to top
-    }
-
-    // Normalize fade based on cutoff and intensity.
-    if (fade < fade_cutoff) {
-        return 1.0; // Full blur
-    }
-
-    // Scale fade factor smoothly to 0 at the edge.
-    fade = (fade - fade_cutoff) / (1.0 - fade_cutoff);
-    return clamp(pow(1.0 - fade*2.0, fade_intensity), 0.0, 1.0);
-}
-
-
-
-
-void fragment() {
-    vec2 resolution = SCREEN_PIXEL_SIZE;
-    vec2 uv = SCREEN_UV;
-	
-	
-	// Calculate the fade factor.
-    float fade_factor = calculate_fade(uv);
-    // Gaussian kernel weights.
-    float kernel[32] ;//= gaussian_32; // remove this varuble and enable the next line
-    calculate_kernel(kernel, blur_radius, blur_strength);
-	
-	 vec4 final_color = vec4(0.0);
-	
-    // Horizontal blur pass.
-    //for (int i = -blur_radius; i <= blur_radius; i++) {
-        //final_color += texture(SCREEN_TEXTURE, uv + vec2(0.0, float(i)) * resolution).rgba * kernel[abs(i)];
-    //}
-
-
-    // Vertical blur pass.
-    for (int i = -blur_radius; i <= blur_radius; i++) {
-        final_color += texture(SCREEN_TEXTURE, uv + vec2(0.0, float(i)) * resolution).rgba * kernel[abs(i)];
-    }
-	
-	
-	// One pass blur ... ***VERY BAD PROFORMANCE***
-    //for (int x = -blur_radius; x <= blur_radius; x++) {
-        //for (int y = -blur_radius; y <= blur_radius; y++) {
-            //float weight = kernel[abs(x)] * kernel[abs(y)];
-            //vec2 offset = vec2(float(x), float(y)) * resolution;
-            //final_color += texture(SCREEN_TEXTURE, uv + offset).rgb * weight;
-        //}
-    //}
-
-    // Output the blurred color.
-	float alpha = fade_factor; // Transparency is tied to the fade factor.
-	final_color.a = fade_factor;
-	COLOR = final_color;
-}"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xcup6"]
-resource_local_to_scene = true
-shader = SubResource("Shader_6rn6i")
-shader_parameter/blur_radius = 8
-shader_parameter/blur_strength = 0.1
-shader_parameter/fade_direction = 0
-shader_parameter/fade_cutoff = 0.331
-shader_parameter/fade_intensity = 0.703
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fqnu3"]
-resource_local_to_scene = true
-shader = SubResource("Shader_6rn6i")
-shader_parameter/blur_radius = 8
-shader_parameter/blur_strength = 0.1
-shader_parameter/fade_direction = 1
-shader_parameter/fade_cutoff = 0.331
-shader_parameter/fade_intensity = 0.703
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_meokx"]
 bg_color = Color(0.125911, 0.125911, 0.125911, 1)
 border_width_left = 2
@@ -2042,36 +1910,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 transform = Transform3D(-0.651061, 0, -5.69176e-08, 0, 0.651061, 0, 5.69176e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Head/Player_Character_Shadow/Armature_003" index="0"]
-bones/0/position = Vector3(2.71244, -4.25124, -195.331)
-bones/0/rotation = Quaternion(-0.682738, -0.269977, 0.250759, 0.630953)
-bones/1/rotation = Quaternion(0.0813811, 0.0411811, -0.00957858, 0.995786)
-bones/2/rotation = Quaternion(0.100561, 0.0797481, -0.023425, 0.991453)
-bones/3/rotation = Quaternion(0.100561, 0.0797481, -0.023425, 0.991453)
-bones/4/rotation = Quaternion(-0.0680733, -0.011008, 0.00245514, 0.997617)
-bones/5/rotation = Quaternion(-0.0553846, 0.176692, -0.0127731, 0.982624)
-bones/7/rotation = Quaternion(0.59609, 0.40103, -0.567765, 0.401863)
-bones/8/rotation = Quaternion(0.419368, -0.108657, 0.0876427, 0.897019)
+bones/0/position = Vector3(2.74128, -4.30951, -195.34)
+bones/0/rotation = Quaternion(-0.682764, -0.269949, 0.250626, 0.63099)
+bones/1/rotation = Quaternion(0.081272, 0.0410931, -0.00957874, 0.995798)
+bones/2/rotation = Quaternion(0.10039, 0.0795733, -0.0234511, 0.991484)
+bones/3/rotation = Quaternion(0.10039, 0.0795733, -0.023451, 0.991484)
+bones/4/rotation = Quaternion(-0.0680367, -0.0110294, 0.00242341, 0.997619)
+bones/5/rotation = Quaternion(-0.0537651, 0.176665, -0.0126335, 0.98272)
+bones/7/rotation = Quaternion(0.596449, 0.40076, -0.567513, 0.401955)
+bones/8/rotation = Quaternion(0.418984, -0.108775, 0.088206, 0.897129)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0396176, 0.0579991, 0.403757, 0.912166)
-bones/11/rotation = Quaternion(0.644252, -0.361596, 0.524627, 0.423029)
-bones/12/rotation = Quaternion(0.402565, 0.11552, 0.14877, 0.895803)
-bones/13/rotation = Quaternion(0.0207037, 0.0280219, -0.361962, 0.931541)
-bones/15/rotation = Quaternion(0.0790502, 0.241325, 0.961362, -0.106287)
+bones/9/rotation = Quaternion(-0.0394684, 0.0578841, 0.403697, 0.912206)
+bones/11/rotation = Quaternion(0.644276, -0.361609, 0.524639, 0.422967)
+bones/12/rotation = Quaternion(0.402633, 0.115668, 0.148255, 0.895839)
+bones/13/rotation = Quaternion(0.0207632, 0.0284454, -0.361899, 0.931552)
+bones/15/rotation = Quaternion(0.0790856, 0.241332, 0.961356, -0.106302)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.366478, 0.118111, -0.0368362, 0.922164)
-bones/17/rotation = Quaternion(0.566314, -0.00287791, -0.0268702, 0.823746)
-bones/18/rotation = Quaternion(0.289416, -0.0368307, -0.00940068, 0.956448)
-bones/20/rotation = Quaternion(-0.124431, 0.0402611, 0.98256, 0.13218)
-bones/21/rotation = Quaternion(-0.360945, 0.0702722, -0.0273728, 0.929533)
-bones/22/rotation = Quaternion(0.680509, 0.0548043, 0.104765, 0.723138)
+bones/16/rotation = Quaternion(-0.366149, 0.118075, -0.0367783, 0.922302)
+bones/17/rotation = Quaternion(0.566064, -0.00295798, -0.0268038, 0.82392)
+bones/18/rotation = Quaternion(0.289207, -0.0363385, -0.00931836, 0.956531)
+bones/20/rotation = Quaternion(-0.124387, 0.0402379, 0.982585, 0.132046)
+bones/21/rotation = Quaternion(-0.360852, 0.0704262, -0.027374, 0.929557)
+bones/22/rotation = Quaternion(0.680335, 0.0547519, 0.104759, 0.723306)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.278068, 0.0566191, -0.0168876, 0.958742)
+bones/23/rotation = Quaternion(0.277831, 0.0564791, -0.0168753, 0.95882)
 
 [node name="Model_004" parent="Head/Player_Character_Shadow/Armature_003/Skeleton3D" index="0"]
 cast_shadow = 3
 
 [node name="HandAttatchment" type="BoneAttachment3D" parent="Head/Player_Character_Shadow/Armature_003/Skeleton3D" index="1"]
-transform = Transform3D(-0.30809, -0.388933, 0.868223, 0.940993, 0.00975686, 0.338284, -0.140041, 0.921215, 0.362977, -76.5378, -39.0945, -200.82)
+transform = Transform3D(-0.308964, -0.389811, 0.867519, 0.94043, 0.010865, 0.339813, -0.141888, 0.920831, 0.363232, -76.5378, -39.073, -200.832)
 bone_name = "mixamorig_RightHand"
 bone_idx = 14
 
@@ -2079,30 +1947,30 @@ bone_idx = 14
 transform = Transform3D(-0.651061, 0, 5.69175e-08, 0, 0.651061, 0, -5.69175e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Head/Player_Character/Armature_003" index="0"]
-bones/0/position = Vector3(2.71244, -4.25124, -195.331)
-bones/0/rotation = Quaternion(-0.682738, -0.269977, 0.250759, 0.630953)
-bones/1/rotation = Quaternion(0.0813811, 0.0411811, -0.00957858, 0.995786)
-bones/2/rotation = Quaternion(0.100561, 0.0797481, -0.023425, 0.991453)
-bones/3/rotation = Quaternion(0.100561, 0.0797481, -0.023425, 0.991453)
-bones/4/rotation = Quaternion(-0.0680733, -0.011008, 0.00245514, 0.997617)
-bones/5/rotation = Quaternion(-0.0553846, 0.176692, -0.0127731, 0.982624)
-bones/7/rotation = Quaternion(0.59609, 0.40103, -0.567765, 0.401863)
-bones/8/rotation = Quaternion(0.419368, -0.108657, 0.0876427, 0.897019)
+bones/0/position = Vector3(2.74128, -4.30951, -195.34)
+bones/0/rotation = Quaternion(-0.682764, -0.269949, 0.250626, 0.63099)
+bones/1/rotation = Quaternion(0.081272, 0.0410931, -0.00957874, 0.995798)
+bones/2/rotation = Quaternion(0.10039, 0.0795733, -0.0234511, 0.991484)
+bones/3/rotation = Quaternion(0.10039, 0.0795733, -0.023451, 0.991484)
+bones/4/rotation = Quaternion(-0.0680367, -0.0110294, 0.00242341, 0.997619)
+bones/5/rotation = Quaternion(-0.0537651, 0.176665, -0.0126335, 0.98272)
+bones/7/rotation = Quaternion(0.596449, 0.40076, -0.567513, 0.401955)
+bones/8/rotation = Quaternion(0.418984, -0.108775, 0.088206, 0.897129)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0396176, 0.0579991, 0.403757, 0.912166)
-bones/11/rotation = Quaternion(0.644252, -0.361596, 0.524627, 0.423029)
-bones/12/rotation = Quaternion(0.402565, 0.11552, 0.14877, 0.895803)
-bones/13/rotation = Quaternion(0.0207037, 0.0280219, -0.361962, 0.931541)
-bones/15/rotation = Quaternion(0.0790502, 0.241325, 0.961362, -0.106287)
+bones/9/rotation = Quaternion(-0.0394684, 0.0578841, 0.403697, 0.912206)
+bones/11/rotation = Quaternion(0.644276, -0.361609, 0.524639, 0.422967)
+bones/12/rotation = Quaternion(0.402633, 0.115668, 0.148255, 0.895839)
+bones/13/rotation = Quaternion(0.0207632, 0.0284454, -0.361899, 0.931552)
+bones/15/rotation = Quaternion(0.0790856, 0.241332, 0.961356, -0.106302)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.366478, 0.118111, -0.0368362, 0.922164)
-bones/17/rotation = Quaternion(0.566314, -0.00287791, -0.0268702, 0.823746)
-bones/18/rotation = Quaternion(0.289416, -0.0368307, -0.00940068, 0.956448)
-bones/20/rotation = Quaternion(-0.124431, 0.0402611, 0.98256, 0.13218)
-bones/21/rotation = Quaternion(-0.360945, 0.0702722, -0.0273728, 0.929533)
-bones/22/rotation = Quaternion(0.680509, 0.0548043, 0.104765, 0.723138)
+bones/16/rotation = Quaternion(-0.366149, 0.118075, -0.0367783, 0.922302)
+bones/17/rotation = Quaternion(0.566064, -0.00295798, -0.0268038, 0.82392)
+bones/18/rotation = Quaternion(0.289207, -0.0363385, -0.00931836, 0.956531)
+bones/20/rotation = Quaternion(-0.124387, 0.0402379, 0.982585, 0.132046)
+bones/21/rotation = Quaternion(-0.360852, 0.0704262, -0.027374, 0.929557)
+bones/22/rotation = Quaternion(0.680335, 0.0547519, 0.104759, 0.723306)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.278068, 0.0566191, -0.0168876, 0.958742)
+bones/23/rotation = Quaternion(0.277831, 0.0564791, -0.0168753, 0.95882)
 
 [node name="Model_004" parent="Head/Player_Character/Armature_003/Skeleton3D" index="0"]
 cast_shadow = 0
@@ -4625,59 +4493,21 @@ color = Color(0, 0, 0, 1)
 [node name="PauseLayer" type="CanvasLayer" parent="Head/Camera3D"]
 visible = false
 
-[node name="BlurLayer" type="Control" parent="Head/Camera3D/PauseLayer" node_paths=PackedStringArray("BlurLeft", "BlurRight", "Stop_Mouse")]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("47_d86kj")
-BlurLeft = NodePath("BlurLeft")
-BlurRight = NodePath("BlurRight")
-Stop_Mouse = NodePath("Stop_Mouse")
-
-[node name="BlurLeft" type="ColorRect" parent="Head/Camera3D/PauseLayer/BlurLayer"]
-material = SubResource("ShaderMaterial_xcup6")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="BlurRight" type="ColorRect" parent="Head/Camera3D/PauseLayer/BlurLayer"]
-material = SubResource("ShaderMaterial_fqnu3")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Stop_Mouse" type="Control" parent="Head/Camera3D/PauseLayer/BlurLayer"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
+[node name="BlurLayer" parent="Head/Camera3D/PauseLayer" instance=ExtResource("47_d86kj")]
 
 [node name="Title" type="Label" parent="Head/Camera3D/PauseLayer"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -166.5
-offset_top = 24.0
+offset_top = 62.0
 offset_right = 166.5
-offset_bottom = 83.0
+offset_bottom = 121.0
 grow_horizontal = 2
 mouse_filter = 1
 theme = ExtResource("17_rhxkt")
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("48_6rn6i")
 theme_override_font_sizes/font_size = 50
 text = "GAME PAUSED"
 horizontal_alignment = 1

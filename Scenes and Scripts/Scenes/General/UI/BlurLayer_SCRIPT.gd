@@ -60,8 +60,10 @@ func _ready() -> void:
 	
 	target_mat_left.set_shader_parameter("blur_strength", 0.001)
 	target_mat_right.set_shader_parameter("blur_strength", 0.001)
+	target_mat_left.set_shader_parameter("darkness", 1.0)
+	target_mat_right.set_shader_parameter("darkness", 1.0)
 
-func fadeInBlur(time : float, blur_strength : float, stop_mouse : bool, pass_mouse : bool = false):
+func fadeInBlur(time : float, blur_strength : float, stop_mouse : bool, darkness : float, pass_mouse : bool = false):
 	if stop_mouse:
 		Stop_Mouse.mouse_filter = Control.MOUSE_FILTER_STOP
 	if pass_mouse:
@@ -70,12 +72,16 @@ func fadeInBlur(time : float, blur_strength : float, stop_mouse : bool, pass_mou
 	var tween = get_tree().create_tween().set_parallel()
 	tween.tween_property(target_mat_left, "shader_parameter/blur_strength", blur_strength, time)
 	tween.tween_property(target_mat_right, "shader_parameter/blur_strength", blur_strength, time)
+	tween.tween_property(target_mat_left, "shader_parameter/darkness", darkness, time)
+	tween.tween_property(target_mat_right, "shader_parameter/darkness", darkness, time)
 
 func fadeOutBlur(time : float):
 	var tween = get_tree().create_tween().set_parallel()
 	tween.connect("finished", on_fade_out_finished)
 	tween.tween_property(target_mat_left, "shader_parameter/blur_strength", 0.001, time)
 	tween.tween_property(target_mat_right, "shader_parameter/blur_strength", 0.001, time)
+	tween.tween_property(target_mat_left, "shader_parameter/darkness", 1.0, time)
+	tween.tween_property(target_mat_right, "shader_parameter/darkness", 1.0, time)
 
 func on_fade_out_finished():
 	Stop_Mouse.mouse_filter = Control.MOUSE_FILTER_IGNORE
