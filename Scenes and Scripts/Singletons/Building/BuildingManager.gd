@@ -52,10 +52,14 @@ var BuildingVignette : ShaderMaterial = preload("res://Resources/Shader Material
 var BA_PhysicalObject : PackedScene = preload("res://Scenes and Scripts/Scenes/Building System/Building Assets/Physical/BA_PhysicalObject.tscn")
 var BA_StaticObject : PackedScene = preload("res://Scenes and Scripts/Scenes/Building System/Building Assets/Static/BA_StaticObject.tscn")
 
+var CanBuildMaterial : StandardMaterial3D = preload("res://Resources/Materials/BuildingPlaceColorOverride.tres")
+var CantBuildMaterial : StandardMaterial3D = preload("res://Resources/Materials/BuildingCantPlaceColorOverride.tres") 
+
 var vignette_tween : Tween
 
 var is_in_building_interface : bool = false
 var is_in_building_edit_interface : bool = false
+var can_build : bool = true
 
 func init_building_system():
 	# First, check if we are not in the building interface
@@ -68,14 +72,18 @@ func init_building_system():
 			var tween = get_tree().create_tween()
 			tween.tween_property(BuildingVignette, "shader_parameter/alpha", 0.4, 0.2)
 			
-			
-			
-			# TODO: STUFF HERE!
-			# Get resource from item types dict, etc...
-			# yknow, stuff
 			var building_asset_res = InventoryManager.ITEM_TYPES[HandManager.CURRENTLY_HOLDING_ITEM]["BUILDING_ASSET_RES"]
 			var model_instance = building_asset_res.Model_Scene.instantiate()
+			
 			PlayerManager.PLAYER.BuildingItemParent.add_child(model_instance)
+			
+			model_instance.position = building_asset_res.Spawn_Position
+			model_instance.rotation_degrees = building_asset_res.Spawn_Rotation
+			model_instance.scale = building_asset_res.Spawn_Scale
+			
+			for child in model_instance.get_children():
+				if child is MeshInstance3D:
+					child.material_override = CanBuildMaterial
 			
 			print("spawned building system")
 
@@ -89,7 +97,9 @@ func despawn_building_system():
 		var tween = get_tree().create_tween()
 		tween.tween_property(BuildingVignette, "shader_parameter/alpha", 0.0, 0.2)
 		
-		
+		for child in PlayerManager.PLAYER.BuildingItemParent.get_children():
+			if child is Node3D:
+				child.queue_free()
 		
 		print("despawned building system")
 
@@ -105,3 +115,6 @@ func despawn_edit():
 	PlayerManager.PLAYER.BuildingUIEditLayer.visible = false
 	PlayerManager.PLAYER.BuildingEditKeyMessage.text = "Edit"
 	print("exited edit interface")
+
+func toggle_can_build(toggle : bool = true, update_mesh : bool = true):
+	can_build = toggle
