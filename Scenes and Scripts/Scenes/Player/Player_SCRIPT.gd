@@ -1142,12 +1142,14 @@ func _on_potion_health_regen_timeout() -> void:
 
 func pauseGame():
 	PauseLayer.show()
+	$Head/Camera3D/PauseLayer/BlurLayer.fadeInBlur(0.0, 7.0, false, true)
 	$Head/Camera3D/AudioNotificationLayer.layer = 15
 	PauseManager.is_paused = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # set the mouse mode to visible
 
 func resumeGame():
 	PauseLayer.hide()
+	$Head/Camera3D/PauseLayer/BlurLayer.fadeOutBlur(0.0)
 	$Head/Camera3D/AudioNotificationLayer.layer = 1
 	PauseManager.is_paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor
