@@ -9,5 +9,5 @@ ITEM_TYPE = "SWORD"
 Model_Scene = ExtResource("1_yykk4")
 Spawn_Position = Vector3(0, 0, 0)
 Spawn_Rotation = Vector3(0, 0, 0)
-Spawn_Scale = Vector3(0, 0, 0)
+Spawn_Scale = Vector3(0.6, 0.6, 0.6)
 metadata/_custom_type_script = "uid://c1yp645pkxk3d"

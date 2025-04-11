@@ -53,4 +53,4 @@ class_name BuildingAsset extends Resource
 @export_group("Spawn")
 @export var Spawn_Position : Vector3
 @export var Spawn_Rotation : Vector3
-@export var Spawn_Scale : Vector3
+@export var Spawn_Scale : Vector3 = Vector3.ONE
