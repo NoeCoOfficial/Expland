@@ -105,7 +105,8 @@ func initialize_globals() -> void:
 	PlayerSettingsData.loadSettings()
 
 func initialize_ui() -> void:
-	$Camera3D/MainLayer/GreyLayerGamemodeLayer.hide()
+	$Camera3D/MainLayer/BlurLayerGamemode.hide()
+	$Camera3D/MainLayer/BlurLayerGamemode2.hide()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	IslandManager.resetAttributes()
 	IslandAccessOrder.load_order()
@@ -257,12 +258,13 @@ func spawnGameModeMenu():
 	is_tweening = true  # Set tweening flag to true
 	
 	$Camera3D/MainLayer/PlayButtonTrigger.visible = false
-	$Camera3D/MainLayer/GreyLayerGamemodeLayer.show()
+	$Camera3D/MainLayer/BlurLayerGamemode.show()
+	$Camera3D/MainLayer/BlurLayerGamemode2.show()
 	
 	var tween = get_tree().create_tween().set_parallel()
 	tween.connect("finished", Callable(self, "on_spawn_game_mode_menu_tween_finished"))
 	
-	var target_mat = $Camera3D/MainLayer/GreyLayerGamemodeLayer.material
+	var target_mat = $Camera3D/MainLayer/BlurLayerGamemode.material
 	tween.tween_property(target_mat, "shader_parameter/blur_strength", 5.3, 0.5)
 	
 	tween.tween_property($Camera3D/MainLayer/ExitGamemodeLayerButton, "position", Vector2(15, 11), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
@@ -285,10 +287,12 @@ func deSpawnGameModeMenu():
 		
 		var tween = get_tree().create_tween().set_parallel()
 		
-		var target_mat = $Camera3D/MainLayer/GreyLayerGamemodeLayer.material
+		var target_mat = $Camera3D/MainLayer/BlurLayerGamemode.material
 		tween.tween_property(target_mat, "shader_parameter/blur_strength", 0.001, 1)
 		
-		tween.tween_property($Camera3D/MainLayer/GreyLayerGamemodeLayer, "visible", false, 0).set_delay(1)
+		tween.tween_property($Camera3D/MainLayer/BlurLayerGamemode, "visible", false, 0).set_delay(1)
+		tween.tween_property($Camera3D/MainLayer/BlurLayerGamemode2, "visible", false, 0).set_delay(1)
+
 		
 		tween.tween_property($Camera3D/MainLayer/ExitGamemodeLayerButton, "position", Vector2(15, -54), 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
 		

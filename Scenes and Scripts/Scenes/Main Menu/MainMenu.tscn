@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=61 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" uid="uid://uvd1eie30b14" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="PackedScene" uid="uid://jb61th5px5nt" path="res://Assets/3D Models/Tests/Island/Island 2.blend" id="2_0llf6"]
@@ -153,8 +153,16 @@ Label/styles/normal = ExtResource("15_8lpeu")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_elslp"]
 shader = ExtResource("5_elslp")
 shader_parameter/blur_radius = 8
-shader_parameter/blur_strength = 0.1
+shader_parameter/blur_strength = 4.427
 shader_parameter/fade_direction = 0
+shader_parameter/fade_cutoff = 0.414
+shader_parameter/fade_intensity = 0.908
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w01ed"]
+shader = ExtResource("5_elslp")
+shader_parameter/blur_radius = 8
+shader_parameter/blur_strength = 4.427
+shader_parameter/fade_direction = 1
 shader_parameter/fade_cutoff = 0.414
 shader_parameter/fade_intensity = 0.908
 
@@ -538,12 +546,26 @@ script = ExtResource("10_y68f7")
 [node name="SettingsUI" parent="Camera3D/MainLayer" instance=ExtResource("10_i36v3")]
 visible = false
 
-[node name="GreyLayerGamemodeLayer" type="ColorRect" parent="Camera3D/MainLayer"]
+[node name="BlurLayerGamemode" type="ColorRect" parent="Camera3D/MainLayer"]
 visible = false
 material = SubResource("ShaderMaterial_elslp")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BlurLayerGamemode2" type="ColorRect" parent="Camera3D/MainLayer"]
+material = SubResource("ShaderMaterial_w01ed")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
 grow_horizontal = 2
 grow_vertical = 2
 
