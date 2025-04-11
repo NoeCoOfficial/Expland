@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=60 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" uid="uid://uvd1eie30b14" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="PackedScene" uid="uid://jb61th5px5nt" path="res://Assets/3D Models/Tests/Island/Island 2.blend" id="2_0llf6"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cdbylnsm71dkk" path="res://Assets/3D Models/Environment/Trees/Normal/Models/Tree3.blend" id="4_drkdx"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="4_grlcg"]
 [ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="5_dfh28"]
+[ext_resource type="Shader" uid="uid://ddwwgv2rqfito" path="res://Resources/Shaders/GausianBlur.gdshader" id="5_elslp"]
 [ext_resource type="PackedScene" uid="uid://ckktuiw4a367o" path="res://Assets/3D Models/Environment/Rocks/Rock2_Broken.blend" id="5_mxq5r"]
 [ext_resource type="PackedScene" uid="uid://b5d0ah73v2doj" path="res://Assets/3D Models/Environment/Rocks/Rock5_Mossy.blend" id="6_lssvk"]
 [ext_resource type="Texture2D" uid="uid://fih3i4yk6pip" path="res://Textures/Icons/PlayBtn_Icon.png" id="6_ve3ie"]
@@ -148,6 +149,15 @@ Button/styles/hover = SubResource("StyleBoxFlat_pdfov")
 Button/styles/normal = ExtResource("12_3uklh")
 Button/styles/pressed = SubResource("StyleBoxFlat_tv74r")
 Label/styles/normal = ExtResource("15_8lpeu")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_elslp"]
+shader = ExtResource("5_elslp")
+shader_parameter/blur_radius = 8
+shader_parameter/Darkness = 0.0
+shader_parameter/R = 0.0
+shader_parameter/G = 0.0
+shader_parameter/B = 0.0
+shader_parameter/blur_strength = 5.3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q7bbx"]
 bg_color = Color(0.0177325, 0.0177324, 0.0177324, 1)
@@ -531,12 +541,12 @@ visible = false
 
 [node name="GreyLayerGamemodeLayer" type="ColorRect" parent="Camera3D/MainLayer"]
 visible = false
+material = SubResource("ShaderMaterial_elslp")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.643)
 
 [node name="ExitGamemodeLayerButton" type="Button" parent="Camera3D/MainLayer"]
 anchors_preset = 7
