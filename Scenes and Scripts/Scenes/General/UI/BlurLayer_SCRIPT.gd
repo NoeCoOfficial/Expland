@@ -49,6 +49,7 @@ extends Control
 
 @export var BlurLeft : ColorRect
 @export var BlurRight : ColorRect
+@export var Stop_Mouse : Control
 
 var target_mat_left
 var target_mat_right
@@ -57,15 +58,21 @@ func _ready() -> void:
 	target_mat_left = BlurLeft.material
 	target_mat_right = BlurRight.material
 	
-	target_mat_left.blur_strength = 0.001
-	target_mat_right.blur_strength = 0.001
+	target_mat_left.set_shader_parameter("blur_strength", 0.001)
+	target_mat_right.set_shader_parameter("blur_strength", 0.001)
 
-func fadeInBlur(time : float, blur_strength : float):
+func fadeInBlur(time : float, blur_strength : float, stop_mouse : bool):
+	if stop_mouse:
+		Stop_Mouse.mouse_filter = Control.MOUSE_FILTER_STOP
 	var tween = get_tree().create_tween().set_parallel()
 	tween.tween_property(target_mat_left, "shader_parameter/blur_strength", blur_strength, time)
 	tween.tween_property(target_mat_right, "shader_parameter/blur_strength", blur_strength, time)
 
 func fadeOutBlur(time : float):
 	var tween = get_tree().create_tween().set_parallel()
+	tween.connect("finished", on_fade_out_finished)
 	tween.tween_property(target_mat_left, "shader_parameter/blur_strength", 0.001, time)
 	tween.tween_property(target_mat_right, "shader_parameter/blur_strength", 0.001, time)
+
+func on_fade_out_finished():
+	Stop_Mouse.mouse_filter = Control.MOUSE_FILTER_IGNORE

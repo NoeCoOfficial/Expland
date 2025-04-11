@@ -21,7 +21,7 @@ shader_parameter/fade_direction = 1
 shader_parameter/fade_cutoff = 0.331
 shader_parameter/fade_intensity = 0.703
 
-[node name="BlurLayer" type="Control"]
+[node name="BlurLayer" type="Control" node_paths=PackedStringArray("BlurLeft", "BlurRight", "Stop_Mouse")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,6 +30,9 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_rhogj")
+BlurLeft = NodePath("BlurLeft")
+BlurRight = NodePath("BlurRight")
+Stop_Mouse = NodePath("Stop_Mouse")
 
 [node name="BlurLeft" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_l1g7b")
@@ -43,6 +46,15 @@ mouse_filter = 2
 
 [node name="BlurRight" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_do22d")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Stop_Mouse" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
