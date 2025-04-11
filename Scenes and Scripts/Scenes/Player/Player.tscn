@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=91 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" uid="uid://6516a37cmejq" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" uid="uid://dilocovfy7y5b" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://djwgy3b85xfpn" path="res://Scenes and Scripts/Scenes/Player/Hand Item/HandItem.tscn" id="4_476v6"]
 [ext_resource type="PackedScene" uid="uid://dhhjltxmoydio" path="res://Scenes and Scripts/Scenes/Player/Inventory/InventorySlot.tscn" id="8_ads4s"]
 [ext_resource type="FontFile" uid="uid://c4h0gd5a2e2qb" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf" id="8_cdk3a"]
+[ext_resource type="Material" uid="uid://bdfreahc8rb2l" path="res://Resources/Materials/BuildingPlaceOutlineColor.tres" id="8_d86kj"]
 [ext_resource type="Texture2D" uid="uid://bg100aqmtgfn4" path="res://Textures/Icons/WhiteHam_Icon.png" id="8_l231k"]
 [ext_resource type="Texture2D" uid="uid://b20d3fbxr6vhx" path="res://Textures/Icons/WhiteHeart_Icon.png" id="8_ty1rt"]
 [ext_resource type="Script" uid="uid://snus4y53incu" path="res://Scenes and Scripts/Utility Scripts/IgnoreMouseFilter.gd" id="9_svfxy"]
@@ -1499,6 +1500,18 @@ _data = {
 &"Slow Run_2": SubResource("Animation_lrtbu")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_4f5g7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_d86kj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d86kj"]
+transparency = 1
+albedo_color = Color(0, 1, 0.333333, 0.0352941)
+emission_enabled = true
+emission = Color(0, 1, 0.333333, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6rn6i"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_yqbml"]
 size = Vector3(0.015, 0.015, 3.035)
 
@@ -1899,36 +1912,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 transform = Transform3D(-0.651061, 0, -5.69176e-08, 0, 0.651061, 0, 5.69176e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Head/Player_Character_Shadow/Armature_003" index="0"]
-bones/0/position = Vector3(2.89972, -2.35833, -196.468)
-bones/0/rotation = Quaternion(-0.684926, -0.270666, 0.248394, 0.629219)
-bones/1/rotation = Quaternion(0.0780293, 0.0408111, -0.00806264, 0.996083)
-bones/2/rotation = Quaternion(0.0930237, 0.0791652, -0.0215165, 0.992278)
-bones/3/rotation = Quaternion(0.0922949, 0.079185, -0.0213964, 0.992348)
-bones/4/rotation = Quaternion(-0.0461364, -0.0105247, 0.0019071, 0.998878)
-bones/5/rotation = Quaternion(-0.0640889, 0.177546, -0.00148633, 0.982022)
-bones/7/rotation = Quaternion(0.571652, 0.429923, -0.566819, 0.408773)
-bones/8/rotation = Quaternion(0.435908, -0.0976308, 0.0885243, 0.89029)
+bones/0/position = Vector3(2.93712, -2.65596, -196.359)
+bones/0/rotation = Quaternion(-0.68509, -0.270703, 0.248316, 0.629056)
+bones/1/rotation = Quaternion(0.0777607, 0.0407889, -0.00797142, 0.996105)
+bones/2/rotation = Quaternion(0.0927684, 0.0791373, -0.0213989, 0.992307)
+bones/3/rotation = Quaternion(0.0927753, 0.0791622, -0.0214003, 0.992304)
+bones/4/rotation = Quaternion(-0.045379, -0.0106028, 0.00179445, 0.998912)
+bones/5/rotation = Quaternion(-0.0526456, 0.176937, -0.00317077, 0.982808)
+bones/7/rotation = Quaternion(0.571951, 0.429705, -0.566297, 0.409308)
+bones/8/rotation = Quaternion(0.436205, -0.0976016, 0.0887881, 0.890121)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0334176, 0.0659381, 0.419206, 0.904877)
-bones/11/rotation = Quaternion(0.618336, -0.392486, 0.525795, 0.432615)
-bones/12/rotation = Quaternion(0.433087, 0.0913733, 0.146081, 0.88473)
-bones/13/rotation = Quaternion(0.0401306, -0.00360122, -0.368741, 0.928658)
-bones/15/rotation = Quaternion(0.0803465, 0.230612, 0.964185, -0.10349)
+bones/9/rotation = Quaternion(-0.033642, 0.0658028, 0.418376, 0.905262)
+bones/11/rotation = Quaternion(0.617925, -0.392991, 0.525619, 0.432956)
+bones/12/rotation = Quaternion(0.432406, 0.0921474, 0.145544, 0.885071)
+bones/13/rotation = Quaternion(0.0394959, -0.00228758, -0.368816, 0.92866)
+bones/15/rotation = Quaternion(0.0801897, 0.230459, 0.964243, -0.103412)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.358862, 0.119531, -0.0363842, 0.92499)
-bones/17/rotation = Quaternion(0.565821, -0.00105808, -0.0234992, 0.824192)
-bones/18/rotation = Quaternion(0.289366, -0.0364573, -0.00964215, 0.956475)
-bones/20/rotation = Quaternion(-0.12554, 0.0208868, 0.982806, 0.133779)
-bones/21/rotation = Quaternion(-0.335886, 0.072746, -0.0255781, 0.938741)
-bones/22/rotation = Quaternion(0.671829, 0.0555353, 0.107087, 0.730817)
+bones/16/rotation = Quaternion(-0.359008, 0.119359, -0.0360925, 0.924967)
+bones/17/rotation = Quaternion(0.565751, -0.00106982, -0.0235199, 0.82424)
+bones/18/rotation = Quaternion(0.289286, -0.0363226, -0.00955943, 0.956506)
+bones/20/rotation = Quaternion(-0.125422, 0.0224081, 0.982812, 0.133598)
+bones/21/rotation = Quaternion(-0.338584, 0.0725383, -0.0255229, 0.937789)
+bones/22/rotation = Quaternion(0.672097, 0.0554262, 0.106867, 0.730611)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.278114, 0.0568847, -0.0170664, 0.95871)
+bones/23/rotation = Quaternion(0.278068, 0.0568185, -0.0170352, 0.958728)
 
 [node name="Model_004" parent="Head/Player_Character_Shadow/Armature_003/Skeleton3D" index="0"]
 cast_shadow = 3
 
 [node name="HandAttatchment" type="BoneAttachment3D" parent="Head/Player_Character_Shadow/Armature_003/Skeleton3D" index="1"]
-transform = Transform3D(-0.274875, -0.354091, 0.893903, 0.949001, 0.0493832, 0.31138, -0.154401, 0.933906, 0.322459, -74.4292, -37.3076, -204.291)
+transform = Transform3D(-0.275285, -0.35952, 0.891608, 0.948363, 0.0504476, 0.31315, -0.157563, 0.931773, 0.327068, -74.8545, -37.5703, -204.331)
 bone_name = "mixamorig_RightHand"
 bone_idx = 14
 
@@ -1936,30 +1949,30 @@ bone_idx = 14
 transform = Transform3D(-0.651061, 0, 5.69175e-08, 0, 0.651061, 0, -5.69175e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Head/Player_Character/Armature_003" index="0"]
-bones/0/position = Vector3(2.89972, -2.35833, -196.468)
-bones/0/rotation = Quaternion(-0.684926, -0.270666, 0.248394, 0.629219)
-bones/1/rotation = Quaternion(0.0780293, 0.0408111, -0.00806264, 0.996083)
-bones/2/rotation = Quaternion(0.0930237, 0.0791652, -0.0215165, 0.992278)
-bones/3/rotation = Quaternion(0.0922949, 0.079185, -0.0213964, 0.992348)
-bones/4/rotation = Quaternion(-0.0461364, -0.0105247, 0.0019071, 0.998878)
-bones/5/rotation = Quaternion(-0.0640889, 0.177546, -0.00148633, 0.982022)
-bones/7/rotation = Quaternion(0.571652, 0.429923, -0.566819, 0.408773)
-bones/8/rotation = Quaternion(0.435908, -0.0976308, 0.0885243, 0.89029)
+bones/0/position = Vector3(2.93712, -2.65596, -196.359)
+bones/0/rotation = Quaternion(-0.68509, -0.270703, 0.248316, 0.629056)
+bones/1/rotation = Quaternion(0.0777607, 0.0407889, -0.00797142, 0.996105)
+bones/2/rotation = Quaternion(0.0927684, 0.0791373, -0.0213989, 0.992307)
+bones/3/rotation = Quaternion(0.0927753, 0.0791622, -0.0214003, 0.992304)
+bones/4/rotation = Quaternion(-0.045379, -0.0106028, 0.00179445, 0.998912)
+bones/5/rotation = Quaternion(-0.0526456, 0.176937, -0.00317077, 0.982808)
+bones/7/rotation = Quaternion(0.571951, 0.429705, -0.566297, 0.409308)
+bones/8/rotation = Quaternion(0.436205, -0.0976016, 0.0887881, 0.890121)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0334176, 0.0659381, 0.419206, 0.904877)
-bones/11/rotation = Quaternion(0.618336, -0.392486, 0.525795, 0.432615)
-bones/12/rotation = Quaternion(0.433087, 0.0913733, 0.146081, 0.88473)
-bones/13/rotation = Quaternion(0.0401306, -0.00360122, -0.368741, 0.928658)
-bones/15/rotation = Quaternion(0.0803465, 0.230612, 0.964185, -0.10349)
+bones/9/rotation = Quaternion(-0.033642, 0.0658028, 0.418376, 0.905262)
+bones/11/rotation = Quaternion(0.617925, -0.392991, 0.525619, 0.432956)
+bones/12/rotation = Quaternion(0.432406, 0.0921474, 0.145544, 0.885071)
+bones/13/rotation = Quaternion(0.0394959, -0.00228758, -0.368816, 0.92866)
+bones/15/rotation = Quaternion(0.0801897, 0.230459, 0.964243, -0.103412)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.358862, 0.119531, -0.0363842, 0.92499)
-bones/17/rotation = Quaternion(0.565821, -0.00105808, -0.0234992, 0.824192)
-bones/18/rotation = Quaternion(0.289366, -0.0364573, -0.00964215, 0.956475)
-bones/20/rotation = Quaternion(-0.12554, 0.0208868, 0.982806, 0.133779)
-bones/21/rotation = Quaternion(-0.335886, 0.072746, -0.0255781, 0.938741)
-bones/22/rotation = Quaternion(0.671829, 0.0555353, 0.107087, 0.730817)
+bones/16/rotation = Quaternion(-0.359008, 0.119359, -0.0360925, 0.924967)
+bones/17/rotation = Quaternion(0.565751, -0.00106982, -0.0235199, 0.82424)
+bones/18/rotation = Quaternion(0.289286, -0.0363226, -0.00955943, 0.956506)
+bones/20/rotation = Quaternion(-0.125422, 0.0224081, 0.982812, 0.133598)
+bones/21/rotation = Quaternion(-0.338584, 0.0725383, -0.0255229, 0.937789)
+bones/22/rotation = Quaternion(0.672097, 0.0554262, 0.106867, 0.730611)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.278114, 0.0568847, -0.0170664, 0.95871)
+bones/23/rotation = Quaternion(0.278068, 0.0568185, -0.0170352, 0.958728)
 
 [node name="Model_004" parent="Head/Player_Character/Armature_003/Skeleton3D" index="0"]
 cast_shadow = 0
@@ -1984,6 +1997,92 @@ script = ExtResource("2_37tst")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
 [node name="BuildingItemParent" type="Node3D" parent="Head/Camera3D/BuildingInitItemRig"]
+
+[node name="CanBuildCollision" type="Area3D" parent="Head/Camera3D/BuildingInitItemRig"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Head/Camera3D/BuildingInitItemRig/CanBuildCollision"]
+shape = SubResource("BoxShape3D_4f5g7")
+debug_color = Color(0.5645, 1, 0.33, 0.0823529)
+debug_fill = false
+
+[node name="Gizmo" type="Node3D" parent="Head/Camera3D/BuildingInitItemRig/CanBuildCollision"]
+
+[node name="Outline" type="MeshInstance3D" parent="Head/Camera3D/BuildingInitItemRig/CanBuildCollision/Gizmo"]
+transform = Transform3D(1, 0, 0, 0, 0.007, 0, 0, 0, 0.007, 0, 0.5, 0.5)
+material_override = ExtResource("8_d86kj")
+mesh = SubResource("BoxMesh_d86kj")
+skeleton = NodePath("../..")
+
+[node name="Outline2" type="MeshInstance3D" parent="Head/Camera3D/BuildingInitItemRig/CanBuildCollision/Gizmo"]
+transform = Transform3D(1, 0, 0, 0, 0.007, 0, 0, 0, 0.007, 0, 0.5, -0.5)
+material_override = ExtResource("8_d86kj")
+mesh = SubResource("BoxMesh_d86kj")
+skeleton = NodePath("../..")
+
+[node name="Outline3" type="MeshInstance3D" parent="Head/Camera3D/BuildingInitItemRig/CanBuildCollision/Gizmo"]
+transform = Transform3D(1, 0, 0, 0, 0.007, 0, 0, 0, 0.007, 0, -0.5, -0.5)
+material_override = ExtResource("8_d86kj")
+mesh = SubResource("BoxMesh_d86kj")
+skeleton = NodePath("../..")
+
+[node name="Outline4" type="MeshInstance3D" parent="Head/Camera3D/BuildingInitItemRig/CanBuildCollision/Gizmo"]
+transform = Transform3D(1, 0, 0, 0, 0.007, 0, 0, 0, 0.007, 0, -0.5, 0.5)
+material_override = ExtResource("8_d86kj")
+mesh = SubResource("BoxMesh_d86kj")
+skeleton = NodePath("../..")
+
+[node name="Outline5" type="MeshInstance3D" parent="Head/Camera3D/BuildingInitItemRig/CanBuildCollision/Gizmo"]
+transform = Transform3D(-4.37114e-08, 0.007, 0, -1, -3.0598e-10, 0, 0, 0, 0.007, 0.5, 2.38419e-07, 0.5)
+material_override = ExtResource("8_d86kj")
+mesh = SubResource("BoxMesh_d86kj")
+skeleton = NodePath("../..")
+
+[node name="Outline6" type="MeshInstance3D" parent="Head/Camera3D/BuildingInitItemRig/CanBuildCollision/Gizmo"]
+transform = Transform3D(-4.37114e-08, 0.007, 0, -1, -3.0598e-10, 0, 0, 0, 0.007, 0.5, 2.38419e-07, -0.5)
+material_override = ExtResource("8_d86kj")
+mesh = SubResource("BoxMesh_d86kj")
+skeleton = NodePath("../..")
+
+[node name="Outline7" type="MeshInstance3D" parent="Head/Camera3D/BuildingInitItemRig/CanBuildCollision/Gizmo"]
+transform = Transform3D(-4.37114e-08, 0.007, 0, -1, -3.0598e-10, 0, 0, 0, 0.007, -0.5, 2.38419e-07, -0.5)
+material_override = ExtResource("8_d86kj")
+mesh = SubResource("BoxMesh_d86kj")
+skeleton = NodePath("../..")
+
+[node name="Outline8" type="MeshInstance3D" parent="Head/Camera3D/BuildingInitItemRig/CanBuildCollision/Gizmo"]
+transform = Transform3D(-4.37114e-08, 0.007, 0, -1, -3.0598e-10, 0, 0, 0, 0.007, -0.5, 2.38419e-07, 0.5)
+material_override = ExtResource("8_d86kj")
+mesh = SubResource("BoxMesh_d86kj")
+skeleton = NodePath("../..")
+
+[node name="Outline9" type="MeshInstance3D" parent="Head/Camera3D/BuildingInitItemRig/CanBuildCollision/Gizmo"]
+transform = Transform3D(-4.37114e-08, 0, -0.007, 0, 0.007, 0, 1, 0, -3.0598e-10, -0.5, 0.5, 0)
+material_override = ExtResource("8_d86kj")
+mesh = SubResource("BoxMesh_d86kj")
+skeleton = NodePath("../..")
+
+[node name="Outline10" type="MeshInstance3D" parent="Head/Camera3D/BuildingInitItemRig/CanBuildCollision/Gizmo"]
+transform = Transform3D(-4.37114e-08, 0, -0.007, 0, 0.007, 0, 1, 0, -3.0598e-10, 0.5, 0.5, 1.19209e-07)
+material_override = ExtResource("8_d86kj")
+mesh = SubResource("BoxMesh_d86kj")
+skeleton = NodePath("../..")
+
+[node name="Outline11" type="MeshInstance3D" parent="Head/Camera3D/BuildingInitItemRig/CanBuildCollision/Gizmo"]
+transform = Transform3D(-4.37114e-08, 0, -0.007, 0, 0.007, 0, 1, 0, -3.0598e-10, 0.5, -0.5, 1.19209e-07)
+material_override = ExtResource("8_d86kj")
+mesh = SubResource("BoxMesh_d86kj")
+skeleton = NodePath("../..")
+
+[node name="Outline12" type="MeshInstance3D" parent="Head/Camera3D/BuildingInitItemRig/CanBuildCollision/Gizmo"]
+transform = Transform3D(-4.37114e-08, 0, -0.007, 0, 0.007, 0, 1, 0, -3.0598e-10, -0.5, -0.5, 0)
+material_override = ExtResource("8_d86kj")
+mesh = SubResource("BoxMesh_d86kj")
+skeleton = NodePath("../..")
+
+[node name="Fill" type="MeshInstance3D" parent="Head/Camera3D/BuildingInitItemRig/CanBuildCollision/Gizmo"]
+material_override = SubResource("StandardMaterial3D_d86kj")
+mesh = SubResource("BoxMesh_6rn6i")
+skeleton = NodePath("../..")
 
 [node name="HandItemRig" type="Node3D" parent="Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.477025, 0, -0.274263)
