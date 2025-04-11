@@ -73,7 +73,9 @@ func init_building_system():
 			# TODO: STUFF HERE!
 			# Get resource from item types dict, etc...
 			# yknow, stuff
-			PlayerManager.PLAYER.BuildingItemParent.add_child(true)
+			var building_asset_res = InventoryManager.ITEM_TYPES[HandManager.CURRENTLY_HOLDING_ITEM]["BUILDING_ASSET_RES"]
+			var model_instance = building_asset_res.Model_Scene.instantiate()
+			PlayerManager.PLAYER.BuildingItemParent.add_child(model_instance)
 			
 			print("spawned building system")
 
