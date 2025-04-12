@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bjsti1e663lr8"]
 
 [ext_resource type="Script" uid="uid://bityvasfxmgmh" path="res://Scenes and Scripts/Scenes/General/UI/BlurLayer_SCRIPT.gd" id="1_rhogj"]
-[ext_resource type="Texture2D" uid="uid://1blpdklv0ewy" path="res://Tests/Screenshot (7).png" id="2_8m7l4"]
+[ext_resource type="Texture2D" uid="uid://1blpdklv0ewy" path="res://Tests/main menu.png" id="2_8m7l4"]
 [ext_resource type="Shader" uid="uid://ddwwgv2rqfito" path="res://Resources/Shaders/GausianBlur.gdshader" id="2_budx2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l1g7b"]
