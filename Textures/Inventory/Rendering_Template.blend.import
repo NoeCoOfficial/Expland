@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bm0hh4s8ackii"
-path="res://.godot/imported/RightHandRigged.blend-695386d4b6cd3f0c524fff187614097e.scn"
+uid="uid://b1fy3fqx5w264"
+path="res://.godot/imported/Rendering_Template.blend-b01ed6c8e442c1599033c3ded8b6a3ab.scn"
 
 [deps]
 
-source_file="res://Assets/3D Models/Characters/Body Parts/Hands/RightHandRigged.blend"
-dest_files=["res://.godot/imported/RightHandRigged.blend-695386d4b6cd3f0c524fff187614097e.scn"]
+source_file="res://Textures/Inventory/Rendering_Template.blend"
+dest_files=["res://.godot/imported/Rendering_Template.blend-b01ed6c8e442c1599033c3ded8b6a3ab.scn"]
 
 [params]
 

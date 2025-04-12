@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://0w8g074j60bn"
-path="res://.godot/imported/TheEryv_ConceptArt.blend-c2c3c0e74201481dffe742790f51b0c6.scn"
+uid="uid://caj5xpmpyfb7"
+path="res://.godot/imported/WANDERER.blend-1c519bed4e3f47611a2fbbdad515772c.scn"
 
 [deps]
 
-source_file="res://Assets/3D Models/The Eryv (and related)/TheEryv_ConceptArt.blend"
-dest_files=["res://.godot/imported/TheEryv_ConceptArt.blend-c2c3c0e74201481dffe742790f51b0c6.scn"]
+source_file="res://Textures/Achievements/3D Scenes/WANDERER.blend"
+dest_files=["res://.godot/imported/WANDERER.blend-1c519bed4e3f47611a2fbbdad515772c.scn"]
 
 [params]
 
