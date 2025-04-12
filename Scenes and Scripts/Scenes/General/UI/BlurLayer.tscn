@@ -7,7 +7,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l1g7b"]
 resource_local_to_scene = true
 shader = ExtResource("2_budx2")
-shader_parameter/blur_radius = 8
+shader_parameter/blur_radius = 4
 shader_parameter/blur_scale = 2.19
 shader_parameter/darkness = 0.8
 shader_parameter/fade_direction = 0
@@ -27,6 +27,7 @@ Blur = NodePath("Blur")
 Stop_Mouse = NodePath("Stop_Mouse")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

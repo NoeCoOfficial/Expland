@@ -257,7 +257,7 @@ func spawnGameModeMenu():
 	
 	$Camera3D/MainLayer/PlayButtonTrigger.visible = false
 	
-	$Camera3D/MainLayer/GamemodeBlurLayer.fadeInBlur(0.5, 5.3, true, 0.8)
+	$Camera3D/MainLayer/GamemodeBlurLayer.fadeInBlur(0.5, 2.19, true, 0.8)
 	
 	var tween = get_tree().create_tween().set_parallel()
 	tween.connect("finished", Callable(self, "on_spawn_game_mode_menu_tween_finished"))

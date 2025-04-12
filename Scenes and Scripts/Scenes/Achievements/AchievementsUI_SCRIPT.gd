@@ -62,7 +62,7 @@ func _input(_event: InputEvent) -> void:
 func spawnAchievements(animationTime : float):
 	PauseManager.is_inside_achievements_ui = true
 	self.visible = true
-	$BlurLayer.fadeInBlur(0.5, 5.3, true, 0.8)
+	$BlurLayer.fadeInBlur(0.5, 2.19, true, 0.8)
 	
 	if PlayerSettingsData.quickAnimations:
 		$MainLayer.scale = Vector2(1.0, 1.0)
