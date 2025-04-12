@@ -73,7 +73,6 @@ gdscript/warnings/function_used_as_property=0
 
 [display]
 
-window/size/mode=4
 window/stretch/mode="canvas_items"
 display_server/driver.linuxbsd="wayland"
 window/version="0.7.5"
