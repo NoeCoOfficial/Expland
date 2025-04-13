@@ -45,4 +45,23 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-extends Node3D
+extends Control
+
+func _ready() -> void:
+	start_divine_cutscene()
+
+func nodes_init():
+	$FadeIn_White.color = Color(0, 0, 0, 1)
+	$Music.volume_db = -60
+	$"Tinnitus Effect".volume_db = -60
+	
+	
+
+func start_divine_cutscene():
+	nodes_init()
+	
+	$"Tinnitus Effect".play()
+	
+	var divine_cutscene_tween = get_tree().create_tween().set_parallel()
+	divine_cutscene_tween.tween_property($FadeIn_White, "color", Color(1, 1, 1, 1), 4)
+	divine_cutscene_tween.tween_property($"Tinnitus Effect", "volume_db", 0.0, 3)
