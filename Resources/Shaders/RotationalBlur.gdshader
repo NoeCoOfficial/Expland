@@ -15,7 +15,7 @@ VERTEX += pivot;
 
 float insideUnitSquare(vec2 v) {
     vec2 s = step(vec2(0.0), v) - step(vec2(1.0), v);
-    return s.x * s.y;   
+    return s.x * s.y;
 }
 
 vec2 rotate(vec2 uv, vec2 p, float angle)
@@ -39,7 +39,7 @@ void fragment(){
 		inSquare = insideUnitSquare(uv);
 		numSamples += inSquare;
 		COLOR += texture(TEXTURE, uv) * inSquare;
-		
+
 		uv = rotate(UV, pivot + 0.5, -float(i)*stepSize);
 		inSquare = insideUnitSquare(uv);
 		numSamples += inSquare;
