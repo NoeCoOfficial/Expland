@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cokfvtsoawjf0"]
+[gd_scene load_steps=4 format=3 uid="uid://cokfvtsoawjf0"]
 
+[ext_resource type="Script" uid="uid://byjopgirryaq8" path="res://Scenes and Scripts/Scenes/Story Mode/Start Divine Cutscene/StoryMode_StartDivineCutscene_SCRIPT.gd" id="1_17t8w"]
 [ext_resource type="AudioStream" uid="uid://bknheeswwgn6p" path="res://Audio/SFX/Self/Tinnitus.mp3" id="1_dok1h"]
+[ext_resource type="AudioStream" uid="uid://due0su3jcfwgq" path="res://Audio/Music/Lost At Sea.mp3" id="2_jdnk0"]
 
 [node name="World" type="Control"]
 layout_mode = 3
@@ -9,7 +11,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_17t8w")
 
 [node name="Tinnitus Effect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_dok1h")
 bus = &"sfx"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_jdnk0")
