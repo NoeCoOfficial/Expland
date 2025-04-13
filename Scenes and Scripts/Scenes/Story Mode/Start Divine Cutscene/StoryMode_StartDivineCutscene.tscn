@@ -1,23 +1,37 @@
-[gd_scene load_steps=8 format=3 uid="uid://cokfvtsoawjf0"]
+[gd_scene load_steps=10 format=3 uid="uid://cokfvtsoawjf0"]
 
 [ext_resource type="Script" uid="uid://byjopgirryaq8" path="res://Scenes and Scripts/Scenes/Story Mode/Start Divine Cutscene/StoryMode_StartDivineCutscene_SCRIPT.gd" id="1_17t8w"]
 [ext_resource type="AudioStream" uid="uid://bknheeswwgn6p" path="res://Audio/SFX/Self/Tinnitus.mp3" id="1_dok1h"]
 [ext_resource type="AudioStream" uid="uid://due0su3jcfwgq" path="res://Audio/Music/Lost At Sea.mp3" id="2_jdnk0"]
-[ext_resource type="Shader" uid="uid://c1lku8qjkkkkr" path="res://Resources/Shaders/Bodycam.gdshader" id="4_4lh6j"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="5_nu3tt"]
 [ext_resource type="FontFile" uid="uid://c3tlxn6peo3jj" path="res://Fonts/VHS/VHS.ttf" id="5_upu3b"]
+[ext_resource type="Shader" uid="uid://dbo2pwhapjs5e" path="res://Resources/Shaders/VHS.gdshader" id="7_upu3b"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5hcyp"]
-shader = ExtResource("4_4lh6j")
-shader_parameter/aspect = 0.455
-shader_parameter/distortion = 1.0
-shader_parameter/radius = 1.07
-shader_parameter/alpha = 1.0
-shader_parameter/crop = 0.943
-shader_parameter/crop_color = Color(0, 0, 0, 1)
-shader_parameter/crop_feathering = 0.1
-shader_parameter/channel_offset = -0.003
-shader_parameter/noise_strength = 143.705
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_upu3b"]
+seed = 20780
+frequency = 0.1257
+fractal_gain = -3.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5hcyp"]
+as_normal_map = true
+noise = SubResource("FastNoiseLite_upu3b")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nu3tt"]
+shader = ExtResource("7_upu3b")
+shader_parameter/vhs_resolution = Vector2(320, 240)
+shader_parameter/samples = 3
+shader_parameter/crease_noise = 2.0
+shader_parameter/crease_opacity = 0.4
+shader_parameter/filter_intensity = 0.0
+shader_parameter/tape_crease_smear = 0.4
+shader_parameter/tape_crease_intensity = 0.3
+shader_parameter/tape_crease_jitter = 0.41
+shader_parameter/tape_crease_speed = 0.3
+shader_parameter/tape_crease_discoloration = 0.8
+shader_parameter/bottom_border_thickness = 14.5
+shader_parameter/bottom_border_jitter = 9.0
+shader_parameter/noise_intensity = 0.1
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_5hcyp")
 
 [node name="World" type="Control"]
 layout_mode = 3
@@ -57,6 +71,7 @@ grow_vertical = 2
 
 [node name="snapoutofit" type="Label" parent="TextAndStuff"]
 visible = false
+modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -76,8 +91,8 @@ text = "Snap out of it."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BodycamEffect" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_5hcyp")
+[node name="VHSEffect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_nu3tt")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

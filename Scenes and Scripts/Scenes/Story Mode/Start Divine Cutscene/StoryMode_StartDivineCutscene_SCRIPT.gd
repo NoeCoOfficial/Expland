@@ -54,7 +54,6 @@ func nodes_init():
 	$FadeIn_White.color = Color(0, 0, 0, 1)
 	$Music.volume_db = -60
 	$"Tinnitus Effect".volume_db = -60
-	$BodycamEffect.material.set_shader_parameter("alpha", 0.0)
 	
 
 func start_divine_cutscene():
@@ -64,5 +63,7 @@ func start_divine_cutscene():
 	
 	var divine_cutscene_tween = get_tree().create_tween().set_parallel()
 	divine_cutscene_tween.tween_property($FadeIn_White, "color", Color(1, 1, 1, 1), 4)
-	divine_cutscene_tween.tween_property($BodycamEffect.material, "shader_parameter/alpha", 1.0, 6)
 	divine_cutscene_tween.tween_property($"Tinnitus Effect", "volume_db", 0.0, 3)
+	
+	divine_cutscene_tween.tween_property($TextAndStuff/snapoutofit, "visible", true, 0.0).set_delay(6.0)
+	divine_cutscene_tween.tween_property($TextAndStuff/snapoutofit, "visible", true, 0.0).set_delay(6.0)
