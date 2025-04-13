@@ -44,11 +44,13 @@ script = ExtResource("1_17t8w")
 
 [node name="Tinnitus Effect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_dok1h")
+volume_db = -5.695
+pitch_scale = 0.36
 bus = &"sfx"
-parameters/looping = true
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_jdnk0")
+volume_db = -20.025
 bus = &"music"
 
 [node name="FadeIn_White" type="ColorRect" parent="."]
@@ -68,6 +70,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="snapoutofit" type="Label" parent="TextAndStuff"]
 visible = false
@@ -91,6 +94,116 @@ text = "Snap out of it."
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="whyudie" type="Label" parent="TextAndStuff"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.5
+offset_top = -11.5
+offset_right = 53.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_nu3tt")
+theme_override_fonts/font = ExtResource("5_upu3b")
+theme_override_font_sizes/font_size = 20
+text = "Why did you die?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="opportunities" type="Label" parent="TextAndStuff"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.5
+offset_top = -11.5
+offset_right = 53.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_nu3tt")
+theme_override_fonts/font = ExtResource("5_upu3b")
+theme_override_font_sizes/font_size = 20
+text = "I gave you countless opportunities."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="seizednone" type="Label" parent="TextAndStuff"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.5
+offset_top = -11.5
+offset_right = 53.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_nu3tt")
+theme_override_fonts/font = ExtResource("5_upu3b")
+theme_override_font_sizes/font_size = 20
+text = "You seized none of them."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="anotherchance" type="Label" parent="TextAndStuff"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.5
+offset_top = -11.5
+offset_right = 53.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_nu3tt")
+theme_override_fonts/font = ExtResource("5_upu3b")
+theme_override_font_sizes/font_size = 20
+text = "I can give you another chance."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="useitwisely" type="Label" parent="TextAndStuff"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.5
+offset_top = -11.5
+offset_right = 53.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_nu3tt")
+theme_override_fonts/font = ExtResource("5_upu3b")
+theme_override_font_sizes/font_size = 20
+text = "Use it wisely."
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="VHSEffect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_nu3tt")
 layout_mode = 1
@@ -100,3 +213,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="FadeOut_Black" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

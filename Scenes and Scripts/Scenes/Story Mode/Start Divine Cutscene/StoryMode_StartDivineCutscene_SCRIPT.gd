@@ -52,18 +52,49 @@ func _ready() -> void:
 
 func nodes_init():
 	$FadeIn_White.color = Color(0, 0, 0, 1)
-	$Music.volume_db = -60
 	$"Tinnitus Effect".volume_db = -60
-	
+
 
 func start_divine_cutscene():
 	nodes_init()
 	
 	$"Tinnitus Effect".play()
 	
-	var divine_cutscene_tween = get_tree().create_tween().set_parallel()
-	divine_cutscene_tween.tween_property($FadeIn_White, "color", Color(1, 1, 1, 1), 4)
-	divine_cutscene_tween.tween_property($"Tinnitus Effect", "volume_db", 0.0, 3)
+	var divine_cutscene_tween_start = get_tree().create_tween().set_parallel()
+	divine_cutscene_tween_start.connect("finished", _on_first_tween_finished)
+	divine_cutscene_tween_start.tween_property($FadeIn_White, "color", Color(1, 1, 1, 1), 4.0)
+	divine_cutscene_tween_start.tween_property($"Tinnitus Effect", "volume_db", -5.695, 3.0)
 	
-	divine_cutscene_tween.tween_property($TextAndStuff/snapoutofit, "visible", true, 0.0).set_delay(6.0)
-	divine_cutscene_tween.tween_property($TextAndStuff/snapoutofit, "visible", true, 0.0).set_delay(6.0)
+	
+	divine_cutscene_tween_start.tween_property($TextAndStuff/snapoutofit, "visible", true, 0.0).set_delay(4.0)
+	divine_cutscene_tween_start.tween_property($TextAndStuff/snapoutofit, "visible", false, 0.0).set_delay(7.0)
+	
+	divine_cutscene_tween_start.tween_interval(2.0)
+
+func _on_first_tween_finished():
+	$Music.play()
+
+	var divine_cutscene_tween_next = get_tree().create_tween().set_parallel()
+	divine_cutscene_tween_next.connect("finished", end)
+	divine_cutscene_tween_next.tween_property($TextAndStuff/whyudie, "visible", true, 0.0).set_delay(4.0)
+	
+	divine_cutscene_tween_next.tween_property($TextAndStuff/whyudie, "visible", false, 0.0).set_delay(7.0)
+	divine_cutscene_tween_next.tween_property($TextAndStuff/opportunities, "visible", true, 0.0).set_delay(7.0)
+	
+	divine_cutscene_tween_next.tween_property($TextAndStuff/opportunities, "visible", false, 0.0).set_delay(11.0)
+	divine_cutscene_tween_next.tween_property($TextAndStuff/seizednone, "visible", true, 0.0).set_delay(11.0)
+	
+	divine_cutscene_tween_next.tween_property($TextAndStuff/seizednone, "visible", false, 0.0).set_delay(14.0)
+	
+	divine_cutscene_tween_next.tween_property($TextAndStuff/anotherchance, "visible", true, 0.0).set_delay(18.0)
+	divine_cutscene_tween_next.tween_property($TextAndStuff/anotherchance, "visible", false, 0.0).set_delay(22.0)
+	
+	divine_cutscene_tween_next.tween_property($TextAndStuff/useitwisely, "visible", true, 0.0).set_delay(25.0)
+	divine_cutscene_tween_next.tween_property($TextAndStuff/useitwisely, "visible", false, 0.0).set_delay(29.0)
+	
+	divine_cutscene_tween_next.tween_property($FadeOut_Black, "modulate", Color(1, 1, 1, 1), 4.0).set_delay(32.0)
+	divine_cutscene_tween_next.tween_property($"Tinnitus Effect", "volume_db", -60, 5.0).set_delay(32.0)
+	divine_cutscene_tween_next.tween_property($Music, "volume_db", -60, 5.0).set_delay(32.0)
+
+func end():
+	print("END")
