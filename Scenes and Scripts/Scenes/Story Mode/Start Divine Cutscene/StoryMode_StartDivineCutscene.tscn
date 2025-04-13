@@ -17,7 +17,7 @@ shader_parameter/crop = 0.943
 shader_parameter/crop_color = Color(0, 0, 0, 1)
 shader_parameter/crop_feathering = 0.1
 shader_parameter/channel_offset = -0.003
-shader_parameter/noise_strength = 74.665
+shader_parameter/noise_strength = 143.705
 
 [node name="World" type="Control"]
 layout_mode = 3
@@ -31,6 +31,7 @@ script = ExtResource("1_17t8w")
 [node name="Tinnitus Effect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_dok1h")
 bus = &"sfx"
+parameters/looping = true
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_jdnk0")
@@ -55,6 +56,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="snapoutofit" type="Label" parent="TextAndStuff"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
