@@ -1,8 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://cokfvtsoawjf0"]
+[gd_scene load_steps=8 format=3 uid="uid://cokfvtsoawjf0"]
 
 [ext_resource type="Script" uid="uid://byjopgirryaq8" path="res://Scenes and Scripts/Scenes/Story Mode/Start Divine Cutscene/StoryMode_StartDivineCutscene_SCRIPT.gd" id="1_17t8w"]
 [ext_resource type="AudioStream" uid="uid://bknheeswwgn6p" path="res://Audio/SFX/Self/Tinnitus.mp3" id="1_dok1h"]
 [ext_resource type="AudioStream" uid="uid://due0su3jcfwgq" path="res://Audio/Music/Lost At Sea.mp3" id="2_jdnk0"]
+[ext_resource type="Shader" uid="uid://c1lku8qjkkkkr" path="res://Resources/Shaders/Bodycam.gdshader" id="4_4lh6j"]
+[ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="5_nu3tt"]
+[ext_resource type="FontFile" uid="uid://c3tlxn6peo3jj" path="res://Fonts/VHS/VHS.ttf" id="5_upu3b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5hcyp"]
+shader = ExtResource("4_4lh6j")
+shader_parameter/aspect = 0.455
+shader_parameter/distortion = 1.0
+shader_parameter/radius = 1.07
+shader_parameter/alpha = 1.0
+shader_parameter/crop = 0.943
+shader_parameter/crop_color = Color(0, 0, 0, 1)
+shader_parameter/crop_feathering = 0.1
+shader_parameter/channel_offset = -0.003
+shader_parameter/noise_strength = 74.665
 
 [node name="World" type="Control"]
 layout_mode = 3
@@ -30,3 +45,41 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+
+[node name="TextAndStuff" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="snapoutofit" type="Label" parent="TextAndStuff"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.5
+offset_top = -11.5
+offset_right = 53.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_nu3tt")
+theme_override_fonts/font = ExtResource("5_upu3b")
+theme_override_font_sizes/font_size = 20
+text = "Snap out of it."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BodycamEffect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_5hcyp")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
