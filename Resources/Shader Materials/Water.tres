@@ -100,7 +100,7 @@ fractal_type = 2
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_orm6h"]
 seamless = true
 as_normal_map = true
-bump_strength = 1.5
+bump_strength = 0.0
 noise = SubResource("FastNoiseLite_i1ab8")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_6e8dk"]
@@ -116,7 +116,7 @@ seamless = true
 noise = SubResource("FastNoiseLite_6e8dk")
 
 [resource]
-render_priority = 0
+render_priority = -1
 shader = SubResource("Shader_kikpc")
 shader_parameter/albedo = Color(0.164487, 0.331771, 0.251431, 1)
 shader_parameter/albedo2 = Color(0.197745, 0.498682, 0.585787, 1)
