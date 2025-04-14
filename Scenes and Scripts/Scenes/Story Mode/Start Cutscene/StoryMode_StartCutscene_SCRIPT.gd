@@ -49,7 +49,21 @@ extends Node3D
 
 @export var MD : Control
 @export var BlackFade : Control
+@export var StormTimer : Timer
+@export var Tap_Cooldown : Timer
+@export var TapInteractMessageLabel : Label
+@export var Camera_Sutle_Movement_Animation : AnimationPlayer
+@export var TapWaterMesh : MeshInstance3D
+@export var TapWaterFillMesh : MeshInstance3D
+@export var RedLever : Node3D
+@export var GreenLever : Node3D
+@export var BlueLever : Node3D
+
+@export var Default_Camera : Camera3D
+
+
 @onready var player_scene = preload("uid://cjm5lrxicdgsf")
+
 
 var tap_running : bool = false
 var can_toggle_tap : bool = true
@@ -84,14 +98,14 @@ func fadeInGreyOverlay():
 
 func onfadeInGreyOverlay_Finished():
 	var player_instance = player_scene.instantiate()
-	$Camera_Sutle_Movement.stop()
+	Camera_Sutle_Movement_Animation.stop()
 	
 	self.add_child(player_instance)
-	$StormTimer.start()
+	StormTimer.start()
 	player_instance.position = Vector3(2.876, -15.188, -16.899)
 	player_instance.ResetPOS = Vector3(2.876, -15.188, -16.899)
 	player_instance.nodeSetup()
-	$Camera3D.clear_current(true)
+	Default_Camera.clear_current(true)
 	BlackFade.hide()
 	new_player_dialogue_timeline()
 
@@ -137,13 +151,13 @@ func cutscene_timeline():
 
 
 func _on_red_lever_triggered() -> void:
-	$"Yacht Rig/Yacht/RedLever".toggle_lever(!$"Yacht Rig/Yacht/RedLever".state_on)
+	RedLever.toggle_lever(!RedLever.state_on)
 
 func _on_green_lever_triggered() -> void:
-	$"Yacht Rig/Yacht/BlueLever".toggle_lever(!$"Yacht Rig/Yacht/BlueLever".state_on)
+	GreenLever.toggle_lever(!GreenLever.state_on)
 
 func _on_blue_lever_triggered() -> void:
-	$"Yacht Rig/Yacht/GreenLever".toggle_lever(!$"Yacht Rig/Yacht/GreenLever".state_on)
+	BlueLever.toggle_lever(!BlueLever.state_on)
 
 
 func _on_tap_toggled() -> void:
@@ -210,4 +224,3 @@ func _on_tap_cooldown_timeout() -> void:
 
 func _on_storm_timer() -> void:
 	print("STARTING STORM")
-	$Storm_Transition.play("storm_transition")
