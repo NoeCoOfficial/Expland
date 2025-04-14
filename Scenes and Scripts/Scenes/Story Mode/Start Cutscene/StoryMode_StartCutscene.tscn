@@ -734,6 +734,10 @@ debug_color = Color(1, 0.21, 0.223166, 1)
 
 [node name="ProbeContainer" type="Node3D" parent="Yacht Rig/Yacht"]
 
+[node name="Marker3D" type="Marker3D" parent="Yacht Rig/Yacht/ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.71664, 0)
+gizmo_extents = 0.6
+
 [node name="Camera_Sutle_Movement" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_44ck5")
