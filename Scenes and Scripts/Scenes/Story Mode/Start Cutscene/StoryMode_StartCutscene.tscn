@@ -1,9 +1,9 @@
-[gd_scene load_steps=55 format=3 uid="uid://nlp0xy1m65tp"]
+[gd_scene load_steps=48 format=3 uid="uid://nlp0xy1m65tp"]
 
 [ext_resource type="Script" uid="uid://uvb2g81nntt2" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/StoryMode_StartCutscene_SCRIPT.gd" id="1_4d7y3"]
 [ext_resource type="PackedScene" uid="uid://cn1krf62jowgb" path="res://Scenes and Scripts/Scenes/Dialogue/MinimalDialogue.tscn" id="4_7s4ab"]
 [ext_resource type="PackedScene" uid="uid://ck0guuhifgbmr" path="res://Assets/3D Models/Cutscenes/Story Mode/Start Cutscene/Models/Yacht.blend" id="4_os8dc"]
-[ext_resource type="Shader" uid="uid://brub6nkftipc1" path="res://Resources/Shaders/Clouds.gdshader" id="5_encjm"]
+[ext_resource type="Material" uid="uid://bb7q65pb3k66i" path="res://Resources/Shader Materials/VolumetricClouds.tres" id="4_w18yt"]
 [ext_resource type="Script" uid="uid://dn1b1gnwe5iap" path="res://Textures/Icons/Script Icons/Scripts/LightbulbIcon_SCRIPT.gd" id="6_to1x2"]
 [ext_resource type="Script" uid="uid://b750i1bt8l7b" path="res://Scenes and Scripts/Scenes/Environment/Water Mesh/RigidBody_WaterBuoyancy_SCRIPT.gd" id="6_w18yt"]
 [ext_resource type="PackedScene" uid="uid://boh6io7exec3j" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/Props/RedLever.tscn" id="8_ec70e"]
@@ -32,72 +32,7 @@ ssao_detail = 2.21
 ssao_horizon = 0.59
 glow_enabled = true
 
-[sub_resource type="Gradient" id="Gradient_to1x2"]
-offsets = PackedFloat32Array(0.238411, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_g8pos"]
-noise_type = 3
-seed = 256
-frequency = 0.001
-fractal_octaves = 4
-fractal_lacunarity = 8.0
-fractal_gain = 1.0
-fractal_ping_pong_strength = 4.21
-
-[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_7s4ab"]
-seamless = true
-seamless_blend_skirt = 1.0
-color_ramp = SubResource("Gradient_to1x2")
-noise = SubResource("FastNoiseLite_g8pos")
-
-[sub_resource type="Gradient" id="Gradient_f3l76"]
-offsets = PackedFloat32Array(0.309051, 0.671082)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_l057t"]
-noise_type = 2
-seed = 77
-frequency = 0.0295
-fractal_type = 2
-fractal_lacunarity = 3.54
-fractal_weighted_strength = 0.29
-
-[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_44ck5"]
-width = 128
-height = 128
-depth = 128
-seamless = true
-seamless_blend_skirt = 0.058
-normalize = false
-color_ramp = SubResource("Gradient_f3l76")
-noise = SubResource("FastNoiseLite_l057t")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_w18yt"]
-render_priority = 0
-shader = ExtResource("5_encjm")
-shader_parameter/cloud_noise_texture = SubResource("NoiseTexture3D_7s4ab")
-shader_parameter/CloudNoiseUVTiling = 1.429
-shader_parameter/CloudNoiseTilingMagnitude = 0.379
-shader_parameter/cloud_threshold = 0.141
-shader_parameter/cloud_threshold_multiplier = 4.291
-shader_parameter/GPUKiller = 225
-shader_parameter/GPUSaver = 0.41
-shader_parameter/cloud_scroll_speed = 0.0
-shader_parameter/minBounds = Vector3(-4096, 256, -4096)
-shader_parameter/maxBounds = Vector3(4096, 576, 4096)
-shader_parameter/detail_noise_texture = SubResource("NoiseTexture3D_44ck5")
-shader_parameter/DetailNoiseInfluenceOnFinalResult = 51.373
-shader_parameter/detail_scroll_speed = -10.0
-shader_parameter/DetailNoiseUVTiling = 2.0
-shader_parameter/light_direction = Vector3(2.075, -0.23, 0.5)
-shader_parameter/cloud_movement_direction = Vector3(0.0001, -0.0001, 0.0001)
-shader_parameter/cloud_movement_speed = 0.515
-shader_parameter/cloudMovementMagnitude = 0.0
-shader_parameter/LightCorrection = 0.58
-shader_parameter/cloud_alpha = 4.0
-shader_parameter/cloud_color = Color(0, 0, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_ec70e"]
-lightmap_size_hint = Vector2i(14, 21)
+[sub_resource type="PlaneMesh" id="PlaneMesh_ec70e"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_44ck5"]
 action = &"Flip_Red_Lever"
@@ -271,8 +206,10 @@ _data = {
 &"storm_transition": SubResource("Animation_smf4g")
 }
 
-[node name="World" type="Node3D"]
+[node name="World" type="Node3D" node_paths=PackedStringArray("MD", "BlackFade")]
 script = ExtResource("1_4d7y3")
+MD = NodePath("Camera3D/MainLayer/MinimalDialogue")
+BlackFade = NodePath("Camera3D/MainLayer/BlackFade")
 
 [node name="StormTimer" type="Timer" parent="."]
 wait_time = 120.0
@@ -308,9 +245,9 @@ color = Color(0, 0, 0, 1)
 [node name="MinimalDialogue" parent="Camera3D/MainLayer" instance=ExtResource("4_7s4ab")]
 
 [node name="Clouds" type="MeshInstance3D" parent="."]
-transform = Transform3D(8192, 0, 0, 0, 128, 0, 0, 0, 8192, 0, 128, 0)
-material_override = SubResource("ShaderMaterial_w18yt")
-mesh = SubResource("BoxMesh_ec70e")
+transform = Transform3D(3532.71, 0, 0, 0, 55.1987, 0, 0, 0, 3532.71, 0, 462.975, 0)
+material_override = ExtResource("4_w18yt")
+mesh = SubResource("PlaneMesh_ec70e")
 
 [node name="WaterMesh" parent="." instance=ExtResource("11_44ck5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.3728, 0)

@@ -47,7 +47,8 @@
 
 extends Node3D
 
-@onready var MD : Control = $Camera3D/MainLayer/MinimalDialogue
+@export var MD : Control
+@export var BlackFade : Control
 @onready var player_scene = preload("uid://cjm5lrxicdgsf")
 
 var tap_running : bool = false
@@ -67,19 +68,19 @@ func _ready() -> void:
 func fadeOutGreyOverlay():
 	var tween = get_tree().create_tween()
 	tween.connect("finished", onfadeOutGreyOverlay_Finished)
-	tween.tween_property($Camera3D/MainLayer/BlackFade, "modulate", Color(1, 1, 1, 0), 4)
+	tween.tween_property(BlackFade, "modulate", Color(1, 1, 1, 0), 4)
 
 func onfadeOutGreyOverlay_Finished():
-	$Camera3D/MainLayer/BlackFade.visible = false
+	BlackFade.visible = false
 
 #####################################
 #####################################
 
 func fadeInGreyOverlay():
-	$Camera3D/MainLayer/BlackFade.visible = true
+	BlackFade.visible = true
 	var tween = get_tree().create_tween()
 	tween.connect("finished", onfadeInGreyOverlay_Finished)
-	tween.tween_property($Camera3D/MainLayer/BlackFade, "modulate", Color(1, 1, 1, 1), 4).from(Color(1, 1, 1, 0))
+	tween.tween_property(BlackFade, "modulate", Color(1, 1, 1, 1), 4).from(Color(1, 1, 1, 0))
 
 func onfadeInGreyOverlay_Finished():
 	var player_instance = player_scene.instantiate()
@@ -91,7 +92,7 @@ func onfadeInGreyOverlay_Finished():
 	player_instance.ResetPOS = Vector3(2.876, -15.188, -16.899)
 	player_instance.nodeSetup()
 	$Camera3D.clear_current(true)
-	$Camera3D/MainLayer/BlackFade.hide()
+	BlackFade.hide()
 	new_player_dialogue_timeline()
 
 func new_player_dialogue_timeline():
