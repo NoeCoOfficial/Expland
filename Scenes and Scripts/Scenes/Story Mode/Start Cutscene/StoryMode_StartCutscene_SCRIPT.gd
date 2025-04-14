@@ -151,15 +151,12 @@ func cutscene_timeline():
 
 
 func _on_red_lever_triggered() -> void:
-	print("red")
 	RedLever.toggle_lever(!RedLever.state_on)
 
 func _on_green_lever_triggered() -> void:
-	print("green")
 	GreenLever.toggle_lever(!GreenLever.state_on)
 
 func _on_blue_lever_triggered() -> void:
-	print("blue")
 	BlueLever.toggle_lever(!BlueLever.state_on)
 
 
