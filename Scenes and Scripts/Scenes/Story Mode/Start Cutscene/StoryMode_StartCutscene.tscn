@@ -660,8 +660,8 @@ autoplay = "camera_sutle_movement"
 
 [connection signal="timeout" from="StormTimer" to="." method="_on_storm_timer"]
 [connection signal="Action1_Triggered" from="Yacht Rig/Yacht/Yacht/Lever Interactable Component" to="." method="_on_red_lever_triggered"]
-[connection signal="Action2_Triggered" from="Yacht Rig/Yacht/Yacht/Lever Interactable Component" to="." method="_on_blue_lever_triggered"]
-[connection signal="Action3_Triggered" from="Yacht Rig/Yacht/Yacht/Lever Interactable Component" to="." method="_on_green_lever_triggered"]
+[connection signal="Action2_Triggered" from="Yacht Rig/Yacht/Yacht/Lever Interactable Component" to="." method="_on_green_lever_triggered"]
+[connection signal="Action3_Triggered" from="Yacht Rig/Yacht/Yacht/Lever Interactable Component" to="." method="_on_blue_lever_triggered"]
 [connection signal="body_entered" from="Yacht Rig/Yacht/Yacht/Lever Interactable Component/Contents/PlayerVisibleDetector" to="Yacht Rig/Yacht/Yacht/Lever Interactable Component" method="_on_player_visible_detector_body_entered"]
 [connection signal="body_exited" from="Yacht Rig/Yacht/Yacht/Lever Interactable Component/Contents/PlayerVisibleDetector" to="Yacht Rig/Yacht/Yacht/Lever Interactable Component" method="_on_player_visible_detector_body_exited"]
 [connection signal="area_entered" from="Yacht Rig/Yacht/Yacht/Lever Interactable Component/Contents/PlayerMimicRaycastDetector" to="Yacht Rig/Yacht/Yacht/Lever Interactable Component" method="_on_player_mimic_raycast_detector_area_entered"]
