@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cg37p3dc7fbqx"]
+[gd_scene load_steps=4 format=3 uid="uid://cg37p3dc7fbqx"]
 
 [ext_resource type="Material" uid="uid://fx3wrkvh6bwa" path="res://Resources/Shader Materials/Water.tres" id="1_pwebb"]
+[ext_resource type="Script" uid="uid://r7qdu44fbx1u" path="res://Scenes and Scripts/Scenes/Environment/Water Mesh/WaterMesh_SCRIPT.gd" id="2_3kadu"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_3kadu"]
 material = ExtResource("1_pwebb")
@@ -10,3 +11,4 @@ subdivide_depth = 1000
 
 [node name="WaterMesh" type="MeshInstance3D"]
 mesh = SubResource("PlaneMesh_3kadu")
+script = ExtResource("2_3kadu")

@@ -56,7 +56,6 @@ var tap_water_fill_tween : Tween
 
 func _ready() -> void:
 	Global.is_in_main_menu = false
-	$"Yacht Rig/Yacht".position.y = -0.086
 	StoryModeManager.is_in_story_mode_first_cutscene_world = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	print("ENTERED STORY MODE START CUTSCENE")
@@ -86,7 +85,6 @@ func onfadeInGreyOverlay_Finished():
 	var player_instance = player_scene.instantiate()
 	$Camera_Sutle_Movement.stop()
 	
-	$"Yacht Rig/Yacht".position.y = 0.11
 	self.add_child(player_instance)
 	$StormTimer.start()
 	player_instance.position = Vector3(2.876, -15.188, -16.899)
