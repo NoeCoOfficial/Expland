@@ -316,10 +316,12 @@ mesh = SubResource("BoxMesh_ec70e")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.3728, 0)
 
 [node name="Yacht Rig" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22068, -15.4248, -17.6352)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22068, -13.4686, -17.6352)
 
-[node name="Yacht" type="RigidBody3D" parent="Yacht Rig"]
+[node name="Yacht" type="RigidBody3D" parent="Yacht Rig" node_paths=PackedStringArray("water_mesh", "probe_container")]
 script = ExtResource("6_w18yt")
+water_mesh = NodePath("../../WaterMesh")
+probe_container = NodePath("ProbeContainer")
 
 [node name="Yacht" parent="Yacht Rig/Yacht" instance=ExtResource("4_os8dc")]
 transform = Transform3D(-1.08173, 0.0153835, 0.289859, 0.0148594, 1.11989, -0.00398162, -0.289884, 6.83216e-08, -1.08184, 0, 0.110003, 0)
