@@ -3,8 +3,6 @@
 
 shader_type canvas_item;
 
-// TODO: Add uniforms for tape crease discoloration and image jiggle
-
 uniform sampler2D screen_texture: hint_screen_texture, filter_linear_mipmap, repeat_disable;
 
 uniform vec2 vhs_resolution = vec2(320.0, 240.0);

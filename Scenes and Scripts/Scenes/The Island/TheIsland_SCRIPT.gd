@@ -88,6 +88,8 @@ func _ready() -> void:
 		set_time(TimeManager.CURRENT_TIME)
 	
 	Tick.start()
+	
+	# TODO
 	init_weather_instant() # NOTE: Important line right here (initalize weather)
 	
 	Player.nodeSetup()
