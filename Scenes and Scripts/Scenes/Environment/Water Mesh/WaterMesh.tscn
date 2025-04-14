@@ -5,9 +5,9 @@
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_3kadu"]
 material = ExtResource("1_pwebb")
-size = Vector2(500, 500)
-subdivide_width = 1000
-subdivide_depth = 1000
+size = Vector2(1000, 1000)
+subdivide_width = 2000
+subdivide_depth = 2000
 
 [node name="WaterMesh" type="MeshInstance3D"]
 mesh = SubResource("PlaneMesh_3kadu")
