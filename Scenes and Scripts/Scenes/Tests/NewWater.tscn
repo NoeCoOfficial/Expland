@@ -11,8 +11,22 @@ orientation = 1
 render_priority = 0
 shader = ExtResource("1_4f8so")
 shader_parameter/albedo = Color(0, 0.321569, 0.431373, 1)
-shader_parameter/metallic = 0.0
-shader_parameter/roughness = 0.2
+shader_parameter/albedo2 = Color(0, 0, 0, 1)
+shader_parameter/metallic = 0.759
+shader_parameter/roughness = 0.027
+shader_parameter/wave_direction = Vector2(2, 0)
+shader_parameter/wave_direction2 = Vector2(0, 1)
+shader_parameter/time_scale = 0.025
+shader_parameter/noise_scale = 10.0
+shader_parameter/height_scale = 0.15
+shader_parameter/color_deep = Color(0, 0, 0, 1)
+shader_parameter/color_shallow = Color(0, 0, 0, 1)
+shader_parameter/beers_law = 2.0
+shader_parameter/depth_offset = -0.75
+shader_parameter/edge_scale = 0.1
+shader_parameter/near = 1.0
+shader_parameter/far = 100.0
+shader_parameter/edge_color = Color(0, 0, 0, 1)
 
 [node name="NewWater" type="MeshInstance3D"]
 mesh = SubResource("QuadMesh_rjx8c")
