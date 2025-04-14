@@ -1,10 +1,11 @@
-[gd_scene load_steps=54 format=3 uid="uid://nlp0xy1m65tp"]
+[gd_scene load_steps=55 format=3 uid="uid://nlp0xy1m65tp"]
 
 [ext_resource type="Script" uid="uid://uvb2g81nntt2" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/StoryMode_StartCutscene_SCRIPT.gd" id="1_4d7y3"]
 [ext_resource type="PackedScene" uid="uid://cn1krf62jowgb" path="res://Scenes and Scripts/Scenes/Dialogue/MinimalDialogue.tscn" id="4_7s4ab"]
 [ext_resource type="PackedScene" uid="uid://ck0guuhifgbmr" path="res://Assets/3D Models/Cutscenes/Story Mode/Start Cutscene/Models/Yacht.blend" id="4_os8dc"]
 [ext_resource type="Shader" uid="uid://brub6nkftipc1" path="res://Resources/Shaders/Clouds.gdshader" id="5_encjm"]
 [ext_resource type="Script" uid="uid://dn1b1gnwe5iap" path="res://Textures/Icons/Script Icons/Scripts/LightbulbIcon_SCRIPT.gd" id="6_to1x2"]
+[ext_resource type="Script" uid="uid://b750i1bt8l7b" path="res://Scenes and Scripts/Scenes/Environment/Water Mesh/RigidBody_WaterBuoyancy_SCRIPT.gd" id="6_w18yt"]
 [ext_resource type="PackedScene" uid="uid://boh6io7exec3j" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/Props/RedLever.tscn" id="8_ec70e"]
 [ext_resource type="PackedScene" uid="uid://crw6j1eee7306" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/Props/GreenLever.tscn" id="8_f3l76"]
 [ext_resource type="Script" uid="uid://bi02uk7qwshyf" path="res://Scenes and Scripts/Scenes/Components/Interactable Component/Interactable_Component_SCRIPT.gd" id="9_44ck5"]
@@ -318,6 +319,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.3728, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22068, -15.4248, -17.6352)
 
 [node name="Yacht" type="RigidBody3D" parent="Yacht Rig"]
+script = ExtResource("6_w18yt")
 
 [node name="Yacht" parent="Yacht Rig/Yacht" instance=ExtResource("4_os8dc")]
 transform = Transform3D(-1.08173, 0.0153835, 0.289859, 0.0148594, 1.11989, -0.00398162, -0.289884, 6.83216e-08, -1.08184, 0, 0.110003, 0)
@@ -653,80 +655,82 @@ transform = Transform3D(-1.08173, 0.0153838, 0.289858, 0.0148596, 1.11989, -0.00
 shape = SubResource("BoxShape3D_7s4ab")
 debug_color = Color(1, 0.21, 0.223166, 1)
 
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="Yacht Rig/Yacht"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Yacht Rig/Yacht"]
 transform = Transform3D(-1.08173, 0.0153838, 0.289858, 0.0148604, 1.11989, -0.00398176, -0.289883, 1.75652e-07, -1.08184, 3.09485, 1.0149, -1.44739)
 shape = SubResource("BoxShape3D_ec70e")
 debug_color = Color(1, 0.21, 0.223166, 1)
 
-[node name="CollisionShape3D11" type="CollisionShape3D" parent="Yacht Rig/Yacht"]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Yacht Rig/Yacht"]
 transform = Transform3D(-1.08173, 0.0153838, 0.289858, 0.0148605, 1.11989, -0.00398182, -0.289883, 1.78446e-07, -1.08184, 4.16017, 0.758488, 2.9212)
 shape = SubResource("BoxShape3D_smf4g")
 debug_color = Color(1, 0.21, 0.223166, 1)
 
-[node name="CollisionShape3D12" type="CollisionShape3D" parent="Yacht Rig/Yacht"]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Yacht Rig/Yacht"]
 transform = Transform3D(-1.09011, 0.0153765, 0.256533, 0.0148607, 1.11989, -0.00398184, -0.256561, -0.000471772, -1.09022, 5.19656, 0.758469, 2.85161)
 shape = SubResource("BoxShape3D_2wqp2")
 debug_color = Color(1, 0.21, 0.223166, 1)
 
-[node name="CollisionShape3D8" type="CollisionShape3D" parent="Yacht Rig/Yacht"]
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Yacht Rig/Yacht"]
 transform = Transform3D(-1.06846, 0.01537, 0.335505, 0.0148604, 1.1199, -0.00398179, -0.335526, 0.00065298, -1.06857, 1.93812, 1.01953, 2.67617)
 shape = SubResource("BoxShape3D_yeq2m")
 debug_color = Color(1, 0.21, 0.223166, 1)
 
-[node name="CollisionShape3D16" type="CollisionShape3D" parent="Yacht Rig/Yacht"]
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Yacht Rig/Yacht"]
 transform = Transform3D(-1.07998, 0.0153842, 0.296299, 0.0148604, 1.11989, -0.00398153, -0.296324, 9.20797e-05, -1.08009, 0.939792, 0.973885, 0.101744)
 shape = SubResource("BoxShape3D_5c1th")
 debug_color = Color(1, 0.21, 0.223166, 1)
 
-[node name="CollisionShape3D9" type="CollisionShape3D" parent="Yacht Rig/Yacht"]
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="Yacht Rig/Yacht"]
 transform = Transform3D(0.26641, 0.00033225, 1.08786, 0.0148605, 1.11989, -0.00398161, -1.08776, 0.0153805, 0.266377, 4.02942, 1.01289, 3.09308)
 shape = SubResource("BoxShape3D_44ck5")
 debug_color = Color(1, 0.21, 0.223166, 1)
 
-[node name="CollisionShape3D15" type="CollisionShape3D" parent="Yacht Rig/Yacht"]
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="Yacht Rig/Yacht"]
 transform = Transform3D(0.266412, 0.00033225, 1.08786, 0.0148606, 1.11989, -0.0039812, -1.08776, 0.0153805, 0.266377, 7.59311, 0.565495, 2.0362)
 shape = SubResource("BoxShape3D_n7233")
 debug_color = Color(1, 0.21, 0.223166, 1)
 
-[node name="CollisionShape3D10" type="CollisionShape3D" parent="Yacht Rig/Yacht"]
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="Yacht Rig/Yacht"]
 transform = Transform3D(0.359985, -0.000155433, 1.06057, 0.0147932, 1.11989, -0.00485716, -1.06047, 0.0155696, 0.359949, 5.48429, 1.00996, -0.462442)
 shape = SubResource("BoxShape3D_gk6k1")
 debug_color = Color(1, 0.21, 0.223166, 1)
 
-[node name="CollisionShape3D13" type="CollisionShape3D" parent="Yacht Rig/Yacht"]
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="Yacht Rig/Yacht"]
 transform = Transform3D(0.163216, 0.00264986, 1.10804, 0.0147932, 1.11989, -0.00485717, -1.10795, 0.0153432, 0.163162, 1.30705, 1.0134, -1.57397)
 shape = SubResource("BoxShape3D_gk6k1")
 debug_color = Color(1, 0.21, 0.223166, 1)
 
-[node name="CollisionShape3D14" type="CollisionShape3D" parent="Yacht Rig/Yacht"]
+[node name="CollisionShape3D11" type="CollisionShape3D" parent="Yacht Rig/Yacht"]
 transform = Transform3D(0.364501, -0.000221827, 1.05903, 0.0147932, 1.11989, -0.00485719, -1.05894, 0.0155687, 0.364463, -0.0588627, 1.12686, 1.675)
 shape = SubResource("BoxShape3D_gk6k1")
 debug_color = Color(1, 0.21, 0.223166, 1)
 
-[node name="CollisionShape3D7" type="CollisionShape3D" parent="Yacht Rig/Yacht"]
+[node name="CollisionShape3D12" type="CollisionShape3D" parent="Yacht Rig/Yacht"]
 transform = Transform3D(-1.08173, 0.0153834, 0.289859, 0.0148601, 1.11988, -0.0039816, -0.289883, -1.32941e-07, -1.08184, 1.73181, 0.0622816, 0.352957)
 shape = SubResource("BoxShape3D_w18yt")
 debug_color = Color(1, 0.21, 0.223166, 1)
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="Yacht Rig/Yacht"]
+[node name="CollisionShape3D13" type="CollisionShape3D" parent="Yacht Rig/Yacht"]
 transform = Transform3D(-1.08173, 0.0153832, 0.289859, 0.01486, 1.11989, -0.00398162, -0.289883, -1.06046e-07, -1.08184, 1.18872, 3.20072, -1.27858)
 shape = SubResource("BoxShape3D_f3l76")
 debug_color = Color(1, 0.21, 0.223166, 1)
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="Yacht Rig/Yacht"]
+[node name="CollisionShape3D14" type="CollisionShape3D" parent="Yacht Rig/Yacht"]
 transform = Transform3D(-1.08173, 0.0153832, 0.289859, 0.01486, 1.11989, -0.00398162, -0.289883, -1.06786e-07, -1.08184, 0.44247, 3.20072, 1.85522)
 shape = SubResource("BoxShape3D_f3l76")
 debug_color = Color(1, 0.21, 0.223166, 1)
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Yacht Rig/Yacht"]
+[node name="CollisionShape3D15" type="CollisionShape3D" parent="Yacht Rig/Yacht"]
 transform = Transform3D(-0.791158, 0.0133154, 0.792646, 0.0148601, 1.11989, -0.00398165, -0.79262, 0.00770334, -0.791268, 6.48892, 3.12382, 0.663586)
 shape = SubResource("BoxShape3D_l057t")
 debug_color = Color(1, 0.21, 0.223166, 1)
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="Yacht Rig/Yacht"]
+[node name="CollisionShape3D16" type="CollisionShape3D" parent="Yacht Rig/Yacht"]
 transform = Transform3D(-1.08201, 0.0133289, -0.288928, 0.0148602, 1.11989, -0.00398159, 0.288861, -0.00767989, -1.08209, 5.99189, 3.12381, 2.65284)
 shape = SubResource("BoxShape3D_l057t")
 debug_color = Color(1, 0.21, 0.223166, 1)
+
+[node name="ProbeContainer" type="Node3D" parent="Yacht Rig/Yacht"]
 
 [node name="Camera_Sutle_Movement" type="AnimationPlayer" parent="."]
 libraries = {
