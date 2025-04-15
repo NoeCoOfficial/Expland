@@ -55,5 +55,19 @@ extends RigidBody3D
 @export var current_rotation : Vector3
 @export var current_scale : Vector3
 
-func spawn(pos : Vector3, rot : Vector3, scle : Vector3, item_type : String, model : PackedScene):
-	pass
+
+## spawn() params
+# Building assets parent global position
+# Global rotation (degrees)
+# Global scale
+# Item tyoe
+# Packed model scene
+
+func spawn(glbl_pos : Vector3, glbl_rot_deg : Vector3, glbl_scale : Vector3, item_type : String, model : PackedScene):
+	self.global_position = PlayerManager.PLAYER.BuildingItemParent.global_position
+	var model_instance = model.instantiate()
+	BuildingManager.Building_Assets_Parent.add_child(model_instance)
+	model_instance.global_position = glbl_pos
+	model_instance.global_rotation_degrees = glbl_rot_deg
+	model_instance.global_scale(glbl_scale)
+	print("done")

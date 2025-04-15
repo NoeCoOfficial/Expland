@@ -58,13 +58,36 @@ var CantBuildMaterial : StandardMaterial3D = preload("res://Resources/Materials/
 var vignette_tween : Tween
 
 var Building_Assets_Parent : Node
+var current_model_instance : Node3D
 
 var is_in_building_interface : bool = false
 var is_in_building_edit_interface : bool = false
 var can_build : bool = true
 
+var current_global_position : Vector3
+var current_global_rotation : Vector3
+
 func build():
-	pass
+	# First, remove all ghost items or other children
+	var cmi_ref = current_model_instance
+	for child in PlayerManager.PLAYER.BuildingItemParent.get_children():
+		if child is Node3D:
+			child.queue_free()
+	
+	var phys_obj_instamce = BA_PhysicalObject.instantiate()
+	Building_Assets_Parent.add_child(phys_obj_instamce)
+	print(str(phys_obj_instamce))
+	phys_obj_instamce.spawn(
+	
+	cmi_ref.global_position, 
+	cmi_ref.global_rotation_degrees,
+	cmi_ref.get_global_transform().basis.get_scale(),
+	HandManager.CURRENTLY_HOLDING_ITEM,
+	InventoryManager.ITEM_TYPES[HandManager.CURRENTLY_HOLDING_ITEM]["BUILDING_ASSET_RES"].Model_Scene
+	
+	
+	)
+	# (glbl_pos : Vector3, glbl_rot_deg : Vector3, glbl_scale : Vector3, item_type : String, model : PackedScene)
 
 func init_building_system():
 	# First, check if we are not in the building interface
@@ -78,9 +101,11 @@ func init_building_system():
 			tween.tween_property(BuildingVignette, "shader_parameter/alpha", 0.4, 0.2)
 			
 			var building_asset_res = InventoryManager.ITEM_TYPES[HandManager.CURRENTLY_HOLDING_ITEM]["BUILDING_ASSET_RES"]
+			
 			var model_instance = building_asset_res.Model_Scene.instantiate()
 			
 			PlayerManager.PLAYER.BuildingItemParent.add_child(model_instance)
+			current_model_instance = model_instance
 			
 			model_instance.position = building_asset_res.Spawn_Position
 			model_instance.rotation_degrees = building_asset_res.Spawn_Rotation
@@ -109,6 +134,8 @@ func despawn_building_system():
 		for child in PlayerManager.PLAYER.BuildingItemParent.get_children():
 			if child is Node3D:
 				child.queue_free()
+		
+		current_model_instance = null
 		
 		print("despawned building system")
 
