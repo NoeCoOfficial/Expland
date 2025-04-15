@@ -61,6 +61,9 @@ var is_in_building_interface : bool = false
 var is_in_building_edit_interface : bool = false
 var can_build : bool = true
 
+func build():
+	pass
+
 func init_building_system():
 	# First, check if we are not in the building interface
 	if !is_in_building_interface:
