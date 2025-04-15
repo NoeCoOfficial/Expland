@@ -46,3 +46,6 @@
 # ============================================================= #
 
 extends RigidBody3D
+
+@export var MeshContainer : Node3D
+@export var CollisionShape : CollisionShape3D

@@ -57,6 +57,8 @@ var CantBuildMaterial : StandardMaterial3D = preload("res://Resources/Materials/
 
 var vignette_tween : Tween
 
+var Building_Assets_Parent : Node
+
 var is_in_building_interface : bool = false
 var is_in_building_edit_interface : bool = false
 var can_build : bool = true
