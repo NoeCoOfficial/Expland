@@ -5,6 +5,8 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_o4p1b"]
 
 [node name="BA_PhysicalObject" type="RigidBody3D" node_paths=PackedStringArray("MeshContainer", "CollisionShape")]
+collision_layer = 0
+collision_mask = 513
 script = ExtResource("1_o4p1b")
 MeshContainer = NodePath("MeshContainer")
 CollisionShape = NodePath("CollisionShape3D")

@@ -340,7 +340,7 @@ Debug={
 3d_render/layer_2="Hand"
 3d_physics/layer_1="Player"
 3d_physics/layer_2="Structures"
-3d_physics/layer_10="Building Assets"
+3d_physics/layer_10="Building Asset Colliders"
 
 [rendering]
 
