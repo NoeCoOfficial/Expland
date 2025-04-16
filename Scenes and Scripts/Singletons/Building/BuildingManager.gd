@@ -82,24 +82,6 @@ func init_building_system():
 			var tween = get_tree().create_tween()
 			tween.tween_property(BuildingVignette, "shader_parameter/alpha", 0.4, 0.2)
 			
-			var building_asset_res = InventoryManager.ITEM_TYPES[HandManager.CURRENTLY_HOLDING_ITEM]["BUILDING_ASSET_RES"]
-			
-			var model_instance = building_asset_res.Model_Scene.instantiate()
-			
-			PlayerManager.PLAYER.BuildingItemParent.add_child(model_instance)
-			current_model_instance = model_instance
-			
-			model_instance.position = building_asset_res.Spawn_Position
-			model_instance.rotation_degrees = building_asset_res.Spawn_Rotation
-			model_instance.scale = building_asset_res.Spawn_Scale
-			
-			
-			for child in model_instance.get_children():
-				if child is MeshInstance3D:
-					if can_build:
-						child.material_override = CanBuildMaterial
-					else:
-						child.material_override = CantBuildMaterial
 			
 			print("spawned building system")
 
@@ -112,12 +94,6 @@ func despawn_building_system():
 		
 		var tween = get_tree().create_tween()
 		tween.tween_property(BuildingVignette, "shader_parameter/alpha", 0.0, 0.2)
-		
-		for child in PlayerManager.PLAYER.BuildingItemParent.get_children():
-			if child is Node3D:
-				child.queue_free()
-		
-		current_model_instance = null
 		
 		print("despawned building system")
 
