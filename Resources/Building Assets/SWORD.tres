@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="BuildingAsset" load_steps=3 format=3 uid="uid://de6nen0bt078"]
+[gd_resource type="Resource" script_class="BuildingAsset" load_steps=4 format=3 uid="uid://de6nen0bt078"]
 
 [ext_resource type="Script" uid="uid://c1yp645pkxk3d" path="res://Scenes and Scripts/Scenes/Building System/Building_Assets_SCRIPT.gd" id="1_rtmul"]
 [ext_resource type="PackedScene" uid="uid://duk84wfnoo2r6" path="res://Assets/3D Models/Tools/Sword.blend" id="1_yykk4"]
+[ext_resource type="Shape3D" uid="uid://cfsolcncuprd1" path="res://Resources/Building Assets/Collision Shapes/SWORD.tres" id="2_cdfmv"]
 
 [resource]
 script = ExtResource("1_rtmul")
@@ -10,6 +11,7 @@ Model_Scene = ExtResource("1_yykk4")
 Spawn_Position = Vector3(0, 0, 0.5)
 Spawn_Rotation = Vector3(0, 180, 0)
 Spawn_Scale = Vector3(0.33, 0.33, 0.33)
+Spawn_Collision_Shape = ExtResource("2_cdfmv")
 Collision_Boundary_Position = Vector3(0, 0.38, 0.465)
 Collision_Boundary_Scale = Vector3(0.7, 2.16, 0.7)
 metadata/_custom_type_script = "uid://c1yp645pkxk3d"

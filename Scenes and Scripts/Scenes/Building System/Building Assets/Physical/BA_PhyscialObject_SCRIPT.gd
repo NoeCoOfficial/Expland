@@ -62,13 +62,3 @@ extends RigidBody3D
 # Global scale
 # Item tyoe
 # Packed model scene
-
-func spawn(glbl_pos : Vector3, glbl_rot_deg : Vector3, glbl_scale : Vector3, item_type : String, model : PackedScene):
-	self.name = StringName(item_type)
-	self.global_position = PlayerManager.PLAYER.BuildingItemParent.global_position
-	var model_instance = model.instantiate()
-	MeshContainer.add_child(model_instance)
-	model_instance.global_position = glbl_pos
-	model_instance.global_rotation_degrees = glbl_rot_deg
-	model_instance.global_scale(glbl_scale)
-	print("done")

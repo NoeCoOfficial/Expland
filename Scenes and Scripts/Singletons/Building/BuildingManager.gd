@@ -68,24 +68,7 @@ var current_global_position : Vector3
 var current_global_rotation : Vector3
 
 func build():
-	# First, remove all ghost items or other children
-	var cmi_ref = current_model_instance
-	for child in PlayerManager.PLAYER.BuildingItemParent.get_children():
-		if child is Node3D:
-			child.queue_free()
-	
-	var phys_obj_instamce = BA_PhysicalObject.instantiate()
-	Building_Assets_Parent.add_child(phys_obj_instamce)
-	phys_obj_instamce.spawn(
-	
-	cmi_ref.global_position, 
-	cmi_ref.global_rotation_degrees,
-	cmi_ref.get_global_transform().basis.get_scale(),
-	HandManager.CURRENTLY_HOLDING_ITEM,
-	InventoryManager.ITEM_TYPES[HandManager.CURRENTLY_HOLDING_ITEM]["BUILDING_ASSET_RES"].Model_Scene
-	
-	
-	)
+	pass
 	# (glbl_pos : Vector3, glbl_rot_deg : Vector3, glbl_scale : Vector3, item_type : String, model : PackedScene)
 
 func init_building_system():
