@@ -76,7 +76,6 @@ func build():
 	
 	var phys_obj_instamce = BA_PhysicalObject.instantiate()
 	Building_Assets_Parent.add_child(phys_obj_instamce)
-	print(str(phys_obj_instamce))
 	phys_obj_instamce.spawn(
 	
 	cmi_ref.global_position, 
