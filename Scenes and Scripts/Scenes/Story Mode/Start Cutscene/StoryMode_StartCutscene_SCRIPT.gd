@@ -48,6 +48,7 @@
 extends Node3D
 
 @export var MD : Control
+@export var PlayerSpawnPos : Node3D
 @export var BlackFade : Control
 @export var StormTimer : Timer
 @export var Tap_Cooldown : Timer
@@ -58,12 +59,9 @@ extends Node3D
 @export var RedLever : Node3D
 @export var GreenLever : Node3D
 @export var BlueLever : Node3D
-
 @export var Default_Camera : Camera3D
 
-
 @onready var player_scene = preload("uid://cjm5lrxicdgsf")
-
 
 var tap_running : bool = false
 var can_toggle_tap : bool = true
@@ -102,8 +100,8 @@ func onfadeInGreyOverlay_Finished():
 	
 	self.add_child(player_instance)
 	StormTimer.start()
-	player_instance.position = Vector3(2.876, -15.188, -16.899)
-	player_instance.ResetPOS = Vector3(2.876, -15.188, -16.899)
+	player_instance.global_position = PlayerSpawnPos.global_position
+	player_instance.ResetPOS = PlayerSpawnPos.global_position
 	player_instance.nodeSetup()
 	Default_Camera.clear_current(true)
 	BlackFade.hide()
