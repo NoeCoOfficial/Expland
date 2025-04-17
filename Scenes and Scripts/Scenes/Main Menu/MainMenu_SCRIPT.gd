@@ -640,6 +640,7 @@ func _on_dialogue_interface_finished_dialogue(StoryModeID: int) -> void:
 		tween.tween_interval(1)
 
 func on_story_mode_fade_finished():
+	StoryModeManager.is_in_story_mode = true
 	get_tree().change_scene_to_packed(StoryModeStartCutscene)
 
 func _on_tree_exiting() -> void:

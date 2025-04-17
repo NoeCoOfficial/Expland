@@ -89,7 +89,7 @@ func _ready() -> void:
 	
 	Tick.start()
 	
-	# TODO
+	
 	init_weather_instant() # NOTE: Important line right here (initalize weather)
 	
 	Player.nodeSetup()
