@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bb7q65pb3k66i"]
 
-[ext_resource type="Shader" uid="uid://dxm0ck607qe23" path="res://Resources/Shaders/VolumetricClouds.gdshader" id="1_ngedv"]
+[ext_resource type="Shader" uid="uid://dxm0ck607qe23" path="res://Resources/Shaders/RealisticClouds.gdshader" id="1_ngedv"]
 
 [resource]
 render_priority = 0
