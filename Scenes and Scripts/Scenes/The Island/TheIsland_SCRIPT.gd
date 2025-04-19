@@ -78,9 +78,6 @@ func _ready() -> void:
 	Global.main_menu_transitioning_scene = false
 	Global.the_island_transitioning_scene = false
 	
-	PlayerData.loadData(IslandManager.Current_Island_Name, true)
-	IslandData.loadData(IslandManager.Current_Island_Name, true)
-	
 	set_dof_blur(PlayerSettingsData.DOFBlur)
 	set_pretty_shadows(PlayerSettingsData.PrettyShadows)
 	

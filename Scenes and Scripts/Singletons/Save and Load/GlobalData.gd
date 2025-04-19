@@ -51,26 +51,7 @@ extends Node
 const SAVE_PATH = "user://saveData/global.save"
 
 func saveGlobal() -> void:
-	Utils.createBaseSaveFolder()
-	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
-	var data = {
-		"earned_achievements" : AchievementsManager.EARNED_ACHIEVEMENTS,
-	}
-	var jstr = JSON.stringify(data)
-	file.store_line(jstr)
-	print("[GlobalData] --Saved Global Data--")
+	pass
 
 func loadGlobal() -> void:
-	Utils.createBaseSaveFolder()
-	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
-	if not file:
-		push_warning("[GlobalData] File doesn't exist (" + SAVE_PATH + ")")
-		return
-	if file == null:
-		return
-	if FileAccess.file_exists(SAVE_PATH) == true:
-		if not file.eof_reached():
-			var current_line = JSON.parse_string(file.get_line())
-			if current_line:
-				AchievementsManager.EARNED_ACHIEVEMENTS = current_line["earned_achievements"]
-				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Earned Achievements: "+str(AchievementsManager.EARNED_ACHIEVEMENTS)+"[/font][/font_size][/center]")
+	pass
