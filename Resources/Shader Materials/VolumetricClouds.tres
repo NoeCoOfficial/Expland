@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bb7q65pb3k66i"]
+
+[ext_resource type="Shader" uid="uid://dxm0ck607qe23" path="res://Resources/Shaders/RealisticClouds.gdshader" id="1_ngedv"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ngedv")
+shader_parameter/noise_scale = 8.015
+shader_parameter/speed = 0.1
+shader_parameter/darkness_amount = 11.025
+shader_parameter/detail = 13.685
+shader_parameter/concentration = 0.0
+shader_parameter/amount = 0.155
+shader_parameter/bloom = 1.585
+shader_parameter/alpha = 1.415
+shader_parameter/cloud_tint = Color(0.741176, 0.741176, 0.741176, 1)
+shader_parameter/edge_fade = 0.175
+shader_parameter/rotation_matrix = Transform2D(1.6, -1.2, 1.2, 1.6, 0, 0)

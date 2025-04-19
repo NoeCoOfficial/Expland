@@ -1,50 +1,52 @@
 shader_type canvas_item;
-uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
-uniform int blur_radius : hint_range(1, 32) = 8;
-uniform float Darkness : hint_range(0.0,1.0) = 0.1;
-uniform float R : hint_range(0.0,1.0) = 0;
-uniform float G : hint_range(0.0,1.0) = 0;
-uniform float B : hint_range(0.0,1.0) = 0;
-uniform float blur_strength : hint_range(0.1, 10.0) = 1.0;
 
-float gaussian_weight(float i, float sigma) {
-    return exp(-0.5 * (i * i) / (sigma * sigma));
-}
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear;
+uniform int blur_radius : hint_range(1, 16) = 8;
+uniform float blur_scale : hint_range(0.0, 10.0) = 1.0;
+uniform float darkness : hint_range(0.0, 10.0) = 0.8;
 
-void calculate_kernel(out float kernel[32], int radius, float sigma) {
-    float sum = 0.0;
-    for (int i = 0; i <= radius; i++) {
-        kernel[i] = gaussian_weight(float(i), sigma);
-        sum += i == 0 ? kernel[i] : 2.0 * kernel[i];
-    }
-    for (int i = 0; i <= radius; i++) {
-        kernel[i] /= sum;
-    }
+uniform int fade_direction : hint_range(0, 3) = 0;
+uniform float fade_cutoff : hint_range(0.0, 1.0) = 0.2;
+uniform float fade_intensity : hint_range(0.1, 10.0) = 2.0;
+
+// Precomputed Gaussian weights for radius 16, sigma ≈ 8
+const float weights[17] = float[](
+    0.196482, 0.175713, 0.121703, 0.066143, 0.028532,
+    0.009909, 0.002798, 0.000654, 0.000126, 0.000020,
+    0.000002, 0.000000, 0.000000, 0.000000, 0.000000,
+    0.000000, 0.000000
+);
+
+float calculate_fade(vec2 uv) {
+    float fade = 0.0;
+    if (fade_direction == 0) fade = uv.x;
+    else if (fade_direction == 1) fade = 1.0 - uv.x;
+    else if (fade_direction == 2) fade = uv.y;
+    else fade = 1.0 - uv.y;
+
+    if (fade < fade_cutoff) return 1.0;
+    fade = (fade - fade_cutoff) / (1.0 - fade_cutoff);
+    return clamp(pow(1.0 - fade * 2.0, fade_intensity), 0.0, 1.0);
 }
 
 void fragment() {
-    vec2 resolution = SCREEN_PIXEL_SIZE;
     vec2 uv = SCREEN_UV;
+    vec2 offset = vec2(0.0, SCREEN_PIXEL_SIZE.y * blur_scale); // vertical blur
+    vec4 blur = texture(SCREEN_TEXTURE, uv) * weights[0];
 
-    float kernel[32];
-    calculate_kernel(kernel, blur_radius, blur_strength);
-
-    vec3 final_color = vec3(0.0);
-    float total_weight = 0.0;
-
-    for (int x = -blur_radius; x <= blur_radius; x++) {
-        for (int y = -blur_radius; y <= blur_radius; y++) {
-            float weight = kernel[abs(x)] * kernel[abs(y)];
-            vec2 offset = vec2(float(x), float(y)) * resolution;
-            final_color += texture(SCREEN_TEXTURE, uv + offset).rgb * weight;
-            total_weight += weight;
-        }
+    for (int i = 1; i <= blur_radius; i++) {
+        float w = weights[i];
+        vec2 shift = offset * float(i);
+        blur += texture(SCREEN_TEXTURE, uv + shift) * w;
+        blur += texture(SCREEN_TEXTURE, uv - shift) * w;
     }
 
-    final_color /= total_weight;
-	final_color.r = (final_color.r + R) - Darkness;
-	final_color.g = (final_color.g + G) - Darkness;
-	final_color.b = (final_color.b + B) - Darkness;
+    blur.rgb *= darkness;
 
-    COLOR = vec4(final_color, 1.0);
+    float fade = calculate_fade(uv);
+    vec4 original = texture(SCREEN_TEXTURE, uv);
+    vec4 final_color = mix(original, blur, fade);
+    final_color.a = 1.0;
+
+    COLOR = final_color;
 }

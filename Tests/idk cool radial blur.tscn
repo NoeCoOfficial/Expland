@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://ogri0uqte6np"]
+
+[ext_resource type="Shader" uid="uid://c15i81441pkit" path="res://Resources/Shaders/RotationalBlur.gdshader" id="1_5p53n"]
+[ext_resource type="Texture2D" uid="uid://bx3jg6ecnsa15" path="res://Tests/Screenshot (8).png" id="2_t8emu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cvyek"]
+shader = ExtResource("1_5p53n")
+shader_parameter/pivot = Vector2(0, 0)
+shader_parameter/amount = 0.02
+shader_parameter/quality = 9
+shader_parameter/marginDebug = false
+shader_parameter/ROOT_TWO = 1.0
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_cvyek")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_t8emu")
+expand_mode = 1

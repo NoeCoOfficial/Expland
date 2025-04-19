@@ -1,5 +1,5 @@
 # ============================================================= #
-# StoryModeManager.gd [AUTOLOAD]
+# BlurLayer_SCRIPT.gd
 # ============================================================= #
 #                       COPYRIGHT NOTICE                        #
 #                           Noe Co.                             #
@@ -45,9 +45,34 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-extends Node
+extends Control
 
-var is_in_story_mode = false
-var is_first_story_mode = true
-var has_done_first_story_msg = false
-var is_in_story_mode_first_cutscene_world = false
+@export var Blur : ColorRect
+@export var Stop_Mouse : Control
+
+var target_mat
+
+func _ready() -> void:
+	target_mat = Blur.material
+	
+	target_mat.set_shader_parameter("blur_scale", 0.001)
+	target_mat.set_shader_parameter("darkness", 1.0)
+
+func fadeInBlur(time : float, blur_scale : float, stop_mouse : bool, darkness : float, pass_mouse : bool = false):
+	if stop_mouse:
+		Stop_Mouse.mouse_filter = Control.MOUSE_FILTER_STOP
+	if pass_mouse:
+		Stop_Mouse.mouse_filter = Control.MOUSE_FILTER_PASS
+	
+	var tween = get_tree().create_tween().set_parallel()
+	tween.tween_property(target_mat, "shader_parameter/blur_scale", blur_scale, time)
+	tween.tween_property(target_mat, "shader_parameter/darkness", darkness, time)
+
+func fadeOutBlur(time : float):
+	var tween = get_tree().create_tween().set_parallel()
+	tween.connect("finished", on_fade_out_finished)
+	tween.tween_property(target_mat, "shader_parameter/blur_scale", 0.001, time)
+	tween.tween_property(target_mat, "shader_parameter/darkness", 1.0, time)
+
+func on_fade_out_finished():
+	Stop_Mouse.mouse_filter = Control.MOUSE_FILTER_IGNORE

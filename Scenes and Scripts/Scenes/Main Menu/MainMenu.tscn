@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=59 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" uid="uid://uvd1eie30b14" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="PackedScene" uid="uid://jb61th5px5nt" path="res://Assets/3D Models/Tests/Island/Island 2.blend" id="2_0llf6"]
@@ -28,6 +28,7 @@
 [ext_resource type="FontFile" uid="uid://btimp4hwg4jis" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Regular.otf" id="14_8r23i"]
 [ext_resource type="StyleBox" uid="uid://com3tix0pshhk" path="res://Resources/Styles and Themes/Styles/Default/Label/Default_Label.tres" id="15_8lpeu"]
 [ext_resource type="Texture2D" uid="uid://ddboyvj4u3hwq" path="res://Textures/Icons/PadlockWhite_Icon.png" id="16_3n0bi"]
+[ext_resource type="PackedScene" uid="uid://bjsti1e663lr8" path="res://Scenes and Scripts/Scenes/General/UI/BlurLayer.tscn" id="16_elslp"]
 [ext_resource type="PackedScene" uid="uid://djenc4llne53s" path="res://Scenes and Scripts/Scenes/Credits/CreditsLayer.tscn" id="19_0ti8x"]
 [ext_resource type="PackedScene" uid="uid://b7la7o37o5gld" path="res://Scenes and Scripts/Scenes/Achievements/AchievementsUI.tscn" id="19_gyuud"]
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="21_v2lsw"]
@@ -529,14 +530,7 @@ script = ExtResource("10_y68f7")
 [node name="SettingsUI" parent="Camera3D/MainLayer" instance=ExtResource("10_i36v3")]
 visible = false
 
-[node name="GreyLayerGamemodeLayer" type="ColorRect" parent="Camera3D/MainLayer"]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.643)
+[node name="GamemodeBlurLayer" parent="Camera3D/MainLayer" instance=ExtResource("16_elslp")]
 
 [node name="ExitGamemodeLayerButton" type="Button" parent="Camera3D/MainLayer"]
 anchors_preset = 7

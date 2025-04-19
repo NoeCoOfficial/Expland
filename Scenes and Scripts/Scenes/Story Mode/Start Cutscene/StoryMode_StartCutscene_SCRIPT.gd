@@ -47,7 +47,20 @@
 
 extends Node3D
 
-@onready var MD : Control = $Camera3D/MainLayer/MinimalDialogue
+@export var MD : Control
+@export var PlayerSpawnPos : Node3D
+@export var BlackFade : Control
+@export var StormTimer : Timer
+@export var Tap_Cooldown : Timer
+@export var TapInteractMessageLabel : Label
+@export var Camera_Sutle_Movement_Animation : AnimationPlayer
+@export var TapWaterMesh : MeshInstance3D
+@export var TapWaterFillMesh : MeshInstance3D
+@export var RedLever : Node3D
+@export var GreenLever : Node3D
+@export var BlueLever : Node3D
+@export var Default_Camera : Camera3D
+
 @onready var player_scene = preload("uid://cjm5lrxicdgsf")
 
 var tap_running : bool = false
@@ -56,7 +69,6 @@ var tap_water_fill_tween : Tween
 
 func _ready() -> void:
 	Global.is_in_main_menu = false
-	$"Yacht Rig/Yacht".position.y = -0.086
 	StoryModeManager.is_in_story_mode_first_cutscene_world = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	print("ENTERED STORY MODE START CUTSCENE")
@@ -68,32 +80,31 @@ func _ready() -> void:
 func fadeOutGreyOverlay():
 	var tween = get_tree().create_tween()
 	tween.connect("finished", onfadeOutGreyOverlay_Finished)
-	tween.tween_property($Camera3D/MainLayer/BlackFade, "modulate", Color(1, 1, 1, 0), 4)
+	tween.tween_property(BlackFade, "modulate", Color(1, 1, 1, 0), 4)
 
 func onfadeOutGreyOverlay_Finished():
-	$Camera3D/MainLayer/BlackFade.visible = false
+	BlackFade.visible = false
 
 #####################################
 #####################################
 
 func fadeInGreyOverlay():
-	$Camera3D/MainLayer/BlackFade.visible = true
+	BlackFade.visible = true
 	var tween = get_tree().create_tween()
 	tween.connect("finished", onfadeInGreyOverlay_Finished)
-	tween.tween_property($Camera3D/MainLayer/BlackFade, "modulate", Color(1, 1, 1, 1), 4).from(Color(1, 1, 1, 0))
+	tween.tween_property(BlackFade, "modulate", Color(1, 1, 1, 1), 4).from(Color(1, 1, 1, 0))
 
 func onfadeInGreyOverlay_Finished():
 	var player_instance = player_scene.instantiate()
-	$Camera_Sutle_Movement.stop()
+	Camera_Sutle_Movement_Animation.stop()
 	
-	$"Yacht Rig/Yacht".position.y = 0.11
 	self.add_child(player_instance)
-	$StormTimer.start()
-	player_instance.position = Vector3(2.876, -15.188, -16.899)
-	player_instance.ResetPOS = Vector3(2.876, -15.188, -16.899)
+	StormTimer.start()
+	player_instance.global_position = PlayerSpawnPos.global_position
+	player_instance.ResetPOS = PlayerSpawnPos.global_position
 	player_instance.nodeSetup()
-	$Camera3D.clear_current(true)
-	$Camera3D/MainLayer/BlackFade.hide()
+	Default_Camera.clear_current(true)
+	BlackFade.hide()
 	new_player_dialogue_timeline()
 
 func new_player_dialogue_timeline():
@@ -138,69 +149,69 @@ func cutscene_timeline():
 
 
 func _on_red_lever_triggered() -> void:
-	$"Yacht Rig/Yacht/RedLever".toggle_lever(!$"Yacht Rig/Yacht/RedLever".state_on)
+	RedLever.toggle_lever(!RedLever.state_on)
 
 func _on_green_lever_triggered() -> void:
-	$"Yacht Rig/Yacht/BlueLever".toggle_lever(!$"Yacht Rig/Yacht/BlueLever".state_on)
+	GreenLever.toggle_lever(!GreenLever.state_on)
 
 func _on_blue_lever_triggered() -> void:
-	$"Yacht Rig/Yacht/GreenLever".toggle_lever(!$"Yacht Rig/Yacht/GreenLever".state_on)
+	BlueLever.toggle_lever(!BlueLever.state_on)
 
 
 func _on_tap_toggled() -> void:
 	if can_toggle_tap:
 		can_toggle_tap = false
-		$"Yacht Rig/Yacht/Tap Cooldown".start()
+		Tap_Cooldown.start()
 		
 		tap_running = !tap_running
 		
 		if tap_running:
-			$"Yacht Rig/Yacht/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1/Contents/Message".text = "Turn off"
+			TapInteractMessageLabel.text = "Turn off"
 			if tap_water_fill_tween:
 				tap_water_fill_tween.kill()
 			tap_water_fill_tween = get_tree().create_tween().set_parallel()
 			tap_water_fill_tween.tween_property(
-				$"Yacht Rig/Yacht/TapWaterFillMesh", 
+				TapWaterFillMesh, 
 				"position:y", 
 				1.249, 
 				20)
 			
 			tap_water_fill_tween.tween_property(
-				$"Yacht Rig/Yacht/TapWaterMesh", 
+				TapWaterMesh, 
 				"position:y", 
 				1.337, 
 				0.3)
 			
 			tap_water_fill_tween.tween_property(
-				$"Yacht Rig/Yacht/TapWaterMesh", 
+				TapWaterMesh, 
 				"scale:y", 
 				0.459, 
 				0.3)
 		else:
-			$"Yacht Rig/Yacht/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1/Contents/Message".text = "Turn on"
+			TapInteractMessageLabel.text = "Turn on"
 			if tap_water_fill_tween:
 				tap_water_fill_tween.kill()
 			tap_water_fill_tween = get_tree().create_tween().set_parallel()
 			tap_water_fill_tween.tween_property(
-				$"Yacht Rig/Yacht/TapWaterFillMesh", 
+				TapWaterFillMesh, 
 				"position:y", 
 				1.172, 
 				10)
 			
 			tap_water_fill_tween.tween_property(
-				$"Yacht Rig/Yacht/TapWaterMesh", 
+				TapWaterMesh, 
 				"position:y", 
 				1.117, 
 				0.3)
 				
 			tap_water_fill_tween.tween_property(
-				$"Yacht Rig/Yacht/TapWaterMesh", 
+				TapWaterMesh, 
 				"position:y", 
 				1.562, 
 				0.0).set_delay(0.3)
 			
 			tap_water_fill_tween.tween_property(
-				$"Yacht Rig/Yacht/TapWaterMesh", 
+				TapWaterMesh, 
 				"scale:y", 
 				0.024, 
 				0.3)
@@ -211,4 +222,3 @@ func _on_tap_cooldown_timeout() -> void:
 
 func _on_storm_timer() -> void:
 	print("STARTING STORM")
-	$Storm_Transition.play("storm_transition")
