@@ -1,16 +1,16 @@
 shader_type spatial;
 render_mode unshaded, depth_draw_never, cull_disabled;
 
-uniform float noise_scale = 1.1;
-uniform float speed = 0.01;
-uniform float darkness_amount = 0.5;
-uniform float detail = 0.3;
+uniform float noise_scale = 11.24;
+uniform float speed = 0.16;
+uniform float darkness_amount = 9.155;
+uniform float detail = 0.23;
 uniform float concentration = 0.0;
-uniform float amount = 0.2;
-uniform float bloom = 1.0;
+uniform float amount = 0.12;
+uniform float bloom = 2.0;
 uniform float alpha = 8.0;
 uniform vec3 cloud_tint : source_color = vec3(1.0, 1.0, 1.0);
-uniform float edge_fade = 0.5;
+uniform float edge_fade = -0.035;
 
 uniform mat2 rotation_matrix = mat2(vec2(1.6, 1.2), vec2(-1.2, 1.6));
 
