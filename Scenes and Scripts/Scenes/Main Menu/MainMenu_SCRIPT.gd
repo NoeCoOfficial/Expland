@@ -48,9 +48,6 @@
 @icon("res://Textures/Icons/Script Icons/32x32/main_menu.png")
 extends Node3D
 
-var loadIslandThread : Thread
-var loadAchivementElementsThread : Thread
-
 var is_in_gamemode_select = false
 var is_in_absolute_gamemode_select = false
 var is_in_free_mode_island_popup = false

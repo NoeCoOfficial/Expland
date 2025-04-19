@@ -454,8 +454,6 @@ func _input(_event): # A built-in function that listens for input using the inpu
 				InventoryManager.closePockets()
 	
 	if Input.is_action_just_pressed("Quit") and Quit == true and OS.is_debug_build(): # if the Quit input is pressed and the Quit variable is true
-		if !StoryModeManager.is_in_story_mode_first_cutscene_world:
-			SaveManager.saveAllData()
 		get_tree().quit() # quit the game
 	
 	if Input.is_action_just_pressed("Reset") and !PauseManager.inside_absolute_item_workshop and Reset == true and !PauseManager.is_paused and !PauseManager.is_inside_alert and OS.is_debug_build():
@@ -468,8 +466,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 	
 	if Input.is_action_just_pressed("SaveGame") and OS.is_debug_build() and IslandManager.Current_Game_Mode == "FREE":
 		if !StoryModeManager.is_in_story_mode_first_cutscene_world:
-			Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
-			SaveManager.saveAllData()
+			print("saved (or not)")
 	
 	if !StoryModeManager.is_in_story_mode_first_cutscene_world and !PauseManager.is_paused and !DialogueManager.is_in_interface and !BuildingManager.is_in_building_interface:
 		if Input.is_action_just_pressed("Hotbar_1"):
@@ -798,9 +795,7 @@ func _ready():
 	
 
 func on_fade_in_tween_finished():
-	if !StoryModeManager.is_in_story_mode_first_cutscene_world:
-		if IslandManager.Current_Game_Mode == "FREE":
-			Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
+	pass
 
 func _on_ready() -> void: # Called when the node is considered ready
 	pass
