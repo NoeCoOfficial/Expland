@@ -94,6 +94,11 @@ folder_colors={
 "res://Scenes and Scripts/Singletons/": "orange"
 }
 
+[global]
+
+SECURITY_KEY_SETTINGS="*&@(H23Hh98H32//(@i#HhhU2hw*sh3847opo22E9IE)@ef*H"
+SECURITY_KEY="_-E9R2-3M#@$ufh*@3277b$$@#Ngd23G&**#(@hef(*U8238U2HF8"
+
 [global_group]
 
 PlayerBody="The body for the player."
