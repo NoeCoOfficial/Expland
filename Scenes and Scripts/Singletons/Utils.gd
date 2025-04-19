@@ -47,9 +47,6 @@
 
 extends Node
 
-var screenshot_thread: Thread
-var delete_island_thread: Thread
-
 func format_number(n: int) -> String: # A function for formatting numbers easily. Must be an integer!
 	if n >= 1_000: # if the number is greater than or equal to 1,000
 
@@ -96,6 +93,7 @@ func set_center_offset(node : Node): # set the offset of a control node to the c
 	var node_size = node.get_size()
 	node.set_pivot_offset(Vector2(node_size/2))
 
+
 func vector3_to_dict(vec: Vector3) -> Dictionary: # Converts a Vector3 value to a dictionary.
 	return {"x": vec.x, "y": vec.y, "z": vec.z}
 
@@ -108,120 +106,6 @@ func vector2_to_dict(vec: Vector2) -> Dictionary: # Converts a Vector2 value to 
 func dict_to_vector2(dict: Dictionary) -> Vector2: # Converts a dictionary value to a Vector2 value.
 	return Vector2(dict["x"], dict["y"])
 
-func createIslandSaveFolder(folder_name: String, game_mode : String) -> void:
-	var base_path = "user://saveData"
-	var full_path = base_path
-	
-	# Determine the full path based on the game mode
-	if game_mode == "FREE":
-		full_path += "/Free Mode/Islands/" + folder_name
-	elif game_mode == "STORY":
-		full_path += "/Story Mode/Islands/" + folder_name
-	elif game_mode == "PARKOUR":
-		full_path += "/Parkour Mode/Runs/" + folder_name
-	
-	var dir = DirAccess.open("user://")
-	
-	if dir:
-		# Ensure the base "saveData" folder exists
-		if not dir.dir_exists("saveData"):
-			var err = dir.make_dir("saveData")
-			if err != OK:
-				print_rich("[color=orange][Utils] Failed to create base folder 'saveData': [/color]", err)
-				return
-			else:
-				print_rich("[color=orange][Utils] Base folder 'saveData' created.[/color]")
-		
-		# Create the necessary subdirectories
-		var subdirs = full_path.replace("user://", "").split("/")
-		var current_path = "user://"
-		
-		for subdir in subdirs:
-			current_path += "/" + subdir
-			if not dir.dir_exists(current_path):
-				var err = dir.make_dir(current_path)
-				if err != OK:
-					print_rich("[color=orange][Utils] Failed to create folder: [/color]", current_path, " Error: ", err)
-					return
-				else:
-					print_rich("[color=orange][Utils] Folder created successfully: [/color]", current_path)
-			else:
-				print_rich("[color=orange][Utils] Folder already exists: [/color]", current_path)
-	else:
-		print_rich("[color=orange][Utils] Failed to access user:// directory[/color]")
-
-func createBaseSaveFolder() -> void:
-	var dir = DirAccess.open("user://")
-	
-	if dir:
-		# Ensure the base "saveData" folder exists
-		if not dir.dir_exists("saveData"):
-			var err = dir.make_dir("saveData")
-			if err != OK:
-				print_rich("[color=orange][Utils] Failed to create base folder 'saveData': [/color]", err)
-			else:
-				print_rich("[color=orange][Utils] Base folder 'saveData' created.[/color]")
-		else:
-			print_rich("[color=orange][Utils] Base folder 'saveData' already exists and will not be cleared.[/color]")
-	else:
-		print_rich("[color=orange][Utils] Failed to access user:// directory[/color]")
-
-func take_screenshot_in_thread(save_path: String):
-	# Ensure no other thread is running
-	if screenshot_thread:
-		screenshot_thread.wait_to_finish()
-		screenshot_thread = null
-	
-	# Capture the image on the main thread
-	var viewport = get_viewport()
-	var image = viewport.get_texture().get_image()
-	
-	# Ensure the image is valid
-	if image:
-		
-		# Start the thread for saving the image
-		screenshot_thread = Thread.new()
-		var callable = Callable(self, "_save_image_thread").bind(image, save_path)
-		var result = screenshot_thread.start(callable)
-		
-		if result == OK:
-			print_rich("[color=orange][Utils] Screenshot save thread started[/color]")
-		else:
-			print_rich("[color=orange][Utils] Failed to start screenshot save thread[/color]")
-	else:
-		print_rich("[color=red][Utils] Failed to capture image from viewport.[/color]")
-
-# Function that runs on the thread for saving
-func _save_image_thread(image: Image, save_path: String):
-	var result = image.save_png(save_path)
-	if result == OK:
-		print_rich("[color=orange][Utils] Screenshot saved to: [/color]", save_path)
-	else:
-		print_rich("[color=orange][Utils] Failed to save screenshot.[/color]")
-	
-	
-	# Signal the main thread that the task is complete (if needed)
-	call_deferred("_cleanup_screenshot_thread")
-
-# Cleanup function to safely stop and reset the thread
-func _cleanup_screenshot_thread():
-	if screenshot_thread:
-		screenshot_thread.wait_to_finish()
-		screenshot_thread = null
-
-func delete_free_mode_island(Island_Name: String) -> void:
-	IslandManager.FreeMode_Island_Count -= 1
-	
-	var full_dir = "user://saveData/Free Mode/Islands/" + Island_Name
-	OS.move_to_trash(ProjectSettings.globalize_path(full_dir))
-	
-	print_rich("[color=orange][Utils] Delete island process completed[/color]")
-
-func sum_array(arr):
-	var total = 0
-	for value in arr:
-		total += value
-	return total
 
 func get_total_node_count():
 	return get_tree().get_node_count()
