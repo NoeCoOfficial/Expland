@@ -336,7 +336,8 @@ var stamina_restoring_from_0 = false
 @export var BuildingMakeStaticMessage : Label
 @export var BuildingVignette : ColorRect
 @export var BuildingInitItemRig : Node3D
-
+@export var BuildingItemParent : Node3D
+@export var CanBuildCollisionArea : Area3D
 
 @export_group("General Nodes")
 
@@ -1052,6 +1053,16 @@ func showDeathScreen(): # A function to show the death screen
 
 #endregion
 
+#region Building
+
+func _on_can_build_collision_area_body_entered(body: Node3D) -> void:
+	BuildingManager.toggle_can_build(false, true)
+
+func _on_can_build_collision_area_body_exited(body: Node3D) -> void:
+	BuildingManager.toggle_can_build(true, true)
+
+#endregion
+
 #region Item Workshop
 
 func openItemWorkshop():
@@ -1131,12 +1142,14 @@ func _on_potion_health_regen_timeout() -> void:
 
 func pauseGame():
 	PauseLayer.show()
+	$Head/Camera3D/PauseLayer/BlurLayer.fadeInBlur(0.0, 2.19, false, 0.6, true)
 	$Head/Camera3D/AudioNotificationLayer.layer = 15
 	PauseManager.is_paused = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) # set the mouse mode to visible
 
 func resumeGame():
 	PauseLayer.hide()
+	$Head/Camera3D/PauseLayer/BlurLayer.fadeOutBlur(0.0)
 	$Head/Camera3D/AudioNotificationLayer.layer = 1
 	PauseManager.is_paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # lock the mouse cursor

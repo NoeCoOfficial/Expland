@@ -105,8 +105,6 @@ func initialize_globals() -> void:
 	PlayerSettingsData.loadSettings()
 
 func initialize_ui() -> void:
-	$Camera3D/MainLayer/GreyLayerGamemodeLayer.hide()
-	$Camera3D/MainLayer/GreyLayerGamemodeLayer.modulate = Color(1, 1, 1, 0)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	IslandManager.resetAttributes()
 	IslandAccessOrder.load_order()
@@ -258,15 +256,14 @@ func spawnGameModeMenu():
 	is_tweening = true  # Set tweening flag to true
 	
 	$Camera3D/MainLayer/PlayButtonTrigger.visible = false
-	$Camera3D/MainLayer/GreyLayerGamemodeLayer.show()
+	
+	$Camera3D/MainLayer/GamemodeBlurLayer.fadeInBlur(0.5, 2.19, true, 0.8)
 	
 	var tween = get_tree().create_tween().set_parallel()
 	tween.connect("finished", Callable(self, "on_spawn_game_mode_menu_tween_finished"))
 	
-	tween.tween_property($Camera3D/MainLayer/GreyLayerGamemodeLayer, "modulate", Color(1, 1, 1, 1), 0.5)
-	
 	tween.tween_property($Camera3D/MainLayer/ExitGamemodeLayerButton, "position", Vector2(15, 11), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-
+	
 	tween.tween_property($Camera3D/MainLayer/GameModeLayer/BG_StoryMode, "position:y", -580, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	tween.tween_property($Camera3D/MainLayer/GameModeLayer/BG_FreeMode, "position:y", -580, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.1)
 	tween.tween_property($Camera3D/MainLayer/GameModeLayer/BG_ParkourMode, "position:y", -580, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.2)
@@ -282,11 +279,9 @@ func deSpawnGameModeMenu():
 		is_tweening = true  # Set tweening flag to true
 		
 		$Camera3D/MainLayer/PlayButtonTrigger.visible = true
+		$Camera3D/MainLayer/GamemodeBlurLayer.fadeOutBlur(1.0)
 		
 		var tween = get_tree().create_tween().set_parallel()
-		
-		tween.tween_property($Camera3D/MainLayer/GreyLayerGamemodeLayer, "modulate", Color(1, 1, 1, 0), 1)
-		tween.tween_property($Camera3D/MainLayer/GreyLayerGamemodeLayer, "visible", false, 0).set_delay(1)
 		
 		tween.tween_property($Camera3D/MainLayer/ExitGamemodeLayerButton, "position", Vector2(15, -54), 1).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
 		
@@ -645,6 +640,7 @@ func _on_dialogue_interface_finished_dialogue(StoryModeID: int) -> void:
 		tween.tween_interval(1)
 
 func on_story_mode_fade_finished():
+	IslandManager.Current_Game_Mode = "STORY"
 	get_tree().change_scene_to_packed(StoryModeStartCutscene)
 
 func _on_tree_exiting() -> void:

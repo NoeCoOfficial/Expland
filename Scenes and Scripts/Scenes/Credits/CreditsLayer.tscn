@@ -1,6 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://djenc4llne53s"]
+[gd_scene load_steps=21 format=3 uid="uid://djenc4llne53s"]
 
 [ext_resource type="Script" uid="uid://c2rn7sdv7k58i" path="res://Scenes and Scripts/Scenes/Credits/CreditsLayer_SCRIPT.gd" id="1_wf8c4"]
+[ext_resource type="PackedScene" uid="uid://bjsti1e663lr8" path="res://Scenes and Scripts/Scenes/General/UI/BlurLayer.tscn" id="2_74o2j"]
 [ext_resource type="Script" uid="uid://bd3squcstkss1" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="2_anj2t"]
 [ext_resource type="StyleBox" uid="uid://3txnt8ebd3yh" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/BlackBGwithWhiteBorder.tres" id="3_1pdi7"]
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="4_a8p6x"]
@@ -52,15 +53,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wf8c4")
 
-[node name="GreyLayer" type="ColorRect" parent="."]
+[node name="BlurLayer" parent="." instance=ExtResource("2_74o2j")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.643)
-script = ExtResource("2_anj2t")
 
 [node name="MainLayer" type="Control" parent="."]
 layout_mode = 1

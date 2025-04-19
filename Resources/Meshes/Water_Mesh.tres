@@ -1,0 +1,66 @@
+[gd_resource type="PlaneMesh" load_steps=9 format=3 uid="uid://l213y61s0s8r"]
+
+[ext_resource type="Shader" uid="uid://guk6kbhnavkj" path="res://Resources/Shaders/Water.gdshader" id="1_1a307"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_hy6fq"]
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_brvoh"]
+seamless = true
+as_normal_map = true
+bump_strength = 1.5
+noise = SubResource("FastNoiseLite_hy6fq")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_hs2gb"]
+noise_type = 3
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u5h0n"]
+seamless = true
+as_normal_map = true
+bump_strength = 1.5
+noise = SubResource("FastNoiseLite_hs2gb")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jbi1g"]
+noise_type = 3
+frequency = 0.0039
+offset = Vector3(659.57, 489.36, 0)
+fractal_type = 3
+fractal_octaves = 10
+fractal_gain = 0.145
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7k2l2"]
+seamless = true
+noise = SubResource("FastNoiseLite_jbi1g")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0n3y0"]
+render_priority = 0
+shader = ExtResource("1_1a307")
+shader_parameter/albedo = Color(0.164487, 0.331771, 0.251431, 1)
+shader_parameter/albedo2 = Color(0.197745, 0.498682, 0.585787, 1)
+shader_parameter/color_deep = Color(0.105882, 0.294118, 0.329412, 1)
+shader_parameter/color_shallow = Color(0, 0.552941, 0.65098, 1)
+shader_parameter/metallic = 1.0
+shader_parameter/roughness = 0.05
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_brvoh")
+shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_u5h0n")
+shader_parameter/wave = SubResource("NoiseTexture2D_7k2l2")
+shader_parameter/wave_time = 0.0
+shader_parameter/wave_direction = Vector2(1.915, 0.455)
+shader_parameter/wave_2_direction = Vector2(3.485, 0.71)
+shader_parameter/time_scale = 0.025
+shader_parameter/wave_speed = 0.12
+shader_parameter/noise_scale = 26.695
+shader_parameter/height_scale = 0.715
+shader_parameter/beers_law = 7.804
+shader_parameter/depth_offset = -0.75
+shader_parameter/edge_scale = 0.362
+shader_parameter/near = 0.5
+shader_parameter/far = 100.0
+shader_parameter/edge_color = Color(0, 0, 0, 1)
+
+[resource]
+material = SubResource("ShaderMaterial_0n3y0")
+size = Vector2(500, 500)
+subdivide_width = 1000
+subdivide_depth = 1000
