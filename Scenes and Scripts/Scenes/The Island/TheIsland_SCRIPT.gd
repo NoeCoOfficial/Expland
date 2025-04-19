@@ -89,8 +89,10 @@ func _ready() -> void:
 	
 	Tick.start()
 	
-	
-	init_weather_instant() # NOTE: Important line right here (initalize weather)
+	if IslandManager.Current_Game_Mode == "STORY":
+		init_weather_instant_custom(0)
+	else:
+		init_weather_instant() # NOTE: Important line right here (initalize weather)
 	
 	Player.nodeSetup()
 
@@ -433,6 +435,12 @@ func init_weather_instant():
 	WeatherManager.change_weather_to_random_instant()
 	$"Weather Timer".stop()
 	#$"Weather Timer".wait_time = randi_range(400, 1000)
+	$"Weather Timer".start()
+
+func init_weather_instant_custom(ARR_INDEX : int):
+	WeatherManager.change_weather_instant(ARR_INDEX)
+	$"Weather Timer".stop()
+	$"Weather Timer".wait_time = 600
 	$"Weather Timer".start()
 
 #####################################

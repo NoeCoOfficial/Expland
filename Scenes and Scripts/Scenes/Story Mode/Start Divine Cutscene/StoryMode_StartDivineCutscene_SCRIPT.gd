@@ -49,6 +49,7 @@ extends Control
 
 func _ready() -> void:
 	start_divine_cutscene()
+	IslandManager.Current_Game_Mode = "STORY"
 
 func nodes_init():
 	$FadeIn_White.color = Color(0, 0, 0, 1)
