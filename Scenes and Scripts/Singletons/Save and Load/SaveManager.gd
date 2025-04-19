@@ -48,10 +48,14 @@
 @icon("res://Textures/Icons/Script Icons/32x32/disk_save.png")
 extends Node
 
+
 func saveAllData():
 	GlobalData.saveGlobal()
 	
-	PlayerSettingsData.saveSettings()
+	PlayerSettingsData.saveSettings(
+		PlayerSettingsData.SAVE_PATH, 
+		ProjectSettings.get_setting("global/SECURITY_KEY_SETTINGS")
+	)
 
 func verify_dir(path: String) -> void:
 	var dir = DirAccess.open("user://")

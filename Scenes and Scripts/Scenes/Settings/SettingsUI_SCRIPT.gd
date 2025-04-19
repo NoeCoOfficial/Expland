@@ -65,7 +65,10 @@ func nodeSetup():
 	$MainLayer/SettingsTabContainer/Sound/SFXSlider.value = PlayerSettingsData.sfx_Volume
 
 func _ready() -> void:
-	PlayerSettingsData.loadSettings()
+	PlayerSettingsData.loadSettings(
+		PlayerSettingsData.SAVE_PATH, 
+		ProjectSettings.get_setting("global/SECURITY_KEY_SETTINGS")
+	)
 	
 	
 	Utils.set_center_offset($MainLayer)
@@ -84,7 +87,10 @@ func _process(_delta: float) -> void:
 
 
 func openSettings(animationTime : float):
-	PlayerSettingsData.loadSettings()
+	PlayerSettingsData.loadSettings(
+		PlayerSettingsData.SAVE_PATH, 
+		ProjectSettings.get_setting("global/SECURITY_KEY_SETTINGS")
+	)
 	PauseManager.is_inside_settings = true
 	
 	self.visible = true
@@ -99,7 +105,10 @@ func openSettings(animationTime : float):
 
 func closeSettings(animationTime : float):
 	PauseManager.is_inside_settings = false
-	PlayerSettingsData.saveSettings()
+	
+	PlayerSettingsData.saveSettings(
+		PlayerSettingsData.SAVE_PATH, 
+		ProjectSettings.get_setting("global/SECURITY_KEY_SETTINGS"))
 	
 	if PlayerSettingsData.quickAnimations:
 		$MainLayer.scale = Vector2(0.0, 0.0)

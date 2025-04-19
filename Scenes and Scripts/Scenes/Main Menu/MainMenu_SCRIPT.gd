@@ -91,12 +91,15 @@ func initialize_globals() -> void:
 	Global.main_menu_transitioning_scene = false
 	Global.the_island_transitioning_scene = false
 	GlobalData.loadGlobal()
-	PlayerSettingsData.loadSettings()
+	
+	PlayerSettingsData.loadSettings(
+		PlayerSettingsData.SAVE_PATH, 
+		ProjectSettings.get_setting("global/SECURITY_KEY_SETTINGS")
+	)
 
 func initialize_ui() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	IslandManager.resetAttributes()
-	IslandAccessOrder.load_order()
 	
 	if OS.is_debug_build():
 		fade_timer_time_left_label.show()

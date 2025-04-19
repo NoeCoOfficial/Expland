@@ -1236,7 +1236,7 @@ func Autosave_showSaving():
 	tween.tween_interval(4.0)
 
 func Autosave_showSaved():
-	if !StoryModeManager.is_in_story_mode_fsirst_cutscene_world:
+	if !StoryModeManager.is_in_story_mode_first_cutscene_world:
 		SaveManager.saveAllData() # Saves everything
 		
 		$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved.visible = true
