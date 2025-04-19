@@ -51,8 +51,21 @@ extends Node
 func saveAllData():
 	GlobalData.saveGlobal()
 	
-	if IslandManager.Current_Island_Name != "":
-		PlayerData.saveData(IslandManager.Current_Island_Name)
-		IslandData.saveData(IslandManager.Current_Island_Name)
-	
 	PlayerSettingsData.saveSettings()
+
+func verify_dir(path: String) -> void:
+	var dir = DirAccess.open("user://")
+	if dir == null:
+		print_rich("[color=red][Utils] Failed to access user:// directory[/color]")
+		return
+	
+	var folders = path.strip_edges().split("/")
+	for folder in folders:
+		if not dir.dir_exists(folder):
+			var err = dir.make_dir(folder)
+			if err != OK:
+				print_rich("[color=red][Utils] Failed to create folder: %s (Error: %d)[/color]" % [folder, err])
+				return
+			else:
+				print_rich("[color=green][Utils] Created folder: %s[/color]" % folder)
+		dir.change_dir(folder)

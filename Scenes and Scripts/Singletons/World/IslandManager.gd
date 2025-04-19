@@ -58,10 +58,6 @@ func _ready() -> void:
 	if !OS.is_debug_build():
 		Current_Island_Name = ""
 
-func set_current_island(island_name: String) -> void:
-	Current_Island_Name = island_name
-	IslandAccessOrder.add_island(island_name)
-
 func resetAttributes():
 	
 	# CRITICAL

@@ -88,7 +88,7 @@ var Master_Volume = 1
 ######################################
 
 func saveSettings() -> void:
-	Utils.createBaseSaveFolder()
+	SaveManager.verify_dir("saveData")
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	var data = {
 		
@@ -117,7 +117,7 @@ func saveSettings() -> void:
 	print("[PlayerSettingsData] --Saved Player Settings--")
 
 func loadSettings() -> void:
-	Utils.createBaseSaveFolder()
+	SaveManager.verify_dir("saveData")
 	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
 	if not file:
 		push_warning("[PlayerSettingsData] File doesn't exist (" + SAVE_PATH + ")")

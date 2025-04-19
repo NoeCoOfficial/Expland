@@ -1238,7 +1238,6 @@ func Autosave_showSaving():
 func Autosave_showSaved():
 	if !StoryModeManager.is_in_story_mode_first_cutscene_world:
 		SaveManager.saveAllData() # Saves everything
-		Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png") # Take island screenshot
 		
 		$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved.visible = true
 		$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved.scale = Vector2(0.83, 0.83)
