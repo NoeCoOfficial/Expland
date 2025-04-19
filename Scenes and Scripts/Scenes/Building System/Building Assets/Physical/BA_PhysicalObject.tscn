@@ -1,6 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://caxh4l6g6uaus"]
+[gd_scene load_steps=3 format=3 uid="uid://caxh4l6g6uaus"]
 
 [ext_resource type="Script" uid="uid://kpk3ah820urb" path="res://Scenes and Scripts/Scenes/Building System/Building Assets/Physical/BA_PhyscialObject_SCRIPT.gd" id="1_o4p1b"]
+[ext_resource type="Shape3D" uid="uid://cfsolcncuprd1" path="res://Resources/Building Assets/Collision Shapes/SWORD.tres" id="2_cbhnw"]
 
-[node name="BA_PhysicalObject" type="RigidBody3D"]
+[node name="BA_PhysicalObject" type="RigidBody3D" node_paths=PackedStringArray("MeshContainer", "CollisionShape")]
+collision_layer = 0
+collision_mask = 513
 script = ExtResource("1_o4p1b")
+MeshContainer = NodePath("MeshContainer")
+CollisionShape = NodePath("CollisionShape3D")
+
+[node name="MeshContainer" type="Node3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0177002, 0.564697, -0.00444007)
+shape = ExtResource("2_cbhnw")

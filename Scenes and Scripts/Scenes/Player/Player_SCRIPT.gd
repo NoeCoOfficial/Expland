@@ -504,6 +504,9 @@ func _input(_event): # A built-in function that listens for input using the inpu
 				BuildingManager.despawn_edit()
 			else:
 				BuildingManager.init_edit()
+		
+		if Input.is_action_just_pressed("Building_Build"):
+			BuildingManager.build()
 
 func _unhandled_input(event): # A built-in function that listens for input all the time
 	if event is InputEventMouseMotion: # if the input is a mouse motion event

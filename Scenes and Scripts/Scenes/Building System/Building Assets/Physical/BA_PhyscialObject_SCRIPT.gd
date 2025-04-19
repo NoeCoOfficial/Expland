@@ -46,3 +46,19 @@
 # ============================================================= #
 
 extends RigidBody3D
+
+@export var MeshContainer : Node3D
+@export var CollisionShape : CollisionShape3D
+
+@export var ITEM_TYPE : String
+@export var current_position : Vector3
+@export var current_rotation : Vector3
+@export var current_scale : Vector3
+
+
+## spawn() params
+# Building assets parent global position
+# Global rotation (degrees)
+# Global scale
+# Item tyoe
+# Packed model scene

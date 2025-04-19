@@ -1910,6 +1910,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 transform = Transform3D(-0.651061, 0, -5.69176e-08, 0, 0.651061, 0, 5.69176e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Head/Player_Character_Shadow/Armature_003" index="0"]
+
 bones/0/position = Vector3(2.78038, -3.12933, -195.972)
 bones/0/rotation = Quaternion(-0.684262, -0.27052, 0.248988, 0.62977)
 bones/1/rotation = Quaternion(0.0793155, 0.040901, -0.00855834, 0.995973)
@@ -1936,7 +1937,7 @@ bones/23/rotation = Quaternion(0.278272, 0.057112, -0.0171734, 0.958649)
 cast_shadow = 3
 
 [node name="HandAttatchment" type="BoneAttachment3D" parent="Head/Player_Character_Shadow/Armature_003/Skeleton3D" index="1"]
-transform = Transform3D(-0.286477, -0.356262, 0.889386, 0.9472, 0.0342297, 0.318811, -0.144024, 0.933759, 0.327645, -74.0181, -37.9044, -202.221)
+transform = Transform3D(-0.27587, -0.360312, 0.891107, 0.948202, 0.0499042, 0.313724, -0.157509, 0.931496, 0.327881, -74.8809, -37.6585, -204.19)
 bone_name = "mixamorig_RightHand"
 bone_idx = 14
 
@@ -1944,6 +1945,7 @@ bone_idx = 14
 transform = Transform3D(-0.651061, 0, 5.69175e-08, 0, 0.651061, 0, -5.69175e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Head/Player_Character/Armature_003" index="0"]
+
 bones/0/position = Vector3(2.78038, -3.12933, -195.972)
 bones/0/rotation = Quaternion(-0.684262, -0.27052, 0.248988, 0.62977)
 bones/1/rotation = Quaternion(0.0793155, 0.040901, -0.00855834, 0.995973)

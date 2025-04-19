@@ -61,10 +61,13 @@ func initializeIslandProperties(_Island_Name):
 @export var Clouds : MeshInstance3D
 @export var Player : CharacterBody3D
 
+@export var Building_Assets_Parent : Node
+
 var transitioning_weather = false
 
 func _ready() -> void:
 	PlayerManager.WORLD = $"."
+	BuildingManager.Building_Assets_Parent = Building_Assets_Parent
 	randomize()
 	initNodes()
 	
