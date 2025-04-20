@@ -760,7 +760,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.2631, 1003.91)
 mesh = SubResource("PlaneMesh_ksvy8")
 
 [node name="Player" parent="." instance=ExtResource("16_52bg8")]
-transform = Transform3D(-0.999573, 0, -0.0292302, 0, 1, 0, 0.0292302, 0, -0.999573, -351.588, 0, 324.606)
+transform = Transform3D(-0.999573, 0, -0.0292302, 0, 1, 0, 0.0292302, 0, -0.999573, -259.258, -1.39731, 527.121)
 StartPOS = Vector3(-351.588, 0, 324.606)
 ResetPOS = Vector3(-351.588, 0, 324.606)
 
@@ -1691,7 +1691,7 @@ shape = SubResource("ConcavePolygonShape3D_krxnn")
 [node name="Cameras" type="Node" parent="Story Mode"]
 
 [node name="StoryModeWakeUpCamera" type="Camera3D" parent="Story Mode/Cameras"]
-transform = Transform3D(0.044502, -0.00117425, 0.999008, 0.0967001, 0.995308, -0.00313772, -0.994318, 0.0967438, 0.0444068, -260.178, -1.42583, 527.817)
+transform = Transform3D(0.044502, -0.00117425, 0.999009, 0.0967001, 0.995309, -0.00313772, -0.994318, 0.0967438, 0.0444068, -259.176, -1.38501, 527.817)
 current = true
 
 [node name="StoryModeWakeUpUI" type="CanvasLayer" parent="Story Mode/Cameras/StoryModeWakeUpCamera"]
@@ -1706,7 +1706,7 @@ libraries = {
 [node name="Markers" type="Node" parent="."]
 
 [node name="StoryModeStartSpawn" type="Marker3D" parent="Markers"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -259.258, 0.328975, 527.121)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -259.258, -1.39731, 527.121)
 gizmo_extents = 0.9
 
 [node name="ExplorerNote" parent="." instance=ExtResource("32_qh5si")]
