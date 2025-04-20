@@ -89,7 +89,7 @@ func initialize_globals() -> void:
 	
 	PauseManager.is_paused = false
 	Global.main_menu_transitioning_scene = false
-	Global.the_island_transitioning_scene = false
+	Global.transitioning_to_main_menu_from_island = false
 	GlobalData.loadGlobal()
 	
 	PlayerSettingsData.loadSettings(
@@ -125,13 +125,13 @@ func change_to_startup_notice() -> void:
 	get_tree().change_scene_to_packed(StartupNotice)
 
 func fadeOut(node):
-	Global.is_main_menu_fading_out = true
+	Global.is_main_menu_black_screen_fading_out = true
 	var tween = get_tree().create_tween()
 	tween.connect("finished", onfadeOutFinished)
 	tween.tween_property(node, "modulate", Color(0, 0, 0, 0), 3)
 
 func onfadeOutFinished():
-	Global.is_main_menu_fading_out = false
+	Global.is_main_menu_black_screen_fading_out = false
 
 func _on_ready() -> void:
 	pass

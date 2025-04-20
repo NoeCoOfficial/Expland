@@ -1177,7 +1177,7 @@ func _on_save_and_quit_to_menu_pressed() -> void:
 	if !StoryModeManager.is_in_story_mode_first_cutscene_world:
 		SaveManager.saveAllData()
 	transitioning_to_menu = true
-	Global.the_island_transitioning_scene = true
+	Global.transitioning_to_main_menu_from_island = true
 	AudioManager.Current_Playlist.audibleOnlyFadeOutAllSongs()
 	if AudioManager.Current_Rain_SFX_Node:
 		AudioManager.Current_Rain_SFX_Node.stop_rain_loop(2.0)

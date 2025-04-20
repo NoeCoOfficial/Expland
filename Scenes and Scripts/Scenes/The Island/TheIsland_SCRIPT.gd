@@ -63,6 +63,9 @@ func initializeIslandProperties(_Island_Name):
 
 @export var Building_Assets_Parent : Node
 
+@export_group("Markers")
+@export var Marker_StoryModeStartSpawn : Marker3D
+
 var transitioning_weather = false
 
 func _ready() -> void:
@@ -76,7 +79,8 @@ func _ready() -> void:
 	AudioManager.canOperate_textField = true
 	IslandManager.transitioning_from_menu = false
 	Global.main_menu_transitioning_scene = false
-	Global.the_island_transitioning_scene = false
+	Global.transitioning_to_main_menu_from_island = false
+	Global.is_in_main_menu = false
 	
 	set_dof_blur(PlayerSettingsData.DOFBlur)
 	set_pretty_shadows(PlayerSettingsData.PrettyShadows)
