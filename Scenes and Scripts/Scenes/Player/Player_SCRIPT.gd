@@ -793,6 +793,7 @@ func _ready():
 		PauseLayer.hide()
 		StartDebugging_Btn.hide()
 	
+	
 
 func on_fade_in_tween_finished():
 	pass
