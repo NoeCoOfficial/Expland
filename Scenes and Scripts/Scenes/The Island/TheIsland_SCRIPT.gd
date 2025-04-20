@@ -98,7 +98,7 @@ func _ready() -> void:
 	else:
 		init_weather_instant() # NOTE: Important line right here (initalize weather)
 	
-	if IslandManager.Current_Game_Mode == "STORY":
+	if IslandManager.Current_Game_Mode == "STORY" and StoryModeManager.is_first_story_mode:
 		Player.global_position = Marker_StoryModeStartSpawn.global_position
 	
 	Player.nodeSetup()
