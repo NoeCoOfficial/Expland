@@ -377,12 +377,13 @@ void fragment() {
 }"
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_s3501"]
+frequency = 0.0107
 fractal_type = 2
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rkq2m"]
 seamless = true
 as_normal_map = true
-bump_strength = 1.5
+bump_strength = 5.3
 noise = SubResource("FastNoiseLite_s3501")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_747t0"]
@@ -392,7 +393,7 @@ fractal_type = 2
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r68ax"]
 seamless = true
 as_normal_map = true
-bump_strength = 0.0
+bump_strength = 2.9
 noise = SubResource("FastNoiseLite_747t0")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_32fgl"]
