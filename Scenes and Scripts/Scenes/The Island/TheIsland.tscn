@@ -723,7 +723,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.2631, 1003.91)
 mesh = SubResource("PlaneMesh_ksvy8")
 
 [node name="Player" parent="." instance=ExtResource("16_52bg8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -351.588, 0, 324.606)
+transform = Transform3D(-0.999573, 0, -0.0292302, 0, 1, 0, 0.0292302, 0, -0.999573, -351.588, 0, 324.606)
 StartPOS = Vector3(-351.588, 0, 324.606)
 ResetPOS = Vector3(-351.588, 0, 324.606)
 
@@ -1648,6 +1648,12 @@ mesh = SubResource("CylinderMesh_cyjoe")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World Contents/Parkour/Parkour Obstacle12"]
 transform = Transform3D(-3.72529e-08, 0.691001, 7.45058e-08, -1.00806, -2.42144e-08, 7.45058e-08, 7.51062e-08, -5.14836e-08, 1, -0.447134, -0.0116577, 0)
 shape = SubResource("ConcavePolygonShape3D_krxnn")
+
+[node name="Story Mode" type="Node" parent="."]
+
+[node name="StoryModeWakeUpCamera" type="Camera3D" parent="Story Mode"]
+transform = Transform3D(0.0501049, -1.08918e-08, 0.998744, -0.777506, 0.627664, 0.0390059, -0.626876, -0.778484, 0.0314491, -260.178, -1.42583, 527.817)
+current = true
 
 [node name="Markers" type="Node" parent="."]
 
