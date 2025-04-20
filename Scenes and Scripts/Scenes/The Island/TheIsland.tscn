@@ -1655,6 +1655,8 @@ shape = SubResource("ConcavePolygonShape3D_krxnn")
 transform = Transform3D(0.0501049, -1.08918e-08, 0.998744, -0.777506, 0.627664, 0.0390059, -0.626876, -0.778484, 0.0314491, -260.178, -1.42583, 527.817)
 current = true
 
+[node name="StoryModeWakeUpUI" type="CanvasLayer" parent="Story Mode/StoryModeWakeUpCamera"]
+
 [node name="Markers" type="Node" parent="."]
 
 [node name="StoryModeStartSpawn" type="Marker3D" parent="Markers"]
