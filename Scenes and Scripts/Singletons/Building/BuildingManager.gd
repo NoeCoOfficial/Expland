@@ -69,7 +69,6 @@ var current_global_rotation : Vector3
 
 func build():
 	pass
-	# (glbl_pos : Vector3, glbl_rot_deg : Vector3, glbl_scale : Vector3, item_type : String, model : PackedScene)
 
 func init_building_system():
 	# First, check if we are not in the building interface
@@ -82,6 +81,7 @@ func init_building_system():
 			var tween = get_tree().create_tween()
 			tween.tween_property(BuildingVignette, "shader_parameter/alpha", 0.4, 0.2)
 			
+			# TODO: STUFF
 			
 			print("spawned building system")
 

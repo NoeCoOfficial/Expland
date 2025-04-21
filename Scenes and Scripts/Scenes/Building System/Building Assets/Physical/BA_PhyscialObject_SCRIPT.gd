@@ -50,15 +50,17 @@ extends RigidBody3D
 @export var MeshContainer : Node3D
 @export var CollisionShape : CollisionShape3D
 
-@export var ITEM_TYPE : String
+@export var current_ITEM_TYPE : String
 @export var current_position : Vector3
 @export var current_rotation : Vector3
 @export var current_scale : Vector3
 
-
-## spawn() params
-# Building assets parent global position
-# Global rotation (degrees)
-# Global scale
-# Item tyoe
-# Packed model scene
+func spawn(item_type : String):
+	# Building Asset Resource B.A.R
+	var BAR = InventoryManager.ITEM_TYPES[item_type]["BUILDING_ASSET_RES"]
+	var instance = BAR.Model_Scene.instantiate()
+	MeshContainer.add_child(instance)
+	instance.position = BAR.Default_Model_Position
+	instance.rotation_degrees = BAR.Default_Model_Rotation_Degrees
+	instance.scale = BAR.Default_Model_Scale
+	CollisionShape.shape = BAR.Collision_Shape
