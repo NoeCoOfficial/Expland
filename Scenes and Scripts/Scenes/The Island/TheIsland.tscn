@@ -1,4 +1,4 @@
-[gd_scene load_steps=121 format=3 uid="uid://c5jkrckgqd0w6"]
+[gd_scene load_steps=120 format=3 uid="uid://c5jkrckgqd0w6"]
 
 [ext_resource type="Script" uid="uid://cucb4fwieubx" path="res://Scenes and Scripts/Scenes/The Island/TheIsland_SCRIPT.gd" id="1_a8sfg"]
 [ext_resource type="Environment" uid="uid://dgtwdwq2n0x1v" path="res://Resources/Environment/TheIsland_WorldEnvironment.tres" id="2_h46kk"]
@@ -720,25 +720,13 @@ tracks/4/keys = {
 "method": &"firstInitStoryModePlayer"
 }]
 }
-tracks/5/type = "value"
+tracks/5/type = "method"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../../Player:visible")
+tracks/5/path = NodePath("../../Player")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/6/type = "method"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("../../Player")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
 "times": PackedFloat32Array(12.5333),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -747,24 +735,8 @@ tracks/6/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_1rf0p"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../../Player:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5oxf6"]
 _data = {
-&"RESET": SubResource("Animation_1rf0p"),
 &"main": SubResource("Animation_32fgl")
 }
 
@@ -1047,7 +1019,6 @@ mesh = SubResource("PlaneMesh_ksvy8")
 
 [node name="Player" parent="." instance=ExtResource("16_52bg8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -259.258, -1.39731, 527.121)
-visible = false
 StartPOS = Vector3(-351.588, 0, 324.606)
 ResetPOS = Vector3(-351.588, 0, 324.606)
 
@@ -2122,6 +2093,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="BlinkAnimation" type="AnimationPlayer" parent="Story Mode/Canvas Layers/EyeBlinkLayer"]
 libraries = {

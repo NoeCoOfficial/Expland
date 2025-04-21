@@ -102,6 +102,7 @@ func _ready() -> void:
 	if IslandManager.Current_Game_Mode == "STORY" and StoryModeManager.is_first_story_mode:
 		Player.global_position = Marker_StoryModeStartSpawn.global_position
 		$"Story Mode/Animation Players/StoryModeWakeUpAnimation".play("main")
+		Player.hide()
 		PlayerManager.is_in_cutscene = true
 		Player.init_for_cutscene()
 	
