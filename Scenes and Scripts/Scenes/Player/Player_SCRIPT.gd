@@ -730,10 +730,10 @@ func _process(_delta):
 	## END DEBUGGING
 	
 	# HUD
-	if UseHealth == false: # Check if the UseHealth variable is false
-		HUDLayer_HealthBar.hide()
-	else: 
-		HUDLayer_HealthBar.show()
+	#if UseHealth == false: # Check if the UseHealth variable is false
+		#HUDLayer_HealthBar.hide()
+	#else: 
+		#HUDLayer_HealthBar.show()
 	
 	
 	# NOTE: Change when making crosshair setting
@@ -929,6 +929,24 @@ func init_for_story_mode_cutscene():
 		$Head/Camera3D/HUDLayer/WhiteHamIcon.hide()
 		$Head/Camera3D/HUDLayer/WhiteHeartIcon.hide()
 		InventoryLayer_Hotbar.hide()
+
+func init_for_cutscene():
+	$Head/Camera3D/HUDLayer/Crosshair.hide()
+	$Head/Camera3D/HUDLayer/HungerBar.hide()
+	$Head/Camera3D/HUDLayer/HealthBar.hide()
+	$Head/Camera3D/HUDLayer/StaminaBar.hide()
+	$Head/Camera3D/HUDLayer/WhiteHamIcon.hide()
+	$Head/Camera3D/HUDLayer/WhiteHeartIcon.hide()
+	InventoryLayer_Hotbar.hide()
+
+func deinit_for_cutscene():
+	$Head/Camera3D/HUDLayer/Crosshair.show()
+	$Head/Camera3D/HUDLayer/HungerBar.show()
+	$Head/Camera3D/HUDLayer/HealthBar.show()
+	$Head/Camera3D/HUDLayer/StaminaBar.show()
+	$Head/Camera3D/HUDLayer/WhiteHamIcon.show()
+	$Head/Camera3D/HUDLayer/WhiteHeartIcon.show()
+	InventoryLayer_Hotbar.show()
 
 #endregion
 

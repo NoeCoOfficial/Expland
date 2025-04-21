@@ -732,6 +732,20 @@ tracks/5/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../../Player")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(12.5333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"deinit_for_cutscene"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5oxf6"]
 _data = {
@@ -1948,7 +1962,7 @@ shape = SubResource("ConcavePolygonShape3D_krxnn")
 [node name="Cameras" type="Node" parent="Story Mode"]
 
 [node name="StoryModeWakeUpCamera" type="Camera3D" parent="Story Mode/Cameras"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -259.258, 0.233, 527.121)
+transform = Transform3D(0.465526, -0.281574, 0.839048, -0.694985, 0.470686, 0.543553, -0.547979, -0.836164, 0.0234276, -259.176, -1.32896, 527.817)
 current = true
 fov = 110.0
 
