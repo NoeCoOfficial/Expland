@@ -107,7 +107,7 @@ func _ready() -> void:
 
 func _on_ready() -> void:
 	AudioManager.initNotificaton(PlayerManager.AudioNotification)
-	AudioManager.initNew($TheIsland_Audio, true, false, true)
+	AudioManager.initNew($TheIsland_Audio, !StoryModeManager.is_first_story_mode, false, true)
 	AudioManager.Current_Rain_SFX_Node = $Rain_SFX
 
 func _process(_delta: float) -> void:
@@ -472,3 +472,9 @@ func _on_open_feedback_issue_action_triggered() -> void:
 
 func playBlinkEffect():
 	$"Story Mode/Canvas Layers/EyeBlinkLayer/BlinkAnimation".play("main")
+
+func makePlayerCameraCurrent():
+	$"Story Mode/Cameras/StoryModeWakeUpCamera".clear_current(true)
+
+func firstInitStoryModePlayer():
+	Player.show()

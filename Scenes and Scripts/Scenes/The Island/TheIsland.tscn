@@ -655,7 +655,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 3.63333, 4.96667, 6.53333, 7, 7.6, 8.23333, 8.6, 9.26667, 11.7333),
 "transitions": PackedFloat32Array(1, 1, 1.07177, 1, 1, 0.482968, 0.466516, 0.466516, 1, 1),
 "update": 0,
-"values": [Vector3(-0.574664, 1.54288, -0.975495), Vector3(-0.574664, 1.54288, -0.975495), Vector3(-0.614356, 0.575959, -0.647517), Vector3(0.00313773, 1.52637, 0.0968519), Vector3(0.00313773, 1.52637, 0.0968519), Vector3(0.00313773, -0.173663, 0.0968519), Vector3(0.00349066, 2.37714, 0.0959931), Vector3(0.00349066, 2.37714, 0.0959931), Vector3(-0.936581, 2.00681, 0.294109), Vector3(0, 3.14159, 0)]
+"values": [Vector3(-0.574664, 1.54288, -0.975495), Vector3(-0.574664, 1.54288, -0.975495), Vector3(-0.614356, 0.575959, -0.647517), Vector3(0.00313773, 1.52637, 0.0968519), Vector3(0.00313773, 1.52637, 0.0968519), Vector3(0.00313773, -0.173663, 0.0968519), Vector3(0.00349066, 2.37714, 0.0959931), Vector3(0.00349066, 2.37714, 0.0959931), Vector3(-0.936581, 2.00681, 0.294109), Vector3(0, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -691,6 +691,46 @@ tracks/2/keys = {
 "args": [],
 "method": &"playBlinkEffect"
 }]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(12.5333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"makePlayerCameraCurrent"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../..")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(12.5333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"firstInitStoryModePlayer"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../Player:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5oxf6"]
@@ -976,7 +1016,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.2631, 1003.91)
 mesh = SubResource("PlaneMesh_ksvy8")
 
 [node name="Player" parent="." instance=ExtResource("16_52bg8")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -259.258, -1.39731, 527.121)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -259.258, -1.39731, 527.121)
+visible = false
 StartPOS = Vector3(-351.588, 0, 324.606)
 ResetPOS = Vector3(-351.588, 0, 324.606)
 
@@ -1907,7 +1948,7 @@ shape = SubResource("ConcavePolygonShape3D_krxnn")
 [node name="Cameras" type="Node" parent="Story Mode"]
 
 [node name="StoryModeWakeUpCamera" type="Camera3D" parent="Story Mode/Cameras"]
-transform = Transform3D(0.465526, -0.281574, 0.839048, -0.694985, 0.470686, 0.543553, -0.547979, -0.836164, 0.0234276, -259.176, -1.32896, 527.817)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -259.258, 0.233, 527.121)
 current = true
 fov = 110.0
 
