@@ -100,6 +100,7 @@ func _ready() -> void:
 	
 	if IslandManager.Current_Game_Mode == "STORY" and StoryModeManager.is_first_story_mode:
 		Player.global_position = Marker_StoryModeStartSpawn.global_position
+		$"Story Mode/Animation Players/StoryModeWakeUpAnimation".play("main")
 	
 	Player.nodeSetup()
 	
@@ -205,6 +206,7 @@ func set_time(minute : int):
 	DayNightCycle_Sky.seek(minute * 2)
 
 func _on_tick() -> void:
+	print(str(Player.camera.global_position))
 	TimeManager.CURRENT_TIME += 1
 	
 	if TimeManager.CURRENT_TIME >= 1440:
