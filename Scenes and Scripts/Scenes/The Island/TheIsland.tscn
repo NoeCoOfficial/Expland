@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=3 uid="uid://c5jkrckgqd0w6"]
+[gd_scene load_steps=121 format=3 uid="uid://c5jkrckgqd0w6"]
 
 [ext_resource type="Script" uid="uid://cucb4fwieubx" path="res://Scenes and Scripts/Scenes/The Island/TheIsland_SCRIPT.gd" id="1_a8sfg"]
 [ext_resource type="Environment" uid="uid://dgtwdwq2n0x1v" path="res://Resources/Environment/TheIsland_WorldEnvironment.tres" id="2_h46kk"]
@@ -16,8 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://cmt00ehn4hfne" path="res://Scenes and Scripts/Scenes/General/UI/MessageWithKeyUI.tscn" id="22_1rf0p"]
 [ext_resource type="PackedScene" uid="uid://dble54a2rl76q" path="res://Scenes and Scripts/Scenes/The Island/Explorer Note/ExplorerNote.tscn" id="32_qh5si"]
 [ext_resource type="Texture2D" uid="uid://dhp1lqdlclos" path="res://Textures/Icons/Expland_TextWHITE_Icon.png" id="33_74605"]
-[ext_resource type="Texture2D" uid="uid://bx3jg6ecnsa15" path="res://Tests/Screenshot (8).png" id="33_rkq2m"]
 [ext_resource type="PackedScene" uid="uid://dqalod7m5is51" path="res://Scenes and Scripts/Scenes/The Eryv (and related)/The Eryv Statue.tscn" id="34_5odcp"]
+[ext_resource type="Shader" uid="uid://ddwwgv2rqfito" path="res://Resources/Shaders/GausianBlur.gdshader" id="34_747t0"]
 [ext_resource type="Texture2D" uid="uid://d2p266eplnyto" path="res://Textures/Explorer Notes/2_Lucent.png" id="34_agr60"]
 [ext_resource type="PackedScene" uid="uid://cg37p3dc7fbqx" path="res://Scenes and Scripts/Scenes/Environment/Water Mesh/WaterMesh.tscn" id="35_s3501"]
 [ext_resource type="Texture2D" uid="uid://dvbcyu3wr00f8" path="res://Textures/Dev Textures/Orange/texture_04.png" id="42_eoiek"]
@@ -707,6 +707,149 @@ _data = {
 bg_color = Color(1, 1, 1, 0)
 shadow_color = Color(0, 0, 0, 0.694118)
 shadow_size = 162
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r68ax"]
+shader = ExtResource("34_747t0")
+shader_parameter/blur_radius = 16
+shader_parameter/blur_scale = 0.0
+shader_parameter/darkness = 1.0
+shader_parameter/fade_direction = 3
+shader_parameter/fade_cutoff = 0.906
+shader_parameter/fade_intensity = 2.0
+
+[sub_resource type="Animation" id="Animation_5oxf6"]
+resource_name = "main"
+length = 0.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BottomBlink:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.16),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 688), Vector2(0, 272.935), Vector2(0, 688)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TopBlink:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.16),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1152, -39), Vector2(1152, 537), Vector2(1152, -39)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Blur:material:shader_parameter/blur_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.08, 0.5),
+"transitions": PackedFloat32Array(1, 1, 0.406126, 0.353554),
+"update": 0,
+"values": [0.0, 0.0, 2.597, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Blur:material:shader_parameter/darkness")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.08, 0.5),
+"transitions": PackedFloat32Array(1, 1, 0.406126, 0.353554),
+"update": 0,
+"values": [1.0, 1.0, 1.724, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Blur:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_ksvy8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BottomBlink:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 344.935)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TopBlink:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1152, 401)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Blur:material:shader_parameter/darkness")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Blur:material:shader_parameter/blur_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Blur:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cqxma"]
+_data = {
+&"RESET": SubResource("Animation_ksvy8"),
+&"main": SubResource("Animation_5oxf6")
+}
 
 [node name="World" type="Node3D" node_paths=PackedStringArray("DayNightCycle", "DayNightCycle_Rotation", "DayNightCycle_Sky", "Tick", "Weather_Timer", "RainParticles", "Clouds", "Player", "Building_Assets_Parent", "Marker_StoryModeStartSpawn")]
 script = ExtResource("1_a8sfg")
@@ -1737,24 +1880,15 @@ libraries = {
 [node name="Canvas Layers" type="Node" parent="Story Mode"]
 
 [node name="EyeBlinkLayer" type="CanvasLayer" parent="Story Mode/Canvas Layers"]
-layer = 128
-
-[node name="TextureRect" type="TextureRect" parent="Story Mode/Canvas Layers/EyeBlinkLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("33_rkq2m")
-expand_mode = 1
+layer = 5
 
 [node name="BottomBlink" type="Control" parent="Story Mode/Canvas Layers/EyeBlinkLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 688.0
-offset_bottom = 688.0
+offset_top = 344.935
+offset_bottom = 344.935
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -1812,9 +1946,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 1152.0
-offset_top = -39.0
+offset_top = 401.0
 offset_right = 1152.0
-offset_bottom = -39.0
+offset_bottom = 401.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -3.14159
@@ -1866,6 +2000,19 @@ grow_vertical = 2
 scale = Vector2(1.09649, 0.414059)
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_747t0")
+
+[node name="Blur" type="ColorRect" parent="Story Mode/Canvas Layers/EyeBlinkLayer"]
+material = SubResource("ShaderMaterial_r68ax")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BlinkAnimation" type="AnimationPlayer" parent="Story Mode/Canvas Layers/EyeBlinkLayer"]
+libraries = {
+&"": SubResource("AnimationLibrary_cqxma")
+}
 
 [node name="Markers" type="Node" parent="."]
 
