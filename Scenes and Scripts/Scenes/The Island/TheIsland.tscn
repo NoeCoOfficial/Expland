@@ -1,4 +1,4 @@
-[gd_scene load_steps=121 format=3 uid="uid://c5jkrckgqd0w6"]
+[gd_scene load_steps=120 format=3 uid="uid://c5jkrckgqd0w6"]
 
 [ext_resource type="Script" uid="uid://cucb4fwieubx" path="res://Scenes and Scripts/Scenes/The Island/TheIsland_SCRIPT.gd" id="1_a8sfg"]
 [ext_resource type="Environment" uid="uid://dgtwdwq2n0x1v" path="res://Resources/Environment/TheIsland_WorldEnvironment.tres" id="2_h46kk"]
@@ -669,37 +669,32 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(-259.176, -1.32896, 527.817), Vector3(-259.176, -1.32896, 527.817), Vector3(-259.176, -1.32896, 527.817), Vector3(-259.176, 0.029, 527.817), Vector3(-259.258, 0.233, 527.121)]
 }
-
-[sub_resource type="Animation" id="Animation_1rf0p"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Cameras/StoryModeWakeUpCamera:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.00313773, 1.52637, 0.0968519)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Cameras/StoryModeWakeUpCamera:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-259.176, 0.100522, 527.817)]
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.03333, 2.7, 12.5, 13.5333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"playBlinkEffect"
+}, {
+"args": [],
+"method": &"playBlinkEffect"
+}, {
+"args": [],
+"method": &"playBlinkEffect"
+}, {
+"args": [],
+"method": &"playBlinkEffect"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5oxf6"]
 _data = {
-&"RESET": SubResource("Animation_1rf0p"),
 &"main": SubResource("Animation_32fgl")
 }
 
@@ -767,7 +762,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.07, 0.08, 0.5),
 "transitions": PackedFloat32Array(1, 1, 0.406126, 0.353554),
 "update": 0,
-"values": [1.0, 1.0, 1.724, 1.0]
+"values": [1.0, 1.0, 1.31, 1.0]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -780,6 +775,30 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BottomBlink:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TopBlink:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_ksvy8"]
@@ -839,6 +858,30 @@ tracks/4/path = NodePath("Blur:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BottomBlink:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TopBlink:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -1864,7 +1907,7 @@ shape = SubResource("ConcavePolygonShape3D_krxnn")
 [node name="Cameras" type="Node" parent="Story Mode"]
 
 [node name="StoryModeWakeUpCamera" type="Camera3D" parent="Story Mode/Cameras"]
-transform = Transform3D(0.044502, -0.00117425, 0.999009, 0.0967001, 0.995309, -0.00313772, -0.994318, 0.0967438, 0.0444068, -259.176, 0.100522, 527.817)
+transform = Transform3D(0.465526, -0.281574, 0.839048, -0.694985, 0.470686, 0.543553, -0.547979, -0.836164, 0.0234276, -259.176, -1.32896, 527.817)
 current = true
 fov = 110.0
 

@@ -118,6 +118,8 @@ func _process(_delta: float) -> void:
 func initNodes():
 	RainParticles.emitting = false
 	RainParticles.visible = false
+	$"Story Mode/Canvas Layers/EyeBlinkLayer/BottomBlink".position = Vector2(0.0, 688.0)
+	$"Story Mode/Canvas Layers/EyeBlinkLayer/TopBlink".position = Vector2(1152.0, -39.0)
 
 func set_dof_blur(value : bool) -> void:
 	var cameraAttributesResource = load("uid://cskddrxjnggrw")
@@ -206,7 +208,6 @@ func set_time(minute : int):
 	DayNightCycle_Sky.seek(minute * 2)
 
 func _on_tick() -> void:
-	print(str(Player.camera.global_position))
 	TimeManager.CURRENT_TIME += 1
 	
 	if TimeManager.CURRENT_TIME >= 1440:
