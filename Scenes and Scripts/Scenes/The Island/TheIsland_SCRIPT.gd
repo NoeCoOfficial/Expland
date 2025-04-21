@@ -97,6 +97,7 @@ func _ready() -> void:
 		init_weather_instant_custom(0)
 	else:
 		init_weather_instant() # NOTE: Important line right here (initalize weather)
+		Player.camera.make_current()
 	
 	if IslandManager.Current_Game_Mode == "STORY" and StoryModeManager.is_first_story_mode:
 		Player.global_position = Marker_StoryModeStartSpawn.global_position
@@ -480,3 +481,5 @@ func makePlayerCameraCurrent():
 
 func firstInitStoryModePlayer():
 	Player.show()
+	Player.head.rotation_degrees.x = 0.0
+	Player.camera.rotation_degrees.y = 0.0

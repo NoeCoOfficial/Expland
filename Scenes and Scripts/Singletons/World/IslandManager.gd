@@ -52,7 +52,7 @@ var transitioningFromNewIsland = false
 var FreeMode_Island_Count : int
 
 var Current_Island_Name = "Debug"
-var Current_Game_Mode = "STORY"
+var Current_Game_Mode = "FREE"
 
 func _ready() -> void:
 	if !OS.is_debug_build():

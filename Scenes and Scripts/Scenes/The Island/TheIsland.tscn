@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=3 uid="uid://c5jkrckgqd0w6"]
+[gd_scene load_steps=121 format=3 uid="uid://c5jkrckgqd0w6"]
 
 [ext_resource type="Script" uid="uid://cucb4fwieubx" path="res://Scenes and Scripts/Scenes/The Island/TheIsland_SCRIPT.gd" id="1_a8sfg"]
 [ext_resource type="Environment" uid="uid://dgtwdwq2n0x1v" path="res://Resources/Environment/TheIsland_WorldEnvironment.tres" id="2_h46kk"]
@@ -747,8 +747,24 @@ tracks/6/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_1rf0p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Player:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5oxf6"]
 _data = {
+&"RESET": SubResource("Animation_1rf0p"),
 &"main": SubResource("Animation_32fgl")
 }
 
