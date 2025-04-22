@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=3 uid="uid://c5jkrckgqd0w6"]
+[gd_scene load_steps=121 format=3 uid="uid://c5jkrckgqd0w6"]
 
 [ext_resource type="Script" uid="uid://cucb4fwieubx" path="res://Scenes and Scripts/Scenes/The Island/TheIsland_SCRIPT.gd" id="1_a8sfg"]
 [ext_resource type="Environment" uid="uid://dgtwdwq2n0x1v" path="res://Resources/Environment/TheIsland_WorldEnvironment.tres" id="2_h46kk"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://dqalod7m5is51" path="res://Scenes and Scripts/Scenes/The Eryv (and related)/The Eryv Statue.tscn" id="34_5odcp"]
 [ext_resource type="Shader" uid="uid://ddwwgv2rqfito" path="res://Resources/Shaders/GausianBlur.gdshader" id="34_747t0"]
 [ext_resource type="Texture2D" uid="uid://d2p266eplnyto" path="res://Textures/Explorer Notes/2_Lucent.png" id="34_agr60"]
+[ext_resource type="PackedScene" uid="uid://cn1krf62jowgb" path="res://Scenes and Scripts/Scenes/Dialogue/MinimalDialogue.tscn" id="34_r68ax"]
 [ext_resource type="PackedScene" uid="uid://cg37p3dc7fbqx" path="res://Scenes and Scripts/Scenes/Environment/Water Mesh/WaterMesh.tscn" id="35_s3501"]
 [ext_resource type="Texture2D" uid="uid://dvbcyu3wr00f8" path="res://Textures/Dev Textures/Orange/texture_04.png" id="42_eoiek"]
 [ext_resource type="Texture2D" uid="uid://cqkp640cq8j51" path="res://Textures/Dev Textures/Red/texture_12.png" id="43_a63ti"]
@@ -733,6 +734,17 @@ tracks/5/keys = {
 "args": [],
 "method": &"deinit_for_cutscene"
 }]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Canvas Layers/MinimalDialogueLayer/MinimalDialogue")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5oxf6"]
@@ -2099,6 +2111,11 @@ mouse_filter = 2
 libraries = {
 &"": SubResource("AnimationLibrary_cqxma")
 }
+
+[node name="MinimalDialogueLayer" type="CanvasLayer" parent="Story Mode/Canvas Layers"]
+layer = 4
+
+[node name="MinimalDialogue" parent="Story Mode/Canvas Layers/MinimalDialogueLayer" instance=ExtResource("34_r68ax")]
 
 [node name="Markers" type="Node" parent="."]
 

@@ -102,9 +102,10 @@ func _ready() -> void:
 	if IslandManager.Current_Game_Mode == "STORY" and StoryModeManager.is_first_story_mode:
 		Player.global_position = Marker_StoryModeStartSpawn.global_position
 		$"Story Mode/Animation Players/StoryModeWakeUpAnimation".play("main")
-		Player.hide()
 		PlayerManager.is_in_cutscene = true
 		Player.init_for_cutscene()
+		Player.hide()
+		$"Story Mode/Canvas Layers/MinimalDialogueLayer/MinimalDialogue".spawnMinimalDialogue(DialogueManager.StoryMode_Dialogue1)
 	
 	Player.nodeSetup()
 	
@@ -482,5 +483,5 @@ func makePlayerCameraCurrent():
 
 func firstInitStoryModePlayer():
 	Player.show()
-	Player.head.rotation_degrees.x = 0.0
-	Player.camera.rotation_degrees.y = 0.0
+	Player.head.rotation_degrees.y = 0.0
+	Player.camera.rotation_degrees.x = 0.0
