@@ -338,6 +338,7 @@ var stamina_restoring_from_0 = false
 @export var BuildingInitItemRig : Node3D
 @export var BuildingItemParent : Node3D
 @export var CanBuildCollisionArea : Area3D
+@export var CanBuildCollisionShape : CollisionShape3D
 
 @export_group("General Nodes")
 

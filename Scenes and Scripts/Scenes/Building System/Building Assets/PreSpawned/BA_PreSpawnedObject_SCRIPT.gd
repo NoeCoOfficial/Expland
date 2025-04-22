@@ -52,8 +52,9 @@ extends RigidBody3D
 
 @export var current_ITEM_TYPE : String
 
-func spawn(item_type):
+func spawn(item_type : String):
 	# Building Asset Resource B.A.R
+	current_ITEM_TYPE = item_type
 	var BAR = InventoryManager.ITEM_TYPES[item_type]["BUILDING_ASSET_RES"]
 	var instance = BAR.Model_Scene.instantiate()
 	MeshContainer.add_child(instance)
