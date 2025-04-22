@@ -86,7 +86,7 @@ func swap_items(toITEM : String, useDelay : bool = true, delayTime : float = 0.2
 	# Set can build shape
 	if goToITEM != "" and goToITEM != null:
 		var building_asset_res = InventoryManager.ITEM_TYPES[goToITEM]["BUILDING_ASSET_RES"]
-		PlayerManager.PLAYER.CanBuildCollisionArea.shape = building_asset_res.Collision_Shape
+		PlayerManager.PLAYER.CanBuildCollisionShape.shape = building_asset_res.Collision_Shape
 	else:
 		PlayerManager.PLAYER.CanBuildCollisionShape.shape = BuildingManager.DEFAULT_COLLISION_SHAPE
 	

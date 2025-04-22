@@ -100,6 +100,9 @@ func despawn_building_system():
 		if is_in_building_edit_interface:
 			despawn_edit()
 		
+		for child in PlayerManager.PLAYER.BuildingItemParent.get_children():
+			child.queue_free()
+		
 		var tween = get_tree().create_tween()
 		tween.tween_property(BuildingVignette, "shader_parameter/alpha", 0.0, 0.2)
 		

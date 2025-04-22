@@ -45,7 +45,7 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-extends RigidBody3D
+extends StaticBody3D
 
 @export var MeshContainer : Node3D
 @export var CollisionShape : CollisionShape3D
