@@ -354,8 +354,12 @@ var StoryMode_StartCutsceneDialogue_6 = [
 
 var StoryMode_Dialogue1 = [
 	{"message": 
-		'"...Where am I???"', 
+		'', 
 		"time": 1.5},
+	
+	{"message": 
+		'"...Where am I???"', 
+		"time": 1.0},
 	
 	{"message": 
 		'"My head hurts so much..."',
