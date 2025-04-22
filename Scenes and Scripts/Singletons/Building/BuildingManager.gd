@@ -90,6 +90,7 @@ func init_building_system():
 			var instance = BA_PreSpawnedObject.instantiate()
 			PlayerManager.PLAYER.BuildingItemParent.add_child(instance)
 			instance.spawn(HandManager.CURRENTLY_HOLDING_ITEM)
+			PlayerManager.PLAYER.CanBuildCollisionShape.global_transform = instance.CollisionShape.global_transform
 			
 			print("spawned building system")
 
