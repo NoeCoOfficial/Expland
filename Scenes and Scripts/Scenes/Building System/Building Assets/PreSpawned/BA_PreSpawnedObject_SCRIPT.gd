@@ -1,5 +1,5 @@
 # ============================================================= #
-# BA_PhysicalObject_SCRIPT.gd
+# BA_PreSpawnedObject_SCRIPT.gd
 # ============================================================= #
 #                       COPYRIGHT NOTICE                        #
 #                           Noe Co.                             #
@@ -52,7 +52,7 @@ extends RigidBody3D
 
 @export var current_ITEM_TYPE : String
 
-func spawn(item_type : String, current_position : Vector3, current_rotation_degrees : Vector3, current_scale : Vector3):
+func spawn(item_type):
 	# Building Asset Resource B.A.R
 	var BAR = InventoryManager.ITEM_TYPES[item_type]["BUILDING_ASSET_RES"]
 	var instance = BAR.Model_Scene.instantiate()
@@ -61,7 +61,3 @@ func spawn(item_type : String, current_position : Vector3, current_rotation_degr
 	instance.rotation_degrees = BAR.Default_Model_Rotation_Degrees
 	instance.scale = BAR.Default_Model_Scale
 	CollisionShape.shape = BAR.Collision_Shape
-	
-	global_position = current_position
-	rotation_degrees = current_rotation_degrees
-	scale = current_scale

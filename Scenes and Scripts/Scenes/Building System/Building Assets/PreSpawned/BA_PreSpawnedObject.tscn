@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d26q4b51uiwq8"]
+
+[ext_resource type="Script" uid="uid://d1sg41m0q2dpc" path="res://Scenes and Scripts/Scenes/Building System/Building Assets/PreSpawned/BA_PreSpawnedObject_SCRIPT.gd" id="1_oe7lk"]
+[ext_resource type="PackedScene" uid="uid://duk84wfnoo2r6" path="res://Assets/3D Models/Tools/Sword.blend" id="2_20owq"]
+[ext_resource type="Shape3D" uid="uid://cfsolcncuprd1" path="res://Resources/Building Assets/Collision Shapes/SWORD.tres" id="3_mabc0"]
+
+[node name="BA_PreSpawnedObject" type="RigidBody3D"]
+collision_layer = 0
+collision_mask = 513
+script = ExtResource("1_oe7lk")
+
+[node name="MeshContainer" type="Node3D" parent="."]
+
+[node name="Sword" parent="MeshContainer" instance=ExtResource("2_20owq")]
+transform = Transform3D(0.329589, 0, 0, 0, 0.329589, 0, 0, 0, 0.329589, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0177002, 0.564697, -0.00444007)
+shape = ExtResource("3_mabc0")
