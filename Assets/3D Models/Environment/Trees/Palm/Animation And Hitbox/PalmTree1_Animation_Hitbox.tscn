@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5fch7iwyn811"]
+
+[ext_resource type="PackedScene" uid="uid://ccvky0721knit" path="res://Assets/3D Models/Environment/Trees/Palm/Models/PalmTree1.blend" id="1_0h3y5"]
+[ext_resource type="Script" uid="uid://be2hbme5pe50y" path="res://Assets/3D Models/Environment/Trees/Scripts/Tree_Animation_SCRIPT.gd" id="2_dgoxg"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dgoxg"]
+points = PackedVector3Array(3.08107, -9.10592, -0.743522, -0.999521, -1.79614, -0.233432, 1.55045, -9.10592, 0.446534, 0.701258, 0.583639, 0.616641, 0.361342, 0.243823, -0.913164, 1.38069, -9.27636, -1.25361, -0.658806, 0.243823, 0.786749, 2.91091, -9.27636, 0.276659, -0.658806, 0.413198, -0.743522, 2.40084, -8.76717, -1.42372, 0.191184, -0.266434, 0.956857, 0.701258, 0.583639, -0.573181, -0.00147621, -5.11136, 0.362357, 1.38069, -9.78768, -0.233432, 0.701258, -5.87606, -1.25361, -0.828964, -1.79614, 0.616641, -0.828964, -1.79614, -0.743522, 3.08107, -8.76717, -0.233432, -0.135111, -5.10365, -0.527259, 2.74075, -8.59673, -1.25361, 1.55045, -7.74559, 0.616641, 0.871416, 0.413198, -0.233432, -0.148732, -0.946067, 0.956857, 2.34575, -9.57418, -1.04907, -0.999521, 0.0733819, 0.106551, 1.04077, -9.10592, -0.233432, 0.0210265, -2.47684, -1.0835, 0.871416, -7.74559, 0.446534, 3.08107, -8.76717, -0.743522, -0.265585, 0.711198, 0.0932221, 2.5706, -8.76717, 0.446534, 0.701258, 0.0733819, 0.786749)
+
+[sub_resource type="Animation" id="Animation_0h3y5"]
+resource_name = "wind"
+length = 10.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dgoxg"]
+_data = {
+&"wind": SubResource("Animation_0h3y5")
+}
+
+[node name="PalmTree1" instance=ExtResource("1_0h3y5")]
+script = ExtResource("2_dgoxg")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="11"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(0.745478, 0.126165, -0.0350435, -0.065143, 1.42109, 0.02406, 0.0370925, -0.0398766, 0.746553, -0.848068, 12.9827, -0.0276019)
+shape = SubResource("ConvexPolygonShape3D_dgoxg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="12"]
+libraries = {
+&"": SubResource("AnimationLibrary_dgoxg")
+}
