@@ -2143,6 +2143,9 @@ NailRotation_Degrees = Vector3(-2.34, -23.005, 2.495)
 
 [node name="Building_Assets" type="Node" parent="."]
 
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -263.321, 0.445579, 527.255)
+
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="timeout" from="Tick" to="." method="_on_tick"]
 [connection signal="timeout" from="Weather Timer" to="." method="_on_weather_timer_timeout"]
