@@ -140,10 +140,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("6_28g6n")
 theme_override_font_sizes/font_size = 21
-current_tab = 0
+current_tab = 1
 script = ExtResource("2_vw753")
 
 [node name="General" type="TabBar" parent="MainLayer/SettingsTabContainer"]
+visible = false
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("2_vw753")
@@ -229,36 +230,10 @@ offset_bottom = 105.5
 focus_mode = 0
 
 [node name="Graphics" type="TabBar" parent="MainLayer/SettingsTabContainer"]
-visible = false
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("2_vw753")
 metadata/_tab_index = 1
-
-[node name="DOFBlurTTL" type="Label" parent="MainLayer/SettingsTabContainer/Graphics"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0133333
-anchor_top = 0.0377927
-anchor_right = 0.208
-anchor_bottom = 0.109222
-grow_horizontal = 2
-grow_vertical = 0
-theme = ExtResource("4_m5nwd")
-theme_override_font_sizes/font_size = 17
-text = "DOF Blur"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="DOFBlurSwitch" type="CheckButton" parent="MainLayer/SettingsTabContainer/Graphics"]
-layout_mode = 0
-offset_left = 115.0
-offset_top = 18.0
-offset_right = 159.0
-offset_bottom = 42.0
-focus_mode = 0
-button_pressed = true
 
 [node name="PrettyShadowsTTL" type="Label" parent="MainLayer/SettingsTabContainer/Graphics"]
 layout_mode = 1
@@ -268,9 +243,9 @@ anchor_top = 0.096059
 anchor_right = 0.296001
 anchor_bottom = 0.167488
 offset_left = 6.0
-offset_top = 1.0
+offset_top = -29.0
 offset_right = 6.0
-offset_bottom = 1.0
+offset_bottom = -29.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("4_m5nwd")
@@ -283,9 +258,9 @@ metadata/_edit_use_anchors_ = true
 [node name="PrettyShadowsSwitch" type="CheckButton" parent="MainLayer/SettingsTabContainer/Graphics"]
 layout_mode = 0
 offset_left = 115.0
-offset_top = 43.0
+offset_top = 13.0
 offset_right = 159.0
-offset_bottom = 67.0
+offset_bottom = 37.0
 focus_mode = 0
 button_pressed = true
 
@@ -549,7 +524,6 @@ script = ExtResource("2_vw753")
 [connection signal="toggled" from="MainLayer/SettingsTabContainer/General/SSCSwitch" to="." method="_on_ssc_switch_toggled"]
 [connection signal="value_changed" from="MainLayer/SettingsTabContainer/General/AutosaveIntervalSpinBox" to="." method="_on_autosave_interval_spin_box_value_changed"]
 [connection signal="toggled" from="MainLayer/SettingsTabContainer/General/QASwitch" to="." method="_on_qa_switch_toggled"]
-[connection signal="toggled" from="MainLayer/SettingsTabContainer/Graphics/DOFBlurSwitch" to="." method="_on_dof_blur_switch_toggled"]
 [connection signal="toggled" from="MainLayer/SettingsTabContainer/Graphics/PrettyShadowsSwitch" to="." method="_on_pretty_shadows_switch_toggled"]
 [connection signal="value_changed" from="MainLayer/SettingsTabContainer/Video/FOVSlider" to="." method="_on_fov_slider_value_changed"]
 [connection signal="value_changed" from="MainLayer/SettingsTabContainer/Video/SENSITIVITYSlider" to="." method="_on_sensitivity_slider_value_changed"]

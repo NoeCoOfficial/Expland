@@ -65,7 +65,6 @@ var showTime : bool = false
 # Graphics
 ######################################
 
-var DOFBlur : bool = true
 var PrettyShadows : bool = false
 
 ######################################
@@ -108,7 +107,6 @@ func saveSettings(save_path: String, SK : String):
 		"showTime" : showTime,
 		
 		# Graphics
-		"DOFBlur" : DOFBlur,
 		"PrettyShadows" : PrettyShadows,
 		
 		# Video
@@ -150,7 +148,6 @@ func loadSettings(save_path: String, SK : String):
 		quickAnimations = data.quickAnimations
 		showTime = data.showTime
 		
-		DOFBlur = data.DOFBlur
 		PrettyShadows = data.PrettyShadows
 		
 		FOV = data.FOV
@@ -170,28 +167,6 @@ func loadSettings(save_path: String, SK : String):
 func set_autosave_interval(value : int):
 	if PlayerManager.PLAYER != null:
 		PlayerManager.PLAYER.setAutosaveInterval(value)
-
-func set_dof_blur(value : bool) -> void:
-	if !StoryModeManager.is_in_story_mode_first_cutscene_world:
-		if get_node("/root/World") != null:
-				if value:
-					DOFBlur = true
-					var world = get_node("/root/World")
-					
-					if world.has_method("set_dof_blur"):
-						world.set_dof_blur(value)
-					else:
-						printerr("[PlayerSettingsData] Could not find set_dof_blur() method in world node.")
-				else:
-					DOFBlur = false
-					var world = get_node("/root/World")
-					
-					if world.has_method("set_dof_blur"):
-						world.set_dof_blur(value)
-					else:
-						printerr("[PlayerSettingsData] Could not find set_dof_blur() method in world node.")
-		else:
-			printerr("[PlayerSettingsData] World node (/root/World) is null. Can't call set_dof_blur().")
 
 func set_pretty_shadows(value : bool) -> void:
 	if !StoryModeManager.is_in_story_mode_first_cutscene_world:

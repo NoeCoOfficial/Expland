@@ -51,6 +51,8 @@ extends Node
 func initializeIslandProperties(_Island_Name):
 	pass
 
+@onready var IslandWorldEnv = preload("uid://dgtwdwq2n0x1v")
+
 @export var DayNightCycle : AnimationPlayer
 @export var DayNightCycle_Rotation : AnimationPlayer
 @export var DayNightCycle_Sky : AnimationPlayer
@@ -82,7 +84,6 @@ func _ready() -> void:
 	Global.transitioning_to_main_menu_from_island = false
 	Global.is_in_main_menu = false
 	
-	set_dof_blur(PlayerSettingsData.DOFBlur)
 	set_pretty_shadows(PlayerSettingsData.PrettyShadows)
 	
 	if PlayerData.GAME_STATE == "SLEEPING":
@@ -128,15 +129,7 @@ func initNodes():
 	$"Story Mode/Canvas Layers/EyeBlinkLayer/BottomBlink".position = Vector2(0.0, 688.0)
 	$"Story Mode/Canvas Layers/EyeBlinkLayer/TopBlink".position = Vector2(1152.0, -39.0)
 
-func set_dof_blur(value : bool) -> void:
-	var cameraAttributesResource = load("uid://cskddrxjnggrw")
-	if value:
-		cameraAttributesResource.dof_blur_far_enabled = true
-	else:
-		cameraAttributesResource.dof_blur_far_enabled = false
-
 func set_pretty_shadows(value : bool) -> void:
-	var IslandWorldEnv = load("uid://dgtwdwq2n0x1v")
 	if value:
 		IslandWorldEnv.sdfgi_enabled = true
 	else:

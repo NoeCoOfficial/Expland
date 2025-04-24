@@ -57,7 +57,6 @@ func nodeSetup():
 	$MainLayer/SettingsTabContainer/Graphics/PrettyShadowsSwitch.button_pressed = PlayerSettingsData.PrettyShadows
 	$MainLayer/SettingsTabContainer/General/SSCSwitch.button_pressed = PlayerSettingsData.showStartupScreen
 	$MainLayer/SettingsTabContainer/General/AutosaveIntervalSpinBox.value = PlayerSettingsData.autosaveInterval
-	$MainLayer/SettingsTabContainer/Graphics/DOFBlurSwitch.button_pressed = PlayerSettingsData.DOFBlur
 	$MainLayer/SettingsTabContainer/Video/FOVSlider.value = PlayerSettingsData.FOV
 	$MainLayer/SettingsTabContainer/Video/SENSITIVITYSlider.value = PlayerSettingsData.Sensitivity * 10
 	$MainLayer/SettingsTabContainer/Sound/MasterSlider.value = PlayerSettingsData.Master_Volume
@@ -141,18 +140,6 @@ func _on_music_slider_value_changed(value: float) -> void:
 
 func _on_sfx_slider_value_changed(value: float) -> void:
 	PlayerSettingsData.sfx_Volume = value
-
-func _on_dof_blur_switch_toggled(toggled_on: bool) -> void:
-	if !Global.is_in_main_menu:
-		if toggled_on:
-			PlayerSettingsData.set_dof_blur(true)
-		else:
-			PlayerSettingsData.set_dof_blur(false)
-	else:
-		if toggled_on:
-			PlayerSettingsData.DOFBlur = true
-		else:
-			PlayerSettingsData.DOFBlur = false
 
 func _on_pretty_shadows_switch_toggled(toggled_on: bool) -> void:
 	if !Global.is_in_main_menu:
