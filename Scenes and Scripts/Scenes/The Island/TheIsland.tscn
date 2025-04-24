@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=3 uid="uid://c5jkrckgqd0w6"]
+[gd_scene load_steps=121 format=3 uid="uid://c5jkrckgqd0w6"]
 
 [ext_resource type="Script" uid="uid://cucb4fwieubx" path="res://Scenes and Scripts/Scenes/The Island/TheIsland_SCRIPT.gd" id="1_a8sfg"]
 [ext_resource type="Environment" uid="uid://dgtwdwq2n0x1v" path="res://Resources/Environment/TheIsland_WorldEnvironment.tres" id="2_h46kk"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://dqalod7m5is51" path="res://Scenes and Scripts/Scenes/The Eryv (and related)/The Eryv Statue.tscn" id="34_5odcp"]
 [ext_resource type="Shader" uid="uid://ddwwgv2rqfito" path="res://Resources/Shaders/GausianBlur.gdshader" id="34_747t0"]
 [ext_resource type="Texture2D" uid="uid://d2p266eplnyto" path="res://Textures/Explorer Notes/2_Lucent.png" id="34_agr60"]
+[ext_resource type="PackedScene" uid="uid://cn1krf62jowgb" path="res://Scenes and Scripts/Scenes/Dialogue/MinimalDialogue.tscn" id="34_r68ax"]
 [ext_resource type="PackedScene" uid="uid://cg37p3dc7fbqx" path="res://Scenes and Scripts/Scenes/Environment/Water Mesh/WaterMesh.tscn" id="35_s3501"]
 [ext_resource type="Texture2D" uid="uid://dvbcyu3wr00f8" path="res://Textures/Dev Textures/Orange/texture_04.png" id="42_eoiek"]
 [ext_resource type="Texture2D" uid="uid://cqkp640cq8j51" path="res://Textures/Dev Textures/Red/texture_12.png" id="43_a63ti"]
@@ -734,6 +735,17 @@ tracks/5/keys = {
 "method": &"deinit_for_cutscene"
 }]
 }
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Canvas Layers/MinimalDialogueLayer/MinimalDialogue")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5oxf6"]
 _data = {
@@ -753,6 +765,93 @@ shader_parameter/darkness = 1.0
 shader_parameter/fade_direction = 3
 shader_parameter/fade_cutoff = 0.906
 shader_parameter/fade_intensity = 2.0
+
+[sub_resource type="Animation" id="Animation_ksvy8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BottomBlink:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 344.935)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TopBlink:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1152, 401)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Blur:material:shader_parameter/darkness")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Blur:material:shader_parameter/blur_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Blur:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BottomBlink:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TopBlink:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_5oxf6"]
 resource_name = "main"
@@ -841,93 +940,6 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_ksvy8"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BottomBlink:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 344.935)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("TopBlink:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1152, 401)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Blur:material:shader_parameter/darkness")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Blur:material:shader_parameter/blur_scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Blur:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("BottomBlink:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("TopBlink:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cqxma"]
@@ -2099,6 +2111,11 @@ mouse_filter = 2
 libraries = {
 &"": SubResource("AnimationLibrary_cqxma")
 }
+
+[node name="MinimalDialogueLayer" type="CanvasLayer" parent="Story Mode/Canvas Layers"]
+layer = 4
+
+[node name="MinimalDialogue" parent="Story Mode/Canvas Layers/MinimalDialogueLayer" instance=ExtResource("34_r68ax")]
 
 [node name="Markers" type="Node" parent="."]
 
