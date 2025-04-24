@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5fch7iwyn811"]
+[gd_scene load_steps=7 format=3 uid="uid://b5fch7iwyn811"]
 
 [ext_resource type="PackedScene" uid="uid://ccvky0721knit" path="res://Assets/3D Models/Environment/Trees/Palm/Models/PalmTree1.blend" id="1_0h3y5"]
 [ext_resource type="Script" uid="uid://be2hbme5pe50y" path="res://Assets/3D Models/Environment/Trees/Scripts/Tree_Animation_SCRIPT.gd" id="2_dgoxg"]
@@ -45,9 +45,37 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector3(-0.369919, -1.30857, -0.178336), Vector3(-0.290428, -1.31578, -0.156113), Vector3(-0.328362, -1.34818, -0.166562), Vector3(-0.253133, -1.26978, -0.141886), Vector3(-0.369919, -1.30857, -0.178336)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Leaf_005:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 4.02198, 11.0886, 16.8021, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.58008, 0.785043, 0.225043), Vector3(-0.58008, 0.785043, 0.225043), Vector3(-0.526493, 0.817122, 0.164031), Vector3(-0.526493, 0.788115, 0.164031), Vector3(-0.414427, 0.841872, 0.0457357), Vector3(-0.58008, 0.785043, 0.225043)]
+}
+
+[sub_resource type="Animation" id="Animation_dgoxg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Leaf_005:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.526493, 0.817122, 0.164031)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dgoxg"]
 _data = {
+&"RESET": SubResource("Animation_dgoxg"),
 &"wind": SubResource("Animation_0h3y5")
 }
 
@@ -55,13 +83,16 @@ _data = {
 script = ExtResource("2_dgoxg")
 
 [node name="Leaf_002" parent="." index="1"]
-transform = Transform3D(1.32545, -0.0880822, -0.709603, 0.0559061, 1.52545, -0.531855, 0.201922, 0.155834, 4.80521, -0.904471, 13.4362, 0.0300764)
+transform = Transform3D(1.3262, -0.0530641, -0.72597, 0.0208517, 1.52324, -0.621822, 0.203623, 0.189623, 4.79195, -0.904471, 13.4362, 0.0300764)
 
 [node name="Leaf_003" parent="." index="2"]
-transform = Transform3D(1.13478, -0.16884, -1.28172, 0.70812, 3.30395, -0.000458002, 3.81336, -0.563283, 0.3815, -0.785085, 13.7842, -0.0565622)
+transform = Transform3D(1.13519, -0.154615, -1.28197, 0.696104, 3.30569, 0.00418984, 3.81545, -0.5571, 0.380653, -0.785085, 13.7842, -0.0565622)
 
 [node name="Leaf" parent="." index="3"]
-transform = Transform3D(0.417325, 0.442779, -3.35461, -0.357301, 1.04274, 1.34686, 2.08929, 0.0898811, 0.9004, -0.799375, 13.4597, 0.00569895)
+transform = Transform3D(0.509938, 0.368734, -3.4123, -0.32178, 1.07226, 1.10216, 2.07446, 0.0756827, 1.00977, -0.799375, 13.4597, 0.00569895)
+
+[node name="Leaf_005" parent="." index="6"]
+transform = Transform3D(1.32925, -0.537801, 2.34857, 0.304997, 0.969324, 1.872, -1.67542, -0.250223, 2.20409, -0.921216, 13.1563, -0.0578141)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="11"]
 
