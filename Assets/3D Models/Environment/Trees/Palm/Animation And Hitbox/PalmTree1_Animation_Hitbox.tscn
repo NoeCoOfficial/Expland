@@ -1,49 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b5fch7iwyn811"]
+[gd_scene load_steps=6 format=3 uid="uid://b5fch7iwyn811"]
 
 [ext_resource type="PackedScene" uid="uid://ccvky0721knit" path="res://Assets/3D Models/Environment/Trees/Palm/Models/PalmTree1.blend" id="1_0h3y5"]
 [ext_resource type="Script" uid="uid://be2hbme5pe50y" path="res://Assets/3D Models/Environment/Trees/Scripts/Tree_Animation_SCRIPT.gd" id="2_dgoxg"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dgoxg"]
 points = PackedVector3Array(3.08107, -9.10592, -0.743522, -0.999521, -1.79614, -0.233432, 1.55045, -9.10592, 0.446534, 0.701258, 0.583639, 0.616641, 0.361342, 0.243823, -0.913164, 1.38069, -9.27636, -1.25361, -0.658806, 0.243823, 0.786749, 2.91091, -9.27636, 0.276659, -0.658806, 0.413198, -0.743522, 2.40084, -8.76717, -1.42372, 0.191184, -0.266434, 0.956857, 0.701258, 0.583639, -0.573181, -0.00147621, -5.11136, 0.362357, 1.38069, -9.78768, -0.233432, 0.701258, -5.87606, -1.25361, -0.828964, -1.79614, 0.616641, -0.828964, -1.79614, -0.743522, 3.08107, -8.76717, -0.233432, -0.135111, -5.10365, -0.527259, 2.74075, -8.59673, -1.25361, 1.55045, -7.74559, 0.616641, 0.871416, 0.413198, -0.233432, -0.148732, -0.946067, 0.956857, 2.34575, -9.57418, -1.04907, -0.999521, 0.0733819, 0.106551, 1.04077, -9.10592, -0.233432, 0.0210265, -2.47684, -1.0835, 0.871416, -7.74559, 0.446534, 3.08107, -8.76717, -0.743522, -0.265585, 0.711198, 0.0932221, 2.5706, -8.76717, 0.446534, 0.701258, 0.0733819, 0.786749)
-
-[sub_resource type="Animation" id="Animation_dgoxg"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Leaf_002:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.141926, -0.153244, -0.00461512)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Leaf_003:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.0185757, -1.28208, 0.239745)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Leaf:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.290428, -1.31578, -0.156113)]
-}
 
 [sub_resource type="Animation" id="Animation_0h3y5"]
 resource_name = "wind"
@@ -87,7 +48,6 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dgoxg"]
 _data = {
-&"RESET": SubResource("Animation_dgoxg"),
 &"wind": SubResource("Animation_0h3y5")
 }
 
@@ -95,13 +55,13 @@ _data = {
 script = ExtResource("2_dgoxg")
 
 [node name="Leaf_002" parent="." index="1"]
-transform = Transform3D(1.3263, -0.0261571, -0.738376, -0.00613076, 1.52046, -0.691172, 0.203967, 0.215789, 4.78054, -0.904471, 13.4362, 0.0300764)
+transform = Transform3D(1.32545, -0.0880822, -0.709603, 0.0559061, 1.52545, -0.531855, 0.201922, 0.155834, 4.80521, -0.904471, 13.4362, 0.0300764)
 
 [node name="Leaf_003" parent="." index="2"]
-transform = Transform3D(1.13478, -0.16884, -1.28172, 0.959422, 3.25933, 0.0248397, 3.75801, -0.781126, 0.380689, -0.785085, 13.7842, -0.0565622)
+transform = Transform3D(1.13478, -0.16884, -1.28172, 0.70812, 3.30395, -0.000458002, 3.81336, -0.563283, 0.3815, -0.785085, 13.7842, -0.0565622)
 
 [node name="Leaf" parent="." index="3"]
-transform = Transform3D(0.445264, 0.355643, -3.45389, -0.321819, 1.07558, 1.0668, 2.08929, 0.0898805, 0.900407, -0.799375, 13.4597, 0.00569895)
+transform = Transform3D(0.417325, 0.442779, -3.35461, -0.357301, 1.04274, 1.34686, 2.08929, 0.0898811, 0.9004, -0.799375, 13.4597, 0.00569895)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="11"]
 
