@@ -1,7 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://b5fch7iwyn811"]
 
 [ext_resource type="PackedScene" uid="uid://ccvky0721knit" path="res://Assets/3D Models/Environment/Trees/Palm/Models/PalmTree1.blend" id="1_0h3y5"]
-[ext_resource type="Script" uid="uid://be2hbme5pe50y" path="res://Assets/3D Models/Environment/Trees/Scripts/Tree_Animation_SCRIPT.gd" id="2_dgoxg"]
+[ext_resource type="Script" uid="uid://cdyp7lqng6qo0" path="res://Assets/3D Models/Environment/Trees/Scripts/PalmTree_Animation_Hitbox_SCRIPT.gd" id="2_6lwfh"]
+[ext_resource type="PackedScene" uid="uid://6exo537gjcsd" path="res://Scenes and Scripts/Scenes/Environment/Pickables/Coconut/Coconut.tscn" id="3_6lwfh"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dgoxg"]
 points = PackedVector3Array(3.08107, -9.10592, -0.743522, -0.999521, -1.79614, -0.233432, 1.55045, -9.10592, 0.446534, 0.701258, 0.583639, 0.616641, 0.361342, 0.243823, -0.913164, 1.38069, -9.27636, -1.25361, -0.658806, 0.243823, 0.786749, 2.91091, -9.27636, 0.276659, -0.658806, 0.413198, -0.743522, 2.40084, -8.76717, -1.42372, 0.191184, -0.266434, 0.956857, 0.701258, 0.583639, -0.573181, -0.00147621, -5.11136, 0.362357, 1.38069, -9.78768, -0.233432, 0.701258, -5.87606, -1.25361, -0.828964, -1.79614, 0.616641, -0.828964, -1.79614, -0.743522, 3.08107, -8.76717, -0.233432, -0.135111, -5.10365, -0.527259, 2.74075, -8.59673, -1.25361, 1.55045, -7.74559, 0.616641, 0.871416, 0.413198, -0.233432, -0.148732, -0.946067, 0.956857, 2.34575, -9.57418, -1.04907, -0.999521, 0.0733819, 0.106551, 1.04077, -9.10592, -0.233432, 0.0210265, -2.47684, -1.0835, 0.871416, -7.74559, 0.446534, 3.08107, -8.76717, -0.743522, -0.265585, 0.711198, 0.0932221, 2.5706, -8.76717, 0.446534, 0.701258, 0.0733819, 0.786749)
@@ -9,6 +10,7 @@ points = PackedVector3Array(3.08107, -9.10592, -0.743522, -0.999521, -1.79614, -
 [sub_resource type="Animation" id="Animation_0h3y5"]
 resource_name = "wind"
 length = 20.0
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -58,41 +60,25 @@ tracks/3/keys = {
 "values": [Vector3(-0.58008, 0.785043, 0.225043), Vector3(-0.58008, 0.785043, 0.225043), Vector3(-0.526493, 0.817122, 0.164031), Vector3(-0.526493, 0.788115, 0.164031), Vector3(-0.414427, 0.841872, 0.0457357), Vector3(-0.58008, 0.785043, 0.225043)]
 }
 
-[sub_resource type="Animation" id="Animation_dgoxg"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Leaf_005:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.526493, 0.817122, 0.164031)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dgoxg"]
 _data = {
-&"RESET": SubResource("Animation_dgoxg"),
 &"wind": SubResource("Animation_0h3y5")
 }
 
 [node name="PalmTree1" instance=ExtResource("1_0h3y5")]
-script = ExtResource("2_dgoxg")
+script = ExtResource("2_6lwfh")
 
 [node name="Leaf_002" parent="." index="1"]
-transform = Transform3D(1.32595, -0.0688496, -0.718622, 0.0366644, 1.52443, -0.581227, 0.20303, 0.174352, 4.79815, -0.904471, 13.4362, 0.0300764)
+transform = Transform3D(1.32545, -0.0880818, -0.709603, 0.0559061, 1.52545, -0.531855, 0.201922, 0.155833, 4.80521, -0.904471, 13.4362, 0.0300764)
 
 [node name="Leaf_003" parent="." index="2"]
-transform = Transform3D(1.13504, -0.161511, -1.28184, 0.701756, 3.30488, 0.00192199, 3.81446, -0.559949, 0.381077, -0.785085, 13.7842, -0.0565622)
+transform = Transform3D(1.13478, -0.16884, -1.28172, 0.708121, 3.30395, -0.000458001, 3.81336, -0.563282, 0.381498, -0.785085, 13.7842, -0.0565622)
 
 [node name="Leaf" parent="." index="3"]
-transform = Transform3D(0.469924, 0.40224, -3.38862, -0.33814, 1.05973, 1.21236, 2.0813, 0.0813505, 0.962067, -0.799375, 13.4597, 0.00569895)
+transform = Transform3D(0.417326, 0.44278, -3.35461, -0.357301, 1.04274, 1.34686, 2.08929, 0.0898815, 0.900399, -0.799375, 13.4597, 0.00569895)
 
 [node name="Leaf_005" parent="." index="6"]
-transform = Transform3D(1.32925, -0.537801, 2.34857, 0.304997, 0.969324, 1.872, -1.67542, -0.250223, 2.20409, -0.921216, 13.1563, -0.0578141)
+transform = Transform3D(1.30282, -0.608546, 2.20252, 0.403213, 0.926548, 2.04183, -1.67542, -0.250223, 2.20409, -0.921216, 13.1563, -0.0578141)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="11"]
 
@@ -104,3 +90,18 @@ shape = SubResource("ConvexPolygonShape3D_dgoxg")
 libraries = {
 &"": SubResource("AnimationLibrary_dgoxg")
 }
+
+[node name="CoconutSpawn1" type="Node3D" parent="." index="13"]
+transform = Transform3D(-0.0986449, -0.477728, 0.872952, 0.0253002, 0.875743, 0.482115, -0.994801, 0.069644, -0.0743009, 0, 12.5599, 0)
+
+[node name="Coconut" parent="CoconutSpawn1" index="0" instance=ExtResource("3_6lwfh")]
+
+[node name="CoconutSpawn2" type="Node3D" parent="." index="14"]
+transform = Transform3D(-0.709724, -0.323903, 0.625602, 0.0253001, 0.875743, 0.482115, -0.704025, 0.357996, -0.613341, -0.552051, 12.5599, -0.757712)
+
+[node name="Coconut" parent="CoconutSpawn2" index="0" instance=ExtResource("3_6lwfh")]
+
+[node name="CoconutSpawn3" type="Node3D" parent="." index="15"]
+transform = Transform3D(-0.664483, 0.348887, -0.660864, 0.361835, 0.923963, 0.123968, 0.653864, -0.156749, -0.740197, -1.81473, 12.5599, 0.563688)
+
+[node name="Coconut" parent="CoconutSpawn3" index="0" instance=ExtResource("3_6lwfh")]

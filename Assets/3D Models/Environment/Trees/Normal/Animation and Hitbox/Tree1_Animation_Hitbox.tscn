@@ -1,6 +1,6 @@
 [gd_scene load_steps=52 format=4 uid="uid://b0j1gyp7i41i7"]
 
-[ext_resource type="Script" uid="uid://be2hbme5pe50y" path="res://Assets/3D Models/Environment/Trees/Scripts/Tree_Animation_SCRIPT.gd" id="1_uss81"]
+[ext_resource type="Script" uid="uid://be2hbme5pe50y" path="res://Assets/3D Models/Environment/Trees/Scripts/DefaultTree_Animation_Hitbox_SCRIPT.gd" id="1_uss81"]
 
 [sub_resource type="Animation" id="Animation_37jgb"]
 length = 0.001

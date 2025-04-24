@@ -1,7 +1,7 @@
 [gd_scene load_steps=28 format=3 uid="uid://cemaw6qpjdvj0"]
 
 [ext_resource type="PackedScene" uid="uid://scptwp6758bq" path="res://Assets/3D Models/Environment/Trees/Pine/Models/PineTree4.blend" id="1_ykuqx"]
-[ext_resource type="Script" uid="uid://be2hbme5pe50y" path="res://Assets/3D Models/Environment/Trees/Scripts/Tree_Animation_SCRIPT.gd" id="2_j07ss"]
+[ext_resource type="Script" uid="uid://be2hbme5pe50y" path="res://Assets/3D Models/Environment/Trees/Scripts/DefaultTree_Animation_Hitbox_SCRIPT.gd" id="2_j07ss"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_e8srg"]
 points = PackedVector3Array(0.399381, -0.199255, -0.690615, 0.101319, -0.124745, -1.13776, -0.0477376, -0.273838, -0.839737, -0.0477376, 0.098749, -0.690615, 0.324827, 0.098749, -0.98864, 0.0267651, 0.098749, -1.06322, -0.122291, -0.273838, -0.690615, 0.324827, 0.098749, -0.690615, 0.399381, -0.273838, -0.765154, 0.250273, -0.124745, -1.13776, 0.250273, 0.098749, -1.13776, -0.122291, -0.124745, -0.765154, 0.324827, -0.124745, -1.06322, 0.324827, -0.273838, -0.839737, -0.122291, -0.273838, -0.765154, 0.399381, -0.273838, -0.690615, 0.0267651, -0.124745, -1.06322, -0.0477376, 0.098749, -0.839737, 0.101319, 0.098749, -1.13776, 0.324827, 0.0242025, -1.06322)

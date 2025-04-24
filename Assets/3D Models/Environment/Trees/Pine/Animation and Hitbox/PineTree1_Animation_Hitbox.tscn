@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dsti02es4bfwp"]
 
-[ext_resource type="Script" uid="uid://be2hbme5pe50y" path="res://Assets/3D Models/Environment/Trees/Scripts/Tree_Animation_SCRIPT.gd" id="1_qaygg"]
+[ext_resource type="Script" uid="uid://be2hbme5pe50y" path="res://Assets/3D Models/Environment/Trees/Scripts/DefaultTree_Animation_Hitbox_SCRIPT.gd" id="1_qaygg"]
 [ext_resource type="PackedScene" uid="uid://cwu1exk1sgj4t" path="res://Assets/3D Models/Environment/Trees/Pine/Models/PineTree1.blend" id="1_qd1ka"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kns7o"]
