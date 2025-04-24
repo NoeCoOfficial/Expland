@@ -100,11 +100,13 @@ func _ready() -> void:
 		Player.camera.make_current()
 	
 	if IslandManager.Current_Game_Mode == "STORY" and StoryModeManager.is_first_story_mode:
+		# NOTE: Story mode init. What happens when the player spawns in for the first time.
 		Player.global_position = Marker_StoryModeStartSpawn.global_position
 		$"Story Mode/Animation Players/StoryModeWakeUpAnimation".play("main")
 		PlayerManager.is_in_cutscene = true
 		Player.init_for_cutscene()
 		Player.hide()
+		set_time(1140)
 		$"Story Mode/Canvas Layers/MinimalDialogueLayer/MinimalDialogue".spawnMinimalDialogue(DialogueManager.StoryMode_Dialogue1)
 	
 	Player.nodeSetup()
