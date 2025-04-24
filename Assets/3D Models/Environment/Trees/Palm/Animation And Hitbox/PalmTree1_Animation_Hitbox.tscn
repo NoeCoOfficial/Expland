@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b5fch7iwyn811"]
+[gd_scene load_steps=12 format=3 uid="uid://b5fch7iwyn811"]
 
 [ext_resource type="PackedScene" uid="uid://ccvky0721knit" path="res://Assets/3D Models/Environment/Trees/Palm/Models/PalmTree1.blend" id="1_0h3y5"]
 [ext_resource type="Script" uid="uid://cdyp7lqng6qo0" path="res://Assets/3D Models/Environment/Trees/Scripts/PalmTree_Animation_Hitbox_SCRIPT.gd" id="2_6lwfh"]
@@ -66,6 +66,9 @@ _data = {
 &"wind": SubResource("Animation_0h3y5")
 }
 
+[sub_resource type="InputEventAction" id="InputEventAction_3e0u3"]
+action = &"Interact2"
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_10sc7"]
 viewport_path = NodePath("Interactable Component/Contents/UI/SubViewport")
 
@@ -122,6 +125,8 @@ UI_1 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_1")
 UI_2 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_2")
 UI_3 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_3")
 UI_4 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_4")
+UseAction1 = true
+ActionToPress_1 = SubResource("InputEventAction_3e0u3")
 
 [node name="Contents" type="Node3D" parent="Interactable Component" index="0"]
 
