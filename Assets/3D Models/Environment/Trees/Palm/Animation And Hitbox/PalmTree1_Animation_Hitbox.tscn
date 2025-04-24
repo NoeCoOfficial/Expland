@@ -8,10 +8,82 @@ points = PackedVector3Array(3.08107, -9.10592, -0.743522, -0.999521, -1.79614, -
 
 [sub_resource type="Animation" id="Animation_dgoxg"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Leaf_002:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.141926, -0.153244, -0.00461512)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Leaf_003:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.0185757, -1.28208, 0.239745)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Leaf:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.290428, -1.31578, -0.156113)]
+}
 
 [sub_resource type="Animation" id="Animation_0h3y5"]
 resource_name = "wind"
-length = 10.0
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Leaf_002:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.03333, 4.93333, 11.6, 16.3, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.109061, -0.146614, 0.041923), Vector3(0.141926, -0.153244, -0.00461512), Vector3(0.153424, -0.14173, 0.0735953), Vector3(0.109061, -0.146614, 0.041923), Vector3(0.141926, -0.153244, -0.00461512), Vector3(0.109061, -0.146614, 0.041923)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Leaf_003:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.9468, 7.96667, 12.1411, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.000342485, -1.2815, 0.176137), Vector3(-0.0185757, -1.28208, 0.239745), Vector3(0.0351139, -1.28195, 0.255693), Vector3(-0.00545614, -1.28464, 0.185402), Vector3(0.000342485, -1.2815, 0.176137)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Leaf:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 6.39006, 11.8028, 16.539, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.369919, -1.30857, -0.178336), Vector3(-0.290428, -1.31578, -0.156113), Vector3(-0.328362, -1.34818, -0.166562), Vector3(-0.253133, -1.26978, -0.141886), Vector3(-0.369919, -1.30857, -0.178336)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dgoxg"]
 _data = {
@@ -23,7 +95,13 @@ _data = {
 script = ExtResource("2_dgoxg")
 
 [node name="Leaf_002" parent="." index="1"]
-transform = Transform3D(1.32545, -0.0880824, -0.709603, 0.0559061, 1.52545, -0.531856, 0.201922, 0.155835, 4.80521, -0.904471, 13.4362, 0.0300764)
+transform = Transform3D(1.3263, -0.0261571, -0.738376, -0.00613076, 1.52046, -0.691172, 0.203967, 0.215789, 4.78054, -0.904471, 13.4362, 0.0300764)
+
+[node name="Leaf_003" parent="." index="2"]
+transform = Transform3D(1.13478, -0.16884, -1.28172, 0.959422, 3.25933, 0.0248397, 3.75801, -0.781126, 0.380689, -0.785085, 13.7842, -0.0565622)
+
+[node name="Leaf" parent="." index="3"]
+transform = Transform3D(0.445264, 0.355643, -3.45389, -0.321819, 1.07558, 1.0668, 2.08929, 0.0898805, 0.900407, -0.799375, 13.4597, 0.00569895)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="11"]
 
