@@ -48,7 +48,8 @@
 @icon("res://Textures/Icons/Script Icons/32x32/object.png")
 extends Node3D
 
-var CoconutSpawns : Array[Node3D]
+@export var CoconutSpawns : Array[Node3D]
+@export var WindAnimationPlayer : AnimationPlayer
 
 func _ready() -> void:
-	$AnimationPlayer.play(&"wind")
+	WindAnimationPlayer.play(&"wind")

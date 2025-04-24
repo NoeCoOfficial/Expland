@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b5fch7iwyn811"]
+[gd_scene load_steps=11 format=3 uid="uid://b5fch7iwyn811"]
 
 [ext_resource type="PackedScene" uid="uid://ccvky0721knit" path="res://Assets/3D Models/Environment/Trees/Palm/Models/PalmTree1.blend" id="1_0h3y5"]
 [ext_resource type="Script" uid="uid://cdyp7lqng6qo0" path="res://Assets/3D Models/Environment/Trees/Scripts/PalmTree_Animation_Hitbox_SCRIPT.gd" id="2_6lwfh"]
-[ext_resource type="PackedScene" uid="uid://6exo537gjcsd" path="res://Scenes and Scripts/Scenes/Environment/Pickables/Coconut/Coconut.tscn" id="3_6lwfh"]
+[ext_resource type="Script" uid="uid://bi02uk7qwshyf" path="res://Scenes and Scripts/Scenes/Components/Interactable Component/Interactable_Component_SCRIPT.gd" id="3_3e0u3"]
+[ext_resource type="PackedScene" uid="uid://cmt00ehn4hfne" path="res://Scenes and Scripts/Scenes/General/UI/MessageWithKeyUI.tscn" id="4_8hv3t"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dgoxg"]
 points = PackedVector3Array(3.08107, -9.10592, -0.743522, -0.999521, -1.79614, -0.233432, 1.55045, -9.10592, 0.446534, 0.701258, 0.583639, 0.616641, 0.361342, 0.243823, -0.913164, 1.38069, -9.27636, -1.25361, -0.658806, 0.243823, 0.786749, 2.91091, -9.27636, 0.276659, -0.658806, 0.413198, -0.743522, 2.40084, -8.76717, -1.42372, 0.191184, -0.266434, 0.956857, 0.701258, 0.583639, -0.573181, -0.00147621, -5.11136, 0.362357, 1.38069, -9.78768, -0.233432, 0.701258, -5.87606, -1.25361, -0.828964, -1.79614, 0.616641, -0.828964, -1.79614, -0.743522, 3.08107, -8.76717, -0.233432, -0.135111, -5.10365, -0.527259, 2.74075, -8.59673, -1.25361, 1.55045, -7.74559, 0.616641, 0.871416, 0.413198, -0.233432, -0.148732, -0.946067, 0.956857, 2.34575, -9.57418, -1.04907, -0.999521, 0.0733819, 0.106551, 1.04077, -9.10592, -0.233432, 0.0210265, -2.47684, -1.0835, 0.871416, -7.74559, 0.446534, 3.08107, -8.76717, -0.743522, -0.265585, 0.711198, 0.0932221, 2.5706, -8.76717, 0.446534, 0.701258, 0.0733819, 0.786749)
@@ -65,8 +66,19 @@ _data = {
 &"wind": SubResource("Animation_0h3y5")
 }
 
-[node name="PalmTree1" instance=ExtResource("1_0h3y5")]
+[sub_resource type="ViewportTexture" id="ViewportTexture_10sc7"]
+viewport_path = NodePath("Interactable Component/Contents/UI/SubViewport")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fvca7"]
+size = Vector3(12.87, 15.178, 13.545)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_00rnx"]
+size = Vector3(2.61795, 15.5716, 1.85207)
+
+[node name="PalmTree1" node_paths=PackedStringArray("CoconutSpawns", "WindAnimationPlayer") instance=ExtResource("1_0h3y5")]
 script = ExtResource("2_6lwfh")
+CoconutSpawns = [NodePath("CoconutSpawn1"), NodePath("CoconutSpawn2"), NodePath("CoconutSpawn3")]
+WindAnimationPlayer = NodePath("AnimationPlayer")
 
 [node name="Leaf_002" parent="." index="1"]
 transform = Transform3D(1.32545, -0.0880818, -0.709603, 0.0559061, 1.52545, -0.531855, 0.201922, 0.155833, 4.80521, -0.904471, 13.4362, 0.0300764)
@@ -94,14 +106,150 @@ libraries = {
 [node name="CoconutSpawn1" type="Node3D" parent="." index="13"]
 transform = Transform3D(-0.0986449, -0.477728, 0.872952, 0.0253002, 0.875743, 0.482115, -0.994801, 0.069644, -0.0743009, 0, 12.5599, 0)
 
-[node name="Coconut" parent="CoconutSpawn1" index="0" instance=ExtResource("3_6lwfh")]
-
 [node name="CoconutSpawn2" type="Node3D" parent="." index="14"]
 transform = Transform3D(-0.709724, -0.323903, 0.625602, 0.0253001, 0.875743, 0.482115, -0.704025, 0.357996, -0.613341, -0.552051, 12.5599, -0.757712)
-
-[node name="Coconut" parent="CoconutSpawn2" index="0" instance=ExtResource("3_6lwfh")]
 
 [node name="CoconutSpawn3" type="Node3D" parent="." index="15"]
 transform = Transform3D(-0.664483, 0.348887, -0.660864, 0.361835, 0.923963, 0.123968, 0.653864, -0.156749, -0.740197, -1.81473, 12.5599, 0.563688)
 
-[node name="Coconut" parent="CoconutSpawn3" index="0" instance=ExtResource("3_6lwfh")]
+[node name="Interactable Component" type="Node3D" parent="." index="16" node_paths=PackedStringArray("Contents_Node", "SubViewport_Node", "UI_Sprite_Node", "UI_1", "UI_2", "UI_3", "UI_4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.46675, 0)
+script = ExtResource("3_3e0u3")
+Contents_Node = NodePath("Contents")
+SubViewport_Node = NodePath("Contents/UI/SubViewport")
+UI_Sprite_Node = NodePath("Contents/UI")
+UI_1 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_1")
+UI_2 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_2")
+UI_3 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_3")
+UI_4 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_4")
+
+[node name="Contents" type="Node3D" parent="Interactable Component" index="0"]
+
+[node name="UI" type="Sprite3D" parent="Interactable Component/Contents" index="0"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+billboard = 1
+no_depth_test = true
+texture = SubResource("ViewportTexture_10sc7")
+
+[node name="SubViewport" type="SubViewport" parent="Interactable Component/Contents/UI" index="0"]
+transparent_bg = true
+gui_disable_input = true
+size = Vector2i(3720, 2225)
+
+[node name="MessageWithKeyUI_1" parent="Interactable Component/Contents/UI/SubViewport" index="0" instance=ExtResource("4_8hv3t")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -385.795
+offset_bottom = -385.795
+scale = Vector2(5, 5)
+
+[node name="Contents" parent="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -30.0
+offset_right = 27.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MessageWithKeyUI_2" parent="Interactable Component/Contents/UI/SubViewport" index="1" instance=ExtResource("4_8hv3t")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -112.5
+offset_bottom = -112.5
+scale = Vector2(5, 5)
+
+[node name="Contents" parent="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_2" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -30.0
+offset_right = 27.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MessageWithKeyUI_3" parent="Interactable Component/Contents/UI/SubViewport" index="2" instance=ExtResource("4_8hv3t")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 160.15
+offset_bottom = 160.15
+scale = Vector2(5, 5)
+
+[node name="Contents" parent="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_3" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -30.0
+offset_right = 27.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MessageWithKeyUI_4" parent="Interactable Component/Contents/UI/SubViewport" index="3" instance=ExtResource("4_8hv3t")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 432.205
+offset_bottom = 432.205
+scale = Vector2(5, 5)
+
+[node name="Contents" parent="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_4" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -30.0
+offset_right = 27.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerVisibleDetector" type="Area3D" parent="Interactable Component/Contents" index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable Component/Contents/PlayerVisibleDetector" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.60717, 4.94662, 0)
+shape = SubResource("BoxShape3D_fvca7")
+
+[node name="PlayerMimicRaycastDetector" type="Area3D" parent="Interactable Component" index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable Component/PlayerMimicRaycastDetector" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.934525, 4.53807, -0.0290072)
+shape = SubResource("BoxShape3D_00rnx")
+
+[connection signal="body_entered" from="Interactable Component/Contents/PlayerVisibleDetector" to="Interactable Component" method="_on_player_visible_detector_body_entered"]
+[connection signal="body_exited" from="Interactable Component/Contents/PlayerVisibleDetector" to="Interactable Component" method="_on_player_visible_detector_body_exited"]
+[connection signal="area_entered" from="Interactable Component/PlayerMimicRaycastDetector" to="Interactable Component" method="_on_player_mimic_raycast_detector_area_entered"]
+[connection signal="area_exited" from="Interactable Component/PlayerMimicRaycastDetector" to="Interactable Component" method="_on_player_mimic_raycast_detector_area_exited"]
+
+[editable path="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1"]
+[editable path="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_2"]
+[editable path="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_3"]
+[editable path="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_4"]
