@@ -69,7 +69,7 @@ _data = {
 [sub_resource type="InputEventAction" id="InputEventAction_3e0u3"]
 action = &"Interact2"
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_10sc7"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_3e0u3"]
 viewport_path = NodePath("Interactable Component/Contents/UI/SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fvca7"]
@@ -134,7 +134,7 @@ ActionToPress_1 = SubResource("InputEventAction_3e0u3")
 transform = Transform3D(0.149858, 0, 0, 0, 0.149858, 0, 0, 0, 0.149858, -0.432083, -0.47335, 0.124794)
 billboard = 1
 no_depth_test = true
-texture = SubResource("ViewportTexture_10sc7")
+texture = SubResource("ViewportTexture_3e0u3")
 
 [node name="SubViewport" type="SubViewport" parent="Interactable Component/Contents/UI" index="0"]
 disable_3d = true
