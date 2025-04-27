@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://b5fch7iwyn811"]
+[gd_scene load_steps=39 format=4 uid="uid://b5fch7iwyn811"]
 
 [ext_resource type="Script" uid="uid://cdyp7lqng6qo0" path="res://Assets/3D Models/Environment/Trees/Scripts/PalmTree_Animation_Hitbox_SCRIPT.gd" id="2_6lwfh"]
 [ext_resource type="Script" uid="uid://bi02uk7qwshyf" path="res://Scenes and Scripts/Scenes/Components/Interactable Component/Interactable_Component_SCRIPT.gd" id="3_3e0u3"]
@@ -405,6 +405,45 @@ shadow_mesh = SubResource("ArrayMesh_rlwcm")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dgoxg"]
 points = PackedVector3Array(3.08107, -9.10592, -0.743522, -0.999521, -1.79614, -0.233432, 1.55045, -9.10592, 0.446534, 0.701258, 0.583639, 0.616641, 0.361342, 0.243823, -0.913164, 1.38069, -9.27636, -1.25361, -0.658806, 0.243823, 0.786749, 2.91091, -9.27636, 0.276659, -0.658806, 0.413198, -0.743522, 2.40084, -8.76717, -1.42372, 0.191184, -0.266434, 0.956857, 0.701258, 0.583639, -0.573181, -0.00147621, -5.11136, 0.362357, 1.38069, -9.78768, -0.233432, 0.701258, -5.87606, -1.25361, -0.828964, -1.79614, 0.616641, -0.828964, -1.79614, -0.743522, 3.08107, -8.76717, -0.233432, -0.135111, -5.10365, -0.527259, 2.74075, -8.59673, -1.25361, 1.55045, -7.74559, 0.616641, 0.871416, 0.413198, -0.233432, -0.148732, -0.946067, 0.956857, 2.34575, -9.57418, -1.04907, -0.999521, 0.0733819, 0.106551, 1.04077, -9.10592, -0.233432, 0.0210265, -2.47684, -1.0835, 0.871416, -7.74559, 0.446534, 3.08107, -8.76717, -0.743522, -0.265585, 0.711198, 0.0932221, 2.5706, -8.76717, 0.446534, 0.701258, 0.0733819, 0.786749)
 
+[sub_resource type="Animation" id="Animation_6lwfh"]
+resource_name = "shake"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TreeMesh:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.566667, 0.8, 1),
+"transitions": PackedFloat32Array(1, 0.757858, 1, 1.31951, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.0592714), Vector3(0, 0, 0), Vector3(0, 0, -0.0592714), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TreeMesh/Leaf_002:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.433333, 0.666667, 0.8, 1),
+"transitions": PackedFloat32Array(0.615572, 0.482968, 0.615572, 1, 0.615572),
+"update": 0,
+"values": [Vector3(0.153104, -0.143268, 0.0631024), Vector3(0.253073, -0.191986, -0.165806), Vector3(0.153104, -0.143268, 0.0631024), Vector3(0.20944, -0.191986, -0.165806), Vector3(0.153104, -0.143268, 0.0631024)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TreeMesh/Leaf_003:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.666667, 0.833333, 1),
+"transitions": PackedFloat32Array(1.62451, 0.63728, 1.62451, 0.63728, 1.62451),
+"update": 0,
+"values": [Vector3(-0.0142903, -1.28208, 0.245066), Vector3(-0.181692, -1.30839, 0.337511), Vector3(-0.0142903, -1.28208, 0.245066), Vector3(-0.181692, -1.30839, 0.337511), Vector3(-0.0142903, -1.28208, 0.245066)]
+}
+
 [sub_resource type="Animation" id="Animation_0h3y5"]
 resource_name = "wind"
 length = 20.0
@@ -458,23 +497,24 @@ tracks/3/keys = {
 "values": [Vector3(-0.58008, 0.785043, 0.225043), Vector3(-0.58008, 0.785043, 0.225043), Vector3(-0.526493, 0.817122, 0.164031), Vector3(-0.526493, 0.788115, 0.164031), Vector3(-0.414427, 0.841872, 0.0457357), Vector3(-0.58008, 0.785043, 0.225043)]
 }
 
-[sub_resource type="Animation" id="Animation_6lwfh"]
-resource_name = "shake"
+[sub_resource type="Animation" id="Animation_3e0u3"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TreeMesh:rotation")
-tracks/0/interp = 2
+tracks/0/path = NodePath("TreeMesh/Leaf_003:rotation")
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.566667, 0.8, 1),
-"transitions": PackedFloat32Array(1, 0.757858, 1, 1.31951, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.0592714), Vector3(0, 0, 0), Vector3(0, 0, -0.0592714), Vector3(0, 0, 0)]
+"values": [Vector3(-0.181692, -1.30839, 0.337511)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dgoxg"]
 _data = {
+&"RESET": SubResource("Animation_3e0u3"),
 &"shake": SubResource("Animation_6lwfh"),
 &"wind": SubResource("Animation_0h3y5")
 }
@@ -497,7 +537,6 @@ CoconutSpawns = [NodePath("CoconutSpawn1"), NodePath("CoconutSpawn2"), NodePath(
 WindAnimationPlayer = NodePath("AnimationPlayer")
 
 [node name="TreeMesh" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Trunk" type="MeshInstance3D" parent="TreeMesh"]
 transform = Transform3D(0.745478, 0.126165, -0.0350435, -0.065143, 1.42109, 0.02406, 0.0370925, -0.0398766, 0.746553, -0.424772, 0.00167179, -0.0276036)
@@ -505,12 +544,12 @@ mesh = SubResource("ArrayMesh_55tej")
 skeleton = NodePath("")
 
 [node name="Leaf_002" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(1.32367, -0.129241, -0.689504, 0.0836316, 1.51493, -0.745203, 0.203987, 0.217548, 4.77972, -0.904471, 13.4362, 0.0300764)
+transform = Transform3D(1.32367, -0.129241, -0.689505, 0.0836313, 1.51493, -0.745201, 0.203987, 0.217547, 4.77972, -0.904471, 13.4362, 0.0300764)
 mesh = SubResource("ArrayMesh_10k11")
 skeleton = NodePath("")
 
 [node name="Leaf_003" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(1.12966, -0.187227, -1.28181, 0.980366, 3.25527, 0.0191097, 3.75415, -0.79375, 0.38072, -0.785085, 13.7842, -0.0565622)
+transform = Transform3D(1.22268, 0.264321, -1.27026, 1.31616, 3.11442, 0.241641, 3.6199, -1.22165, 0.341192, -0.785085, 13.7842, -0.0565622)
 mesh = SubResource("ArrayMesh_wbel7")
 skeleton = NodePath("")
 
