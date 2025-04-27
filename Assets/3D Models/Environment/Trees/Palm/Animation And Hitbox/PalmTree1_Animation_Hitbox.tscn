@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b5fch7iwyn811"]
+[gd_scene load_steps=13 format=3 uid="uid://b5fch7iwyn811"]
 
 [ext_resource type="PackedScene" uid="uid://ccvky0721knit" path="res://Assets/3D Models/Environment/Trees/Palm/Models/PalmTree1.blend" id="1_0h3y5"]
 [ext_resource type="Script" uid="uid://cdyp7lqng6qo0" path="res://Assets/3D Models/Environment/Trees/Scripts/PalmTree_Animation_Hitbox_SCRIPT.gd" id="2_6lwfh"]
@@ -61,8 +61,14 @@ tracks/3/keys = {
 "values": [Vector3(-0.58008, 0.785043, 0.225043), Vector3(-0.58008, 0.785043, 0.225043), Vector3(-0.526493, 0.817122, 0.164031), Vector3(-0.526493, 0.788115, 0.164031), Vector3(-0.414427, 0.841872, 0.0457357), Vector3(-0.58008, 0.785043, 0.225043)]
 }
 
+[sub_resource type="Animation" id="Animation_3e0u3"]
+resource_name = "shake"
+length = 0.7
+step = 0.001
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dgoxg"]
 _data = {
+&"shake": SubResource("Animation_3e0u3"),
 &"wind": SubResource("Animation_0h3y5")
 }
 
@@ -83,39 +89,46 @@ script = ExtResource("2_6lwfh")
 CoconutSpawns = [NodePath("CoconutSpawn1"), NodePath("CoconutSpawn2"), NodePath("CoconutSpawn3")]
 WindAnimationPlayer = NodePath("AnimationPlayer")
 
-[node name="Leaf_002" parent="." index="1"]
-transform = Transform3D(1.32609, -0.0614829, -0.722085, 0.0299485, 1.5245, -0.584537, 0.203254, 0.176504, 4.79722, -0.904471, 13.4362, 0.0300764)
+[node name="TreeMesh" type="Node3D" parent="." index="0"]
 
-[node name="Leaf_003" parent="." index="2"]
-transform = Transform3D(1.12974, -0.133467, -1.28287, 0.706093, 3.30408, 0.0135063, 3.81523, -0.571971, 0.377374, -0.785085, 13.7842, -0.0565622)
+[node name="Trunk" parent="." index="1"]
+transform = Transform3D(0.745478, 0.126165, -0.0350435, -0.065143, 1.42109, 0.02406, 0.0370925, -0.0398766, 0.746553, -0.424772, 0.00167179, -0.0276036)
 
-[node name="Leaf" parent="." index="3"]
-transform = Transform3D(0.416008, 0.369605, -3.44898, -0.325592, 1.0706, 1.11613, 2.09473, 0.0930047, 0.858444, -0.799375, 13.4597, 0.00569895)
+[node name="Leaf_002" parent="." index="2"]
+transform = Transform3D(1.32545, -0.088082, -0.709603, 0.0559062, 1.52545, -0.531855, 0.201922, 0.155834, 4.80521, -0.904471, 13.4362, 0.0300764)
 
-[node name="Leaf_005" parent="." index="6"]
-transform = Transform3D(1.40611, -0.450362, 2.41228, 0.196983, 1.00865, 1.6822, -1.62819, -0.266904, 2.28676, -0.921216, 13.1563, -0.0578141)
+[node name="Leaf_003" parent="." index="3"]
+transform = Transform3D(1.13478, -0.16884, -1.28172, 0.708121, 3.30395, -0.000458002, 3.81336, -0.563283, 0.381499, -0.785085, 13.7842, -0.0565622)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." index="11"]
+[node name="Leaf" parent="." index="4"]
+transform = Transform3D(0.417325, 0.44278, -3.35461, -0.3573, 1.04274, 1.34686, 2.08929, 0.0898814, 0.9004, -0.799375, 13.4597, 0.00569895)
+
+[node name="Leaf_005" parent="." index="7"]
+transform = Transform3D(1.30282, -0.608546, 2.20252, 0.403213, 0.926548, 2.04183, -1.67542, -0.250223, 2.20409, -0.921216, 13.1563, -0.0578141)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="12"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
 transform = Transform3D(0.745478, 0.126165, -0.0350435, -0.065143, 1.42109, 0.02406, 0.0370925, -0.0398766, 0.746553, -0.848068, 12.9827, -0.0276019)
 shape = SubResource("ConvexPolygonShape3D_dgoxg")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="12"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="13"]
 libraries = {
 &"": SubResource("AnimationLibrary_dgoxg")
 }
+playback_default_blend_time = 0.5
+blend_times = [&"wind", &"wind", 0.5]
 
-[node name="CoconutSpawn1" type="Node3D" parent="." index="13"]
+[node name="CoconutSpawn1" type="Node3D" parent="." index="14"]
 transform = Transform3D(-0.0986449, -0.477728, 0.872952, 0.0253002, 0.875743, 0.482115, -0.994801, 0.069644, -0.0743009, 0, 12.5599, 0)
 
-[node name="CoconutSpawn2" type="Node3D" parent="." index="14"]
+[node name="CoconutSpawn2" type="Node3D" parent="." index="15"]
 transform = Transform3D(-0.709724, -0.323903, 0.625602, 0.0253001, 0.875743, 0.482115, -0.704025, 0.357996, -0.613341, -0.552051, 12.5599, -0.757712)
 
-[node name="CoconutSpawn3" type="Node3D" parent="." index="15"]
+[node name="CoconutSpawn3" type="Node3D" parent="." index="16"]
 transform = Transform3D(-0.664483, 0.348887, -0.660864, 0.361835, 0.923963, 0.123968, 0.653864, -0.156749, -0.740197, -1.81473, 12.5599, 0.563688)
 
-[node name="Interactable Component" type="Node3D" parent="." index="16" node_paths=PackedStringArray("Contents_Node", "SubViewport_Node", "UI_Sprite_Node", "UI_1", "UI_2", "UI_3", "UI_4")]
+[node name="Interactable Component" type="Node3D" parent="." index="17" node_paths=PackedStringArray("Contents_Node", "SubViewport_Node", "UI_Sprite_Node", "UI_1", "UI_2", "UI_3", "UI_4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.46675, 0)
 script = ExtResource("3_3e0u3")
 Contents_Node = NodePath("Contents")
