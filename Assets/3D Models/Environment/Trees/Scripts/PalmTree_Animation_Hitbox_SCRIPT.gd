@@ -53,3 +53,12 @@ extends Node3D
 
 func _ready() -> void:
 	WindAnimationPlayer.play(&"wind")
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == &"shake":
+		WindAnimationPlayer.play(&"wind")
+
+
+func _on_tree_shake() -> void:
+	WindAnimationPlayer.play(&"shake")
