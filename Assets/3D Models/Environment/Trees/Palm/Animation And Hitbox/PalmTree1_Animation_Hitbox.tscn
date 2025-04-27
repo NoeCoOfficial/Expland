@@ -592,20 +592,104 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector3(-0.174435, 0.90774, 0.378811), Vector3(-0.0410704, 0.918895, 0.275413), Vector3(-0.174435, 0.90774, 0.378811)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TreeMesh/Leaf_001:rotation")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 8.5702, 20),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.315203, 2.13459, -0.137878), Vector3(-0.0968572, 2.10651, -0.00167466), Vector3(-0.315203, 2.13459, -0.137878)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TreeMesh/Leaf_006:rotation")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 10.8841, 20),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.0776711, -0.527393, -0.278075), Vector3(0.014255, -0.633, -0.152408), Vector3(-0.0776711, -0.527393, -0.278075)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TreeMesh/Leaf_007:rotation")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 10.7503, 20),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.105127, -0.112707, 0.0418183), Vector3(0.0962752, -0.120348, -0.0341468), Vector3(0.105127, -0.112707, 0.0418183)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("TreeMesh/Leaf_008:rotation")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 9.71006, 20),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.125864, 1.13327, -0.0457193), Vector3(0.0684414, 0.985686, -0.00735172), Vector3(0.125864, 1.13327, -0.0457193)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("TreeMesh/Leaf_009:rotation")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 6.2, 20),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.175749, 1.95359, 0.169253), Vector3(-0.0575079, 1.94805, 0.0761954), Vector3(0.175749, 1.95359, 0.169253)]
+}
 
 [sub_resource type="Animation" id="Animation_3e0u3"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TreeMesh/Leaf_004:rotation")
+tracks/0/path = NodePath("TreeMesh/Leaf_007:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.174435, 0.90774, 0.378811)]
+"values": [Vector3(0.0962752, -0.120348, -0.0341468)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TreeMesh/Leaf_008:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.0684414, 0.985686, -0.00735172)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TreeMesh/Leaf_009:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.0575079, 1.94805, 0.0761954)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dgoxg"]
@@ -641,61 +725,61 @@ mesh = SubResource("ArrayMesh_55tej")
 skeleton = NodePath("")
 
 [node name="Leaf_002" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(1.32632, -0.0354921, -0.733851, 0.00114405, 1.51932, -0.716302, 0.203901, 0.222343, 4.77754, -0.904471, 13.4362, 0.0300764)
+transform = Transform3D(1.32625, -0.0484506, -0.728146, 0.0167896, 1.52336, -0.62045, 0.203706, 0.189885, 4.7918, -0.904471, 13.4362, 0.0300764)
 visibility_range_end = 450.0
 mesh = SubResource("ArrayMesh_10k11")
 skeleton = NodePath("")
 
 [node name="Leaf_003" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(1.13768, -0.155524, -1.28171, 0.869063, 3.27692, 0.0213333, 3.77906, -0.706766, 0.380951, -0.785085, 13.7842, -0.0565622)
+transform = Transform3D(1.13174, -0.126623, -1.28279, 0.69144, 3.30617, 0.0149787, 3.81733, -0.561314, 0.3776, -0.785085, 13.7842, -0.0565622)
 visibility_range_end = 450.0
 mesh = SubResource("ArrayMesh_wbel7")
 skeleton = NodePath("")
 
 [node name="Leaf" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(0.432462, 0.413021, -3.38952, -0.345522, 1.05496, 1.25032, 2.08819, 0.0890223, 0.908849, -0.799375, 13.4597, 0.00569895)
+transform = Transform3D(0.458824, 0.350695, -3.45405, -0.315319, 1.07755, 1.05114, 2.08735, 0.0856903, 0.91803, -0.799375, 13.4597, 0.00569895)
 visibility_range_end = 450.0
 mesh = SubResource("ArrayMesh_uchny")
 skeleton = NodePath("")
 
 [node name="Leaf_001" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(-1.06434, -0.5117, 3.95659, -0.281929, 1.4471, 1.52637, -1.85546, 0.0736438, -2.50153, -0.851022, 13.6234, -0.0714935)
+transform = Transform3D(-1.10111, -0.289144, 4.13155, -0.122187, 1.50748, 0.913495, -1.85139, 0.0724776, -2.51752, -0.851022, 13.6234, -0.0714935)
 visibility_range_end = 450.0
 mesh = SubResource("ArrayMesh_uylos")
 skeleton = NodePath("")
 
 [node name="Leaf_004" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(2.10668, -1.19037, 1.03795, 1.4718, 3.07064, 0.232089, -3.11874, 0.645017, 0.810649, -0.824213, 13.6931, 0.0439254)
+transform = Transform3D(2.24514, -0.886932, 1.05425, 1.26089, 3.17169, 0.12967, -3.11453, 0.644675, 0.812461, -0.824213, 13.6931, 0.0439254)
 visibility_range_end = 450.0
 mesh = SubResource("ArrayMesh_axdlk")
 skeleton = NodePath("")
 
 [node name="Leaf_005" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(1.31904, -0.56553, 2.29508, 0.343729, 0.953601, 1.93768, -1.67599, -0.249509, 2.20367, -0.921216, 13.1563, -0.0578141)
+transform = Transform3D(1.41267, -0.415974, 2.46661, 0.148952, 1.02318, 1.6006, -1.62761, -0.267406, 2.28737, -0.921216, 13.1563, -0.0578141)
 visibility_range_end = 450.0
 mesh = SubResource("ArrayMesh_1jroa")
 skeleton = NodePath("")
 
 [node name="Leaf_006" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(3.31458, 0.922049, -0.671007, -1.10597, 3.21723, 0.103765, 2.03009, 0.247259, 1.1521, -0.810548, 13.0771, -0.274849)
+transform = Transform3D(3.2649, 0.540234, -0.758091, -0.756724, 3.29626, 0.0161265, 2.25802, 0.323537, 1.10154, -0.810548, 13.0771, -0.274849)
 visibility_range_end = 450.0
 mesh = SubResource("ArrayMesh_6n2sl")
 skeleton = NodePath("")
 
 [node name="Leaf_007" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(4.42181, -0.279759, -0.119987, 0.185266, 5.21206, -0.112569, 0.520164, 0.521801, 1.06008, -0.773815, 13.6428, -0.0188162)
+transform = Transform3D(4.4231, 0.117287, -0.128198, -0.151429, 5.21824, -0.103122, 0.520164, 0.521801, 1.06008, -0.773815, 13.6428, -0.0188162)
 visibility_range_end = 450.0
 mesh = SubResource("ArrayMesh_e0ahe")
 skeleton = NodePath("")
 
 [node name="Leaf_008" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(0.903151, 0.151089, 3.34772, -0.0979525, 1.12624, -0.467651, -1.96002, 0.0133356, 1.56596, -0.819205, 13.6013, -0.1039)
+transform = Transform3D(1.19218, 0.0694009, 3.09836, -0.0158447, 1.13372, -0.254768, -1.8015, 0.0359563, 2.05266, -0.819205, 13.6013, -0.1039)
 visibility_range_end = 450.0
 mesh = SubResource("ArrayMesh_21pj4")
 skeleton = NodePath("")
 
 [node name="Leaf_009" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(-1.37746, 0.747658, 1.22139, 0.670229, 3.25696, -0.233819, -3.73955, 0.308337, -0.491807, -0.681214, 13.5137, -0.0791983)
+transform = Transform3D(-1.50076, -0.0846963, 1.24119, 0.30711, 3.3406, 0.0768622, -3.73955, 0.308337, -0.491805, -0.681214, 13.5137, -0.0791983)
 visibility_range_end = 450.0
 mesh = SubResource("ArrayMesh_vk85u")
 skeleton = NodePath("")
