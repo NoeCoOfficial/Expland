@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://b5fch7iwyn811"]
+[gd_scene load_steps=38 format=4 uid="uid://b5fch7iwyn811"]
 
 [ext_resource type="Script" uid="uid://cdyp7lqng6qo0" path="res://Assets/3D Models/Environment/Trees/Scripts/PalmTree_Animation_Hitbox_SCRIPT.gd" id="2_6lwfh"]
 [ext_resource type="Script" uid="uid://bi02uk7qwshyf" path="res://Scenes and Scripts/Scenes/Components/Interactable Component/Interactable_Component_SCRIPT.gd" id="3_3e0u3"]
@@ -371,6 +371,119 @@ shadow_mesh = SubResource("ArrayMesh_fpe4v")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dgoxg"]
 points = PackedVector3Array(3.08107, -9.10592, -0.743522, -0.999521, -1.79614, -0.233432, 1.55045, -9.10592, 0.446534, 0.701258, 0.583639, 0.616641, 0.361342, 0.243823, -0.913164, 1.38069, -9.27636, -1.25361, -0.658806, 0.243823, 0.786749, 2.91091, -9.27636, 0.276659, -0.658806, 0.413198, -0.743522, 2.40084, -8.76717, -1.42372, 0.191184, -0.266434, 0.956857, 0.701258, 0.583639, -0.573181, -0.00147621, -5.11136, 0.362357, 1.38069, -9.78768, -0.233432, 0.701258, -5.87606, -1.25361, -0.828964, -1.79614, 0.616641, -0.828964, -1.79614, -0.743522, 3.08107, -8.76717, -0.233432, -0.135111, -5.10365, -0.527259, 2.74075, -8.59673, -1.25361, 1.55045, -7.74559, 0.616641, 0.871416, 0.413198, -0.233432, -0.148732, -0.946067, 0.956857, 2.34575, -9.57418, -1.04907, -0.999521, 0.0733819, 0.106551, 1.04077, -9.10592, -0.233432, 0.0210265, -2.47684, -1.0835, 0.871416, -7.74559, 0.446534, 3.08107, -8.76717, -0.743522, -0.265585, 0.711198, 0.0932221, 2.5706, -8.76717, 0.446534, 0.701258, 0.0733819, 0.786749)
 
+[sub_resource type="Animation" id="Animation_0h3y5"]
+resource_name = "wind"
+length = 20.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TreeMesh/Leaf_002:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.03333, 4.93333, 11.6, 16.3, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.109061, -0.146614, 0.041923), Vector3(0.141926, -0.153244, -0.00461512), Vector3(0.153424, -0.14173, 0.0735953), Vector3(0.109061, -0.146614, 0.041923), Vector3(0.141926, -0.153244, -0.00461512), Vector3(0.109061, -0.146614, 0.041923)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TreeMesh/Leaf_003:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.9468, 7.96667, 12.1411, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.000342485, -1.2815, 0.176137), Vector3(-0.0185757, -1.28208, 0.239745), Vector3(0.0351139, -1.28195, 0.255693), Vector3(-0.00545614, -1.28464, 0.185402), Vector3(0.000342485, -1.2815, 0.176137)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TreeMesh/Leaf:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 6.39006, 11.8028, 16.539, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.369919, -1.30857, -0.178336), Vector3(-0.290428, -1.31578, -0.156113), Vector3(-0.328362, -1.34818, -0.166562), Vector3(-0.253133, -1.26978, -0.141886), Vector3(-0.369919, -1.30857, -0.178336)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TreeMesh/Leaf_005:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 4.02198, 11.0886, 16.8021, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.58008, 0.785043, 0.225043), Vector3(-0.526493, 0.817122, 0.164031), Vector3(-0.526493, 0.788115, 0.164031), Vector3(-0.414427, 0.841872, 0.0457357), Vector3(-0.58008, 0.785043, 0.225043)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TreeMesh/Leaf_004:rotation")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 8.30708, 20),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.174435, 0.90774, 0.378811), Vector3(-0.0410704, 0.918895, 0.275413), Vector3(-0.174435, 0.90774, 0.378811)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TreeMesh/Leaf_001:rotation")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 8.5702, 20),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.315203, 2.13459, -0.137878), Vector3(-0.0968572, 2.10651, -0.00167466), Vector3(-0.315203, 2.13459, -0.137878)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TreeMesh/Leaf_006:rotation")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 10.8841, 20),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.0776711, -0.527393, -0.278075), Vector3(0.014255, -0.633, -0.152408), Vector3(-0.0776711, -0.527393, -0.278075)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TreeMesh/Leaf_007:rotation")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 10.7503, 20),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.105127, -0.112707, 0.0418183), Vector3(0.0962752, -0.120348, -0.0341468), Vector3(0.105127, -0.112707, 0.0418183)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("TreeMesh/Leaf_008:rotation")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 9.71006, 20),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.125864, 1.13327, -0.0457193), Vector3(0.0684414, 0.985686, -0.00735172), Vector3(0.125864, 1.13327, -0.0457193)]
+}
+
 [sub_resource type="Animation" id="Animation_6lwfh"]
 resource_name = "shake"
 length = 1.3
@@ -495,120 +608,18 @@ tracks/9/keys = {
 "values": [Vector3(0.125864, 1.13327, -0.0457193), Vector3(0.0915844, 1.06364, -0.112947), Vector3(0.191496, 1.09116, -0.165017), Vector3(0.125864, 1.13327, -0.0457193)]
 }
 
-[sub_resource type="Animation" id="Animation_0h3y5"]
-resource_name = "wind"
-length = 20.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TreeMesh/Leaf_002:rotation")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.03333, 4.93333, 11.6, 16.3, 20),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0.109061, -0.146614, 0.041923), Vector3(0.141926, -0.153244, -0.00461512), Vector3(0.153424, -0.14173, 0.0735953), Vector3(0.109061, -0.146614, 0.041923), Vector3(0.141926, -0.153244, -0.00461512), Vector3(0.109061, -0.146614, 0.041923)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("TreeMesh/Leaf_003:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 3.9468, 7.96667, 12.1411, 20),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0.000342485, -1.2815, 0.176137), Vector3(-0.0185757, -1.28208, 0.239745), Vector3(0.0351139, -1.28195, 0.255693), Vector3(-0.00545614, -1.28464, 0.185402), Vector3(0.000342485, -1.2815, 0.176137)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("TreeMesh/Leaf:rotation")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 6.39006, 11.8028, 16.539, 20),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.369919, -1.30857, -0.178336), Vector3(-0.290428, -1.31578, -0.156113), Vector3(-0.328362, -1.34818, -0.166562), Vector3(-0.253133, -1.26978, -0.141886), Vector3(-0.369919, -1.30857, -0.178336)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("TreeMesh/Leaf_005:rotation")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 4.02198, 11.0886, 16.8021, 20),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.58008, 0.785043, 0.225043), Vector3(-0.526493, 0.817122, 0.164031), Vector3(-0.526493, 0.788115, 0.164031), Vector3(-0.414427, 0.841872, 0.0457357), Vector3(-0.58008, 0.785043, 0.225043)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("TreeMesh/Leaf_004:rotation")
-tracks/4/interp = 2
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 8.30708, 20),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.174435, 0.90774, 0.378811), Vector3(-0.0410704, 0.918895, 0.275413), Vector3(-0.174435, 0.90774, 0.378811)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("TreeMesh/Leaf_001:rotation")
-tracks/5/interp = 2
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 8.5702, 20),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.315203, 2.13459, -0.137878), Vector3(-0.0968572, 2.10651, -0.00167466), Vector3(-0.315203, 2.13459, -0.137878)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("TreeMesh/Leaf_006:rotation")
-tracks/6/interp = 2
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 10.8841, 20),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.0776711, -0.527393, -0.278075), Vector3(0.014255, -0.633, -0.152408), Vector3(-0.0776711, -0.527393, -0.278075)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("TreeMesh/Leaf_007:rotation")
-tracks/7/interp = 2
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 10.7503, 20),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0.105127, -0.112707, 0.0418183), Vector3(0.0962752, -0.120348, -0.0341468), Vector3(0.105127, -0.112707, 0.0418183)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("TreeMesh/Leaf_008:rotation")
-tracks/8/interp = 2
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 9.71006, 20),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0.125864, 1.13327, -0.0457193), Vector3(0.0684414, 0.985686, -0.00735172), Vector3(0.125864, 1.13327, -0.0457193)]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6lwfh"]
+_data = {
+&"shake": SubResource("Animation_6lwfh"),
+&"wind": SubResource("Animation_0h3y5")
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_dgoxg"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3e0u3"]
+_data = {
+&"shake": SubResource("Animation_6lwfh")
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8hv3t"]
 _data = {
 &"shake": SubResource("Animation_6lwfh"),
 &"wind": SubResource("Animation_0h3y5")
@@ -666,7 +677,7 @@ mesh = SubResource("ArrayMesh_uylos")
 skeleton = NodePath("")
 
 [node name="Leaf_004" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(2.10227, -1.19969, 1.03722, 1.47123, 3.06845, 0.23704, -3.12198, 0.638159, 0.810147, -0.824213, 13.6931, 0.0439254)
+transform = Transform3D(2.10668, -1.19038, 1.03795, 1.4718, 3.07064, 0.23209, -3.11874, 0.645015, 0.810652, -0.824213, 13.6931, 0.0439254)
 visibility_range_end = 450.0
 mesh = SubResource("ArrayMesh_axdlk")
 skeleton = NodePath("")
@@ -703,19 +714,19 @@ shape = SubResource("ConvexPolygonShape3D_dgoxg")
 
 [node name="Wind Animation" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_dgoxg")
+&"": SubResource("AnimationLibrary_6lwfh")
 }
 blend_times = [&"shake", &"shake", 0.5, &"shake", &"wind", 0.5]
 
-[node name="Trunk Shake Animation" type="AnimationPlayer" parent="."]
+[node name="TreeMesh Shake Animation" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_dgoxg")
+&"": SubResource("AnimationLibrary_3e0u3")
 }
 blend_times = [&"shake", &"shake", 0.5, &"shake", &"wind", 0.5]
 
 [node name="Leaf Shake Animation" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_dgoxg")
+&"": SubResource("AnimationLibrary_8hv3t")
 }
 blend_times = [&"shake", &"shake", 0.5, &"shake", &"wind", 0.5]
 
