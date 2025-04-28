@@ -50,6 +50,8 @@ extends Node3D
 
 @export var CoconutSpawns : Array[Node3D]
 @export var WindAnimationPlayer : AnimationPlayer
+@export var TreeMeshShakeAnimationPlayer : AnimationPlayer
+@export var LeafShakeAnimationPlayer : AnimationPlayer
 
 func _ready() -> void:
 	WindAnimationPlayer.play(&"wind")
@@ -63,6 +65,8 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 func _on_tree_shake() -> void:
 	WindAnimationPlayer.stop(true)
 	var tween = get_tree().create_tween().set_parallel().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	tween.connect("finished", _on_leaf_tween_finished)
+	
 	tween.tween_property($TreeMesh/Leaf, "rotation_degrees", Vector3(-21.2, -75.0, -10.2), 0.2)
 	tween.tween_property($TreeMesh/Leaf_002, "rotation_degrees", Vector3(6.2, -8.4, 2.4), 0.2)
 	tween.tween_property($TreeMesh/Leaf_003, "rotation_degrees", Vector3(0.0, -73.4, 10.1), 0.2)
@@ -72,5 +76,7 @@ func _on_tree_shake() -> void:
 	tween.tween_property($TreeMesh/Leaf_007, "rotation_degrees", Vector3(6.0, -6.5, 2.5), 0.2)
 	tween.tween_property($TreeMesh/Leaf_008, "rotation_degrees", Vector3(7.2, 64.9, -2.6), 0.2)
 	
-	await get_tree().create_timer(0.2).timeout
-	WindAnimationPlayer.play(&"shake")
+	TreeMeshShakeAnimationPlayer.play(&"shake")
+
+func _on_leaf_tween_finished():
+	pass
