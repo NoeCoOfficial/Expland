@@ -629,7 +629,9 @@ size = Vector3(2.61795, 15.5716, 1.85207)
 [node name="PalmTree1" type="Node3D" node_paths=PackedStringArray("CoconutSpawns", "WindAnimationPlayer")]
 script = ExtResource("2_6lwfh")
 CoconutSpawns = [NodePath("CoconutSpawn1"), NodePath("CoconutSpawn2"), NodePath("CoconutSpawn3")]
-WindAnimationPlayer = NodePath("AnimationPlayer")
+WindAnimationPlayer = NodePath("Wind Animation")
+
+[node name="Shake Debounce Timer" type="Timer" parent="."]
 
 [node name="TreeMesh" type="Node3D" parent="."]
 
@@ -640,7 +642,7 @@ mesh = SubResource("ArrayMesh_55tej")
 skeleton = NodePath("")
 
 [node name="Leaf_002" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(1.32545, -0.0880821, -0.709603, 0.055906, 1.52545, -0.531855, 0.201921, 0.155834, 4.80521, -0.904471, 13.4362, 0.0300764)
+transform = Transform3D(1.32545, -0.088082, -0.709603, 0.0559062, 1.52545, -0.531855, 0.201922, 0.155834, 4.80521, -0.904471, 13.4362, 0.0300764)
 visibility_range_end = 450.0
 mesh = SubResource("ArrayMesh_10k11")
 skeleton = NodePath("")
@@ -652,25 +654,25 @@ mesh = SubResource("ArrayMesh_wbel7")
 skeleton = NodePath("")
 
 [node name="Leaf" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(0.417325, 0.442781, -3.35461, -0.357301, 1.04274, 1.34686, 2.08929, 0.0898817, 0.900399, -0.799375, 13.4597, 0.00569895)
+transform = Transform3D(0.417325, 0.44278, -3.35461, -0.3573, 1.04274, 1.34686, 2.08929, 0.0898814, 0.9004, -0.799375, 13.4597, 0.00569895)
 visibility_range_end = 450.0
 mesh = SubResource("ArrayMesh_uchny")
 skeleton = NodePath("")
 
 [node name="Leaf_001" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(-1.06435, -0.511699, 3.95659, -0.281928, 1.4471, 1.52637, -1.85546, 0.0736458, -2.50154, -0.851022, 13.6234, -0.0714935)
+transform = Transform3D(-1.06435, -0.511699, 3.95659, -0.281929, 1.4471, 1.52637, -1.85546, 0.0736458, -2.50154, -0.851022, 13.6234, -0.0714935)
 visibility_range_end = 450.0
 mesh = SubResource("ArrayMesh_uylos")
 skeleton = NodePath("")
 
 [node name="Leaf_004" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(2.10668, -1.19038, 1.03795, 1.4718, 3.07064, 0.232089, -3.11874, 0.645015, 0.81065, -0.824213, 13.6931, 0.0439254)
+transform = Transform3D(2.10227, -1.19969, 1.03722, 1.47123, 3.06845, 0.23704, -3.12198, 0.638159, 0.810147, -0.824213, 13.6931, 0.0439254)
 visibility_range_end = 450.0
 mesh = SubResource("ArrayMesh_axdlk")
 skeleton = NodePath("")
 
 [node name="Leaf_005" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(1.30281, -0.608546, 2.20252, 0.403211, 0.926549, 2.04182, -1.67541, -0.250223, 2.20409, -0.921216, 13.1563, -0.0578141)
+transform = Transform3D(1.30281, -0.608546, 2.20252, 0.40321, 0.926549, 2.04182, -1.67541, -0.250223, 2.20409, -0.921216, 13.1563, -0.0578141)
 visibility_range_end = 450.0
 mesh = SubResource("ArrayMesh_1jroa")
 skeleton = NodePath("")
@@ -688,7 +690,7 @@ mesh = SubResource("ArrayMesh_e0ahe")
 skeleton = NodePath("")
 
 [node name="Leaf_008" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(0.903142, 0.151089, 3.34773, -0.0979526, 1.12624, -0.467649, -1.96002, 0.0133347, 1.56594, -0.819205, 13.6013, -0.1039)
+transform = Transform3D(0.90314, 0.151089, 3.34773, -0.0979524, 1.12624, -0.467649, -1.96002, 0.0133347, 1.56594, -0.819205, 13.6013, -0.1039)
 visibility_range_end = 450.0
 mesh = SubResource("ArrayMesh_21pj4")
 skeleton = NodePath("")
@@ -699,7 +701,19 @@ skeleton = NodePath("")
 transform = Transform3D(0.745478, 0.126165, -0.0350435, -0.065143, 1.42109, 0.02406, 0.0370925, -0.0398766, 0.746553, -0.848068, 12.9827, -0.0276019)
 shape = SubResource("ConvexPolygonShape3D_dgoxg")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="Wind Animation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_dgoxg")
+}
+blend_times = [&"shake", &"shake", 0.5, &"shake", &"wind", 0.5]
+
+[node name="Trunk Shake Animation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_dgoxg")
+}
+blend_times = [&"shake", &"shake", 0.5, &"shake", &"wind", 0.5]
+
+[node name="Leaf Shake Animation" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_dgoxg")
 }
@@ -858,7 +872,6 @@ shape = SubResource("BoxShape3D_fvca7")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.934525, 4.53807, -0.0290072)
 shape = SubResource("BoxShape3D_00rnx")
 
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="Action1_Triggered" from="Interactable Component" to="." method="_on_tree_shake"]
 [connection signal="body_entered" from="Interactable Component/Contents/PlayerVisibleDetector" to="Interactable Component" method="_on_player_visible_detector_body_entered"]
 [connection signal="body_exited" from="Interactable Component/Contents/PlayerVisibleDetector" to="Interactable Component" method="_on_player_visible_detector_body_exited"]
