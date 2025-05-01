@@ -45,21 +45,22 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
+@tool
 @icon("res://Textures/Icons/Script Icons/32x32/object.png")
 extends Node3D
+
+@export_tool_button("Randomize the color!", "ColorRect") Callable(_skib)
 
 @export var CoconutSpawns : Array[Node3D]
 @export var WindAnimationPlayer : AnimationPlayer
 @export var TreeMeshShakeAnimationPlayer : AnimationPlayer
 @export var LeafShakeAnimationPlayer : AnimationPlayer
 
+
+
+
 func _ready() -> void:
 	WindAnimationPlayer.play(&"wind")
-
-
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if anim_name == &"shake":
-		WindAnimationPlayer.play(&"wind")
 
 
 func _on_tree_shake() -> void:
@@ -79,4 +80,11 @@ func _on_tree_shake() -> void:
 	TreeMeshShakeAnimationPlayer.play(&"shake")
 
 func _on_leaf_tween_finished():
+	LeafShakeAnimationPlayer.play(&"shake")
+
+
+func _on_leaf_shake_animation_animation_finished(anim_name: StringName) -> void:
+	WindAnimationPlayer.play(&"wind")
+
+func _skib():
 	pass
