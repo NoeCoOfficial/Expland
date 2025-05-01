@@ -49,7 +49,6 @@
 @icon("res://Textures/Icons/Script Icons/32x32/object.png")
 extends Node3D
 
-@export_tool_button("Randomize the color!", "ColorRect") Callable(_skib)
 
 @export var CoconutSpawns : Array[Node3D]
 @export var WindAnimationPlayer : AnimationPlayer
@@ -85,6 +84,3 @@ func _on_leaf_tween_finished():
 
 func _on_leaf_shake_animation_animation_finished(anim_name: StringName) -> void:
 	WindAnimationPlayer.play(&"wind")
-
-func _skib():
-	pass
