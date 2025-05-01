@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://cygjfc3k1xy51"]
+
+[node name="MultiMeshGrassClump1" type="MultiMeshInstance3D"]
