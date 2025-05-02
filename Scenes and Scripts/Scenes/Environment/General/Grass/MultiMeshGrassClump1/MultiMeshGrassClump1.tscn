@@ -49,14 +49,17 @@ buffer = PackedFloat32Array(0.00370853, -0.057996, -0.989584, 2.0211, -0.0631497
 [sub_resource type="PlaneMesh" id="PlaneMesh_7n188"]
 
 [node name="MultiMeshGrassClump1" type="MultiMeshInstance3D"]
+visibility_range_end = 200.0
 multimesh = SubResource("MultiMesh_e4qp0")
 
 [node name="GrassClump" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0146219, 0.00636772, -0.142126)
+visibility_range_end = 200.0
 mesh = SubResource("ArrayMesh_vvmbh")
 skeleton = NodePath("")
 
 [node name="Surface" type="MeshInstance3D" parent="."]
 transform = Transform3D(3.06168, 0, 0, 0, 0.319082, 0, 0, 0, 2.50934, 0, 0, 0)
 visible = false
+visibility_range_end = 200.0
 mesh = SubResource("PlaneMesh_7n188")
