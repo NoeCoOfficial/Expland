@@ -338,6 +338,7 @@ var stamina_restoring_from_0 = false
 @export var BuildingInitItemRig : Node3D
 @export var BuildingItemParent : Node3D
 @export var CanBuildCollisionArea : Area3D
+@export var CanBuildCollisionShape : CollisionShape3D
 
 @export_group("General Nodes")
 
@@ -454,8 +455,6 @@ func _input(_event): # A built-in function that listens for input using the inpu
 				InventoryManager.closePockets()
 	
 	if Input.is_action_just_pressed("Quit") and Quit == true and OS.is_debug_build(): # if the Quit input is pressed and the Quit variable is true
-		if !StoryModeManager.is_in_story_mode_first_cutscene_world:
-			SaveManager.saveAllData()
 		get_tree().quit() # quit the game
 	
 	if Input.is_action_just_pressed("Reset") and !PauseManager.inside_absolute_item_workshop and Reset == true and !PauseManager.is_paused and !PauseManager.is_inside_alert and OS.is_debug_build():
@@ -468,8 +467,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 	
 	if Input.is_action_just_pressed("SaveGame") and OS.is_debug_build() and IslandManager.Current_Game_Mode == "FREE":
 		if !StoryModeManager.is_in_story_mode_first_cutscene_world:
-			Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
-			SaveManager.saveAllData()
+			print("saved (or not)")
 	
 	if !StoryModeManager.is_in_story_mode_first_cutscene_world and !PauseManager.is_paused and !DialogueManager.is_in_interface and !BuildingManager.is_in_building_interface:
 		if Input.is_action_just_pressed("Hotbar_1"):
@@ -733,10 +731,10 @@ func _process(_delta):
 	## END DEBUGGING
 	
 	# HUD
-	if UseHealth == false: # Check if the UseHealth variable is false
-		HUDLayer_HealthBar.hide()
-	else: 
-		HUDLayer_HealthBar.show()
+	#if UseHealth == false: # Check if the UseHealth variable is false
+		#HUDLayer_HealthBar.hide()
+	#else: 
+		#HUDLayer_HealthBar.show()
 	
 	
 	# NOTE: Change when making crosshair setting
@@ -796,11 +794,10 @@ func _ready():
 		PauseLayer.hide()
 		StartDebugging_Btn.hide()
 	
+	
 
 func on_fade_in_tween_finished():
-	if !StoryModeManager.is_in_story_mode_first_cutscene_world:
-		if IslandManager.Current_Game_Mode == "FREE":
-			Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png")
+	pass
 
 func _on_ready() -> void: # Called when the node is considered ready
 	pass
@@ -933,6 +930,24 @@ func init_for_story_mode_cutscene():
 		$Head/Camera3D/HUDLayer/WhiteHamIcon.hide()
 		$Head/Camera3D/HUDLayer/WhiteHeartIcon.hide()
 		InventoryLayer_Hotbar.hide()
+
+func init_for_cutscene():
+	$Head/Camera3D/HUDLayer/Crosshair.hide()
+	$Head/Camera3D/HUDLayer/HungerBar.hide()
+	$Head/Camera3D/HUDLayer/HealthBar.hide()
+	$Head/Camera3D/HUDLayer/StaminaBar.hide()
+	$Head/Camera3D/HUDLayer/WhiteHamIcon.hide()
+	$Head/Camera3D/HUDLayer/WhiteHeartIcon.hide()
+	InventoryLayer_Hotbar.hide()
+
+func deinit_for_cutscene():
+	$Head/Camera3D/HUDLayer/Crosshair.show()
+	$Head/Camera3D/HUDLayer/HungerBar.show()
+	$Head/Camera3D/HUDLayer/HealthBar.show()
+	$Head/Camera3D/HUDLayer/StaminaBar.show()
+	$Head/Camera3D/HUDLayer/WhiteHamIcon.show()
+	$Head/Camera3D/HUDLayer/WhiteHeartIcon.show()
+	InventoryLayer_Hotbar.show()
 
 #endregion
 
@@ -1182,7 +1197,7 @@ func _on_save_and_quit_to_menu_pressed() -> void:
 	if !StoryModeManager.is_in_story_mode_first_cutscene_world:
 		SaveManager.saveAllData()
 	transitioning_to_menu = true
-	Global.the_island_transitioning_scene = true
+	Global.transitioning_to_main_menu_from_island = true
 	AudioManager.Current_Playlist.audibleOnlyFadeOutAllSongs()
 	if AudioManager.Current_Rain_SFX_Node:
 		AudioManager.Current_Rain_SFX_Node.stop_rain_loop(2.0)
@@ -1243,7 +1258,6 @@ func Autosave_showSaving():
 func Autosave_showSaved():
 	if !StoryModeManager.is_in_story_mode_first_cutscene_world:
 		SaveManager.saveAllData() # Saves everything
-		Utils.take_screenshot_in_thread("user://saveData/Free Mode/Islands/" + IslandManager.Current_Island_Name + "/island.png") # Take island screenshot
 		
 		$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved.visible = true
 		$Head/Camera3D/AutosaveLayer/AutosaveMainLayer/Saved.scale = Vector2(0.83, 0.83)

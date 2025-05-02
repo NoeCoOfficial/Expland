@@ -51,61 +51,10 @@ extends Node
 var SAVE_PATH = ""
 
 func saveData(Island_Name : String) -> void:
-	
-	if IslandManager.Current_Game_Mode == "FREE":
-		Utils.createIslandSaveFolder(Island_Name, "FREE")
-		SAVE_PATH = "user://saveData/Free Mode/Islands/" + Island_Name + "/island.save"
-		
-	elif IslandManager.Current_Game_Mode == "STORY":
-		Utils.createIslandSaveFolder(Island_Name, "STORY")
-		SAVE_PATH = "user://saveData/Story Mode/Islands/" + Island_Name + "/island.save"
-		
-	elif IslandManager.Current_Game_Mode == "STORY":
-		Utils.createIslandSaveFolder(Island_Name, "STORY")
-		SAVE_PATH = "user://saveData/Parkour Mode/Runs/" + Island_Name + "/island.save"
-	
-	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
-	var data = {
-		"Version" : Global.VERSION,
-		"Collected_Explorer_Notes" : ExplorerNotesManager.COLLECTED_NOTES,
-	}
-	
-	var jstr = JSON.stringify(data)
-	file.store_line(jstr)
-	file.close()
-	print("[IslandData] --Saved Island Data--")
+	pass
 
-func loadData(Island_Name : String, withOutput : bool) -> void:
-	
-	if IslandManager.Current_Game_Mode == "FREE":
-		Utils.createIslandSaveFolder(Island_Name, "FREE")
-		SAVE_PATH = "user://saveData/Free Mode/Islands/" + Island_Name + "/island.save"
-		
-	elif IslandManager.Current_Game_Mode == "STORY":
-		Utils.createIslandSaveFolder(Island_Name, "STORY")
-		SAVE_PATH = "user://saveData/Story Mode/Islands/" + Island_Name + "/island.save"
-		
-	elif IslandManager.Current_Game_Mode == "STORY":
-		Utils.createIslandSaveFolder(Island_Name, "STORY")
-		SAVE_PATH = "user://saveData/Parkour Mode/Runs/" + Island_Name + "/island.save"
-	
-	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
-	if not file:
-		push_warning("[IslandData] File doesn't exist (" + SAVE_PATH + ")")
-		return
-	
-	if file and not file.eof_reached():
-		var current_line = JSON.parse_string(file.get_line())
-		
-		if current_line:
-			
-			ExplorerNotesManager.COLLECTED_NOTES = current_line["Collected_Explorer_Notes"]
-			
-			if withOutput:
-				print_rich("[center][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf][font_size=30]-- ISLAND DATA HAS BEEN LOADED --[/font_size][/font][/center]")
-				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Collected explorer notes: " + str(ExplorerNotesManager.COLLECTED_NOTES) + "[/font][/font_size][/center]")
-		
-		file.close()
+func loadData(Island_Name : String) -> void:
+	pass
 
 func getIslandVersion(Island_Name : String) -> String:
 	if IslandManager.Current_Game_Mode == "FREE":

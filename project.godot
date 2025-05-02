@@ -32,14 +32,12 @@ ThreadManager="*res://Scenes and Scripts/Singletons/Thread/ThreadManager.gd"
 Global="*res://Scenes and Scripts/Singletons/Global.gd"
 SignalBus="*res://Scenes and Scripts/Singletons/SignalBus.gd"
 DebugManager="*res://Scenes and Scripts/Singletons/Debug/DebugManager.gd"
-EncryptionManager="*res://Scenes and Scripts/Singletons/Encryption/EncryptionManager.gd"
 GlobalData="*res://Scenes and Scripts/Singletons/Save and Load/GlobalData.gd"
 PlayerData="*res://Scenes and Scripts/Singletons/Save and Load/PlayerData.gd"
 PlayerManager="*res://Scenes and Scripts/Singletons/Player/PlayerManager.gd"
 IslandData="*res://Scenes and Scripts/Singletons/Save and Load/IslandData.gd"
 PlayerSettingsData="*res://Scenes and Scripts/Singletons/Save and Load/PlayerSettingsData.gd"
 SaveManager="*res://Scenes and Scripts/Singletons/Save and Load/SaveManager.gd"
-IslandAccessOrder="*res://Scenes and Scripts/Singletons/World/IslandAccessOrder.gd"
 StoryModeManager="*res://Scenes and Scripts/Singletons/Gamemodes/StoryModeManager.gd"
 IslandManager="*res://Scenes and Scripts/Singletons/World/IslandManager.gd"
 PauseManager="*res://Scenes and Scripts/Singletons/Pause/PauseManager.gd"
@@ -95,6 +93,11 @@ folder_colors={
 "res://Scenes and Scripts/Scenes/Player/": "red",
 "res://Scenes and Scripts/Singletons/": "orange"
 }
+
+[global]
+
+SECURITY_KEY_SETTINGS="*&@(H23Hh98H32//(@i#HhhU2hw*sh3847opo22E9IE)@ef*H"
+SECURITY_KEY="_-E9R2-3M#@$ufh*@3277b$$@#Ngd23G&**#(@hef(*U8238U2HF8"
 
 [global_group]
 
@@ -331,6 +334,11 @@ DoButton={
 Debug={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":47,"key_label":0,"unicode":47,"location":0,"echo":false,"script":null)
+]
+}
+Interact2={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":82,"key_label":0,"unicode":114,"location":0,"echo":false,"script":null)
 ]
 }
 

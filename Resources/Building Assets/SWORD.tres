@@ -8,10 +8,8 @@
 script = ExtResource("1_rtmul")
 ITEM_TYPE = "SWORD"
 Model_Scene = ExtResource("1_yykk4")
-Spawn_Position = Vector3(0, 0, 0.5)
-Spawn_Rotation = Vector3(0, 180, 0)
-Spawn_Scale = Vector3(0.33, 0.33, 0.33)
-Spawn_Collision_Shape = ExtResource("2_cdfmv")
-Collision_Boundary_Position = Vector3(0, 0.38, 0.465)
-Collision_Boundary_Scale = Vector3(0.7, 2.16, 0.7)
+Default_Model_Position = Vector3(0, 0, 0)
+Default_Model_Rotation_Degrees = Vector3(0, 180, 0)
+Default_Model_Scale = Vector3(0.329589, 0.329589, 0.329589)
+Collision_Shape = ExtResource("2_cdfmv")
 metadata/_custom_type_script = "uid://c1yp645pkxk3d"

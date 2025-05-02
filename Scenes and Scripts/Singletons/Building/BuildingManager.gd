@@ -47,13 +47,16 @@
 
 extends Node
 
-var BuildingVignette : ShaderMaterial = preload("res://Resources/Shader Materials/BuildingVignette.tres")
+const DEFAULT_COLLISION_SHAPE : Shape3D = preload("res://Resources/Building Assets/Collision Shapes/DEFAULT.tres")
 
-var BA_PhysicalObject : PackedScene = preload("res://Scenes and Scripts/Scenes/Building System/Building Assets/Physical/BA_PhysicalObject.tscn")
-var BA_StaticObject : PackedScene = preload("res://Scenes and Scripts/Scenes/Building System/Building Assets/Static/BA_StaticObject.tscn")
+const BuildingVignette : ShaderMaterial = preload("res://Resources/Shader Materials/BuildingVignette.tres")
 
-var CanBuildMaterial : StandardMaterial3D = preload("res://Resources/Materials/BuildingPlaceColorOverride.tres")
-var CantBuildMaterial : StandardMaterial3D = preload("res://Resources/Materials/BuildingCantPlaceColorOverride.tres") 
+const BA_PreSpawnedObject : PackedScene = preload("res://Scenes and Scripts/Scenes/Building System/Building Assets/PreSpawned/BA_PreSpawnedObject.tscn")
+const BA_PhysicalObject : PackedScene = preload("res://Scenes and Scripts/Scenes/Building System/Building Assets/Physical/BA_PhysicalObject.tscn")
+const BA_StaticObject : PackedScene = preload("res://Scenes and Scripts/Scenes/Building System/Building Assets/Static/BA_StaticObject.tscn")
+
+const CanBuildMaterial : StandardMaterial3D = preload("res://Resources/Materials/BuildingPlaceColorOverride.tres")
+const CantBuildMaterial : StandardMaterial3D = preload("res://Resources/Materials/BuildingCantPlaceColorOverride.tres") 
 
 var vignette_tween : Tween
 
@@ -69,7 +72,6 @@ var current_global_rotation : Vector3
 
 func build():
 	pass
-	# (glbl_pos : Vector3, glbl_rot_deg : Vector3, glbl_scale : Vector3, item_type : String, model : PackedScene)
 
 func init_building_system():
 	# First, check if we are not in the building interface
@@ -82,6 +84,13 @@ func init_building_system():
 			var tween = get_tree().create_tween()
 			tween.tween_property(BuildingVignette, "shader_parameter/alpha", 0.4, 0.2)
 			
+			for child in PlayerManager.PLAYER.BuildingItemParent.get_children():
+				child.queue_free()
+			
+			var instance = BA_PreSpawnedObject.instantiate()
+			PlayerManager.PLAYER.BuildingItemParent.add_child(instance)
+			instance.spawn(HandManager.CURRENTLY_HOLDING_ITEM)
+			PlayerManager.PLAYER.CanBuildCollisionShape.global_transform = instance.CollisionShape.global_transform
 			
 			print("spawned building system")
 
@@ -91,6 +100,9 @@ func despawn_building_system():
 		PlayerManager.PLAYER.BuildingUILayer.visible = false
 		if is_in_building_edit_interface:
 			despawn_edit()
+		
+		for child in PlayerManager.PLAYER.BuildingItemParent.get_children():
+			child.queue_free()
 		
 		var tween = get_tree().create_tween()
 		tween.tween_property(BuildingVignette, "shader_parameter/alpha", 0.0, 0.2)

@@ -173,7 +173,7 @@ one_shot = true
 environment = SubResource("Environment_ec70e")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.863395, 0.390681, -0.319244, 0, 0.632758, 0.77435, 0.504528, -0.66857, 0.54632, 0, 0, 0)
+transform = Transform3D(0.981398, -0.146113, 0.124539, -0.173272, -0.394734, 0.902309, -0.0826793, -0.907103, -0.412709, 0, 0, 0)
 light_energy = 1.692
 light_indirect_energy = 0.827
 shadow_enabled = true
@@ -632,8 +632,16 @@ debug_color = Color(1, 0.21, 0.223166, 1)
 
 [node name="ProbeContainer" type="Node3D" parent="Yacht Rig/Yacht"]
 
-[node name="Probe2" type="Marker3D" parent="Yacht Rig/Yacht/ProbeContainer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.66548, 0.0761509, -1.06775)
+[node name="Front1" type="Marker3D" parent="Yacht Rig/Yacht/ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.66548, 0.357848, -1.06775)
+gizmo_extents = 0.6
+
+[node name="Front2" type="Marker3D" parent="Yacht Rig/Yacht/ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.26847, 0.357848, -1.50316)
+gizmo_extents = 0.6
+
+[node name="Front3" type="Marker3D" parent="Yacht Rig/Yacht/ProbeContainer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.41603, 0.357848, 0.281857)
 gizmo_extents = 0.6
 
 [node name="Probe3" type="Marker3D" parent="Yacht Rig/Yacht/ProbeContainer"]
@@ -642,14 +650,6 @@ gizmo_extents = 0.6
 
 [node name="Probe8" type="Marker3D" parent="Yacht Rig/Yacht/ProbeContainer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.81561, 0.213684, 3.35423)
-gizmo_extents = 0.6
-
-[node name="Probe5" type="Marker3D" parent="Yacht Rig/Yacht/ProbeContainer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.26847, 0.0761509, -1.50316)
-gizmo_extents = 0.6
-
-[node name="Probe9" type="Marker3D" parent="Yacht Rig/Yacht/ProbeContainer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.41603, 0.0761509, 0.281857)
 gizmo_extents = 0.6
 
 [node name="Probe6" type="Marker3D" parent="Yacht Rig/Yacht/ProbeContainer"]

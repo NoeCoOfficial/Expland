@@ -1,7 +1,7 @@
 [gd_scene load_steps=28 format=3 uid="uid://cemaw6qpjdvj0"]
 
 [ext_resource type="PackedScene" uid="uid://scptwp6758bq" path="res://Assets/3D Models/Environment/Trees/Pine/Models/PineTree4.blend" id="1_ykuqx"]
-[ext_resource type="Script" uid="uid://be2hbme5pe50y" path="res://Assets/3D Models/Environment/Trees/Scripts/Tree_Animation_SCRIPT.gd" id="2_j07ss"]
+[ext_resource type="Script" uid="uid://be2hbme5pe50y" path="res://Assets/3D Models/Environment/Trees/Scripts/DefaultTree_Animation_Hitbox_SCRIPT.gd" id="2_j07ss"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_e8srg"]
 points = PackedVector3Array(0.399381, -0.199255, -0.690615, 0.101319, -0.124745, -1.13776, -0.0477376, -0.273838, -0.839737, -0.0477376, 0.098749, -0.690615, 0.324827, 0.098749, -0.98864, 0.0267651, 0.098749, -1.06322, -0.122291, -0.273838, -0.690615, 0.324827, 0.098749, -0.690615, 0.399381, -0.273838, -0.765154, 0.250273, -0.124745, -1.13776, 0.250273, 0.098749, -1.13776, -0.122291, -0.124745, -0.765154, 0.324827, -0.124745, -1.06322, 0.324827, -0.273838, -0.839737, -0.122291, -0.273838, -0.765154, 0.399381, -0.273838, -0.690615, 0.0267651, -0.124745, -1.06322, -0.0477376, 0.098749, -0.839737, 0.101319, 0.098749, -1.13776, 0.324827, 0.0242025, -1.06322)
@@ -185,6 +185,7 @@ script = ExtResource("2_j07ss")
 
 [node name="Plane" parent="." index="0"]
 lod_bias = 0.5
+visibility_range_end = 330.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Plane" index="0"]
 
@@ -257,22 +258,27 @@ shape = SubResource("ConvexPolygonShape3D_vo2wx")
 [node name="Circle" parent="." index="1"]
 transform = Transform3D(3.69481, -0.0293551, 0, 0.0322441, 3.36376, 0, 0, 0, 3.27432, -0.157261, 2.15982, 0.0704203)
 lod_bias = 0.5
+visibility_range_end = 330.0
 
 [node name="Circle_001" parent="." index="2"]
 transform = Transform3D(-1.14918, 7.93574e-08, 2.48196, 0.0333375, 3.87288, 0.0121214, -2.8006, 0.0461016, -1.01829, 0.00232995, 3.70586, -0.0228727)
 lod_bias = 0.5
+visibility_range_end = 330.0
 
 [node name="Circle_002" parent="." index="3"]
 transform = Transform3D(-0.865652, 0.265105, -2.20551, -0.00967366, 2.39686, 0.27595, 2.50579, 0.100836, -0.760852, -0.208852, 5.53089, -0.00858164)
 lod_bias = 0.5
+visibility_range_end = 330.0
 
 [node name="Circle_003" parent="." index="4"]
 transform = Transform3D(2.13786, -0.0477414, -1.11446e-14, 0.0373164, 2.73511, -2.96725e-07, 5.84384e-09, 4.28324e-07, 1.89477, 0.0342205, 6.69972, -0.149977)
 lod_bias = 0.5
+visibility_range_end = 330.0
 
 [node name="Circle_004" parent="." index="5"]
 transform = Transform3D(-0.529608, 7.23135e-08, 1.14383, 0.0153638, 1.78484, 0.00558622, -1.29067, 0.0212462, -0.469288, 0.000903406, 8.25041, -0.0418407)
 lod_bias = 0.5
+visibility_range_end = 330.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
 libraries = {

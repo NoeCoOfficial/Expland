@@ -51,6 +51,8 @@ extends Node
 func initializeIslandProperties(_Island_Name):
 	pass
 
+@onready var IslandWorldEnv = preload("uid://dgtwdwq2n0x1v")
+
 @export var DayNightCycle : AnimationPlayer
 @export var DayNightCycle_Rotation : AnimationPlayer
 @export var DayNightCycle_Sky : AnimationPlayer
@@ -62,6 +64,9 @@ func initializeIslandProperties(_Island_Name):
 @export var Player : CharacterBody3D
 
 @export var Building_Assets_Parent : Node
+
+@export_group("Markers")
+@export var Marker_StoryModeStartSpawn : Marker3D
 
 var transitioning_weather = false
 
@@ -76,12 +81,9 @@ func _ready() -> void:
 	AudioManager.canOperate_textField = true
 	IslandManager.transitioning_from_menu = false
 	Global.main_menu_transitioning_scene = false
-	Global.the_island_transitioning_scene = false
+	Global.transitioning_to_main_menu_from_island = false
+	Global.is_in_main_menu = false
 	
-	PlayerData.loadData(IslandManager.Current_Island_Name, true)
-	IslandData.loadData(IslandManager.Current_Island_Name, true)
-	
-	set_dof_blur(PlayerSettingsData.DOFBlur)
 	set_pretty_shadows(PlayerSettingsData.PrettyShadows)
 	
 	if PlayerData.GAME_STATE == "SLEEPING":
@@ -96,12 +98,24 @@ func _ready() -> void:
 		init_weather_instant_custom(0)
 	else:
 		init_weather_instant() # NOTE: Important line right here (initalize weather)
+		Player.camera.make_current()
+	
+	if IslandManager.Current_Game_Mode == "STORY" and StoryModeManager.is_first_story_mode:
+		# NOTE: Story mode init. What happens when the player spawns in for the first time.
+		Player.global_position = Marker_StoryModeStartSpawn.global_position
+		$"Story Mode/Animation Players/StoryModeWakeUpAnimation".play("main")
+		PlayerManager.is_in_cutscene = true
+		Player.init_for_cutscene()
+		Player.hide()
+		set_time(1140)
+		$"Story Mode/Canvas Layers/MinimalDialogueLayer/MinimalDialogue".spawnMinimalDialogue(DialogueManager.StoryMode_Dialogue1)
 	
 	Player.nodeSetup()
+	
 
 func _on_ready() -> void:
 	AudioManager.initNotificaton(PlayerManager.AudioNotification)
-	AudioManager.initNew($TheIsland_Audio, true, false, true)
+	AudioManager.initNew($TheIsland_Audio, !StoryModeManager.is_first_story_mode, false, true)
 	AudioManager.Current_Rain_SFX_Node = $Rain_SFX
 
 func _process(_delta: float) -> void:
@@ -112,16 +126,10 @@ func _process(_delta: float) -> void:
 func initNodes():
 	RainParticles.emitting = false
 	RainParticles.visible = false
-
-func set_dof_blur(value : bool) -> void:
-	var cameraAttributesResource = load("uid://cskddrxjnggrw")
-	if value:
-		cameraAttributesResource.dof_blur_far_enabled = true
-	else:
-		cameraAttributesResource.dof_blur_far_enabled = false
+	$"Story Mode/Canvas Layers/EyeBlinkLayer/BottomBlink".position = Vector2(0.0, 688.0)
+	$"Story Mode/Canvas Layers/EyeBlinkLayer/TopBlink".position = Vector2(1152.0, -39.0)
 
 func set_pretty_shadows(value : bool) -> void:
-	var IslandWorldEnv = load("uid://dgtwdwq2n0x1v")
 	if value:
 		IslandWorldEnv.sdfgi_enabled = true
 	else:
@@ -459,3 +467,16 @@ func _on_email_noe_co_action_triggered() -> void:
 
 func _on_open_feedback_issue_action_triggered() -> void:
 	OS.shell_open("https://github.com/NoeCoOfficial/Expland/issues/new?assignees=&labels=&projects=&template=feedback.md")
+
+#####################################
+
+func playBlinkEffect():
+	$"Story Mode/Canvas Layers/EyeBlinkLayer/BlinkAnimation".play("main")
+
+func makePlayerCameraCurrent():
+	$"Story Mode/Cameras/StoryModeWakeUpCamera".clear_current(true)
+
+func firstInitStoryModePlayer():
+	Player.show()
+	Player.head.rotation_degrees.y = 0.0
+	Player.camera.rotation_degrees.x = 0.0

@@ -50,11 +50,9 @@ class_name BuildingAsset extends Resource
 
 @export var ITEM_TYPE : String
 @export var Model_Scene : PackedScene
-@export_group("Spawn")
-@export var Spawn_Position : Vector3
-@export var Spawn_Rotation : Vector3
-@export var Spawn_Scale : Vector3 = Vector3.ONE
-@export_group("Collision")
-@export var Spawn_Collision_Shape : Shape3D
-@export var Collision_Boundary_Position : Vector3
-@export var Collision_Boundary_Scale : Vector3 = Vector3.ONE
+@export_group("Default Model Values")
+@export var Default_Model_Position : Vector3
+@export var Default_Model_Rotation_Degrees : Vector3
+@export var Default_Model_Scale : Vector3 = Vector3.ONE
+@export_group("Collision Shape Values")
+@export var Collision_Shape : Shape3D
