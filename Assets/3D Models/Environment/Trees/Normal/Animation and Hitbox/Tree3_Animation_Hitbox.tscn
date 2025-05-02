@@ -435,6 +435,7 @@ script = ExtResource("1_x25mm")
 
 [node name="Icosphere" type="MeshInstance3D" parent="."]
 transform = Transform3D(3.54223, 0.935591, 0.259061, -0.935374, 3.1186, 2.03892, 0.243957, -1.62743, 4.05604, -4.09416, 23.57, -15.8214)
+visibility_range_end = 330.0
 mesh = SubResource("ArrayMesh_ccqxc")
 skeleton = NodePath("")
 
@@ -445,6 +446,7 @@ shape = SubResource("ConcavePolygonShape3D_ug73w")
 
 [node name="Icosphere_001" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.37934, -1.0068, 3.84984e-08, 0.801576, 1.89434, -1.56329, 0.609202, 1.43971, 2.05695, -1.732, 24.1175, -11.3354)
+visibility_range_end = 330.0
 mesh = SubResource("ArrayMesh_xj1d0")
 skeleton = NodePath("")
 
@@ -455,6 +457,7 @@ shape = SubResource("ConcavePolygonShape3D_o13mp")
 
 [node name="Icosphere_003" type="MeshInstance3D" parent="."]
 transform = Transform3D(3.17707, -3.39794, -0.39987, -2.85929, -3.56595, -1.112, 0.463592, 1.29285, -4.11809, -8.91393, 24.4065, -3.9013)
+visibility_range_end = 330.0
 mesh = SubResource("ArrayMesh_pck6k")
 skeleton = NodePath("")
 
@@ -465,6 +468,7 @@ shape = SubResource("ConcavePolygonShape3D_d70e3")
 
 [node name="Plane" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.76305, 0, 0, 0, 2.76305, 0, 0, 0, 2.76305, 0, 0, 0)
+visibility_range_end = 330.0
 mesh = SubResource("ArrayMesh_4bxnc")
 skeleton = NodePath("")
 
@@ -529,6 +533,7 @@ shape = SubResource("ConvexPolygonShape3D_mepgj")
 
 [node name="Icosphere_004" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1.57766, -2.82415, 0.442859, 2.75996, -1.63657, -0.604357, 0.744711, 0.0823259, 3.17798, 1.54173, 24.1175, -7.02283)
+visibility_range_end = 330.0
 mesh = SubResource("ArrayMesh_dm2tq")
 skeleton = NodePath("")
 
@@ -539,6 +544,7 @@ shape = SubResource("ConcavePolygonShape3D_224k0")
 
 [node name="Icosphere_005" type="MeshInstance3D" parent="."]
 transform = Transform3D(3.30267, -2.99991, 1.07429, -2.61466, -4.0425, -0.0077188, 0.860348, -0.769535, -4.1474, -1.22364, 23.3281, 2.83708)
+visibility_range_end = 330.0
 mesh = SubResource("ArrayMesh_18s81")
 skeleton = NodePath("")
 
@@ -549,6 +555,7 @@ shape = SubResource("ConcavePolygonShape3D_ir6x7")
 
 [node name="Icosphere_006" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.4939, -0.656055, 1.90677, -1.95793, 0.313597, 0.615049, -0.482381, -1.94458, -0.544114, -6.67297, 22.5019, 7.76941)
+visibility_range_end = 330.0
 mesh = SubResource("ArrayMesh_8t7cx")
 skeleton = NodePath("")
 
@@ -559,6 +566,7 @@ shape = SubResource("ConcavePolygonShape3D_jvjou")
 
 [node name="Icosphere_002" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.98761, -3.63668, 0.361898, -2.20575, -2.92643, -2.73173, 2.16635, 2.03569, -3.28051, 9.45981, 21.6899, -1.37965)
+visibility_range_end = 330.0
 mesh = SubResource("ArrayMesh_wcx1u")
 skeleton = NodePath("")
 
@@ -569,5 +577,5 @@ shape = SubResource("ConcavePolygonShape3D_3b68u")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_nn5d1")
+&"": SubResource("AnimationLibrary_nn5d1")
 }

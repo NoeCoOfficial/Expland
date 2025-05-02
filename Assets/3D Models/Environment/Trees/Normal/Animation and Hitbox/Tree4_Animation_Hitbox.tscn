@@ -131,30 +131,48 @@ _data = {
 [node name="Tree4" instance=ExtResource("1_drbme")]
 script = ExtResource("2_bfxfe")
 
+[node name="Icosphere" parent="." index="0"]
+visibility_range_end = 330.0
+
 [node name="StaticBody3D" type="StaticBody3D" parent="Icosphere" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Icosphere/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_k3bc0")
+
+[node name="Icosphere_003" parent="." index="1"]
+visibility_range_end = 330.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Icosphere_003" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Icosphere_003/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_3o5cd")
 
+[node name="Icosphere_004" parent="." index="2"]
+visibility_range_end = 330.0
+
 [node name="StaticBody3D" type="StaticBody3D" parent="Icosphere_004" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Icosphere_004/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_yompi")
+
+[node name="Icosphere_005" parent="." index="3"]
+visibility_range_end = 330.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Icosphere_005" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Icosphere_005/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_hone8")
 
+[node name="Icosphere_006" parent="." index="4"]
+visibility_range_end = 330.0
+
 [node name="StaticBody3D" type="StaticBody3D" parent="Icosphere_006" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Icosphere_006/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_ksxwv")
+
+[node name="Plane" parent="." index="5"]
+visibility_range_end = 330.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Plane" index="0"]
 
@@ -224,10 +242,16 @@ shape = SubResource("ConvexPolygonShape3D_cgieq")
 [node name="CollisionShape3D22" type="CollisionShape3D" parent="Plane/StaticBody3D" index="21"]
 shape = SubResource("ConvexPolygonShape3D_jqu8q")
 
+[node name="Icosphere_001" parent="." index="6"]
+visibility_range_end = 330.0
+
 [node name="StaticBody3D" type="StaticBody3D" parent="Icosphere_001" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Icosphere_001/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_gjeg3")
+
+[node name="Icosphere_002" parent="." index="7"]
+visibility_range_end = 330.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Icosphere_002" index="0"]
 
@@ -236,5 +260,5 @@ shape = SubResource("ConcavePolygonShape3D_1fcdb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
 libraries = {
-"": SubResource("AnimationLibrary_nn5d1")
+&"": SubResource("AnimationLibrary_nn5d1")
 }

@@ -107,25 +107,40 @@ _data = {
 [node name="Tree6" instance=ExtResource("1_gympr")]
 script = ExtResource("2_tn4od")
 
+[node name="Icosphere" parent="." index="0"]
+visibility_range_end = 330.0
+
 [node name="StaticBody3D" type="StaticBody3D" parent="Icosphere" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Icosphere/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_g2n6d")
+
+[node name="Icosphere_003" parent="." index="1"]
+visibility_range_end = 330.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Icosphere_003" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Icosphere_003/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_5y3ti")
 
+[node name="Icosphere_005" parent="." index="2"]
+visibility_range_end = 330.0
+
 [node name="StaticBody3D" type="StaticBody3D" parent="Icosphere_005" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Icosphere_005/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_21c4l")
 
+[node name="Icosphere_006" parent="." index="3"]
+visibility_range_end = 330.0
+
 [node name="StaticBody3D" type="StaticBody3D" parent="Icosphere_006" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Icosphere_006/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_1mdk4")
+
+[node name="Plane" parent="." index="4"]
+visibility_range_end = 330.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Plane" index="0"]
 
@@ -177,6 +192,9 @@ shape = SubResource("ConvexPolygonShape3D_jqwy0")
 [node name="CollisionShape3D16" type="CollisionShape3D" parent="Plane/StaticBody3D" index="15"]
 shape = SubResource("ConvexPolygonShape3D_fahnv")
 
+[node name="Icosphere_001" parent="." index="5"]
+visibility_range_end = 330.0
+
 [node name="StaticBody3D" type="StaticBody3D" parent="Icosphere_001" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Icosphere_001/StaticBody3D" index="0"]
@@ -184,5 +202,5 @@ shape = SubResource("ConcavePolygonShape3D_hb617")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
 libraries = {
-"": SubResource("AnimationLibrary_oir3k")
+&"": SubResource("AnimationLibrary_oir3k")
 }
