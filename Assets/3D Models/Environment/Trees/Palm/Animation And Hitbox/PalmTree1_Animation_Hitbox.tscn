@@ -658,55 +658,55 @@ mesh = SubResource("ArrayMesh_55tej")
 skeleton = NodePath("")
 
 [node name="Leaf_002" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(1.32468, -0.108374, -0.700042, 0.0733208, 1.52392, -0.548108, 0.201366, 0.158052, 4.80479, -0.904471, 13.4362, 0.0300764)
+transform = Transform3D(1.32299, -0.140739, -0.684072, 0.0938456, 1.5141, -0.746256, 0.203971, 0.216225, 4.78034, -0.904471, 13.4362, 0.0300764)
 visibility_range_end = 330.0
 mesh = SubResource("ArrayMesh_10k11")
 skeleton = NodePath("")
 
 [node name="Leaf_003" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(1.10498, -0.254272, -1.28234, 0.873272, 3.27616, -0.0207549, 3.78778, -0.681142, 0.378871, -0.785085, 13.7842, -0.0565622)
+transform = Transform3D(1.12556, -0.201519, -1.28187, 0.99098, 3.25321, 0.014074, 3.75259, -0.79866, 0.380771, -0.785085, 13.7842, -0.0565622)
 visibility_range_end = 330.0
 mesh = SubResource("ArrayMesh_wbel7")
 skeleton = NodePath("")
 
 [node name="Leaf" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(0.359723, 0.390321, -3.44328, -0.338154, 1.0622, 1.18888, 2.10314, 0.104025, 0.780095, -0.799375, 13.4597, 0.00569895)
+transform = Transform3D(0.447479, 0.371654, -3.43487, -0.328501, 1.07025, 1.11717, 2.08777, 0.0887414, 0.911989, -0.799375, 13.4597, 0.00569895)
 visibility_range_end = 330.0
 mesh = SubResource("ArrayMesh_uchny")
 skeleton = NodePath("")
 
 [node name="Leaf_001" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(-1.10169, -0.139307, 4.20978, -0.0112101, 1.52858, 0.504013, -1.85505, 0.0734952, -2.50317, -0.851022, 13.6234, -0.0714935)
+transform = Transform3D(-1.10012, -0.302667, 4.12299, -0.132103, 1.50483, 0.950526, -1.85131, 0.0724765, -2.51786, -0.851022, 13.6234, -0.0714935)
 visibility_range_end = 330.0
 mesh = SubResource("ArrayMesh_uylos")
 skeleton = NodePath("")
 
 [node name="Leaf_004" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(2.31851, -0.675609, 1.06171, 1.10995, 3.22326, 0.0602775, -3.11823, 0.644997, 0.810868, -0.824213, 13.6931, 0.0439254)
+transform = Transform3D(2.24386, -0.890205, 1.05412, 1.26321, 3.17077, 0.130757, -3.11452, 0.644671, 0.812473, -0.824213, 13.6931, 0.0439254)
 visibility_range_end = 330.0
 mesh = SubResource("ArrayMesh_axdlk")
 skeleton = NodePath("")
 
 [node name="Leaf_005" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(1.37088, -0.538793, 2.27374, 0.315502, 0.964883, 1.89138, -1.63952, -0.264833, 2.26515, -0.921216, 13.1563, -0.0578141)
+transform = Transform3D(1.33368, -0.531406, 2.3567, 0.296427, 0.972585, 1.85787, -1.67341, -0.251239, 2.20735, -0.921216, 13.1563, -0.0578141)
 visibility_range_end = 330.0
 mesh = SubResource("ArrayMesh_1jroa")
 skeleton = NodePath("")
 
 [node name="Leaf_006" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(3.22543, 0.382167, -0.791147, -0.61288, 3.3167, -0.0192041, 2.35624, 0.339561, 1.07799, -0.810548, 13.0771, -0.274849)
+transform = Transform3D(3.29254, 0.693167, -0.724502, -0.896229, 3.26982, 0.0507621, 2.16491, 0.299424, 1.12288, -0.810548, 13.0771, -0.274849)
 visibility_range_end = 330.0
 mesh = SubResource("ArrayMesh_6n2sl")
 skeleton = NodePath("")
 
 [node name="Leaf_007" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(4.42308, 0.117777, -0.128209, -0.151845, 5.21823, -0.10311, 0.520167, 0.521803, 1.06008, -0.773815, 13.6428, -0.0188162)
+transform = Transform3D(4.42556, -0.106379, -0.123574, 0.0382771, 5.21851, -0.108444, 0.519797, 0.521431, 1.0601, -0.773815, 13.6428, -0.0188162)
 visibility_range_end = 330.0
 mesh = SubResource("ArrayMesh_e0ahe")
 skeleton = NodePath("")
 
 [node name="Leaf_008" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(1.19034, 0.0699665, 3.10033, -0.0164036, 1.13368, -0.256213, -1.8027, 0.0358836, 2.04951, -0.819205, 13.6013, -0.1039)
+transform = Transform3D(1.04705, 0.112218, 3.2377, -0.0584168, 1.13052, -0.364907, -1.8887, 0.027244, 1.80619, -0.819205, 13.6013, -0.1039)
 visibility_range_end = 330.0
 mesh = SubResource("ArrayMesh_21pj4")
 skeleton = NodePath("")

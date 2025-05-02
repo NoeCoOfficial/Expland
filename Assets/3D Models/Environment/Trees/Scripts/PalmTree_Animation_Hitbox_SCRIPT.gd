@@ -68,6 +68,7 @@ func _on_tree_shake() -> void:
 	tween.connect("finished", _on_leaf_tween_finished)
 	
 	tween.tween_property($TreeMesh/Leaf, "rotation_degrees", Vector3(-21.2, -75.0, -10.2), 0.2)
+	tween.tween_property($TreeMesh/Leaf_001, "rotation_degrees", Vector3(-18.1, 122.3, -7.9), 0.2)
 	tween.tween_property($TreeMesh/Leaf_002, "rotation_degrees", Vector3(6.2, -8.4, 2.4), 0.2)
 	tween.tween_property($TreeMesh/Leaf_003, "rotation_degrees", Vector3(0.0, -73.4, 10.1), 0.2)
 	tween.tween_property($TreeMesh/Leaf_004, "rotation_degrees", Vector3(-10.2, 52.0, 21.7), 0.2)
