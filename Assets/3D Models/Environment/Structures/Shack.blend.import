@@ -35,7 +35,7 @@ import_script/path=""
 _subresources={
 "materials": {
 "Material.001": {
-"use_external/enabled": true,
+"use_external/enabled": false,
 "use_external/path": "uid://d1q3trggohbjn"
 }
 }

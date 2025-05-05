@@ -19,25 +19,50 @@ points = PackedVector3Array(0.822847, 0.481786, 0.021463, -0.861361, -0.450376, 
 
 [node name="Rock[1]" instance=ExtResource("1_pauj0")]
 
+[node name="Icosphere" parent="." index="0"]
+visibility_range_end = 50.0
+visibility_range_end_margin = 10.0
+visibility_range_fade_mode = 1
+
 [node name="StaticBody3D" type="StaticBody3D" parent="Icosphere" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Icosphere/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_pauj0")
+
+[node name="Icosphere_001" parent="." index="1"]
+visibility_range_end = 50.0
+visibility_range_end_margin = 10.0
+visibility_range_fade_mode = 1
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Icosphere_001" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Icosphere_001/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_iim4a")
 
+[node name="Icosphere_002" parent="." index="2"]
+visibility_range_end = 50.0
+visibility_range_end_margin = 10.0
+visibility_range_fade_mode = 1
+
 [node name="StaticBody3D" type="StaticBody3D" parent="Icosphere_002" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Icosphere_002/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_58j1m")
 
+[node name="Icosphere_003" parent="." index="3"]
+visibility_range_end = 50.0
+visibility_range_end_margin = 10.0
+visibility_range_fade_mode = 1
+
 [node name="StaticBody3D" type="StaticBody3D" parent="Icosphere_003" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Icosphere_003/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_1hh48")
+
+[node name="Icosphere_004" parent="." index="4"]
+visibility_range_end = 50.0
+visibility_range_end_margin = 10.0
+visibility_range_fade_mode = 1
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Icosphere_004" index="0"]
 
