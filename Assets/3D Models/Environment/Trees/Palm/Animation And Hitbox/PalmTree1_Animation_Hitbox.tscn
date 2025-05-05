@@ -1,7 +1,8 @@
-[gd_scene load_steps=39 format=4 uid="uid://b5fch7iwyn811"]
+[gd_scene load_steps=40 format=4 uid="uid://b5fch7iwyn811"]
 
 [ext_resource type="Script" uid="uid://cdyp7lqng6qo0" path="res://Assets/3D Models/Environment/Trees/Scripts/PalmTree_Animation_Hitbox_SCRIPT.gd" id="2_6lwfh"]
 [ext_resource type="Script" uid="uid://bi02uk7qwshyf" path="res://Scenes and Scripts/Scenes/Components/Interactable Component/Interactable_Component_SCRIPT.gd" id="3_3e0u3"]
+[ext_resource type="PackedScene" uid="uid://dxlkxah5aisnt" path="res://Scenes and Scripts/Scenes/Environment/General/Leaf falling particles/PalmTreeLeafFallingParticles.tscn" id="4_3e0u3"]
 [ext_resource type="PackedScene" uid="uid://cmt00ehn4hfne" path="res://Scenes and Scripts/Scenes/General/UI/MessageWithKeyUI.tscn" id="4_8hv3t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h3xl4"]
@@ -658,55 +659,55 @@ mesh = SubResource("ArrayMesh_55tej")
 skeleton = NodePath("")
 
 [node name="Leaf_002" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(1.32299, -0.140739, -0.684072, 0.0938456, 1.5141, -0.746256, 0.203971, 0.216225, 4.78034, -0.904471, 13.4362, 0.0300764)
+transform = Transform3D(1.32573, -0.0784541, -0.714134, 0.0467528, 1.52539, -0.545269, 0.202422, 0.161506, 4.80304, -0.904471, 13.4362, 0.0300764)
 visibility_range_end = 330.0
 mesh = SubResource("ArrayMesh_10k11")
 skeleton = NodePath("")
 
 [node name="Leaf_003" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(1.12556, -0.201519, -1.28187, 0.99098, 3.25321, 0.014074, 3.75259, -0.79866, 0.380771, -0.785085, 13.7842, -0.0565622)
+transform = Transform3D(1.12582, -0.153035, -1.28291, 0.73838, 3.29931, 0.00845986, 3.81027, -0.594144, 0.377421, -0.785085, 13.7842, -0.0565622)
 visibility_range_end = 330.0
 mesh = SubResource("ArrayMesh_wbel7")
 skeleton = NodePath("")
 
 [node name="Leaf" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(0.447479, 0.371654, -3.43487, -0.328501, 1.07025, 1.11717, 2.08777, 0.0887414, 0.911989, -0.799375, 13.4597, 0.00569895)
+transform = Transform3D(0.370337, 0.38924, -3.44124, -0.336264, 1.06284, 1.18429, 2.1016, 0.101468, 0.795895, -0.799375, 13.4597, 0.00569895)
 visibility_range_end = 330.0
 mesh = SubResource("ArrayMesh_uchny")
 skeleton = NodePath("")
 
 [node name="Leaf_001" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(-1.10012, -0.302667, 4.12299, -0.132103, 1.50483, 0.950526, -1.85131, 0.0724765, -2.51786, -0.851022, 13.6234, -0.0714935)
+transform = Transform3D(-1.10379, -0.207066, 4.17818, -0.0616077, 1.52092, 0.689053, -1.85282, 0.0727846, -2.512, -0.851022, 13.6234, -0.0714935)
 visibility_range_end = 330.0
 mesh = SubResource("ArrayMesh_uylos")
 skeleton = NodePath("")
 
 [node name="Leaf_004" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(2.24386, -0.890205, 1.05412, 1.26321, 3.17077, 0.130757, -3.11452, 0.644671, 0.812473, -0.824213, 13.6931, 0.0439254)
+transform = Transform3D(2.28695, -0.772979, 1.05865, 1.17983, 3.20133, 0.0920794, -3.11588, 0.644848, 0.811882, -0.824213, 13.6931, 0.0439254)
 visibility_range_end = 330.0
 mesh = SubResource("ArrayMesh_axdlk")
 skeleton = NodePath("")
 
 [node name="Leaf_005" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(1.33368, -0.531406, 2.3567, 0.296427, 0.972585, 1.85787, -1.67341, -0.251239, 2.20735, -0.921216, 13.1563, -0.0578141)
+transform = Transform3D(1.39281, -0.49457, 2.3411, 0.257467, 0.987866, 1.78715, -1.63115, -0.266376, 2.28111, -0.921216, 13.1563, -0.0578141)
 visibility_range_end = 330.0
 mesh = SubResource("ArrayMesh_1jroa")
 skeleton = NodePath("")
 
 [node name="Leaf_006" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(3.29254, 0.693167, -0.724502, -0.896229, 3.26982, 0.0507621, 2.16491, 0.299424, 1.12288, -0.810548, 13.0771, -0.274849)
+transform = Transform3D(3.23804, 0.428074, -0.781711, -0.654632, 3.31147, -0.00898305, 2.32753, 0.335837, 1.08498, -0.810548, 13.0771, -0.274849)
 visibility_range_end = 330.0
 mesh = SubResource("ArrayMesh_6n2sl")
 skeleton = NodePath("")
 
 [node name="Leaf_007" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(4.42556, -0.106379, -0.123574, 0.0382771, 5.21851, -0.108444, 0.519797, 0.521431, 1.0601, -0.773815, 13.6428, -0.0188162)
+transform = Transform3D(4.42404, 0.0815069, -0.127459, -0.121075, 5.21893, -0.103974, 0.520045, 0.521674, 1.06009, -0.773815, 13.6428, -0.0188162)
 visibility_range_end = 330.0
 mesh = SubResource("ArrayMesh_e0ahe")
 skeleton = NodePath("")
 
 [node name="Leaf_008" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(1.04705, 0.112218, 3.2377, -0.0584168, 1.13052, -0.364907, -1.8887, 0.027244, 1.80619, -0.819205, 13.6013, -0.1039)
+transform = Transform3D(1.15137, 0.0818146, 3.14072, -0.0281245, 1.13294, -0.286499, -1.82769, 0.0341061, 1.98293, -0.819205, 13.6013, -0.1039)
 visibility_range_end = 330.0
 mesh = SubResource("ArrayMesh_21pj4")
 skeleton = NodePath("")
@@ -886,6 +887,9 @@ shape = SubResource("BoxShape3D_fvca7")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable Component/PlayerMimicRaycastDetector"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.934525, 4.53807, -0.0290072)
 shape = SubResource("BoxShape3D_00rnx")
+
+[node name="LeafFallingParticles" parent="." instance=ExtResource("4_3e0u3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01602, 12.0025, 0.0121347)
 
 [connection signal="animation_finished" from="Leaf Shake Animation" to="." method="_on_leaf_shake_animation_animation_finished"]
 [connection signal="Action1_Triggered" from="Interactable Component" to="." method="_on_tree_shake"]

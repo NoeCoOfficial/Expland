@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dsti02es4bfwp"]
+[gd_scene load_steps=9 format=3 uid="uid://dsti02es4bfwp"]
 
 [ext_resource type="Script" uid="uid://be2hbme5pe50y" path="res://Assets/3D Models/Environment/Trees/Scripts/DefaultTree_Animation_Hitbox_SCRIPT.gd" id="1_qaygg"]
 [ext_resource type="PackedScene" uid="uid://cwu1exk1sgj4t" path="res://Assets/3D Models/Environment/Trees/Pine/Models/PineTree1.blend" id="1_qd1ka"]
+[ext_resource type="PackedScene" uid="uid://db72djj3fp14d" path="res://Scenes and Scripts/Scenes/Environment/General/Leaf falling particles/PineTreeLeafFallingParticles.tscn" id="3_t73jc"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kns7o"]
 points = PackedVector3Array(-0.110771, 0.216119, 0.472084, -0.180757, 0.216119, 0.472084, -0.110771, 2.45498, 0.122091, 0.448842, 0.00604057, 0.192089, -0.460786, -0.0639856, -0.157617, 0.0289315, 2.45498, -0.507514, -0.390801, 2.45498, -0.157617, 0.168902, -0.0639856, -0.437516, 0.238887, 2.31493, -0.157617, -0.250742, 2.2449, -0.437516, 0.448842, 0.216119, -0.017715, -0.320727, -0.0639856, 0.261992, -0.0407865, -0.0639856, -0.437516, 0.168902, 2.45498, -0.017715, -0.250742, 2.45498, 0.122091, -0.460786, 0.285898, -0.227615, -0.460786, 0.285898, -0.017715, -0.0407865, 0.146093, 0.472084, 0.0989165, 1.54514, -0.507514, 0.448842, 0.216119, 0.192089, -0.110771, 2.03507, -0.507514, -0.0407865, 0.00604057, 0.472084, 0.238887, -0.0639856, -0.367517, 0.168902, 2.45498, -0.297518, -0.250742, 2.45498, -0.437516, 0.448842, 0.495977, 0.122091, -0.320727, 2.1051, 0.052092, -0.110771, 2.1051, 0.192089, 0.0989165, 0.146093, 0.402086, -0.250742, 0.635783, 0.331991, 0.378857, 0.00604057, -0.157617, -0.357097, 2.34467, -0.273013)
@@ -151,7 +152,7 @@ lod_bias = 0.5
 visibility_range_end = 330.0
 
 [node name="Circle_003" parent="." index="4"]
-transform = Transform3D(2.13786, -0.0477415, -1.00131e-10, 0.0373101, 2.73464, -0.0350795, 0.000690875, 0.0506376, 1.89444, 0.0342205, 6.69972, -0.149977)
+transform = Transform3D(2.13786, -0.0477415, -9.69813e-11, 0.0373101, 2.73464, -0.0350795, 0.000690875, 0.0506376, 1.89444, 0.0342205, 6.69972, -0.149977)
 lod_bias = 0.5
 visibility_range_end = 330.0
 
@@ -164,3 +165,6 @@ visibility_range_end = 330.0
 libraries = {
 &"": SubResource("AnimationLibrary_jcqct")
 }
+
+[node name="LeafFallingParticles" parent="." index="7" instance=ExtResource("3_t73jc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.207743, 3.21573, -0.0256205)
