@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cdbylnsm71dkk" path="res://Assets/3D Models/Environment/Trees/Normal/Models/Tree3.blend" id="4_drkdx"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="4_grlcg"]
 [ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="5_dfh28"]
-[ext_resource type="PackedScene" uid="uid://ckktuiw4a367o" path="res://Assets/3D Models/Environment/Rocks/Rock2_Broken.blend" id="5_mxq5r"]
+[ext_resource type="PackedScene" uid="uid://ckktuiw4a367o" path="res://Assets/3D Models/Environment/Rocks/Rock2.blend" id="5_mxq5r"]
 [ext_resource type="PackedScene" uid="uid://b5d0ah73v2doj" path="res://Assets/3D Models/Environment/Rocks/Rock5_Mossy.blend" id="6_lssvk"]
 [ext_resource type="Texture2D" uid="uid://fih3i4yk6pip" path="res://Textures/Icons/PlayBtn_Icon.png" id="6_ve3ie"]
 [ext_resource type="Texture2D" uid="uid://cfe0w5hyb6fyc" path="res://Textures/Icons/SettingsCog_Icon.png" id="7_7tdx1"]
