@@ -132,7 +132,9 @@ script = ExtResource("2_wgxui")
 
 [node name="Plane" parent="." index="0"]
 lod_bias = 0.5
-visibility_range_end = 330.0
+visibility_range_end = 100.0
+visibility_range_end_margin = 10.0
+visibility_range_fade_mode = 1
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Plane" index="0"]
 
@@ -151,27 +153,37 @@ shape = SubResource("ConvexPolygonShape3D_vuwxk")
 [node name="Circle" parent="." index="1"]
 transform = Transform3D(3.69481, -0.0293551, 0, 0.0322441, 3.36376, 0, 0, 0, 3.27432, -0.157261, 2.15982, 0.0704203)
 lod_bias = 0.5
-visibility_range_end = 330.0
+visibility_range_end = 100.0
+visibility_range_end_margin = 10.0
+visibility_range_fade_mode = 1
 
 [node name="Circle_001" parent="." index="2"]
 transform = Transform3D(-1.14918, 7.93574e-08, 2.48196, 0.0333375, 3.87288, 0.0121214, -2.8006, 0.0461016, -1.01829, 0.00232995, 3.70586, -0.0228727)
 lod_bias = 0.5
-visibility_range_end = 330.0
+visibility_range_end = 100.0
+visibility_range_end_margin = 10.0
+visibility_range_fade_mode = 1
 
 [node name="Circle_002" parent="." index="3"]
 transform = Transform3D(-0.865652, 0.265105, -2.20551, -0.00967366, 2.39686, 0.27595, 2.50579, 0.100836, -0.760852, -0.208852, 5.53089, -0.00858164)
 lod_bias = 0.5
-visibility_range_end = 330.0
+visibility_range_end = 100.0
+visibility_range_end_margin = 10.0
+visibility_range_fade_mode = 1
 
 [node name="Circle_003" parent="." index="4"]
 transform = Transform3D(2.13786, -0.0477414, -6.6208e-10, 0.037316, 2.73508, -0.00891289, 0.000175535, 0.0128658, 1.89475, 0.0342205, 6.69972, -0.149977)
 lod_bias = 0.5
-visibility_range_end = 330.0
+visibility_range_end = 100.0
+visibility_range_end_margin = 10.0
+visibility_range_fade_mode = 1
 
 [node name="Circle_004" parent="." index="5"]
 transform = Transform3D(-0.529602, -0.000109256, 1.14383, 0.015193, 1.78484, 0.00560584, -1.29068, 0.0210547, -0.469279, -0.0333171, 8.25276, 0.0119055)
 lod_bias = 0.5
-visibility_range_end = 330.0
+visibility_range_end = 100.0
+visibility_range_end_margin = 10.0
+visibility_range_fade_mode = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
 libraries = {
