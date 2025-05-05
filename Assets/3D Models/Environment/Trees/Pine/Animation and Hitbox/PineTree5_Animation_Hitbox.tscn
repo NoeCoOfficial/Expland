@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cxslmv2vhttb5"]
+[gd_scene load_steps=11 format=3 uid="uid://cxslmv2vhttb5"]
 
 [ext_resource type="PackedScene" uid="uid://d3ryqywu5nr0k" path="res://Assets/3D Models/Environment/Trees/Pine/Models/PineTree5.blend" id="1_sevoq"]
 [ext_resource type="Script" uid="uid://be2hbme5pe50y" path="res://Assets/3D Models/Environment/Trees/Scripts/DefaultTree_Animation_Hitbox_SCRIPT.gd" id="2_wgxui"]
+[ext_resource type="PackedScene" uid="uid://db72djj3fp14d" path="res://Scenes and Scripts/Scenes/Environment/General/Leaf falling particles/PineTreeLeafFallingParticles.tscn" id="3_6603u"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ep2ju"]
 points = PackedVector3Array(0.67361, 0.280402, -0.210634, -0.609091, 0.129648, -0.814329, -0.458263, 0.582353, 0.317522, 0.446999, 0.205062, 0.770293, -0.0809723, -0.172229, -0.436942, -0.835554, -0.0967413, 0.54383, 0.67361, 0.431304, -0.587866, -0.307288, 0.582353, -0.361558, 0.220683, 0.582353, 0.317522, -0.2318, -0.172229, 0.317522, 0.446999, 0.35589, 0.770293, -0.458263, -0.0967413, -0.663405, -0.835554, 0.0541603, 0.54383, 0.67361, 0.280402, -0.587866, 0.371511, 0.0541603, -0.059555, -0.684579, 0.129648, -0.663405, 0.145195, 0.280402, 0.770293, -0.533603, -0.172229, 0.0910586, -0.382776, 0.0541603, -0.814329, -0.684579, -0.0212536, -0.587866, -0.835554, 0.0541603, 0.166598, 0.522634, 0.506865, -0.436942, 0.67361, 0.431304, -0.286018, -0.533603, 0.506865, 0.166598, 0.522634, 0.205062, 0.619369, 0.0697077, -0.0212536, 0.54383, -0.458263, 0.506865, -0.286018, 0.296171, 0.506865, 0.54383, 0.145195, 0.35589, -0.663405, -0.2318, 0.0541603, 0.694754, -0.382776, -0.172229, -0.436942, -0.835554, -0.0967413, 0.317522)
@@ -176,3 +177,6 @@ visibility_range_end = 330.0
 libraries = {
 &"": SubResource("AnimationLibrary_jcqct")
 }
+
+[node name="LeafFallingParticles" parent="." index="7" instance=ExtResource("3_6603u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.207743, 3.21573, -0.0256205)
