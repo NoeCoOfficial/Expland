@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://3lbnr7ufkb0l"]
 
-[ext_resource type="ArrayMesh" uid="uid://dbsomjh63me65" path="res://Scenes and Scripts/Scenes/Environment/General/Grass/GrassClumpMesh.tres" id="1_ko4h0"]
+[ext_resource type="ArrayMesh" uid="uid://dbsomjh63me65" path="res://Resources/Meshes/GrassClumpMesh.tres" id="1_ko4h0"]
 
 [sub_resource type="MultiMesh" id="MultiMesh_uofoc"]
 transform_format = 1
