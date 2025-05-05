@@ -26,6 +26,7 @@ material = SubResource("StandardMaterial3D_qire6")
 [node name="LeafFallingParticles" type="Node3D"]
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+visibility_range_end = 20.0
 amount = 4
 lifetime = 10.0
 preprocess = 10.0
