@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpkvso74w0wmo"]
+
+[ext_resource type="PackedScene" uid="uid://hp6koxjebkch" path="res://Assets/3D Models/Environment/Stones/Stone1.blend" id="1_mw8x6"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mw8x6"]
+points = PackedVector3Array(0.484827, 0.0667134, 0.213882, -1.08695, 0.851092, 0.0833566, -1.09587, 0.849724, 0.128157, -0.445872, 2.34918, 0.182741, 0.588057, 0.493144, -0.670905, -0.568482, 0.0450059, -0.718142, -0.344653, -0.127678, 0.750308, -0.730105, 2.23297, -0.132998, 0.106107, -0.469798, -0.0953303, 0.0836053, 1.40535, 0.420101, 0.365711, 1.47026, -0.492958, -0.731852, 1.76081, 0.47248, -0.794184, -0.138847, -0.0940081, 0.489949, 0.411294, 0.390928, 0.181961, 1.41968, -0.616968, -0.341818, 1.37087, 0.64493, -0.124345, -0.205681, -0.707892, -0.653394, 0.0988317, 0.658069, -0.0352482, 0.0529098, 0.747808, -0.875829, 2.17707, -0.00408839, 0.59263, -0.0460263, -0.0936579, -0.257226, 2.11287, 0.371304, -0.526548, -0.27874, 0.355356, 0.23362, -0.131604, -0.583355, -0.877189, 0.0944949, 0.306179, -0.877149, 0.00588038, -0.270429, 0.637034, 0.311875, -0.272373, -0.166553, -0.464257, -0.0045415, -0.0437485, 0.9818, 0.631792, -0.300039, -0.209382, -0.710154, -0.782102, 2.12197, 0.302891, -1.10505, 0.892812, 0.174061)
+
+[node name="Stone[1]" instance=ExtResource("1_mw8x6")]
+
+[node name="Icosphere" parent="." index="0"]
+visibility_range_end = 50.0
+visibility_range_end_margin = 10.0
+visibility_range_fade_mode = 1
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Icosphere" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Icosphere/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_mw8x6")
