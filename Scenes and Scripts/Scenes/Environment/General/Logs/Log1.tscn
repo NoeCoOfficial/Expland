@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbnbe2fwi5ive"]
+
+[ext_resource type="PackedScene" uid="uid://cl7ub1w20hgbk" path="res://Assets/3D Models/Environment/Decoration/Log1.blend" id="1_5aqev"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_admte"]
+size = Vector3(8.74133, 0.540298, 0.54528)
+
+[node name="Log[1]" instance=ExtResource("1_5aqev")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Plane" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plane/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.29535, -0.00687408, -0.060215)
+shape = SubResource("BoxShape3D_admte")
