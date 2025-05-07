@@ -87,6 +87,18 @@ func showNextMessage() -> void:
 # Dialogues
 ########################################################################
 
+var WorldBoundaryDialogue = [
+	{"author": "???", 
+	"message": "This part of The Island is under maintenance for now!",
+	"duration": 1},
+	
+	{"author": "???", 
+	"message": "It will be available in the full version of Expland, soon!",
+	"duration": 1},
+	
+]
+
+
 var deathScreenRandomText = [ # a list of random text to display when the player dies
 	"Pull yourself together.", 
 	"Why did you have to die?",

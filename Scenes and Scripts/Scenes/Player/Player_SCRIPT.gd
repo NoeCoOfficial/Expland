@@ -1339,7 +1339,8 @@ func _on_area_collision_shape_3d_body_entered(body: Node3D) -> void:
 		takeDamage(100)
 
 func _on_area_collision_shape_3d_area_entered(area: Area3D) -> void:
-	pass
+	if area.is_in_group(&"DemoWorldBoundaryArea"):
+		pass
 
 #endregion
 
