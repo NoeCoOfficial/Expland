@@ -47,6 +47,8 @@
 
 extends Node
 
+@onready var IslandWorldEnv = preload("uid://dgtwdwq2n0x1v")
+
 var transitioning_from_menu
 var transitioningFromNewIsland = false
 var FreeMode_Island_Count : int

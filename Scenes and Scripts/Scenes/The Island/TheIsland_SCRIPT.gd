@@ -51,8 +51,6 @@ extends Node
 func initializeIslandProperties(_Island_Name):
 	pass
 
-@onready var IslandWorldEnv = preload("uid://dgtwdwq2n0x1v")
-
 @export var DayNightCycle : AnimationPlayer
 @export var DayNightCycle_Rotation : AnimationPlayer
 @export var DayNightCycle_Sky : AnimationPlayer
@@ -131,9 +129,9 @@ func initNodes():
 
 func set_pretty_shadows(value : bool) -> void:
 	if value:
-		IslandWorldEnv.sdfgi_enabled = true
+		IslandManager.IslandWorldEnv.sdfgi_enabled = true
 	else:
-		IslandWorldEnv.sdfgi_enabled = false
+		IslandManager.IslandWorldEnv.sdfgi_enabled = false
 
 func set_time(minute : int):
 	
