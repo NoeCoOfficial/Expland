@@ -48,6 +48,9 @@
 @icon("res://Textures/Icons/Script Icons/32x32/window_dialogue.png")
 extends Control
 
+signal btn1_pressed
+signal btn2_pressed
+
 func _ready() -> void:
 	Utils.set_center_offset($MainLayer/CloseButton)
 	Utils.set_center_offset($MainLayer)
@@ -123,3 +126,12 @@ func _on_close_button_mouse_entered() -> void:
 
 func _on_close_button_pressed() -> void:
 	despawnAlert(0.5)
+
+
+# Buttons
+
+func _on_btn_1_pressed() -> void:
+	btn1_pressed.emit()
+
+func _on_btn_2_pressed() -> void:
+	btn2_pressed.emit()

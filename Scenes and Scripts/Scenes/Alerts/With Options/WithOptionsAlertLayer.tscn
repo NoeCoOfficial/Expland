@@ -189,3 +189,5 @@ text = "BTN2"
 [connection signal="mouse_entered" from="MainLayer/CloseButton" to="." method="_on_close_button_mouse_entered"]
 [connection signal="mouse_exited" from="MainLayer/CloseButton" to="." method="_on_close_button_mouse_exited"]
 [connection signal="pressed" from="MainLayer/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="MainLayer/BTN1" to="." method="_on_btn_1_pressed"]
+[connection signal="pressed" from="MainLayer/BTN2" to="." method="_on_btn_2_pressed"]
