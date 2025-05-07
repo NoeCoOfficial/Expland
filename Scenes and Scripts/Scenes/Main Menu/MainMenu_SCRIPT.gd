@@ -51,6 +51,7 @@ extends Node3D
 var is_in_gamemode_select = false
 var is_in_absolute_gamemode_select = false
 var is_tweening = false
+var inside_story_mode_popup_alert = false
 
 @onready var StartupNotice = preload("res://Scenes and Scripts/Scenes/Startup Notice/StartupNotice.tscn")
 @onready var world = preload("uid://c5jkrckgqd0w6")
@@ -180,7 +181,7 @@ func onStartup():
 
 func _input(_event: InputEvent) -> void:
 	if !Global.main_menu_transitioning_scene:
-		if Input.is_action_just_pressed("Exit") and !is_tweening and !DialogueManager.is_in_absolute_interface:  # Check if not tweening
+		if Input.is_action_just_pressed("Exit") and !is_tweening and !DialogueManager.is_in_absolute_interface and !PauseManager.is_inside_alert and !inside_story_mode_popup_alert:  # Check if not tweening
 			if is_in_gamemode_select and !DialogueManager.is_in_interface:
 				deSpawnGameModeMenu()
 			
@@ -344,6 +345,7 @@ func _on_exit_gamemode_layer_button_pressed() -> void:
 
 func _on_play_story_mode_button_pressed() -> void:
 	WithOptionsStoryModePopup.popupAlert(0.5)
+	inside_story_mode_popup_alert = true
 
 func _on_story_mode_continue_pressed() -> void:
 	$Camera3D/MainLayer/ProtectiveLayer.visible = true

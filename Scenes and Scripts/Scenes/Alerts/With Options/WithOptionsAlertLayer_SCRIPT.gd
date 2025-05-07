@@ -80,6 +80,9 @@ func spawnAlert(title : String, text : String, textFontSize : int, animationTime
 		tween.tween_property($GreyLayer, "modulate", Color(1, 1, 1, 1), animationTime)
 
 func despawnAlert(animationTime : float):
+	if Global.is_in_main_menu:
+		get_node("/root/MainMenu").inside_story_mode_popup_alert = false
+	
 	PauseManager.is_inside_alert = false
 	
 	if str(name) == "UpdatesLayer":

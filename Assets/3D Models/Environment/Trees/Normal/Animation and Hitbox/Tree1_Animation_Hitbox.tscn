@@ -524,7 +524,6 @@ mesh = SubResource("ArrayMesh_eba1r")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
-visible = false
 
 [node name="CollisionShape3D19" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1.9657, 0.0300809, 2.63607e-12, -0.0300809, 1.9657, -0.00305183, -4.66965e-05, 0.00305148, 1.96593, -0.183485, 0.161053, 0.300933)
