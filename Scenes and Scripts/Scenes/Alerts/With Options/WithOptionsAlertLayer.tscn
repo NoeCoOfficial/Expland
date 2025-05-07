@@ -1,7 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://b84ndyyumn7tq"]
+[gd_scene load_steps=13 format=3 uid="uid://b84ndyyumn7tq"]
 
-[ext_resource type="Script" uid="uid://b2koo4upy744h" path="res://Scenes and Scripts/Scenes/Alerts/Normal/AlertLayer_SCRIPT.gd" id="1_mg7v5"]
-[ext_resource type="Script" uid="uid://bd3squcstkss1" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="2_m74tp"]
+[ext_resource type="Script" uid="uid://bwesvo3j278il" path="res://Scenes and Scripts/Scenes/Alerts/With Options/WithOptionsAlertLayer_SCRIPT.gd" id="1_ywb2i"]
 [ext_resource type="StyleBox" uid="uid://3txnt8ebd3yh" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/BlackBGwithWhiteBorder.tres" id="3_ywb2i"]
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="4_vkxm8"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="5_d0k6m"]
@@ -44,7 +43,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_mg7v5")
+script = ExtResource("1_ywb2i")
 
 [node name="GreyLayer" type="ColorRect" parent="."]
 layout_mode = 1
@@ -53,8 +52,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 color = Color(0, 0, 0, 0.643)
-script = ExtResource("2_m74tp")
 
 [node name="MainLayer" type="Control" parent="."]
 layout_mode = 1
@@ -78,10 +77,10 @@ offset_bottom = 235.5
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
+mouse_filter = 1
 theme_override_styles/hover = ExtResource("3_ywb2i")
 theme_override_styles/pressed = ExtResource("3_ywb2i")
 theme_override_styles/normal = ExtResource("3_ywb2i")
-script = ExtResource("2_m74tp")
 
 [node name="TextBG" type="Button" parent="MainLayer"]
 layout_mode = 1
@@ -97,10 +96,10 @@ offset_bottom = -5.5
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
+mouse_filter = 1
 theme_override_styles/hover = ExtResource("4_vkxm8")
 theme_override_styles/pressed = ExtResource("4_vkxm8")
 theme_override_styles/normal = ExtResource("4_vkxm8")
-script = ExtResource("2_m74tp")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MainLayer"]
 layout_mode = 0
