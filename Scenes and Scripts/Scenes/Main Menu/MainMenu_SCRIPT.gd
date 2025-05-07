@@ -59,7 +59,6 @@ var is_tweening = false
 
 @export_group("Node references")
 @export var fade_timer_time_left_label : Label
-@export var WithOptionsStoryModePopup : Control
 
 # ---------------------------------------------------------------------------- #
 #                                    STARTUP                                   #

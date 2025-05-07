@@ -142,10 +142,9 @@ Button/styles/normal = ExtResource("12_3uklh")
 Button/styles/pressed = SubResource("StyleBoxFlat_cjd7a")
 Label/styles/normal = ExtResource("15_8lpeu")
 
-[node name="MainMenu" type="Node3D" node_paths=PackedStringArray("fade_timer_time_left_label", "WithOptionsStoryModePopup")]
+[node name="MainMenu" type="Node3D" node_paths=PackedStringArray("fade_timer_time_left_label")]
 script = ExtResource("1_8n1c6")
 fade_timer_time_left_label = NodePath("Camera3D/MainLayer/AudioNotificationLayer/fade_timer_time_left")
-WithOptionsStoryModePopup = NodePath("")
 
 [node name="CameraAnim" type="AnimationPlayer" parent="."]
 libraries = {
