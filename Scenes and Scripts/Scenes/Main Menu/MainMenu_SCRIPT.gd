@@ -59,6 +59,7 @@ var is_tweening = false
 
 @export_group("Node references")
 @export var fade_timer_time_left_label : Label
+@export var WithOptionsStoryModePopup : Control
 
 # ---------------------------------------------------------------------------- #
 #                                    STARTUP                                   #
@@ -342,7 +343,11 @@ func _on_exit_gamemode_layer_button_pressed() -> void:
 # ---------------------------------------------------------------------------- #
 
 func _on_play_story_mode_button_pressed() -> void:
-	startStoryMode()
+	#startStoryMode()
+	WithOptionsStoryModePopup.popupAlert(0.5)
+
+func _on_story_mode_continue_pressed() -> void:
+	fadeOut($Camera3D/TopLayer/TransitionFadeOut)
 
 func _on_play_free_mode_button_pressed() -> void:
 	pass

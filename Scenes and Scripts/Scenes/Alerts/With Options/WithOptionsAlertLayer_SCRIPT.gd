@@ -98,8 +98,6 @@ func despawnAlert(animationTime : float):
 		
 		self.visible = false
 
-
-
 func popupAlert(animationTime : float):
 	PauseManager.is_inside_alert = true
 	
