@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=55 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" uid="uid://uvd1eie30b14" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="PackedScene" uid="uid://jb61th5px5nt" path="res://Assets/3D Models/Tests/Island/Island 2.blend" id="2_0llf6"]
@@ -177,19 +177,10 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 expand_margin_top = 5.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3rsb3"]
-bg_color = Color(0.125911, 0.125911, 0.125911, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-expand_margin_left = 3.0
-expand_margin_top = 5.0
-expand_margin_right = 5.0
-
-[node name="MainMenu" type="Node3D" node_paths=PackedStringArray("fade_timer_time_left_label")]
+[node name="MainMenu" type="Node3D" node_paths=PackedStringArray("fade_timer_time_left_label", "WithOptionsStoryModePopup")]
 script = ExtResource("1_8n1c6")
 fade_timer_time_left_label = NodePath("Camera3D/MainLayer/AudioNotificationLayer/fade_timer_time_left")
+WithOptionsStoryModePopup = NodePath("Camera3D/MainLayer/GameModeLayer/WithOptionsAlertLayer")
 
 [node name="CameraAnim" type="AnimationPlayer" parent="."]
 libraries = {
@@ -811,6 +802,7 @@ scale = Vector2(0.0927734, 0.0927734)
 texture = ExtResource("16_3n0bi")
 
 [node name="WithOptionsAlertLayer" type="Control" parent="Camera3D/MainLayer/GameModeLayer"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -936,17 +928,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -97.0
-offset_top = 70.5
-offset_right = 95.0
-offset_bottom = 121.5
+offset_left = -107.0
+offset_top = 66.5
+offset_right = 107.0
+offset_bottom = 117.5
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
 theme = SubResource("Theme_6rd87")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/disabled = SubResource("StyleBoxFlat_kvy8l")
-theme_override_styles/normal = SubResource("StyleBoxFlat_3rsb3")
 text = "CONTINUE"
 
 [node name="AchievementsUI" parent="Camera3D/MainLayer" instance=ExtResource("19_gyuud")]
