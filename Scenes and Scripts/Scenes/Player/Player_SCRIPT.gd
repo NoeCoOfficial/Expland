@@ -1340,7 +1340,7 @@ func _on_area_collision_shape_3d_body_entered(body: Node3D) -> void:
 
 func _on_area_collision_shape_3d_area_entered(area: Area3D) -> void:
 	if area.is_in_group(&"DemoWorldBoundaryArea"):
-		pass
+		DialogueManager.startDialogue(DialogueManager.WorldBoundaryDialogue)
 
 #endregion
 
