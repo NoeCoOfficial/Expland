@@ -42,7 +42,6 @@ _data = {
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s4mpv"]
 resource_name = "Material.005"
-cull_mode = 2
 albedo_color = Color(0, 0.906882, 0.180455, 1)
 roughness = 0.5
 
@@ -80,7 +79,6 @@ shadow_mesh = SubResource("ArrayMesh_rwvkk")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o2ofr"]
 resource_name = "Material.003"
-cull_mode = 2
 albedo_color = Color(0.585157, 1, 0.496247, 1)
 metallic = 0.953
 roughness = 0.467
@@ -119,7 +117,6 @@ shadow_mesh = SubResource("ArrayMesh_oxr3h")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0rsa1"]
 resource_name = "Material.002"
-cull_mode = 2
 albedo_color = Color(0, 0.907397, 0.331863, 1)
 metallic = 0.952727
 roughness = 0.467273
@@ -158,7 +155,6 @@ shadow_mesh = SubResource("ArrayMesh_r4n4e")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_04l2n"]
 resource_name = "Material.004"
-cull_mode = 2
 albedo_color = Color(0.775227, 0.907402, 0, 1)
 metallic = 0.952727
 roughness = 0.467273
@@ -197,7 +193,6 @@ shadow_mesh = SubResource("ArrayMesh_s8dgy")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5gfh0"]
 resource_name = "BrownTreeMaterial"
-cull_mode = 2
 albedo_color = Color(0.434384, 0.223683, 0.0216237, 1)
 metallic = 0.869091
 roughness = 0.305455
@@ -237,7 +232,6 @@ shadow_mesh = SubResource("ArrayMesh_3ri5m")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wd835"]
 resource_name = "Material.001"
-cull_mode = 2
 albedo_color = Color(0.585157, 1, 0.496247, 1)
 metallic = 0.953
 roughness = 0.467
@@ -276,7 +270,6 @@ shadow_mesh = SubResource("ArrayMesh_cy776")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vtxcm"]
 resource_name = "Material.009"
-cull_mode = 2
 albedo_color = Color(0.763841, 0.90707, 0, 1)
 metallic = 0.952727
 roughness = 0.467273
@@ -315,7 +308,6 @@ shadow_mesh = SubResource("ArrayMesh_blkcs")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_os8fs"]
 resource_name = "Material.010"
-cull_mode = 2
 albedo_color = Color(0.585157, 1, 0.496247, 1)
 metallic = 0.953
 roughness = 0.467
@@ -354,7 +346,6 @@ shadow_mesh = SubResource("ArrayMesh_n4all")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aip8g"]
 resource_name = "Material.011"
-cull_mode = 2
 albedo_color = Color(0, 0.906882, 0.180455, 1)
 roughness = 0.5
 

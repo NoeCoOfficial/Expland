@@ -179,7 +179,7 @@ func onStartup():
 
 func _input(_event: InputEvent) -> void:
 	if !Global.main_menu_transitioning_scene:
-		if Input.is_action_just_pressed("Exit") and !is_tweening and !DialogueManager.is_in_absolute_interface:  # Check if not tweening
+		if Input.is_action_just_pressed("Exit") and !is_tweening and !DialogueManager.is_in_absolute_interface and !PauseManager.is_inside_alert:  # Check if not tweening
 			if is_in_gamemode_select and !DialogueManager.is_in_interface:
 				deSpawnGameModeMenu()
 			
