@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b84ndyyumn7tq"]
+[gd_scene load_steps=14 format=3 uid="uid://b84ndyyumn7tq"]
 
 [ext_resource type="Script" uid="uid://b2koo4upy744h" path="res://Scenes and Scripts/Scenes/Alerts/Normal/AlertLayer_SCRIPT.gd" id="1_mg7v5"]
 [ext_resource type="Script" uid="uid://bd3squcstkss1" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="2_m74tp"]
@@ -7,6 +7,35 @@
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="5_d0k6m"]
 [ext_resource type="FontFile" uid="uid://b2o44xwqnsb5k" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf" id="6_nx4v4"]
 [ext_resource type="Texture2D" uid="uid://cwskjvl8pplog" path="res://Textures/Icons/Exit_Icon.png" id="7_6rd87"]
+[ext_resource type="StyleBox" uid="uid://b13po6off8nno" path="res://Resources/Styles and Themes/Styles/Default/Button/WithMarginDefaultDarkGrey.tres" id="8_vkxm8"]
+[ext_resource type="StyleBox" uid="uid://com3tix0pshhk" path="res://Resources/Styles and Themes/Styles/Default/Label/Default_Label.tres" id="9_d0k6m"]
+[ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="10_nx4v4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pdfov"]
+bg_color = Color(0.125911, 0.125911, 0.125911, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_top = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tv74r"]
+bg_color = Color(0.255659, 0.255659, 0.255659, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_6rd87"]
+default_font = ExtResource("10_nx4v4")
+Button/styles/hover = SubResource("StyleBoxFlat_pdfov")
+Button/styles/normal = ExtResource("8_vkxm8")
+Button/styles/pressed = SubResource("StyleBoxFlat_tv74r")
+Label/styles/normal = ExtResource("9_d0k6m")
 
 [node name="WithOptionsAlertLayer" type="Control"]
 layout_mode = 3
@@ -120,6 +149,43 @@ texture_normal = ExtResource("7_6rd87")
 ignore_texture_size = true
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
+
+[node name="BTN1" type="Button" parent="MainLayer"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -112.0
+offset_top = -164.0
+offset_right = -4.0
+offset_bottom = -113.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme = SubResource("Theme_6rd87")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/disabled = ExtResource("8_vkxm8")
+text = "BTN1"
+
+[node name="BTN2" type="Button" parent="MainLayer"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -164.0
+offset_right = 108.0
+offset_bottom = -113.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme = SubResource("Theme_6rd87")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/disabled = ExtResource("8_vkxm8")
+text = "BTN2"
 
 [connection signal="mouse_entered" from="MainLayer/CloseButton" to="." method="_on_close_button_mouse_entered"]
 [connection signal="mouse_exited" from="MainLayer/CloseButton" to="." method="_on_close_button_mouse_exited"]
