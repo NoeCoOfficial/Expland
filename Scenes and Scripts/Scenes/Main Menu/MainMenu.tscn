@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=50 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" uid="uid://uvd1eie30b14" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="PackedScene" uid="uid://jb61th5px5nt" path="res://Assets/3D Models/Tests/Island/Island 2.blend" id="2_0llf6"]
@@ -31,7 +31,6 @@
 [ext_resource type="PackedScene" uid="uid://bjsti1e663lr8" path="res://Scenes and Scripts/Scenes/General/UI/BlurLayer.tscn" id="16_elslp"]
 [ext_resource type="PackedScene" uid="uid://djenc4llne53s" path="res://Scenes and Scripts/Scenes/Credits/CreditsLayer.tscn" id="19_0ti8x"]
 [ext_resource type="PackedScene" uid="uid://b7la7o37o5gld" path="res://Scenes and Scripts/Scenes/Achievements/AchievementsUI.tscn" id="19_gyuud"]
-[ext_resource type="Script" uid="uid://bwesvo3j278il" path="res://Scenes and Scripts/Scenes/Alerts/With Options/WithOptionsAlertLayer_SCRIPT.gd" id="21_kvy8l"]
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="21_v2lsw"]
 [ext_resource type="PackedScene" uid="uid://du1ak3ldg8x4e" path="res://Scenes and Scripts/Scenes/Dialogue/DialogueInterface.tscn" id="30_q7bh6"]
 [ext_resource type="PackedScene" uid="uid://cjxbcx2vhofs" path="res://Scenes and Scripts/Scenes/Achievements/AchievementNotification.tscn" id="31_ahd72"]
@@ -143,44 +142,10 @@ Button/styles/normal = ExtResource("12_3uklh")
 Button/styles/pressed = SubResource("StyleBoxFlat_cjd7a")
 Label/styles/normal = ExtResource("15_8lpeu")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pdfov"]
-bg_color = Color(0.125911, 0.125911, 0.125911, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-expand_margin_top = 5.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tv74r"]
-bg_color = Color(0.255659, 0.255659, 0.255659, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="Theme" id="Theme_6rd87"]
-default_font = ExtResource("5_dfh28")
-Button/styles/hover = SubResource("StyleBoxFlat_pdfov")
-Button/styles/normal = ExtResource("12_3uklh")
-Button/styles/pressed = SubResource("StyleBoxFlat_tv74r")
-Label/styles/normal = ExtResource("15_8lpeu")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kvy8l"]
-bg_color = Color(0.125911, 0.125911, 0.125911, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-expand_margin_top = 5.0
-
 [node name="MainMenu" type="Node3D" node_paths=PackedStringArray("fade_timer_time_left_label", "WithOptionsStoryModePopup")]
 script = ExtResource("1_8n1c6")
 fade_timer_time_left_label = NodePath("Camera3D/MainLayer/AudioNotificationLayer/fade_timer_time_left")
-WithOptionsStoryModePopup = NodePath("Camera3D/MainLayer/GameModeLayer/WithOptionsAlertLayer")
+WithOptionsStoryModePopup = NodePath("")
 
 [node name="CameraAnim" type="AnimationPlayer" parent="."]
 libraries = {
@@ -800,145 +765,6 @@ disabled = true
 position = Vector2(98, 479)
 scale = Vector2(0.0927734, 0.0927734)
 texture = ExtResource("16_3n0bi")
-
-[node name="WithOptionsAlertLayer" type="Control" parent="Camera3D/MainLayer/GameModeLayer"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -648.0
-offset_bottom = -648.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("21_kvy8l")
-
-[node name="GreyLayer" type="ColorRect" parent="Camera3D/MainLayer/GameModeLayer/WithOptionsAlertLayer"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-color = Color(0, 0, 0, 0.643)
-
-[node name="MainLayer" type="Control" parent="Camera3D/MainLayer/GameModeLayer/WithOptionsAlertLayer"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="BG" type="Button" parent="Camera3D/MainLayer/GameModeLayer/WithOptionsAlertLayer/MainLayer"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -192.0
-offset_top = -119.0
-offset_right = 192.0
-offset_bottom = 148.0
-grow_horizontal = 2
-grow_vertical = 2
-focus_mode = 0
-mouse_filter = 1
-theme_override_styles/hover = ExtResource("11_613mu")
-theme_override_styles/pressed = ExtResource("11_613mu")
-theme_override_styles/normal = ExtResource("11_613mu")
-
-[node name="TextBG" type="Button" parent="Camera3D/MainLayer/GameModeLayer/WithOptionsAlertLayer/MainLayer"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.327257
-anchor_top = 0.849537
-anchor_right = 0.327257
-anchor_bottom = 0.849537
-offset_left = 22.9999
-offset_top = -284.5
-offset_right = 374.0
-offset_bottom = -93.5
-grow_horizontal = 2
-grow_vertical = 2
-focus_mode = 0
-mouse_filter = 1
-theme_override_styles/hover = ExtResource("21_v2lsw")
-theme_override_styles/pressed = ExtResource("21_v2lsw")
-theme_override_styles/normal = ExtResource("21_v2lsw")
-
-[node name="ScrollContainer" type="ScrollContainer" parent="Camera3D/MainLayer/GameModeLayer/WithOptionsAlertLayer/MainLayer"]
-layout_mode = 0
-offset_left = 421.0
-offset_top = 282.0
-offset_right = 739.0
-offset_bottom = 382.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Camera3D/MainLayer/GameModeLayer/WithOptionsAlertLayer/MainLayer/ScrollContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="Text" type="Label" parent="Camera3D/MainLayer/GameModeLayer/WithOptionsAlertLayer/MainLayer/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(300, 96.53)
-layout_mode = 2
-theme = ExtResource("4_grlcg")
-theme_override_font_sizes/font_size = 18
-text = "Story Mode is not quite done yet! If you continue, you will be taken to an island which will have some features in it but not much. Continue?"
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="Title" type="Label" parent="Camera3D/MainLayer/GameModeLayer/WithOptionsAlertLayer/MainLayer"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -132.0
-offset_top = 218.0
-offset_right = 164.0
-offset_bottom = 259.0
-grow_horizontal = 2
-theme = ExtResource("4_grlcg")
-theme_override_fonts/font = ExtResource("35_hsmjp")
-theme_override_font_sizes/font_size = 35
-text = "Story Mode Notice"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="CloseButton" type="TextureButton" parent="Camera3D/MainLayer/GameModeLayer/WithOptionsAlertLayer/MainLayer"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.348958
-anchor_top = 0.157407
-anchor_right = 0.381076
-anchor_bottom = 0.214506
-offset_left = 3.05176e-05
-offset_top = 117.0
-offset_right = 3.05176e-05
-offset_bottom = 117.0
-texture_normal = ExtResource("8_rn1to")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="BTN1" type="Button" parent="Camera3D/MainLayer/GameModeLayer/WithOptionsAlertLayer/MainLayer"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -107.0
-offset_top = 66.5
-offset_right = 107.0
-offset_bottom = 117.5
-grow_horizontal = 2
-grow_vertical = 2
-focus_mode = 0
-theme = SubResource("Theme_6rd87")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/disabled = SubResource("StyleBoxFlat_kvy8l")
-text = "CONTINUE"
 
 [node name="AchievementsUI" parent="Camera3D/MainLayer" instance=ExtResource("19_gyuud")]
 visible = false
@@ -1630,11 +1456,6 @@ transform = Transform3D(1.98326, -0.0362428, 0.0278266, 0.0357732, 1.98318, 0.03
 [connection signal="pressed" from="Camera3D/MainLayer/GameModeLayer/BG_StoryMode/PlayStoryModeButton" to="." method="_on_play_story_mode_button_pressed"]
 [connection signal="pressed" from="Camera3D/MainLayer/GameModeLayer/BG_FreeMode/PlayFreeModeButton" to="." method="_on_play_free_mode_button_pressed"]
 [connection signal="pressed" from="Camera3D/MainLayer/GameModeLayer/BG_ParkourMode/PlayParkourModeButton" to="." method="_on_play_parkour_mode_button_pressed"]
-[connection signal="btn1_pressed" from="Camera3D/MainLayer/GameModeLayer/WithOptionsAlertLayer" to="." method="_on_story_mode_continue_pressed"]
-[connection signal="mouse_entered" from="Camera3D/MainLayer/GameModeLayer/WithOptionsAlertLayer/MainLayer/CloseButton" to="Camera3D/MainLayer/GameModeLayer/WithOptionsAlertLayer" method="_on_close_button_mouse_entered"]
-[connection signal="mouse_exited" from="Camera3D/MainLayer/GameModeLayer/WithOptionsAlertLayer/MainLayer/CloseButton" to="Camera3D/MainLayer/GameModeLayer/WithOptionsAlertLayer" method="_on_close_button_mouse_exited"]
-[connection signal="pressed" from="Camera3D/MainLayer/GameModeLayer/WithOptionsAlertLayer/MainLayer/CloseButton" to="Camera3D/MainLayer/GameModeLayer/WithOptionsAlertLayer" method="_on_close_button_pressed"]
-[connection signal="pressed" from="Camera3D/MainLayer/GameModeLayer/WithOptionsAlertLayer/MainLayer/BTN1" to="Camera3D/MainLayer/GameModeLayer/WithOptionsAlertLayer" method="_on_btn_1_pressed"]
 [connection signal="FinishedDialogue" from="Camera3D/MainLayer/DialogueLayer/DialogueInterface" to="." method="_on_dialogue_interface_finished_dialogue"]
 [connection signal="pressed" from="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_7_1/v0_7_1_Btn" to="." method="_on_v_0_7_1_btn_pressed"]
 [connection signal="mouse_entered" from="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/CloseButton" to="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer" method="_on_close_button_mouse_entered"]

@@ -343,26 +343,7 @@ func _on_exit_gamemode_layer_button_pressed() -> void:
 # ---------------------------------------------------------------------------- #
 
 func _on_play_story_mode_button_pressed() -> void:
-	WithOptionsStoryModePopup.popupAlert(0.5)
-
-func _on_story_mode_continue_pressed() -> void:
-	$Camera3D/MainLayer/ProtectiveLayer.visible = true
-	
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
-	$Camera3D/TopLayer/TransitionFadeOut.modulate = Color(1, 1, 1, 0)
-	$Camera3D/TopLayer/TransitionFadeOut.visible = true
-	
-	var tween = get_tree().create_tween()
-	tween.connect("finished", Callable(self, "on_story_mode_fade_finished2"))
-	
-	tween.tween_property($Camera3D/TopLayer/TransitionFadeOut, "modulate", Color(1, 1, 1, 1), 1)
-	tween.tween_interval(1)
-
-func on_story_mode_fade_finished2():
-	IslandManager.Current_Game_Mode = "STORY"
-	PauseManager.is_inside_alert = false
-	get_tree().change_scene_to_packed(world)
+	startStoryMode()
 
 func _on_play_free_mode_button_pressed() -> void:
 	pass
