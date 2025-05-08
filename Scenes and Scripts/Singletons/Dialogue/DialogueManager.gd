@@ -380,44 +380,40 @@ var StoryMode_Dialogue1 = [
 	{"message": 
 		'"What even happened?"',
 		"time": 2.0},
-		
-	{"message": 
-		'',
-		"time": 15.0},
-
-	{"message": 
-		'"It looks like I\'m on some sort of island..."',
-		"time": 3.0},
 	
-	{"message": 
-		'',
-		"time": 5.0},
-	
-	{"message": 
-		'"That voice… I heard something. Something... saved me."',
-		"time": 3.0},
-	
-	{"message": 
-		'"But what was it? And why me?"',
-		"time": 2.0},
-
-	{"message": 
-		'',
-		"time": 8.0},
-
-	{"message": 
-		'"Okay, focus. You’re alive."',
-		"time": 1.5},
-
-	{"message": 
-		'"I think I should probably try an find somewhere to sleep..."',
-		"time": 3.0},
-	
-	{"message": 
-		'"Hmm... it is getting pretty dark, maybe I should try and find shelter or something?"',
-		"time": 4.0},
-
-	{"message": 
-		'"Yeah, I probably shoud do that."',
-		"time": 3.0},
+	#{"message": 
+		#'"It looks like I\'m on some sort of island..."',
+		#"time": 3.0},
+	#
+	#{"message": 
+		#'',
+		#"time": 5.0},
+	#
+	#{"message": 
+		#'"That voice… I heard something. Something... saved me."',
+		#"time": 3.0},
+	#
+	#{"message": 
+		#'"But what was it? And why me?"',
+		#"time": 2.0},
+#
+	#{"message": 
+		#'',
+		#"time": 8.0},
+#
+	#{"message": 
+		#'"Okay, focus. You’re alive."',
+		#"time": 1.5},
+#
+	#{"message": 
+		#'"I think I should probably try an find somewhere to sleep..."',
+		#"time": 3.0},
+	#
+	#{"message": 
+		#'"Hmm... it is getting pretty dark, maybe I should try and find shelter or something?"',
+		#"time": 4.0},
+#
+	#{"message": 
+		#'"Yeah, I probably shoud do that."',
+		#"time": 3.0},
 ]
