@@ -51,7 +51,8 @@ extends Node
 #        1 - First message when click on story mode play button
 #        2 - Second message when click on story mode play button, which after exiting takes you to story mode
 
-
+#        3 - First dialogue shown upon waking up on the island
+#        4 - Second dialogue shown upon waking up on the island
 
 var is_in_interface = false
 var is_in_absolute_interface = false
@@ -381,45 +382,9 @@ var StoryMode_Dialogue1 = [
 		'"What even happened?"',
 		"time": 2.0},
 	
-	#{"message": 
-		#'"It looks like I\'m on some sort of island..."',
-		#"time": 3.0},
-	#
-	#{"message": 
-		#'',
-		#"time": 5.0},
-	#
-	#{"message": 
-		#'"That voice… I heard something. Something... saved me."',
-		#"time": 3.0},
-	#
-	#{"message": 
-		#'"But what was it? And why me?"',
-		#"time": 2.0},
-#
-	#{"message": 
-		#'',
-		#"time": 8.0},
-#
-	#{"message": 
-		#'"Okay, focus. You’re alive."',
-		#"time": 1.5},
-#
-	#{"message": 
-		#'"I think I should probably try an find somewhere to sleep..."',
-		#"time": 3.0},
-	#
-	#{"message": 
-		#'"Hmm... it is getting pretty dark, maybe I should try and find shelter or something?"',
-		#"time": 4.0},
-#
-	#{"message": 
-		#'"Yeah, I probably shoud do that."',
-		#"time": 3.0},
 ]
 
 var StoryMode_Dialogue2 = [
-	
 	{"author": "You", 
 	"message": "It looks like I'm on some sort of island...",
 	"duration": 2.0},
@@ -431,23 +396,13 @@ var StoryMode_Dialogue2 = [
 	{"author": "You", 
 	"message": "But what was it? And why me?",
 	"duration": 1.5},
-	
-	{"author": "You", 
-	"message": "Okay, focus. You’re alive.",
-	"duration": 1.5},
-	
-	{"author": "You", 
-	"message": "Okay, focus. You’re alive.",
-	"duration": 1.5},
 ]
 
 
 var StoryMode_Dialogue3 = [
-	
 	{"author": "You", 
 	"message": "Okay, focus. You’re alive.",
 	"duration": 1.5},
-	
 	
 	{"author": "You", 
 	"message": "Hmm... it's getting pretty dark, maybe I should try and find shelter or something?",

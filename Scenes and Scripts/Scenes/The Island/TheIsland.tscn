@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://c5jkrckgqd0w6"]
+[gd_scene load_steps=44 format=3 uid="uid://c5jkrckgqd0w6"]
 
 [ext_resource type="Script" uid="uid://cucb4fwieubx" path="res://Scenes and Scripts/Scenes/The Island/TheIsland_SCRIPT.gd" id="1_a8sfg"]
 [ext_resource type="Environment" uid="uid://dgtwdwq2n0x1v" path="res://Resources/Environment/TheIsland_WorldEnvironment.tres" id="2_h46kk"]
@@ -12,10 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bf802csj5h2uu" path="res://Assets/3D Models/The Island Deco/TheIslandDeco.tscn" id="11_kq5pm"]
 [ext_resource type="PackedScene" uid="uid://cjm5lrxicdgsf" path="res://Scenes and Scripts/Scenes/Player/Player.tscn" id="16_52bg8"]
 [ext_resource type="Script" uid="uid://dbn31kh6cxec8" path="res://Scenes and Scripts/Scenes/The Island/Island_Terrain_Switcher_SCRIPT.gd" id="16_r68ax"]
-[ext_resource type="PackedScene" uid="uid://dble54a2rl76q" path="res://Scenes and Scripts/Scenes/The Island/Explorer Note/ExplorerNote.tscn" id="32_qh5si"]
-[ext_resource type="Texture2D" uid="uid://dhp1lqdlclos" path="res://Textures/Icons/Expland_TextWHITE_Icon.png" id="33_74605"]
 [ext_resource type="Shader" uid="uid://ddwwgv2rqfito" path="res://Resources/Shaders/GausianBlur.gdshader" id="34_747t0"]
-[ext_resource type="Texture2D" uid="uid://d2p266eplnyto" path="res://Textures/Explorer Notes/2_Lucent.png" id="34_agr60"]
 [ext_resource type="PackedScene" uid="uid://cn1krf62jowgb" path="res://Scenes and Scripts/Scenes/Dialogue/MinimalDialogue.tscn" id="34_r68ax"]
 [ext_resource type="PackedScene" uid="uid://cg37p3dc7fbqx" path="res://Scenes and Scripts/Scenes/Environment/Water Mesh/WaterMesh.tscn" id="35_s3501"]
 [ext_resource type="Material" uid="uid://b53wf3cs61c28" path="res://Resources/Materials/CloudsMaterial.tres" id="59_evg4o"]
@@ -820,6 +817,55 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -259.258, -1.39731, 527.121)
 StartPOS = Vector3(-351.588, 0, 324.606)
 ResetPOS = Vector3(-351.588, 0, 324.606)
 
+[node name="Skeleton3D" parent="Player/Head/Player_Character_Shadow/Armature_003" index="0"]
+bones/0/position = Vector3(2.92211, -2.50148, -196.413)
+bones/0/rotation = Quaternion(-0.685026, -0.270689, 0.248346, 0.629119)
+bones/1/rotation = Quaternion(0.0778641, 0.0407974, -0.00800652, 0.996097)
+bones/2/rotation = Quaternion(0.092699, 0.079141, -0.0214038, 0.992313)
+bones/3/rotation = Quaternion(0.092338, 0.0791477, -0.0213366, 0.992348)
+bones/4/rotation = Quaternion(-0.0455835, -0.0105687, 0.00182964, 0.998903)
+bones/5/rotation = Quaternion(-0.0570339, 0.177051, -0.00232364, 0.982545)
+bones/7/rotation = Quaternion(0.570938, 0.430789, -0.566427, 0.409403)
+bones/8/rotation = Quaternion(0.43636, -0.0974953, 0.0887125, 0.890065)
+bones/9/rotation = Quaternion(-0.0334589, 0.0659724, 0.419015, 0.904961)
+bones/11/rotation = Quaternion(0.617113, -0.393873, 0.525812, 0.433079)
+bones/12/rotation = Quaternion(0.433058, 0.0914943, 0.145828, 0.884773)
+bones/13/rotation = Quaternion(0.0399976, -0.0032823, -0.368935, 0.928588)
+bones/15/rotation = Quaternion(0.0802661, 0.230353, 0.964266, -0.103376)
+bones/16/rotation = Quaternion(-0.358772, 0.119499, -0.0362305, 0.925035)
+bones/17/rotation = Quaternion(0.565781, -0.000966943, -0.023328, 0.824225)
+bones/18/rotation = Quaternion(0.289317, -0.0363745, -0.00959126, 0.956494)
+bones/20/rotation = Quaternion(-0.125502, 0.021269, 0.982811, 0.133714)
+bones/21/rotation = Quaternion(-0.337046, 0.0728289, -0.0256296, 0.938317)
+bones/22/rotation = Quaternion(0.671589, 0.0555552, 0.107146, 0.731028)
+bones/23/rotation = Quaternion(0.278085, 0.056844, -0.0170472, 0.958721)
+
+[node name="HandAttatchment" parent="Player/Head/Player_Character_Shadow/Armature_003/Skeleton3D" index="1"]
+transform = Transform3D(-0.274956, -0.35857, 0.892092, 0.948607, 0.0500178, 0.312479, -0.156666, 0.932162, 0.326389, -74.8171, -37.513, -204.476)
+
+[node name="Skeleton3D" parent="Player/Head/Player_Character/Armature_003" index="0"]
+bones/0/position = Vector3(2.92211, -2.50148, -196.413)
+bones/0/rotation = Quaternion(-0.685026, -0.270689, 0.248346, 0.629119)
+bones/1/rotation = Quaternion(0.0778641, 0.0407974, -0.00800652, 0.996097)
+bones/2/rotation = Quaternion(0.092699, 0.079141, -0.0214038, 0.992313)
+bones/3/rotation = Quaternion(0.092338, 0.0791477, -0.0213366, 0.992348)
+bones/4/rotation = Quaternion(-0.0455835, -0.0105687, 0.00182964, 0.998903)
+bones/5/rotation = Quaternion(-0.0570339, 0.177051, -0.00232364, 0.982545)
+bones/7/rotation = Quaternion(0.570938, 0.430789, -0.566427, 0.409403)
+bones/8/rotation = Quaternion(0.43636, -0.0974953, 0.0887125, 0.890065)
+bones/9/rotation = Quaternion(-0.0334589, 0.0659724, 0.419015, 0.904961)
+bones/11/rotation = Quaternion(0.617113, -0.393873, 0.525812, 0.433079)
+bones/12/rotation = Quaternion(0.433058, 0.0914943, 0.145828, 0.884773)
+bones/13/rotation = Quaternion(0.0399976, -0.0032823, -0.368935, 0.928588)
+bones/15/rotation = Quaternion(0.0802661, 0.230353, 0.964266, -0.103376)
+bones/16/rotation = Quaternion(-0.358772, 0.119499, -0.0362305, 0.925035)
+bones/17/rotation = Quaternion(0.565781, -0.000966943, -0.023328, 0.824225)
+bones/18/rotation = Quaternion(0.289317, -0.0363745, -0.00959126, 0.956494)
+bones/20/rotation = Quaternion(-0.125502, 0.021269, 0.982811, 0.133714)
+bones/21/rotation = Quaternion(-0.337046, 0.0728289, -0.0256296, 0.938317)
+bones/22/rotation = Quaternion(0.671589, 0.0555552, 0.107146, 0.731028)
+bones/23/rotation = Quaternion(0.278085, 0.056844, -0.0170472, 0.958721)
+
 [node name="island_Terrain_Switcher" type="Node" parent="."]
 script = ExtResource("16_r68ax")
 
@@ -835,7 +881,16 @@ shape = SubResource("BoxShape3D_747t0")
 
 [node name="Island" parent="World Contents" instance=ExtResource("11_kq5pm")]
 
+[node name="Explorer Notes" type="Node" parent="World Contents"]
+
 [node name="Story Mode" type="Node" parent="."]
+
+[node name="Timers" type="Node" parent="Story Mode"]
+
+[node name="StoryModeDialogue2AfterWakeUpTimer" type="Timer" parent="Story Mode/Timers"]
+wait_time = 21.0
+one_shot = true
+autostart = true
 
 [node name="Cameras" type="Node" parent="Story Mode"]
 
@@ -1002,31 +1057,18 @@ layer = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -259.258, -1.39731, 527.121)
 gizmo_extents = 0.9
 
-[node name="ExplorerNote" parent="." instance=ExtResource("32_qh5si")]
-transform = Transform3D(6.13225e-16, -1.4029e-08, 0.320945, -0.30798, -0.0902991, -3.9471e-09, 0.0902991, -0.30798, -1.34622e-08, -386.743, 2.3204, 306.001)
-NoteID = 1
-ImageAlbedo = ExtResource("33_74605")
-DecalRotation_Degrees = Vector3(0, 90, 0)
-DecalSize = Vector3(2.895, 2, 1.06)
-DecalLowerFade = 20.075
-NailRotation_Degrees = Vector3(-2.34, -72.5, -21.03)
-
-[node name="ExplorerNote2" parent="." instance=ExtResource("32_qh5si")]
-transform = Transform3D(6.13225e-16, -1.4029e-08, 0.320945, -0.318758, -0.037406, -1.63507e-09, 0.037406, -0.318758, -1.39334e-08, -393.605, 2.3204, 308.773)
-NoteID = 2
-ImageAlbedo = ExtResource("34_agr60")
-DecalRotation_Degrees = Vector3(0, 90, 0)
-DecalSize = Vector3(5.05, 2, 2.77)
-DecalLowerFade = 8.385
-NailRotation_Degrees = Vector3(-2.34, -23.005, 2.495)
-
 [node name="Building_Assets" type="Node" parent="."]
-
-[node name="Marker3D" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -263.321, 0.445579, 527.255)
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="timeout" from="Tick" to="." method="_on_tick"]
 [connection signal="timeout" from="Weather Timer" to="." method="_on_weather_timer_timeout"]
+[connection signal="FinishedDialogue" from="Player/Head/Camera3D/DialogueLayer/DialogueInterface" to="." method="_on_dialogue_interface_finished_dialogue"]
 [connection signal="body_entered" from="Terrain Areas/STONE" to="island_Terrain_Switcher" method="_on_stone_body_entered"]
 [connection signal="body_exited" from="Terrain Areas/STONE" to="island_Terrain_Switcher" method="_on_stone_body_exited"]
+[connection signal="timeout" from="Story Mode/Timers/StoryModeDialogue2AfterWakeUpTimer" to="." method="_on_story_mode_dialogue_2_after_wake_up_timer_timeout"]
+
+[editable path="Player"]
+[editable path="Player/Head/Player_Character_Shadow"]
+[editable path="Player/Head/Player_Character"]
+[editable path="Player/Head/Camera3D/HandItemRig/HandItem"]
+[editable path="Player/Head/Camera3D/AchievementsLayer/AchievementsUI"]

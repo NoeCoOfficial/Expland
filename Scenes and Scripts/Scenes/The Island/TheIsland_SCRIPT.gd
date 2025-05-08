@@ -109,7 +109,6 @@ func _ready() -> void:
 		$"Story Mode/Canvas Layers/MinimalDialogueLayer/MinimalDialogue".spawnMinimalDialogue(DialogueManager.StoryMode_Dialogue1)
 	
 	Player.nodeSetup()
-	
 
 func _on_ready() -> void:
 	AudioManager.initNotificaton(PlayerManager.AudioNotification)
@@ -478,3 +477,13 @@ func firstInitStoryModePlayer():
 	Player.show()
 	Player.head.rotation_degrees.y = 0.0
 	Player.camera.rotation_degrees.x = 0.0
+
+func _on_story_mode_dialogue_2_after_wake_up_timer_timeout() -> void:
+	if StoryModeManager.is_first_story_mode:
+		DialogueManager.setStoryModeID(3)
+		DialogueManager.startDialogue(DialogueManager.StoryMode_Dialogue2)
+
+
+func _on_dialogue_interface_finished_dialogue(StoryModeID: int) -> void:
+	if StoryModeID == 3:
+		pass
