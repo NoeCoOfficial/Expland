@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://cjm5lrxicdgsf"]
+[gd_scene load_steps=94 format=3 uid="uid://cjm5lrxicdgsf"]
 
 [ext_resource type="Script" uid="uid://6516a37cmejq" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" uid="uid://dilocovfy7y5b" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
@@ -20,6 +20,7 @@
 [ext_resource type="Material" uid="uid://bo77d7nagqoh4" path="res://Resources/Shader Materials/BuildingVignette.tres" id="12_4f5g7"]
 [ext_resource type="Script" uid="uid://dux7wdl4tm683" path="res://Textures/Icons/Script Icons/Scripts/KeyIcon_SCRIPT.gd" id="12_bcco5"]
 [ext_resource type="Texture2D" uid="uid://bx3jg6ecnsa15" path="res://Tests/Screenshot (8).png" id="13_fqnu3"]
+[ext_resource type="FontFile" uid="uid://bel1qoyfluvci" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Bold.otf" id="15_1fhva"]
 [ext_resource type="Texture2D" uid="uid://b6qs4d3wecwxo" path="res://Textures/Icons/Input Prompts/mouse_scroll_outline.png" id="16_e1x4n"]
 [ext_resource type="Script" uid="uid://bd3squcstkss1" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="16_wg7d4"]
 [ext_resource type="PackedScene" uid="uid://du1ak3ldg8x4e" path="res://Scenes and Scripts/Scenes/Dialogue/DialogueInterface.tscn" id="17_pkmg7"]
@@ -1584,7 +1585,7 @@ anti_aliasing = false
 
 [sub_resource type="Animation" id="Animation_fqnu3"]
 resource_name = "BasicControls"
-length = 20.0
+length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1604,7 +1605,7 @@ tracks/1/path = NodePath("GreyLayer:color")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
+"times": PackedFloat32Array(0, 0.266667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.643137)]
@@ -1621,37 +1622,121 @@ tracks/2/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BasicControls/Let\'sGetStarted:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BasicControls/Let\'sGetStarted:scale")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.3, 1.7),
+"transitions": PackedFloat32Array(0.297302, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.345, 1.345)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BasicControls/Let\'sGetStarted:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.44063, 1.96667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BasicControls/Mask/PressWASD:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2.12401),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BasicControls/Mask/PressWASD:position")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(2.124, 2.46667),
+"transitions": PackedFloat32Array(0.406127, 1),
+"update": 0,
+"values": [Vector2(-281, 539.355), Vector2(-281, 488.5)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("BasicControls/Mask/PressWASD:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 3.96667, 4.36667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_1fhva"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("GreyLayer:visible")
+tracks/0/path = NodePath("BasicControls/Mask/PressWASD:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("GreyLayer:color")
+tracks/1/path = NodePath("BasicControls/Mask/PressWASD:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0, 0, 0, 0.643137)]
+"values": [Vector2(-281, 462.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BasicControls/Mask/PressWASD:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x8es6"]
 _data = {
-&"BasicControls": SubResource("Animation_fqnu3"),
+&"BasicControls_1": SubResource("Animation_fqnu3"),
 &"RESET": SubResource("Animation_1fhva")
 }
 
@@ -1978,36 +2063,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 transform = Transform3D(-0.651061, 0, -5.69176e-08, 0, 0.651061, 0, 5.69176e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Head/Player_Character_Shadow/Armature_003" index="0"]
-bones/0/position = Vector3(2.93697, -2.65441, -196.36)
-bones/0/rotation = Quaternion(-0.685089, -0.270703, 0.248316, 0.629057)
-bones/1/rotation = Quaternion(0.0777618, 0.0407889, -0.00797177, 0.996105)
-bones/2/rotation = Quaternion(0.0927632, 0.0791372, -0.0213979, 0.992308)
-bones/3/rotation = Quaternion(0.0927709, 0.0791621, -0.0213997, 0.992305)
-bones/4/rotation = Quaternion(-0.0453811, -0.0106025, 0.0017948, 0.998912)
-bones/5/rotation = Quaternion(-0.0526895, 0.176938, -0.00316229, 0.982806)
-bones/7/rotation = Quaternion(0.571941, 0.429716, -0.566298, 0.409309)
-bones/8/rotation = Quaternion(0.436213, -0.0975974, 0.0887881, 0.890118)
+bones/0/position = Vector3(2.82891, -4.19636, -195.486)
+bones/0/rotation = Quaternion(-0.683364, -0.270059, 0.249967, 0.630553)
+bones/1/rotation = Quaternion(0.0807339, 0.0408445, -0.00929328, 0.995855)
+bones/2/rotation = Quaternion(0.0995065, 0.0791543, -0.0230796, 0.991615)
+bones/3/rotation = Quaternion(0.0995065, 0.0791543, -0.0230795, 0.991615)
+bones/4/rotation = Quaternion(-0.0624171, -0.0109194, 0.00237525, 0.997988)
+bones/5/rotation = Quaternion(-0.0468252, 0.176604, -0.00930552, 0.983124)
+bones/7/rotation = Quaternion(0.593076, 0.404951, -0.567086, 0.403348)
+bones/8/rotation = Quaternion(0.42138, -0.107606, 0.0883378, 0.896134)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0336402, 0.0658045, 0.418383, 0.905259)
-bones/11/rotation = Quaternion(0.617917, -0.393, 0.525621, 0.432957)
-bones/12/rotation = Quaternion(0.432414, 0.0921394, 0.145546, 0.885068)
-bones/13/rotation = Quaternion(0.0395019, -0.00229921, -0.368818, 0.928659)
-bones/15/rotation = Quaternion(0.0801909, 0.230454, 0.964244, -0.10341)
+bones/9/rotation = Quaternion(-0.0389837, 0.0581383, 0.405701, 0.911322)
+bones/11/rotation = Quaternion(0.640499, -0.366402, 0.52463, 0.424587)
+bones/12/rotation = Quaternion(0.407047, 0.112426, 0.147153, 0.894438)
+bones/13/rotation = Quaternion(0.0246206, 0.022511, -0.364458, 0.930622)
+bones/15/rotation = Quaternion(0.0792367, 0.239647, 0.9618, -0.105983)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.359006, 0.11936, -0.0360939, 0.924968)
-bones/17/rotation = Quaternion(0.565751, -0.00106879, -0.023518, 0.82424)
-bones/18/rotation = Quaternion(0.289286, -0.0363232, -0.00955974, 0.956506)
-bones/20/rotation = Quaternion(-0.125423, 0.0223958, 0.982812, 0.133599)
-bones/21/rotation = Quaternion(-0.338569, 0.0725412, -0.025524, 0.937794)
-bones/22/rotation = Quaternion(0.672092, 0.0554275, 0.10687, 0.730616)
+bones/16/rotation = Quaternion(-0.364776, 0.118773, -0.0367362, 0.922758)
+bones/17/rotation = Quaternion(0.565511, -0.00267734, -0.0264432, 0.824312)
+bones/18/rotation = Quaternion(0.288968, -0.0357924, -0.00923387, 0.956625)
+bones/20/rotation = Quaternion(-0.124379, 0.0378872, 0.982682, 0.132023)
+bones/21/rotation = Quaternion(-0.358253, 0.0712389, -0.0271761, 0.930506)
+bones/22/rotation = Quaternion(0.679139, 0.0547417, 0.104923, 0.724406)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.278068, 0.0568187, -0.0170353, 0.958728)
+bones/23/rotation = Quaternion(0.277886, 0.0565578, -0.0169124, 0.958799)
 
 [node name="Model_004" parent="Head/Player_Character_Shadow/Armature_003/Skeleton3D" index="0"]
 cast_shadow = 3
 
 [node name="HandAttatchment" type="BoneAttachment3D" parent="Head/Player_Character_Shadow/Armature_003/Skeleton3D" index="1"]
-transform = Transform3D(-0.275278, -0.359507, 0.891615, 0.948365, 0.0504551, 0.313143, -0.157563, 0.931778, 0.327054, -74.8537, -37.5691, -204.332)
+transform = Transform3D(-0.301259, -0.384231, 0.872702, 0.942127, 0.0212494, 0.33458, -0.1471, 0.922992, 0.355593, -76.1871, -38.7985, -201.321)
 bone_name = "mixamorig_RightHand"
 bone_idx = 14
 
@@ -2015,45 +2100,45 @@ bone_idx = 14
 transform = Transform3D(-0.651061, 0, 5.69175e-08, 0, 0.651061, 0, -5.69175e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Head/Player_Character/Armature_003" index="0"]
-bones/0/position = Vector3(2.93697, -2.65441, -196.36)
-bones/0/rotation = Quaternion(-0.685089, -0.270703, 0.248316, 0.629057)
-bones/1/rotation = Quaternion(0.0777618, 0.0407889, -0.00797177, 0.996105)
+bones/0/position = Vector3(2.82891, -4.19636, -195.486)
+bones/0/rotation = Quaternion(-0.683364, -0.270059, 0.249967, 0.630553)
+bones/1/rotation = Quaternion(0.0807339, 0.0408445, -0.00929328, 0.995855)
 bones/2/position = Vector3(1.19209e-07, 29.1135, -2.98023e-06)
-bones/2/rotation = Quaternion(0.0927632, 0.0791372, -0.0213979, 0.992308)
+bones/2/rotation = Quaternion(0.0995065, 0.0791543, -0.0230796, 0.991615)
 bones/3/position = Vector3(5.126e-06, 33.2726, 4.64916e-06)
-bones/3/rotation = Quaternion(0.0927709, 0.0791621, -0.0213997, 0.992305)
+bones/3/rotation = Quaternion(0.0995065, 0.0791543, -0.0230795, 0.991615)
 bones/4/position = Vector3(5.24521e-06, 37.4316, 1.82406e-05)
-bones/4/rotation = Quaternion(-0.0453811, -0.0106025, 0.0017948, 0.998912)
+bones/4/rotation = Quaternion(-0.0624171, -0.0109194, 0.00237525, 0.997988)
 bones/5/position = Vector3(-2.86102e-06, 12.1577, 1.85682)
-bones/5/rotation = Quaternion(-0.0526895, 0.176938, -0.00316229, 0.982806)
+bones/5/rotation = Quaternion(-0.0468252, 0.176604, -0.00930552, 0.983124)
 bones/7/position = Vector3(15.5676, 33.9216, 0.214007)
-bones/7/rotation = Quaternion(0.571941, 0.429716, -0.566298, 0.409309)
+bones/7/rotation = Quaternion(0.593076, 0.404951, -0.567086, 0.403348)
 bones/8/position = Vector3(7.52916e-06, 31.6372, -3.73462e-05)
-bones/8/rotation = Quaternion(0.436213, -0.0975974, 0.0887881, 0.890118)
+bones/8/rotation = Quaternion(0.42138, -0.107606, 0.0883378, 0.896134)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0336402, 0.0658045, 0.418383, 0.905259)
+bones/9/rotation = Quaternion(-0.0389837, 0.0581383, 0.405701, 0.911322)
 bones/10/position = Vector3(-5.75185e-06, 48.1225, -4.24013e-05)
 bones/11/position = Vector3(-15.5676, 33.9222, 0.223976)
-bones/11/rotation = Quaternion(0.617917, -0.393, 0.525621, 0.432957)
+bones/11/rotation = Quaternion(0.640499, -0.366402, 0.52463, 0.424587)
 bones/12/position = Vector3(-1.65313e-05, 31.6372, 2.51814e-05)
-bones/12/rotation = Quaternion(0.432414, 0.0921394, 0.145546, 0.885068)
+bones/12/rotation = Quaternion(0.407047, 0.112426, 0.147153, 0.894438)
 bones/13/position = Vector3(3.17927e-05, 70.8277, 3.58869e-05)
-bones/13/rotation = Quaternion(0.0395019, -0.00229921, -0.368818, 0.928659)
+bones/13/rotation = Quaternion(0.0246206, 0.022511, -0.364458, 0.930622)
 bones/14/position = Vector3(-3.78489e-06, 48.1226, 3.61372e-05)
-bones/15/rotation = Quaternion(0.0801909, 0.230454, 0.964244, -0.10341)
+bones/15/rotation = Quaternion(0.0792367, 0.239647, 0.9618, -0.105983)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.359006, 0.11936, -0.0360939, 0.924968)
+bones/16/rotation = Quaternion(-0.364776, 0.118773, -0.0367362, 0.922758)
 bones/17/position = Vector3(8.16445e-06, 89.1268, 4.36753e-06)
-bones/17/rotation = Quaternion(0.565751, -0.00106879, -0.023518, 0.82424)
+bones/17/rotation = Quaternion(0.565511, -0.00267734, -0.0264432, 0.824312)
 bones/18/position = Vector3(1.07865e-05, 26.9015, 2.76264e-06)
-bones/18/rotation = Quaternion(0.289286, -0.0363232, -0.00955974, 0.956506)
+bones/18/rotation = Quaternion(0.288968, -0.0357924, -0.00923387, 0.956625)
 bones/19/position = Vector3(-7.05104e-06, 10.3861, 1.60187e-07)
-bones/20/rotation = Quaternion(-0.125423, 0.0223958, 0.982812, 0.133599)
+bones/20/rotation = Quaternion(-0.124379, 0.0378872, 0.982682, 0.132023)
 bones/21/position = Vector3(7.35216e-06, 93.8847, 2.20229e-06)
-bones/21/rotation = Quaternion(-0.338569, 0.0725412, -0.025524, 0.937794)
-bones/22/rotation = Quaternion(0.672092, 0.0554275, 0.10687, 0.730616)
+bones/21/rotation = Quaternion(-0.358253, 0.0712389, -0.0271761, 0.930506)
+bones/22/rotation = Quaternion(0.679139, 0.0547417, 0.104923, 0.724406)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.278068, 0.0568187, -0.0170353, 0.958728)
+bones/23/rotation = Quaternion(0.277886, 0.0565578, -0.0169124, 0.958799)
 bones/24/position = Vector3(3.21493e-06, 10.3578, 7.00355e-07)
 
 [node name="Model_004" parent="Head/Player_Character/Armature_003/Skeleton3D" index="0"]
@@ -2201,6 +2286,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="TutorialLayer" type="CanvasLayer" parent="Head/Camera3D/HUDLayer"]
 layer = 128
+visible = false
 
 [node name="examplebg" type="TextureRect" parent="Head/Camera3D/HUDLayer/TutorialLayer"]
 anchors_preset = 15
@@ -2213,7 +2299,6 @@ texture = ExtResource("13_fqnu3")
 expand_mode = 1
 
 [node name="GreyLayer" type="ColorRect" parent="Head/Camera3D/HUDLayer/TutorialLayer"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -2236,6 +2321,56 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="Let\'sGetStarted" type="Label" parent="Head/Camera3D/HUDLayer/TutorialLayer/BasicControls"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.5
+offset_top = -26.496
+offset_right = 171.5
+offset_bottom = 26.496
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.345, 1.345)
+pivot_offset = Vector2(171.5, 26.496)
+theme = ExtResource("17_rhxkt")
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("15_1fhva")
+theme_override_font_sizes/font_size = 46
+text = "Let's get started!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mask" type="Sprite2D" parent="Head/Camera3D/HUDLayer/TutorialLayer/BasicControls"]
+clip_children = 1
+position = Vector2(576, -191)
+texture = ExtResource("13_fqnu3")
+
+[node name="PressWASD" type="Label" parent="Head/Camera3D/HUDLayer/TutorialLayer/BasicControls/Mask"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1241.0
+offset_top = -77.5
+offset_right = -679.0
+offset_bottom = -24.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(281, 26.5)
+theme = ExtResource("17_rhxkt")
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("15_1fhva")
+theme_override_font_sizes/font_size = 46
+text = "Use the WASD keys to move"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="BuildingVignetteLayer" type="CanvasLayer" parent="Head/Camera3D"]
 
