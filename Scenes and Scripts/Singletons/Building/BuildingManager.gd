@@ -121,15 +121,3 @@ func despawn_edit():
 	PlayerManager.PLAYER.BuildingUIEditLayer.visible = false
 	PlayerManager.PLAYER.BuildingEditKeyMessage.text = "Edit"
 	print("exited edit interface")
-
-func toggle_can_build(toggle : bool = true, update_mesh : bool = true):
-	can_build = toggle
-	
-	if is_in_building_interface:
-		if update_mesh:
-			for child in PlayerManager.PLAYER.BuildingItemParent.get_child(0).get_children():
-				if child is MeshInstance3D:
-					if toggle:
-						child.material_override = CanBuildMaterial
-					else:
-						child.material_override = CantBuildMaterial
