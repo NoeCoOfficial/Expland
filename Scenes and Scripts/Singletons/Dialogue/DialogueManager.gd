@@ -417,3 +417,43 @@ var StoryMode_Dialogue1 = [
 		#'"Yeah, I probably shoud do that."',
 		#"time": 3.0},
 ]
+
+var StoryMode_Dialogue2 = [
+	
+	{"author": "You", 
+	"message": "It looks like I'm on some sort of island...",
+	"duration": 2.0},
+	
+	{"author": "You", 
+	"message": "That voice… I heard something. Something... saved me.",
+	"duration": 2.0},
+	
+	{"author": "You", 
+	"message": "But what was it? And why me?",
+	"duration": 1.5},
+	
+	{"author": "You", 
+	"message": "Okay, focus. You’re alive.",
+	"duration": 1.5},
+	
+	{"author": "You", 
+	"message": "Okay, focus. You’re alive.",
+	"duration": 1.5},
+]
+
+
+var StoryMode_Dialogue3 = [
+	
+	{"author": "You", 
+	"message": "Okay, focus. You’re alive.",
+	"duration": 1.5},
+	
+	
+	{"author": "You", 
+	"message": "Hmm... it's getting pretty dark, maybe I should try and find shelter or something?",
+	"duration": 2.7},
+	
+	{"author": "You", 
+	"message": "Yeah, I probably shoud do that.",
+	"duration": 1.5},
+]
