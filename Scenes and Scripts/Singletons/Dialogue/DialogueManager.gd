@@ -53,6 +53,8 @@ extends Node
 
 #        3 - First dialogue shown upon waking up on the island
 #        4 - Second dialogue shown upon waking up on the island
+#        5 - Third dialogue shown upon seeing the grass path
+#        6 - Fourth dialogue shown upon seeing the shack
 
 var is_in_interface = false
 var is_in_absolute_interface = false
