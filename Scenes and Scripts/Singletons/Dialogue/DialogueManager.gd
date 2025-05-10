@@ -206,6 +206,7 @@ var testDialogue = [
 ################################################
 ################################################
 
+# StoryMode_Dialogue_1
 var mainMenuStoryModeDialogue_1 = [
 	{"author": "???", 
 	"message": "Who is this?",
@@ -225,6 +226,7 @@ var mainMenuStoryModeDialogue_1 = [
 	
 ]
 
+# StoryMode_Dialogue_2
 var mainMenuStoryModeDialogue_2 = [
 	{"author": "???", 
 	"message": "Oh... it's you again.",
@@ -266,6 +268,7 @@ var mainMenuStoryModeDialogue_2 = [
 ################################################
 ################################################
 
+# StoryMode_StartCutscene_Dialogue_3
 var StoryMode_StartCutsceneDialogue_1 = [
 		{"message": 
 			'"I\'m on a journey."',
@@ -284,6 +287,7 @@ var StoryMode_StartCutsceneDialogue_1 = [
 			"time": 2.5}
 	]
 
+# StoryMode_StartCutscene_Dialogue_4
 var StoryMode_StartCutsceneDialogue_2 = [
 		{"message": 
 			'"This job... it’s the chance I’ve been waiting for. Sunshine Co. doesn’t just hire anyone. What makes me special?"', 
@@ -299,6 +303,7 @@ var StoryMode_StartCutsceneDialogue_2 = [
 			
 	]
 
+# StoryMode_StartCutscene_Dialogue_5
 var StoryMode_StartCutsceneDialogue_3 = [
 		{"message": 
 			'"It’s kind of wild, though. Me. An amateur bodybuilder, getting a job like this."', 
@@ -314,6 +319,7 @@ var StoryMode_StartCutsceneDialogue_3 = [
 			
 	]
 
+# StoryMode_StartCutscene_Dialogue_6
 var StoryMode_StartCutsceneDialogue_4 = [
 		{"message": 
 			'"Mom thought I was crazy for taking the job. ‘You’re throwing your life away,’ she said. She doesn’t get it."', 
@@ -329,6 +335,7 @@ var StoryMode_StartCutsceneDialogue_4 = [
 			
 	]
 
+# StoryMode_StartCutscene_Dialogue_7
 var StoryMode_StartCutsceneDialogue_5 = [
 		{"message": 
 			'"I didn’t even want to take the plane. Way too expensive. 
@@ -341,6 +348,7 @@ var StoryMode_StartCutsceneDialogue_5 = [
 			
 	]
 
+# StoryMode_StartCutscene_Dialogue_8
 var StoryMode_StartCutsceneDialogue_6 = [
 		{"message": 
 			'"Hold on... what’s that?"', 
@@ -367,6 +375,7 @@ var StoryMode_StartCutsceneDialogue_6 = [
 ################################################
 ################################################
 
+# StoryMode_Dialogue_20
 var StoryMode_Dialogue1 = [
 	{"message": 
 		'', 
@@ -386,6 +395,7 @@ var StoryMode_Dialogue1 = [
 	
 ]
 
+# StoryMode_Dialogue_21
 var StoryMode_Dialogue2 = [
 	{"author": "You", 
 	"message": "It looks like I'm on some sort of island...",
@@ -400,7 +410,7 @@ var StoryMode_Dialogue2 = [
 	"duration": 1.5},
 ]
 
-
+# StoryMode_Dialogue_22
 var StoryMode_Dialogue3 = [
 	{"author": "You", 
 	"message": "Okay, focus. You’re alive.",
