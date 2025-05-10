@@ -11,7 +11,7 @@
 ---
 
 ## 📜 About Expland
-**Expland** is an upcoming 3D single-player adventure-horror game by **Noe Co**, that invites you to face adversity and explore a mysterious world.
+**Expland** is an upcoming 3D single-player adventure-horror game by **Noe Co**., that invites you to face adversity and explore a mysterious world.
 This is the official GitHub repository for the game, where all changes and commits are made. You may open a pull request or issue if you want to contribute to the game.
 
 ## 👥 Authors
