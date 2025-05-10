@@ -82,6 +82,8 @@ func _ready() -> void:
 	Global.transitioning_to_main_menu_from_island = false
 	Global.is_in_main_menu = false
 	
+	# TODO: LOAD DATA HERE OR SMTH
+	
 	set_pretty_shadows(PlayerSettingsData.PrettyShadows)
 	
 	if PlayerData.GAME_STATE == "SLEEPING":
@@ -98,7 +100,7 @@ func _ready() -> void:
 		init_weather_instant() # NOTE: Important line right here (initalize weather)
 		Player.camera.make_current()
 	
-	if IslandManager.Current_Game_Mode == "STORY" and StoryModeManager.is_first_story_mode:
+	if IslandManager.Current_Game_Mode == "STORY" and PlayerData.STORY_MODE_PROGRESSION_INFO["FIRST_STORY_MODE"]:
 		# NOTE: Story mode init. What happens when the player spawns in for the first time.
 		Player.global_position = Marker_StoryModeStartSpawn.global_position
 		$"Story Mode/Animation Players/StoryModeWakeUpAnimation".play("main")
@@ -112,7 +114,7 @@ func _ready() -> void:
 
 func _on_ready() -> void:
 	AudioManager.initNotificaton(PlayerManager.AudioNotification)
-	AudioManager.initNew($TheIsland_Audio, !StoryModeManager.is_first_story_mode, false, true)
+	AudioManager.initNew($TheIsland_Audio, !PlayerData.STORY_MODE_PROGRESSION_INFO["FIRST_STORY_MODE"], false, true)
 	AudioManager.Current_Rain_SFX_Node = $Rain_SFX
 
 func _process(_delta: float) -> void:
@@ -479,11 +481,11 @@ func firstInitStoryModePlayer():
 	Player.camera.rotation_degrees.x = 0.0
 
 func _on_story_mode_dialogue_2_after_wake_up_timer_timeout() -> void:
-	if StoryModeManager.is_first_story_mode:
+	if PlayerData.STORY_MODE_PROGRESSION_INFO["FIRST_STORY_MODE"]:
 		DialogueManager.setStoryModeID(3)
 		DialogueManager.startDialogue(DialogueManager.StoryMode_Dialogue2)
 
 
 func _on_dialogue_interface_finished_dialogue(StoryModeID: int) -> void:
 	if StoryModeID == 3:
-		PlayerData.STORY_MODE_PROGRESSION_INFO["DISPLAYED_FIRST_DIALOGUE"] = true
+		PlayerData.STORY_MODE_PROGRESSION_INFO["DISPLAYED_1_DIALOGUE"] = true

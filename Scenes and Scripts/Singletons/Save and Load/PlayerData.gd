@@ -52,7 +52,9 @@ var SAVE_PATH = ""
 
 var STORY_MODE_PROGRESSION_INFO = {
 	"WOKEN_UP" : false,
-	"DISPLAYED_FIRST_DIALOGUE" : false,
+	"FIRST_STORY_MODE" : true,
+	"DISPLAYED_1_DIALOGUE" : false,
+	"DISPLAYED_2_DIALOGUE" : false,
 }
 var GAME_STATE = "NORMAL"
 var Health := 100
