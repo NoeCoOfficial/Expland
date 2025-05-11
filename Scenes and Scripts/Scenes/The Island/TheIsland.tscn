@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://c5jkrckgqd0w6"]
+[gd_scene load_steps=34 format=3 uid="uid://c5jkrckgqd0w6"]
 
 [ext_resource type="Script" uid="uid://cucb4fwieubx" path="res://Scenes and Scripts/Scenes/The Island/TheIsland_SCRIPT.gd" id="1_a8sfg"]
 [ext_resource type="Environment" uid="uid://dgtwdwq2n0x1v" path="res://Resources/Environment/TheIsland_WorldEnvironment.tres" id="2_h46kk"]
@@ -14,7 +14,6 @@
 [ext_resource type="Script" uid="uid://dbn31kh6cxec8" path="res://Scenes and Scripts/Scenes/The Island/Island_Terrain_Switcher_SCRIPT.gd" id="16_r68ax"]
 [ext_resource type="Shader" uid="uid://ddwwgv2rqfito" path="res://Resources/Shaders/GausianBlur.gdshader" id="34_747t0"]
 [ext_resource type="PackedScene" uid="uid://cn1krf62jowgb" path="res://Scenes and Scripts/Scenes/Dialogue/MinimalDialogue.tscn" id="34_r68ax"]
-[ext_resource type="PackedScene" uid="uid://cg37p3dc7fbqx" path="res://Scenes and Scripts/Scenes/Environment/Water Mesh/WaterMesh.tscn" id="35_s3501"]
 [ext_resource type="Material" uid="uid://b53wf3cs61c28" path="res://Resources/Materials/CloudsMaterial.tres" id="59_evg4o"]
 
 [sub_resource type="Animation" id="Animation_747t0"]
@@ -272,156 +271,6 @@ _data = {
 
 [sub_resource type="BoxMesh" id="BoxMesh_cqokr"]
 lightmap_size_hint = Vector2i(14, 21)
-
-[sub_resource type="Shader" id="Shader_kikpc"]
-code = "shader_type spatial;
-render_mode depth_draw_always;
-
-uniform sampler2D SCREEN_TEXTURE: hint_screen_texture, filter_linear_mipmap;
-uniform sampler2D DEPTH_TEXTURE: hint_depth_texture, filter_linear_mipmap;
-
-uniform vec3 albedo : source_color;
-uniform vec3 albedo2 : source_color;
-uniform vec4 color_deep : source_color;
-uniform vec4 color_shallow : source_color;
-
-uniform float metallic : hint_range(0.0, 1.0) = 0;
-uniform float roughness : hint_range(0.0, 1.0) = 0.02;
-
-uniform sampler2D texture_normal;
-uniform sampler2D texture_normal2;
-uniform sampler2D wave;
-
-uniform float wave_time = 0;
-uniform vec2 wave_direction = vec2(2.0,0.0);
-uniform vec2 wave_2_direction = vec2(0.0,1.0);
-uniform float time_scale : hint_range(0.0, 0.2, 0.005) = 0.025;
-uniform float wave_speed = 2.0;
-uniform float noise_scale = 10.0;
-uniform float height_scale = 0.15;
-uniform float beers_law = 2.0;
-uniform float depth_offset = -0.75;
-
-varying float height;
-varying vec3 world_pos;
-
-uniform float edge_scale = 0.1;
-uniform float near = 0.5;
-uniform float far = 100.0;
-uniform vec3 edge_color : source_color;
-
-float fresnel(float amount, vec3 normal, vec3 view)
-{
-	return pow((1.0 - clamp(dot(normalize(normal), normalize(view)), 0.0, 1.0 )), amount);
-}
-
-float edge(float depth) {
-	return near * far / (far + depth * (near - far));
-}
-
-// This takes care of the waves.
-void vertex() {
-	world_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).zyx;
-	height = texture(wave, world_pos.xz / noise_scale + wave_time * wave_speed).g;
-	VERTEX.y += height * height_scale;
-}
-
-void fragment() {
-	float depth_texture = texture(DEPTH_TEXTURE, SCREEN_UV).r;
-	float depth = PROJECTION_MATRIX[3][2] / (depth_texture + PROJECTION_MATRIX[2][2]);
-	depth = depth + VERTEX.z;
-	float depth_blend = exp((depth + depth_offset) * -beers_law);
-	depth_blend = clamp(1.0 - depth_blend, 0.0, 1.0);
-	
-	vec3 screen_color = textureLod(SCREEN_TEXTURE, SCREEN_UV, depth_blend * 2.5).rgb;
-	vec3 depth_color = mix(color_shallow.rgb, color_deep.rgb, depth_blend);
-	vec3 color = mix(screen_color * depth_color, depth_color * 0.25, depth_blend * 0.5);
-	
-	float z_depth = edge(texture(DEPTH_TEXTURE, SCREEN_UV).x);
-	float z_pos = edge(FRAGCOORD.z);
-	float z_dif = z_depth - z_pos;
-	
-	vec2 time = (TIME * wave_direction) * time_scale;
-	vec2 time2 = (TIME * wave_2_direction) * time_scale;
-
-	vec3 normal_blend = mix(texture(texture_normal, world_pos.xz / noise_scale + time).rgb, texture(texture_normal2, world_pos.xz / noise_scale + time2).rgb, 0.5);
-	
-	float fresnel = fresnel(5.0, NORMAL, VIEW);
-	vec3 surface_color = mix(albedo, albedo2, fresnel);
-	vec3 depth_color_adj = mix(edge_color, color, step(edge_scale, z_dif));
-	
-	ALBEDO = clamp(surface_color + depth_color_adj,vec3(0),vec3(1.0));
-	ALPHA = 1.0;
-	METALLIC = metallic;
-	ROUGHNESS = roughness;
-	NORMAL_MAP = normal_blend;
-}"
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_s3501"]
-frequency = 0.0107
-fractal_type = 2
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rkq2m"]
-seamless = true
-as_normal_map = true
-bump_strength = 5.3
-noise = SubResource("FastNoiseLite_s3501")
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_747t0"]
-noise_type = 3
-fractal_type = 2
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r68ax"]
-seamless = true
-as_normal_map = true
-bump_strength = 2.9
-noise = SubResource("FastNoiseLite_747t0")
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_32fgl"]
-noise_type = 3
-seed = 575
-frequency = 0.0032
-offset = Vector3(101.43, -278.08, -1000)
-fractal_type = 0
-fractal_octaves = 10
-fractal_gain = 0.145
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1rf0p"]
-in_3d_space = true
-seamless = true
-noise = SubResource("FastNoiseLite_32fgl")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5oxf6"]
-render_priority = -1
-shader = SubResource("Shader_kikpc")
-shader_parameter/albedo = Color(0.266225, 0.2277, 0.69, 1)
-shader_parameter/albedo2 = Color(0.1475, 0.154875, 0.59, 1)
-shader_parameter/color_deep = Color(0, 0, 0, 1)
-shader_parameter/color_shallow = Color(0, 0, 0, 1)
-shader_parameter/metallic = 0.335
-shader_parameter/roughness = 0.436
-shader_parameter/texture_normal = SubResource("NoiseTexture2D_rkq2m")
-shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_r68ax")
-shader_parameter/wave = SubResource("NoiseTexture2D_1rf0p")
-shader_parameter/wave_time = 0.37
-shader_parameter/wave_direction = Vector2(2, 0)
-shader_parameter/wave_2_direction = Vector2(0.46, 1)
-shader_parameter/time_scale = 0.025
-shader_parameter/wave_speed = 0.065
-shader_parameter/noise_scale = 26.695
-shader_parameter/height_scale = 1.59
-shader_parameter/beers_law = 2.0
-shader_parameter/depth_offset = -0.75
-shader_parameter/edge_scale = 0.1
-shader_parameter/near = 0.5
-shader_parameter/far = 100.0
-shader_parameter/edge_color = Color(0, 0, 0, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_ksvy8"]
-material = SubResource("ShaderMaterial_5oxf6")
-size = Vector2(1000, 1000)
-subdivide_width = 2000
-subdivide_depth = 2000
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_747t0"]
 size = Vector3(29.6547, 18.4379, 48.5692)
@@ -750,8 +599,9 @@ camera_attributes = ExtResource("2_xjtor")
 script = ExtResource("4_jhu24")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.863395, -0.0876104, -0.496863, 0, 0.984808, -0.173648, 0.504528, 0.149927, 0.850278, 0, 0, 0)
-light_color = Color(0.09, 0.09, 0.09, 1)
+transform = Transform3D(0.863395, 0.11074, 0.492224, 0, -0.975614, 0.219492, 0.504528, -0.189509, -0.842341, 0, 0, 0)
+light_color = Color(0.959688, 0.436535, 0.253852, 1)
+light_energy = 0.571595
 shadow_enabled = true
 directional_shadow_fade_start = 0.655
 directional_shadow_max_distance = 150.0
@@ -808,69 +658,65 @@ transform = Transform3D(8192, 0, 0, 0, 128, 0, 0, 0, 8192, 0, 128, 0)
 material_override = ExtResource("59_evg4o")
 mesh = SubResource("BoxMesh_cqokr")
 
-[node name="WaterMesh" parent="." instance=ExtResource("35_s3501")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.2631, 1003.91)
-mesh = SubResource("PlaneMesh_ksvy8")
-
 [node name="Player" parent="." instance=ExtResource("16_52bg8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -259.258, -1.39731, 527.121)
 StartPOS = Vector3(-351.588, 0, 324.606)
 ResetPOS = Vector3(-351.588, 0, 324.606)
 
 [node name="Skeleton3D" parent="Player/Head/Player_Character_Shadow/Armature_003" index="0"]
-bones/0/position = Vector3(2.69659, -3.58859, -195.732)
-bones/0/rotation = Quaternion(-0.683807, -0.270398, 0.249746, 0.630015)
-bones/1/rotation = Quaternion(0.0801848, 0.0410132, -0.0090072, 0.995895)
-bones/2/rotation = Quaternion(0.0981328, 0.0795909, -0.0229036, 0.991721)
-bones/3/rotation = Quaternion(0.0981328, 0.0795909, -0.0229036, 0.991721)
-bones/4/rotation = Quaternion(-0.0607581, -0.0106645, 0.00216652, 0.998093)
-bones/5/rotation = Quaternion(-0.0637703, 0.17737, -0.008094, 0.982043)
-bones/7/rotation = Quaternion(0.58973, 0.408894, -0.567354, 0.403897)
-bones/8/rotation = Quaternion(0.424985, -0.103998, 0.0878065, 0.894909)
+bones/0/position = Vector3(2.93629, -2.64736, -196.362)
+bones/0/rotation = Quaternion(-0.685086, -0.270702, 0.248317, 0.62906)
+bones/1/rotation = Quaternion(0.0777665, 0.0407893, -0.00797337, 0.996105)
+bones/2/rotation = Quaternion(0.0927396, 0.0791365, -0.0213932, 0.99231)
+bones/3/rotation = Quaternion(0.0927509, 0.0791614, -0.0213968, 0.992307)
+bones/4/rotation = Quaternion(-0.0453904, -0.0106009, 0.00179641, 0.998911)
+bones/5/rotation = Quaternion(-0.0528899, 0.176943, -0.00312361, 0.982794)
+bones/7/rotation = Quaternion(0.571895, 0.429766, -0.566304, 0.409314)
+bones/8/rotation = Quaternion(0.436253, -0.0975782, 0.0887878, 0.8901)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0371721, 0.0614984, 0.410441, 0.909052)
-bones/11/rotation = Quaternion(0.637385, -0.370158, 0.524741, 0.425876)
-bones/12/rotation = Quaternion(0.414651, 0.106022, 0.148306, 0.891532)
-bones/13/rotation = Quaternion(0.0272484, 0.0153637, -0.365265, 0.930378)
-bones/15/rotation = Quaternion(0.0795384, 0.236913, 0.962517, -0.105393)
+bones/9/rotation = Quaternion(-0.0336318, 0.0658122, 0.418412, 0.905245)
+bones/11/rotation = Quaternion(0.61788, -0.39304, 0.52563, 0.432963)
+bones/12/rotation = Quaternion(0.432452, 0.0921027, 0.145553, 0.885052)
+bones/13/rotation = Quaternion(0.0395292, -0.00235226, -0.368826, 0.928654)
+bones/15/rotation = Quaternion(0.0801964, 0.230429, 0.964251, -0.1034)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.363802, 0.118563, -0.0364247, 0.923182)
-bones/17/rotation = Quaternion(0.566439, -0.00233036, -0.0257916, 0.823697)
-bones/18/rotation = Quaternion(0.289416, -0.0367159, -0.00951622, 0.956452)
-bones/20/rotation = Quaternion(-0.124549, 0.0329022, 0.982778, 0.132487)
-bones/21/rotation = Quaternion(-0.35222, 0.0712345, -0.0269298, 0.932814)
-bones/22/rotation = Quaternion(0.677444, 0.0550915, 0.105681, 0.725856)
+bones/16/rotation = Quaternion(-0.358995, 0.119366, -0.0361002, 0.924971)
+bones/17/rotation = Quaternion(0.565753, -0.00106409, -0.0235092, 0.824239)
+bones/18/rotation = Quaternion(0.289287, -0.0363255, -0.0095612, 0.956505)
+bones/20/rotation = Quaternion(-0.125427, 0.0223397, 0.982812, 0.133605)
+bones/21/rotation = Quaternion(-0.338499, 0.0725545, -0.0255288, 0.937818)
+bones/22/rotation = Quaternion(0.672069, 0.0554334, 0.106883, 0.730635)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.278334, 0.0572, -0.0172149, 0.958625)
+bones/23/rotation = Quaternion(0.278069, 0.0568199, -0.0170358, 0.958728)
 
 [node name="HandAttatchment" parent="Player/Head/Player_Character_Shadow/Armature_003/Skeleton3D" index="1"]
-transform = Transform3D(-0.293142, -0.36865, 0.882137, 0.945364, 0.0259174, 0.324984, -0.142668, 0.929207, 0.340911, -74.9818, -38.2954, -201.656)
+transform = Transform3D(-0.275247, -0.359446, 0.891649, 0.948373, 0.0504902, 0.313111, -0.157566, 0.931799, 0.326992, -74.8503, -37.5635, -204.337)
 
 [node name="Skeleton3D" parent="Player/Head/Player_Character/Armature_003" index="0"]
-bones/0/position = Vector3(2.69659, -3.58859, -195.732)
-bones/0/rotation = Quaternion(-0.683807, -0.270398, 0.249746, 0.630015)
-bones/1/rotation = Quaternion(0.0801848, 0.0410132, -0.0090072, 0.995895)
-bones/2/rotation = Quaternion(0.0981328, 0.0795909, -0.0229036, 0.991721)
-bones/3/rotation = Quaternion(0.0981328, 0.0795909, -0.0229036, 0.991721)
-bones/4/rotation = Quaternion(-0.0607581, -0.0106645, 0.00216652, 0.998093)
-bones/5/rotation = Quaternion(-0.0637703, 0.17737, -0.008094, 0.982043)
-bones/7/rotation = Quaternion(0.58973, 0.408894, -0.567354, 0.403897)
-bones/8/rotation = Quaternion(0.424985, -0.103998, 0.0878065, 0.894909)
+bones/0/position = Vector3(2.93629, -2.64736, -196.362)
+bones/0/rotation = Quaternion(-0.685086, -0.270702, 0.248317, 0.62906)
+bones/1/rotation = Quaternion(0.0777665, 0.0407893, -0.00797337, 0.996105)
+bones/2/rotation = Quaternion(0.0927396, 0.0791365, -0.0213932, 0.99231)
+bones/3/rotation = Quaternion(0.0927509, 0.0791614, -0.0213968, 0.992307)
+bones/4/rotation = Quaternion(-0.0453904, -0.0106009, 0.00179641, 0.998911)
+bones/5/rotation = Quaternion(-0.0528899, 0.176943, -0.00312361, 0.982794)
+bones/7/rotation = Quaternion(0.571895, 0.429766, -0.566304, 0.409314)
+bones/8/rotation = Quaternion(0.436253, -0.0975782, 0.0887878, 0.8901)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0371721, 0.0614984, 0.410441, 0.909052)
-bones/11/rotation = Quaternion(0.637385, -0.370158, 0.524741, 0.425876)
-bones/12/rotation = Quaternion(0.414651, 0.106022, 0.148306, 0.891532)
-bones/13/rotation = Quaternion(0.0272484, 0.0153637, -0.365265, 0.930378)
-bones/15/rotation = Quaternion(0.0795384, 0.236913, 0.962517, -0.105393)
+bones/9/rotation = Quaternion(-0.0336318, 0.0658122, 0.418412, 0.905245)
+bones/11/rotation = Quaternion(0.61788, -0.39304, 0.52563, 0.432963)
+bones/12/rotation = Quaternion(0.432452, 0.0921027, 0.145553, 0.885052)
+bones/13/rotation = Quaternion(0.0395292, -0.00235226, -0.368826, 0.928654)
+bones/15/rotation = Quaternion(0.0801964, 0.230429, 0.964251, -0.1034)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.363802, 0.118563, -0.0364247, 0.923182)
-bones/17/rotation = Quaternion(0.566439, -0.00233036, -0.0257916, 0.823697)
-bones/18/rotation = Quaternion(0.289416, -0.0367159, -0.00951622, 0.956452)
-bones/20/rotation = Quaternion(-0.124549, 0.0329022, 0.982778, 0.132487)
-bones/21/rotation = Quaternion(-0.35222, 0.0712345, -0.0269298, 0.932814)
-bones/22/rotation = Quaternion(0.677444, 0.0550915, 0.105681, 0.725856)
+bones/16/rotation = Quaternion(-0.358995, 0.119366, -0.0361002, 0.924971)
+bones/17/rotation = Quaternion(0.565753, -0.00106409, -0.0235092, 0.824239)
+bones/18/rotation = Quaternion(0.289287, -0.0363255, -0.0095612, 0.956505)
+bones/20/rotation = Quaternion(-0.125427, 0.0223397, 0.982812, 0.133605)
+bones/21/rotation = Quaternion(-0.338499, 0.0725545, -0.0255288, 0.937818)
+bones/22/rotation = Quaternion(0.672069, 0.0554334, 0.106883, 0.730635)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.278334, 0.0572, -0.0172149, 0.958625)
+bones/23/rotation = Quaternion(0.278069, 0.0568199, -0.0170358, 0.958728)
 
 [node name="island_Terrain_Switcher" type="Node" parent="."]
 script = ExtResource("16_r68ax")
