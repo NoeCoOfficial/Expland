@@ -488,4 +488,4 @@ func _on_story_mode_dialogue_2_after_wake_up_timer_timeout() -> void:
 
 func _on_dialogue_interface_finished_dialogue(StoryModeID: int) -> void:
 	if StoryModeID == 3:
-		PlayerData.STORY_MODE_PROGRESSION_INFO["DISPLAYED_1_DIALOGUE"] = true
+		PlayerData.STORY_MODE_PROGRESSION_INFO["DISPLAYED_21_DIALOGUE"] = true

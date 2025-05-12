@@ -1330,8 +1330,8 @@ func _on_area_collision_shape_3d_area_entered(area: Area3D) -> void:
 	if area.is_in_group(&"DemoWorldBoundaryArea"):
 		DialogueManager.startDialogue(DialogueManager.WorldBoundaryDialogue)
 	
-	if area.is_in_group(&"Dialogue2ActivationArea"):
-		DialogueManager.startDialogue(DialogueManager.WorldBoundaryDialogue)
+	if area.is_in_group(&"Dialogue2ActivationArea") and PlayerData.STORY_MODE_PROGRESSION_INFO:
+		DialogueManager.startDialogue(DialogueManager.StoryMode_Dialogue_22)
 
 #endregion
 

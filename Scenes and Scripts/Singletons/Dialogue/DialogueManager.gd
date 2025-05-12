@@ -47,7 +47,8 @@
 
 extends Node
 
-######## Story Mode ID's ########
+######## Story Mode ID's for dialogues ########
+#### Used with setStoryModeID(StoryModeID) ####
 #        1 - First message when click on story mode play button
 #        2 - Second message when click on story mode play button, which after exiting takes you to story mode
 
