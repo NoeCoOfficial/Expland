@@ -51,6 +51,8 @@ extends Node
 func initializeIslandProperties(_Island_Name):
 	pass
 
+@export var DeepOceanMaterial = preload("uid://jjwdxwb7rbc6")
+
 @export var DayNightCycle : AnimationPlayer
 @export var DayNightCycle_Rotation : AnimationPlayer
 @export var DayNightCycle_Sky : AnimationPlayer
@@ -111,6 +113,8 @@ func _ready() -> void:
 		$"Story Mode/Canvas Layers/MinimalDialogueLayer/MinimalDialogue".spawnMinimalDialogue(DialogueManager.StoryMode_Dialogue_20)
 	
 	Player.nodeSetup()
+	
+	
 
 func _on_ready() -> void:
 	AudioManager.initNotificaton(PlayerManager.AudioNotification)
@@ -489,3 +493,8 @@ func _on_story_mode_dialogue_2_after_wake_up_timer_timeout() -> void:
 func _on_dialogue_interface_finished_dialogue(StoryModeID: int) -> void:
 	if StoryModeID == 3:
 		PlayerData.STORY_MODE_PROGRESSION_INFO["DISPLAYED_21_DIALOGUE"] = true
+
+
+func _on_water_detail_init_timer_timeout() -> void:
+	DeepOceanMaterial.set_shader_parameter(&"WaveCount", 7)
+	DeepOceanMaterial.set_shader_parameter(&"WaveCount", 8)
