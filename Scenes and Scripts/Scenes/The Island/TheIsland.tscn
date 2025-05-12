@@ -602,8 +602,8 @@ camera_attributes = ExtResource("2_xjtor")
 script = ExtResource("4_jhu24")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.863395, 0.160943, 0.478169, 0, -0.947756, 0.318997, 0.504528, -0.275421, -0.818288, 0, 0, 0)
-light_color = Color(0.955791, 0.64305, 0.426857, 1)
+transform = Transform3D(0.863395, -0.0876104, -0.496863, 0, 0.984808, -0.173648, 0.504528, 0.149927, 0.850278, 0, 0, 0)
+light_color = Color(0.051971, 0.051971, 0.0519709, 1)
 shadow_enabled = true
 directional_shadow_fade_start = 0.655
 directional_shadow_max_distance = 150.0
@@ -671,53 +671,53 @@ StartPOS = Vector3(-351.588, 0, 324.606)
 ResetPOS = Vector3(-351.588, 0, 324.606)
 
 [node name="Skeleton3D" parent="Player/Head/Player_Character_Shadow/Armature_003" index="0"]
-bones/0/position = Vector3(2.87698, -2.31042, -196.494)
-bones/0/rotation = Quaternion(-0.684829, -0.270644, 0.248441, 0.629316)
-bones/1/rotation = Quaternion(0.0781884, 0.0408243, -0.00811664, 0.996069)
-bones/2/rotation = Quaternion(0.0933361, 0.0791885, -0.0216248, 0.992245)
-bones/3/rotation = Quaternion(0.0926871, 0.0792609, -0.0215608, 0.992301)
-bones/4/rotation = Quaternion(-0.0474256, -0.0105288, 0.00204105, 0.998817)
-bones/5/rotation = Quaternion(-0.0700028, 0.177873, -0.00092105, 0.98156)
-bones/7/rotation = Quaternion(0.573247, 0.428104, -0.567042, 0.408141)
-bones/8/rotation = Quaternion(0.435474, -0.0977612, 0.0883432, 0.890506)
-bones/9/rotation = Quaternion(-0.0335441, 0.0657032, 0.418842, 0.905058)
-bones/11/rotation = Quaternion(0.620591, -0.389924, 0.52571, 0.431804)
-bones/12/rotation = Quaternion(0.432555, 0.09177, 0.146114, 0.884944)
-bones/13/rotation = Quaternion(0.0398777, -0.00317503, -0.368346, 0.928828)
-bones/15/rotation = Quaternion(0.0804239, 0.230862, 0.964107, -0.1036)
-bones/16/rotation = Quaternion(-0.359258, 0.119435, -0.0364878, 0.924845)
-bones/17/rotation = Quaternion(0.56586, -0.00114803, -0.0236682, 0.82416)
-bones/18/rotation = Quaternion(0.289414, -0.0365371, -0.00969112, 0.956457)
-bones/20/rotation = Quaternion(-0.125531, 0.0214127, 0.982797, 0.133766)
-bones/21/rotation = Quaternion(-0.336184, 0.0725344, -0.0254854, 0.938653)
-bones/22/rotation = Quaternion(0.67207, 0.0555141, 0.107025, 0.730607)
-bones/23/rotation = Quaternion(0.278141, 0.0569239, -0.0170848, 0.9587)
+bones/0/position = Vector3(2.70063, -4.1099, -195.427)
+bones/0/rotation = Quaternion(-0.683131, -0.270089, 0.2504, 0.630622)
+bones/1/rotation = Quaternion(0.0810068, 0.0411428, -0.00942692, 0.995819)
+bones/2/rotation = Quaternion(0.0998985, 0.0797208, -0.0232826, 0.991526)
+bones/3/rotation = Quaternion(0.0998986, 0.0797208, -0.0232826, 0.991526)
+bones/4/rotation = Quaternion(-0.0659849, -0.0107662, 0.00204694, 0.99776)
+bones/5/rotation = Quaternion(-0.0577761, 0.17688, -0.0110494, 0.982473)
+bones/7/rotation = Quaternion(0.59437, 0.40315, -0.56771, 0.402367)
+bones/8/rotation = Quaternion(0.420632, -0.107303, 0.0880999, 0.896545)
+bones/9/rotation = Quaternion(-0.0390065, 0.058912, 0.406176, 0.911059)
+bones/11/rotation = Quaternion(0.642343, -0.364009, 0.524557, 0.42395)
+bones/12/rotation = Quaternion(0.405741, 0.112731, 0.148701, 0.894737)
+bones/13/rotation = Quaternion(0.0224898, 0.0238621, -0.36287, 0.931263)
+bones/15/rotation = Quaternion(0.079172, 0.240039, 0.961697, -0.106081)
+bones/16/rotation = Quaternion(-0.365813, 0.118238, -0.0366332, 0.92242)
+bones/17/rotation = Quaternion(0.56636, -0.00271551, -0.0265458, 0.823726)
+bones/18/rotation = Quaternion(0.289416, -0.0367881, -0.0094435, 0.95645)
+bones/20/rotation = Quaternion(-0.124541, 0.0383184, 0.982603, 0.132337)
+bones/21/rotation = Quaternion(-0.35892, 0.0704351, -0.0270709, 0.930313)
+bones/22/rotation = Quaternion(0.67981, 0.0548196, 0.104894, 0.723775)
+bones/23/rotation = Quaternion(0.2782, 0.0568995, -0.0170441, 0.958685)
 
 [node name="HandAttatchment" parent="Player/Head/Player_Character_Shadow/Armature_003/Skeleton3D" index="1"]
-transform = Transform3D(-0.275221, -0.349051, 0.895777, 0.949249, 0.0488946, 0.310702, -0.15225, 0.935827, 0.31788, -73.9489, -37.1029, -203.926)
+transform = Transform3D(-0.302024, -0.383455, 0.87278, 0.942936, 0.0144705, 0.332659, -0.140189, 0.923447, 0.357202, -76.1719, -38.9084, -201.068)
 
 [node name="Skeleton3D" parent="Player/Head/Player_Character/Armature_003" index="0"]
-bones/0/position = Vector3(2.87698, -2.31042, -196.494)
-bones/0/rotation = Quaternion(-0.684829, -0.270644, 0.248441, 0.629316)
-bones/1/rotation = Quaternion(0.0781884, 0.0408243, -0.00811664, 0.996069)
-bones/2/rotation = Quaternion(0.0933361, 0.0791885, -0.0216248, 0.992245)
-bones/3/rotation = Quaternion(0.0926871, 0.0792609, -0.0215608, 0.992301)
-bones/4/rotation = Quaternion(-0.0474256, -0.0105288, 0.00204105, 0.998817)
-bones/5/rotation = Quaternion(-0.0700028, 0.177873, -0.00092105, 0.98156)
-bones/7/rotation = Quaternion(0.573247, 0.428104, -0.567042, 0.408141)
-bones/8/rotation = Quaternion(0.435474, -0.0977612, 0.0883432, 0.890506)
-bones/9/rotation = Quaternion(-0.0335441, 0.0657032, 0.418842, 0.905058)
-bones/11/rotation = Quaternion(0.620591, -0.389924, 0.52571, 0.431804)
-bones/12/rotation = Quaternion(0.432555, 0.09177, 0.146114, 0.884944)
-bones/13/rotation = Quaternion(0.0398777, -0.00317503, -0.368346, 0.928828)
-bones/15/rotation = Quaternion(0.0804239, 0.230862, 0.964107, -0.1036)
-bones/16/rotation = Quaternion(-0.359258, 0.119435, -0.0364878, 0.924845)
-bones/17/rotation = Quaternion(0.56586, -0.00114803, -0.0236682, 0.82416)
-bones/18/rotation = Quaternion(0.289414, -0.0365371, -0.00969112, 0.956457)
-bones/20/rotation = Quaternion(-0.125531, 0.0214127, 0.982797, 0.133766)
-bones/21/rotation = Quaternion(-0.336184, 0.0725344, -0.0254854, 0.938653)
-bones/22/rotation = Quaternion(0.67207, 0.0555141, 0.107025, 0.730607)
-bones/23/rotation = Quaternion(0.278141, 0.0569239, -0.0170848, 0.9587)
+bones/0/position = Vector3(2.70063, -4.1099, -195.427)
+bones/0/rotation = Quaternion(-0.683131, -0.270089, 0.2504, 0.630622)
+bones/1/rotation = Quaternion(0.0810068, 0.0411428, -0.00942692, 0.995819)
+bones/2/rotation = Quaternion(0.0998985, 0.0797208, -0.0232826, 0.991526)
+bones/3/rotation = Quaternion(0.0998986, 0.0797208, -0.0232826, 0.991526)
+bones/4/rotation = Quaternion(-0.0659849, -0.0107662, 0.00204694, 0.99776)
+bones/5/rotation = Quaternion(-0.0577761, 0.17688, -0.0110494, 0.982473)
+bones/7/rotation = Quaternion(0.59437, 0.40315, -0.56771, 0.402367)
+bones/8/rotation = Quaternion(0.420632, -0.107303, 0.0880999, 0.896545)
+bones/9/rotation = Quaternion(-0.0390065, 0.058912, 0.406176, 0.911059)
+bones/11/rotation = Quaternion(0.642343, -0.364009, 0.524557, 0.42395)
+bones/12/rotation = Quaternion(0.405741, 0.112731, 0.148701, 0.894737)
+bones/13/rotation = Quaternion(0.0224898, 0.0238621, -0.36287, 0.931263)
+bones/15/rotation = Quaternion(0.079172, 0.240039, 0.961697, -0.106081)
+bones/16/rotation = Quaternion(-0.365813, 0.118238, -0.0366332, 0.92242)
+bones/17/rotation = Quaternion(0.56636, -0.00271551, -0.0265458, 0.823726)
+bones/18/rotation = Quaternion(0.289416, -0.0367881, -0.0094435, 0.95645)
+bones/20/rotation = Quaternion(-0.124541, 0.0383184, 0.982603, 0.132337)
+bones/21/rotation = Quaternion(-0.35892, 0.0704351, -0.0270709, 0.930313)
+bones/22/rotation = Quaternion(0.67981, 0.0548196, 0.104894, 0.723775)
+bones/23/rotation = Quaternion(0.2782, 0.0568995, -0.0170441, 0.958685)
 
 [node name="island_Terrain_Switcher" type="Node" parent="."]
 script = ExtResource("16_r68ax")
@@ -926,10 +926,6 @@ gizmo_extents = 0.9
 
 [node name="Building_Assets" type="Node" parent="."]
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -246.81, -6.48205, 546.093)
-omni_range = 16.0
-
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="timeout" from="Tick" to="." method="_on_tick"]
 [connection signal="timeout" from="Weather Timer" to="." method="_on_weather_timer_timeout"]
@@ -944,3 +940,4 @@ omni_range = 16.0
 [editable path="Player/Head/Player_Character"]
 [editable path="Player/Head/Camera3D/HandItemRig/HandItem"]
 [editable path="Player/Head/Camera3D/AchievementsLayer/AchievementsUI"]
+[editable path="World Contents/Island"]
