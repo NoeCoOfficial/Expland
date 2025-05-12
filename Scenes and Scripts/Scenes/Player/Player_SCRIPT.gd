@@ -1332,6 +1332,7 @@ func _on_area_collision_shape_3d_area_entered(area: Area3D) -> void:
 	
 	if area.is_in_group(&"Dialogue2ActivationArea") and !PlayerData.STORY_MODE_PROGRESSION_INFO["DISPLAYED_22_DIALOGUE"]:
 		DialogueManager.startDialogue(DialogueManager.StoryMode_Dialogue_22)
+		DialogueManager.setStoryModeID(4)
 		PlayerData.STORY_MODE_PROGRESSION_INFO["DISPLAYED_22_DIALOGUE"] = true
 
 #endregion
