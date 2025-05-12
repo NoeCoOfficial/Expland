@@ -408,10 +408,10 @@ func startStoryMode():
 	if !StoryModeManager.has_done_first_story_msg:
 		StoryModeManager.has_done_first_story_msg = true
 		DialogueManager.setStoryModeID(1)
-		DialogueManager.startDialogue(DialogueManager.mainMenuStoryModeDialogue_1)
+		DialogueManager.startDialogue(DialogueManager.StoryMode_Dialogue_1)
 	else:
 		DialogueManager.setStoryModeID(2)
-		DialogueManager.startDialogue(DialogueManager.mainMenuStoryModeDialogue_2)
+		DialogueManager.startDialogue(DialogueManager.StoryMode_Dialogue_2)
 
 func _on_dialogue_interface_finished_dialogue(StoryModeID: int) -> void:
 	# NOTE: StoryModeID will always be the same as DialogueManager.Current_StoryModeID
