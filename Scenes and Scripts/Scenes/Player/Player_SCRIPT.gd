@@ -337,8 +337,6 @@ var stamina_restoring_from_0 = false
 @export var BuildingVignette : ColorRect
 @export var BuildingInitItemRig : Node3D
 @export var BuildingItemParent : Node3D
-@export var CanBuildCollisionArea : Area3D
-@export var CanBuildCollisionShape : CollisionShape3D
 
 @export_group("General Nodes")
 
@@ -1071,16 +1069,6 @@ func showDeathScreen(): # A function to show the death screen
 
 #endregion
 
-#region Building
-
-func _on_can_build_collision_area_body_entered(body: Node3D) -> void:
-	BuildingManager.toggle_can_build(false, true)
-
-func _on_can_build_collision_area_body_exited(body: Node3D) -> void:
-	BuildingManager.toggle_can_build(true, true)
-
-#endregion
-
 #region Item Workshop
 
 func openItemWorkshop():
@@ -1341,6 +1329,16 @@ func _on_area_collision_shape_3d_body_entered(body: Node3D) -> void:
 func _on_area_collision_shape_3d_area_entered(area: Area3D) -> void:
 	if area.is_in_group(&"DemoWorldBoundaryArea"):
 		DialogueManager.startDialogue(DialogueManager.WorldBoundaryDialogue)
+	
+	if area.is_in_group(&"Dialogue2ActivationArea") and !PlayerData.STORY_MODE_PROGRESSION_INFO["DISPLAYED_22_DIALOGUE"]:
+		DialogueManager.startDialogue(DialogueManager.StoryMode_Dialogue_22)
+		DialogueManager.setStoryModeID(4)
+		PlayerData.STORY_MODE_PROGRESSION_INFO["DISPLAYED_22_DIALOGUE"] = true
+
+	if area.is_in_group(&"Dialogue3ActivationArea") and !PlayerData.STORY_MODE_PROGRESSION_INFO["DISPLAYED_23_DIALOGUE"]:
+		DialogueManager.startDialogue(DialogueManager.StoryMode_Dialogue_23)
+		DialogueManager.setStoryModeID(5)
+		PlayerData.STORY_MODE_PROGRESSION_INFO["DISPLAYED_23_DIALOGUE"] = true
 
 #endregion
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://c5jkrckgqd0w6"]
+[gd_scene load_steps=41 format=3 uid="uid://c5jkrckgqd0w6"]
 
 [ext_resource type="Script" uid="uid://cucb4fwieubx" path="res://Scenes and Scripts/Scenes/The Island/TheIsland_SCRIPT.gd" id="1_a8sfg"]
 [ext_resource type="Environment" uid="uid://dgtwdwq2n0x1v" path="res://Resources/Environment/TheIsland_WorldEnvironment.tres" id="2_h46kk"]
@@ -12,12 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://bf802csj5h2uu" path="res://Assets/3D Models/The Island Deco/TheIslandDeco.tscn" id="11_kq5pm"]
 [ext_resource type="PackedScene" uid="uid://cjm5lrxicdgsf" path="res://Scenes and Scripts/Scenes/Player/Player.tscn" id="16_52bg8"]
 [ext_resource type="Script" uid="uid://dbn31kh6cxec8" path="res://Scenes and Scripts/Scenes/The Island/Island_Terrain_Switcher_SCRIPT.gd" id="16_r68ax"]
-[ext_resource type="PackedScene" uid="uid://dble54a2rl76q" path="res://Scenes and Scripts/Scenes/The Island/Explorer Note/ExplorerNote.tscn" id="32_qh5si"]
-[ext_resource type="Texture2D" uid="uid://dhp1lqdlclos" path="res://Textures/Icons/Expland_TextWHITE_Icon.png" id="33_74605"]
 [ext_resource type="Shader" uid="uid://ddwwgv2rqfito" path="res://Resources/Shaders/GausianBlur.gdshader" id="34_747t0"]
-[ext_resource type="Texture2D" uid="uid://d2p266eplnyto" path="res://Textures/Explorer Notes/2_Lucent.png" id="34_agr60"]
 [ext_resource type="PackedScene" uid="uid://cn1krf62jowgb" path="res://Scenes and Scripts/Scenes/Dialogue/MinimalDialogue.tscn" id="34_r68ax"]
-[ext_resource type="PackedScene" uid="uid://cg37p3dc7fbqx" path="res://Scenes and Scripts/Scenes/Environment/Water Mesh/WaterMesh.tscn" id="35_s3501"]
 [ext_resource type="Material" uid="uid://b53wf3cs61c28" path="res://Resources/Materials/CloudsMaterial.tres" id="59_evg4o"]
 
 [sub_resource type="Animation" id="Animation_747t0"]
@@ -275,156 +271,6 @@ _data = {
 
 [sub_resource type="BoxMesh" id="BoxMesh_cqokr"]
 lightmap_size_hint = Vector2i(14, 21)
-
-[sub_resource type="Shader" id="Shader_kikpc"]
-code = "shader_type spatial;
-render_mode depth_draw_always;
-
-uniform sampler2D SCREEN_TEXTURE: hint_screen_texture, filter_linear_mipmap;
-uniform sampler2D DEPTH_TEXTURE: hint_depth_texture, filter_linear_mipmap;
-
-uniform vec3 albedo : source_color;
-uniform vec3 albedo2 : source_color;
-uniform vec4 color_deep : source_color;
-uniform vec4 color_shallow : source_color;
-
-uniform float metallic : hint_range(0.0, 1.0) = 0;
-uniform float roughness : hint_range(0.0, 1.0) = 0.02;
-
-uniform sampler2D texture_normal;
-uniform sampler2D texture_normal2;
-uniform sampler2D wave;
-
-uniform float wave_time = 0;
-uniform vec2 wave_direction = vec2(2.0,0.0);
-uniform vec2 wave_2_direction = vec2(0.0,1.0);
-uniform float time_scale : hint_range(0.0, 0.2, 0.005) = 0.025;
-uniform float wave_speed = 2.0;
-uniform float noise_scale = 10.0;
-uniform float height_scale = 0.15;
-uniform float beers_law = 2.0;
-uniform float depth_offset = -0.75;
-
-varying float height;
-varying vec3 world_pos;
-
-uniform float edge_scale = 0.1;
-uniform float near = 0.5;
-uniform float far = 100.0;
-uniform vec3 edge_color : source_color;
-
-float fresnel(float amount, vec3 normal, vec3 view)
-{
-	return pow((1.0 - clamp(dot(normalize(normal), normalize(view)), 0.0, 1.0 )), amount);
-}
-
-float edge(float depth) {
-	return near * far / (far + depth * (near - far));
-}
-
-// This takes care of the waves.
-void vertex() {
-	world_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).zyx;
-	height = texture(wave, world_pos.xz / noise_scale + wave_time * wave_speed).g;
-	VERTEX.y += height * height_scale;
-}
-
-void fragment() {
-	float depth_texture = texture(DEPTH_TEXTURE, SCREEN_UV).r;
-	float depth = PROJECTION_MATRIX[3][2] / (depth_texture + PROJECTION_MATRIX[2][2]);
-	depth = depth + VERTEX.z;
-	float depth_blend = exp((depth + depth_offset) * -beers_law);
-	depth_blend = clamp(1.0 - depth_blend, 0.0, 1.0);
-	
-	vec3 screen_color = textureLod(SCREEN_TEXTURE, SCREEN_UV, depth_blend * 2.5).rgb;
-	vec3 depth_color = mix(color_shallow.rgb, color_deep.rgb, depth_blend);
-	vec3 color = mix(screen_color * depth_color, depth_color * 0.25, depth_blend * 0.5);
-	
-	float z_depth = edge(texture(DEPTH_TEXTURE, SCREEN_UV).x);
-	float z_pos = edge(FRAGCOORD.z);
-	float z_dif = z_depth - z_pos;
-	
-	vec2 time = (TIME * wave_direction) * time_scale;
-	vec2 time2 = (TIME * wave_2_direction) * time_scale;
-
-	vec3 normal_blend = mix(texture(texture_normal, world_pos.xz / noise_scale + time).rgb, texture(texture_normal2, world_pos.xz / noise_scale + time2).rgb, 0.5);
-	
-	float fresnel = fresnel(5.0, NORMAL, VIEW);
-	vec3 surface_color = mix(albedo, albedo2, fresnel);
-	vec3 depth_color_adj = mix(edge_color, color, step(edge_scale, z_dif));
-	
-	ALBEDO = clamp(surface_color + depth_color_adj,vec3(0),vec3(1.0));
-	ALPHA = 1.0;
-	METALLIC = metallic;
-	ROUGHNESS = roughness;
-	NORMAL_MAP = normal_blend;
-}"
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_s3501"]
-frequency = 0.0107
-fractal_type = 2
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rkq2m"]
-seamless = true
-as_normal_map = true
-bump_strength = 5.3
-noise = SubResource("FastNoiseLite_s3501")
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_747t0"]
-noise_type = 3
-fractal_type = 2
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r68ax"]
-seamless = true
-as_normal_map = true
-bump_strength = 2.9
-noise = SubResource("FastNoiseLite_747t0")
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_32fgl"]
-noise_type = 3
-seed = 575
-frequency = 0.0032
-offset = Vector3(101.43, -278.08, -1000)
-fractal_type = 0
-fractal_octaves = 10
-fractal_gain = 0.145
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1rf0p"]
-in_3d_space = true
-seamless = true
-noise = SubResource("FastNoiseLite_32fgl")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5oxf6"]
-render_priority = -1
-shader = SubResource("Shader_kikpc")
-shader_parameter/albedo = Color(0.266225, 0.2277, 0.69, 1)
-shader_parameter/albedo2 = Color(0.1475, 0.154875, 0.59, 1)
-shader_parameter/color_deep = Color(0, 0, 0, 1)
-shader_parameter/color_shallow = Color(0, 0, 0, 1)
-shader_parameter/metallic = 0.335
-shader_parameter/roughness = 0.436
-shader_parameter/texture_normal = SubResource("NoiseTexture2D_rkq2m")
-shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_r68ax")
-shader_parameter/wave = SubResource("NoiseTexture2D_1rf0p")
-shader_parameter/wave_time = 0.37
-shader_parameter/wave_direction = Vector2(2, 0)
-shader_parameter/wave_2_direction = Vector2(0.46, 1)
-shader_parameter/time_scale = 0.025
-shader_parameter/wave_speed = 0.065
-shader_parameter/noise_scale = 26.695
-shader_parameter/height_scale = 1.59
-shader_parameter/beers_law = 2.0
-shader_parameter/depth_offset = -0.75
-shader_parameter/edge_scale = 0.1
-shader_parameter/near = 0.5
-shader_parameter/far = 100.0
-shader_parameter/edge_color = Color(0, 0, 0, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_ksvy8"]
-material = SubResource("ShaderMaterial_5oxf6")
-size = Vector2(1000, 1000)
-subdivide_width = 2000
-subdivide_depth = 2000
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_747t0"]
 size = Vector3(29.6547, 18.4379, 48.5692)
@@ -734,6 +580,27 @@ _data = {
 &"main": SubResource("Animation_5oxf6")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_gl283"]
+size = Vector3(470.418, 35.3374, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wt6q2"]
+size = Vector3(121.788, 35.3374, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4f2hi"]
+size = Vector3(48.4362, 35.3374, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2nujg"]
+size = Vector3(50.0512, 35.3374, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yugbc"]
+size = Vector3(66.7483, 35.3374, 4.64648)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_di412"]
+size = Vector3(23.1264, 35.3374, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nawqk"]
+size = Vector3(29.1805, 35.3374, 1)
+
 [node name="World" type="Node3D" node_paths=PackedStringArray("DayNightCycle", "DayNightCycle_Rotation", "DayNightCycle_Sky", "Tick", "Weather_Timer", "RainParticles", "Clouds", "Player", "Building_Assets_Parent", "Marker_StoryModeStartSpawn")]
 script = ExtResource("1_a8sfg")
 DayNightCycle = NodePath("Day-Night Cycle")
@@ -754,7 +621,7 @@ script = ExtResource("4_jhu24")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.863395, -0.0876104, -0.496863, 0, 0.984808, -0.173648, 0.504528, 0.149927, 0.850278, 0, 0, 0)
-light_color = Color(0.09, 0.09, 0.09, 1)
+light_color = Color(0.051971, 0.051971, 0.0519709, 1)
 shadow_enabled = true
 directional_shadow_fade_start = 0.655
 directional_shadow_max_distance = 150.0
@@ -793,6 +660,11 @@ wait_time = 2.0
 wait_time = 200.0
 one_shot = true
 
+[node name="WaterDetailInitTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
 [node name="Rain" type="CPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -347.562, 57.3563, 287.541)
 amount = 5000
@@ -811,14 +683,59 @@ transform = Transform3D(8192, 0, 0, 0, 128, 0, 0, 0, 8192, 0, 128, 0)
 material_override = ExtResource("59_evg4o")
 mesh = SubResource("BoxMesh_cqokr")
 
-[node name="WaterMesh" parent="." instance=ExtResource("35_s3501")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.2631, 1003.91)
-mesh = SubResource("PlaneMesh_ksvy8")
-
 [node name="Player" parent="." instance=ExtResource("16_52bg8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -259.258, -1.39731, 527.121)
 StartPOS = Vector3(-351.588, 0, 324.606)
 ResetPOS = Vector3(-351.588, 0, 324.606)
+
+[node name="Skeleton3D" parent="Player/Head/Player_Character_Shadow/Armature_003" index="0"]
+bones/0/position = Vector3(2.6958, -3.59513, -195.728)
+bones/0/rotation = Quaternion(-0.683801, -0.270394, 0.249752, 0.630021)
+bones/1/rotation = Quaternion(0.0801948, 0.0410152, -0.00901312, 0.995894)
+bones/2/rotation = Quaternion(0.0981519, 0.0795966, -0.0229111, 0.991719)
+bones/3/rotation = Quaternion(0.0981519, 0.0795966, -0.0229111, 0.991719)
+bones/4/rotation = Quaternion(-0.0608153, -0.0106673, 0.00216253, 0.99809)
+bones/5/rotation = Quaternion(-0.0637062, 0.177357, -0.00812876, 0.982049)
+bones/7/rotation = Quaternion(0.589788, 0.408825, -0.567353, 0.403885)
+bones/8/rotation = Quaternion(0.424919, -0.104032, 0.0878027, 0.894937)
+bones/9/rotation = Quaternion(-0.0371887, 0.0614764, 0.41039, 0.909075)
+bones/11/rotation = Quaternion(0.637442, -0.37009, 0.524736, 0.425857)
+bones/12/rotation = Quaternion(0.414573, 0.106091, 0.148299, 0.891561)
+bones/13/rotation = Quaternion(0.0271874, 0.0154566, -0.365253, 0.930383)
+bones/15/rotation = Quaternion(0.0795335, 0.236947, 0.962508, -0.105403)
+bones/16/rotation = Quaternion(-0.363815, 0.118549, -0.0364187, 0.923178)
+bones/17/rotation = Quaternion(0.566438, -0.00233969, -0.0258093, 0.823697)
+bones/18/rotation = Quaternion(0.289416, -0.0367166, -0.00951554, 0.956452)
+bones/20/rotation = Quaternion(-0.124543, 0.032963, 0.982777, 0.13248)
+bones/21/rotation = Quaternion(-0.352298, 0.0712221, -0.0269335, 0.932785)
+bones/22/rotation = Quaternion(0.677469, 0.0550882, 0.105672, 0.725834)
+bones/23/rotation = Quaternion(0.278334, 0.057201, -0.0172154, 0.958625)
+
+[node name="HandAttatchment" parent="Player/Head/Player_Character_Shadow/Armature_003/Skeleton3D" index="1"]
+transform = Transform3D(-0.293198, -0.368804, 0.882054, 0.945346, 0.0258443, 0.325042, -0.142673, 0.929148, 0.34107, -74.9945, -38.2974, -201.648)
+
+[node name="Skeleton3D" parent="Player/Head/Player_Character/Armature_003" index="0"]
+bones/0/position = Vector3(2.6958, -3.59513, -195.728)
+bones/0/rotation = Quaternion(-0.683801, -0.270394, 0.249752, 0.630021)
+bones/1/rotation = Quaternion(0.0801948, 0.0410152, -0.00901312, 0.995894)
+bones/2/rotation = Quaternion(0.0981519, 0.0795966, -0.0229111, 0.991719)
+bones/3/rotation = Quaternion(0.0981519, 0.0795966, -0.0229111, 0.991719)
+bones/4/rotation = Quaternion(-0.0608153, -0.0106673, 0.00216253, 0.99809)
+bones/5/rotation = Quaternion(-0.0637062, 0.177357, -0.00812876, 0.982049)
+bones/7/rotation = Quaternion(0.589788, 0.408825, -0.567353, 0.403885)
+bones/8/rotation = Quaternion(0.424919, -0.104032, 0.0878027, 0.894937)
+bones/9/rotation = Quaternion(-0.0371887, 0.0614764, 0.41039, 0.909075)
+bones/11/rotation = Quaternion(0.637442, -0.37009, 0.524736, 0.425857)
+bones/12/rotation = Quaternion(0.414573, 0.106091, 0.148299, 0.891561)
+bones/13/rotation = Quaternion(0.0271874, 0.0154566, -0.365253, 0.930383)
+bones/15/rotation = Quaternion(0.0795335, 0.236947, 0.962508, -0.105403)
+bones/16/rotation = Quaternion(-0.363815, 0.118549, -0.0364187, 0.923178)
+bones/17/rotation = Quaternion(0.566438, -0.00233969, -0.0258093, 0.823697)
+bones/18/rotation = Quaternion(0.289416, -0.0367166, -0.00951554, 0.956452)
+bones/20/rotation = Quaternion(-0.124543, 0.032963, 0.982777, 0.13248)
+bones/21/rotation = Quaternion(-0.352298, 0.0712221, -0.0269335, 0.932785)
+bones/22/rotation = Quaternion(0.677469, 0.0550882, 0.105672, 0.725834)
+bones/23/rotation = Quaternion(0.278334, 0.057201, -0.0172154, 0.958625)
 
 [node name="island_Terrain_Switcher" type="Node" parent="."]
 script = ExtResource("16_r68ax")
@@ -835,7 +752,16 @@ shape = SubResource("BoxShape3D_747t0")
 
 [node name="Island" parent="World Contents" instance=ExtResource("11_kq5pm")]
 
+[node name="Explorer Notes" type="Node" parent="World Contents"]
+
 [node name="Story Mode" type="Node" parent="."]
+
+[node name="Timers" type="Node" parent="Story Mode"]
+
+[node name="StoryModeDialogue2AfterWakeUpTimer" type="Timer" parent="Story Mode/Timers"]
+wait_time = 16.0
+one_shot = true
+autostart = true
 
 [node name="Cameras" type="Node" parent="Story Mode"]
 
@@ -996,37 +922,82 @@ layer = 4
 
 [node name="MinimalDialogue" parent="Story Mode/Canvas Layers/MinimalDialogueLayer" instance=ExtResource("34_r68ax")]
 
+[node name="Areas" type="Node" parent="Story Mode"]
+
+[node name="Dialogue2ActivationArea" type="Area3D" parent="Story Mode/Areas" groups=["Dialogue2ActivationArea"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Story Mode/Areas/Dialogue2ActivationArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -442.491, 4.87321, 454.511)
+shape = SubResource("BoxShape3D_gl283")
+debug_color = Color(1, 0, 0.0166664, 1)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Story Mode/Areas/Dialogue2ActivationArea"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -207.53, 5.04437, 512.635)
+shape = SubResource("BoxShape3D_wt6q2")
+debug_color = Color(1, 0, 0.0166664, 1)
+
+[node name="Dialogue3ActivationArea2" type="Area3D" parent="Story Mode/Areas" groups=["Dialogue3ActivationArea"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Story Mode/Areas/Dialogue3ActivationArea2"]
+transform = Transform3D(0.588618, 0, -0.808411, 0, 1, 0, 0.808411, 0, 0.588618, -164.8, 4.87321, 412.958)
+shape = SubResource("BoxShape3D_4f2hi")
+debug_color = Color(1, 0, 0.0166664, 1)
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Story Mode/Areas/Dialogue3ActivationArea2"]
+transform = Transform3D(0.588618, 0, -0.808411, 0, 1, 0, 0.808411, 0, 0.588618, -145.427, 4.87321, 414.448)
+shape = SubResource("BoxShape3D_4f2hi")
+debug_color = Color(1, 0, 0.0166664, 1)
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Story Mode/Areas/Dialogue3ActivationArea2"]
+transform = Transform3D(-0.625665, 0, -0.780092, 0, 1, 0, 0.780092, 0, -0.625665, -168.183, 4.87321, 449.068)
+shape = SubResource("BoxShape3D_2nujg")
+debug_color = Color(1, 0, 0.0166664, 1)
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="Story Mode/Areas/Dialogue3ActivationArea2"]
+transform = Transform3D(-0.488637, 0, -0.872488, 0, 1, 0, 0.872488, 0, -0.488637, -146.626, 3.65366, 462.357)
+shape = SubResource("BoxShape3D_yugbc")
+debug_color = Color(1, 0, 0.0166664, 1)
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="Story Mode/Areas/Dialogue3ActivationArea2"]
+transform = Transform3D(0.830479, 0, -0.55705, 0, 1, 0, 0.55705, 0, 0.830479, -174.581, 4.87321, 476.365)
+shape = SubResource("BoxShape3D_di412")
+debug_color = Color(1, 0, 0.0166664, 1)
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Story Mode/Areas/Dialogue3ActivationArea2"]
+transform = Transform3D(0.541107, 0, 0.840954, 0, 1, 0, -0.840954, 0, 0.541107, -171.659, 4.87321, 382.231)
+shape = SubResource("BoxShape3D_nawqk")
+debug_color = Color(1, 0, 0.0166664, 1)
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Story Mode/Areas/Dialogue3ActivationArea2"]
+transform = Transform3D(0.541107, 0, 0.840954, 0, 1, 0, -0.840954, 0, 0.541107, -152.155, 4.87321, 384.097)
+shape = SubResource("BoxShape3D_nawqk")
+debug_color = Color(1, 0, 0.0166664, 1)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Story Mode/Areas/Dialogue3ActivationArea2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -193.47, 5.04437, 639.795)
+shape = SubResource("BoxShape3D_4f2hi")
+debug_color = Color(1, 0, 0.0166664, 1)
+
 [node name="Markers" type="Node" parent="."]
 
 [node name="StoryModeStartSpawn" type="Marker3D" parent="Markers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -259.258, -1.39731, 527.121)
 gizmo_extents = 0.9
 
-[node name="ExplorerNote" parent="." instance=ExtResource("32_qh5si")]
-transform = Transform3D(6.13225e-16, -1.4029e-08, 0.320945, -0.30798, -0.0902991, -3.9471e-09, 0.0902991, -0.30798, -1.34622e-08, -386.743, 2.3204, 306.001)
-NoteID = 1
-ImageAlbedo = ExtResource("33_74605")
-DecalRotation_Degrees = Vector3(0, 90, 0)
-DecalSize = Vector3(2.895, 2, 1.06)
-DecalLowerFade = 20.075
-NailRotation_Degrees = Vector3(-2.34, -72.5, -21.03)
-
-[node name="ExplorerNote2" parent="." instance=ExtResource("32_qh5si")]
-transform = Transform3D(6.13225e-16, -1.4029e-08, 0.320945, -0.318758, -0.037406, -1.63507e-09, 0.037406, -0.318758, -1.39334e-08, -393.605, 2.3204, 308.773)
-NoteID = 2
-ImageAlbedo = ExtResource("34_agr60")
-DecalRotation_Degrees = Vector3(0, 90, 0)
-DecalSize = Vector3(5.05, 2, 2.77)
-DecalLowerFade = 8.385
-NailRotation_Degrees = Vector3(-2.34, -23.005, 2.495)
-
 [node name="Building_Assets" type="Node" parent="."]
-
-[node name="Marker3D" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -263.321, 0.445579, 527.255)
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="timeout" from="Tick" to="." method="_on_tick"]
 [connection signal="timeout" from="Weather Timer" to="." method="_on_weather_timer_timeout"]
+[connection signal="timeout" from="WaterDetailInitTimer" to="." method="_on_water_detail_init_timer_timeout"]
+[connection signal="FinishedDialogue" from="Player/Head/Camera3D/DialogueLayer/DialogueInterface" to="." method="_on_dialogue_interface_finished_dialogue"]
 [connection signal="body_entered" from="Terrain Areas/STONE" to="island_Terrain_Switcher" method="_on_stone_body_entered"]
 [connection signal="body_exited" from="Terrain Areas/STONE" to="island_Terrain_Switcher" method="_on_stone_body_exited"]
+[connection signal="timeout" from="Story Mode/Timers/StoryModeDialogue2AfterWakeUpTimer" to="." method="_on_story_mode_dialogue_2_after_wake_up_timer_timeout"]
+
+[editable path="Player"]
+[editable path="Player/Head/Player_Character_Shadow"]
+[editable path="Player/Head/Player_Character"]
+[editable path="Player/Head/Camera3D/HandItemRig/HandItem"]
+[editable path="Player/Head/Camera3D/AchievementsLayer/AchievementsUI"]
+[editable path="World Contents/Island"]

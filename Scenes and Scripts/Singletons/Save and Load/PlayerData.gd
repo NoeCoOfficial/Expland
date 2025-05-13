@@ -50,6 +50,13 @@ extends Node
 
 var SAVE_PATH = ""
 
+var STORY_MODE_PROGRESSION_INFO = {
+	"WOKEN_UP" : false,
+	"FIRST_STORY_MODE" : true,
+	"DISPLAYED_21_DIALOGUE" : false,
+	"DISPLAYED_22_DIALOGUE" : false,
+	"DISPLAYED_23_DIALOGUE" : false,
+}
 var GAME_STATE = "NORMAL"
 var Health := 100
 var Hunger := 100
