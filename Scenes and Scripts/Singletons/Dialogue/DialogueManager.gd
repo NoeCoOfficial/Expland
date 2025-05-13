@@ -53,7 +53,7 @@ extends Node
 #        2 - Second message when click on story mode play button, which after exiting takes you to story mode
 
 #        3 - First dialogue shown upon waking up on the island
-#        4 - Second dialogue shown upon waking up on the island
+#        4 - Second dialogue shown upon waking up on the island (triggered by small collision area around spawn)
 #        5 - Third dialogue shown upon seeing the grass path
 #        6 - Fourth dialogue shown upon seeing the shack
 
@@ -368,7 +368,6 @@ var StoryMode_StartCutscene_Dialogue_8 = [
 ################################################
 ################################################
 
-# StoryMode_Dialogue_20
 var StoryMode_Dialogue_20 = [
 	{"message": 
 		'', 
@@ -414,4 +413,14 @@ var StoryMode_Dialogue_22 = [
 	{"author": "You", 
 	"message": "Yeah, I probably should do that.",
 	"duration": 1.5},
+]
+
+var StoryMode_Dialogue_23 = [
+	{"author": "You", 
+	"message": "Woah... a grass path...",
+	"duration": 1.0},
+	
+	{"author": "You", 
+	"message": "Maybe it leeds somewhere. I might check it out.",
+	"duration": 2.0},
 ]
