@@ -1,5 +1,6 @@
 [gd_scene load_steps=88 format=3 uid="uid://cjm5lrxicdgsf"]
 
+
 [ext_resource type="Script" uid="uid://6516a37cmejq" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="1_5mhs1"]
 [ext_resource type="Script" uid="uid://dilocovfy7y5b" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="2_37tst"]
 [ext_resource type="Texture2D" uid="uid://tmqrfb1atg1j" path="res://Textures/Crosshairs/Expland_Crosshair.png" id="2_606ex"]
@@ -18,6 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://c2clf63v0gam8" path="res://Textures/Icons/Input Prompts/mouse_outline.png" id="11_e1x4n"]
 [ext_resource type="Material" uid="uid://bo77d7nagqoh4" path="res://Resources/Shader Materials/BuildingVignette.tres" id="12_4f5g7"]
 [ext_resource type="Script" uid="uid://dux7wdl4tm683" path="res://Textures/Icons/Script Icons/Scripts/KeyIcon_SCRIPT.gd" id="12_bcco5"]
+[ext_resource type="Texture2D" uid="uid://bx3jg6ecnsa15" path="res://Tests/Screenshot (8).png" id="13_fqnu3"]
+[ext_resource type="FontFile" uid="uid://bel1qoyfluvci" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Bold.otf" id="15_1fhva"]
 [ext_resource type="Texture2D" uid="uid://b6qs4d3wecwxo" path="res://Textures/Icons/Input Prompts/mouse_scroll_outline.png" id="16_e1x4n"]
 [ext_resource type="Script" uid="uid://bd3squcstkss1" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="16_wg7d4"]
 [ext_resource type="PackedScene" uid="uid://du1ak3ldg8x4e" path="res://Scenes and Scripts/Scenes/Dialogue/DialogueInterface.tscn" id="17_pkmg7"]
@@ -1580,6 +1583,163 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 anti_aliasing = false
 
+[sub_resource type="Animation" id="Animation_fqnu3"]
+resource_name = "BasicControls"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GreyLayer:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GreyLayer:color")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.643137)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BasicControls:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BasicControls/Let\'sGetStarted:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BasicControls/Let\'sGetStarted:scale")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.3, 1.7),
+"transitions": PackedFloat32Array(0.297302, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.345, 1.345)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BasicControls/Let\'sGetStarted:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.44063, 1.96667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BasicControls/Mask/PressWASD:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2.12401),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BasicControls/Mask/PressWASD:position")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(2.124, 2.46667),
+"transitions": PackedFloat32Array(0.406127, 1),
+"update": 0,
+"values": [Vector2(-281, 539.355), Vector2(-281, 488.5)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("BasicControls/Mask/PressWASD:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 3.96667, 4.36667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1fhva"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BasicControls/Mask/PressWASD:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BasicControls/Mask/PressWASD:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-281, 462.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BasicControls/Mask/PressWASD:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x8es6"]
+_data = {
+&"BasicControls_1": SubResource("Animation_fqnu3"),
+&"RESET": SubResource("Animation_1fhva")
+}
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8e5id"]
 bg_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 4
@@ -1901,6 +2061,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 transform = Transform3D(-0.651061, 0, -5.69176e-08, 0, 0.651061, 0, 5.69176e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Head/Player_Character_Shadow/Armature_003" index="0"]
+
 bones/0/position = Vector3(2.85716, -3.67563, -195.794)
 bones/0/rotation = Quaternion(-0.684421, -0.269957, 0.24911, 0.629789)
 bones/1/rotation = Quaternion(0.079709, 0.0408722, -0.00889832, 0.99594)
@@ -1931,6 +2092,7 @@ cast_shadow = 3
 
 [node name="HandAttatchment" type="BoneAttachment3D" parent="Head/Player_Character_Shadow/Armature_003/Skeleton3D" index="1"]
 transform = Transform3D(-0.291386, -0.374926, 0.880071, 0.945267, 0.028376, 0.325061, -0.146847, 0.92662, 0.346137, -75.7666, -38.7333, -202.549)
+
 bone_name = "mixamorig_RightHand"
 bone_idx = 14
 
@@ -1938,6 +2100,7 @@ bone_idx = 14
 transform = Transform3D(-0.651061, 0, 5.69175e-08, 0, 0.651061, 0, -5.69175e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Head/Player_Character/Armature_003" index="0"]
+
 bones/0/position = Vector3(2.85716, -3.67563, -195.794)
 bones/0/rotation = Quaternion(-0.684421, -0.269957, 0.24911, 0.629789)
 bones/1/rotation = Quaternion(0.079709, 0.0408722, -0.00889832, 0.99594)
@@ -2115,7 +2278,93 @@ theme_override_constants/v_separation = -61
 columns = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Head/Camera3D/HUDLayer"]
+[node name="TutorialLayer" type="CanvasLayer" parent="Head/Camera3D/HUDLayer"]
+layer = 128
+visible = false
+
+[node name="examplebg" type="TextureRect" parent="Head/Camera3D/HUDLayer/TutorialLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("13_fqnu3")
+expand_mode = 1
+
+[node name="GreyLayer" type="ColorRect" parent="Head/Camera3D/HUDLayer/TutorialLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.643137)
+metadata/_edit_use_anchors_ = true
+
+[node name="TutorialAnimations" type="AnimationPlayer" parent="Head/Camera3D/HUDLayer/TutorialLayer"]
+libraries = {
+&"": SubResource("AnimationLibrary_x8es6")
+}
+
+[node name="BasicControls" type="Control" parent="Head/Camera3D/HUDLayer/TutorialLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Let\'sGetStarted" type="Label" parent="Head/Camera3D/HUDLayer/TutorialLayer/BasicControls"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.5
+offset_top = -26.496
+offset_right = 171.5
+offset_bottom = 26.496
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.345, 1.345)
+pivot_offset = Vector2(171.5, 26.496)
+theme = ExtResource("17_rhxkt")
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("15_1fhva")
+theme_override_font_sizes/font_size = 46
+text = "Let's get started!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mask" type="Sprite2D" parent="Head/Camera3D/HUDLayer/TutorialLayer/BasicControls"]
+clip_children = 1
+position = Vector2(576, -191)
+texture = ExtResource("13_fqnu3")
+
+[node name="PressWASD" type="Label" parent="Head/Camera3D/HUDLayer/TutorialLayer/BasicControls/Mask"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1241.0
+offset_top = -77.5
+offset_right = -679.0
+offset_bottom = -24.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(281, 26.5)
+theme = ExtResource("17_rhxkt")
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("15_1fhva")
+theme_override_font_sizes/font_size = 46
+text = "Use the WASD keys to move"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="BuildingVignetteLayer" type="CanvasLayer" parent="Head/Camera3D"]
 
