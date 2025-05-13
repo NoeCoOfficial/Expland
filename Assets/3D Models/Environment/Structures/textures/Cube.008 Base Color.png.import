@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4lqf1y44m24"
-path.s3tc="res://.godot/imported/ShackDoorColor.png-e593ebd4cdac10860f6a6773e5f3e330.s3tc.ctex"
-path.etc2="res://.godot/imported/ShackDoorColor.png-e593ebd4cdac10860f6a6773e5f3e330.etc2.ctex"
+uid="uid://bev0oio66uyga"
+path.s3tc="res://.godot/imported/Cube.008 Base Color.png-380b30f105a70a890ee6c09ea99fe79e.s3tc.ctex"
+path.etc2="res://.godot/imported/Cube.008 Base Color.png-380b30f105a70a890ee6c09ea99fe79e.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Resources/Materials/ShackDoorColor.png"
-dest_files=["res://.godot/imported/ShackDoorColor.png-e593ebd4cdac10860f6a6773e5f3e330.s3tc.ctex", "res://.godot/imported/ShackDoorColor.png-e593ebd4cdac10860f6a6773e5f3e330.etc2.ctex"]
+source_file="res://Assets/3D Models/Environment/Structures/textures/Cube.008 Base Color.png"
+dest_files=["res://.godot/imported/Cube.008 Base Color.png-380b30f105a70a890ee6c09ea99fe79e.s3tc.ctex", "res://.godot/imported/Cube.008 Base Color.png-380b30f105a70a890ee6c09ea99fe79e.etc2.ctex"]
 
 [params]
 

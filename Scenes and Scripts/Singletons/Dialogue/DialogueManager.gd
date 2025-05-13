@@ -412,6 +412,6 @@ var StoryMode_Dialogue_22 = [
 	"duration": 2.7},
 	
 	{"author": "You", 
-	"message": "Yeah, I probably shoud do that.",
+	"message": "Yeah, I probably should do that.",
 	"duration": 1.5},
 ]
