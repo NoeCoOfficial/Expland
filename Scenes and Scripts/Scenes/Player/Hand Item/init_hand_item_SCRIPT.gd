@@ -83,13 +83,6 @@ func _process(_delta: float) -> void:
 func swap_items(toITEM : String, useDelay : bool = true, delayTime : float = 0.2):
 	goToITEM = toITEM
 	
-	# Set can build shape
-	if goToITEM != "" and goToITEM != null:
-		var building_asset_res = InventoryManager.ITEM_TYPES[goToITEM]["BUILDING_ASSET_RES"]
-		PlayerManager.PLAYER.CanBuildCollisionShape.shape = building_asset_res.Collision_Shape
-	else:
-		PlayerManager.PLAYER.CanBuildCollisionShape.shape = BuildingManager.DEFAULT_COLLISION_SHAPE
-	
 	if useDelay:
 		await get_tree().create_timer(delayTime).timeout
 	

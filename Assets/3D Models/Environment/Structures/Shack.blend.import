@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dtbhqm0soc52d"
+uid="uid://bv6liay2wclfc"
 path="res://.godot/imported/Shack.blend-f995e49451c78aebd8c9fe0394fd7fe1.scn"
 
 [deps]
@@ -34,10 +34,6 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
-"Material": {
-"use_external/enabled": true,
-"use_external/path": "uid://d1q3trggohbjn"
-},
 "Material.001": {
 "use_external/enabled": true,
 "use_external/path": "uid://bhmwnmiv7ajfd"

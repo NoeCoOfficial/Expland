@@ -49,38 +49,42 @@
 @icon("res://Textures/Icons/Script Icons/32x32/object.png")
 extends Node3D
 
-
 @export var CoconutSpawns : Array[Node3D]
 @export var WindAnimationPlayer : AnimationPlayer
 @export var TreeMeshShakeAnimationPlayer : AnimationPlayer
 @export var LeafShakeAnimationPlayer : AnimationPlayer
 
-
-
+var can_shake : bool = true
 
 func _ready() -> void:
 	WindAnimationPlayer.play(&"wind")
 
 
 func _on_tree_shake() -> void:
-	WindAnimationPlayer.stop(true)
-	var tween = get_tree().create_tween().set_parallel().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-	tween.connect("finished", _on_leaf_tween_finished)
-	
-	tween.tween_property($TreeMesh/Leaf, "rotation_degrees", Vector3(-21.2, -75.0, -10.2), 0.2)
-	tween.tween_property($TreeMesh/Leaf_002, "rotation_degrees", Vector3(6.2, -8.4, 2.4), 0.2)
-	tween.tween_property($TreeMesh/Leaf_003, "rotation_degrees", Vector3(0.0, -73.4, 10.1), 0.2)
-	tween.tween_property($TreeMesh/Leaf_004, "rotation_degrees", Vector3(-10.2, 52.0, 21.7), 0.2)
-	tween.tween_property($TreeMesh/Leaf_005, "rotation_degrees", Vector3(-33.2, 45.0, 12.9), 0.2)
-	tween.tween_property($TreeMesh/Leaf_006, "rotation_degrees", Vector3(-4.5, -30.2, -15.9), 0.2)
-	tween.tween_property($TreeMesh/Leaf_007, "rotation_degrees", Vector3(6.0, -6.5, 2.5), 0.2)
-	tween.tween_property($TreeMesh/Leaf_008, "rotation_degrees", Vector3(7.2, 64.9, -2.6), 0.2)
-	
-	TreeMeshShakeAnimationPlayer.play(&"shake")
+	if can_shake:
+		WindAnimationPlayer.stop(true)
+		var tween = get_tree().create_tween().set_parallel().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+		tween.connect("finished", _on_leaf_tween_finished)
+		
+		tween.tween_property($TreeMesh/Leaf, "rotation_degrees", Vector3(-21.2, -75.0, -10.2), 0.2)
+		tween.tween_property($TreeMesh/Leaf_001, "rotation_degrees", Vector3(-18.1, 122.3, -7.9), 0.2)
+		tween.tween_property($TreeMesh/Leaf_002, "rotation_degrees", Vector3(6.2, -8.4, 2.4), 0.2)
+		tween.tween_property($TreeMesh/Leaf_003, "rotation_degrees", Vector3(0.0, -73.4, 10.1), 0.2)
+		tween.tween_property($TreeMesh/Leaf_004, "rotation_degrees", Vector3(-10.2, 52.0, 21.7), 0.2)
+		tween.tween_property($TreeMesh/Leaf_005, "rotation_degrees", Vector3(-33.2, 45.0, 12.9), 0.2)
+		tween.tween_property($TreeMesh/Leaf_006, "rotation_degrees", Vector3(-4.5, -30.2, -15.9), 0.2)
+		tween.tween_property($TreeMesh/Leaf_007, "rotation_degrees", Vector3(6.0, -6.5, 2.5), 0.2)
+		tween.tween_property($TreeMesh/Leaf_008, "rotation_degrees", Vector3(7.2, 64.9, -2.6), 0.2)
+		
+		TreeMeshShakeAnimationPlayer.play(&"shake")
+		can_shake = false
+		$"Shake Debounce Timer".start()
 
 func _on_leaf_tween_finished():
 	LeafShakeAnimationPlayer.play(&"shake")
 
-
 func _on_leaf_shake_animation_animation_finished(anim_name: StringName) -> void:
 	WindAnimationPlayer.play(&"wind")
+
+func _on_shake_debounce_timer_timeout() -> void:
+	can_shake = true

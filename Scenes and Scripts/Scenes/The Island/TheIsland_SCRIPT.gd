@@ -51,7 +51,7 @@ extends Node
 func initializeIslandProperties(_Island_Name):
 	pass
 
-@onready var IslandWorldEnv = preload("uid://dgtwdwq2n0x1v")
+@export var DeepOceanMaterial = preload("uid://jjwdxwb7rbc6")
 
 @export var DayNightCycle : AnimationPlayer
 @export var DayNightCycle_Rotation : AnimationPlayer
@@ -84,6 +84,8 @@ func _ready() -> void:
 	Global.transitioning_to_main_menu_from_island = false
 	Global.is_in_main_menu = false
 	
+	# TODO: LOAD DATA HERE OR SMTH
+	
 	set_pretty_shadows(PlayerSettingsData.PrettyShadows)
 	
 	if PlayerData.GAME_STATE == "SLEEPING":
@@ -100,7 +102,7 @@ func _ready() -> void:
 		init_weather_instant() # NOTE: Important line right here (initalize weather)
 		Player.camera.make_current()
 	
-	if IslandManager.Current_Game_Mode == "STORY" and StoryModeManager.is_first_story_mode:
+	if IslandManager.Current_Game_Mode == "STORY" and PlayerData.STORY_MODE_PROGRESSION_INFO["FIRST_STORY_MODE"]:
 		# NOTE: Story mode init. What happens when the player spawns in for the first time.
 		Player.global_position = Marker_StoryModeStartSpawn.global_position
 		$"Story Mode/Animation Players/StoryModeWakeUpAnimation".play("main")
@@ -108,14 +110,15 @@ func _ready() -> void:
 		Player.init_for_cutscene()
 		Player.hide()
 		set_time(1140)
-		$"Story Mode/Canvas Layers/MinimalDialogueLayer/MinimalDialogue".spawnMinimalDialogue(DialogueManager.StoryMode_Dialogue1)
+		$"Story Mode/Canvas Layers/MinimalDialogueLayer/MinimalDialogue".spawnMinimalDialogue(DialogueManager.StoryMode_Dialogue_20)
 	
 	Player.nodeSetup()
+	
 	
 
 func _on_ready() -> void:
 	AudioManager.initNotificaton(PlayerManager.AudioNotification)
-	AudioManager.initNew($TheIsland_Audio, !StoryModeManager.is_first_story_mode, false, true)
+	AudioManager.initNew($TheIsland_Audio, !PlayerData.STORY_MODE_PROGRESSION_INFO["FIRST_STORY_MODE"], false, true)
 	AudioManager.Current_Rain_SFX_Node = $Rain_SFX
 
 func _process(_delta: float) -> void:
@@ -131,9 +134,9 @@ func initNodes():
 
 func set_pretty_shadows(value : bool) -> void:
 	if value:
-		IslandWorldEnv.sdfgi_enabled = true
+		IslandManager.IslandWorldEnv.sdfgi_enabled = true
 	else:
-		IslandWorldEnv.sdfgi_enabled = false
+		IslandManager.IslandWorldEnv.sdfgi_enabled = false
 
 func set_time(minute : int):
 	
@@ -480,3 +483,18 @@ func firstInitStoryModePlayer():
 	Player.show()
 	Player.head.rotation_degrees.y = 0.0
 	Player.camera.rotation_degrees.x = 0.0
+
+func _on_story_mode_dialogue_2_after_wake_up_timer_timeout() -> void:
+	if PlayerData.STORY_MODE_PROGRESSION_INFO["FIRST_STORY_MODE"]:
+		DialogueManager.setStoryModeID(3)
+		DialogueManager.startDialogue(DialogueManager.StoryMode_Dialogue_21)
+
+
+func _on_dialogue_interface_finished_dialogue(StoryModeID: int) -> void:
+	if StoryModeID == 3:
+		PlayerData.STORY_MODE_PROGRESSION_INFO["DISPLAYED_21_DIALOGUE"] = true
+
+
+func _on_water_detail_init_timer_timeout() -> void:
+	DeepOceanMaterial.set_shader_parameter(&"WaveCount", 7)
+	DeepOceanMaterial.set_shader_parameter(&"WaveCount", 8)

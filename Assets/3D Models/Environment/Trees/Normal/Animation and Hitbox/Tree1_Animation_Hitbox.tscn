@@ -42,7 +42,6 @@ _data = {
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s4mpv"]
 resource_name = "Material.005"
-cull_mode = 2
 albedo_color = Color(0, 0.906882, 0.180455, 1)
 roughness = 0.5
 
@@ -80,7 +79,6 @@ shadow_mesh = SubResource("ArrayMesh_rwvkk")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o2ofr"]
 resource_name = "Material.003"
-cull_mode = 2
 albedo_color = Color(0.585157, 1, 0.496247, 1)
 metallic = 0.953
 roughness = 0.467
@@ -119,7 +117,6 @@ shadow_mesh = SubResource("ArrayMesh_oxr3h")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0rsa1"]
 resource_name = "Material.002"
-cull_mode = 2
 albedo_color = Color(0, 0.907397, 0.331863, 1)
 metallic = 0.952727
 roughness = 0.467273
@@ -158,7 +155,6 @@ shadow_mesh = SubResource("ArrayMesh_r4n4e")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_04l2n"]
 resource_name = "Material.004"
-cull_mode = 2
 albedo_color = Color(0.775227, 0.907402, 0, 1)
 metallic = 0.952727
 roughness = 0.467273
@@ -197,7 +193,6 @@ shadow_mesh = SubResource("ArrayMesh_s8dgy")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5gfh0"]
 resource_name = "BrownTreeMaterial"
-cull_mode = 2
 albedo_color = Color(0.434384, 0.223683, 0.0216237, 1)
 metallic = 0.869091
 roughness = 0.305455
@@ -237,7 +232,6 @@ shadow_mesh = SubResource("ArrayMesh_3ri5m")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wd835"]
 resource_name = "Material.001"
-cull_mode = 2
 albedo_color = Color(0.585157, 1, 0.496247, 1)
 metallic = 0.953
 roughness = 0.467
@@ -276,7 +270,6 @@ shadow_mesh = SubResource("ArrayMesh_cy776")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vtxcm"]
 resource_name = "Material.009"
-cull_mode = 2
 albedo_color = Color(0.763841, 0.90707, 0, 1)
 metallic = 0.952727
 roughness = 0.467273
@@ -315,7 +308,6 @@ shadow_mesh = SubResource("ArrayMesh_blkcs")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_os8fs"]
 resource_name = "Material.010"
-cull_mode = 2
 albedo_color = Color(0.585157, 1, 0.496247, 1)
 metallic = 0.953
 roughness = 0.467
@@ -354,7 +346,6 @@ shadow_mesh = SubResource("ArrayMesh_n4all")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aip8g"]
 resource_name = "Material.011"
-cull_mode = 2
 albedo_color = Color(0, 0.906882, 0.180455, 1)
 roughness = 0.5
 
@@ -462,55 +453,73 @@ libraries = {
 
 [node name="Icosphere" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(0.991433, -2.77862, -1.65591, 2.63097, 1.45378, -0.305263, 0.793265, -1.34891, 3.08202, -0.241052, 20.4854, 7.06221)
-visibility_range_end = 330.0
+visibility_range_end = 100.0
+visibility_range_end_margin = 10.0
+visibility_range_fade_mode = 1
 mesh = SubResource("ArrayMesh_5j5tw")
 skeleton = NodePath("")
 
 [node name="Icosphere_002" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(-2.34662, -4.31467, -0.717078, -1.83645, 1.7105, -4.28239, 3.96964, -1.75926, -2.40502, -5.79684, 18.0313, 1.1409)
-visibility_range_end = 330.0
+visibility_range_end = 100.0
+visibility_range_end_margin = 10.0
+visibility_range_fade_mode = 1
 mesh = SubResource("ArrayMesh_1v6tq")
 skeleton = NodePath("")
 
 [node name="Icosphere_003" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(-2.16428, -1.35473, 1.81136, -0.208327, -2.57118, -1.91909, 2.21849, -1.56307, 1.58689, -0.580245, 20.7551, -4.72819)
-visibility_range_end = 330.0
+visibility_range_end = 100.0
+visibility_range_end_margin = 10.0
+visibility_range_fade_mode = 1
 mesh = SubResource("ArrayMesh_q0idf")
 skeleton = NodePath("")
 
 [node name="Icosphere_006" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(2.77554, -0.0816118, 0.0444431, -0.0600287, -0.0989577, 2.14051, -0.0725306, -3.04115, -0.0708437, -4.40433, 12.3647, -5.03241)
-visibility_range_end = 330.0
+visibility_range_end = 100.0
+visibility_range_end_margin = 10.0
+visibility_range_fade_mode = 1
 mesh = SubResource("ArrayMesh_mue6s")
 skeleton = NodePath("")
 
 [node name="Cube_001" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(1.96563, 0.0343102, 3.63798e-12, -0.0343102, 1.96563, 4.65661e-10, -7.27596e-12, 4.65661e-10, 1.96593, -0.183137, 0.161914, 0.300683)
-visibility_range_end = 330.0
+visibility_range_end = 100.0
+visibility_range_end_margin = 10.0
+visibility_range_fade_mode = 1
 mesh = SubResource("ArrayMesh_6bc7m")
 skeleton = NodePath("")
 
 [node name="Icosphere_001" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(-2.43662, 0.880642, -0.326184, 0.87318, 1.70985, -1.72955, -0.379392, -1.72059, -1.88571, 3.16842, 16.9241, 5.2441)
-visibility_range_end = 330.0
+visibility_range_end = 100.0
+visibility_range_end_margin = 10.0
+visibility_range_fade_mode = 1
 mesh = SubResource("ArrayMesh_b8ymy")
 skeleton = NodePath("")
 
 [node name="Icosphere_004" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(0.306366, -1.36451, 0.416545, -0.793243, -0.552134, -1.00161, 1.09415, -0.0182209, -0.842786, -1.8651, 14.8799, -3.34759)
-visibility_range_end = 330.0
+visibility_range_end = 100.0
+visibility_range_end_margin = 10.0
+visibility_range_fade_mode = 1
 mesh = SubResource("ArrayMesh_qhvfw")
 skeleton = NodePath("")
 
 [node name="Icosphere_005" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(-1.7221, 0.622402, -0.230533, 0.617128, 1.20845, -1.22237, -0.268139, -1.21604, -1.33274, 4.94795, 16.4424, -2.3968)
-visibility_range_end = 330.0
+visibility_range_end = 100.0
+visibility_range_end_margin = 10.0
+visibility_range_fade_mode = 1
 mesh = SubResource("ArrayMesh_wxyu4")
 skeleton = NodePath("")
 
 [node name="Icosphere_007" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(0.991213, -2.77875, -1.65587, 2.631, 1.45365, -0.305636, 0.793461, -1.34879, 3.08201, 6.66069, 21.2619, -1.0445)
-visibility_range_end = 330.0
+visibility_range_end = 100.0
+visibility_range_end_margin = 10.0
+visibility_range_fade_mode = 1
 mesh = SubResource("ArrayMesh_eba1r")
 skeleton = NodePath("")
 

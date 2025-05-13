@@ -56,24 +56,24 @@ void fragment() {
 	depth = depth + VERTEX.z;
 	float depth_blend = exp((depth + depth_offset) * -beers_law);
 	depth_blend = clamp(1.0 - depth_blend, 0.0, 1.0);
-	
+
 	vec3 screen_color = textureLod(SCREEN_TEXTURE, SCREEN_UV, depth_blend * 2.5).rgb;
 	vec3 depth_color = mix(color_shallow.rgb, color_deep.rgb, depth_blend);
 	vec3 color = mix(screen_color * depth_color, depth_color * 0.25, depth_blend * 0.5);
-	
+
 	float z_depth = edge(texture(DEPTH_TEXTURE, SCREEN_UV).x);
 	float z_pos = edge(FRAGCOORD.z);
 	float z_dif = z_depth - z_pos;
-	
+
 	vec2 time = (TIME * wave_direction) * time_scale;
 	vec2 time2 = (TIME * wave_2_direction) * time_scale;
 
 	vec3 normal_blend = mix(texture(texture_normal, world_pos.xz / noise_scale + time).rgb, texture(texture_normal2, world_pos.xz / noise_scale + time2).rgb, 0.5);
-	
+
 	float fresnel = fresnel(5.0, NORMAL, VIEW);
 	vec3 surface_color = mix(albedo, albedo2, fresnel);
 	vec3 depth_color_adj = mix(edge_color, color, step(edge_scale, z_dif));
-	
+
 	ALBEDO = clamp(surface_color + depth_color_adj,vec3(0),vec3(1.0));
 	ALPHA = 1.0;
 	METALLIC = metallic;

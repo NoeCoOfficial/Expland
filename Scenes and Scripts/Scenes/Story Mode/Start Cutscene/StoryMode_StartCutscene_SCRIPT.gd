@@ -110,11 +110,11 @@ func onfadeInGreyOverlay_Finished():
 func new_player_dialogue_timeline():
 	await get_tree().create_timer(5.0).timeout
 	var dialogues = [
-		DialogueManager.StoryMode_StartCutsceneDialogue_2,
-		DialogueManager.StoryMode_StartCutsceneDialogue_3,
-		DialogueManager.StoryMode_StartCutsceneDialogue_4,
-		DialogueManager.StoryMode_StartCutsceneDialogue_5,
-		DialogueManager.StoryMode_StartCutsceneDialogue_6,
+		DialogueManager.StoryMode_StartCutscene_Dialogue_4,
+		DialogueManager.StoryMode_StartCutscene_Dialogue_5,
+		DialogueManager.StoryMode_StartCutscene_Dialogue_6,
+		DialogueManager.StoryMode_StartCutscene_Dialogue_7,
+		DialogueManager.StoryMode_StartCutscene_Dialogue_8,
 	]
 	
 	var break_times = [27.0, 27.0, 27.0, 27.0]
@@ -141,10 +141,10 @@ func _play_dialogue(dialogue):
 
 func cutscene_timeline():
 	await get_tree().create_timer(3).timeout
-	MD.spawnMinimalDialogue(DialogueManager.StoryMode_StartCutsceneDialogue_1)
+	MD.spawnMinimalDialogue(DialogueManager.StoryMode_StartCutscene_Dialogue_3)
 	
 	# Assuming fadeInGreyOverlay should be called after the last dialogue
-	var total_duration = 2 + 6 * (DialogueManager.StoryMode_StartCutsceneDialogue_1.size() - 1) + DialogueManager.StoryMode_StartCutsceneDialogue_1[-1]["time"]
+	var total_duration = 2 + 6 * (DialogueManager.StoryMode_StartCutscene_Dialogue_3.size() - 1) + DialogueManager.StoryMode_StartCutscene_Dialogue_3[-1]["time"]
 	get_tree().create_timer(total_duration).connect("timeout", fadeInGreyOverlay)
 
 

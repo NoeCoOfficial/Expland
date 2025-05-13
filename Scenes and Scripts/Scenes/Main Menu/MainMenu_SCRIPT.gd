@@ -179,7 +179,7 @@ func onStartup():
 
 func _input(_event: InputEvent) -> void:
 	if !Global.main_menu_transitioning_scene:
-		if Input.is_action_just_pressed("Exit") and !is_tweening and !DialogueManager.is_in_absolute_interface:  # Check if not tweening
+		if Input.is_action_just_pressed("Exit") and !is_tweening and !DialogueManager.is_in_absolute_interface and !PauseManager.is_inside_alert:  # Check if not tweening
 			if is_in_gamemode_select and !DialogueManager.is_in_interface:
 				deSpawnGameModeMenu()
 			
@@ -408,10 +408,10 @@ func startStoryMode():
 	if !StoryModeManager.has_done_first_story_msg:
 		StoryModeManager.has_done_first_story_msg = true
 		DialogueManager.setStoryModeID(1)
-		DialogueManager.startDialogue(DialogueManager.mainMenuStoryModeDialogue_1)
+		DialogueManager.startDialogue(DialogueManager.StoryMode_Dialogue_1)
 	else:
 		DialogueManager.setStoryModeID(2)
-		DialogueManager.startDialogue(DialogueManager.mainMenuStoryModeDialogue_2)
+		DialogueManager.startDialogue(DialogueManager.StoryMode_Dialogue_2)
 
 func _on_dialogue_interface_finished_dialogue(StoryModeID: int) -> void:
 	# NOTE: StoryModeID will always be the same as DialogueManager.Current_StoryModeID
