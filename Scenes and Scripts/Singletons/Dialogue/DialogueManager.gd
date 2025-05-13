@@ -378,10 +378,6 @@ var StoryMode_Dialogue_20 = [
 		"time": 1.0},
 	
 	{"message": 
-		'"My head hurts so much..."',
-		"time": 2.0},
-	
-	{"message": 
 		'"What even happened?"',
 		"time": 2.0},
 	
