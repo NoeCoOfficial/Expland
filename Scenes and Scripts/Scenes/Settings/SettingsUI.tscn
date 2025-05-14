@@ -140,7 +140,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("6_28g6n")
 theme_override_font_sizes/font_size = 21
-current_tab = 1
+current_tab = 2
 script = ExtResource("2_vw753")
 
 [node name="General" type="TabBar" parent="MainLayer/SettingsTabContainer"]
@@ -230,6 +230,7 @@ offset_bottom = 105.5
 focus_mode = 0
 
 [node name="Graphics" type="TabBar" parent="MainLayer/SettingsTabContainer"]
+visible = false
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("2_vw753")
@@ -265,7 +266,6 @@ focus_mode = 0
 button_pressed = true
 
 [node name="Video" type="TabBar" parent="MainLayer/SettingsTabContainer"]
-visible = false
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("2_vw753")
