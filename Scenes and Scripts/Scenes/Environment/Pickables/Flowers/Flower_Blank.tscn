@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://br7bcswhoo1iw"]
+
+[ext_resource type="PackedScene" uid="uid://boti1b2ycjrlk" path="res://Assets/3D Models/Environment/Flowers/Flower_Blank.blend" id="1_hu7jv"]
+
+[node name="Flower_Blank" instance=ExtResource("1_hu7jv")]
