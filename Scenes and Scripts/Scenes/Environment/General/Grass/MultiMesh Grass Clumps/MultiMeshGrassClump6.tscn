@@ -51,7 +51,7 @@ top_radius = 2.0
 bottom_radius = 2.0
 height = 0.001
 
-[node name="MultiMeshGrassClump5" type="MultiMeshInstance3D"]
+[node name="MultiMeshGrassClump6" type="MultiMeshInstance3D"]
 visibility_range_end = 40.0
 visibility_range_end_margin = 10.0
 visibility_range_fade_mode = 1

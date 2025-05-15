@@ -27,6 +27,8 @@ material = SubResource("StandardMaterial3D_qire6")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 visibility_range_end = 20.0
+visibility_range_end_margin = 10.0
+visibility_range_fade_mode = 1
 amount = 4
 lifetime = 10.0
 preprocess = 10.0
