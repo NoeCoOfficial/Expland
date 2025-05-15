@@ -44,7 +44,8 @@ script = ExtResource("1_17t8w")
 
 [node name="Tinnitus Effect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_dok1h")
-volume_db = -5.695
+volume_db = -15.968
+pitch_scale = 0.72
 bus = &"sfx"
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
