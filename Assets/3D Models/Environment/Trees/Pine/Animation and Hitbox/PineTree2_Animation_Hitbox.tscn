@@ -368,7 +368,7 @@ script = ExtResource("2_6xnp8")
 [node name="Plane" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.243727)
 lod_bias = 0.5
-visibility_range_end = 20.0
+visibility_range_end = 100.0
 visibility_range_end_margin = 10.0
 visibility_range_fade_mode = 1
 mesh = SubResource("ArrayMesh_jw6gg")
@@ -394,7 +394,7 @@ shape = SubResource("ConvexPolygonShape3D_ncrco")
 [node name="Circle" type="MeshInstance3D" parent="."]
 transform = Transform3D(3.69481, -0.0293551, 0, 0.0322441, 3.36376, 0, 0, 0, 3.27432, -0.157261, 2.15982, 0.0704203)
 lod_bias = 0.5
-visibility_range_end = 20.0
+visibility_range_end = 100.0
 visibility_range_end_margin = 10.0
 visibility_range_fade_mode = 1
 mesh = SubResource("ArrayMesh_oa6ba")
@@ -403,7 +403,7 @@ skeleton = NodePath("")
 [node name="Circle_001" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1.14918, 7.93574e-08, 2.48196, 0.0333375, 3.87288, 0.0121214, -2.8006, 0.0461016, -1.01829, 0.00232995, 3.70586, -0.0228727)
 lod_bias = 0.5
-visibility_range_end = 20.0
+visibility_range_end = 100.0
 visibility_range_end_margin = 10.0
 visibility_range_fade_mode = 1
 mesh = SubResource("ArrayMesh_n35c4")
@@ -412,7 +412,7 @@ skeleton = NodePath("")
 [node name="Circle_002" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.865652, 0.265105, -2.20551, -0.00967366, 2.39686, 0.27595, 2.50579, 0.100836, -0.760852, -0.208852, 5.53089, -0.00858164)
 lod_bias = 0.5
-visibility_range_end = 20.0
+visibility_range_end = 100.0
 visibility_range_end_margin = 10.0
 visibility_range_fade_mode = 1
 mesh = SubResource("ArrayMesh_h6sjs")
@@ -421,7 +421,7 @@ skeleton = NodePath("")
 [node name="Circle_003" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.98946, -0.0444276, 2.82016e-15, 0.0347262, 2.54525, -2.76129e-07, 5.4382e-09, 3.98592e-07, 1.76325, 0.0508388, 6.68221, -0.0451188)
 lod_bias = 0.5
-visibility_range_end = 20.0
+visibility_range_end = 100.0
 visibility_range_end_margin = 10.0
 visibility_range_fade_mode = 1
 mesh = SubResource("ArrayMesh_rxuvt")
@@ -430,7 +430,7 @@ skeleton = NodePath("")
 [node name="Circle_004" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.529607, 8.47814e-08, 1.14383, 0.0153638, 1.78484, 0.0055862, -1.29067, 0.0212462, -0.469287, -0.0980563, 7.77653, -0.150862)
 lod_bias = 0.5
-visibility_range_end = 20.0
+visibility_range_end = 100.0
 visibility_range_end_margin = 10.0
 visibility_range_fade_mode = 1
 mesh = SubResource("ArrayMesh_uui6r")
