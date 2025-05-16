@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://c5jkrckgqd0w6"]
+[gd_scene load_steps=42 format=3 uid="uid://c5jkrckgqd0w6"]
 
 [ext_resource type="Script" uid="uid://cucb4fwieubx" path="res://Scenes and Scripts/Scenes/The Island/TheIsland_SCRIPT.gd" id="1_a8sfg"]
 [ext_resource type="Environment" uid="uid://dgtwdwq2n0x1v" path="res://Resources/Environment/TheIsland_WorldEnvironment.tres" id="2_h46kk"]
@@ -96,6 +96,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(0.174533, -0.528835, 0), Vector3(0.174533, -0.528835, 0), Vector3(-3.31613, -0.528835, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WorldEnvironment:environment:fog_light_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 724, 1440, 2004, 2563),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0.485703, 0.485704, 0.485703, 1), Color(0.485703, 0.485704, 0.485703, 1), Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_odk08"]
@@ -262,8 +274,12 @@ tracks/3/keys = {
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0.780392, 0.423529, 0, 1), Color(0.301961, 0.552941, 0.827451, 1), Color(0.301961, 0.552941, 0.827451, 1), Color(0.814487, 0.387853, 0.178652, 1), Color(0, 0, 0, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_4f2hi"]
+length = 0.001
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_whi7k"]
 _data = {
+&"RESET": SubResource("Animation_4f2hi"),
 &"cloudy_sky_cycle": SubResource("Animation_s3501"),
 &"light_rain_sky_cycle": SubResource("Animation_r68ax"),
 &"sky_cycle": SubResource("Animation_whi7k")
@@ -620,8 +636,8 @@ camera_attributes = ExtResource("2_xjtor")
 script = ExtResource("4_jhu24")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.863395, -0.0876104, -0.496863, 0, 0.984808, -0.173648, 0.504528, 0.149927, 0.850278, 0, 0, 0)
-light_color = Color(0.051971, 0.051971, 0.0519709, 1)
+transform = Transform3D(0.863395, 0.354904, 0.358597, 0, -0.710757, 0.703437, 0.504528, -0.607345, -0.613664, 0, 0, 0)
+light_color = Color(0.0399463, 0.0399463, 0.0399463, 1)
 shadow_enabled = true
 directional_shadow_fade_start = 0.655
 directional_shadow_max_distance = 150.0
@@ -689,59 +705,59 @@ StartPOS = Vector3(-351.588, 0, 324.606)
 ResetPOS = Vector3(-351.588, 0, 324.606)
 
 [node name="Skeleton3D" parent="Player/Head/Player_Character_Shadow/Armature_003" index="0"]
-bones/0/position = Vector3(2.93623, -2.64679, -196.362)
-bones/0/rotation = Quaternion(-0.685086, -0.270702, 0.248317, 0.62906)
-bones/1/rotation = Quaternion(0.0777669, 0.0407894, -0.0079735, 0.996105)
-bones/2/rotation = Quaternion(0.0927377, 0.0791364, -0.0213928, 0.99231)
-bones/3/rotation = Quaternion(0.0927493, 0.0791613, -0.0213966, 0.992307)
-bones/4/rotation = Quaternion(-0.0453912, -0.0106008, 0.00179654, 0.998911)
-bones/5/rotation = Quaternion(-0.052906, 0.176944, -0.00312051, 0.982793)
-bones/7/rotation = Quaternion(0.571891, 0.42977, -0.566305, 0.409314)
-bones/8/rotation = Quaternion(0.436256, -0.0975766, 0.0887878, 0.890099)
+bones/0/position = Vector3(2.76932, -4.3218, -195.364)
+bones/0/rotation = Quaternion(-0.682881, -0.269978, 0.250496, 0.630902)
+bones/1/rotation = Quaternion(0.081161, 0.0410418, -0.00951984, 0.99581)
+bones/2/rotation = Quaternion(0.100225, 0.0794847, -0.023377, 0.991509)
+bones/3/rotation = Quaternion(0.100225, 0.0794847, -0.0233769, 0.991509)
+bones/4/rotation = Quaternion(-0.0676102, -0.0110319, 0.00235481, 0.997648)
+bones/5/rotation = Quaternion(-0.0532902, 0.176491, -0.0124062, 0.98278)
+bones/7/rotation = Quaternion(0.596386, 0.400901, -0.567402, 0.402067)
+bones/8/rotation = Quaternion(0.419194, -0.108666, 0.0882964, 0.897035)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0336312, 0.0658128, 0.418414, 0.905244)
-bones/11/rotation = Quaternion(0.617877, -0.393044, 0.525631, 0.432963)
-bones/12/rotation = Quaternion(0.432455, 0.0920997, 0.145554, 0.885051)
-bones/13/rotation = Quaternion(0.0395313, -0.0023565, -0.368827, 0.928654)
-bones/15/rotation = Quaternion(0.0801968, 0.230427, 0.964251, -0.103399)
+bones/9/rotation = Quaternion(-0.0394206, 0.0578578, 0.404007, 0.912073)
+bones/11/rotation = Quaternion(0.643946, -0.362009, 0.524617, 0.423155)
+bones/12/rotation = Quaternion(0.402877, 0.115422, 0.147973, 0.895808)
+bones/13/rotation = Quaternion(0.0211929, 0.0278235, -0.362046, 0.931504)
+bones/15/rotation = Quaternion(0.0791044, 0.241063, 0.961425, -0.106267)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.358994, 0.119367, -0.0361007, 0.924971)
-bones/17/rotation = Quaternion(0.565753, -0.00106371, -0.0235085, 0.824239)
-bones/18/rotation = Quaternion(0.289288, -0.0363257, -0.00956132, 0.956505)
-bones/20/rotation = Quaternion(-0.125428, 0.0223352, 0.982812, 0.133605)
-bones/21/rotation = Quaternion(-0.338493, 0.0725555, -0.0255292, 0.93782)
-bones/22/rotation = Quaternion(0.672067, 0.0554339, 0.106884, 0.730636)
+bones/16/rotation = Quaternion(-0.365881, 0.118064, -0.0366714, 0.922414)
+bones/17/rotation = Quaternion(0.56595, -0.00290007, -0.0267294, 0.824001)
+bones/18/rotation = Quaternion(0.289094, -0.0360905, -0.00926589, 0.956575)
+bones/20/rotation = Quaternion(-0.124372, 0.0398941, 0.982601, 0.132046)
+bones/21/rotation = Quaternion(-0.360547, 0.0704249, -0.0272993, 0.929678)
+bones/22/rotation = Quaternion(0.680144, 0.0547272, 0.104752, 0.723489)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.278069, 0.05682, -0.0170359, 0.958728)
+bones/23/rotation = Quaternion(0.277842, 0.0564953, -0.016883, 0.958815)
 
 [node name="HandAttatchment" parent="Player/Head/Player_Character_Shadow/Armature_003/Skeleton3D" index="1"]
-transform = Transform3D(-0.275244, -0.359441, 0.891652, 0.948374, 0.0504932, 0.313108, -0.157566, 0.931801, 0.326987, -74.85, -37.5631, -204.338)
+transform = Transform3D(-0.307954, -0.389611, 0.867967, 0.940567, 0.0126082, 0.339372, -0.143167, 0.920893, 0.362573, -76.5207, -39.0218, -200.876)
 
 [node name="Skeleton3D" parent="Player/Head/Player_Character/Armature_003" index="0"]
-bones/0/position = Vector3(2.93623, -2.64679, -196.362)
-bones/0/rotation = Quaternion(-0.685086, -0.270702, 0.248317, 0.62906)
-bones/1/rotation = Quaternion(0.0777669, 0.0407894, -0.0079735, 0.996105)
-bones/2/rotation = Quaternion(0.0927377, 0.0791364, -0.0213928, 0.99231)
-bones/3/rotation = Quaternion(0.0927493, 0.0791613, -0.0213966, 0.992307)
-bones/4/rotation = Quaternion(-0.0453912, -0.0106008, 0.00179654, 0.998911)
-bones/5/rotation = Quaternion(-0.052906, 0.176944, -0.00312051, 0.982793)
-bones/7/rotation = Quaternion(0.571891, 0.42977, -0.566305, 0.409314)
-bones/8/rotation = Quaternion(0.436256, -0.0975766, 0.0887878, 0.890099)
+bones/0/position = Vector3(2.76932, -4.3218, -195.364)
+bones/0/rotation = Quaternion(-0.682881, -0.269978, 0.250496, 0.630902)
+bones/1/rotation = Quaternion(0.081161, 0.0410418, -0.00951984, 0.99581)
+bones/2/rotation = Quaternion(0.100225, 0.0794847, -0.023377, 0.991509)
+bones/3/rotation = Quaternion(0.100225, 0.0794847, -0.0233769, 0.991509)
+bones/4/rotation = Quaternion(-0.0676102, -0.0110319, 0.00235481, 0.997648)
+bones/5/rotation = Quaternion(-0.0532902, 0.176491, -0.0124062, 0.98278)
+bones/7/rotation = Quaternion(0.596386, 0.400901, -0.567402, 0.402067)
+bones/8/rotation = Quaternion(0.419194, -0.108666, 0.0882964, 0.897035)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0336312, 0.0658128, 0.418414, 0.905244)
-bones/11/rotation = Quaternion(0.617877, -0.393044, 0.525631, 0.432963)
-bones/12/rotation = Quaternion(0.432455, 0.0920997, 0.145554, 0.885051)
-bones/13/rotation = Quaternion(0.0395313, -0.0023565, -0.368827, 0.928654)
-bones/15/rotation = Quaternion(0.0801968, 0.230427, 0.964251, -0.103399)
+bones/9/rotation = Quaternion(-0.0394206, 0.0578578, 0.404007, 0.912073)
+bones/11/rotation = Quaternion(0.643946, -0.362009, 0.524617, 0.423155)
+bones/12/rotation = Quaternion(0.402877, 0.115422, 0.147973, 0.895808)
+bones/13/rotation = Quaternion(0.0211929, 0.0278235, -0.362046, 0.931504)
+bones/15/rotation = Quaternion(0.0791044, 0.241063, 0.961425, -0.106267)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.358994, 0.119367, -0.0361007, 0.924971)
-bones/17/rotation = Quaternion(0.565753, -0.00106371, -0.0235085, 0.824239)
-bones/18/rotation = Quaternion(0.289288, -0.0363257, -0.00956132, 0.956505)
-bones/20/rotation = Quaternion(-0.125428, 0.0223352, 0.982812, 0.133605)
-bones/21/rotation = Quaternion(-0.338493, 0.0725555, -0.0255292, 0.93782)
-bones/22/rotation = Quaternion(0.672067, 0.0554339, 0.106884, 0.730636)
+bones/16/rotation = Quaternion(-0.365881, 0.118064, -0.0366714, 0.922414)
+bones/17/rotation = Quaternion(0.56595, -0.00290007, -0.0267294, 0.824001)
+bones/18/rotation = Quaternion(0.289094, -0.0360905, -0.00926589, 0.956575)
+bones/20/rotation = Quaternion(-0.124372, 0.0398941, 0.982601, 0.132046)
+bones/21/rotation = Quaternion(-0.360547, 0.0704249, -0.0272993, 0.929678)
+bones/22/rotation = Quaternion(0.680144, 0.0547272, 0.104752, 0.723489)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.278069, 0.05682, -0.0170359, 0.958728)
+bones/23/rotation = Quaternion(0.277842, 0.0564953, -0.016883, 0.958815)
 
 [node name="island_Terrain_Switcher" type="Node" parent="."]
 script = ExtResource("16_r68ax")
