@@ -4,7 +4,6 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7huyo"]
 resource_name = "Material.005"
-cull_mode = 2
 albedo_color = Color(0.363522, 0.906766, 0.376282, 1)
 roughness = 0.5
 
@@ -45,7 +44,6 @@ data = PackedVector3Array(0, -1, 0, -0.2764, -0.4472, 0.8506, 0.7236, -0.4472, 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eraq6"]
 resource_name = "Material.004"
-cull_mode = 2
 albedo_color = Color(0, 0.906438, 0.126142, 1)
 metallic = 0.953
 roughness = 0.467
@@ -87,7 +85,6 @@ data = PackedVector3Array(0, -1, 0, -0.2764, -0.4472, 0.8506, 0.7236, -0.4472, 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_koq85"]
 resource_name = "Material.002"
-cull_mode = 2
 albedo_color = Color(0.0402238, 0.90643, 0.201345, 1)
 metallic = 0.952727
 roughness = 0.467273
@@ -129,7 +126,6 @@ data = PackedVector3Array(0, -1, 0, -0.2764, -0.4472, 0.8506, 0.7236, -0.4472, 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_og4by"]
 resource_name = "Material"
-cull_mode = 2
 albedo_color = Color(0.434384, 0.223683, 0.0216237, 1)
 metallic = 0.869091
 roughness = 0.305455
@@ -226,7 +222,6 @@ points = PackedVector3Array(0.143823, 9.32071, 0.173545, -0.153018, 8.13335, 0.9
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pw0pe"]
 resource_name = "Material.006"
-cull_mode = 2
 albedo_color = Color(0.541488, 0.906628, 0.105812, 1)
 metallic = 0.953
 roughness = 0.467
@@ -268,7 +263,6 @@ data = PackedVector3Array(0, -1, 0, -0.2764, -0.4472, 0.8506, 0.7236, -0.4472, 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0hpqu"]
 resource_name = "Material.007"
-cull_mode = 2
 albedo_color = Color(0.607969, 0.906608, 0.00214596, 1)
 metallic = 0.952727
 roughness = 0.467273
@@ -310,7 +304,6 @@ data = PackedVector3Array(0, -1, 0, -0.2764, -0.4472, 0.8506, 0.7236, -0.4472, 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4wbnw"]
 resource_name = "Material.008"
-cull_mode = 2
 albedo_color = Color(0.0500694, 1, 0, 1)
 metallic = 0.953
 roughness = 0.467
@@ -352,7 +345,6 @@ data = PackedVector3Array(0, -1, 0, -0.2764, -0.4472, 0.8506, 0.7236, -0.4472, 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ad8ur"]
 resource_name = "Material.010"
-cull_mode = 2
 albedo_color = Color(0.0402238, 0.90643, 0.201345, 1)
 metallic = 0.952727
 roughness = 0.467273

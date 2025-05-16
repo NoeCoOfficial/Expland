@@ -4,7 +4,6 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_01og4"]
 resource_name = "Material.001"
-cull_mode = 2
 albedo_color = Color(0.434384, 0.223683, 0.0216237, 1)
 metallic = 0.869091
 roughness = 0.305455
@@ -86,7 +85,6 @@ points = PackedVector3Array(-0.311591, 15.4883, 2.03093, 0.0333851, 19.9721, 5.1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b4gpi"]
 resource_name = "Material.005"
-cull_mode = 2
 albedo_color = Color(0.363522, 0.906766, 0.376282, 1)
 roughness = 0.5
 
@@ -127,7 +125,6 @@ data = PackedVector3Array(0, -1, 0, -0.2764, -0.4472, 0.8506, 0.7236, -0.4472, 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vr4bx"]
 resource_name = "Material.004"
-cull_mode = 2
 albedo_color = Color(0, 0.906438, 0.126142, 1)
 metallic = 0.953
 roughness = 0.467
@@ -169,7 +166,6 @@ data = PackedVector3Array(0, -1, 0, -0.2764, -0.4472, 0.8506, 0.7236, -0.4472, 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gycoo"]
 resource_name = "Material.003"
-cull_mode = 2
 albedo_color = Color(0.585157, 1, 0.496247, 1)
 metallic = 0.953
 roughness = 0.467
@@ -211,7 +207,6 @@ data = PackedVector3Array(0, -1, 0, -0.2764, -0.4472, 0.8506, 0.7236, -0.4472, 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g0qhe"]
 resource_name = "Material.002"
-cull_mode = 2
 albedo_color = Color(0.0402238, 0.90643, 0.201345, 1)
 metallic = 0.952727
 roughness = 0.467273
