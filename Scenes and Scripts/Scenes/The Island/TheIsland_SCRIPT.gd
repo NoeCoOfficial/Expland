@@ -111,7 +111,8 @@ func _ready() -> void:
 		Player.hide()
 		set_time(1140)
 		$"Story Mode/Canvas Layers/MinimalDialogueLayer/MinimalDialogue".spawnMinimalDialogue(DialogueManager.StoryMode_Dialogue_20)
-	
+		$"Story Mode/Audio/WakeUpAudio".play()
+		
 	Player.nodeSetup()
 	
 	
