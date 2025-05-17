@@ -29,12 +29,13 @@ A special thanks to everyone who has supported us throughout the development of 
 
 ## 🗣️ Shout-outs
 
-- Shaheer Usman
-- Xavier Hosking
+- Shaheer Usman / SHAZ
+- Xavier Hosking / Javier
 - Kai Steele
-- Dylan Wilson
+- Dylan Wilson / yoyobros
 - Evan Banks
 - amacd_
+- Kepax / Kphlo
 
 ## 🛠 Special Thanks
 
