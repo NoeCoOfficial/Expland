@@ -29,7 +29,7 @@ A special thanks to everyone who has supported us throughout the development of 
 
 ## 🗣️ Shout-outs
 
-- Shaheer Usman / SHAZ
+- Shaheer Usman / Shazman
 - Xavier Hosking / Javier
 - Kai Steele
 - Dylan Wilson / yoyobros
