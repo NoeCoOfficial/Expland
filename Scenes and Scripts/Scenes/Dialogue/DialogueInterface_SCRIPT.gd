@@ -56,8 +56,9 @@ signal FinishedDialogue(StoryModeID : int)
 @export var MessageLabel : Label
 @export var SideArrowIcon : TextureRect
 
-var is_animating = false
+var is_animating : bool = false
 var spawnTween
+var can_control : bool = true
 
 ######################################
 # On startup
@@ -89,11 +90,17 @@ func _process(_delta: float) -> void:
 ######################################
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("Dialogue") and DialogueManager.is_in_interface and MessageLabel.visible_ratio == 1:
-		DialogueManager.showNextMessage()
-	if Input.is_action_just_pressed("Dialogue") and DialogueManager.is_in_interface and MessageLabel.visible_ratio < 1 and MessageLabel.visible_ratio > 0:
-		spawnTween.stop()
-		MessageLabel.visible_ratio = 1
+	if Input.is_action_just_pressed("LeftClick") and DialogueManager.is_in_interface and MessageLabel.visible_ratio == 1:
+		if can_control:
+			DialogueManager.showNextMessage()
+			can_control = false
+			$LeftClickDebounce.start()
+	if Input.is_action_just_pressed("LeftClick") and DialogueManager.is_in_interface and MessageLabel.visible_ratio < 1 and MessageLabel.visible_ratio > 0:
+		if can_control:
+			spawnTween.stop()
+			MessageLabel.visible_ratio = 1
+			can_control = false
+			$LeftClickDebounce.start()
 
 ######################################
 # Show/Hide Grey overlay
@@ -192,3 +199,8 @@ func despawnDialogue():
 	
 	tweenBox("OFF", 0.5)
 	hideGreyOverlay(0.5)
+
+###############################################
+
+func _on_left_click_debounce_timeout() -> void:
+	can_control = true
