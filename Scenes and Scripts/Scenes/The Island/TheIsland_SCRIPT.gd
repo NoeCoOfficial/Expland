@@ -117,8 +117,6 @@ func _ready() -> void:
 	
 
 func _on_ready() -> void:
-	AudioManager.initNotificaton(PlayerManager.AudioNotification)
-	AudioManager.initNew($TheIsland_Audio, !PlayerData.STORY_MODE_PROGRESSION_INFO["FIRST_STORY_MODE"], false, true)
 	AudioManager.Current_Rain_SFX_Node = $Rain_SFX
 
 func _process(_delta: float) -> void:
@@ -200,7 +198,7 @@ func set_time(minute : int):
 		TimeManager.DAY_STATE = "NIGHT"
 	elif TimeManager.CURRENT_TIME >= 300 and TimeManager.CURRENT_TIME < 420:
 		TimeManager.DAY_STATE = "DAY"
-		append_random_songs(AudioManager.ISLAND_MORNING_SONGS)
+		#append_random_songs(AudioManager.ISLAND_MORNING_SONGS)
 	else:
 		TimeManager.DAY_STATE = "DAY"
 	
@@ -222,7 +220,8 @@ func _on_tick() -> void:
 	if TimeManager.CURRENT_TIME >= 1140 or TimeManager.CURRENT_TIME < 360:
 		TimeManager.DAY_STATE = "NIGHT"
 		if TimeManager.CURRENT_TIME in [19 * 60, 20 * 60, 21 * 60, 22 * 60, 23 * 60]:
-			append_random_songs(AudioManager.ISLAND_NIGHT_SONGS)
+			#append_random_songs(AudioManager.ISLAND_NIGHT_SONGS)
+			pass
 	else:
 		TimeManager.DAY_STATE = "DAY"
 
