@@ -114,11 +114,15 @@ func _ready() -> void:
 		$"Story Mode/Audio/WakeUpAudio".play()
 		
 	Player.nodeSetup()
-	
-	
 
 func _on_ready() -> void:
 	AudioManager.Current_Rain_SFX_Node = $Rain_SFX
+	
+	# Play and loop wind ambience sound
+	$WindAmbience.volume_db = -40.0
+	$WindAmbience.play()
+	var tween = get_tree().create_tween()
+	tween.tween_property($WindAmbience, "volume_db", 0.0, 2.0)
 
 func _process(_delta: float) -> void:
 	RainParticles.position.x = Player.position.x
