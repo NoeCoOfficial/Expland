@@ -213,7 +213,7 @@ shadow_mesh = SubResource("ArrayMesh_ol4kt")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mybqh"]
 resource_name = "Material.002"
-cull_mode = 1
+cull_mode = 2
 albedo_color = Color(0.0942317, 0.534083, 0.163149, 1)
 roughness = 0.5
 

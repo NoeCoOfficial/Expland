@@ -50,6 +50,7 @@
 extends Node3D
 
 @export var CoconutSpawns : Array[Node3D]
+@export var TreeShake : AudioStreamPlayer3D
 @export var WindAnimationPlayer : AnimationPlayer
 @export var TreeMeshShakeAnimationPlayer : AnimationPlayer
 @export var LeafShakeAnimationPlayer : AnimationPlayer
@@ -77,6 +78,7 @@ func _on_tree_shake() -> void:
 		tween.tween_property($TreeMesh/Leaf_008, "rotation_degrees", Vector3(7.2, 64.9, -2.6), 0.2)
 		
 		TreeMeshShakeAnimationPlayer.play(&"shake")
+		$TreeShake.play()
 		can_shake = false
 		$"Shake Debounce Timer".start()
 
