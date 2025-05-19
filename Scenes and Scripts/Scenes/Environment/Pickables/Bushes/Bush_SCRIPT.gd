@@ -55,7 +55,10 @@ extends Node3D
 var collected_berries : bool = false
  
 func init_bush(clctd_berries : bool, time_left : float):
-	pass
+	if clctd_berries:
+		collect_berries(true)
+		SpawnBerriesTimer.wait_time = time_left
+		SpawnBerriesTimer.start()
 
 func get_bush_info():
 	return {
@@ -63,15 +66,26 @@ func get_bush_info():
 		"time_left" : SpawnBerriesTimer.time_left
 	}
 
+
 func _on_berries_collected() -> void:
-	SpawnBerriesTimer.wait_time = 3000
+	if !collected_berries:
+		SpawnBerriesTimer.wait_time = 3000
+		collect_berries()
 
 func _on_spawn_berries_timer_timeout() -> void:
-	pass # Replace with function body.
+	spawn_berries()
 
-func collect_berries():
-	pass
+
+func collect_berries(silent : bool = false):
+	$"Interactable Component".hide()
+	if !silent:
+		HarvestingFruit.play()
+	
+	collected_berries = true
+	Berries.hide()
+	SpawnBerriesTimer.start()
 
 func spawn_berries():
+	$"Interactable Component".show()
 	collected_berries = false
 	Berries.show()

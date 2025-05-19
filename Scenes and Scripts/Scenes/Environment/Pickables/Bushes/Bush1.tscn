@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=4 uid="uid://c18bsfrek04c7"]
+[gd_scene load_steps=99 format=4 uid="uid://c18bsfrek04c7"]
 
 [ext_resource type="Script" uid="uid://d33t1hbbrd3nl" path="res://Scenes and Scripts/Scenes/Environment/Pickables/Bushes/Bush_SCRIPT.gd" id="1_e78uq"]
 [ext_resource type="Script" uid="uid://bi02uk7qwshyf" path="res://Scenes and Scripts/Scenes/Components/Interactable Component/Interactable_Component_SCRIPT.gd" id="1_edqk2"]
@@ -1464,13 +1464,17 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7j30m")
 
+[sub_resource type="InputEventAction" id="InputEventAction_xbmcn"]
+action = &"Interact2"
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_e78uq"]
 viewport_path = NodePath("Interactable Component/Contents/UI/SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fvca7"]
-size = Vector3(7, 5, 7)
+size = Vector3(7.94531, 7.5665, 8.80786)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_00rnx"]
+size = Vector3(2.84448, 2.95822, 2.70496)
 
 [node name="Bush1" type="Node3D" node_paths=PackedStringArray("HarvestingFruit", "SpawnBerriesTimer", "Berries", "Bush")]
 script = ExtResource("1_e78uq")
@@ -1488,6 +1492,7 @@ bus = &"sfx"
 wait_time = 3000.0
 
 [node name="Berries" type="Node3D" parent="."]
+transform = Transform3D(0.721925, 0, 0, 0, 1.26973, 0, 0, 0, 0.853852, 0, 0, 0)
 
 [node name="Berry" type="MeshInstance3D" parent="Berries"]
 transform = Transform3D(0.0264456, 0.021213, 0.0376284, 0.0347015, 0.0158406, -0.0333187, -0.0257234, 0.043178, -0.00626296, -1.35295, 0.635097, -0.39833)
@@ -1680,6 +1685,7 @@ mesh = SubResource("ArrayMesh_nxhoo")
 skeleton = NodePath("")
 
 [node name="Bush" type="Node3D" parent="."]
+transform = Transform3D(0.721925, 0, 0, 0, 1.26973, 0, 0, 0, 0.853852, 0, 0, 0)
 
 [node name="Icosphere" type="MeshInstance3D" parent="Bush"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.794296, 0)
@@ -1710,12 +1716,14 @@ UI_1 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_1")
 UI_2 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_2")
 UI_3 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_3")
 UI_4 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_4")
+UseAction1 = true
+ActionToPress_1 = SubResource("InputEventAction_xbmcn")
 
 [node name="Contents" type="Node3D" parent="Interactable Component"]
 transform = Transform3D(0.651428, 0, 0, 0, 0.651428, 0, 0, 0, 0.651428, 0.725068, 0.807533, 0.27046)
 
 [node name="UI" type="Sprite3D" parent="Interactable Component/Contents"]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.243457, -4.76837e-07, 0.670415)
 billboard = 1
 no_depth_test = true
 texture = SubResource("ViewportTexture_e78uq")
@@ -1748,6 +1756,9 @@ offset_right = 27.0
 offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="KEY" parent="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1/Contents" index="4"]
+text = "R"
 
 [node name="Message" parent="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1/Contents" index="7"]
 theme_override_constants/outline_size = 10
@@ -1832,11 +1843,13 @@ grow_vertical = 2
 [node name="PlayerVisibleDetector" type="Area3D" parent="Interactable Component/Contents"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable Component/Contents/PlayerVisibleDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.518367, 0.178159, 0.220581)
 shape = SubResource("BoxShape3D_fvca7")
 
 [node name="PlayerMimicRaycastDetector" type="Area3D" parent="Interactable Component"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable Component/PlayerMimicRaycastDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.307739, 0.82991, 0.425781)
 shape = SubResource("BoxShape3D_00rnx")
 
 [connection signal="timeout" from="SpawnBerriesTimer" to="." method="_on_spawn_berries_timer_timeout"]
