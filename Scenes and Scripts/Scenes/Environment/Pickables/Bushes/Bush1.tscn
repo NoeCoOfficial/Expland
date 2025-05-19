@@ -1,9 +1,10 @@
-[gd_scene load_steps=97 format=4 uid="uid://c18bsfrek04c7"]
+[gd_scene load_steps=98 format=4 uid="uid://c18bsfrek04c7"]
 
 [ext_resource type="Script" uid="uid://d33t1hbbrd3nl" path="res://Scenes and Scripts/Scenes/Environment/Pickables/Bushes/Bush_SCRIPT.gd" id="1_e78uq"]
 [ext_resource type="Script" uid="uid://bi02uk7qwshyf" path="res://Scenes and Scripts/Scenes/Components/Interactable Component/Interactable_Component_SCRIPT.gd" id="1_edqk2"]
 [ext_resource type="PackedScene" uid="uid://cmt00ehn4hfne" path="res://Scenes and Scripts/Scenes/General/UI/MessageWithKeyUI.tscn" id="2_ailw5"]
 [ext_resource type="FontFile" uid="uid://bel1qoyfluvci" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Bold.otf" id="3_ailw5"]
+[ext_resource type="AudioStream" uid="uid://muif2cwm287n" path="res://Audio/SFX/Environment/HarvestingFruit.mp3" id="5_xbmcn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m3rfc"]
 resource_name = "BerryColor"
@@ -1471,13 +1472,20 @@ size = Vector3(7, 5, 7)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_00rnx"]
 
-[node name="Bush1" type="Node3D" node_paths=PackedStringArray("SpawnBerriesTimer", "Berries", "Bush")]
+[node name="Bush1" type="Node3D" node_paths=PackedStringArray("HarvestingFruit", "SpawnBerriesTimer", "Berries", "Bush")]
 script = ExtResource("1_e78uq")
+HarvestingFruit = NodePath("HarvestingFruit")
 SpawnBerriesTimer = NodePath("SpawnBerriesTimer")
 Berries = NodePath("Berries")
 Bush = NodePath("Bush")
 
+[node name="HarvestingFruit" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.276198, 1.06146, 0)
+stream = ExtResource("5_xbmcn")
+bus = &"sfx"
+
 [node name="SpawnBerriesTimer" type="Timer" parent="."]
+wait_time = 3000.0
 
 [node name="Berries" type="Node3D" parent="."]
 

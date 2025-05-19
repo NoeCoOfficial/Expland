@@ -47,16 +47,31 @@
 
 extends Node3D
 
+@export var HarvestingFruit : AudioStreamPlayer3D
 @export var SpawnBerriesTimer : Timer
 @export var Berries : Node3D
 @export var Bush : Node3D
 
-func _on_berries_collected() -> void:
-	pass # Replace with function body.
-
-
-func spawn_berries():
+var collected_berries : bool = false
+ 
+func init_bush(clctd_berries : bool, time_left : float):
 	pass
+
+func get_bush_info():
+	return {
+		"collected_berries" : collected_berries,
+		"time_left" : SpawnBerriesTimer.time_left
+	}
+
+func _on_berries_collected() -> void:
+	SpawnBerriesTimer.wait_time = 3000
 
 func _on_spawn_berries_timer_timeout() -> void:
 	pass # Replace with function body.
+
+func collect_berries():
+	pass
+
+func spawn_berries():
+	collected_berries = false
+	Berries.show()
