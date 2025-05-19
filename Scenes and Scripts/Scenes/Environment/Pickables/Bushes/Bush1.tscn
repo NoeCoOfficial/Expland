@@ -1471,8 +1471,13 @@ size = Vector3(7, 5, 7)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_00rnx"]
 
-[node name="Bush1" type="Node3D"]
+[node name="Bush1" type="Node3D" node_paths=PackedStringArray("SpawnBerriesTimer", "Berries", "Bush")]
 script = ExtResource("1_e78uq")
+SpawnBerriesTimer = NodePath("SpawnBerriesTimer")
+Berries = NodePath("Berries")
+Bush = NodePath("Bush")
+
+[node name="SpawnBerriesTimer" type="Timer" parent="."]
 
 [node name="Berries" type="Node3D" parent="."]
 
@@ -1826,6 +1831,8 @@ shape = SubResource("BoxShape3D_fvca7")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable Component/PlayerMimicRaycastDetector"]
 shape = SubResource("BoxShape3D_00rnx")
 
+[connection signal="timeout" from="SpawnBerriesTimer" to="." method="_on_spawn_berries_timer_timeout"]
+[connection signal="Action1_Triggered" from="Interactable Component" to="." method="_on_berries_collected"]
 [connection signal="body_entered" from="Interactable Component/Contents/PlayerVisibleDetector" to="Interactable Component" method="_on_player_visible_detector_body_entered"]
 [connection signal="body_exited" from="Interactable Component/Contents/PlayerVisibleDetector" to="Interactable Component" method="_on_player_visible_detector_body_exited"]
 [connection signal="area_entered" from="Interactable Component/PlayerMimicRaycastDetector" to="Interactable Component" method="_on_player_mimic_raycast_detector_area_entered"]

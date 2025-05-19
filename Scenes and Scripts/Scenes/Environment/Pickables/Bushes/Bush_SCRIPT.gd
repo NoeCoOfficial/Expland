@@ -46,3 +46,17 @@
 # ============================================================= #
 
 extends Node3D
+
+@export var SpawnBerriesTimer : Timer
+@export var Berries : Node3D
+@export var Bush : Node3D
+
+func _on_berries_collected() -> void:
+	pass # Replace with function body.
+
+
+func spawn_berries():
+	pass
+
+func _on_spawn_berries_timer_timeout() -> void:
+	pass # Replace with function body.
