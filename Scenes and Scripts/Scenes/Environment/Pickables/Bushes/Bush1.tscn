@@ -1,4 +1,9 @@
-[gd_scene load_steps=90 format=4 uid="uid://c18bsfrek04c7"]
+[gd_scene load_steps=97 format=4 uid="uid://c18bsfrek04c7"]
+
+[ext_resource type="Script" uid="uid://d33t1hbbrd3nl" path="res://Scenes and Scripts/Scenes/Environment/Pickables/Bushes/Bush_SCRIPT.gd" id="1_e78uq"]
+[ext_resource type="Script" uid="uid://bi02uk7qwshyf" path="res://Scenes and Scripts/Scenes/Components/Interactable Component/Interactable_Component_SCRIPT.gd" id="1_edqk2"]
+[ext_resource type="PackedScene" uid="uid://cmt00ehn4hfne" path="res://Scenes and Scripts/Scenes/General/UI/MessageWithKeyUI.tscn" id="2_ailw5"]
+[ext_resource type="FontFile" uid="uid://bel1qoyfluvci" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Bold.otf" id="3_ailw5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m3rfc"]
 resource_name = "BerryColor"
@@ -1458,7 +1463,16 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7j30m")
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_e78uq"]
+viewport_path = NodePath("Interactable Component/Contents/UI/SubViewport")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fvca7"]
+size = Vector3(7, 5, 7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_00rnx"]
+
 [node name="Bush1" type="Node3D"]
+script = ExtResource("1_e78uq")
 
 [node name="Berries" type="Node3D" parent="."]
 
@@ -1673,3 +1687,151 @@ skeleton = NodePath("")
 transform = Transform3D(0.6995, 0, 0, 0, 0.6995, 0, 0, 0, 0.6995, -0.831602, 0.639267, 0)
 mesh = SubResource("ArrayMesh_og7gl")
 skeleton = NodePath("")
+
+[node name="Interactable Component" type="Node3D" parent="." node_paths=PackedStringArray("Contents_Node", "SubViewport_Node", "UI_Sprite_Node", "UI_1", "UI_2", "UI_3", "UI_4")]
+script = ExtResource("1_edqk2")
+Contents_Node = NodePath("Contents")
+SubViewport_Node = NodePath("Contents/UI/SubViewport")
+UI_Sprite_Node = NodePath("Contents/UI")
+UI_1 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_1")
+UI_2 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_2")
+UI_3 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_3")
+UI_4 = NodePath("Contents/UI/SubViewport/MessageWithKeyUI_4")
+
+[node name="Contents" type="Node3D" parent="Interactable Component"]
+transform = Transform3D(0.651428, 0, 0, 0, 0.651428, 0, 0, 0, 0.651428, 0.725068, 0.807533, 0.27046)
+
+[node name="UI" type="Sprite3D" parent="Interactable Component/Contents"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+billboard = 1
+no_depth_test = true
+texture = SubResource("ViewportTexture_e78uq")
+
+[node name="SubViewport" type="SubViewport" parent="Interactable Component/Contents/UI"]
+transparent_bg = true
+gui_disable_input = true
+size = Vector2i(3720, 2225)
+
+[node name="MessageWithKeyUI_1" parent="Interactable Component/Contents/UI/SubViewport" instance=ExtResource("2_ailw5")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -385.795
+offset_bottom = -385.795
+scale = Vector2(5, 5)
+
+[node name="Contents" parent="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -30.0
+offset_right = 27.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Message" parent="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1/Contents" index="7"]
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_ailw5")
+text = "Grab berries"
+
+[node name="MessageWithKeyUI_2" parent="Interactable Component/Contents/UI/SubViewport" instance=ExtResource("2_ailw5")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -112.5
+offset_bottom = -112.5
+scale = Vector2(5, 5)
+
+[node name="Contents" parent="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_2" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -30.0
+offset_right = 27.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MessageWithKeyUI_3" parent="Interactable Component/Contents/UI/SubViewport" instance=ExtResource("2_ailw5")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 160.15
+offset_bottom = 160.15
+scale = Vector2(5, 5)
+
+[node name="Contents" parent="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_3" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -30.0
+offset_right = 27.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MessageWithKeyUI_4" parent="Interactable Component/Contents/UI/SubViewport" instance=ExtResource("2_ailw5")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 432.205
+offset_bottom = 432.205
+scale = Vector2(5, 5)
+
+[node name="Contents" parent="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_4" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -30.0
+offset_right = 27.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerVisibleDetector" type="Area3D" parent="Interactable Component/Contents"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable Component/Contents/PlayerVisibleDetector"]
+shape = SubResource("BoxShape3D_fvca7")
+
+[node name="PlayerMimicRaycastDetector" type="Area3D" parent="Interactable Component"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable Component/PlayerMimicRaycastDetector"]
+shape = SubResource("BoxShape3D_00rnx")
+
+[connection signal="body_entered" from="Interactable Component/Contents/PlayerVisibleDetector" to="Interactable Component" method="_on_player_visible_detector_body_entered"]
+[connection signal="body_exited" from="Interactable Component/Contents/PlayerVisibleDetector" to="Interactable Component" method="_on_player_visible_detector_body_exited"]
+[connection signal="area_entered" from="Interactable Component/PlayerMimicRaycastDetector" to="Interactable Component" method="_on_player_mimic_raycast_detector_area_entered"]
+[connection signal="area_exited" from="Interactable Component/PlayerMimicRaycastDetector" to="Interactable Component" method="_on_player_mimic_raycast_detector_area_exited"]
+
+[editable path="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1"]
+[editable path="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_2"]
+[editable path="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_3"]
+[editable path="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_4"]

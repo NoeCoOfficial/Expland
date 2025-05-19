@@ -1,5 +1,5 @@
 # ============================================================= #
-# Building_Assets_SCRIPT.gd
+# Bush_SCRIPT.gd
 # ============================================================= #
 #                       COPYRIGHT NOTICE                        #
 #                           Noe Co.                             #
@@ -45,14 +45,4 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-@icon("res://Textures/Icons/Script Icons/32x32/tools.png")
-class_name BuildingAsset extends Resource
-
-@export var ITEM_TYPE : String
-@export var Model_Scene : PackedScene
-@export_group("Default Model Values")
-@export var Default_Model_Position : Vector3
-@export var Default_Model_Rotation_Degrees : Vector3
-@export var Default_Model_Scale : Vector3 = Vector3.ONE
-@export_group("Collision Shape Values")
-@export var Collision_Shape : Shape3D
+extends Node3D
