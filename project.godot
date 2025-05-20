@@ -348,6 +348,7 @@ Interact2={
 3d_physics/layer_1="Player"
 3d_physics/layer_2="Structures"
 3d_physics/layer_10="Building Asset Colliders"
+3d_physics/layer_11="World Objects"
 
 [rendering]
 

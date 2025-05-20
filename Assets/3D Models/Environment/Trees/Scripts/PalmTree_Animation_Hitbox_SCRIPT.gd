@@ -51,11 +51,23 @@ extends Node3D
 
 @onready var CoconutScene : PackedScene = preload("uid://6exo537gjcsd")
 
-@export var CoconutSpawns : Array[Node3D]
+@export_group("General")
 @export var TreeShake : AudioStreamPlayer3D
 @export var WindAnimationPlayer : AnimationPlayer
 @export var TreeMeshShakeAnimationPlayer : AnimationPlayer
 @export var LeafShakeAnimationPlayer : AnimationPlayer
+
+@export_group("Coconuts")
+@export var CoconutSpawns : Array[Node3D]
+@export var Coconut1_Spawn : Node3D
+@export var Coconut2_Spawn : Node3D
+@export var Coconut3_Spawn : Node3D
+@export var Coconut1_Static : Node3D
+@export var Coconut2_Static : Node3D
+@export var Coconut3_Static : Node3D
+@export var Coconut1_RespawnTimer : Timer
+@export var Coconut2_RespawnTimer : Timer
+@export var Coconut3_RespawnTimer : Timer
 
 var can_shake : bool = true
 var coconut_info : Dictionary = {
@@ -84,42 +96,42 @@ func update_info() -> void:
 		coconut_info["Coconut3"]["TimeLeft"] = $CoconutSpawn3/CoconutRespawnTimer.time_left
 
 func release_coconuts() -> void:
-	randomize()
-	
 	# One in three chance that coconuts will drop
-	
 	if randi() % 3 == 0:
-		if !coconut_info["Coconut1"]["Dropped"] == true:
+		if !coconut_info["Coconut1"]["Dropped"]:
 			print("coconut 1 dropped")
 			coconut_info["Coconut1"]["Dropped"] = true
 			var coconut_instance = CoconutScene.instantiate()
 			if IslandManager.Coconuts_WorldContents != null:
 				IslandManager.Coconuts_WorldContents.add_child(coconut_instance)
 				coconut_instance.global_transform = $CoconutSpawn1/Coconut_Static.global_transform
+				coconut_instance.scale = $CoconutSpawn1.scale
 			$CoconutSpawn1/Coconut_Static.hide()
 	
 	if randi() % 3 == 0:
-		if !coconut_info["Coconut2"]["Dropped"] == true:
+		if !coconut_info["Coconut2"]["Dropped"]:
 			print("coconut 2 dropped")
 			coconut_info["Coconut2"]["Dropped"] = true
 			var coconut_instance = CoconutScene.instantiate()
 			if IslandManager.Coconuts_WorldContents != null:
 				IslandManager.Coconuts_WorldContents.add_child(coconut_instance)
 				coconut_instance.global_transform = $CoconutSpawn2/Coconut_Static.global_transform
+				coconut_instance.scale = $CoconutSpawn2.scale
 			$CoconutSpawn2/Coconut_Static.hide()
 	
 	if randi() % 3 == 0:
-		if !coconut_info["Coconut3"]["Dropped"] == true:
+		if !coconut_info["Coconut3"]["Dropped"]:
 			print("coconut 3 dropped")
 			coconut_info["Coconut3"]["Dropped"] = true
 			var coconut_instance = CoconutScene.instantiate()
 			if IslandManager.Coconuts_WorldContents != null:
 				IslandManager.Coconuts_WorldContents.add_child(coconut_instance)
 				coconut_instance.global_transform = $CoconutSpawn3/Coconut_Static.global_transform
+				coconut_instance.scale = $CoconutSpawn3.scale
 			$CoconutSpawn3/Coconut_Static.hide()
 
-
 func _ready() -> void:
+	randomize() # Only call once here
 	WindAnimationPlayer.play(&"wind")
 
 func _on_tree_shake() -> void:

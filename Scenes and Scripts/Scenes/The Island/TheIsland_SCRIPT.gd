@@ -98,7 +98,7 @@ func _ready() -> void:
 	
 	Tick.start()
 	
-	if IslandManager.Current_Game_Mode == "STORY":
+	if IslandManager.Current_Game_Mode == "STORY":	
 		init_weather_instant_custom(0)
 	else:
 		init_weather_instant() # NOTE: Important line right here (initalize weather)
@@ -114,7 +114,7 @@ func _ready() -> void:
 		set_time(1140)
 		$"Story Mode/Canvas Layers/MinimalDialogueLayer/MinimalDialogue".spawnMinimalDialogue(DialogueManager.StoryMode_Dialogue_20)
 		$"Story Mode/Audio/WakeUpAudio".play()
-		
+	
 	Player.nodeSetup()
 
 func _on_ready() -> void:
