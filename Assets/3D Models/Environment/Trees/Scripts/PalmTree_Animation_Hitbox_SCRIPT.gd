@@ -133,3 +133,14 @@ func _on_leaf_shake_animation_animation_finished(anim_name: StringName) -> void:
 
 func _on_shake_debounce_timer_timeout() -> void:
 	can_shake = true
+
+
+
+func _on_coconut1_respawn_timer_timeout() -> void:
+	pass # Replace with function body.
+
+func _on_coconut2_respawn_timer_timeout() -> void:
+	pass # Replace with function body.
+
+func _on_coconut3_respawn_timer_timeout() -> void:
+	pass # Replace with function body.
