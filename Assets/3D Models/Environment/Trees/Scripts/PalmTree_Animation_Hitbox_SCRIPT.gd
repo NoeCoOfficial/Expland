@@ -87,13 +87,13 @@ var coconut_info : Dictionary = {
 
 func update_info() -> void:
 	if coconut_info["Coconut1"]["Dropped"] == true:
-		coconut_info["Coconut1"]["TimeLeft"] = $CoconutSpawn1/CoconutRespawnTimer.time_left
+		coconut_info["Coconut1"]["TimeLeft"] = Coconut1_RespawnTimer.time_left
 	
 	if coconut_info["Coconut2"]["Dropped"] == true:
-		coconut_info["Coconut2"]["TimeLeft"] = $CoconutSpawn2/CoconutRespawnTimer.time_left
+		coconut_info["Coconut2"]["TimeLeft"] = Coconut2_RespawnTimer.time_left
 	
 	if coconut_info["Coconut3"]["Dropped"] == true:
-		coconut_info["Coconut3"]["TimeLeft"] = $CoconutSpawn3/CoconutRespawnTimer.time_left
+		coconut_info["Coconut3"]["TimeLeft"] = Coconut3_RespawnTimer.time_left
 
 func release_coconuts() -> void:
 	# One in three chance that coconuts will drop
@@ -104,9 +104,9 @@ func release_coconuts() -> void:
 			var coconut_instance = CoconutScene.instantiate()
 			if IslandManager.Coconuts_WorldContents != null:
 				IslandManager.Coconuts_WorldContents.add_child(coconut_instance)
-				coconut_instance.global_transform = $CoconutSpawn1/Coconut_Static.global_transform
-				coconut_instance.scale = $CoconutSpawn1.scale
-			$CoconutSpawn1/Coconut_Static.hide()
+				coconut_instance.global_transform = Coconut1_Static.global_transform
+				coconut_instance.scale = Coconut1_Spawn.scale
+			Coconut1_Static.hide()
 	
 	if randi() % 3 == 0:
 		if !coconut_info["Coconut2"]["Dropped"]:
@@ -115,9 +115,9 @@ func release_coconuts() -> void:
 			var coconut_instance = CoconutScene.instantiate()
 			if IslandManager.Coconuts_WorldContents != null:
 				IslandManager.Coconuts_WorldContents.add_child(coconut_instance)
-				coconut_instance.global_transform = $CoconutSpawn2/Coconut_Static.global_transform
-				coconut_instance.scale = $CoconutSpawn2.scale
-			$CoconutSpawn2/Coconut_Static.hide()
+				coconut_instance.global_transform = Coconut2_Static.global_transform
+				coconut_instance.scale = Coconut2_Spawn.scale
+			Coconut2_Static.hide()
 	
 	if randi() % 3 == 0:
 		if !coconut_info["Coconut3"]["Dropped"]:
@@ -126,9 +126,9 @@ func release_coconuts() -> void:
 			var coconut_instance = CoconutScene.instantiate()
 			if IslandManager.Coconuts_WorldContents != null:
 				IslandManager.Coconuts_WorldContents.add_child(coconut_instance)
-				coconut_instance.global_transform = $CoconutSpawn3/Coconut_Static.global_transform
-				coconut_instance.scale = $CoconutSpawn3.scale
-			$CoconutSpawn3/Coconut_Static.hide()
+				coconut_instance.global_transform = Coconut3_Static.global_transform
+				coconut_instance.scale = Coconut3_Spawn.scale
+			Coconut3_Static.hide()
 
 func _ready() -> void:
 	randomize() # Only call once here
