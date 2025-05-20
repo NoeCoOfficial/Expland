@@ -105,7 +105,6 @@ func release_coconuts() -> void:
 			if IslandManager.Coconuts_WorldContents != null:
 				IslandManager.Coconuts_WorldContents.add_child(coconut_instance)
 				coconut_instance.global_transform = Coconut1_Static.global_transform
-				coconut_instance.scale = Coconut1_Spawn.scale
 			Coconut1_Static.hide()
 	
 	if randi() % 3 == 0:
@@ -116,7 +115,6 @@ func release_coconuts() -> void:
 			if IslandManager.Coconuts_WorldContents != null:
 				IslandManager.Coconuts_WorldContents.add_child(coconut_instance)
 				coconut_instance.global_transform = Coconut2_Static.global_transform
-				coconut_instance.scale = Coconut2_Spawn.scale
 			Coconut2_Static.hide()
 	
 	if randi() % 3 == 0:
@@ -127,7 +125,6 @@ func release_coconuts() -> void:
 			if IslandManager.Coconuts_WorldContents != null:
 				IslandManager.Coconuts_WorldContents.add_child(coconut_instance)
 				coconut_instance.global_transform = Coconut3_Static.global_transform
-				coconut_instance.scale = Coconut3_Spawn.scale
 			Coconut3_Static.hide()
 
 func _ready() -> void:
