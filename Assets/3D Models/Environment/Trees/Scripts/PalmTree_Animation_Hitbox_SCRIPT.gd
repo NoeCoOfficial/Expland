@@ -56,10 +56,27 @@ extends Node3D
 @export var LeafShakeAnimationPlayer : AnimationPlayer
 
 var can_shake : bool = true
+var coconut_info : Dictionary = {
+	"Coconut1" : {
+		"Dropped" : false,
+		"TimeLeft" : 0.0,
+	} ,
+	"Coconut2" : {
+		"Dropped" : false,
+		"TimeLeft" : 0.0,
+	} ,
+	"Coconut3" : {
+		"Dropped" : false,
+		"TimeLeft" : 0.0,
+	} 
+}
+
+func release_coconuts():
+	pass
+
 
 func _ready() -> void:
 	WindAnimationPlayer.play(&"wind")
-
 
 func _on_tree_shake() -> void:
 	if can_shake:
@@ -81,6 +98,7 @@ func _on_tree_shake() -> void:
 		$TreeShake.play()
 		can_shake = false
 		$"Shake Debounce Timer".start()
+
 
 func _on_leaf_tween_finished():
 	LeafShakeAnimationPlayer.play(&"shake")
