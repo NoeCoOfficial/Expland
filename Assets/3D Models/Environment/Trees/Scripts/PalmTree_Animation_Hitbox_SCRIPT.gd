@@ -89,15 +89,34 @@ func release_coconuts() -> void:
 	# One in three chance that coconuts will drop
 	
 	if randi() % 3 == 0:
-		coconut_info["Coconut1"]["Dropped"] = true
-		var coconut_instance = CoconutScene.instantiate()
-		
-		
+		if !coconut_info["Coconut1"]["Dropped"] == true:
+			print("coconut 1 dropped")
+			coconut_info["Coconut1"]["Dropped"] = true
+			var coconut_instance = CoconutScene.instantiate()
+			if IslandManager.Coconuts_WorldContents != null:
+				IslandManager.Coconuts_WorldContents.add_child(coconut_instance)
+				coconut_instance.global_transform = $CoconutSpawn1/Coconut_Static.global_transform
+			$CoconutSpawn1/Coconut_Static.hide()
+	
 	if randi() % 3 == 0:
-		pass
-
+		if !coconut_info["Coconut2"]["Dropped"] == true:
+			print("coconut 2 dropped")
+			coconut_info["Coconut2"]["Dropped"] = true
+			var coconut_instance = CoconutScene.instantiate()
+			if IslandManager.Coconuts_WorldContents != null:
+				IslandManager.Coconuts_WorldContents.add_child(coconut_instance)
+				coconut_instance.global_transform = $CoconutSpawn2/Coconut_Static.global_transform
+			$CoconutSpawn2/Coconut_Static.hide()
+	
 	if randi() % 3 == 0:
-		pass
+		if !coconut_info["Coconut3"]["Dropped"] == true:
+			print("coconut 3 dropped")
+			coconut_info["Coconut3"]["Dropped"] = true
+			var coconut_instance = CoconutScene.instantiate()
+			if IslandManager.Coconuts_WorldContents != null:
+				IslandManager.Coconuts_WorldContents.add_child(coconut_instance)
+				coconut_instance.global_transform = $CoconutSpawn3/Coconut_Static.global_transform
+			$CoconutSpawn3/Coconut_Static.hide()
 
 
 func _ready() -> void:
@@ -105,6 +124,7 @@ func _ready() -> void:
 
 func _on_tree_shake() -> void:
 	if can_shake:
+		release_coconuts()
 		WindAnimationPlayer.stop(true)
 		var tween = get_tree().create_tween().set_parallel().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 		tween.connect("finished", _on_leaf_tween_finished)
