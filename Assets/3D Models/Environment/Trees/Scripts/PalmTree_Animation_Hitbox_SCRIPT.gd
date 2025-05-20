@@ -59,6 +59,9 @@ extends Node3D
 
 @export_group("Coconuts")
 @export var CoconutSpawns : Array[Node3D]
+@export var Coconut1 : RigidBody3D
+@export var Coconut2 : RigidBody3D
+@export var Coconut3 : RigidBody3D
 @export var Coconut1_Spawn : Node3D
 @export var Coconut2_Spawn : Node3D
 @export var Coconut3_Spawn : Node3D
@@ -97,6 +100,7 @@ func release_coconuts() -> void:
 	if randi() % 3 == 0:
 		if !coconut_info["Coconut1"]["Dropped"]:
 			print("coconut 1 dropped")
+			
 	
 	if randi() % 3 == 0:
 		if !coconut_info["Coconut2"]["Dropped"]:
