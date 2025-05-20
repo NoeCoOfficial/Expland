@@ -71,8 +71,29 @@ var coconut_info : Dictionary = {
 	} 
 }
 
-func release_coconuts():
-	pass
+func update_info() -> void:
+	if coconut_info["Coconut1"]["Dropped"] == true:
+		coconut_info["Coconut1"]["TimeLeft"] = $CoconutSpawn1/CoconutRespawnTimer.time_left
+	
+	if coconut_info["Coconut2"]["Dropped"] == true:
+		coconut_info["Coconut2"]["TimeLeft"] = $CoconutSpawn2/CoconutRespawnTimer.time_left
+	
+	if coconut_info["Coconut3"]["Dropped"] == true:
+		coconut_info["Coconut3"]["TimeLeft"] = $CoconutSpawn3/CoconutRespawnTimer.time_left
+
+func release_coconuts() -> void:
+	randomize()
+	
+	# One in three chance that coconuts will drop
+	
+	if randi() % 3 == 0:
+		coconut_info["Coconut1"]["Dropped"] = true
+		
+	if randi() % 3 == 0:
+		pass
+
+	if randi() % 3 == 0:
+		pass
 
 
 func _ready() -> void:

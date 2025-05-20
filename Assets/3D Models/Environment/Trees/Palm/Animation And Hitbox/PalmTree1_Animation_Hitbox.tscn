@@ -673,7 +673,7 @@ mesh = SubResource("ArrayMesh_55tej")
 skeleton = NodePath("")
 
 [node name="Leaf_002" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(1.32546, -0.0880295, -0.709629, 0.0558552, 1.52545, -0.531961, 0.201926, 0.155875, 4.80521, -0.904471, 13.4362, 0.0300764)
+transform = Transform3D(1.32139, -0.163819, -0.673324, 0.11548, 1.51332, -0.721629, 0.203327, 0.205144, 4.78565, -0.904471, 13.4362, 0.0300764)
 visibility_range_end = 100.0
 visibility_range_end_margin = 10.0
 visibility_range_fade_mode = 1
@@ -681,7 +681,7 @@ mesh = SubResource("ArrayMesh_10k11")
 skeleton = NodePath("")
 
 [node name="Leaf_003" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(1.13478, -0.168833, -1.28173, 0.708168, 3.30394, -0.000450556, 3.81336, -0.563324, 0.381504, -0.785085, 13.7842, -0.0565622)
+transform = Transform3D(1.09627, -0.298022, -1.28167, 1.02988, 3.24454, -0.0233388, 3.7508, -0.803764, 0.38101, -0.785085, 13.7842, -0.0565622)
 visibility_range_end = 100.0
 visibility_range_end_margin = 10.0
 visibility_range_fade_mode = 1
@@ -689,7 +689,7 @@ mesh = SubResource("ArrayMesh_wbel7")
 skeleton = NodePath("")
 
 [node name="Leaf" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(0.417329, 0.442771, -3.35461, -0.357297, 1.04274, 1.34683, 2.08929, 0.0898807, 0.900401, -0.799375, 13.4597, 0.00569895)
+transform = Transform3D(0.445163, 0.35561, -3.45396, -0.321805, 1.07559, 1.0667, 2.08931, 0.0898984, 0.900224, -0.799375, 13.4597, 0.00569895)
 visibility_range_end = 100.0
 visibility_range_end_margin = 10.0
 visibility_range_fade_mode = 1
@@ -697,7 +697,7 @@ mesh = SubResource("ArrayMesh_uchny")
 skeleton = NodePath("")
 
 [node name="Leaf_001" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(-1.06436, -0.511682, 3.95661, -0.281919, 1.4471, 1.52633, -1.85547, 0.0736455, -2.50155, -0.851022, 13.6234, -0.0714935)
+transform = Transform3D(-1.10378, -0.205196, 4.17914, -0.0602215, 1.52117, 0.683946, -1.85287, 0.0727978, -2.51181, -0.851022, 13.6234, -0.0714935)
 visibility_range_end = 100.0
 visibility_range_end_margin = 10.0
 visibility_range_fade_mode = 1
@@ -705,7 +705,7 @@ mesh = SubResource("ArrayMesh_uylos")
 skeleton = NodePath("")
 
 [node name="Leaf_004" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(2.10669, -1.19035, 1.03795, 1.47178, 3.07064, 0.232083, -3.11874, 0.645013, 0.810655, -0.824213, 13.6931, 0.0439254)
+transform = Transform3D(2.29357, -0.753473, 1.05932, 1.16588, 3.20597, 0.0856861, -3.11626, 0.644879, 0.811715, -0.824213, 13.6931, 0.0439254)
 visibility_range_end = 100.0
 visibility_range_end_margin = 10.0
 visibility_range_fade_mode = 1
@@ -713,7 +713,7 @@ mesh = SubResource("ArrayMesh_axdlk")
 skeleton = NodePath("")
 
 [node name="Leaf_005" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(1.30281, -0.608535, 2.20254, 0.403193, 0.926558, 2.04179, -1.67541, -0.250223, 2.20408, -0.921216, 13.1563, -0.0578141)
+transform = Transform3D(1.34352, -0.531335, 2.34019, 0.298111, 0.971716, 1.86195, -1.66522, -0.254731, 2.22143, -0.921216, 13.1563, -0.0578141)
 visibility_range_end = 100.0
 visibility_range_end_margin = 10.0
 visibility_range_fade_mode = 1
@@ -721,7 +721,7 @@ mesh = SubResource("ArrayMesh_1jroa")
 skeleton = NodePath("")
 
 [node name="Leaf_006" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(3.31458, 0.922032, -0.671006, -1.10596, 3.21723, 0.10376, 2.0301, 0.247263, 1.15209, -0.810548, 13.0771, -0.274849)
+transform = Transform3D(3.27114, 0.570208, -0.751631, -0.784036, 3.29161, 0.0228749, 2.23961, 0.31948, 1.10583, -0.810548, 13.0771, -0.274849)
 visibility_range_end = 100.0
 visibility_range_end_margin = 10.0
 visibility_range_fade_mode = 1
@@ -729,7 +729,7 @@ mesh = SubResource("ArrayMesh_6n2sl")
 skeleton = NodePath("")
 
 [node name="Leaf_007" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(4.42179, -0.279746, -0.119987, 0.185254, 5.21206, -0.112569, 0.520161, 0.521802, 1.06008, -0.773815, 13.6428, -0.0188162)
+transform = Transform3D(4.42554, -0.0157259, -0.125448, -0.0386004, 5.21957, -0.106287, 0.519834, 0.521461, 1.0601, -0.773815, 13.6428, -0.0188162)
 visibility_range_end = 100.0
 visibility_range_end_margin = 10.0
 visibility_range_fade_mode = 1
@@ -737,7 +737,7 @@ mesh = SubResource("ArrayMesh_e0ahe")
 skeleton = NodePath("")
 
 [node name="Leaf_008" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(0.903151, 0.151084, 3.34772, -0.0979493, 1.12623, -0.467642, -1.96001, 0.0133358, 1.56596, -0.819205, 13.6013, -0.1039)
+transform = Transform3D(1.11549, 0.0924857, 3.17584, -0.0387152, 1.13217, -0.313887, -1.84962, 0.0320793, 1.92189, -0.819205, 13.6013, -0.1039)
 visibility_range_end = 100.0
 visibility_range_end_margin = 10.0
 visibility_range_fade_mode = 1
