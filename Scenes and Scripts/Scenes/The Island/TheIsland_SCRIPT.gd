@@ -76,6 +76,8 @@ func _ready() -> void:
 	randomize()
 	initNodes()
 	
+	IslandManager.Coconuts_WorldContents = $"World Contents/Coconuts"
+	
 	TerrainManager.on_terrain = "GRASS"
 	AudioManager.NotificationOnScreen = false
 	AudioManager.canOperate_textField = true
