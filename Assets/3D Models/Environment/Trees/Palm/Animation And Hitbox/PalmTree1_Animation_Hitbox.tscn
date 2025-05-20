@@ -1,11 +1,10 @@
-[gd_scene load_steps=42 format=4 uid="uid://b5fch7iwyn811"]
+[gd_scene load_steps=41 format=4 uid="uid://b5fch7iwyn811"]
 
 [ext_resource type="Script" uid="uid://cdyp7lqng6qo0" path="res://Assets/3D Models/Environment/Trees/Scripts/PalmTree_Animation_Hitbox_SCRIPT.gd" id="2_6lwfh"]
 [ext_resource type="AudioStream" uid="uid://bhwx4lwa7la22" path="res://Audio/SFX/Environment/Tree Shake/TreeShake1.mp3" id="2_8hv3t"]
 [ext_resource type="Script" uid="uid://bi02uk7qwshyf" path="res://Scenes and Scripts/Scenes/Components/Interactable Component/Interactable_Component_SCRIPT.gd" id="3_3e0u3"]
 [ext_resource type="PackedScene" uid="uid://dxlkxah5aisnt" path="res://Scenes and Scripts/Scenes/Environment/General/Leaf falling particles/PalmTreeLeafFallingParticles.tscn" id="4_3e0u3"]
 [ext_resource type="PackedScene" uid="uid://cmt00ehn4hfne" path="res://Scenes and Scripts/Scenes/General/UI/MessageWithKeyUI.tscn" id="4_8hv3t"]
-[ext_resource type="PackedScene" uid="uid://c5os6d76ut0do" path="res://Assets/3D Models/Consumables/Food/Coconut.blend" id="4_10sc7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h3xl4"]
 resource_name = "TrunkColor"
@@ -639,7 +638,7 @@ size = Vector3(12.87, 15.178, 13.545)
 [sub_resource type="BoxShape3D" id="BoxShape3D_00rnx"]
 size = Vector3(2.61795, 15.5716, 1.85207)
 
-[node name="PalmTree1" type="Node3D" node_paths=PackedStringArray("TreeShake", "WindAnimationPlayer", "TreeMeshShakeAnimationPlayer", "LeafShakeAnimationPlayer", "CoconutSpawns", "Coconut1_Spawn", "Coconut2_Spawn", "Coconut3_Spawn", "Coconut1_Static", "Coconut2_Static", "Coconut3_Static", "Coconut1_RespawnTimer", "Coconut2_RespawnTimer", "Coconut3_RespawnTimer")]
+[node name="PalmTree1" type="Node3D" node_paths=PackedStringArray("TreeShake", "WindAnimationPlayer", "TreeMeshShakeAnimationPlayer", "LeafShakeAnimationPlayer", "CoconutSpawns", "Coconut1_Spawn", "Coconut2_Spawn", "Coconut3_Spawn", "Coconut1_RespawnTimer", "Coconut2_RespawnTimer", "Coconut3_RespawnTimer")]
 script = ExtResource("2_6lwfh")
 TreeShake = NodePath("TreeShake")
 WindAnimationPlayer = NodePath("Wind Animation")
@@ -649,9 +648,6 @@ CoconutSpawns = [NodePath("TreeMesh/CoconutSpawn1"), NodePath("TreeMesh/CoconutS
 Coconut1_Spawn = NodePath("TreeMesh/CoconutSpawn1")
 Coconut2_Spawn = NodePath("TreeMesh/CoconutSpawn2")
 Coconut3_Spawn = NodePath("TreeMesh/CoconutSpawn3")
-Coconut1_Static = NodePath("TreeMesh/CoconutSpawn1/Coconut_Static")
-Coconut2_Static = NodePath("TreeMesh/CoconutSpawn2/Coconut_Static")
-Coconut3_Static = NodePath("TreeMesh/CoconutSpawn3/Coconut_Static")
 Coconut1_RespawnTimer = NodePath("TreeMesh/CoconutSpawn1/CoconutRespawnTimer")
 Coconut2_RespawnTimer = NodePath("TreeMesh/CoconutSpawn2/CoconutRespawnTimer")
 Coconut3_RespawnTimer = NodePath("TreeMesh/CoconutSpawn3/CoconutRespawnTimer")
@@ -682,7 +678,7 @@ mesh = SubResource("ArrayMesh_55tej")
 skeleton = NodePath("")
 
 [node name="Leaf_002" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(1.32267, -0.145518, -0.682375, 0.102987, 1.5185, -0.63063, 0.201681, 0.17892, 4.79721, -0.904471, 13.4362, 0.0300764)
+transform = Transform3D(1.3254, -0.0898923, -0.708752, 0.0575466, 1.52539, -0.531249, 0.201846, 0.155377, 4.80542, -0.904471, 13.4362, 0.0300764)
 visibility_range_end = 100.0
 visibility_range_end_margin = 10.0
 visibility_range_fade_mode = 1
@@ -690,7 +686,7 @@ mesh = SubResource("ArrayMesh_10k11")
 skeleton = NodePath("")
 
 [node name="Leaf_003" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(1.08046, -0.346782, -1.28119, 1.00683, 3.24794, -0.0466235, 3.76163, -0.769728, 0.380478, -0.785085, 13.7842, -0.0565622)
+transform = Transform3D(1.11963, -0.186223, -1.28281, 0.784865, 3.29197, -0.000872232, 3.80281, -0.624604, 0.377868, -0.785085, 13.7842, -0.0565622)
 visibility_range_end = 100.0
 visibility_range_end_margin = 10.0
 visibility_range_fade_mode = 1
@@ -698,7 +694,7 @@ mesh = SubResource("ArrayMesh_wbel7")
 skeleton = NodePath("")
 
 [node name="Leaf" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(0.405633, 0.368146, -3.45432, -0.328052, 1.0708, 1.11183, 2.09638, 0.0963311, 0.842371, -0.799375, 13.4597, 0.00569895)
+transform = Transform3D(0.353746, 0.395151, -3.43919, -0.339789, 1.06033, 1.20528, 2.10389, 0.104808, 0.772919, -0.799375, 13.4597, 0.00569895)
 visibility_range_end = 100.0
 visibility_range_end_margin = 10.0
 visibility_range_fade_mode = 1
@@ -706,7 +702,7 @@ mesh = SubResource("ArrayMesh_uchny")
 skeleton = NodePath("")
 
 [node name="Leaf_001" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(-1.1012, -0.13155, 4.21301, -0.00542425, 1.52926, 0.482833, -1.85538, 0.0736065, -2.50192, -0.851022, 13.6234, -0.0714935)
+transform = Transform3D(-1.10321, -0.172655, 4.195, -0.0360487, 1.52519, 0.595069, -1.85384, 0.0730881, -2.50799, -0.851022, 13.6234, -0.0714935)
 visibility_range_end = 100.0
 visibility_range_end_margin = 10.0
 visibility_range_fade_mode = 1
@@ -714,7 +710,7 @@ mesh = SubResource("ArrayMesh_uylos")
 skeleton = NodePath("")
 
 [node name="Leaf_004" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(2.32394, -0.657562, 1.06221, 1.09694, 3.22698, 0.0544143, -3.11879, 0.645018, 0.810634, -0.824213, 13.6931, 0.0439254)
+transform = Transform3D(2.3032, -0.724285, 1.06026, 1.14495, 3.21268, 0.076141, -3.11692, 0.644926, 0.811433, -0.824213, 13.6931, 0.0439254)
 visibility_range_end = 100.0
 visibility_range_end_margin = 10.0
 visibility_range_fade_mode = 1
@@ -722,7 +718,7 @@ mesh = SubResource("ArrayMesh_axdlk")
 skeleton = NodePath("")
 
 [node name="Leaf_005" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(1.35666, -0.54054, 2.29455, 0.314346, 0.965133, 1.89059, -1.65153, -0.26033, 2.24473, -0.921216, 13.1563, -0.0578141)
+transform = Transform3D(1.38095, -0.523137, 2.29481, 0.295614, 0.97316, 1.85502, -1.63477, -0.265937, 2.27395, -0.921216, 13.1563, -0.0578141)
 visibility_range_end = 100.0
 visibility_range_end_margin = 10.0
 visibility_range_fade_mode = 1
@@ -730,7 +726,7 @@ mesh = SubResource("ArrayMesh_1jroa")
 skeleton = NodePath("")
 
 [node name="Leaf_006" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(3.24162, 0.441761, -0.778869, -0.667084, 3.3098, -0.00592978, 2.319, 0.334579, 1.08704, -0.810548, 13.0771, -0.274849)
+transform = Transform3D(3.22871, 0.393794, -0.788765, -0.623453, 3.31543, -0.0166181, 2.34896, 0.33869, 1.07977, -0.810548, 13.0771, -0.274849)
 visibility_range_end = 100.0
 visibility_range_end_margin = 10.0
 visibility_range_fade_mode = 1
@@ -738,7 +734,7 @@ mesh = SubResource("ArrayMesh_6n2sl")
 skeleton = NodePath("")
 
 [node name="Leaf_007" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(4.42414, 0.0769654, -0.127364, -0.117222, 5.21901, -0.104081, 0.52003, 0.52166, 1.06009, -0.773815, 13.6428, -0.0188162)
+transform = Transform3D(4.42337, 0.107262, -0.127991, -0.142923, 5.21846, -0.10336, 0.520128, 0.521762, 1.06008, -0.773815, 13.6428, -0.0188162)
 visibility_range_end = 100.0
 visibility_range_end_margin = 10.0
 visibility_range_fade_mode = 1
@@ -746,7 +742,7 @@ mesh = SubResource("ArrayMesh_e0ahe")
 skeleton = NodePath("")
 
 [node name="Leaf_008" type="MeshInstance3D" parent="TreeMesh"]
-transform = Transform3D(1.17692, 0.0740772, 3.11451, -0.0204674, 1.13342, -0.26671, -1.81145, 0.0353223, 2.02654, -0.819205, 13.6013, -0.1039)
+transform = Transform3D(1.17334, 0.0751683, 3.11824, -0.0215464, 1.13336, -0.269498, -1.81376, 0.0351635, 2.02042, -0.819205, 13.6013, -0.1039)
 visibility_range_end = 100.0
 visibility_range_end_margin = 10.0
 visibility_range_fade_mode = 1
@@ -754,28 +750,22 @@ mesh = SubResource("ArrayMesh_21pj4")
 skeleton = NodePath("")
 
 [node name="CoconutSpawn1" type="Node3D" parent="TreeMesh"]
-transform = Transform3D(-0.0720108, -0.348741, 0.637255, 0.0184691, 0.639292, 0.351943, -0.726205, 0.0508401, -0.0542397, 0, 12.5599, 0)
+transform = Transform3D(-0.0986449, -0.477728, 0.872952, 0.0253002, 0.875743, 0.482114, -0.994801, 0.069644, -0.074301, 0, 12.5599, 0)
 
 [node name="CoconutRespawnTimer" type="Timer" parent="TreeMesh/CoconutSpawn1"]
 wait_time = 3000.0
 
-[node name="Coconut_Static" parent="TreeMesh/CoconutSpawn1" instance=ExtResource("4_10sc7")]
-
 [node name="CoconutSpawn2" type="Node3D" parent="TreeMesh"]
-transform = Transform3D(-0.518099, -0.236449, 0.45669, 0.0184691, 0.639292, 0.351943, -0.513938, 0.261337, -0.447739, -0.552051, 12.5599, -0.757712)
+transform = Transform3D(-0.709724, -0.323903, 0.625602, 0.0253001, 0.875743, 0.482114, -0.704025, 0.357996, -0.613341, -0.552051, 12.5599, -0.757712)
 
 [node name="CoconutRespawnTimer" type="Timer" parent="TreeMesh/CoconutSpawn2"]
 wait_time = 3000.0
 
-[node name="Coconut_Static" parent="TreeMesh/CoconutSpawn2" instance=ExtResource("4_10sc7")]
-
 [node name="CoconutSpawn3" type="Node3D" parent="TreeMesh"]
-transform = Transform3D(-0.485072, 0.254688, -0.48243, 0.264139, 0.674493, 0.0904963, 0.477321, -0.114427, -0.540344, -1.81473, 12.5599, 0.563688)
+transform = Transform3D(-0.664483, 0.348887, -0.660863, 0.361835, 0.923963, 0.123968, 0.653864, -0.156749, -0.740197, -1.81473, 12.5599, 0.563688)
 
 [node name="CoconutRespawnTimer" type="Timer" parent="TreeMesh/CoconutSpawn3"]
 wait_time = 3000.0
-
-[node name="Coconut_Static" parent="TreeMesh/CoconutSpawn3" instance=ExtResource("4_10sc7")]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

@@ -62,9 +62,6 @@ extends Node3D
 @export var Coconut1_Spawn : Node3D
 @export var Coconut2_Spawn : Node3D
 @export var Coconut3_Spawn : Node3D
-@export var Coconut1_Static : Node3D
-@export var Coconut2_Static : Node3D
-@export var Coconut3_Static : Node3D
 @export var Coconut1_RespawnTimer : Timer
 @export var Coconut2_RespawnTimer : Timer
 @export var Coconut3_RespawnTimer : Timer
@@ -100,32 +97,15 @@ func release_coconuts() -> void:
 	if randi() % 3 == 0:
 		if !coconut_info["Coconut1"]["Dropped"]:
 			print("coconut 1 dropped")
-			coconut_info["Coconut1"]["Dropped"] = true
-			var coconut_instance = CoconutScene.instantiate()
-			if IslandManager.Coconuts_WorldContents != null:
-				IslandManager.Coconuts_WorldContents.add_child(coconut_instance)
-				coconut_instance.global_transform = Coconut1_Static.global_transform
-			Coconut1_Static.hide()
 	
 	if randi() % 3 == 0:
 		if !coconut_info["Coconut2"]["Dropped"]:
 			print("coconut 2 dropped")
-			coconut_info["Coconut2"]["Dropped"] = true
-			var coconut_instance = CoconutScene.instantiate()
-			if IslandManager.Coconuts_WorldContents != null:
-				IslandManager.Coconuts_WorldContents.add_child(coconut_instance)
-				coconut_instance.global_transform = Coconut2_Static.global_transform
-			Coconut2_Static.hide()
 	
 	if randi() % 3 == 0:
 		if !coconut_info["Coconut3"]["Dropped"]:
 			print("coconut 3 dropped")
 			coconut_info["Coconut3"]["Dropped"] = true
-			var coconut_instance = CoconutScene.instantiate()
-			if IslandManager.Coconuts_WorldContents != null:
-				IslandManager.Coconuts_WorldContents.add_child(coconut_instance)
-				coconut_instance.global_transform = Coconut3_Static.global_transform
-			Coconut3_Static.hide()
 
 func _ready() -> void:
 	randomize() # Only call once here
