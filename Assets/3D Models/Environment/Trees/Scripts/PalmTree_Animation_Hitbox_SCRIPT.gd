@@ -49,6 +49,8 @@
 @icon("res://Textures/Icons/Script Icons/32x32/object.png")
 extends Node3D
 
+@onready var CoconutScene : PackedScene = preload("uid://6exo537gjcsd")
+
 @export var CoconutSpawns : Array[Node3D]
 @export var TreeShake : AudioStreamPlayer3D
 @export var WindAnimationPlayer : AnimationPlayer
@@ -88,6 +90,8 @@ func release_coconuts() -> void:
 	
 	if randi() % 3 == 0:
 		coconut_info["Coconut1"]["Dropped"] = true
+		var coconut_instance = CoconutScene.instantiate()
+		
 		
 	if randi() % 3 == 0:
 		pass
