@@ -47,12 +47,20 @@
 
 extends RigidBody3D
 
+var can_snatch : bool = true
+
 func _on_coconut_snatched() -> void:
-	var free_slot = InventoryManager.get_free_slot_using_stacks(
-		InventoryManager.POCKET_SLOTS,
-		"COCONUT")
-	
-	if free_slot != null:
-		free_slot.spawn_droppable("COCONUT")
-	
-	queue_free()
+	if can_snatch:
+		can_snatch = false
+		$LeftClickDebounce.start()
+		var free_slot = InventoryManager.get_free_slot_using_stacks(
+			InventoryManager.POCKET_SLOTS,
+			"COCONUT")
+		
+		if free_slot != null:
+			free_slot.spawn_droppable("COCONUT")
+		
+		queue_free()
+
+func _on_left_click_debounce_timeout() -> void:
+	can_snatch = true

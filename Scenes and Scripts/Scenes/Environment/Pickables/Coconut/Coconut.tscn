@@ -29,6 +29,10 @@ gravity_scale = 2.0
 angular_damp = 3.0
 script = ExtResource("1_6pfgg")
 
+[node name="LeftClickDebounce" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
 [node name="Icosphere" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.425, 0, 0, 0, 0.425, 0, 0, 0, 0.425, 0, 0, 0)
 visibility_range_end = 40.0
@@ -187,6 +191,7 @@ shape = SubResource("BoxShape3D_fvca7")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00399775, 0.0358582, 0.00440979)
 shape = SubResource("BoxShape3D_00rnx")
 
+[connection signal="timeout" from="LeftClickDebounce" to="." method="_on_left_click_debounce_timeout"]
 [connection signal="Action1_Triggered" from="Interactable Component" to="." method="_on_coconut_snatched"]
 [connection signal="body_entered" from="Interactable Component/Contents/PlayerVisibleDetector" to="Interactable Component" method="_on_player_visible_detector_body_entered"]
 [connection signal="body_exited" from="Interactable Component/Contents/PlayerVisibleDetector" to="Interactable Component" method="_on_player_visible_detector_body_exited"]
