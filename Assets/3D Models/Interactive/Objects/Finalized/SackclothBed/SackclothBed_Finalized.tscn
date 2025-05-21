@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://ceeflh1bhg0ei"]
+[gd_scene load_steps=10 format=3 uid="uid://ceeflh1bhg0ei"]
 
 [ext_resource type="PackedScene" uid="uid://vnk7463heub8" path="res://Assets/3D Models/Interactive/Objects/Models/SackclothBed.blend" id="1_vw55b"]
 [ext_resource type="Script" uid="uid://cjjnevo5pn5cx" path="res://Assets/3D Models/Interactive/Objects/Finalized/SackclothBed/SackclothBed_Finalized_SCRIPT.gd" id="2_4txhd"]
 [ext_resource type="Script" uid="uid://bi02uk7qwshyf" path="res://Scenes and Scripts/Scenes/Components/Interactable Component/Interactable_Component_SCRIPT.gd" id="2_mwyu2"]
 [ext_resource type="PackedScene" uid="uid://cmt00ehn4hfne" path="res://Scenes and Scripts/Scenes/General/UI/MessageWithKeyUI.tscn" id="3_4txhd"]
+[ext_resource type="Texture2D" uid="uid://nmojsrl1t3nx" path="res://Textures/Icons/Input Prompts/mouse_right_outline.png" id="5_dklh4"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_dklh4"]
-action = &"Interact"
+action = &"Interact2"
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_mwyu2"]
 viewport_path = NodePath("Interactable Component/Contents/UI/SubViewport")
@@ -68,6 +69,13 @@ offset_right = 27.0
 offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="KEY" parent="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1/Contents" index="4"]
+visible = false
+
+[node name="KEY_Image" parent="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1/Contents" index="5"]
+visible = true
+texture = ExtResource("5_dklh4")
 
 [node name="Message" parent="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1/Contents" index="7"]
 text = "Sleep"

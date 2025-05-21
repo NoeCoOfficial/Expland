@@ -1,5 +1,5 @@
 # ============================================================= #
-# Tree_Animation_SCRIPT.gd
+# DefaultTree_Animation_SCRIPT.gd
 # ============================================================= #
 #                       COPYRIGHT NOTICE                        #
 #                           Noe Co.                             #

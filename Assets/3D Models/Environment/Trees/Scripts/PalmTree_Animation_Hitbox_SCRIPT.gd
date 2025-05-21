@@ -100,15 +100,22 @@ func release_coconuts() -> void:
 	if randi() % 3 == 0:
 		if !coconut_info["Coconut1"]["Dropped"]:
 			print("coconut 1 dropped")
-			
+			Coconut1.freeze = false
+			Coconut1.reparent(IslandManager.Coconuts_WorldContents)
+			coconut_info["Coconut1"]["Dropped"] = true
 	
 	if randi() % 3 == 0:
 		if !coconut_info["Coconut2"]["Dropped"]:
 			print("coconut 2 dropped")
+			Coconut2.freeze = false
+			Coconut2.reparent(IslandManager.Coconuts_WorldContents)
+			coconut_info["Coconut2"]["Dropped"] = true
 	
 	if randi() % 3 == 0:
 		if !coconut_info["Coconut3"]["Dropped"]:
 			print("coconut 3 dropped")
+			Coconut3.freeze = false
+			Coconut3.reparent(IslandManager.Coconuts_WorldContents)
 			coconut_info["Coconut3"]["Dropped"] = true
 
 func _ready() -> void:
