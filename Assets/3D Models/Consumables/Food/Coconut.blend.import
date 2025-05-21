@@ -36,7 +36,7 @@ _subresources={
 "materials": {
 "Material.001": {
 "use_external/enabled": true,
-"use_external/path": "res://Resources/Materials/CoconutColor.tres"
+"use_external/path": "uid://cko10fu7fjdkn"
 }
 }
 }

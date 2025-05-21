@@ -1,9 +1,10 @@
-[gd_scene load_steps=103 format=4 uid="uid://c18bsfrek04c7"]
+[gd_scene load_steps=104 format=4 uid="uid://c18bsfrek04c7"]
 
 [ext_resource type="Script" uid="uid://d33t1hbbrd3nl" path="res://Scenes and Scripts/Scenes/Environment/Pickables/Bushes/Bush_SCRIPT.gd" id="1_e78uq"]
 [ext_resource type="Script" uid="uid://bi02uk7qwshyf" path="res://Scenes and Scripts/Scenes/Components/Interactable Component/Interactable_Component_SCRIPT.gd" id="1_edqk2"]
 [ext_resource type="PackedScene" uid="uid://cmt00ehn4hfne" path="res://Scenes and Scripts/Scenes/General/UI/MessageWithKeyUI.tscn" id="2_ailw5"]
 [ext_resource type="FontFile" uid="uid://bel1qoyfluvci" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Bold.otf" id="3_ailw5"]
+[ext_resource type="Texture2D" uid="uid://nmojsrl1t3nx" path="res://Textures/Icons/Input Prompts/mouse_right_outline.png" id="5_07x6r"]
 [ext_resource type="AudioStream" uid="uid://muif2cwm287n" path="res://Audio/SFX/Environment/HarvestingFruit.mp3" id="5_xbmcn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m3rfc"]
@@ -1788,7 +1789,12 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="KEY" parent="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1/Contents" index="4"]
+visible = false
 text = "R"
+
+[node name="KEY_Image" parent="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1/Contents" index="5"]
+visible = true
+texture = ExtResource("5_07x6r")
 
 [node name="Message" parent="Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1/Contents" index="7"]
 theme_override_constants/outline_size = 10
