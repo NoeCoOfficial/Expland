@@ -48,4 +48,11 @@
 extends RigidBody3D
 
 func _on_coconut_snatched() -> void:
-	pass
+	var free_slot = InventoryManager.get_free_slot_using_stacks(
+		InventoryManager.POCKET_SLOTS,
+		"COCONUT")
+	
+	if free_slot != null:
+		free_slot.spawn_droppable("COCONUT")
+	
+	queue_free()
