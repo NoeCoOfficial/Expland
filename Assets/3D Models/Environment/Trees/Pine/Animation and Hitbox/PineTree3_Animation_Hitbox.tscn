@@ -96,7 +96,7 @@ shadow_mesh = SubResource("ArrayMesh_a1fsb")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_417up"]
 resource_name = "Material.006"
-cull_mode = 1
+cull_mode = 2
 albedo_color = Color(0.319919, 0.482505, 0, 1)
 roughness = 0.644904
 
@@ -413,7 +413,7 @@ mesh = SubResource("ArrayMesh_eiiy2")
 skeleton = NodePath("")
 
 [node name="Circle_003" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.13786, -0.0477415, 1.41204e-10, 0.0373164, 2.73511, 0.00213446, -4.20372e-05, -0.00308111, 1.89477, 0.0342205, 6.69972, -0.149977)
+transform = Transform3D(2.13786, -0.0477415, 1.4081e-10, 0.0373164, 2.73511, 0.00213446, -4.20372e-05, -0.00308111, 1.89477, 0.0342205, 6.69972, -0.149977)
 lod_bias = 0.5
 visibility_range_end = 100.0
 visibility_range_end_margin = 10.0
@@ -422,7 +422,7 @@ mesh = SubResource("ArrayMesh_s0fc3")
 skeleton = NodePath("")
 
 [node name="Circle_004" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.529608, 3.20341e-06, 1.14383, 0.0153687, 1.78484, 0.00558566, -1.29067, 0.0212517, -0.469288, -0.00116653, 8.25276, 0.00403193)
+transform = Transform3D(-0.529608, 3.21504e-06, 1.14383, 0.0153687, 1.78484, 0.00558565, -1.29067, 0.0212517, -0.469288, -0.00116653, 8.25276, 0.00403193)
 lod_bias = 0.5
 visibility_range_end = 100.0
 visibility_range_end_margin = 10.0
