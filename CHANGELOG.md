@@ -1,28 +1,5 @@
 <h1 align="center">Expland Changelog</h1>
 
-# v0.7.5 (unreleased)
-
----
-
-## Main Menu
-
-### Changed:
-- Adjusted the y-position of the audio notification to be a touch lower
-- Made Story Mode locked again. You weren't supposed to see that!
-
-## The Island
-
-### Added:
-- Added an extra parkour section (spikes are an instant kill if you touch them; you need to land exactly on top of them)
-
-## Inventory
-
-### Added:
-- Added a fully functional hotbar as an easy way to hold items in your hand and switch between them
-
-### Fixed:
-- Fixed default droppable size shrinking after hovering over
-
 ---
 
 # v0.7.1 (released)
