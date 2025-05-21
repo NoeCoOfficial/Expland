@@ -58,6 +58,7 @@ func initializeIslandProperties(_Island_Name):
 @export var DayNightCycle_Sky : AnimationPlayer
 
 @export var Tick : Timer
+@export var IslandDeco : Node3D
 @export var Weather_Timer : Timer
 @export var RainParticles : CPUParticles3D
 @export var Clouds : MeshInstance3D
@@ -75,6 +76,7 @@ func _ready() -> void:
 	BuildingManager.Building_Assets_Parent = Building_Assets_Parent
 	randomize()
 	initNodes()
+	initOptimizers()
 	
 	IslandManager.Coconuts_WorldContents = $"World Contents/Coconuts"
 	
@@ -136,6 +138,11 @@ func initNodes():
 	RainParticles.visible = false
 	$"Story Mode/Canvas Layers/EyeBlinkLayer/BottomBlink".position = Vector2(0.0, 688.0)
 	$"Story Mode/Canvas Layers/EyeBlinkLayer/TopBlink".position = Vector2(1152.0, -39.0)
+
+func initOptimizers():
+	for child in IslandDeco.get_children():
+		if str(child.name).begins_with("PalmTree"):
+			child.show()
 
 func set_pretty_shadows(value : bool) -> void:
 	if value:

@@ -3,4 +3,5 @@
 [ext_resource type="Texture2D" uid="uid://5ox2nlacanqf" path="res://Resources/Materials/CoconutColor2.png" id="1_6qkmr"]
 
 [resource]
+cull_mode = 2
 albedo_texture = ExtResource("1_6qkmr")

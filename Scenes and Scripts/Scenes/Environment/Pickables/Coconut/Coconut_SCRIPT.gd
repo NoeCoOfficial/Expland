@@ -49,6 +49,9 @@ extends RigidBody3D
 
 var can_snatch : bool = true
 
+func _ready() -> void:
+	name = "Coconut"
+
 func _on_coconut_snatched() -> void:
 	if can_snatch:
 		can_snatch = false
