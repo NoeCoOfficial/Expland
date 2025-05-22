@@ -351,7 +351,7 @@ viewport_path = NodePath("Interactable Component/Contents/UI/SubViewport")
 size = Vector3(7.94531, 7.5665, 8.80786)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_00rnx"]
-size = Vector3(2.84448, 2.95822, 2.70496)
+size = Vector3(2.59827, 1.98461, 2.61888)
 
 [node name="Bush[2]" type="Node3D" node_paths=PackedStringArray("HarvestingFruit", "SpawnBerriesTimer", "Berries", "Bush")]
 script = ExtResource("1_xlgmp")
@@ -624,13 +624,13 @@ grow_vertical = 2
 [node name="PlayerVisibleDetector" type="Area3D" parent="Interactable Component/Contents"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable Component/Contents/PlayerVisibleDetector"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.518367, 0.178159, 0.220581)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.518367, 0.178159, 0.550357)
 shape = SubResource("BoxShape3D_fvca7")
 
 [node name="PlayerMimicRaycastDetector" type="Area3D" parent="Interactable Component"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable Component/PlayerMimicRaycastDetector"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.307739, 0.82991, 0.425781)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0895385, 0.544514, 0.682746)
 shape = SubResource("BoxShape3D_00rnx")
 
 [connection signal="timeout" from="SpawnBerriesTimer" to="." method="_on_spawn_berries_timer_timeout"]
