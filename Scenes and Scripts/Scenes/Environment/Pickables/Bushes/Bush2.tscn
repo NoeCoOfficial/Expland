@@ -353,7 +353,7 @@ size = Vector3(7.94531, 7.5665, 8.80786)
 [sub_resource type="BoxShape3D" id="BoxShape3D_00rnx"]
 size = Vector3(2.84448, 2.95822, 2.70496)
 
-[node name="Bush1" type="Node3D" node_paths=PackedStringArray("HarvestingFruit", "SpawnBerriesTimer", "Berries", "Bush")]
+[node name="Bush[2]" type="Node3D" node_paths=PackedStringArray("HarvestingFruit", "SpawnBerriesTimer", "Berries", "Bush")]
 script = ExtResource("1_xlgmp")
 HarvestingFruit = NodePath("HarvestingFruit")
 SpawnBerriesTimer = NodePath("SpawnBerriesTimer")
