@@ -350,6 +350,10 @@ Debug={
 3d_physics/layer_10="Building Asset Colliders"
 3d_physics/layer_11="World Objects"
 
+[physics]
+
+3d/run_on_separate_thread=true
+
 [rendering]
 
 textures/vram_compression/import_s3tc_bptc=true
