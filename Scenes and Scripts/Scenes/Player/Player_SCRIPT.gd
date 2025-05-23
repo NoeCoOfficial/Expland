@@ -576,7 +576,7 @@ func _physics_process(delta):
 				PlayerManager.Stamina = 100.0
 	
 	## Player movement and physics
-	if PlayerData.GAME_STATE not in ["DEAD", "SLEEPING"] and is_on_floor() and !PauseManager.is_paused and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !PauseManager.inside_can_move_item_workshop:
+	if PlayerData.GAME_STATE not in ["DEAD", "SLEEPING"] and is_on_floor() and !PauseManager.is_paused and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !PauseManager.inside_can_move_item_workshop and !StoryModeManager.is_in_cutscene:
 		if Input.is_action_pressed("Crouch"):
 			self.scale.y = lerp(self.scale.y, 0.5, CROUCH_INTERPOLATION * delta)
 		else:
@@ -590,19 +590,19 @@ func _physics_process(delta):
 			velocity.y -= gravity * delta
 		
 		# Jumping
-		if Input.is_action_just_pressed("Jump") and !Input.is_action_pressed("Crouch") and is_on_floor() and !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and !PauseManager.is_inside_alert and PlayerData.GAME_STATE != "SLEEPING" and !DialogueManager.is_in_absolute_interface:
+		if Input.is_action_just_pressed("Jump") and !Input.is_action_pressed("Crouch") and is_on_floor() and !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and !PauseManager.is_inside_alert and PlayerData.GAME_STATE != "SLEEPING" and !DialogueManager.is_in_absolute_interface and !StoryModeManager.is_in_cutscene:
 			velocity.y = JUMP_VELOCITY
 		
 		# Handle Speed
 		if Input.is_action_pressed("Sprint") and !Input.is_action_pressed("Crouch"):
-			if !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !DialogueManager.is_in_absolute_interface:
+			if !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !DialogueManager.is_in_absolute_interface and !StoryModeManager.is_in_cutscene:
 				if !stamina_restoring_from_0:
 					speed = SPRINT_SPEED
 					is_sprinting = true
 					is_crouching = false
 					is_walking = false
 		elif Input.is_action_pressed("Crouch"):
-			if !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !DialogueManager.is_in_absolute_interface:
+			if !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !DialogueManager.is_in_absolute_interface and !StoryModeManager.is_in_cutscene:
 				speed = CROUCH_SPEED
 				is_crouching = true
 				is_sprinting = false
@@ -619,7 +619,7 @@ func _physics_process(delta):
 		var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		
 		if is_on_floor():
-			if direction != Vector3.ZERO and !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface:
+			if direction != Vector3.ZERO and !PauseManager.inside_can_move_item_workshop and !PauseManager.is_paused and PlayerData.GAME_STATE != "SLEEPING" and !PauseManager.is_inside_alert and !DialogueManager.is_in_absolute_interface and !StoryModeManager.is_in_cutscene:
 				velocity.x = direction.x * speed
 				velocity.z = direction.z * speed
 			else:
