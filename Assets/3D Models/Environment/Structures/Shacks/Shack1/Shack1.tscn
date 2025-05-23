@@ -856,7 +856,7 @@ shadow_mesh = SubResource("ArrayMesh_hluws")
 
 [node name="Collision" type="StaticBody3D" parent="Mesh"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/Collision"]
+[node name="DoorCollision" type="CollisionShape3D" parent="Mesh/Collision"]
 transform = Transform3D(0.057153, 0, 0, 0, -1.06981e-07, -0.206427, 0, 2.44745, -9.0232e-09, -7.10933, 2.28174, -4.18685)
 shape = SubResource("ConvexPolygonShape3D_h3fdp")
 
@@ -952,7 +952,7 @@ shape = SubResource("ConvexPolygonShape3D_qhdr3")
 transform = Transform3D(0.0158204, -0.141498, -0.521038, -0.119651, 0.0281046, -0.0699738, 0.00317843, 1.76228, -0.0407195, 7.16116, 6.25987, 2.56982)
 shape = SubResource("ConvexPolygonShape3D_5hc5x")
 
-[node name="Cube_004" type="MeshInstance3D" parent="Mesh"]
+[node name="DoorMesh" type="MeshInstance3D" parent="Mesh"]
 transform = Transform3D(0.057153, 0, 0, 0, 0, -0.206427, 0, 2.44745, 0, -7.10933, 2.28174, -4.18685)
 mesh = SubResource("ArrayMesh_huypx")
 skeleton = NodePath("")
