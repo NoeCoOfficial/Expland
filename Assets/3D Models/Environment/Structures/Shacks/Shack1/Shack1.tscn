@@ -8,15 +8,17 @@
 
 [sub_resource type="Animation" id="Animation_q4oh4"]
 resource_name = "toggle"
+length = 0.65
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("Mesh/Collision/DoorCollision:rotation")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.65),
+"transitions": PackedFloat32Array(0.297301, 1),
 "update": 0,
 "values": [Vector3(1.5708, 0, 0), Vector3(1.5708, -1.8326, 0)]
 }
@@ -24,11 +26,11 @@ tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("Mesh/DoorMesh:rotation")
-tracks/1/interp = 1
+tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.65),
+"transitions": PackedFloat32Array(0.297301, 1),
 "update": 0,
 "values": [Vector3(1.5708, 0, 0), Vector3(1.5708, -1.8326, 0)]
 }
@@ -36,11 +38,11 @@ tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/path = NodePath("Interactable Component/Contents/PlayerVisibleDetector/CollisionShape3D:position")
-tracks/2/interp = 1
+tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.65),
+"transitions": PackedFloat32Array(0.297301, 1),
 "update": 0,
 "values": [Vector3(-0.0690985, 0.139523, 0.0402741), Vector3(-3.02767, 0.139523, -3.31683)]
 }
@@ -48,11 +50,11 @@ tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/path = NodePath("Interactable Component/PlayerMimicRaycastDetector/CollisionShape3D:position")
-tracks/3/interp = 1
+tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.65),
+"transitions": PackedFloat32Array(0.297301, 1),
 "update": 0,
 "values": [Vector3(-0.0722656, -0.496765, -0.214233), Vector3(-2.78075, -0.496765, -3.25504)]
 }
@@ -60,11 +62,11 @@ tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/path = NodePath("Interactable Component/Contents/PlayerVisibleDetector/CollisionShape3D:rotation")
-tracks/4/interp = 1
+tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.65),
+"transitions": PackedFloat32Array(0.297301, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, -1.82846, 0)]
 }
@@ -72,11 +74,11 @@ tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/path = NodePath("Interactable Component/PlayerMimicRaycastDetector/CollisionShape3D:rotation")
-tracks/5/interp = 1
+tracks/5/interp = 2
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.65),
+"transitions": PackedFloat32Array(0.297301, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, -1.82846, 0)]
 }
@@ -990,7 +992,11 @@ size = Vector3(0.855469, 5.3053, 5.23608)
 [node name="Shack[1]" type="Node3D"]
 script = ExtResource("1_q4oh4")
 
-[node name="ToggleAnimation" type="AnimationPlayer" parent="."]
+[node name="ToggleDoorDebounce" type="Timer" parent="."]
+wait_time = 0.65
+one_shot = true
+
+[node name="ToggleDoorAnimation" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_2ujd5")
 }
@@ -1001,7 +1007,7 @@ libraries = {
 visible = false
 
 [node name="DoorCollision" type="CollisionShape3D" parent="Mesh/Collision"]
-transform = Transform3D(0.057153, 0, 0, 0, -1.06981e-07, -0.206427, 0, 2.44745, -9.02321e-09, -7.10933, 2.28174, -4.18685)
+transform = Transform3D(-0.0147923, -2.36406, 8.71575e-09, 0, -1.06981e-07, -0.206427, 0.0552056, -0.633447, 2.33538e-09, -7.10933, 2.28174, -4.18685)
 shape = SubResource("ConvexPolygonShape3D_h3fdp")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Mesh/Collision"]
@@ -1097,7 +1103,7 @@ transform = Transform3D(0.0158204, -0.141498, -0.521038, -0.119651, 0.0281046, -
 shape = SubResource("ConvexPolygonShape3D_5hc5x")
 
 [node name="DoorMesh" type="MeshInstance3D" parent="Mesh"]
-transform = Transform3D(0.057153, 0, 0, 0, -1.06981e-07, -0.206427, 0, 2.44745, -9.02321e-09, -7.10933, 2.28174, -4.18685)
+transform = Transform3D(-0.0147923, -2.36406, 8.71575e-09, 0, -1.06981e-07, -0.206427, 0.0552056, -0.633447, 2.33538e-09, -7.10933, 2.28174, -4.18685)
 visibility_range_end = 120.0
 visibility_range_end_margin = 10.0
 visibility_range_fade_mode = 1
@@ -1474,15 +1480,16 @@ grow_vertical = 2
 [node name="PlayerVisibleDetector" type="Area3D" parent="Interactable Component/Contents"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable Component/Contents/PlayerVisibleDetector"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0690985, 0.139523, 0.0402741)
+transform = Transform3D(-0.254821, 0, -0.966988, 0, 1, 0, 0.966988, 0, -0.254821, -3.02767, 0.139523, -3.31683)
 shape = SubResource("BoxShape3D_fvca7")
 
 [node name="PlayerMimicRaycastDetector" type="Area3D" parent="Interactable Component"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable Component/PlayerMimicRaycastDetector"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0722656, -0.496765, -0.214233)
+transform = Transform3D(-0.254821, 0, -0.966988, 0, 1, 0, 0.966988, 0, -0.254821, -2.78075, -0.496765, -3.25504)
 shape = SubResource("BoxShape3D_00rnx")
 
+[connection signal="timeout" from="ToggleDoorDebounce" to="." method="_on_toggle_door_debounce_timeout"]
 [connection signal="Action1_Triggered" from="Interactable Component" to="." method="_door_toggled"]
 [connection signal="body_entered" from="Interactable Component/Contents/PlayerVisibleDetector" to="Interactable Component" method="_on_player_visible_detector_body_entered"]
 [connection signal="body_exited" from="Interactable Component/Contents/PlayerVisibleDetector" to="Interactable Component" method="_on_player_visible_detector_body_exited"]

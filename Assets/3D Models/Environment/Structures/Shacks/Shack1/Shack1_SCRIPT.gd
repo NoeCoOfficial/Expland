@@ -47,6 +47,23 @@
 
 extends Node3D
 
+var can_toggle_door : bool = true
+
+var door_state : DOOR_STATES
+enum DOOR_STATES {
+	OPEN,
+	CLOSED
+}
 
 func _door_toggled() -> void:
+	if can_toggle_door:
+		if door_state == DOOR_STATES.CLOSED:
+			# open door
+			pass
+		else:
+			# close door
+			pass
+
+
+func _on_toggle_door_debounce_timeout() -> void:
 	pass # Replace with function body.
