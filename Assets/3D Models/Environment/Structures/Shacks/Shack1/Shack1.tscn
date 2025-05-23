@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=4 uid="uid://2asdprx5s448"]
+[gd_scene load_steps=88 format=4 uid="uid://2asdprx5s448"]
 
 [ext_resource type="Material" uid="uid://d1q3trggohbjn" path="res://Resources/Materials/ShackColor.tres" id="1_h3fdp"]
 [ext_resource type="Script" uid="uid://dvem6nixyf605" path="res://Assets/3D Models/Environment/Structures/Shacks/Shack1/Shack1_SCRIPT.gd" id="1_q4oh4"]
@@ -59,36 +59,8 @@ tracks/3/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, -1.82802, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_2ujd5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Interactable Component:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-9.88761, 3.02975, -4.77292)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Interactable Component:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -1.82802, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2ujd5"]
 _data = {
-&"RESET": SubResource("Animation_2ujd5"),
 &"toggle": SubResource("Animation_q4oh4")
 }
 
@@ -1011,7 +983,7 @@ libraries = {
 visible = false
 
 [node name="DoorCollision" type="CollisionShape3D" parent="Mesh/Collision"]
-transform = Transform3D(-0.0147923, -2.36406, 8.71575e-09, 0, -1.06981e-07, -0.206427, 0.0552056, -0.633447, 2.33538e-09, -7.10933, 2.28174, -4.18685)
+transform = Transform3D(0.057153, 0, 0, 0, -1.06981e-07, -0.206427, 0, 2.44745, -9.02321e-09, -7.10933, 2.28174, -4.18685)
 shape = SubResource("ConvexPolygonShape3D_h3fdp")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Mesh/Collision"]
@@ -1107,7 +1079,7 @@ transform = Transform3D(0.0158204, -0.141498, -0.521038, -0.119651, 0.0281046, -
 shape = SubResource("ConvexPolygonShape3D_5hc5x")
 
 [node name="DoorMesh" type="MeshInstance3D" parent="Mesh"]
-transform = Transform3D(-0.0147923, -2.36406, 8.71575e-09, 0, -1.06981e-07, -0.206427, 0.0552056, -0.633447, 2.33538e-09, -7.10933, 2.28174, -4.18685)
+transform = Transform3D(0.057153, 0, 0, 0, -1.06981e-07, -0.206427, 0, 2.44745, -9.02321e-09, -7.10933, 2.28174, -4.18685)
 visibility_range_end = 120.0
 visibility_range_end_margin = 10.0
 visibility_range_fade_mode = 1
@@ -1347,7 +1319,7 @@ mesh = SubResource("ArrayMesh_3os0e")
 skeleton = NodePath("")
 
 [node name="Interactable Component" type="Node3D" parent="." node_paths=PackedStringArray("Contents_Node", "SubViewport_Node", "UI_Sprite_Node", "UI_1", "UI_2", "UI_3", "UI_4")]
-transform = Transform3D(-0.254399, 0, -0.967099, 0, 1, 0, 0.967099, 0, -0.254399, -9.88761, 3.02975, -4.77292)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.87089, 3.02975, -1.35447)
 script = ExtResource("2_2s2t4")
 Contents_Node = NodePath("Contents")
 SubViewport_Node = NodePath("Contents/UI/SubViewport")
