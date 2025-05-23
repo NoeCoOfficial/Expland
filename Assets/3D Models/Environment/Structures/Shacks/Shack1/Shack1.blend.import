@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bv6liay2wclfc"
-path="res://.godot/imported/Shack.blend-f995e49451c78aebd8c9fe0394fd7fe1.scn"
+path="res://.godot/imported/Shack1.blend-47fff6d3c0df5639910598237bf11df9.scn"
 
 [deps]
 
-source_file="res://Assets/3D Models/Environment/Structures/Shack.blend"
-dest_files=["res://.godot/imported/Shack.blend-f995e49451c78aebd8c9fe0394fd7fe1.scn"]
+source_file="res://Assets/3D Models/Environment/Structures/Shacks/Shack1/Shack1.blend"
+dest_files=["res://.godot/imported/Shack1.blend-47fff6d3c0df5639910598237bf11df9.scn"]
 
 [params]
 
