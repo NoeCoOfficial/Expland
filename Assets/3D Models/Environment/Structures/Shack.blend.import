@@ -34,9 +34,9 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
-"Material.001": {
+"ShackColor": {
 "use_external/enabled": true,
-"use_external/path": "uid://bhmwnmiv7ajfd"
+"use_external/path": "uid://d1q3trggohbjn"
 }
 }
 }
