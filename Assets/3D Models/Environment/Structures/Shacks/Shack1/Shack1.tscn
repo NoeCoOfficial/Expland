@@ -1007,7 +1007,7 @@ libraries = {
 visible = false
 
 [node name="DoorCollision" type="CollisionShape3D" parent="Mesh/Collision"]
-transform = Transform3D(-0.0147923, -2.36406, 8.71575e-09, 0, -1.06981e-07, -0.206427, 0.0552056, -0.633447, 2.33538e-09, -7.10933, 2.28174, -4.18685)
+transform = Transform3D(0.057153, 0, 0, 0, -1.06981e-07, -0.206427, 0, 2.44745, -9.02321e-09, -7.10933, 2.28174, -4.18685)
 shape = SubResource("ConvexPolygonShape3D_h3fdp")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Mesh/Collision"]
@@ -1103,7 +1103,7 @@ transform = Transform3D(0.0158204, -0.141498, -0.521038, -0.119651, 0.0281046, -
 shape = SubResource("ConvexPolygonShape3D_5hc5x")
 
 [node name="DoorMesh" type="MeshInstance3D" parent="Mesh"]
-transform = Transform3D(-0.0147923, -2.36406, 8.71575e-09, 0, -1.06981e-07, -0.206427, 0.0552056, -0.633447, 2.33538e-09, -7.10933, 2.28174, -4.18685)
+transform = Transform3D(0.057153, 0, 0, 0, -1.06981e-07, -0.206427, 0, 2.44745, -9.02321e-09, -7.10933, 2.28174, -4.18685)
 visibility_range_end = 120.0
 visibility_range_end_margin = 10.0
 visibility_range_fade_mode = 1
@@ -1480,13 +1480,13 @@ grow_vertical = 2
 [node name="PlayerVisibleDetector" type="Area3D" parent="Interactable Component/Contents"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable Component/Contents/PlayerVisibleDetector"]
-transform = Transform3D(-0.254821, 0, -0.966988, 0, 1, 0, 0.966988, 0, -0.254821, -3.02767, 0.139523, -3.31683)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0690985, 0.139523, 0.0402741)
 shape = SubResource("BoxShape3D_fvca7")
 
 [node name="PlayerMimicRaycastDetector" type="Area3D" parent="Interactable Component"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable Component/PlayerMimicRaycastDetector"]
-transform = Transform3D(-0.254821, 0, -0.966988, 0, 1, 0, 0.966988, 0, -0.254821, -2.78075, -0.496765, -3.25504)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0722656, -0.496765, -0.214233)
 shape = SubResource("BoxShape3D_00rnx")
 
 [connection signal="timeout" from="ToggleDoorDebounce" to="." method="_on_toggle_door_debounce_timeout"]

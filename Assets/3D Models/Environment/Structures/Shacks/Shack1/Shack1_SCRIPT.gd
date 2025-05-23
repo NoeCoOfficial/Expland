@@ -57,13 +57,19 @@ enum DOOR_STATES {
 
 func _door_toggled() -> void:
 	if can_toggle_door:
+		# Debounce
+		can_toggle_door = false
+		$ToggleDoorDebounce.start()
+		
 		if door_state == DOOR_STATES.CLOSED:
-			# open door
-			pass
+			# OPEN DOOR
+			door_state = DOOR_STATES.OPEN
+			$ToggleDoorAnimation.play("toggle", -1, 1.0, false)
+
 		else:
-			# close door
+			# CLOSE DOOR
 			pass
 
 
 func _on_toggle_door_debounce_timeout() -> void:
-	pass # Replace with function body.
+	can_toggle_door = true
