@@ -64,12 +64,14 @@ func _door_toggled() -> void:
 		if door_state == DOOR_STATES.CLOSED:
 			# OPEN DOOR
 			door_state = DOOR_STATES.OPEN
-			$ToggleDoorAnimation.play("toggle", -1, 1.0, false)
-
+			$ToggleDoorAnimation.play("toggle")
+			$"Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1/Contents/Message".text = "Close"
+		
 		else:
 			# CLOSE DOOR
-			pass
-
+			door_state = DOOR_STATES.CLOSED
+			$ToggleDoorAnimation.play_backwards("toggle")
+			$"Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1/Contents/Message".text = "Open"
 
 func _on_toggle_door_debounce_timeout() -> void:
 	can_toggle_door = true
