@@ -100,7 +100,7 @@ func _ready() -> void:
 	
 	Tick.start()
 	
-	if IslandManager.Current_Game_Mode == "STORY":	
+	if IslandManager.Current_Game_Mode == "STORY":
 		init_weather_instant_custom(0)
 	else:
 		init_weather_instant() # NOTE: Important line right here (initalize weather)
@@ -110,7 +110,7 @@ func _ready() -> void:
 		# NOTE: Story mode init. What happens when the player spawns in for the first time.
 		Player.global_position = Marker_StoryModeStartSpawn.global_position
 		$"Story Mode/Animation Players/StoryModeWakeUpAnimation".play("main")
-		PlayerManager.is_in_cutscene = true
+		StoryModeManager.is_in_cutscene = true
 		Player.init_for_cutscene()
 		Player.hide()
 		set_time(1140)
@@ -202,7 +202,6 @@ func set_time(minute : int):
 	else:
 		DayNightCycle_Rotation.stop()
 		DayNightCycle_Rotation.play(&"rotation_cycle", 0.0)
-	
 	
 	# Minute logic
 	
@@ -327,7 +326,6 @@ func change_sky_instant(SkyType: String, TOD : int):
 		
 		DayNightCycle.play(&"light_rain_cycle", 0.0)
 		DayNightCycle.seek(TOD * 2)
-
 
 
 func change_weather(GOTO_WEATHER_STR : String, PREVIOUS_WEATHER_STR : String):

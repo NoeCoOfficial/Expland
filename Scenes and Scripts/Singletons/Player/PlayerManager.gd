@@ -61,8 +61,6 @@ var is_walking_moving = false
 var is_sprinting_moving = false
 var is_crouching_moving = false
 
-var is_in_cutscene = false
-
 var player_mouse_movement_event_hand_item : Vector2 = Vector2(0, 0)
 
 func sleep():
