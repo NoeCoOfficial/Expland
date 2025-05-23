@@ -49,7 +49,7 @@ extends Node3D
 
 var can_toggle_door : bool = true
 
-var door_state : DOOR_STATES
+var door_state : DOOR_STATES = DOOR_STATES.CLOSED
 enum DOOR_STATES {
 	OPEN,
 	CLOSED
