@@ -4,7 +4,6 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_01og4"]
 resource_name = "Material.001"
-cull_mode = 2
 albedo_color = Color(0.434384, 0.223683, 0.0216237, 1)
 metallic = 0.869091
 roughness = 0.305455
@@ -86,7 +85,6 @@ points = PackedVector3Array(-0.311591, 15.4883, 2.03093, 0.0333851, 19.9721, 5.1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b4gpi"]
 resource_name = "Material.005"
-cull_mode = 2
 albedo_color = Color(0.363522, 0.906766, 0.376282, 1)
 roughness = 0.5
 
@@ -127,7 +125,6 @@ data = PackedVector3Array(0, -1, 0, -0.2764, -0.4472, 0.8506, 0.7236, -0.4472, 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vr4bx"]
 resource_name = "Material.004"
-cull_mode = 2
 albedo_color = Color(0, 0.906438, 0.126142, 1)
 metallic = 0.953
 roughness = 0.467
@@ -169,7 +166,6 @@ data = PackedVector3Array(0, -1, 0, -0.2764, -0.4472, 0.8506, 0.7236, -0.4472, 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gycoo"]
 resource_name = "Material.003"
-cull_mode = 2
 albedo_color = Color(0.585157, 1, 0.496247, 1)
 metallic = 0.953
 roughness = 0.467
@@ -211,7 +207,6 @@ data = PackedVector3Array(0, -1, 0, -0.2764, -0.4472, 0.8506, 0.7236, -0.4472, 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g0qhe"]
 resource_name = "Material.002"
-cull_mode = 2
 albedo_color = Color(0.0402238, 0.90643, 0.201345, 1)
 metallic = 0.952727
 roughness = 0.467273
@@ -293,6 +288,9 @@ _data = {
 script = ExtResource("1_dinl5")
 
 [node name="Plane" type="MeshInstance3D" parent="."]
+visibility_range_end = 100.0
+visibility_range_end_margin = 10.0
+visibility_range_fade_mode = 1
 mesh = SubResource("ArrayMesh_mld0j")
 skeleton = NodePath("")
 
@@ -342,6 +340,9 @@ shape = SubResource("ConvexPolygonShape3D_6kfhi")
 
 [node name="Icosphere" type="MeshInstance3D" parent="."]
 transform = Transform3D(3.62495, -1.79242, 0, 1.53387, 4.23597, 0, 0, 0, 4.73195, 5.2057, 18.391, -5.07785)
+visibility_range_end = 100.0
+visibility_range_end_margin = 10.0
+visibility_range_fade_mode = 1
 mesh = SubResource("ArrayMesh_6c78q")
 skeleton = NodePath("")
 
@@ -352,6 +353,9 @@ shape = SubResource("ConcavePolygonShape3D_bwnd8")
 
 [node name="Icosphere_001" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.37934, -1.0068, 3.84984e-08, 0.801576, 1.89434, -1.56329, 0.609202, 1.43971, 2.05695, 4.39838, 20.178, 0.672845)
+visibility_range_end = 100.0
+visibility_range_end_margin = 10.0
+visibility_range_fade_mode = 1
 mesh = SubResource("ArrayMesh_tad7l")
 skeleton = NodePath("")
 
@@ -362,6 +366,9 @@ shape = SubResource("ConcavePolygonShape3D_d8ufn")
 
 [node name="Icosphere_002" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.525854, -3.5822, 0.242638, -3.58514, -0.537157, -0.160491, 0.194351, -0.216467, -3.61703, 0.126387, 18.7559, 3.92048)
+visibility_range_end = 100.0
+visibility_range_end_margin = 10.0
+visibility_range_fade_mode = 1
 mesh = SubResource("ArrayMesh_ofhgj")
 skeleton = NodePath("")
 
@@ -372,6 +379,9 @@ shape = SubResource("ConcavePolygonShape3D_14b1r")
 
 [node name="Icosphere_003" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.623036, -5.02721, 0.286474, -4.24771, -0.75384, -0.189486, 0.230269, -0.303787, -4.2705, -6.88335, 18.5081, -3.9013)
+visibility_range_end = 100.0
+visibility_range_end_margin = 10.0
+visibility_range_fade_mode = 1
 mesh = SubResource("ArrayMesh_gkerv")
 skeleton = NodePath("")
 
@@ -382,5 +392,5 @@ shape = SubResource("ConcavePolygonShape3D_ndcxi")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_nn5d1")
+&"": SubResource("AnimationLibrary_nn5d1")
 }

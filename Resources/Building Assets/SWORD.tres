@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="BuildingAsset" load_steps=4 format=3 uid="uid://de6nen0bt078"]
+
+[ext_resource type="Script" uid="uid://c1yp645pkxk3d" path="res://Scenes and Scripts/Scenes/Building System/Building_Assets_SCRIPT.gd" id="1_rtmul"]
+[ext_resource type="PackedScene" uid="uid://duk84wfnoo2r6" path="res://Assets/3D Models/Tools/Sword.blend" id="1_yykk4"]
+[ext_resource type="Shape3D" uid="uid://cfsolcncuprd1" path="res://Resources/Building Assets/Collision Shapes/SWORD.tres" id="2_cdfmv"]
+
+[resource]
+script = ExtResource("1_rtmul")
+ITEM_TYPE = "SWORD"
+Model_Scene = ExtResource("1_yykk4")
+Default_Model_Position = Vector3(0, 0, 0)
+Default_Model_Rotation_Degrees = Vector3(0, 180, 0)
+Default_Model_Scale = Vector3(0.329589, 0.329589, 0.329589)
+Collision_Shape = ExtResource("2_cdfmv")
+metadata/_custom_type_script = "uid://c1yp645pkxk3d"

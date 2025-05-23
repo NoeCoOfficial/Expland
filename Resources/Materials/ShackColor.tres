@@ -3,4 +3,5 @@
 [ext_resource type="Texture2D" uid="uid://cm0c5rjolk1do" path="res://Resources/Materials/ShackColor.png" id="1_7sd4a"]
 
 [resource]
+cull_mode = 2
 albedo_texture = ExtResource("1_7sd4a")

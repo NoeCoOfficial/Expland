@@ -47,11 +47,15 @@
 
 extends Node
 
-######## Story Mode ID's ########
+######## Story Mode ID's for dialogues ########
+#### Used with setStoryModeID(StoryModeID) ####
 #        1 - First message when click on story mode play button
 #        2 - Second message when click on story mode play button, which after exiting takes you to story mode
 
-
+#        3 - First dialogue shown upon waking up on the island
+#        4 - Second dialogue shown upon waking up on the island (triggered by small collision area around spawn)
+#        5 - Third dialogue shown upon seeing the grass path
+#        6 - Fourth dialogue shown upon seeing the shack
 
 var is_in_interface = false
 var is_in_absolute_interface = false
@@ -69,7 +73,8 @@ func setStoryModeID(StoryModeID):
 	Current_StoryModeID = StoryModeID
 
 func startDialogue(messages: Array) -> void:
-	if !PauseManager.is_inside_settings and !PauseManager.is_paused:
+	
+	if !PauseManager.is_inside_settings and !PauseManager.is_paused and !PauseManager.inside_item_workshop and !InventoryManager.pockets_ui_open and !InventoryManager.chest_ui_open and !InventoryManager.workbench_ui_open:
 		dialogue_messages = messages
 		current_dialogue_index = 0
 		showNextMessage()
@@ -85,6 +90,18 @@ func showNextMessage() -> void:
 ########################################################################
 # Dialogues
 ########################################################################
+
+var WorldBoundaryDialogue = [
+	{"author": "???", 
+	"message": "This part of The Island is under maintenance for now!",
+	"duration": 1},
+	
+	{"author": "???", 
+	"message": "It will be available in the full version of Expland, soon!",
+	"duration": 1},
+	
+]
+
 
 var deathScreenRandomText = [ # a list of random text to display when the player dies
 	"Pull yourself together.", 
@@ -121,6 +138,7 @@ var deathScreenRandomText = [ # a list of random text to display when the player
 	"ERR___    MSG NOT FOUND ----_",
 	"???",
 	"Rebooting...",
+	"... . -. -.. / .... . .-.. .--.",
 ]
 
 var testDialogue = [
@@ -189,7 +207,7 @@ var testDialogue = [
 ################################################
 ################################################
 
-var mainMenuStoryModeDialogue_1 = [
+var StoryMode_Dialogue_1 = [
 	{"author": "???", 
 	"message": "Who is this?",
 	"duration": 0.5},
@@ -208,7 +226,7 @@ var mainMenuStoryModeDialogue_1 = [
 	
 ]
 
-var mainMenuStoryModeDialogue_2 = [
+var StoryMode_Dialogue_2 = [
 	{"author": "???", 
 	"message": "Oh... it's you again.",
 	"duration": 1},
@@ -249,7 +267,7 @@ var mainMenuStoryModeDialogue_2 = [
 ################################################
 ################################################
 
-var StoryMode_StartCutsceneDialogue_1 = [
+var StoryMode_StartCutscene_Dialogue_3 = [
 		{"message": 
 			'"I\'m on a journey."',
 			"time": 1},
@@ -267,32 +285,28 @@ var StoryMode_StartCutsceneDialogue_1 = [
 			"time": 2.5}
 	]
 
-var StoryMode_StartCutsceneDialogue_2 = [
+var StoryMode_StartCutscene_Dialogue_4 = [
 		{"message": 
-			'"This job... it’s the chance I’ve been waiting for. Sunshine Co. doesn’t
-			just hire anyone. What makes me special?"', 
+			'"This job... it’s the chance I’ve been waiting for. Sunshine Co. doesn’t just hire anyone. What makes me special?"', 
 			"time": 4.0},
 			
 		{"message": 
-			'"A six-figure salary, building solar panels? I never
-			thought I’d land something like that. Am I doing the right thing?"',
+			'"A six-figure salary, building solar panels? I never thought I’d land something like that. Am I doing the right thing?"',
 			"time": 4.0},
 			
 		{"message": 
-			'"But here I am, on this yacht, heading to what
-			could be the best decision of my life. Right?"',
+			'"But here I am, on this yacht, heading to what could be the best decision of my life. Right?"',
 			"time": 2.8},
 			
 	]
 
-var StoryMode_StartCutsceneDialogue_3 = [
+var StoryMode_StartCutscene_Dialogue_5 = [
 		{"message": 
 			'"It’s kind of wild, though. Me. An amateur bodybuilder, getting a job like this."', 
 			"time": 2.5},
 			
 		{"message": 
-			'"Guess all those hours in the gym paid off after all. 
-			They wanted someone strong, and I’m their guy."',
+			'"Guess all those hours in the gym paid off after all. They wanted someone strong, and I’m their guy."',
 			"time": 3.0},
 			
 		{"message": 
@@ -301,25 +315,22 @@ var StoryMode_StartCutsceneDialogue_3 = [
 			
 	]
 
-var StoryMode_StartCutsceneDialogue_4 = [
+var StoryMode_StartCutscene_Dialogue_6 = [
 		{"message": 
-			'"Mom thought I was crazy for taking the job. 
-			‘You’re throwing your life away,’ she said. She doesn’t get it."', 
+			'"Mom thought I was crazy for taking the job. ‘You’re throwing your life away,’ she said. She doesn’t get it."', 
 			"time": 4.0},
 			
 		{"message": 
-			'"But hey, I didn’t want to spend the rest of my life
-			behind some desk. I need something that challenges me."',
+			'"But hey, I didn’t want to spend the rest of my life behind some desk. I need something that challenges me."',
 			"time": 3.0},
 			
 		{"message": 
-			'"This is it. Building solar panels for a company that’s 
-			changing the world. It’s big. And I’m part of it."',
+			'"This is it. Building solar panels for a company that’s changing the world. It’s big. And I’m part of it."',
 			"time": 3.0},
 			
 	]
 
-var StoryMode_StartCutsceneDialogue_5 = [
+var StoryMode_StartCutscene_Dialogue_7 = [
 		{"message": 
 			'"I didn’t even want to take the plane. Way too expensive. 
 			This yacht? My friends pitched in for it."', 
@@ -330,3 +341,82 @@ var StoryMode_StartCutsceneDialogue_5 = [
 			"time": 2.5},
 			
 	]
+
+var StoryMode_StartCutscene_Dialogue_8 = [
+		{"message": 
+			'"Hold on... what’s that?"', 
+			"time": 1.5},
+			# Probably just a quick storm. No big deal, right?
+		{"message": 
+			'"Those clouds are getting dark fast… way too fast."',
+			"time": 2.0},
+		
+		{"message": 
+			'"Probably just a quick storm. No big deal, right?"',
+			"time": 2.0},
+	]
+
+################################################
+################################################
+################################################
+################################################
+################################################
+################################################
+################################################
+################################################
+################################################
+################################################
+################################################
+
+var StoryMode_Dialogue_20 = [
+	{"message": 
+		'', 
+		"time": 1.5},
+	
+	{"message": 
+		'"...Where am I???"', 
+		"time": 1.0},
+	
+	{"message": 
+		'"What even happened?"',
+		"time": 2.0},
+	
+]
+
+var StoryMode_Dialogue_21 = [
+	{"author": "You", 
+	"message": "It looks like I'm on some sort of island...",
+	"duration": 2.0},
+	
+	{"author": "You", 
+	"message": "That voice… I heard something. Something... saved me.",
+	"duration": 2.0},
+	
+	{"author": "You", 
+	"message": "But what was it? And why me?",
+	"duration": 1.5},
+]
+
+var StoryMode_Dialogue_22 = [
+	{"author": "You", 
+	"message": "Okay, focus. You’re alive.",
+	"duration": 1.5},
+	
+	{"author": "You", 
+	"message": "Hmm... it's getting pretty dark, maybe I should try and find shelter or something?",
+	"duration": 2.7},
+	
+	{"author": "You", 
+	"message": "Yeah, I probably should do that.",
+	"duration": 1.5},
+]
+
+var StoryMode_Dialogue_23 = [
+	{"author": "You", 
+	"message": "Woah... a grass path...",
+	"duration": 1.0},
+	
+	{"author": "You", 
+	"message": "Maybe it leeds somewhere. I might check it out.",
+	"duration": 1.9},
+]

@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="HandItems" load_steps=3 format=3 uid="uid://bpa3rcaw6dav2"]
+
+[ext_resource type="PackedScene" uid="uid://yb10q02xcuaf" path="res://Assets/3D Models/Inventory Hand Items/AXE.blend" id="1_kgm8i"]
+[ext_resource type="Script" uid="uid://dxurlssepa0ek" path="res://Scenes and Scripts/Scenes/Player/Hand Item/HandItem_SCRIPT.gd" id="2_f8q4d"]
+
+[resource]
+script = ExtResource("2_f8q4d")
+ITEM_TYPE = "AXE"
+mesh_position = Vector3(0.09, -0.3, -0.3)
+mesh_rotation = Vector3(13.65, 75.905, -10)
+mesh_scale = Vector3(0.45, 0.45, 0.45)
+mesh_reset_position = Vector3(0, -2, 0)
+mesh_reset_rotation = Vector3(0, 0, 0)
+model_scene = ExtResource("1_kgm8i")
+sway_min = Vector2(-20, -20)
+sway_max = Vector2(20, 20)
+sway_speed_position = 0.07
+sway_speed_rotation = 0.1
+sway_amount_position = 0.1
+sway_amount_rotation = 10.0
+idle_sway_adjustment = 10.0
+idle_sway_rotation_strength = 300.0
+random_sway_amount = 5.0
+bob_speed_walking = 9.0
+bob_speed_sprinting = 12.5
+bob_speed_crouching = 6.0
+hbob_amount = 8.0
+vbob_amount = 8.0
+damage_amount = 0.6
+hand_attatchement_position = Vector3(0, 0, 0)
+hand_attatchement_rotation = Vector3(0, 0, 0)
+hand_attatchement_scale = Vector3(0, 0, 0)

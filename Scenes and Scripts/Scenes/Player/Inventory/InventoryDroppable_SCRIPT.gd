@@ -116,7 +116,6 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_released("LeftClick"):
 		if InventoryManager.pockets_ui_open and InventoryManager.is_dragging:
 			InventoryManager.is_dragging = false
-			scale = Vector2(Default_Size.x / 1.05, Default_Size.y / 1.05)
 			InventoryManager.currently_dragging_node = null
 			z_index = 0
 
@@ -138,9 +137,9 @@ func _on_mouse_detector_mouse_shape_exited(shape_idx: int) -> void:
 	# Scale down the droppable to the original size
 	if InventoryManager.is_dragging:
 		if InventoryManager.currently_dragging_node == self:
-			scale = Vector2(Default_Size.x / 1.05, Default_Size.y / 1.05)
+			scale = Default_Size
 	else:
-		scale = Vector2(Default_Size.x / 1.05, Default_Size.y / 1.05)
+		scale = Default_Size
 
 
 func _on_droppable_mouse_detector_mouse_entered() -> void:
@@ -152,3 +151,12 @@ func _on_droppable_mouse_detector_mouse_entered() -> void:
 
 func _on_debounce_timer_timeout() -> void:
 	Debounce_Timer_0 = true
+
+func _notification(what: int) -> void:
+	if what == MainLoop.NOTIFICATION_APPLICATION_FOCUS_OUT:
+		if InventoryManager.is_dragging and InventoryManager.currently_dragging_node == self:
+			position = Vector2(0, 0)
+			z_index = 0
+			scale = Default_Size
+			InventoryManager.is_dragging = false
+			InventoryManager.currently_dragging_node = null

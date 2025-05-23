@@ -53,8 +53,11 @@ class_name HandItems extends Resource
 @export var mesh_position : Vector3
 @export var mesh_rotation : Vector3
 @export var mesh_scale : Vector3 = Vector3(1, 1, 1)
+@export_category("Reset")
+@export var mesh_reset_position : Vector3
+@export var mesh_reset_rotation : Vector3
 @export_category("Visual")
-@export var model_path : String
+@export var model_scene : PackedScene
 @export_group("Sway")
 @export var sway_min : Vector2 = Vector2(-20.0, -20.0)
 @export var sway_max : Vector2 = Vector2(20.0, 20.0)
@@ -73,3 +76,8 @@ class_name HandItems extends Resource
 @export var vbob_amount : float = 3.0
 @export_category("Metadata")
 @export var damage_amount : float
+@export_category("Hand Attatchment")
+@export var hand_attatchement_scene : PackedScene
+@export var hand_attatchement_position : Vector3
+@export var hand_attatchement_rotation : Vector3
+@export var hand_attatchement_scale : Vector3

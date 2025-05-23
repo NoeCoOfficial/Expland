@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="HandItems" load_steps=3 format=3 uid="uid://c4tfusakf730y"]
+
+[ext_resource type="Script" uid="uid://dxurlssepa0ek" path="res://Scenes and Scripts/Scenes/Player/Hand Item/HandItem_SCRIPT.gd" id="1_ldw6j"]
+[ext_resource type="PackedScene" uid="uid://c50fyxtm8repd" path="res://Assets/3D Models/Inventory Hand Items/COCONUT.blend" id="1_pgj3d"]
+
+[resource]
+script = ExtResource("1_ldw6j")
+ITEM_TYPE = "COCONUT"
+mesh_position = Vector3(-0.74, -0.515, 4.17)
+mesh_rotation = Vector3(-4.78, 116.13, -16.985)
+mesh_scale = Vector3(0.64, 0.8, 0.8)
+mesh_reset_position = Vector3(0, 0, 0)
+mesh_reset_rotation = Vector3(0, 0, 0)
+model_scene = ExtResource("1_pgj3d")
+sway_min = Vector2(-20, -20)
+sway_max = Vector2(20, 20)
+sway_speed_position = 0.07
+sway_speed_rotation = 0.1
+sway_amount_position = 0.19
+sway_amount_rotation = 10.0
+idle_sway_adjustment = 5.0
+idle_sway_rotation_strength = 500.0
+random_sway_amount = 10.0
+bob_speed_walking = 7.0
+bob_speed_sprinting = 10.5
+bob_speed_crouching = 4.0
+hbob_amount = 5.0
+vbob_amount = 5.0
+damage_amount = 0.6
+hand_attatchement_position = Vector3(0, 0, 0)
+hand_attatchement_rotation = Vector3(0, 0, 0)
+hand_attatchement_scale = Vector3(0, 0, 0)

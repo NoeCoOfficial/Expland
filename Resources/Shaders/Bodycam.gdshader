@@ -9,8 +9,8 @@ uniform vec4 crop_color : source_color = vec4(0,0,0,1);
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
 uniform float crop_feathering = 0.1;
 
-const float base_distortion = 0.99; 
-uniform float channel_offset : hint_range(-0.1, 0.1, 0.001) = 0.005; 
+const float base_distortion = 0.99;
+uniform float channel_offset : hint_range(-0.1, 0.1, 0.001) = 0.005;
 uniform float noise_strength = 5.0;
 
 vec2 distort(vec2 p)
@@ -24,16 +24,16 @@ vec2 distort(vec2 p)
 
 void fragment()
 {
-    vec2 xy = (SCREEN_UV * 2.0 - 1.0); 
-    xy = vec2(xy.x * aspect, xy.y); 
+    vec2 xy = (SCREEN_UV * 2.0 - 1.0);
+    xy = vec2(xy.x * aspect, xy.y);
     float d = length(xy);
     vec4 tex;
     if (d < radius)
     {
-        vec2 distorted_uv_r = distort(xy * (base_distortion + 0.0 * channel_offset)); 
-        vec2 distorted_uv_g = distort(xy * (base_distortion + 1.0 * channel_offset)); 
-        vec2 distorted_uv_b = distort(xy * (base_distortion + 2.0 * channel_offset)); 
-        
+        vec2 distorted_uv_r = distort(xy * (base_distortion + 0.0 * channel_offset));
+        vec2 distorted_uv_g = distort(xy * (base_distortion + 1.0 * channel_offset));
+        vec2 distorted_uv_b = distort(xy * (base_distortion + 2.0 * channel_offset));
+
         tex.r = texture(SCREEN_TEXTURE, distorted_uv_r).r;
         tex.g = texture(SCREEN_TEXTURE, distorted_uv_g).g;
         tex.b = texture(SCREEN_TEXTURE, distorted_uv_b).b;

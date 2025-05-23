@@ -51,35 +51,45 @@ extends Node
 func initializeIslandProperties(_Island_Name):
 	pass
 
+@export var DeepOceanMaterial = preload("uid://jjwdxwb7rbc6")
+
 @export var DayNightCycle : AnimationPlayer
 @export var DayNightCycle_Rotation : AnimationPlayer
 @export var DayNightCycle_Sky : AnimationPlayer
 
 @export var Tick : Timer
+@export var IslandDeco : Node3D
 @export var Weather_Timer : Timer
 @export var RainParticles : CPUParticles3D
 @export var Clouds : MeshInstance3D
 @export var Player : CharacterBody3D
 
+@export var Building_Assets_Parent : Node
+
+@export_group("Markers")
+@export var Marker_StoryModeStartSpawn : Marker3D
+
 var transitioning_weather = false
 
 func _ready() -> void:
 	PlayerManager.WORLD = $"."
-	InventoryManager.current_chest_node = $Chest
+	BuildingManager.Building_Assets_Parent = Building_Assets_Parent
 	randomize()
 	initNodes()
+	initOptimizers()
+	
+	IslandManager.Coconuts_WorldContents = $"World Contents/Coconuts"
 	
 	TerrainManager.on_terrain = "GRASS"
 	AudioManager.NotificationOnScreen = false
 	AudioManager.canOperate_textField = true
 	IslandManager.transitioning_from_menu = false
 	Global.main_menu_transitioning_scene = false
-	Global.the_island_transitioning_scene = false
+	Global.transitioning_to_main_menu_from_island = false
+	Global.is_in_main_menu = false
 	
-	PlayerData.loadData(IslandManager.Current_Island_Name, true)
-	IslandData.loadData(IslandManager.Current_Island_Name, true)
+	# TODO: LOAD DATA HERE OR SMTH
 	
-	set_dof_blur(PlayerSettingsData.DOFBlur)
 	set_pretty_shadows(PlayerSettingsData.PrettyShadows)
 	
 	if PlayerData.GAME_STATE == "SLEEPING":
@@ -89,14 +99,34 @@ func _ready() -> void:
 		set_time(TimeManager.CURRENT_TIME)
 	
 	Tick.start()
-	init_weather_instant() # NOTE: Important line right here (initalize weather)
+	
+	if IslandManager.Current_Game_Mode == "STORY":
+		init_weather_instant_custom(0)
+	else:
+		init_weather_instant() # NOTE: Important line right here (initalize weather)
+		Player.camera.make_current()
+	
+	if IslandManager.Current_Game_Mode == "STORY" and PlayerData.STORY_MODE_PROGRESSION_INFO["FIRST_STORY_MODE"]:
+		# NOTE: Story mode init. What happens when the player spawns in for the first time.
+		Player.global_position = Marker_StoryModeStartSpawn.global_position
+		$"Story Mode/Animation Players/StoryModeWakeUpAnimation".play("main")
+		StoryModeManager.is_in_cutscene = true
+		Player.init_for_cutscene()
+		Player.hide()
+		set_time(1140)
+		$"Story Mode/Canvas Layers/MinimalDialogueLayer/MinimalDialogue".spawnMinimalDialogue(DialogueManager.StoryMode_Dialogue_20)
+		$"Story Mode/Audio/WakeUpAudio".play()
 	
 	Player.nodeSetup()
 
 func _on_ready() -> void:
-	AudioManager.initNotificaton(PlayerManager.AudioNotification)
-	AudioManager.initNew($TheIsland_Audio, true, false, true)
 	AudioManager.Current_Rain_SFX_Node = $Rain_SFX
+	
+	# Play and loop wind ambience sound
+	$WindAmbience.volume_db = -40.0
+	$WindAmbience.play()
+	var tween = get_tree().create_tween()
+	tween.tween_property($WindAmbience, "volume_db", 0.0, 2.0)
 
 func _process(_delta: float) -> void:
 	RainParticles.position.x = Player.position.x
@@ -106,20 +136,19 @@ func _process(_delta: float) -> void:
 func initNodes():
 	RainParticles.emitting = false
 	RainParticles.visible = false
+	$"Story Mode/Canvas Layers/EyeBlinkLayer/BottomBlink".position = Vector2(0.0, 688.0)
+	$"Story Mode/Canvas Layers/EyeBlinkLayer/TopBlink".position = Vector2(1152.0, -39.0)
 
-func set_dof_blur(value : bool) -> void:
-	var cameraAttributesResource = load("uid://cskddrxjnggrw")
-	if value:
-		cameraAttributesResource.dof_blur_far_enabled = true
-	else:
-		cameraAttributesResource.dof_blur_far_enabled = false
+func initOptimizers():
+	for child in IslandDeco.get_children():
+		if str(child.name).begins_with("PalmTree"):
+			child.show()
 
 func set_pretty_shadows(value : bool) -> void:
-	var IslandWorldEnv = load("uid://dgtwdwq2n0x1v")
 	if value:
-		IslandWorldEnv.sdfgi_enabled = true
+		IslandManager.IslandWorldEnv.sdfgi_enabled = true
 	else:
-		IslandWorldEnv.sdfgi_enabled = false
+		IslandManager.IslandWorldEnv.sdfgi_enabled = false
 
 func set_time(minute : int):
 	
@@ -174,7 +203,6 @@ func set_time(minute : int):
 		DayNightCycle_Rotation.stop()
 		DayNightCycle_Rotation.play(&"rotation_cycle", 0.0)
 	
-	
 	# Minute logic
 	
 	TimeManager.CURRENT_TIME = minute
@@ -183,7 +211,7 @@ func set_time(minute : int):
 		TimeManager.DAY_STATE = "NIGHT"
 	elif TimeManager.CURRENT_TIME >= 300 and TimeManager.CURRENT_TIME < 420:
 		TimeManager.DAY_STATE = "DAY"
-		append_random_songs(AudioManager.ISLAND_MORNING_SONGS)
+		#append_random_songs(AudioManager.ISLAND_MORNING_SONGS)
 	else:
 		TimeManager.DAY_STATE = "DAY"
 	
@@ -205,7 +233,8 @@ func _on_tick() -> void:
 	if TimeManager.CURRENT_TIME >= 1140 or TimeManager.CURRENT_TIME < 360:
 		TimeManager.DAY_STATE = "NIGHT"
 		if TimeManager.CURRENT_TIME in [19 * 60, 20 * 60, 21 * 60, 22 * 60, 23 * 60]:
-			append_random_songs(AudioManager.ISLAND_NIGHT_SONGS)
+			#append_random_songs(AudioManager.ISLAND_NIGHT_SONGS)
+			pass
 	else:
 		TimeManager.DAY_STATE = "DAY"
 
@@ -297,7 +326,6 @@ func change_sky_instant(SkyType: String, TOD : int):
 		
 		DayNightCycle.play(&"light_rain_cycle", 0.0)
 		DayNightCycle.seek(TOD * 2)
-
 
 
 func change_weather(GOTO_WEATHER_STR : String, PREVIOUS_WEATHER_STR : String):
@@ -434,6 +462,12 @@ func init_weather_instant():
 	#$"Weather Timer".wait_time = randi_range(400, 1000)
 	$"Weather Timer".start()
 
+func init_weather_instant_custom(ARR_INDEX : int):
+	WeatherManager.change_weather_instant(ARR_INDEX)
+	$"Weather Timer".stop()
+	$"Weather Timer".wait_time = 600
+	$"Weather Timer".start()
+
 #####################################
 
 func _on_item_workshop_test_action_triggered() -> void:
@@ -447,3 +481,32 @@ func _on_email_noe_co_action_triggered() -> void:
 
 func _on_open_feedback_issue_action_triggered() -> void:
 	OS.shell_open("https://github.com/NoeCoOfficial/Expland/issues/new?assignees=&labels=&projects=&template=feedback.md")
+
+#####################################
+
+func playBlinkEffect():
+	$"Story Mode/Canvas Layers/EyeBlinkLayer/BlinkAnimation".play("main")
+
+func makePlayerCameraCurrent():
+	$"Story Mode/Cameras/StoryModeWakeUpCamera".clear_current(true)
+	StoryModeManager.is_in_cutscene = false
+
+func firstInitStoryModePlayer():
+	Player.show()
+	Player.head.rotation_degrees.y = 0.0
+	Player.camera.rotation_degrees.x = 0.0
+
+func _on_story_mode_dialogue_2_after_wake_up_timer_timeout() -> void:
+	if PlayerData.STORY_MODE_PROGRESSION_INFO["FIRST_STORY_MODE"]:
+		DialogueManager.setStoryModeID(3)
+		DialogueManager.startDialogue(DialogueManager.StoryMode_Dialogue_21)
+
+
+func _on_dialogue_interface_finished_dialogue(StoryModeID: int) -> void:
+	if StoryModeID == 3:
+		PlayerData.STORY_MODE_PROGRESSION_INFO["DISPLAYED_21_DIALOGUE"] = true
+
+
+func _on_water_detail_init_timer_timeout() -> void:
+	DeepOceanMaterial.set_shader_parameter(&"WaveCount", 7)
+	DeepOceanMaterial.set_shader_parameter(&"WaveCount", 8)

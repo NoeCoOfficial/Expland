@@ -52,6 +52,7 @@ extends StaticBody2D
 @export var Populated : bool = false
 @export var Populating_Droppable : Node
 @export var Mouse_In_Collision_Shape : bool = false
+@export var Hotbar_Slot : bool = false
 
 @export var Dashed_Texture : TextureRect
 
@@ -82,7 +83,17 @@ func _input(event: InputEvent) -> void:
 							droppable_node_ref.Populating_Slot_Node.Populated = false
 							droppable_node_ref.Populating_Slot_Node.Populating_Droppable = null
 							droppable_node_ref.Populating_Slot_Node.Dashed_Texture.self_modulate = Color(1, 1, 1, 1)
-						
+							
+							if droppable_node_ref.Populating_Slot_Node.Hotbar_Slot:
+								droppable_node_ref.Droppable_ITEM_TYPE_Label.visible = false
+								
+								if InventoryManager.currently_selected_hotbar_slot == droppable_node_ref.Populating_Slot_Node:
+									var outline_node
+									for child in PlayerManager.PLAYER.InventoryLayer_HotbarSlotOutlines.get_children():
+										if str(child.name).begins_with(str(droppable_node_ref.Populating_Slot_Node.name)):
+											outline_node = child
+									InventoryManager.setSelectedHotbarSlot(droppable_node_ref.Populating_Slot_Node, outline_node, true, true)
+							
 						droppable_node_ref.reparent(self)
 						droppable_node_ref.position = Vector2(0, 0)
 						Populated = true
@@ -90,12 +101,25 @@ func _input(event: InputEvent) -> void:
 						Dashed_Texture.self_modulate = Color(1, 1, 1, 0)
 						droppable_node_ref.Populating_Slot_Node = $"."
 						droppable_node_ref.z_index = 0
+						droppable_node_ref.scale = droppable_node_ref.Default_Size
+						if Hotbar_Slot:
+							droppable_node_ref.Droppable_ITEM_TYPE_Label.visible = false
+							
+							if InventoryManager.currently_selected_hotbar_slot == self:
+								var outline_node
+								for child in PlayerManager.PLAYER.InventoryLayer_HotbarSlotOutlines.get_children():
+									if str(child.name).begins_with(str(self.name)):
+										outline_node = child
+								InventoryManager.setSelectedHotbarSlot(self, outline_node, true, true)
+						else:
+							droppable_node_ref.Droppable_ITEM_TYPE_Label.visible = true
 				else:
 					# This code runs if we did not release in the slot.
 					# What we wanna do is, snap back to the original slot
 					if droppable_node_ref.Populating_Slot_Node:
 						droppable_node_ref.position = Vector2(0, 0)
 						droppable_node_ref.z_index = 0
+						droppable_node_ref.scale = droppable_node_ref.Default_Size
 
 func spawn_droppable(ITEM_TYPE: String):
 	var droppable_instance = InventoryManager.Droppable_Scene.instantiate()

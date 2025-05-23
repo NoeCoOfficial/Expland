@@ -57,7 +57,6 @@ func nodeSetup():
 	$MainLayer/SettingsTabContainer/Graphics/PrettyShadowsSwitch.button_pressed = PlayerSettingsData.PrettyShadows
 	$MainLayer/SettingsTabContainer/General/SSCSwitch.button_pressed = PlayerSettingsData.showStartupScreen
 	$MainLayer/SettingsTabContainer/General/AutosaveIntervalSpinBox.value = PlayerSettingsData.autosaveInterval
-	$MainLayer/SettingsTabContainer/Graphics/DOFBlurSwitch.button_pressed = PlayerSettingsData.DOFBlur
 	$MainLayer/SettingsTabContainer/Video/FOVSlider.value = PlayerSettingsData.FOV
 	$MainLayer/SettingsTabContainer/Video/SENSITIVITYSlider.value = PlayerSettingsData.Sensitivity * 10
 	$MainLayer/SettingsTabContainer/Sound/MasterSlider.value = PlayerSettingsData.Master_Volume
@@ -65,7 +64,10 @@ func nodeSetup():
 	$MainLayer/SettingsTabContainer/Sound/SFXSlider.value = PlayerSettingsData.sfx_Volume
 
 func _ready() -> void:
-	PlayerSettingsData.loadSettings()
+	PlayerSettingsData.loadSettings(
+		PlayerSettingsData.SAVE_PATH, 
+		ProjectSettings.get_setting("global/SECURITY_KEY_SETTINGS")
+	)
 	
 	
 	Utils.set_center_offset($MainLayer)
@@ -84,7 +86,10 @@ func _process(_delta: float) -> void:
 
 
 func openSettings(animationTime : float):
-	PlayerSettingsData.loadSettings()
+	PlayerSettingsData.loadSettings(
+		PlayerSettingsData.SAVE_PATH, 
+		ProjectSettings.get_setting("global/SECURITY_KEY_SETTINGS")
+	)
 	PauseManager.is_inside_settings = true
 	
 	self.visible = true
@@ -99,7 +104,10 @@ func openSettings(animationTime : float):
 
 func closeSettings(animationTime : float):
 	PauseManager.is_inside_settings = false
-	PlayerSettingsData.saveSettings()
+	
+	PlayerSettingsData.saveSettings(
+		PlayerSettingsData.SAVE_PATH, 
+		ProjectSettings.get_setting("global/SECURITY_KEY_SETTINGS"))
 	
 	if PlayerSettingsData.quickAnimations:
 		$MainLayer.scale = Vector2(0.0, 0.0)
@@ -132,18 +140,6 @@ func _on_music_slider_value_changed(value: float) -> void:
 
 func _on_sfx_slider_value_changed(value: float) -> void:
 	PlayerSettingsData.sfx_Volume = value
-
-func _on_dof_blur_switch_toggled(toggled_on: bool) -> void:
-	if !Global.is_in_main_menu:
-		if toggled_on:
-			PlayerSettingsData.set_dof_blur(true)
-		else:
-			PlayerSettingsData.set_dof_blur(false)
-	else:
-		if toggled_on:
-			PlayerSettingsData.DOFBlur = true
-		else:
-			PlayerSettingsData.DOFBlur = false
 
 func _on_pretty_shadows_switch_toggled(toggled_on: bool) -> void:
 	if !Global.is_in_main_menu:

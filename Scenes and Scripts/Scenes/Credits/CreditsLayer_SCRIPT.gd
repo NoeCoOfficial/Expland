@@ -54,10 +54,10 @@ func _ready() -> void:
 	
 	$MainLayer.scale = Vector2(0.0, 0.0)
 	self.visible = false
-	$GreyLayer.modulate = Color(1, 1, 1, 0)
 
 func spawnCredits(animationTime : float):
 	PauseManager.is_inside_credits = true
+	$BlurLayer.fadeInBlur(0.5, 2.19, true, 0.8)
 	
 	self.visible = true
 	
@@ -67,19 +67,17 @@ func spawnCredits(animationTime : float):
 	else:
 		var tween = get_tree().create_tween().set_parallel()
 		tween.tween_property($MainLayer, "scale", Vector2(1.0, 1.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-		tween.tween_property($GreyLayer, "modulate", Color(1, 1, 1, 1), animationTime)
 
 func despawnCredits(animationTime : float):
 	PauseManager.is_inside_credits = false
+	$BlurLayer.fadeOutBlur(0.5)
 	
 	if PlayerSettingsData.quickAnimations:
 		$MainLayer.scale = Vector2(0.0, 0.0)
-		$GreyLayer.modulate = Color(1, 1, 1, 0)
 		self.visible = false
 	else:
 		var tween = get_tree().create_tween().set_parallel()
 		tween.tween_property($MainLayer, "scale", Vector2(0.0, 0.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
-		tween.tween_property($GreyLayer, "modulate", Color(1, 1, 1, 0), animationTime)
 		
 		await get_tree().create_timer(animationTime).timeout
 		
@@ -95,7 +93,6 @@ func _on_close_button_mouse_entered() -> void:
 
 func _on_close_button_pressed() -> void:
 	despawnCredits(0.5)
-
 
 func _on_open_authors_md_pressed() -> void:
 	OS.shell_open("https://github.com/NoeCoOfficial/Expland/blob/main/AUTHORS.md")

@@ -1,0 +1,67 @@
+# ============================================================= #
+# BA_PhysicalObject_SCRIPT.gd
+# ============================================================= #
+#                       COPYRIGHT NOTICE                        #
+#                           Noe Co.                             #
+#            (2024 - Present) - All Rights Reserved             #
+#                                                               #
+#                     Noe Co. Game License                      #
+#                                                               #
+# Permission is hereby granted to any person to view, fork,     #
+# and make personal modifications to this software (the         #
+# "Software"), solely for private, non-commercial use.          #
+#                                                               #
+# Restrictions:                                                 #
+# 1. You may NOT distribute, publish, or make publicly          #
+#    available any part of the original or modified Software.   #
+# 2. You may NOT share, host, or release modified versions,     #
+#    including derivative works, in any public or commercial    #
+#    form.                                                      #
+# 3. You may NOT use the Software for commercial purposes       #
+#    without prior written permission from Noe Co.              #
+#                                                               #
+# Ownership:                                                    #
+# Noe Co. retains all rights, title, and interest in and to     #
+# the Software and associated intellectual property. This       #
+# license does not grant ownership of the Software.             #
+#                                                               #
+# Termination:                                                  #
+# This license is effective as of your initial access and       #
+# remains until terminated. Breach of any term results in       #
+# automatic termination, requiring destruction of all copies.   #
+#                                                               #
+# Disclaimer of Warranty:                                       #
+# THE SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY      #
+# KIND. NOE CO. DISCLAIMS ALL WARRANTIES, WHETHER EXPRESS,      #
+# IMPLIED, OR STATUTORY, INCLUDING WARRANTIES OF                #
+# MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.          #
+#                                                               #
+# Limitation of Liability:                                      #
+# NOE CO. SHALL NOT BE LIABLE FOR ANY DAMAGES ARISING FROM      #
+# USE OR INABILITY TO USE THE SOFTWARE, INCLUDING INDIRECT,     #
+# INCIDENTAL, OR CONSEQUENTIAL DAMAGES.                         #
+#                                                               #
+#                   For inquiries, contact:                     #
+#                  noeco.official@gmail.com                     #
+# ============================================================= #
+
+extends RigidBody3D
+
+@export var MeshContainer : Node3D
+@export var CollisionShape : CollisionShape3D
+
+@export var current_ITEM_TYPE : String
+
+func spawn(item_type : String, current_position : Vector3, current_rotation_degrees : Vector3, current_scale : Vector3):
+	# Building Asset Resource B.A.R
+	var BAR = InventoryManager.ITEM_TYPES[item_type]["BUILDING_ASSET_RES"]
+	var instance = BAR.Model_Scene.instantiate()
+	MeshContainer.add_child(instance)
+	instance.position = BAR.Default_Model_Position
+	instance.rotation_degrees = BAR.Default_Model_Rotation_Degrees
+	instance.scale = BAR.Default_Model_Scale
+	CollisionShape.shape = BAR.Collision_Shape
+	
+	global_position = current_position
+	rotation_degrees = current_rotation_degrees
+	scale = current_scale

@@ -60,9 +60,5 @@ func _input(_event: InputEvent) -> void:
 	
 	if Input.is_action_just_pressed("DoButton"):
 		if OS.is_debug_build():
-			var data = {
-				"skib" : 1,
-				"sus" : 2,
-			}
-			
-			
+			HandManager.HAND_ITEM_NODE.HAND_ITEM = load("res://Resources/Hand Items/PICKAXE.tres")
+			HandManager.HAND_ITEM_NODE.load_hand_item()

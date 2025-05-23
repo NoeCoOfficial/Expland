@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="HandItems" load_steps=3 format=3 uid="uid://cyck7q8c0tn48"]
+
+[ext_resource type="PackedScene" uid="uid://dhvw38pop7v0o" path="res://Assets/3D Models/Inventory Hand Items/HASTE POTION.blend" id="1_76ut7"]
+[ext_resource type="Script" uid="uid://dxurlssepa0ek" path="res://Scenes and Scripts/Scenes/Player/Hand Item/HandItem_SCRIPT.gd" id="2_soxjp"]
+
+[resource]
+script = ExtResource("2_soxjp")
+ITEM_TYPE = "HASTE POTION"
+mesh_position = Vector3(-0.055, -0.435, 0.65)
+mesh_rotation = Vector3(-4.78, 161.375, -16.985)
+mesh_scale = Vector3(0.64, 0.64, 0.64)
+mesh_reset_position = Vector3(0, -1, 0)
+mesh_reset_rotation = Vector3(-4.78, 161.375, -16.985)
+model_scene = ExtResource("1_76ut7")
+sway_min = Vector2(-20, -20)
+sway_max = Vector2(20, 20)
+sway_speed_position = 0.07
+sway_speed_rotation = 0.1
+sway_amount_position = 0.19
+sway_amount_rotation = 10.0
+idle_sway_adjustment = 5.0
+idle_sway_rotation_strength = 500.0
+random_sway_amount = 10.0
+bob_speed_walking = 7.0
+bob_speed_sprinting = 10.5
+bob_speed_crouching = 4.0
+hbob_amount = 5.0
+vbob_amount = 5.0
+damage_amount = 0.6
+hand_attatchement_position = Vector3(0, 0, 0)
+hand_attatchement_rotation = Vector3(0, 0, 0)
+hand_attatchement_scale = Vector3(0, 0, 0)

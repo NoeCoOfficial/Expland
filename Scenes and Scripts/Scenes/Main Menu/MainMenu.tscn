@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=50 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" uid="uid://uvd1eie30b14" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="PackedScene" uid="uid://jb61th5px5nt" path="res://Assets/3D Models/Tests/Island/Island 2.blend" id="2_0llf6"]
@@ -9,11 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://cdbylnsm71dkk" path="res://Assets/3D Models/Environment/Trees/Normal/Models/Tree3.blend" id="4_drkdx"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="4_grlcg"]
 [ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="5_dfh28"]
-[ext_resource type="PackedScene" uid="uid://ckktuiw4a367o" path="res://Assets/3D Models/Environment/Rocks/Rock2_Broken.blend" id="5_mxq5r"]
-[ext_resource type="PackedScene" uid="uid://b5d0ah73v2doj" path="res://Assets/3D Models/Environment/Rocks/Rock5_Mossy.blend" id="6_lssvk"]
+[ext_resource type="PackedScene" uid="uid://ckktuiw4a367o" path="res://Assets/3D Models/Environment/Rocks/Rock2.blend" id="5_mxq5r"]
+[ext_resource type="PackedScene" uid="uid://b5d0ah73v2doj" path="res://Assets/3D Models/Environment/Rocks/Rock5.blend" id="6_lssvk"]
 [ext_resource type="Texture2D" uid="uid://fih3i4yk6pip" path="res://Textures/Icons/PlayBtn_Icon.png" id="6_ve3ie"]
 [ext_resource type="Texture2D" uid="uid://cfe0w5hyb6fyc" path="res://Textures/Icons/SettingsCog_Icon.png" id="7_7tdx1"]
-[ext_resource type="PackedScene" uid="uid://bq7v171b1atvm" path="res://Assets/3D Models/Environment/Rocks/Rock7_Rough.blend" id="7_jmxkd"]
+[ext_resource type="PackedScene" uid="uid://bq7v171b1atvm" path="res://Assets/3D Models/Environment/Rocks/Rock7.blend" id="7_jmxkd"]
 [ext_resource type="PackedScene" uid="uid://c855wuotwp7n7" path="res://Assets/3D Models/Environment/Grass/Grass1.blend" id="8_0bg8c"]
 [ext_resource type="Texture2D" uid="uid://cwskjvl8pplog" path="res://Textures/Icons/Exit_Icon.png" id="8_rn1to"]
 [ext_resource type="Script" uid="uid://snus4y53incu" path="res://Scenes and Scripts/Utility Scripts/IgnoreMouseFilter.gd" id="8_tu6ba"]
@@ -28,21 +28,14 @@
 [ext_resource type="FontFile" uid="uid://btimp4hwg4jis" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Regular.otf" id="14_8r23i"]
 [ext_resource type="StyleBox" uid="uid://com3tix0pshhk" path="res://Resources/Styles and Themes/Styles/Default/Label/Default_Label.tres" id="15_8lpeu"]
 [ext_resource type="Texture2D" uid="uid://ddboyvj4u3hwq" path="res://Textures/Icons/PadlockWhite_Icon.png" id="16_3n0bi"]
+[ext_resource type="PackedScene" uid="uid://bjsti1e663lr8" path="res://Scenes and Scripts/Scenes/General/UI/BlurLayer.tscn" id="16_elslp"]
 [ext_resource type="PackedScene" uid="uid://djenc4llne53s" path="res://Scenes and Scripts/Scenes/Credits/CreditsLayer.tscn" id="19_0ti8x"]
 [ext_resource type="PackedScene" uid="uid://b7la7o37o5gld" path="res://Scenes and Scripts/Scenes/Achievements/AchievementsUI.tscn" id="19_gyuud"]
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="21_v2lsw"]
-[ext_resource type="StyleBox" uid="uid://dk6yg5shsrlga" path="res://Resources/Styles and Themes/Styles/Default/Button/Default_Hover.tres" id="22_dd8k4"]
-[ext_resource type="StyleBox" uid="uid://4bki1vu11lcb" path="res://Resources/Styles and Themes/Styles/Default/Button/Default_Pressed.tres" id="23_ocvtf"]
-[ext_resource type="StyleBox" uid="uid://dysjxkdohprwn" path="res://Resources/Styles and Themes/Styles/Default/Button/Default_Normal.tres" id="24_r2ree"]
-[ext_resource type="StyleBox" uid="uid://cm8xotke6bccm" path="res://Resources/Styles and Themes/Styles/Default/LineEdit/Default_Normal_LineEdit.tres" id="25_3j2x4"]
-[ext_resource type="StyleBox" uid="uid://cf1a43wkesukc" path="res://Resources/Styles and Themes/Styles/Default/LineEdit/Default_Focus_LineEdit.tres" id="26_j2nrr"]
-[ext_resource type="PackedScene" uid="uid://cq13w255wbu5l" path="res://Scenes and Scripts/Scenes/Minimal Alert/MinimalAlert.tscn" id="27_7myre"]
-[ext_resource type="Script" uid="uid://de7igwvi1x7ws" path="res://Scenes and Scripts/Scenes/Main Menu/Custom Popups/LoadIslandPopup_SCRIPT.gd" id="27_ro0wj"]
-[ext_resource type="Script" uid="uid://dj2wb6vcpgeed" path="res://Scenes and Scripts/Scenes/Main Menu/Custom Popups/DeleteIslandPopupMain_SCRIPT.gd" id="29_37xid"]
 [ext_resource type="PackedScene" uid="uid://du1ak3ldg8x4e" path="res://Scenes and Scripts/Scenes/Dialogue/DialogueInterface.tscn" id="30_q7bh6"]
 [ext_resource type="PackedScene" uid="uid://cjxbcx2vhofs" path="res://Scenes and Scripts/Scenes/Achievements/AchievementNotification.tscn" id="31_ahd72"]
 [ext_resource type="PackedScene" uid="uid://bbc10j8mbwjbn" path="res://Scenes and Scripts/Scenes/Audio/AudioNotification.tscn" id="31_xncp6"]
-[ext_resource type="Script" uid="uid://b2koo4upy744h" path="res://Scenes and Scripts/Scenes/Alert/AlertLayer_SCRIPT.gd" id="34_so3ya"]
+[ext_resource type="Script" uid="uid://b2koo4upy744h" path="res://Scenes and Scripts/Scenes/Alerts/Normal/AlertLayer_SCRIPT.gd" id="34_so3ya"]
 [ext_resource type="FontFile" uid="uid://b2o44xwqnsb5k" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf" id="35_hsmjp"]
 [ext_resource type="FontFile" uid="uid://c4h0gd5a2e2qb" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf" id="35_srfqj"]
 [ext_resource type="FontFile" uid="uid://duhkn1q8s6i3m" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Medium.otf" id="36_srfqj"]
@@ -123,7 +116,7 @@ sky = SubResource("Sky_7v7qm")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pdfov"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_syeyn"]
 bg_color = Color(0.125911, 0.125911, 0.125911, 1)
 border_width_left = 2
 border_width_top = 2
@@ -135,7 +128,7 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 expand_margin_top = 5.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tv74r"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjd7a"]
 bg_color = Color(0.255659, 0.255659, 0.255659, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
@@ -144,27 +137,13 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="Theme" id="Theme_u5css"]
 default_font = ExtResource("5_dfh28")
-Button/styles/hover = SubResource("StyleBoxFlat_pdfov")
+Button/styles/hover = SubResource("StyleBoxFlat_syeyn")
 Button/styles/normal = ExtResource("12_3uklh")
-Button/styles/pressed = SubResource("StyleBoxFlat_tv74r")
+Button/styles/pressed = SubResource("StyleBoxFlat_cjd7a")
 Label/styles/normal = ExtResource("15_8lpeu")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q7bbx"]
-bg_color = Color(0.0177325, 0.0177324, 0.0177324, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.0627451, 0.0627451, 0.0627451, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
-[node name="MainMenu" type="Node3D" node_paths=PackedStringArray("FreeModeIslandPopupLayer", "TextEditNewIslandName", "fade_timer_time_left_label")]
+[node name="MainMenu" type="Node3D" node_paths=PackedStringArray("fade_timer_time_left_label")]
 script = ExtResource("1_8n1c6")
-FreeModeIslandPopupLayer = NodePath("Camera3D/MainLayer/FreeModeIslandPopup")
-TextEditNewIslandName = NodePath("Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit")
 fade_timer_time_left_label = NodePath("Camera3D/MainLayer/AudioNotificationLayer/fade_timer_time_left")
 
 [node name="CameraAnim" type="AnimationPlayer" parent="."]
@@ -514,7 +493,7 @@ offset_bottom = 39.0
 grow_horizontal = 0
 theme = ExtResource("4_grlcg")
 theme_override_font_sizes/font_size = 26
-text = "v0.7.1"
+text = "v0.7.5"
 
 [node name="GreyLayer" type="ColorRect" parent="Camera3D/MainLayer"]
 visible = false
@@ -529,14 +508,7 @@ script = ExtResource("10_y68f7")
 [node name="SettingsUI" parent="Camera3D/MainLayer" instance=ExtResource("10_i36v3")]
 visible = false
 
-[node name="GreyLayerGamemodeLayer" type="ColorRect" parent="Camera3D/MainLayer"]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.643)
+[node name="GamemodeBlurLayer" parent="Camera3D/MainLayer" instance=ExtResource("16_elslp")]
 
 [node name="ExitGamemodeLayerButton" type="Button" parent="Camera3D/MainLayer"]
 anchors_preset = 7
@@ -709,7 +681,13 @@ grow_vertical = 0
 focus_mode = 0
 theme = SubResource("Theme_u5css")
 theme_override_font_sizes/font_size = 40
-text = "PLAY"
+theme_override_styles/disabled = ExtResource("12_3uklh")
+disabled = true
+
+[node name="PadlockIcon" type="Sprite2D" parent="Camera3D/MainLayer/GameModeLayer/BG_FreeMode"]
+position = Vector2(98, 479)
+scale = Vector2(0.0927734, 0.0927734)
+texture = ExtResource("16_3n0bi")
 
 [node name="BG_ParkourMode" type="Button" parent="Camera3D/MainLayer/GameModeLayer"]
 layout_mode = 1
@@ -792,341 +770,6 @@ visible = false
 
 [node name="CreditsLayer" parent="Camera3D/MainLayer" instance=ExtResource("19_0ti8x")]
 visible = false
-
-[node name="FreeModeIslandPopup" type="CanvasLayer" parent="Camera3D/MainLayer"]
-visible = false
-
-[node name="GreyLayer" type="ColorRect" parent="Camera3D/MainLayer/FreeModeIslandPopup"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.643)
-script = ExtResource("10_y68f7")
-
-[node name="NewIslandOrLoadIslandPopup" type="Panel" parent="Camera3D/MainLayer/FreeModeIslandPopup"]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -180.0
-offset_top = -33.0
-offset_right = 180.0
-offset_bottom = 33.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = ExtResource("21_v2lsw")
-
-[node name="Title" type="Label" parent="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandOrLoadIslandPopup"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -91.5
-offset_top = 6.0
-offset_right = 91.5
-offset_bottom = 29.0
-grow_horizontal = 2
-theme = ExtResource("4_grlcg")
-text = "Start fresh or continue?"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="NewIslandButton" type="Button" parent="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandOrLoadIslandPopup"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0305556
-anchor_top = 0.469697
-anchor_right = 0.494444
-anchor_bottom = 0.863636
-grow_vertical = 0
-focus_mode = 0
-theme_override_fonts/font = ExtResource("5_dfh28")
-theme_override_styles/hover = ExtResource("22_dd8k4")
-theme_override_styles/pressed = ExtResource("23_ocvtf")
-theme_override_styles/normal = ExtResource("24_r2ree")
-text = "New Island"
-metadata/_edit_use_anchors_ = true
-
-[node name="LoadIslandButton" type="Button" parent="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandOrLoadIslandPopup"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.505556
-anchor_top = 0.469697
-anchor_right = 0.969444
-anchor_bottom = 0.863636
-grow_vertical = 0
-focus_mode = 0
-theme_override_fonts/font = ExtResource("5_dfh28")
-theme_override_styles/hover = ExtResource("22_dd8k4")
-theme_override_styles/pressed = ExtResource("23_ocvtf")
-theme_override_styles/normal = ExtResource("24_r2ree")
-text = "Load Island"
-metadata/_edit_use_anchors_ = true
-
-[node name="NewIslandPopup" type="Panel" parent="Camera3D/MainLayer/FreeModeIslandPopup"]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -180.0
-offset_top = -33.0
-offset_right = 180.0
-offset_bottom = 33.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = ExtResource("21_v2lsw")
-
-[node name="Title" type="Label" parent="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -91.5
-offset_top = 6.0
-offset_right = 91.5
-offset_bottom = 29.0
-grow_horizontal = 2
-theme = ExtResource("4_grlcg")
-text = "Create a new Free Mode Island"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Free_ModeInPopupNewIslandButton" type="Button" parent="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.725
-anchor_top = 0.469697
-anchor_right = 0.969444
-anchor_bottom = 0.863636
-grow_vertical = 0
-focus_mode = 0
-theme_override_fonts/font = ExtResource("5_dfh28")
-theme_override_styles/hover = ExtResource("22_dd8k4")
-theme_override_styles/pressed = ExtResource("23_ocvtf")
-theme_override_styles/normal = ExtResource("24_r2ree")
-text = "Start"
-metadata/_edit_use_anchors_ = true
-
-[node name="Island_Name_TextEdit" type="LineEdit" parent="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.025
-anchor_top = 0.469697
-anchor_right = 0.711111
-anchor_bottom = 0.909091
-focus_mode = 1
-theme_override_fonts/font = ExtResource("11_1cstc")
-theme_override_font_sizes/font_size = 15
-theme_override_styles/focus = ExtResource("26_j2nrr")
-theme_override_styles/read_only = ExtResource("25_3j2x4")
-theme_override_styles/normal = ExtResource("25_3j2x4")
-placeholder_text = "Island name..."
-context_menu_enabled = false
-virtual_keyboard_enabled = false
-middle_mouse_paste_enabled = false
-deselect_on_focus_loss_enabled = false
-drag_and_drop_selection_enabled = false
-caret_blink = true
-metadata/_edit_use_anchors_ = true
-
-[node name="LoadIslandPopup" type="Control" parent="Camera3D/MainLayer/FreeModeIslandPopup" node_paths=PackedStringArray("NoSavedIslandsNotice")]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("27_ro0wj")
-NoSavedIslandsNotice = NodePath("NoSavedIslandsNotice")
-metadata/_edit_use_anchors_ = true
-
-[node name="LoadIslandPopupBG" type="Panel" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -415.0
-offset_top = -243.0
-offset_right = 415.0
-offset_bottom = 243.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = ExtResource("21_v2lsw")
-
-[node name="Title" type="Label" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -132.5
-offset_top = -234.5
-offset_right = 132.5
-offset_bottom = -199.5
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("4_grlcg")
-theme_override_font_sizes/font_size = 30
-text = "Load a Free Mode Island"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ScrollBackground" type="Panel" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -388.0
-offset_top = -197.0
-offset_right = 388.0
-offset_bottom = 231.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_q7bbx")
-
-[node name="ScrollContainer" type="ScrollContainer" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -382.0
-offset_top = -191.0
-offset_right = 382.0
-offset_bottom = 224.0
-grow_horizontal = 2
-grow_vertical = 2
-horizontal_scroll_mode = 0
-vertical_scroll_mode = 2
-
-[node name="VBoxContainer" type="GridContainer" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup/ScrollContainer"]
-layout_mode = 2
-theme_override_constants/h_separation = 380
-theme_override_constants/v_separation = 108
-columns = 2
-
-[node name="NoSavedIslandsNotice" type="Label" parent="Camera3D/MainLayer/FreeModeIslandPopup/LoadIslandPopup"]
-modulate = Color(0.589096, 0.589096, 0.589096, 1)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -132.0
-offset_top = -7.0
-offset_right = 128.0
-offset_bottom = 16.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("4_grlcg")
-text = "You don't have any saved Islands!"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MinimalAlert" parent="Camera3D/MainLayer/FreeModeIslandPopup" instance=ExtResource("27_7myre")]
-
-[node name="DeleteIslandPopup" type="CanvasLayer" parent="Camera3D/MainLayer"]
-visible = false
-
-[node name="GreyLayer" type="ColorRect" parent="Camera3D/MainLayer/DeleteIslandPopup"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.643)
-script = ExtResource("10_y68f7")
-
-[node name="DeleteIslandPopupMain" type="Panel" parent="Camera3D/MainLayer/DeleteIslandPopup"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -180.0
-offset_top = -71.5
-offset_right = 180.0
-offset_bottom = 71.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = ExtResource("21_v2lsw")
-script = ExtResource("29_37xid")
-
-[node name="Notice" type="Label" parent="Camera3D/MainLayer/DeleteIslandPopup/DeleteIslandPopupMain"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -163.0
-offset_top = 7.0
-offset_right = 163.0
-offset_bottom = 97.0
-grow_horizontal = 2
-theme = ExtResource("4_grlcg")
-text = "Are you sure you want to delete \"Island_name\"?"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-text_overrun_behavior = 1
-
-[node name="DeleteIsland_No" type="Button" parent="Camera3D/MainLayer/DeleteIslandPopup/DeleteIslandPopupMain"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0305556
-anchor_top = 0.713287
-anchor_right = 0.494444
-anchor_bottom = 0.923077
-grow_vertical = 0
-focus_mode = 0
-theme_override_fonts/font = ExtResource("5_dfh28")
-theme_override_styles/hover = ExtResource("22_dd8k4")
-theme_override_styles/pressed = ExtResource("23_ocvtf")
-theme_override_styles/normal = ExtResource("24_r2ree")
-text = "No"
-metadata/_edit_use_anchors_ = true
-
-[node name="DeleteIsland_Yes" type="Button" parent="Camera3D/MainLayer/DeleteIslandPopup/DeleteIslandPopupMain"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.505556
-anchor_top = 0.713287
-anchor_right = 0.969444
-anchor_bottom = 0.923077
-grow_vertical = 0
-focus_mode = 0
-theme_override_fonts/font = ExtResource("5_dfh28")
-theme_override_styles/hover = ExtResource("22_dd8k4")
-theme_override_styles/pressed = ExtResource("23_ocvtf")
-theme_override_styles/normal = ExtResource("24_r2ree")
-text = "Yes"
-metadata/_edit_use_anchors_ = true
-
-[node name="StoryModePopup" type="CanvasLayer" parent="Camera3D/MainLayer"]
-
-[node name="MainLayer" type="Control" parent="Camera3D/MainLayer/StoryModePopup"]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="DialogueLayer" type="CanvasLayer" parent="Camera3D/MainLayer"]
 
@@ -1534,9 +1177,9 @@ vertical_alignment = 1
 
 [node name="AudioNotification" parent="Camera3D/MainLayer/AudioNotificationLayer" instance=ExtResource("31_xncp6")]
 offset_left = 1152.0
-offset_top = 387.0
+offset_top = 401.0
 offset_right = 197.0
-offset_bottom = -173.0
+offset_bottom = -159.0
 
 [node name="ProtectiveLayer" type="Control" parent="Camera3D/MainLayer"]
 layout_mode = 3
@@ -1812,13 +1455,6 @@ transform = Transform3D(1.98326, -0.0362428, 0.0278266, 0.0357732, 1.98318, 0.03
 [connection signal="pressed" from="Camera3D/MainLayer/GameModeLayer/BG_StoryMode/PlayStoryModeButton" to="." method="_on_play_story_mode_button_pressed"]
 [connection signal="pressed" from="Camera3D/MainLayer/GameModeLayer/BG_FreeMode/PlayFreeModeButton" to="." method="_on_play_free_mode_button_pressed"]
 [connection signal="pressed" from="Camera3D/MainLayer/GameModeLayer/BG_ParkourMode/PlayParkourModeButton" to="." method="_on_play_parkour_mode_button_pressed"]
-[connection signal="pressed" from="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandOrLoadIslandPopup/NewIslandButton" to="." method="_on_new_island_button_pressed"]
-[connection signal="pressed" from="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandOrLoadIslandPopup/LoadIslandButton" to="." method="_on_load_island_button_pressed"]
-[connection signal="pressed" from="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Free_ModeInPopupNewIslandButton" to="." method="_on_free_mode_in_popup_new_island_button_pressed"]
-[connection signal="focus_entered" from="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit" to="." method="_on_island_name_text_edit_focus_entered"]
-[connection signal="focus_exited" from="Camera3D/MainLayer/FreeModeIslandPopup/NewIslandPopup/Island_Name_TextEdit" to="." method="_on_island_name_text_edit_focus_exited"]
-[connection signal="pressed" from="Camera3D/MainLayer/DeleteIslandPopup/DeleteIslandPopupMain/DeleteIsland_No" to="." method="_on_delete_island_no_pressed"]
-[connection signal="pressed" from="Camera3D/MainLayer/DeleteIslandPopup/DeleteIslandPopupMain/DeleteIsland_Yes" to="." method="_on_delete_island_yes_pressed"]
 [connection signal="FinishedDialogue" from="Camera3D/MainLayer/DialogueLayer/DialogueInterface" to="." method="_on_dialogue_interface_finished_dialogue"]
 [connection signal="pressed" from="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_7_1/v0_7_1_Btn" to="." method="_on_v_0_7_1_btn_pressed"]
 [connection signal="mouse_entered" from="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/CloseButton" to="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer" method="_on_close_button_mouse_entered"]

@@ -48,7 +48,7 @@
 @icon("res://Textures/Icons/Script Icons/32x32/settings_save.png")
 extends Node
 
-const SAVE_PATH = "user://saveData/settings.save"
+const SAVE_PATH = "user://saveData/settings.xpldcfg"
 
 ######################################
 # General
@@ -57,15 +57,14 @@ const SAVE_PATH = "user://saveData/settings.save"
 var showStartupScreen : bool = true
 var autosaveInterval : int = 60
 
-# TODO: Implement these settings
 var quickAnimations : bool = false
+# TODO: Do this setting
 var showTime : bool = false
 
 ######################################
 # Graphics
 ######################################
 
-var DOFBlur : bool = true
 var PrettyShadows : bool = false
 
 ######################################
@@ -87,20 +86,28 @@ var Master_Volume = 1
 # Data persistence
 ######################################
 
-func saveSettings() -> void:
-	Utils.createBaseSaveFolder()
-	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+func saveSettings(save_path: String, SK : String):
+	# Make sure path exists
+	SaveManager.verify_dir("saveData")
+	var target_file = FileAccess.open_encrypted_with_pass(
+		save_path, 
+		FileAccess.WRITE,
+		SK)
+	
+	if target_file == null:
+		print(FileAccess.get_open_error())
+		return
+	
 	var data = {
 		
 		# General
-		"show_startup_screen" : showStartupScreen,
-		"autosave_interval" : autosaveInterval,
-		"quick_animations" : quickAnimations,
-		"show_time" : showTime,
+		"showStartupScreen" : showStartupScreen,
+		"autosaveInterval" : autosaveInterval,
+		"quickAnimations" : quickAnimations,
+		"showTime" : showTime,
 		
 		# Graphics
-		"dof_blur" : DOFBlur,
-		"pretty_shadows" : PrettyShadows,
+		"PrettyShadows" : PrettyShadows,
 		
 		# Video
 		"FOV" : FOV,
@@ -109,67 +116,49 @@ func saveSettings() -> void:
 		# Audio
 		"sfx_Volume" : sfx_Volume,
 		"music_Volume" : music_Volume,
-		"Master_Volume" :Master_Volume,
+		"Master_Volume" : Master_Volume,
 		
 	}
-	var jstr = JSON.stringify(data)
-	file.store_line(jstr)
-	print("[PlayerSettingsData] --Saved Player Settings--")
+	
+	var json_data_string = JSON.stringify(data, "\t")
+	target_file.store_string(json_data_string)
+	target_file.close()
 
-func loadSettings() -> void:
-	Utils.createBaseSaveFolder()
-	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
-	if not file:
-		push_warning("[PlayerSettingsData] File doesn't exist (" + SAVE_PATH + ")")
-		return
-	if file == null:
-		return
-	if FileAccess.file_exists(SAVE_PATH) == true:
-		if not file.eof_reached():
-			
-			
-			var current_line = JSON.parse_string(file.get_line())
-			if current_line:
-				
-				# General
-				showStartupScreen = current_line["show_startup_screen"]
-				autosaveInterval = current_line["autosave_interval"]
-				
-				quickAnimations = current_line["quick_animations"]
-				showTime = current_line["show_time"]
-				
-				# Graphics
-				DOFBlur = current_line["dof_blur"]
-				PrettyShadows = current_line["pretty_shadows"]
-				
-				# Video
-				FOV = current_line["FOV"]
-				Sensitivity = current_line["Sensitivity"]
-				
-				# Audio
-				Master_Volume = current_line["Master_Volume"]
-				music_Volume = current_line["music_Volume"]
-				sfx_Volume = current_line["sfx_Volume"]
-				
-				print_rich("[center][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf][font_size=30]-- PLAYER SETTINGS HAVE BEEN LOADED --[/font_size][/font][/center]")
-				
-				# General
-				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Show startup screen: "+str(showStartupScreen)+"[/font][/font_size][/center]")
-				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Quick animations: "+str(quickAnimations)+"[/font][/font_size][/center]")
-				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Show time: "+str(showTime)+"[/font][/font_size][/center]")
-				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Autosave Interval: "+str(autosaveInterval)+"[/font][/font_size][/center]")
-				
-				# Graphics
-				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]DOF Blur: "+str(DOFBlur)+"[/font][/font_size][/center]")
-				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Pretty shadows: "+str(PrettyShadows)+"[/font][/font_size][/center]")
-				
-				# Video
-				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]FOV: "+str(FOV)+"[/font][/font_size][/center]")
-				
-				# Audio
-				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Master Volume: "+str(Master_Volume)+"[/font][/font_size][/center]")
-				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]Music Volume: "+str(music_Volume)+"[/font][/font_size][/center]")
-				print_rich("[center][font_size=15][font=res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf]SFX Volume: "+str(sfx_Volume)+"[/font][/font_size][/center]")
+func loadSettings(save_path: String, SK : String):
+	if FileAccess.file_exists(save_path):
+		var file = FileAccess.open_encrypted_with_pass(
+			save_path, 
+			FileAccess.READ,
+			SK)
+		
+		if file == null:
+			print(FileAccess.get_open_error())
+			return
+		
+		var content = file.get_as_text()
+		file.close()
+		
+		var data = JSON.parse_string(content)
+		if data == null:
+			printerr("Cannot parse %s as a json_string: (%s)" % [save_path, content])
+			return
+		
+		showStartupScreen = data.showStartupScreen
+		autosaveInterval = data.autosaveInterval
+		quickAnimations = data.quickAnimations
+		showTime = data.showTime
+		
+		PrettyShadows = data.PrettyShadows
+		
+		FOV = data.FOV
+		Sensitivity = data.Sensitivity
+		
+		sfx_Volume = data.sfx_Volume
+		music_Volume = data.music_Volume
+		Master_Volume = data.Master_Volume
+		
+	else:
+		printerr("Cannot open non-existent file at %s!" % [save_path])
 
 ######################################
 # Setting values
@@ -178,28 +167,6 @@ func loadSettings() -> void:
 func set_autosave_interval(value : int):
 	if PlayerManager.PLAYER != null:
 		PlayerManager.PLAYER.setAutosaveInterval(value)
-
-func set_dof_blur(value : bool) -> void:
-	if !StoryModeManager.is_in_story_mode_first_cutscene_world:
-		if get_node("/root/World") != null:
-				if value:
-					DOFBlur = true
-					var world = get_node("/root/World")
-					
-					if world.has_method("set_dof_blur"):
-						world.set_dof_blur(value)
-					else:
-						printerr("[PlayerSettingsData] Could not find set_dof_blur() method in world node.")
-				else:
-					DOFBlur = false
-					var world = get_node("/root/World")
-					
-					if world.has_method("set_dof_blur"):
-						world.set_dof_blur(value)
-					else:
-						printerr("[PlayerSettingsData] Could not find set_dof_blur() method in world node.")
-		else:
-			printerr("[PlayerSettingsData] World node (/root/World) is null. Can't call set_dof_blur().")
 
 func set_pretty_shadows(value : bool) -> void:
 	if !StoryModeManager.is_in_story_mode_first_cutscene_world:

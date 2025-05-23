@@ -95,7 +95,7 @@ func _process(delta: float) -> void:
 		toggle_interacting(false)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if !PauseManager.is_paused and !InventoryManager.pockets_ui_open and !InventoryManager.chest_ui_open and !InventoryManager.workshop_ui_open and !DialogueManager.is_in_interface:
+	if !PauseManager.is_paused and !InventoryManager.pockets_ui_open and !InventoryManager.chest_ui_open and !InventoryManager.workbench_ui_open and !DialogueManager.is_in_interface:
 		if interacting:
 			
 			if UseAction1:
