@@ -489,6 +489,7 @@ func playBlinkEffect():
 
 func makePlayerCameraCurrent():
 	$"Story Mode/Cameras/StoryModeWakeUpCamera".clear_current(true)
+	StoryModeManager.is_in_cutscene = false
 
 func firstInitStoryModePlayer():
 	Player.show()
