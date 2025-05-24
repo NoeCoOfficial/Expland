@@ -56,7 +56,9 @@ var STORY_MODE_PROGRESSION_INFO = {
 	"DISPLAYED_3_DIALOGUE" : false,
 	"DISPLAYED_4_DIALOGUE" : false,
 	"DISPLAYED_5_DIALOGUE" : false,
+	"DISPLAYED_6_DIALOGUE" : false,
 }
+
 var GAME_STATE = "NORMAL"
 var Health := 100
 var Hunger := 100
