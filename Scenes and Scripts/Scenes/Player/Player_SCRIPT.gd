@@ -1331,17 +1331,17 @@ func _on_area_collision_shape_3d_area_entered(area: Area3D) -> void:
 		DialogueManager.startDialogue(DialogueManager.WorldBoundaryDialogue)
 	
 	if area.is_in_group(&"DialogueID_4_ActivationArea") and !PlayerData.STORY_MODE_PROGRESSION_INFO["DISPLAYED_4_DIALOGUE"]:
-		DialogueManager.startDialogue(DialogueManager.StoryMode_Dialogue_22)
+		DialogueManager.startDialogue(DialogueManager.StoryMode_Dialogue_ID_4)
 		DialogueManager.setStoryModeID(4)
 		PlayerData.STORY_MODE_PROGRESSION_INFO["DISPLAYED_4_DIALOGUE"] = true
 
 	if area.is_in_group(&"DialogueID_5_ActivationArea") and !PlayerData.STORY_MODE_PROGRESSION_INFO["DISPLAYED_5_DIALOGUE"]:
-		DialogueManager.startDialogue(DialogueManager.StoryMode_Dialogue_23)
+		DialogueManager.startDialogue(DialogueManager.StoryMode_Dialogue_ID_5)
 		DialogueManager.setStoryModeID(5)
 		PlayerData.STORY_MODE_PROGRESSION_INFO["DISPLAYED_5_DIALOGUE"] = true
 
 	if area.is_in_group(&"DialogueID_6_ActivationArea") and !PlayerData.STORY_MODE_PROGRESSION_INFO["DISPLAYED_6_DIALOGUE"]:
-		DialogueManager.startDialogue(DialogueManager.StoryMode_Dialogue_24)
+		DialogueManager.startDialogue(DialogueManager.StoryMode_Dialogue_ID_6)
 		DialogueManager.setStoryModeID(5)
 		PlayerData.STORY_MODE_PROGRESSION_INFO["DISPLAYED_6_DIALOGUE"] = true
 

@@ -114,7 +114,7 @@ func _ready() -> void:
 		Player.init_for_cutscene()
 		Player.hide()
 		set_time(1140)
-		$"Story Mode/Canvas Layers/MinimalDialogueLayer/MinimalDialogue".spawnMinimalDialogue(DialogueManager.StoryMode_Dialogue_20)
+		$"Story Mode/Canvas Layers/MinimalDialogueLayer/MinimalDialogue".spawnMinimalDialogue(DialogueManager.StoryMode_Dialogue_WakeUp)
 		$"Story Mode/Audio/WakeUpAudio".play()
 	
 	Player.nodeSetup()
@@ -499,7 +499,7 @@ func firstInitStoryModePlayer():
 func _on_story_mode_dialogue_2_after_wake_up_timer_timeout() -> void:
 	if PlayerData.STORY_MODE_PROGRESSION_INFO["FIRST_STORY_MODE"]:
 		DialogueManager.setStoryModeID(3)
-		DialogueManager.startDialogue(DialogueManager.StoryMode_Dialogue_21)
+		DialogueManager.startDialogue(DialogueManager.StoryMode_Dialogue_ID_3)
 
 
 func _on_dialogue_interface_finished_dialogue(StoryModeID: int) -> void:

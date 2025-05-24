@@ -368,7 +368,7 @@ var StoryMode_StartCutscene_Dialogue_8 = [
 ################################################
 ################################################
 
-var StoryMode_Dialogue_20 = [
+var StoryMode_Dialogue_WakeUp = [
 	{"message": 
 		'', 
 		"time": 1.5},
@@ -383,7 +383,7 @@ var StoryMode_Dialogue_20 = [
 	
 ]
 
-var StoryMode_Dialogue_21 = [
+var StoryMode_Dialogue_ID_3 = [
 	{"author": "You", 
 	"message": "It looks like I'm on some sort of island...",
 	"duration": 2.0},
@@ -397,7 +397,7 @@ var StoryMode_Dialogue_21 = [
 	"duration": 1.5},
 ]
 
-var StoryMode_Dialogue_22 = [
+var StoryMode_Dialogue_ID_4 = [
 	{"author": "You", 
 	"message": "Okay, focus. You’re alive.",
 	"duration": 1.5},
@@ -411,7 +411,7 @@ var StoryMode_Dialogue_22 = [
 	"duration": 1.5},
 ]
 
-var StoryMode_Dialogue_23 = [
+var StoryMode_Dialogue_ID_5 = [
 	{"author": "You", 
 	"message": "Woah... a grass path...",
 	"duration": 1.0},
@@ -421,7 +421,7 @@ var StoryMode_Dialogue_23 = [
 	"duration": 1.9},
 ]
 
-var StoryMode_Dialogue_24 = [
+var StoryMode_Dialogue_ID_6 = [
 	{"author": "You", 
 	"message": "A shack? Out here?",
 	"duration": 0.8},
