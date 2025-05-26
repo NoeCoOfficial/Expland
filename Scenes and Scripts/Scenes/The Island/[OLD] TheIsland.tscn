@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://cqkp640cq8j51" path="res://Textures/Dev Textures/Red/texture_12.png" id="19_rqri1"]
 [ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="20_0f5yv"]
 [ext_resource type="Texture2D" uid="uid://cjk4fcgt2skld" path="res://Textures/Dev Textures/Red/texture_06.png" id="21_xuq5a"]
-[ext_resource type="PackedScene" uid="uid://dqalod7m5is51" path="res://Scenes and Scripts/Scenes/The Eryv (and related)/The Eryv Statue.tscn" id="22_0qj4q"]
+[ext_resource type="PackedScene" uid="uid://dqalod7m5is51" path="res://Scenes and Scripts/Scenes/The Eryv (and related)/TheEryvStatue.tscn" id="22_0qj4q"]
 [ext_resource type="PackedScene" uid="uid://ceeflh1bhg0ei" path="res://Assets/3D Models/Interactive/Objects/Finalized/SackclothBed/SackclothBed_Finalized.tscn" id="23_giu8y"]
 [ext_resource type="PackedScene" uid="uid://ebqmro758fob" path="res://Assets/3D Models/Interactive/Objects/Finalized/Workbench/Workbench_Finalized.tscn" id="24_weu2c"]
 [ext_resource type="PackedScene" uid="uid://dvh658edbkjrn" path="res://Assets/3D Models/Interactive/Objects/Finalized/Chest/Chest_Finalized.tscn" id="25_mp8o8"]
@@ -36,7 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://cn1krf62jowgb" path="res://Scenes and Scripts/Scenes/Dialogue/MinimalDialogue.tscn" id="34_dbva5"]
 [ext_resource type="PackedScene" uid="uid://dble54a2rl76q" path="res://Scenes and Scripts/Scenes/The Island/Explorer Note/ExplorerNote.tscn" id="35_u7txv"]
 [ext_resource type="Texture2D" uid="uid://dhp1lqdlclos" path="res://Textures/Icons/Expland_TextWHITE_Icon.png" id="36_1llkr"]
-[ext_resource type="Texture2D" uid="uid://d2p266eplnyto" path="res://Textures/Explorer Notes/2_Lucent.png" id="37_iv1c1"]
+[ext_resource type="Texture2D" path="res://Textures/Explorer Notes/2_Lucent.png" id="37_iv1c1"]
 
 [sub_resource type="Animation" id="Animation_747t0"]
 resource_name = "cloudy_cycle"
