@@ -433,7 +433,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			
 		else:
 			
-			if !InventoryManager.pockets_ui_open and !DialogueManager.is_in_absolute_interface and !PauseManager.is_inside_alert and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !PauseManager.inside_absolute_item_workshop and !StoryModeManager.is_in_story_mode_first_cutscene_world and !BuildingManager.is_in_building_interface:
+			if !InventoryManager.pockets_ui_open and !DialogueManager.is_in_absolute_interface and !PauseManager.is_inside_alert and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !PauseManager.inside_absolute_item_workshop and !StoryModeManager.is_in_story_mode_first_cutscene_world and !BuildingManager.is_in_building_interface and !StoryModeManager.is_in_cutscene:
 				pauseGame()
 			
 			if PauseManager.inside_item_workshop:
@@ -445,7 +445,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 	# UI handling for Pockets
 	if Input.is_action_just_pressed("Pockets"):
 		# UI checks
-		if !PauseManager.is_paused and !DialogueManager.is_in_interface and !PauseManager.inside_absolute_item_workshop and !StoryModeManager.is_in_story_mode_first_cutscene_world and !BuildingManager.is_in_building_interface:
+		if !PauseManager.is_paused and !DialogueManager.is_in_interface and !PauseManager.inside_absolute_item_workshop and !StoryModeManager.is_in_story_mode_first_cutscene_world and !BuildingManager.is_in_building_interface and !StoryModeManager.is_in_cutscene:
 			
 			if !InventoryManager.pockets_ui_open:
 				InventoryManager.openPockets()
@@ -467,7 +467,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 		if !StoryModeManager.is_in_story_mode_first_cutscene_world:
 			print("saved (or not)")
 	
-	if !StoryModeManager.is_in_story_mode_first_cutscene_world and !PauseManager.is_paused and !DialogueManager.is_in_interface and !BuildingManager.is_in_building_interface:
+	if !StoryModeManager.is_in_story_mode_first_cutscene_world and !PauseManager.is_paused and !DialogueManager.is_in_interface and !BuildingManager.is_in_building_interface and !StoryModeManager.is_in_cutscene:
 		if Input.is_action_just_pressed("Hotbar_1"):
 			InventoryManager.setSelectedHotbarSlot(Slot1_Hotbar_Ref, Outline_Slot1_Hotbar_Ref)
 		if Input.is_action_just_pressed("Hotbar_2"):

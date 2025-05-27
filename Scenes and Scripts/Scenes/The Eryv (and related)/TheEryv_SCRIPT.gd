@@ -49,6 +49,7 @@ extends CharacterBody3D
 @export var NavAgent : NavigationAgent3D
 @export var Player : Node3D
 @export var rotation_speed : float = 5.0  # How fast the enemy rotates to face target
+@export var speed : float = 5.0  # How fast the enemy rotates to face target
 var CURRENT_STATE : EryvStates = EryvStates.CHASING
 
 enum EryvStates {
@@ -70,8 +71,8 @@ func _physics_process(delta: float) -> void:
 	
 	if CURRENT_STATE == EryvStates.CHASING:
 		# Move towards target
-		velocity.x = direction.x * 5.0
-		velocity.z = direction.z * 5.0
+		velocity.x = direction.x * speed
+		velocity.z = direction.z * speed
 		
 		# Face the movement direction (only if we're actually moving)
 		if direction.length() > 0.1:

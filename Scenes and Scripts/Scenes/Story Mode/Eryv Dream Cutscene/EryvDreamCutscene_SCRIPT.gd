@@ -48,6 +48,7 @@
 extends Node3D
 
 func _ready() -> void:
+	StoryModeManager.is_in_cutscene = true
 	$Player.nodeSetup()
 
 func _input(event: InputEvent) -> void:
