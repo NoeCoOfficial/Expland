@@ -51,5 +51,5 @@ func _ready() -> void:
 	$Player.nodeSetup()
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("Jump"):
+	if Input.is_action_just_pressed("DebugAction1"):
 		$"The Eryv".update_chase_player()
