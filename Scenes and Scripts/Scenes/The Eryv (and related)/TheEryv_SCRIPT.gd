@@ -59,20 +59,6 @@ enum EryvStates {
 func update_chase_player():
 	NavAgent.set_target_position(Vector3(Player.global_position.x, 1.0, Player.global_position.z))
 
-func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("test_action"):
-		var random_pos = Vector3(randf_range(-5.0, 5.0), 1.5, randf_range(-5.0, 5.0))
-		NavAgent.set_target_position(random_pos)
-	
-	if Input.is_action_just_pressed("test_action_2"):
-		var pos = Vector3(0.0, 1.5, 0.0)
-		NavAgent.set_target_position(pos)
-	
-	if Input.is_action_just_pressed("make_idle"):
-		CURRENT_STATE = EryvStates.IDLE
-	if Input.is_action_just_pressed("make_chasing"):
-		CURRENT_STATE = EryvStates.CHASING
-
 func _physics_process(delta: float) -> void:
 	var destination = NavAgent.get_next_path_position()
 	var local_destination = destination - global_position
