@@ -46,8 +46,6 @@
 # ============================================================= #
 
 extends CharacterBody3D
-@export var LookAtTarget : NodePath
-@export var LookAtModifier : LookAtModifier3D
 @export var NavAgent : NavigationAgent3D
 @export var Player : Node3D
 @export var rotation_speed : float = 5.0  # How fast the enemy rotates to face target
@@ -58,10 +56,8 @@ enum EryvStates {
 	CHASING
 }
 
-func _ready() -> void:
-	LookAtModifier.target_node = LookAtTarget
-
 func update_chase_player():
+	$AnimationTree.set("parameters/Transition/transition_request", "ZombieRun")
 	NavAgent.set_target_position(Vector3(Player.global_position.x, 1.0, Player.global_position.z))
 
 func _physics_process(delta: float) -> void:
