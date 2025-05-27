@@ -57,8 +57,11 @@ enum EryvStates {
 	CHASING
 }
 
-func update_chase_player():
+func start_chase_player():
 	$AnimationTree.set("parameters/Transition/transition_request", "ZombieRun")
+	NavAgent.set_target_position(Vector3(Player.global_position.x, 1.0, Player.global_position.z))
+
+func update_chase_player():
 	NavAgent.set_target_position(Vector3(Player.global_position.x, 1.0, Player.global_position.z))
 
 func _physics_process(delta: float) -> void:

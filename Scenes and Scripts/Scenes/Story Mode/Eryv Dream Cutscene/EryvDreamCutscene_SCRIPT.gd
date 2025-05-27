@@ -47,10 +47,16 @@
 
 extends Node3D
 
+@export var TheEryv : CharacterBody3D
+
 func _ready() -> void:
 	StoryModeManager.is_in_cutscene = true
 	$Player.nodeSetup()
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("DebugAction1"):
-		$"The Eryv".update_chase_player()
+		TheEryv.start_chase_player()
+		$EryvPathUpdater.start()
+
+func _on_eryv_path_updater_timeout() -> void:
+	TheEryv.update_chase_player()
