@@ -54,6 +54,7 @@ func _ready() -> void:
 	ambient_fade_in.tween_property($Environment/AmbientWindLoop, "volume_db", 5.0, 1).from(-10.0)
 	$Environment/AmbientWindLoop.play()
 	$Player.hide()
+	$Player/Head/Camera3D/HUDLayer.hide()
 	$"PreControl Scene/EyeBlinkLayer/BottomBlink".position = Vector2(0.0, 688.0)
 	$"PreControl Scene/EyeBlinkLayer/TopBlink".position = Vector2(1152.0, -39.0)
 	$"PreControl Scene/Camera3D".fov = PlayerSettingsData.FOV
@@ -61,12 +62,13 @@ func _ready() -> void:
 	$Player.nodeSetup()
 	$"PreControl Scene/StartDelay".start()
 
-func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("DebugAction1"):
-		TheEryv.start_chase_player()
-		$EryvPathUpdater.start()
+func eryv_start_chase_player():
+	TheEryv.start_chase_player()
+	$EryvPathUpdater.start()
 
 func init_player_control():
+	$Player.show()
+	$Player/Head/Camera3D/HUDLayer.show()
 	$"PreControl Scene/Camera3D".clear_current(true)
 	StoryModeManager.is_in_cutscene = false
 	StoryModeManager.is_in_cutscene_can_move = true
