@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=3 uid="uid://dchanymqqprcr"]
+[gd_scene load_steps=118 format=3 uid="uid://dchanymqqprcr"]
 
 [ext_resource type="Script" uid="uid://dseuqwvtxuxvt" path="res://Scenes and Scripts/Scenes/Story Mode/Eryv Dream Cutscene/EryvDreamCutscene_SCRIPT.gd" id="1_g7jna"]
 [ext_resource type="Script" uid="uid://6516a37cmejq" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="2_c8ubs"]
@@ -73,6 +73,7 @@
 [ext_resource type="PackedScene" uid="uid://dvvevkaaos7l7" path="res://Scenes and Scripts/Scenes/Environment/General/Rocks/Rock4.tscn" id="71_o0bi3"]
 [ext_resource type="PackedScene" uid="uid://cxslmv2vhttb5" path="res://Assets/3D Models/Environment/Trees/Pine/Animation and Hitbox/PineTree5_Animation_Hitbox.tscn" id="72_w04sd"]
 [ext_resource type="PackedScene" uid="uid://dibtjn4dsr1be" path="res://Scenes and Scripts/Scenes/Environment/General/Rocks/Rock3.tscn" id="73_a3bwp"]
+[ext_resource type="Shader" uid="uid://ddwwgv2rqfito" path="res://Resources/Shaders/GausianBlur.gdshader" id="74_so3kt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xe4rk"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -1910,6 +1911,114 @@ _data = {
 &"motion": SubResource("Animation_mfavh")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0awra"]
+bg_color = Color(1, 1, 1, 0)
+shadow_color = Color(0, 0, 0, 0.694118)
+shadow_size = 162
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o0bi3"]
+shader = ExtResource("74_so3kt")
+shader_parameter/blur_radius = 16
+shader_parameter/blur_scale = 0.0
+shader_parameter/darkness = 1.0
+shader_parameter/fade_direction = 3
+shader_parameter/fade_cutoff = 0.906
+shader_parameter/fade_intensity = 2.0
+
+[sub_resource type="Animation" id="Animation_5oxf6"]
+resource_name = "main"
+length = 0.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BottomBlink:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.16),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 688), Vector2(0, 272.935), Vector2(0, 688)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TopBlink:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.16),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1152, -39), Vector2(1152, 537), Vector2(1152, -39)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Blur:material:shader_parameter/blur_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.08, 0.5),
+"transitions": PackedFloat32Array(1, 1, 0.406126, 0.353554),
+"update": 0,
+"values": [0.0, 0.0, 2.597, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Blur:material:shader_parameter/darkness")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.08, 0.5),
+"transitions": PackedFloat32Array(1, 1, 0.406126, 0.353554),
+"update": 0,
+"values": [1.0, 1.0, 1.31, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Blur:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BottomBlink:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TopBlink:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cqxma"]
+_data = {
+&"main": SubResource("Animation_5oxf6")
+}
+
 [node name="World" type="Node3D" node_paths=PackedStringArray("TheEryv")]
 script = ExtResource("1_g7jna")
 TheEryv = NodePath("The Eryv")
@@ -2188,36 +2297,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 transform = Transform3D(-0.651061, 0, -5.69176e-08, 0, 0.651061, 0, 5.69176e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Player/Head/Player_Character_Shadow/Armature_003" index="0"]
-bones/0/position = Vector3(2.83362, -2.61431, -196.247)
-bones/0/rotation = Quaternion(-0.684609, -0.270595, 0.248547, 0.629535)
-bones/1/rotation = Quaternion(0.078549, 0.0408541, -0.00823911, 0.996039)
-bones/2/rotation = Quaternion(0.0943658, 0.0792357, -0.0219155, 0.992137)
-bones/3/rotation = Quaternion(0.0944008, 0.0791987, -0.0218984, 0.992137)
-bones/4/rotation = Quaternion(-0.0499162, -0.0105673, 0.00188748, 0.998696)
-bones/5/rotation = Quaternion(-0.0716738, 0.177432, -0.00147393, 0.981519)
-bones/7/rotation = Quaternion(0.580106, 0.420466, -0.566764, 0.406772)
-bones/8/rotation = Quaternion(0.432678, -0.0987235, 0.0889651, 0.8917)
+bones/0/position = Vector3(2.83374, -2.6137, -196.248)
+bones/0/rotation = Quaternion(-0.684609, -0.270595, 0.248547, 0.629534)
+bones/1/rotation = Quaternion(0.0785485, 0.0408541, -0.00823894, 0.996039)
+bones/2/rotation = Quaternion(0.094363, 0.0792356, -0.0219149, 0.992138)
+bones/3/rotation = Quaternion(0.0943981, 0.0791986, -0.0218977, 0.992138)
+bones/4/rotation = Quaternion(-0.0499117, -0.0105673, 0.00188677, 0.998696)
+bones/5/rotation = Quaternion(-0.0716755, 0.177432, -0.00147156, 0.981518)
+bones/7/rotation = Quaternion(0.580099, 0.420474, -0.566763, 0.406776)
+bones/8/rotation = Quaternion(0.43268, -0.0987209, 0.0889627, 0.891699)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0341075, 0.0649486, 0.417213, 0.905843)
-bones/11/rotation = Quaternion(0.625989, -0.383718, 0.525502, 0.42982)
-bones/12/rotation = Quaternion(0.429654, 0.0944467, 0.146344, 0.886036)
-bones/13/rotation = Quaternion(0.0364926, 0.00104625, -0.369042, 0.928695)
-bones/15/rotation = Quaternion(0.0804916, 0.231694, 0.963862, -0.103964)
+bones/9/rotation = Quaternion(-0.0341057, 0.0649508, 0.417215, 0.905842)
+bones/11/rotation = Quaternion(0.62598, -0.383728, 0.525502, 0.429824)
+bones/12/rotation = Quaternion(0.429661, 0.0944403, 0.146341, 0.886034)
+bones/13/rotation = Quaternion(0.0364986, 0.00103765, -0.369043, 0.928695)
+bones/15/rotation = Quaternion(0.080492, 0.231691, 0.963863, -0.103963)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.360704, 0.119805, -0.0368754, 0.924218)
-bones/17/rotation = Quaternion(0.565949, -0.00135204, -0.0240515, 0.824088)
-bones/18/rotation = Quaternion(0.289416, -0.0365961, -0.00963673, 0.956455)
-bones/20/rotation = Quaternion(-0.125529, 0.0233228, 0.982776, 0.133602)
-bones/21/rotation = Quaternion(-0.339922, 0.072439, -0.0253659, 0.937317)
-bones/22/rotation = Quaternion(0.672829, 0.0554267, 0.106771, 0.729951)
+bones/16/rotation = Quaternion(-0.360702, 0.119806, -0.0368759, 0.924219)
+bones/17/rotation = Quaternion(0.565949, -0.00135175, -0.0240509, 0.824088)
+bones/18/rotation = Quaternion(0.289416, -0.036596, -0.00963682, 0.956455)
+bones/20/rotation = Quaternion(-0.125529, 0.0233184, 0.982776, 0.133604)
+bones/21/rotation = Quaternion(-0.339916, 0.0724379, -0.0253656, 0.937319)
+bones/22/rotation = Quaternion(0.672827, 0.055427, 0.106771, 0.729953)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.278203, 0.0570128, -0.0171267, 0.958676)
+bones/23/rotation = Quaternion(0.278203, 0.0570127, -0.0171267, 0.958676)
 
 [node name="Model_004" parent="Player/Head/Player_Character_Shadow/Armature_003/Skeleton3D" index="0"]
 cast_shadow = 3
 
 [node name="HandAttatchment" type="BoneAttachment3D" parent="Player/Head/Player_Character_Shadow/Armature_003/Skeleton3D" index="1"]
-transform = Transform3D(-0.278648, -0.348414, 0.894966, 0.948347, 0.0473113, 0.313686, -0.151634, 0.936146, 0.317234, -73.5055, -37.1094, -203.003)
+transform = Transform3D(-0.278634, -0.348408, 0.894972, 0.94835, 0.0473257, 0.313676, -0.151642, 0.936148, 0.317226, -73.5058, -37.1084, -203.004)
 bone_name = "mixamorig_RightHand"
 bone_idx = 14
 
@@ -2225,45 +2334,45 @@ bone_idx = 14
 transform = Transform3D(-0.651061, 0, 5.69175e-08, 0, 0.651061, 0, -5.69175e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Player/Head/Player_Character/Armature_003" index="0"]
-bones/0/position = Vector3(2.83362, -2.61431, -196.247)
-bones/0/rotation = Quaternion(-0.684609, -0.270595, 0.248547, 0.629535)
-bones/1/rotation = Quaternion(0.078549, 0.0408541, -0.00823911, 0.996039)
+bones/0/position = Vector3(2.83374, -2.6137, -196.248)
+bones/0/rotation = Quaternion(-0.684609, -0.270595, 0.248547, 0.629534)
+bones/1/rotation = Quaternion(0.0785485, 0.0408541, -0.00823894, 0.996039)
 bones/2/position = Vector3(1.19209e-07, 29.1135, -2.98023e-06)
-bones/2/rotation = Quaternion(0.0943658, 0.0792357, -0.0219155, 0.992137)
+bones/2/rotation = Quaternion(0.094363, 0.0792356, -0.0219149, 0.992138)
 bones/3/position = Vector3(5.126e-06, 33.2726, 4.64916e-06)
-bones/3/rotation = Quaternion(0.0944008, 0.0791987, -0.0218984, 0.992137)
+bones/3/rotation = Quaternion(0.0943981, 0.0791986, -0.0218977, 0.992138)
 bones/4/position = Vector3(5.24521e-06, 37.4316, 1.82406e-05)
-bones/4/rotation = Quaternion(-0.0499162, -0.0105673, 0.00188748, 0.998696)
+bones/4/rotation = Quaternion(-0.0499117, -0.0105673, 0.00188677, 0.998696)
 bones/5/position = Vector3(-2.86102e-06, 12.1577, 1.85682)
-bones/5/rotation = Quaternion(-0.0716738, 0.177432, -0.00147393, 0.981519)
+bones/5/rotation = Quaternion(-0.0716755, 0.177432, -0.00147156, 0.981518)
 bones/7/position = Vector3(15.5676, 33.9216, 0.214007)
-bones/7/rotation = Quaternion(0.580106, 0.420466, -0.566764, 0.406772)
+bones/7/rotation = Quaternion(0.580099, 0.420474, -0.566763, 0.406776)
 bones/8/position = Vector3(7.52916e-06, 31.6372, -3.73462e-05)
-bones/8/rotation = Quaternion(0.432678, -0.0987235, 0.0889651, 0.8917)
+bones/8/rotation = Quaternion(0.43268, -0.0987209, 0.0889627, 0.891699)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0341075, 0.0649486, 0.417213, 0.905843)
+bones/9/rotation = Quaternion(-0.0341057, 0.0649508, 0.417215, 0.905842)
 bones/10/position = Vector3(-5.75185e-06, 48.1225, -4.24013e-05)
 bones/11/position = Vector3(-15.5676, 33.9222, 0.223976)
-bones/11/rotation = Quaternion(0.625989, -0.383718, 0.525502, 0.42982)
+bones/11/rotation = Quaternion(0.62598, -0.383728, 0.525502, 0.429824)
 bones/12/position = Vector3(-1.65313e-05, 31.6372, 2.51814e-05)
-bones/12/rotation = Quaternion(0.429654, 0.0944467, 0.146344, 0.886036)
+bones/12/rotation = Quaternion(0.429661, 0.0944403, 0.146341, 0.886034)
 bones/13/position = Vector3(3.17927e-05, 70.8277, 3.58869e-05)
-bones/13/rotation = Quaternion(0.0364926, 0.00104625, -0.369042, 0.928695)
+bones/13/rotation = Quaternion(0.0364986, 0.00103765, -0.369043, 0.928695)
 bones/14/position = Vector3(-3.78489e-06, 48.1226, 3.61372e-05)
-bones/15/rotation = Quaternion(0.0804916, 0.231694, 0.963862, -0.103964)
+bones/15/rotation = Quaternion(0.080492, 0.231691, 0.963863, -0.103963)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.360704, 0.119805, -0.0368754, 0.924218)
+bones/16/rotation = Quaternion(-0.360702, 0.119806, -0.0368759, 0.924219)
 bones/17/position = Vector3(8.16445e-06, 89.1268, 4.36753e-06)
-bones/17/rotation = Quaternion(0.565949, -0.00135204, -0.0240515, 0.824088)
+bones/17/rotation = Quaternion(0.565949, -0.00135175, -0.0240509, 0.824088)
 bones/18/position = Vector3(1.07865e-05, 26.9015, 2.76264e-06)
-bones/18/rotation = Quaternion(0.289416, -0.0365961, -0.00963673, 0.956455)
+bones/18/rotation = Quaternion(0.289416, -0.036596, -0.00963682, 0.956455)
 bones/19/position = Vector3(-7.05104e-06, 10.3861, 1.60187e-07)
-bones/20/rotation = Quaternion(-0.125529, 0.0233228, 0.982776, 0.133602)
+bones/20/rotation = Quaternion(-0.125529, 0.0233184, 0.982776, 0.133604)
 bones/21/position = Vector3(7.35216e-06, 93.8847, 2.20229e-06)
-bones/21/rotation = Quaternion(-0.339922, 0.072439, -0.0253659, 0.937317)
-bones/22/rotation = Quaternion(0.672829, 0.0554267, 0.106771, 0.729951)
+bones/21/rotation = Quaternion(-0.339916, 0.0724379, -0.0253656, 0.937319)
+bones/22/rotation = Quaternion(0.672827, 0.055427, 0.106771, 0.729953)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.278203, 0.0570128, -0.0171267, 0.958676)
+bones/23/rotation = Quaternion(0.278203, 0.0570127, -0.0171267, 0.958676)
 bones/24/position = Vector3(3.21493e-06, 10.3578, 7.00355e-07)
 
 [node name="Model_004" parent="Player/Head/Player_Character/Armature_003/Skeleton3D" index="0"]
@@ -5515,6 +5624,142 @@ fov = 110.0
 [node name="CameraMotion" type="AnimationPlayer" parent="PreControl Scene"]
 libraries = {
 &"": SubResource("AnimationLibrary_so3kt")
+}
+
+[node name="EyeBlinkLayer" type="CanvasLayer" parent="PreControl Scene"]
+
+[node name="BottomBlink" type="Control" parent="PreControl Scene/EyeBlinkLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 688.0
+offset_bottom = 687.998
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BottomBlink1" type="Panel" parent="PreControl Scene/EyeBlinkLayer/BottomBlink"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -558.539
+offset_top = -109.07
+offset_right = -558.539
+offset_bottom = 646.93
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.261799
+scale = Vector2(1.09649, 0.414059)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0awra")
+
+[node name="BottomBlink2" type="Panel" parent="PreControl Scene/EyeBlinkLayer/BottomBlink"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 544.461
+offset_top = 202.93
+offset_right = 544.461
+offset_bottom = 994.93
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.261799
+scale = Vector2(1.09649, 0.414059)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0awra")
+
+[node name="BottomBlink3" type="Panel" parent="PreControl Scene/EyeBlinkLayer/BottomBlink"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.5388
+offset_top = 138.93
+offset_right = -43.5388
+offset_bottom = 683.93
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.09649, 0.414059)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0awra")
+
+[node name="TopBlink" type="Control" parent="PreControl Scene/EyeBlinkLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1152.0
+offset_top = -39.0
+offset_right = 1152.0
+offset_bottom = -38.9993
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -3.14159
+mouse_filter = 2
+
+[node name="TopBlink1" type="Panel" parent="PreControl Scene/EyeBlinkLayer/TopBlink"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -558.539
+offset_top = -109.07
+offset_right = -558.539
+offset_bottom = 646.93
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.261799
+scale = Vector2(1.09649, 0.414059)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0awra")
+
+[node name="TopBlink2" type="Panel" parent="PreControl Scene/EyeBlinkLayer/TopBlink"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 544.461
+offset_top = 202.93
+offset_right = 544.461
+offset_bottom = 994.93
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.261799
+scale = Vector2(1.09649, 0.414059)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0awra")
+
+[node name="TopBlink3" type="Panel" parent="PreControl Scene/EyeBlinkLayer/TopBlink"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.5388
+offset_top = 138.93
+offset_right = -43.5388
+offset_bottom = 683.93
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.09649, 0.414059)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0awra")
+
+[node name="Blur" type="ColorRect" parent="PreControl Scene/EyeBlinkLayer"]
+visible = false
+material = SubResource("ShaderMaterial_o0bi3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BlinkAnimation" type="AnimationPlayer" parent="PreControl Scene/EyeBlinkLayer"]
+libraries = {
+&"": SubResource("AnimationLibrary_cqxma")
 }
 
 [connection signal="ready" from="Player" to="Player" method="_on_ready"]

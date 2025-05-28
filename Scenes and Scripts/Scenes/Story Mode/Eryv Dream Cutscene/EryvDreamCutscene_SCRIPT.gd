@@ -50,6 +50,9 @@ extends Node3D
 @export var TheEryv : CharacterBody3D
 
 func _ready() -> void:
+	$Player.hide()
+	$"PreControl Scene/EyeBlinkLayer/BottomBlink".position = Vector2(0.0, 688.0)
+	$"PreControl Scene/EyeBlinkLayer/TopBlink".position = Vector2(1152.0, -39.0)
 	$"PreControl Scene/Camera3D".fov = PlayerSettingsData.FOV
 	StoryModeManager.is_in_cutscene = true
 	$Player.nodeSetup()
@@ -65,3 +68,6 @@ func init_player_control():
 
 func _on_eryv_path_updater_timeout() -> void:
 	TheEryv.update_chase_player()
+
+func playBlinkEffect():
+	$"PreControl Scene/EyeBlinkLayer/BlinkAnimation".play("main")
