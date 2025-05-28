@@ -50,6 +50,7 @@ extends Node3D
 @export var TheEryv : CharacterBody3D
 
 func _ready() -> void:
+	$"PreControl Scene/Camera3D".fov = PlayerSettingsData.FOV
 	StoryModeManager.is_in_cutscene = true
 	$Player.nodeSetup()
 
@@ -57,6 +58,10 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("DebugAction1"):
 		TheEryv.start_chase_player()
 		$EryvPathUpdater.start()
+
+func init_player_control():
+	StoryModeManager.is_in_cutscene = false
+	StoryModeManager.is_in_cutscene_can_move = true
 
 func _on_eryv_path_updater_timeout() -> void:
 	TheEryv.update_chase_player()
