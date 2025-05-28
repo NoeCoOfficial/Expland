@@ -51,7 +51,7 @@ extends Node3D
 
 func _ready() -> void:
 	var ambient_fade_in = get_tree().create_tween()
-	ambient_fade_in.tween_property($Environment/AmbientWindLoop, "volume_db", 3.3, 1).from(-10.0)
+	ambient_fade_in.tween_property($Environment/AmbientWindLoop, "volume_db", 5.0, 1).from(-10.0)
 	$Environment/AmbientWindLoop.play()
 	$Player.hide()
 	$"PreControl Scene/EyeBlinkLayer/BottomBlink".position = Vector2(0.0, 688.0)
