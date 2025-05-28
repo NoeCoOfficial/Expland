@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b1on04l05jgj4"
-path="res://.godot/imported/feugcs2.wav-95a151e23a9dfaeb29787a35816f9826.sample"
+path="res://.godot/imported/Feugcs2.wav-9e3b9f8ea96afd2950f24d844e4cd4eb.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/feugcs2.wav"
-dest_files=["res://.godot/imported/feugcs2.wav-95a151e23a9dfaeb29787a35816f9826.sample"]
+source_file="res://Audio/SFX/Eryv/Feugcs/Feugcs2.wav"
+dest_files=["res://.godot/imported/Feugcs2.wav-9e3b9f8ea96afd2950f24d844e4cd4eb.sample"]
 
 [params]
 

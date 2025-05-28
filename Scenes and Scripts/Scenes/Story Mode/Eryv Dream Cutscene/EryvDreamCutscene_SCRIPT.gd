@@ -50,6 +50,9 @@ extends Node3D
 @export var TheEryv : CharacterBody3D
 
 func _ready() -> void:
+	var ambient_fade_in = get_tree().create_tween()
+	ambient_fade_in.tween_property($Environment/AmbientWindLoop, "volume_db", 3.3, 1).from(-10.0)
+	$Environment/AmbientWindLoop.play()
 	$Player.hide()
 	$"PreControl Scene/EyeBlinkLayer/BottomBlink".position = Vector2(0.0, 688.0)
 	$"PreControl Scene/EyeBlinkLayer/TopBlink".position = Vector2(1152.0, -39.0)
@@ -86,8 +89,10 @@ func shake_camera(camera : Camera3D, duration : float, strength : float):
 	camera.global_position = original_position
 
 func camera_motion_shake():
-	shake_camera($"PreControl Scene/Camera3D", 0.5, 0.2)
+	shake_camera($"PreControl Scene/Camera3D", 0.6, 0.2)
 
+func play_eryv_feugcs():
+	$"The Eryv/Fuegcs1".play()
 
 func _on_start_delay_timeout() -> void:
 	$"PreControl Scene/CameraMotion".play("motion")
