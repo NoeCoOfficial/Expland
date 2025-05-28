@@ -50,6 +50,7 @@ extends Node3D
 @export var TheEryv : CharacterBody3D
 
 func _ready() -> void:
+	
 	$Player.hide()
 	$"PreControl Scene/EyeBlinkLayer/BottomBlink".position = Vector2(0.0, 688.0)
 	$"PreControl Scene/EyeBlinkLayer/TopBlink".position = Vector2(1152.0, -39.0)
@@ -63,6 +64,7 @@ func _input(event: InputEvent) -> void:
 		$EryvPathUpdater.start()
 
 func init_player_control():
+	$"PreControl Scene/Camera3D".clear_current(true)
 	StoryModeManager.is_in_cutscene = false
 	StoryModeManager.is_in_cutscene_can_move = true
 
@@ -71,3 +73,16 @@ func _on_eryv_path_updater_timeout() -> void:
 
 func playBlinkEffect():
 	$"PreControl Scene/EyeBlinkLayer/BlinkAnimation".play("main")
+
+func shake_camera(camera : Camera3D, duration : float, strength : float):
+	var original_position : Vector3 = camera.global_position
+	var shake_start_time: float = Time.get_ticks_msec() / 1000.0 # convert to seconds
+	
+	while (Time.get_ticks_msec() / 1000.0) - shake_start_time < duration:
+		var x : float = randf_range(-strength,  strength)
+		var y : float = randf_range(-strength,  strength)
+		global_position = Vector3(x, y, 0) + original_position
+		await get_tree().process_frame
+	
+	camera.global_position = original_position
+	
