@@ -50,7 +50,6 @@ extends Node3D
 @export var TheEryv : CharacterBody3D
 
 func _ready() -> void:
-	
 	$Player.hide()
 	$"PreControl Scene/EyeBlinkLayer/BottomBlink".position = Vector2(0.0, 688.0)
 	$"PreControl Scene/EyeBlinkLayer/TopBlink".position = Vector2(1152.0, -39.0)
@@ -81,8 +80,14 @@ func shake_camera(camera : Camera3D, duration : float, strength : float):
 	while (Time.get_ticks_msec() / 1000.0) - shake_start_time < duration:
 		var x : float = randf_range(-strength,  strength)
 		var y : float = randf_range(-strength,  strength)
-		global_position = Vector3(x, y, 0) + original_position
+		camera.global_position = Vector3(x, y, 0) + original_position
 		await get_tree().process_frame
 	
 	camera.global_position = original_position
-	
+
+func camera_motion_shake():
+	shake_camera($"PreControl Scene/Camera3D", 0.5, 0.2)
+
+
+func _on_start_delay_timeout() -> void:
+	$"PreControl Scene/CameraMotion".play("motion")
