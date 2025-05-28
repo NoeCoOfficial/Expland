@@ -59,6 +59,7 @@ func _ready() -> void:
 	$"PreControl Scene/Camera3D".fov = PlayerSettingsData.FOV
 	StoryModeManager.is_in_cutscene = true
 	$Player.nodeSetup()
+	$"PreControl Scene/StartDelay".start()
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("DebugAction1"):
@@ -89,7 +90,7 @@ func shake_camera(camera : Camera3D, duration : float, strength : float):
 	camera.global_position = original_position
 
 func camera_motion_shake():
-	shake_camera($"PreControl Scene/Camera3D", 0.6, 0.2)
+	shake_camera($"PreControl Scene/Camera3D", 2.0, 0.17)
 
 func play_eryv_feugcs():
 	$"The Eryv/Fuegcs1".play()

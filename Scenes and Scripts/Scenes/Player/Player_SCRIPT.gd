@@ -506,17 +506,21 @@ func _input(_event): # A built-in function that listens for input using the inpu
 
 func _unhandled_input(event): # A built-in function that listens for input all the time
 	if event is InputEventMouseMotion: # if the input is a mouse motion event
-		# UI checks
-		if PauseManager.is_paused or PauseManager.is_inside_alert or DialogueManager.is_in_interface or PauseManager.inside_can_move_item_workshop or InventoryManager.pockets_ui_open:
-			head.rotate_y(-event.relative.x * SENSITIVITY/20) # rotate the head on the y-axis
-			camera.rotate_x(-event.relative.y * SENSITIVITY/20) # rotate the camera on the x-axis
-			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90)) # clamp the camera rotation on the x-axis
-			PlayerManager.player_mouse_movement_event_hand_item = event.relative * ((SENSITIVITY * 1000)/5)
-		else:
-			head.rotate_y(-event.relative.x * SENSITIVITY) # rotate the head on the y-axis
-			camera.rotate_x(-event.relative.y * SENSITIVITY) # rotate the camera on the x-axis
-			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90)) # clamp the camera rotation on the x-axis
-			PlayerManager.player_mouse_movement_event_hand_item = event.relative * (SENSITIVITY * 1000)
+		
+		if !StoryModeManager.is_in_cutscene: # if w're in a cutscene dont rotate at all
+		
+			# UI checks
+			if PauseManager.is_paused or PauseManager.is_inside_alert or DialogueManager.is_in_interface or PauseManager.inside_can_move_item_workshop or InventoryManager.pockets_ui_open:
+				head.rotate_y(-event.relative.x * SENSITIVITY/20) # rotate the head on the y-axis
+				camera.rotate_x(-event.relative.y * SENSITIVITY/20) # rotate the camera on the x-axis
+				camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90)) # clamp the camera rotation on the x-axis
+				PlayerManager.player_mouse_movement_event_hand_item = event.relative * ((SENSITIVITY * 1000)/5)
+			else:
+				head.rotate_y(-event.relative.x * SENSITIVITY) # rotate the head on the y-axis
+				camera.rotate_x(-event.relative.y * SENSITIVITY) # rotate the camera on the x-axis
+				camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90)) # clamp the camera rotation on the x-axis
+				PlayerManager.player_mouse_movement_event_hand_item = event.relative * (SENSITIVITY * 1000)
+
 #endregion
 
 #region Process
