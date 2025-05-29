@@ -49,8 +49,6 @@ extends Node3D
 
 @export var TheEryv : CharacterBody3D
 
-@onready var island_instance = preload("uid://c5jkrckgqd0w6").instantiate()
-
 func _ready() -> void:
 	var ambient_fade_in = get_tree().create_tween()
 	ambient_fade_in.tween_property($Environment/AmbientWindLoop, "volume_db", 5.0, 1).from(-10.0)
@@ -114,8 +112,4 @@ func WAKE_UP():
 	StoryModeManager.waking_up_from_eryv_dream = true
 	StoryModeManager.is_in_cutscene_can_move = false
 	
-	get_tree().current_scene.queue_free()
-	
-	print("okay it works")
-	
-	get_tree().root.add_child(island_instance)
+	get_tree().change_scene_to_packed(load("uid://c5jkrckgqd0w6"))
