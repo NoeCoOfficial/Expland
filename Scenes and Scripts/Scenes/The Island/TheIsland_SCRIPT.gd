@@ -512,4 +512,11 @@ func _on_water_detail_init_timer_timeout() -> void:
 	DeepOceanMaterial.set_shader_parameter(&"WaveCount", 8)
 
 func InitStoryModeDreamWakeUp():
+	$"Story Mode/Cameras/StoryModeDreamWakeUpCamera".make_current()
 	$"Story Mode/Cameras/StoryModeDreamWakeUpCamera/StoryModeDreamWakeUpUI".show()
+	var ShaderMat : ShaderMaterial = $"Story Mode/Cameras/StoryModeDreamWakeUpCamera/StoryModeDreamWakeUpUI/BlurRect".material
+	
+	# Animate that boi
+	var tween = get_tree().create_tween().set_parallel()
+	tween.tween_property(ShaderMat, "shader_parameter/blur_scale", 0.0, 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(ShaderMat, "shader_parameter/darkness", 1.0, 2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
