@@ -49,7 +49,13 @@ extends Node3D
 
 @export var TheEryv : CharacterBody3D
 
+# Create an AsyncScene instance to handle the loading process
+var island_scene : AsyncScene = null
+var island_scene_path = "res://Scenes and Scripts/Scenes/The Island/TheIsland.tscn"
+
 func _ready() -> void:
+	island_scene = AsyncScene.new(island_scene_path, AsyncScene.LoadingSceneOperation.Replace)
+	
 	var ambient_fade_in = get_tree().create_tween()
 	ambient_fade_in.tween_property($Environment/AmbientWindLoop, "volume_db", 5.0, 1).from(-10.0)
 	$Environment/AmbientWindLoop.play()
@@ -61,7 +67,9 @@ func _ready() -> void:
 	StoryModeManager.is_in_cutscene = true
 	$Player.Fade_In = false
 	$Player.nodeSetup()
-	$"PreControl Scene/StartDelay".start()
+	
+	
+	$"PreControl Scene/CameraMotion".play("motion")
 
 func eryv_start_chase_player():
 	TheEryv.start_chase_player()
@@ -98,8 +106,6 @@ func camera_motion_shake():
 func play_eryv_feugcs():
 	$"The Eryv/Fuegcs1".play()
 
-func _on_start_delay_timeout() -> void:
-	$"PreControl Scene/CameraMotion".play("motion")
 
 #################################################
 
@@ -111,4 +117,6 @@ func WAKE_UP():
 	print("WAKE UP")
 	StoryModeManager.waking_up_from_eryv_dream = true
 	StoryModeManager.is_in_cutscene_can_move = false
+	
+	get_tree().change_scene_to_packed($ResourcePreloader.get_resource(&"TheIsland"))
 	
