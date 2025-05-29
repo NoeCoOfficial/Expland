@@ -510,3 +510,6 @@ func _on_dialogue_interface_finished_dialogue(StoryModeID: int) -> void:
 func _on_water_detail_init_timer_timeout() -> void:
 	DeepOceanMaterial.set_shader_parameter(&"WaveCount", 7)
 	DeepOceanMaterial.set_shader_parameter(&"WaveCount", 8)
+
+func InitStoryModeDreamWakeUp():
+	$"Story Mode/Cameras/StoryModeDreamWakeUpCamera/StoryModeDreamWakeUpUI".show()
