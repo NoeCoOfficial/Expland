@@ -433,7 +433,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 			
 		else:
 			
-			if !InventoryManager.pockets_ui_open and !DialogueManager.is_in_absolute_interface and !PauseManager.is_inside_alert and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !PauseManager.inside_absolute_item_workshop and !StoryModeManager.is_in_story_mode_first_cutscene_world and !BuildingManager.is_in_building_interface and !StoryModeManager.is_in_cutscene:
+			if !InventoryManager.pockets_ui_open and !DialogueManager.is_in_absolute_interface and !PauseManager.is_inside_alert and !PlayerData.GAME_STATE == "DEAD" and !PlayerData.GAME_STATE == "SLEEPING" and !PauseManager.inside_absolute_item_workshop and !StoryModeManager.is_in_story_mode_first_cutscene_world and !BuildingManager.is_in_building_interface and !StoryModeManager.is_in_cutscene and !StoryModeManager.is_in_cutscene_can_move:
 				pauseGame()
 			
 			if PauseManager.inside_item_workshop:
@@ -445,7 +445,7 @@ func _input(_event): # A built-in function that listens for input using the inpu
 	# UI handling for Pockets
 	if Input.is_action_just_pressed("Pockets"):
 		# UI checks
-		if !PauseManager.is_paused and !DialogueManager.is_in_interface and !PauseManager.inside_absolute_item_workshop and !StoryModeManager.is_in_story_mode_first_cutscene_world and !BuildingManager.is_in_building_interface and !StoryModeManager.is_in_cutscene:
+		if !PauseManager.is_paused and !DialogueManager.is_in_interface and !PauseManager.inside_absolute_item_workshop and !StoryModeManager.is_in_story_mode_first_cutscene_world and !BuildingManager.is_in_building_interface and !StoryModeManager.is_in_cutscene and !StoryModeManager.is_in_cutscene_can_move:
 			
 			if !InventoryManager.pockets_ui_open:
 				InventoryManager.openPockets()
