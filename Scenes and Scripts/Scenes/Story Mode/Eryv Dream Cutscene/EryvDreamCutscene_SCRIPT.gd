@@ -103,5 +103,8 @@ func _on_start_delay_timeout() -> void:
 
 func _on_player_wake_up_area_area_entered(area: Area3D) -> void:
 	if area.is_in_group(&"PlayerArea"):
-		# WAKE UP
-		pass
+		WAKE_UP()
+
+func WAKE_UP():
+	print("WAKE UP")
+	StoryModeManager.waking_up_from_eryv_dream = true
