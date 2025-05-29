@@ -59,6 +59,7 @@ func _ready() -> void:
 	$"PreControl Scene/EyeBlinkLayer/TopBlink".position = Vector2(1152.0, -39.0)
 	$"PreControl Scene/Camera3D".fov = PlayerSettingsData.FOV
 	StoryModeManager.is_in_cutscene = true
+	$Player.Fade_In = false
 	$Player.nodeSetup()
 	$"PreControl Scene/StartDelay".start()
 
