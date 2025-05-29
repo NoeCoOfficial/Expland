@@ -49,7 +49,7 @@ extends Node3D
 
 @export var TheEryv : CharacterBody3D
 
-
+@onready var island_instance = preload("uid://c5jkrckgqd0w6").instantiate()
 
 func _ready() -> void:
 	var ambient_fade_in = get_tree().create_tween()
@@ -117,3 +117,5 @@ func WAKE_UP():
 	get_tree().current_scene.queue_free()
 	
 	print("okay it works")
+	
+	get_tree().root.add_child(island_instance)
