@@ -118,5 +118,5 @@ func WAKE_UP():
 	StoryModeManager.waking_up_from_eryv_dream = true
 	StoryModeManager.is_in_cutscene_can_move = false
 	
-	get_tree().change_scene_to_packed($ResourcePreloader.get_resource(&"TheIsland"))
+	island_scene.ChangeScene()
 	
