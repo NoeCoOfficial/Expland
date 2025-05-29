@@ -48,8 +48,10 @@
 extends Node3D
 
 @export var TheEryv : CharacterBody3D
+var scene_thread : Thread
 
 func _ready() -> void:
+	scene_thread = Thread.new()
 	var ambient_fade_in = get_tree().create_tween()
 	ambient_fade_in.tween_property($Environment/AmbientWindLoop, "volume_db", 5.0, 1).from(-10.0)
 	$Environment/AmbientWindLoop.play()
@@ -112,4 +114,10 @@ func WAKE_UP():
 	StoryModeManager.waking_up_from_eryv_dream = true
 	StoryModeManager.is_in_cutscene_can_move = false
 	
+	$Player/Head/Camera3D/TopLayer/BlackThing.show()
+	
+	$SceneChangeDebounce.start()
+
+
+func _on_scene_change_debounce_timeout() -> void:
 	get_tree().change_scene_to_packed(load("uid://c5jkrckgqd0w6"))
