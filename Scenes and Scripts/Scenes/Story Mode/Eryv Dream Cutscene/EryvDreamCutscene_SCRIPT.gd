@@ -115,6 +115,7 @@ func WAKE_UP():
 	StoryModeManager.is_in_cutscene_can_move = false
 	
 	$Player/Head/Camera3D/TopLayer/BlackThing.show()
+	$Environment/AmbientWindLoop.stop()
 	
 	$SceneChangeDebounce.start()
 
