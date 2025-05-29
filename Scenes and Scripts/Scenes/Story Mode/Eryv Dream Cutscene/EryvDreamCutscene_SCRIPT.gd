@@ -100,6 +100,7 @@ func play_eryv_feugcs():
 func _on_start_delay_timeout() -> void:
 	$"PreControl Scene/CameraMotion".play("motion")
 
+#################################################
 
 func _on_player_wake_up_area_area_entered(area: Area3D) -> void:
 	if area.is_in_group(&"PlayerArea"):
@@ -108,3 +109,5 @@ func _on_player_wake_up_area_area_entered(area: Area3D) -> void:
 func WAKE_UP():
 	print("WAKE UP")
 	StoryModeManager.waking_up_from_eryv_dream = true
+	StoryModeManager.is_in_cutscene_can_move = false
+	

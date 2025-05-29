@@ -512,6 +512,7 @@ func _on_water_detail_init_timer_timeout() -> void:
 	DeepOceanMaterial.set_shader_parameter(&"WaveCount", 8)
 
 func InitStoryModeDreamWakeUp():
+	StoryModeManager.is_in_cutscene = true
 	$"Story Mode/Cameras/StoryModeDreamWakeUpCamera".make_current()
 	$"Story Mode/Cameras/StoryModeDreamWakeUpCamera/StoryModeDreamWakeUpUI".show()
 	var ShaderMat : ShaderMaterial = $"Story Mode/Cameras/StoryModeDreamWakeUpCamera/StoryModeDreamWakeUpUI/BlurRect".material
