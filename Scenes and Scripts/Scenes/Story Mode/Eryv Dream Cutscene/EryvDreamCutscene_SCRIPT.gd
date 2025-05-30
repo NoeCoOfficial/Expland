@@ -118,6 +118,7 @@ func WAKE_UP():
 	$Player/Head/Camera3D/TopLayer/BlackThing.show()
 	$Environment/AmbientWindLoop.stop()
 	
+	
 	$SceneChangeDebounce.start()
 
 

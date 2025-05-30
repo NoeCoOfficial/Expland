@@ -104,14 +104,15 @@ func _ready() -> void:
 		init_weather_instant_custom(0)
 	else:
 		init_weather_instant() # NOTE: Important line right here (initalize weather)
-		Player.camera.make_current()
+	
+	Player.camera.make_current()
 	
 	# Just started story mode
 	if IslandManager.Current_Game_Mode == "STORY" and PlayerData.STORY_MODE_PROGRESSION_INFO["FIRST_STORY_MODE"]:
 		# NOTE: Story mode init. What happens when the player spawns in for the first time.
 		Player.global_position = Marker_StoryModeStartSpawn.global_position
 		$"Story Mode/Animation Players/StoryModeWakeUpAnimation".play("main")
-		$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera".make_current()
+		$"Story Mode/Cameras/StoryModeWakeUpCamera".make_current()
 		StoryModeManager.is_in_cutscene = true
 		Player.init_for_cutscene()
 		Player.hide()
@@ -121,7 +122,8 @@ func _ready() -> void:
 	
 	# Woken up from Eryv chase dream
 	if IslandManager.Current_Game_Mode == "STORY" and StoryModeManager.waking_up_from_eryv_dream:
-		$"Story Mode/Cameras/StoryModeDreamWakeUpCamera".make_current()
+		$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera".make_current()
+		$"Story Mode/Animation Players/StoryModeDreamWakeUpAnimation".play("main")
 	
 	Player.nodeSetup()
 
