@@ -106,6 +106,7 @@ func _ready() -> void:
 		init_weather_instant() # NOTE: Important line right here (initalize weather)
 		Player.camera.make_current()
 	
+	# Just started story mode
 	if IslandManager.Current_Game_Mode == "STORY" and PlayerData.STORY_MODE_PROGRESSION_INFO["FIRST_STORY_MODE"]:
 		# NOTE: Story mode init. What happens when the player spawns in for the first time.
 		Player.global_position = Marker_StoryModeStartSpawn.global_position
@@ -117,6 +118,10 @@ func _ready() -> void:
 		set_time(1140)
 		$"Story Mode/Canvas Layers/MinimalDialogueLayer/MinimalDialogue".spawnMinimalDialogue(DialogueManager.StoryMode_Dialogue_WakeUp)
 		$"Story Mode/Audio/WakeUpAudio".play()
+	
+	# Woken up from Eryv chase dream
+	if IslandManager.Current_Game_Mode == "STORY" and StoryModeManager.waking_up_from_eryv_dream:
+		pass
 	
 	Player.nodeSetup()
 
