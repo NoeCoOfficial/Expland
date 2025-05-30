@@ -113,6 +113,7 @@ func WAKE_UP():
 	print("WAKE UP")
 	StoryModeManager.waking_up_from_eryv_dream = true
 	StoryModeManager.is_in_cutscene_can_move = false
+	PlayerData.STORY_MODE_PROGRESSION_INFO["FIRST_STORY_MODE"] = false
 	
 	$Player/Head/Camera3D/TopLayer/BlackThing.show()
 	$Environment/AmbientWindLoop.stop()

@@ -110,6 +110,7 @@ func _ready() -> void:
 		# NOTE: Story mode init. What happens when the player spawns in for the first time.
 		Player.global_position = Marker_StoryModeStartSpawn.global_position
 		$"Story Mode/Animation Players/StoryModeWakeUpAnimation".play("main")
+		$"Story Mode/Cameras/StoryModeWakeUpCamera".make_current()
 		StoryModeManager.is_in_cutscene = true
 		Player.init_for_cutscene()
 		Player.hide()
