@@ -122,10 +122,16 @@ func _ready() -> void:
 	
 	# Woken up from Eryv chase dream
 	if IslandManager.Current_Game_Mode == "STORY" and StoryModeManager.waking_up_from_eryv_dream:
+		$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/StoryModeDreamWakeUpUI".show()
+		$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/StoryModeDreamWakeUpUI/BlackRect".show()
+		$Player/Head/Camera3D/HUDLayer.hide()
+		$Player/Head/Camera3D/InventoryLayer/Hotbar.hide()
 		$Player/Head/Camera3D/OverlayLayer.hide()
 		$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera".fov = PlayerSettingsData.FOV
 		$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera".make_current()
 		$"Story Mode/Animation Players/StoryModeDreamWakeUpAnimation".play("main")
+	else:
+		$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/StoryModeDreamWakeUpUI".hide()
 	
 	Player.nodeSetup()
 
