@@ -70,6 +70,8 @@ func _ready() -> void:
 func eryv_start_chase_player():
 	TheEryv.start_chase_player()
 	$EryvPathUpdater.start()
+	$"The Eryv/Stomps".play()
+	$"The Eryv/StompTimer".start()
 
 func init_player_control():
 	$Player.show()
@@ -128,5 +130,9 @@ func _on_scene_change_debounce_timeout() -> void:
 	get_tree().change_scene_to_packed(load("uid://c5jkrckgqd0w6"))
 
 
-func _on_stomps_finished() -> void:
+
+
+func _on_stomp_timer_timeout() -> void:
 	$"The Eryv/Stomps".play()
+	$"The Eryv/StompTimer".start()
+	
