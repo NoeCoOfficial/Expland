@@ -137,7 +137,9 @@ func _ready() -> void:
 
 func eryvDreamWakeUpEffects():
 	$"Story Mode/Audio/LoudBreathing".play()
-	
+
+func eryvDreamWakeUpEffectsRise():
+	$"Story Mode/Audio/Rise1".play()
 
 func _on_ready() -> void:
 	AudioManager.Current_Rain_SFX_Node = $Rain_SFX
