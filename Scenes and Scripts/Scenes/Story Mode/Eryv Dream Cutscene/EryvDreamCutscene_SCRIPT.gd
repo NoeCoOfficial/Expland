@@ -117,6 +117,7 @@ func WAKE_UP():
 	PlayerData.STORY_MODE_PROGRESSION_INFO["FIRST_STORY_MODE"] = false
 	
 	$Player/Head/Camera3D/TopLayer/BlackThing.show()
+	$"The Eryv/Stomps".volume_db = -80.0
 	$Environment/AmbientWindLoop.stop()
 	
 	
@@ -125,3 +126,7 @@ func WAKE_UP():
 
 func _on_scene_change_debounce_timeout() -> void:
 	get_tree().change_scene_to_packed(load("uid://c5jkrckgqd0w6"))
+
+
+func _on_stomps_finished() -> void:
+	$"The Eryv/Stomps".play()
