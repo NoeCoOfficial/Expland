@@ -141,6 +141,9 @@ func eryvDreamWakeUpEffects():
 func eryvDreamWakeUpEffectsRise():
 	$"Story Mode/Audio/Rise1".play()
 
+func eryvDreamWakeUpEffectsMovement():
+	$"Story Mode/Audio/MovementInBed".play()
+
 func _on_ready() -> void:
 	AudioManager.Current_Rain_SFX_Node = $Rain_SFX
 	
@@ -490,21 +493,7 @@ func init_weather_instant_custom(ARR_INDEX : int):
 	$"Weather Timer".wait_time = 600
 	$"Weather Timer".start()
 
-#####################################
 
-func _on_item_workshop_test_action_triggered() -> void:
-	PlayerManager.PLAYER.openItemWorkshop()
-
-func _on_test_dialogue_start_action_triggered() -> void:
-	DialogueManager.startDialogue(DialogueManager.testDialogue)
-
-func _on_email_noe_co_action_triggered() -> void:
-	OS.shell_open("https://mail.google.com/mail/?view=cm&fs=1&to=noeco.official@gmail.com")
-
-func _on_open_feedback_issue_action_triggered() -> void:
-	OS.shell_open("https://github.com/NoeCoOfficial/Expland/issues/new?assignees=&labels=&projects=&template=feedback.md")
-
-#####################################
 
 func playBlinkEffect():
 	$"Story Mode/Canvas Layers/EyeBlinkLayer/BlinkAnimation".play("main")
