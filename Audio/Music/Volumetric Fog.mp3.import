@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ck0mn0y1ec7n"
+path="res://.godot/imported/Volumetric Fog.mp3-88550ec7d5e33e52b9eb4ce5a9153b3d.mp3str"
+
+[deps]
+
+source_file="res://Audio/Music/Volumetric Fog.mp3"
+dest_files=["res://.godot/imported/Volumetric Fog.mp3-88550ec7d5e33e52b9eb4ce5a9153b3d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
