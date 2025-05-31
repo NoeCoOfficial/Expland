@@ -169,6 +169,15 @@ const ITEM_TYPES = {
 		"HAND_ITEM_RES" : preload("uid://c4tfusakf730y"),
 		"MAX_STACK" : 5,
 	},
+
+	"BERRY" : {
+		"NAME" : "BERRY",
+		"DESCRIPTION" : "A small, juicy fruit that grows on bushes.",
+		"IMAGE_LOAD" : preload("uid://do7smo05g8ue5"),
+		"PICKUP_LOAD" : null,
+		"HAND_ITEM_RES" : null,
+		"MAX_STACK" : 8,
+	},
 	
 	# General
 	"ROCK" : {
@@ -292,9 +301,9 @@ const CONSUMABLE_ITEMS = [
 const FOOD_ITEMS = {
 	"COCONUT": 20,
 	"COCONUT CAKE": 40,
-	"BERRY": 5,
-	"BLUEBERRY": 7,
-	"STRAWBERRY": 10,
+	"BERRY": 7,
+	"BLUEBERRY": 5,
+	"STRAWBERRY": 6,
 }
 
 const EFFECT_ITEMS = [

@@ -430,3 +430,9 @@ var StoryMode_Dialogue_ID_6 = [
 	"message": "It’s not much… but it’s shelter.",
 	"duration": 1.0},
 ]
+
+var StoryMode_EryvDreamWakeUp_Dialogue = [
+		{"message": 
+			'"What a weird dream..."', 
+			"time": 0.9},
+	]

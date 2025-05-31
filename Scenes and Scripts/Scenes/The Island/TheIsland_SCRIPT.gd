@@ -104,12 +104,15 @@ func _ready() -> void:
 		init_weather_instant_custom(0)
 	else:
 		init_weather_instant() # NOTE: Important line right here (initalize weather)
-		Player.camera.make_current()
 	
+	Player.camera.make_current()
+	
+	# Just started story mode
 	if IslandManager.Current_Game_Mode == "STORY" and PlayerData.STORY_MODE_PROGRESSION_INFO["FIRST_STORY_MODE"]:
 		# NOTE: Story mode init. What happens when the player spawns in for the first time.
 		Player.global_position = Marker_StoryModeStartSpawn.global_position
 		$"Story Mode/Animation Players/StoryModeWakeUpAnimation".play("main")
+		$"Story Mode/Cameras/StoryModeWakeUpCamera".make_current()
 		StoryModeManager.is_in_cutscene = true
 		Player.init_for_cutscene()
 		Player.hide()
@@ -117,7 +120,33 @@ func _ready() -> void:
 		$"Story Mode/Canvas Layers/MinimalDialogueLayer/MinimalDialogue".spawnMinimalDialogue(DialogueManager.StoryMode_Dialogue_WakeUp)
 		$"Story Mode/Audio/WakeUpAudio".play()
 	
+	# Woken up from Eryv chase dream
+	if IslandManager.Current_Game_Mode == "STORY" and StoryModeManager.waking_up_from_eryv_dream:
+		$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/StoryModeDreamWakeUpUI".show()
+		$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/StoryModeDreamWakeUpUI/BlackRect".show()
+		$Player/Head/Camera3D/HUDLayer.hide()
+		$Player/Head/Camera3D/InventoryLayer/Hotbar.hide()
+		$Player/Head/Camera3D/OverlayLayer.hide()
+		$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera".fov = PlayerSettingsData.FOV
+		$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera".make_current()
+		$"Story Mode/Animation Players/StoryModeDreamWakeUpAnimation".play("main")
+	else:
+		$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/StoryModeDreamWakeUpUI".hide()
+	
 	Player.nodeSetup()
+
+func eryvDreamWakeUpEffects():
+	$"Story Mode/Audio/LoudBreathing".play()
+
+func eryvDreamWakeUpEffectsRise():
+	$"Story Mode/Audio/Rise1".play()
+
+func eryvDreamWakeUpEffectsMovement():
+	$"Story Mode/Audio/MovementInBed".play()
+
+func eryvDreamWakeUpDialogue():
+	$"Story Mode/Canvas Layers/MinimalDialogueLayer/MinimalDialogue".spawnMinimalDialogue(DialogueManager.StoryMode_EryvDreamWakeUp_Dialogue)
+
 
 func _on_ready() -> void:
 	AudioManager.Current_Rain_SFX_Node = $Rain_SFX
@@ -468,21 +497,7 @@ func init_weather_instant_custom(ARR_INDEX : int):
 	$"Weather Timer".wait_time = 600
 	$"Weather Timer".start()
 
-#####################################
 
-func _on_item_workshop_test_action_triggered() -> void:
-	PlayerManager.PLAYER.openItemWorkshop()
-
-func _on_test_dialogue_start_action_triggered() -> void:
-	DialogueManager.startDialogue(DialogueManager.testDialogue)
-
-func _on_email_noe_co_action_triggered() -> void:
-	OS.shell_open("https://mail.google.com/mail/?view=cm&fs=1&to=noeco.official@gmail.com")
-
-func _on_open_feedback_issue_action_triggered() -> void:
-	OS.shell_open("https://github.com/NoeCoOfficial/Expland/issues/new?assignees=&labels=&projects=&template=feedback.md")
-
-#####################################
 
 func playBlinkEffect():
 	$"Story Mode/Canvas Layers/EyeBlinkLayer/BlinkAnimation".play("main")

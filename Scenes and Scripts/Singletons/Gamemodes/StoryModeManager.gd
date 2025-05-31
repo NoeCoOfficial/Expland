@@ -47,6 +47,8 @@
 
 extends Node
 
-var has_done_first_story_msg : bool = false
+var has_done_first_story_msg : bool = false # Main menu dialogue
 var is_in_story_mode_first_cutscene_world : bool = false
 var is_in_cutscene : bool = false
+var is_in_cutscene_can_move : bool = false
+var waking_up_from_eryv_dream : bool = true
