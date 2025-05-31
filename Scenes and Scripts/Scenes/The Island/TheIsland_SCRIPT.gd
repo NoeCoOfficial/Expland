@@ -147,6 +147,8 @@ func eryvDreamWakeUpEffectsMovement():
 func eryvDreamWakeUpDialogue():
 	$"Story Mode/Canvas Layers/MinimalDialogueLayer/MinimalDialogue".spawnMinimalDialogue(DialogueManager.StoryMode_EryvDreamWakeUp_Dialogue)
 
+func spawnDemoScreen():
+	$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/ExplandDemoNotice/ExplandDemoUIAnimation".play("main")
 
 func _on_ready() -> void:
 	AudioManager.Current_Rain_SFX_Node = $Rain_SFX
