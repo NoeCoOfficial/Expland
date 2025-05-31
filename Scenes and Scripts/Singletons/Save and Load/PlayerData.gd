@@ -52,7 +52,7 @@ var SAVE_PATH = ""
 
 var STORY_MODE_PROGRESSION_INFO = {
 	"WOKEN_UP" : false,
-	"FIRST_STORY_MODE" : false,
+	"FIRST_STORY_MODE" : true,
 	"DISPLAYED_3_DIALOGUE" : false,
 	"DISPLAYED_4_DIALOGUE" : false,
 	"DISPLAYED_5_DIALOGUE" : false,

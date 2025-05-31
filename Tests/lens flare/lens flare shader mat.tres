@@ -1,0 +1,35 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://54vtg7puv152"]
+
+[ext_resource type="Shader" uid="uid://deikkbnmf44fd" path="res://Tests/lens flare/lens flare.gdshader" id="1_t7wt4"]
+[ext_resource type="Texture2D" uid="uid://bfoqkp6sldo78" path="res://Tests/lens flare/flare mult.tres" id="2_asb4r"]
+[ext_resource type="Texture2D" uid="uid://c0ceypyk7ml5f" path="res://Textures/Images/LensDirt.png" id="3_asb4r"]
+
+[sub_resource type="Gradient" id="Gradient_6odds"]
+offsets = PackedFloat32Array(0.111842, 0.506579)
+colors = PackedColorArray(0.833333, 1, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_272mx"]
+gradient = SubResource("Gradient_6odds")
+fill = 1
+fill_from = Vector2(0.518519, 0.49537)
+
+[resource]
+shader = ExtResource("1_t7wt4")
+shader_parameter/FlareMult = ExtResource("2_asb4r")
+shader_parameter/FlareMult2 = SubResource("GradientTexture2D_272mx")
+shader_parameter/LensDirt = ExtResource("3_asb4r")
+shader_parameter/SunScreenUV = Vector2(0, 0)
+shader_parameter/Blur = 8.295
+shader_parameter/FlareThreshold = 3.415
+shader_parameter/Thresholdsmoothness = 2.54
+shader_parameter/Flares = 300
+shader_parameter/FlareSpacing = 0.0
+shader_parameter/FlareDistance = 0.5
+shader_parameter/LensThickness = 1.0
+shader_parameter/Intensity = 0.075
+shader_parameter/Saturation_ = -1.46
+shader_parameter/visibility = 1.0
+shader_parameter/MinFlareIntensity = 0.0
+shader_parameter/MaxFlareIntensity = 1.0
+shader_parameter/RainbowIntensity = 2.935
+shader_parameter/LensDirtIntensity = 1.0
