@@ -135,6 +135,9 @@ func _ready() -> void:
 	
 	Player.nodeSetup()
 
+
+#####################################################
+
 func eryvDreamWakeUpEffects():
 	$"Story Mode/Audio/LoudBreathing".play()
 
@@ -148,7 +151,11 @@ func eryvDreamWakeUpDialogue():
 	$"Story Mode/Canvas Layers/MinimalDialogueLayer/MinimalDialogue".spawnMinimalDialogue(DialogueManager.StoryMode_EryvDreamWakeUp_Dialogue)
 
 func spawnDemoScreen():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/ExplandDemoNotice/ExplandDemoUIAnimation".play("main")
+
+#####################################################
+
 
 func _on_ready() -> void:
 	AudioManager.Current_Rain_SFX_Node = $Rain_SFX
@@ -527,3 +534,15 @@ func _on_dialogue_interface_finished_dialogue(StoryModeID: int) -> void:
 func _on_water_detail_init_timer_timeout() -> void:
 	DeepOceanMaterial.set_shader_parameter(&"WaveCount", 7)
 	DeepOceanMaterial.set_shader_parameter(&"WaveCount", 8)
+
+
+
+
+
+
+func _on_main_menu_button_pressed() -> void:
+	pass # Replace with function body.
+	# GOTO MAIN MENU
+
+func _on_quit_button_pressed() -> void:
+	get_tree().quit()
