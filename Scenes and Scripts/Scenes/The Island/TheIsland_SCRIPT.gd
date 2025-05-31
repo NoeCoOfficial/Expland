@@ -541,8 +541,19 @@ func _on_water_detail_init_timer_timeout() -> void:
 
 
 func _on_main_menu_button_pressed() -> void:
-	pass # Replace with function body.
-	# GOTO MAIN MENU
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/ExplandDemoNotice/BlackBGFadeOut".modulate = Color(1, 1, 1, 0)
+	$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/ExplandDemoNotice/BlackBGFadeOut".show()
+	var tween = get_tree().create_tween()
+	tween.connect("finished", _demo_fade_out_finished)
+	tween.tween_property(
+		$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/ExplandDemoNotice/BlackBGFadeOut",
+		"modulate",
+		Color(1, 1, 1, 1),
+		1.0)
+
+func _demo_fade_out_finished():
+	get_tree().change_scene_to_file("res://Scenes and Scripts/Scenes/Main Menu/MainMenu.tscn")
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
