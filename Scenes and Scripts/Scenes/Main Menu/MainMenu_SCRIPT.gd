@@ -46,7 +46,7 @@
 # ============================================================= #
 
 @icon("res://Textures/Icons/Script Icons/32x32/main_menu.png")
-extends Node3D
+extends Control
 
 var is_in_gamemode_select = false
 var is_in_absolute_gamemode_select = false
@@ -55,7 +55,7 @@ var is_tweening = false
 @onready var StartupNotice = preload("res://Scenes and Scripts/Scenes/Startup Notice/StartupNotice.tscn")
 @onready var world = preload("uid://c5jkrckgqd0w6")
 @onready var StoryModeStartCutscene = preload("uid://nlp0xy1m65tp")
-@onready var DefaultXPos = $Camera3D/MainLayer/PlayButton.position.x
+@onready var DefaultXPos = $MainLayer/PlayButton.position.x
 
 @export_group("Node references")
 @export var fade_timer_time_left_label : Label
