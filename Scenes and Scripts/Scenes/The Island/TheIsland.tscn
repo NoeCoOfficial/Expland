@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cjm5lrxicdgsf" path="res://Scenes and Scripts/Scenes/Player/Player.tscn" id="16_52bg8"]
 [ext_resource type="AudioStream" uid="uid://c6vwoj1cw11b1" path="res://Audio/Music/Very First.mp3" id="16_nawqk"]
 [ext_resource type="Script" uid="uid://dbn31kh6cxec8" path="res://Scenes and Scripts/Scenes/The Island/Island_Terrain_Switcher_SCRIPT.gd" id="16_r68ax"]
-[ext_resource type="AudioStream" uid="uid://ohe56mqmb2rv" path="res://Audio/SFX/Self/LoudMaleBreathing.mp3" id="18_di412"]
+[ext_resource type="AudioStream" uid="uid://coq8f84en33lh" path="res://Audio/SFX/Self/LoudMaleBreathing2.mp3" id="18_wt6q2"]
 [ext_resource type="AudioStream" uid="uid://dhqwl7buutt60" path="res://Audio/SFX/Cinematic/Rises/Rise1.wav" id="19_gl283"]
 [ext_resource type="AudioStream" uid="uid://ct1pqqqob0nu1" path="res://Audio/SFX/Self/MovementInBed.mp3" id="20_wt6q2"]
 [ext_resource type="Shader" uid="uid://ddwwgv2rqfito" path="res://Resources/Shaders/GausianBlur.gdshader" id="34_747t0"]
@@ -295,7 +295,7 @@ size = Vector3(29.6547, 18.4379, 48.5692)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_di412"]
 shader = ExtResource("34_747t0")
 shader_parameter/blur_radius = 16
-shader_parameter/blur_scale = 0.0
+shader_parameter/blur_scale = 4.0
 shader_parameter/darkness = 1.0
 shader_parameter/fade_direction = 0
 shader_parameter/fade_cutoff = 1.0
@@ -507,11 +507,14 @@ tracks/7/path = NodePath("../..")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0.0666667, 13.9667),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.0666667, 10.5667, 13.3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
 "args": [],
 "method": &"eryvDreamWakeUpEffectsRise"
+}, {
+"args": [],
+"method": &"eryvDreamWakeUpDialogue"
 }, {
 "args": [],
 "method": &"eryvDreamWakeUpEffectsMovement"
@@ -774,59 +777,59 @@ StartPOS = Vector3(-351.588, 0, 324.606)
 ResetPOS = Vector3(-351.588, 0, 324.606)
 
 [node name="Skeleton3D" parent="Player/Head/Player_Character_Shadow/Armature_003" index="0"]
-bones/0/position = Vector3(2.94829, -2.91088, -196.255)
-bones/0/rotation = Quaternion(-0.68517, -0.270687, 0.248299, 0.628982)
-bones/1/rotation = Quaternion(0.0779457, 0.0407567, -0.00805357, 0.996092)
-bones/2/rotation = Quaternion(0.0936684, 0.0791638, -0.0215778, 0.992217)
-bones/3/rotation = Quaternion(0.0937297, 0.079137, -0.0215909, 0.992213)
-bones/4/rotation = Quaternion(-0.0450237, -0.0106622, 0.0017333, 0.998928)
-bones/5/rotation = Quaternion(-0.0450703, 0.17669, -0.00454323, 0.983224)
-bones/7/rotation = Quaternion(0.574583, 0.426787, -0.566319, 0.408644)
-bones/8/rotation = Quaternion(0.434278, -0.0985658, 0.0887496, 0.890961)
+bones/0/position = Vector3(2.86911, -2.34266, -196.463)
+bones/0/rotation = Quaternion(-0.684787, -0.270635, 0.248461, 0.629357)
+bones/1/rotation = Quaternion(0.0782564, 0.0408299, -0.00813974, 0.996064)
+bones/2/rotation = Quaternion(0.0934698, 0.0791984, -0.0216712, 0.992231)
+bones/3/rotation = Quaternion(0.0928548, 0.0792933, -0.0216311, 0.992282)
+bones/4/rotation = Quaternion(-0.0478757, -0.0105337, 0.00208056, 0.998796)
+bones/5/rotation = Quaternion(-0.0712184, 0.177671, -0.000691973, 0.981509)
+bones/7/rotation = Quaternion(0.574554, 0.426669, -0.56688, 0.408031)
+bones/8/rotation = Quaternion(0.435288, -0.0978169, 0.0882657, 0.890598)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0340989, 0.0651237, 0.417116, 0.905875)
-bones/11/rotation = Quaternion(0.620203, -0.390468, 0.525308, 0.43236)
-bones/12/rotation = Quaternion(0.430043, 0.0941782, 0.145862, 0.885956)
-bones/13/rotation = Quaternion(0.037988, 0.00041503, -0.368515, 0.928845)
-bones/15/rotation = Quaternion(0.0799847, 0.231474, 0.96398, -0.103755)
+bones/9/rotation = Quaternion(-0.0335983, 0.0656027, 0.418687, 0.905135)
+bones/11/rotation = Quaternion(0.621553, -0.388837, 0.525605, 0.431528)
+bones/12/rotation = Quaternion(0.432229, 0.0921104, 0.146082, 0.885073)
+bones/13/rotation = Quaternion(0.0394252, -0.00258619, -0.368519, 0.92878)
+bones/15/rotation = Quaternion(0.080457, 0.230968, 0.964073, -0.103648)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.359511, 0.119203, -0.0359424, 0.924798)
-bones/17/rotation = Quaternion(0.565699, -0.0012486, -0.0238534, 0.824265)
-bones/18/rotation = Quaternion(0.289232, -0.0362325, -0.00950411, 0.956526)
-bones/20/rotation = Quaternion(-0.125253, 0.0244354, 0.982817, 0.133365)
-bones/21/rotation = Quaternion(-0.341289, 0.0723413, -0.0257326, 0.936817)
-bones/22/rotation = Quaternion(0.673028, 0.0552417, 0.10645, 0.729829)
+bones/16/rotation = Quaternion(-0.359427, 0.119393, -0.0365321, 0.924783)
+bones/17/rotation = Quaternion(0.565877, -0.00118652, -0.0237405, 0.824147)
+bones/18/rotation = Quaternion(0.289416, -0.0365499, -0.00968319, 0.956456)
+bones/20/rotation = Quaternion(-0.125527, 0.0216377, 0.982794, 0.13376)
+bones/21/rotation = Quaternion(-0.336311, 0.0724439, -0.0254457, 0.938615)
+bones/22/rotation = Quaternion(0.672172, 0.055505, 0.106999, 0.730517)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.278037, 0.0567742, -0.0170143, 0.95874)
+bones/23/rotation = Quaternion(0.278153, 0.0569407, -0.0170927, 0.958695)
 
 [node name="HandAttatchment" parent="Player/Head/Player_Character_Shadow/Armature_003/Skeleton3D" index="1"]
-transform = Transform3D(-0.277726, -0.362541, 0.889625, 0.947831, 0.0474297, 0.315225, -0.156476, 0.93076, 0.330455, -74.9957, -37.8374, -204.072)
+transform = Transform3D(-0.275328, -0.348341, 0.896021, 0.94918, 0.0493364, 0.310843, -0.152486, 0.936069, 0.317055, -73.8433, -37.0205, -203.754)
 
 [node name="Skeleton3D" parent="Player/Head/Player_Character/Armature_003" index="0"]
-bones/0/position = Vector3(2.94829, -2.91088, -196.255)
-bones/0/rotation = Quaternion(-0.68517, -0.270687, 0.248299, 0.628982)
-bones/1/rotation = Quaternion(0.0779457, 0.0407567, -0.00805357, 0.996092)
-bones/2/rotation = Quaternion(0.0936684, 0.0791638, -0.0215778, 0.992217)
-bones/3/rotation = Quaternion(0.0937297, 0.079137, -0.0215909, 0.992213)
-bones/4/rotation = Quaternion(-0.0450237, -0.0106622, 0.0017333, 0.998928)
-bones/5/rotation = Quaternion(-0.0450703, 0.17669, -0.00454323, 0.983224)
-bones/7/rotation = Quaternion(0.574583, 0.426787, -0.566319, 0.408644)
-bones/8/rotation = Quaternion(0.434278, -0.0985658, 0.0887496, 0.890961)
+bones/0/position = Vector3(2.86911, -2.34266, -196.463)
+bones/0/rotation = Quaternion(-0.684787, -0.270635, 0.248461, 0.629357)
+bones/1/rotation = Quaternion(0.0782564, 0.0408299, -0.00813974, 0.996064)
+bones/2/rotation = Quaternion(0.0934698, 0.0791984, -0.0216712, 0.992231)
+bones/3/rotation = Quaternion(0.0928548, 0.0792933, -0.0216311, 0.992282)
+bones/4/rotation = Quaternion(-0.0478757, -0.0105337, 0.00208056, 0.998796)
+bones/5/rotation = Quaternion(-0.0712184, 0.177671, -0.000691973, 0.981509)
+bones/7/rotation = Quaternion(0.574554, 0.426669, -0.56688, 0.408031)
+bones/8/rotation = Quaternion(0.435288, -0.0978169, 0.0882657, 0.890598)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0340989, 0.0651237, 0.417116, 0.905875)
-bones/11/rotation = Quaternion(0.620203, -0.390468, 0.525308, 0.43236)
-bones/12/rotation = Quaternion(0.430043, 0.0941782, 0.145862, 0.885956)
-bones/13/rotation = Quaternion(0.037988, 0.00041503, -0.368515, 0.928845)
-bones/15/rotation = Quaternion(0.0799847, 0.231474, 0.96398, -0.103755)
+bones/9/rotation = Quaternion(-0.0335983, 0.0656027, 0.418687, 0.905135)
+bones/11/rotation = Quaternion(0.621553, -0.388837, 0.525605, 0.431528)
+bones/12/rotation = Quaternion(0.432229, 0.0921104, 0.146082, 0.885073)
+bones/13/rotation = Quaternion(0.0394252, -0.00258619, -0.368519, 0.92878)
+bones/15/rotation = Quaternion(0.080457, 0.230968, 0.964073, -0.103648)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.359511, 0.119203, -0.0359424, 0.924798)
-bones/17/rotation = Quaternion(0.565699, -0.0012486, -0.0238534, 0.824265)
-bones/18/rotation = Quaternion(0.289232, -0.0362325, -0.00950411, 0.956526)
-bones/20/rotation = Quaternion(-0.125253, 0.0244354, 0.982817, 0.133365)
-bones/21/rotation = Quaternion(-0.341289, 0.0723413, -0.0257326, 0.936817)
-bones/22/rotation = Quaternion(0.673028, 0.0552417, 0.10645, 0.729829)
+bones/16/rotation = Quaternion(-0.359427, 0.119393, -0.0365321, 0.924783)
+bones/17/rotation = Quaternion(0.565877, -0.00118652, -0.0237405, 0.824147)
+bones/18/rotation = Quaternion(0.289416, -0.0365499, -0.00968319, 0.956456)
+bones/20/rotation = Quaternion(-0.125527, 0.0216377, 0.982794, 0.13376)
+bones/21/rotation = Quaternion(-0.336311, 0.0724439, -0.0254457, 0.938615)
+bones/22/rotation = Quaternion(0.672172, 0.055505, 0.106999, 0.730517)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.278037, 0.0567742, -0.0170143, 0.95874)
+bones/23/rotation = Quaternion(0.278153, 0.0569407, -0.0170927, 0.958695)
 
 [node name="Camera3D" parent="Player/Head" index="4"]
 current = true
@@ -868,15 +871,16 @@ fov = 110.0
 [node name="StoryModeWakeUpUI" type="CanvasLayer" parent="Story Mode/Cameras/StoryModeWakeUpCamera"]
 
 [node name="StoryModeDreamWakeUpCameraRig" type="Node3D" parent="Story Mode/Cameras"]
-transform = Transform3D(0.988677, 0.0549119, -0.139652, -0.0420307, 0.994725, 0.0935717, 0.144053, -0.0866425, 0.98577, -123.422, -0.0164001, 316.133)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -123.511, -0.017742, 316.121)
 
 [node name="StoryModeDreamWakeUpCamera" type="Camera3D" parent="Story Mode/Cameras/StoryModeDreamWakeUpCameraRig"]
-transform = Transform3D(-2.10316e-05, -0.00717821, -0.999974, -0.0149121, 0.999863, -0.0071771, 0.999889, 0.0149116, -0.000128071, 0, 0, 0)
+transform = Transform3D(-3.61999e-06, -0.987097, -0.160124, 0, 0.160124, -0.987097, 1, -3.57328e-06, -5.79647e-07, 0, 0, 0)
 
 [node name="StoryModeDreamWakeUpUI" type="CanvasLayer" parent="Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera"]
 layer = 100
 
 [node name="BlurRect" type="ColorRect" parent="Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/StoryModeDreamWakeUpUI"]
+visible = false
 material = SubResource("ShaderMaterial_di412")
 anchors_preset = 15
 anchor_right = 1.0
@@ -886,7 +890,6 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="BlackRect" type="ColorRect" parent="Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/StoryModeDreamWakeUpUI"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1120,7 +1123,7 @@ volume_db = -6.039
 bus = &"music"
 
 [node name="LoudBreathing" type="AudioStreamPlayer" parent="Story Mode/Audio"]
-stream = ExtResource("18_di412")
+stream = ExtResource("18_wt6q2")
 volume_db = -17.333
 bus = &"sfx"
 
@@ -1130,6 +1133,7 @@ bus = &"sfx"
 
 [node name="MovementInBed" type="AudioStreamPlayer" parent="Story Mode/Audio"]
 stream = ExtResource("20_wt6q2")
+volume_db = 6.0
 bus = &"sfx"
 
 [node name="Markers" type="Node" parent="."]
