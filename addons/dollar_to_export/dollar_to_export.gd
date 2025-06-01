@@ -44,7 +44,7 @@ func _on_button_pressed():
 		return
 
 	var matches = regex.search_all(code)
-	if matches.empty():
+	if matches.is_empty():
 		# No $ references found
 		code_edit.call_deferred("show_warning", "No $ node references found!")
 		return
