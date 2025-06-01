@@ -1,62 +1,100 @@
 @tool
 extends EditorPlugin
 
-var button: Button
+var button
 
 func _enter_tree():
 	button = Button.new()
 	button.text = "Convert $ to @export"
-	button.tooltip_text = "Replaces $Node references with @export NodePath variables"
 	button.pressed.connect(_on_button_pressed)
-	add_control_to_container(EditorPlugin.CONTAINER_TOOLBAR, button)
+	add_control_to_container(CONTAINER_TOOLBAR, button)
 
 func _exit_tree():
-	remove_control_from_container(EditorPlugin.CONTAINER_TOOLBAR, button)
-	button.queue_free()
+	remove_control_from_container(CONTAINER_TOOLBAR, button)
+	button.free()
 
 func _on_button_pressed():
 	var script_editor = get_editor_interface().get_script_editor()
-	var script = script_editor.get_current_script()
-
-	if script == null:
-		print("No script open.")
+	var current_editor = script_editor.get_current_editor()
+	if current_editor == null:
+		push_error("No script editor currently open!")
 		return
 
-	var code := script.get_source_code()
-	var modified_code := code
-	var added_exports := {}
+	var code_edit = null
+	for i in range(current_editor.get_child_count()):
+		var child = current_editor.get_child(i)
+		if child is VSplitContainer:
+			code_edit = find_code_edit(child)
+			break
 
-	var regex := RegEx.new()
-	regex.compile(r'\$(\"[^\"]+\"|\'[^\']+\'|[a-zA-Z_][a-zA-Z0-9_]*)')
-	var matches := regex.search_all(code)
+	if code_edit == null:
+		push_error("Could not find CodeEdit inside ScriptEditor!")
+		return
 
+	var code = code_edit.get_text()
+	if code == "":
+		push_error("Script source code is empty!")
+		return
+
+	# Find all $nodeName occurrences using regex
+	var regex = RegEx.new()
+	var err = regex.compile(r"\$([A-Za-z0-9_]+)")
+	if err != OK:
+		push_error("Regex compilation failed!")
+		return
+
+	var matches = regex.search_all(code)
+	if matches.empty():
+		# No $ references found
+		code_edit.call_deferred("show_warning", "No $ node references found!")
+		return
+
+	# Collect unique node names
+	var node_names = {}
 	for match in matches:
-		var full := match.get_string()
-		var path := full.substr(1)  # remove the $
-		if (path.begins_with('"') and path.ends_with('"')) or (path.begins_with("'") and path.ends_with("'")):
-			path = path.substr(1, path.length() - 2)
+		var node_name = match.get_string(1)
+		node_names[node_name] = true
 
-		var var_name := path.to_snake_case()
+	# Prepare export lines to insert
+	var export_lines = []
+	for node_name in node_names.keys():
+		var line = '@export var %s: NodePath = $"%s".get_path()' % [node_name, node_name]
+		export_lines.append(line)
 
-		if not added_exports.has(var_name):
-			added_exports[var_name] = path
+	# Insert export lines after extends/class_name/empty lines near top
+	var lines = code.split("\n")
+	var insert_index = 0
+	for i in range(lines.size()):
+		var line = lines[i].strip()
+		if line.begins_with("extends") or line.begins_with("class_name") or line == "":
+			insert_index = i + 1
+		else:
+			break
+	lines.insert_array(insert_index, export_lines)
 
-		modified_code = modified_code.replace(full, "get_node(%s)" % var_name)
+	# Replace $nodeName with nodeName in code lines
+	for node_name in node_names.keys():
+		var pattern = r"\$%s\b" % node_name
+		regex.compile(pattern)
+		lines = regex.sub(lines, node_name)
 
-	var export_lines := ""
-	for var_name in added_exports.keys():
-		export_lines += "@export var %s: NodePath = \"%s\"\n" % [var_name, added_exports[var_name]]
+	var new_code = lines.join("\n")
 
-	var lines := modified_code.split("\n")
-	var insert_index := 0
-	if lines[0].begins_with("extends"):
-		insert_index = 1
-	lines.insert(insert_index, export_lines.strip_edges())
-	modified_code = "\n".join(lines)
+	# Update the editor text with new code
+	code_edit.set_text(new_code)
+	code_edit.call_deferred("show_message", "Converted $ references to @export variables.")
 
-	# Update script content
-	script.set_source_code(modified_code)
-	script.reload()
-	script_editor.get_current_editor().set_text(modified_code)
+	# Optional: Save the script resource
+	var script = script_editor.get_current_script()
+	if script:
+		ResourceSaver.save(script.resource_path, script)
 
-	print("✔ Converted $Node references to @export NodePaths.")
+func find_code_edit(node: Node) -> Node:
+	# Recursively find CodeEdit inside node
+	if node is CodeEdit:
+		return node
+	for child in node.get_children():
+		var found = find_code_edit(child)
+		if found != null:
+			return found
+	return null
