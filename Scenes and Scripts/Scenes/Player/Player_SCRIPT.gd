@@ -1291,17 +1291,23 @@ func sleep_cycle(setSleeping : bool, incrementDay : bool, fadeInTime : float, ho
 	SleepLayerBlackOverlay.visible = true
 	ProtectiveLayer.visible = true
 	
-	var tween = get_tree().create_tween()
-	tween.tween_property(SleepLayerBlackOverlay, "modulate", Color(1, 1, 1, 1), fadeInTime)
 	
 	
+	var fade_in_tween = get_tree().create_tween()
+	fade_in_tween.tween_property(SleepLayerBlackOverlay, "modulate", Color(1, 1, 1, 1), fadeInTime)
+	fade_in_tween.tween_interval(1.0)
+
 	if !TimeManager.CURRENT_DAY == 2 and !IslandManager.Current_Game_Mode == "STORY":
-		tween.tween_interval(1.0)
-		tween.tween_property(DayText_Label, "modulate", Color(1, 1, 1, 1), 1.0)
+		fade_in_tween.tween_property(DayText_Label, "modulate", Color(1, 1, 1, 1), 1.0)
 		
 		await get_tree().create_timer(fadeInTime + holdTime).timeout
 		
 		on_sleep_cycle_hold_finished(fadeOutTime, time)
+	else:
+		get_tree().change_scene_to_file("res://Scenes and Scripts/Scenes/Story Mode/Eryv Dream Cutscene/EryvDreamCutscene.tscn")
+
+
+
 
 func on_sleep_cycle_hold_finished(fadeOutTime, time : int):
 	

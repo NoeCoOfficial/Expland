@@ -61,16 +61,23 @@ func _on_button_pressed():
 		var line = '@export var %s: NodePath = $"%s".get_path()' % [node_name, node_name]
 		export_lines.append(line)
 
-	# Insert export lines after extends/class_name/empty lines near top
-	var lines = code.split("\n")
+	# Convert code to normal Array of lines (not PackedStringArray)
+	var packed_lines = code.split("\n")
+	var lines = []
+	for line in packed_lines:
+		lines.append(line)
+
+	# Find insertion index after extends/class_name/empty lines near top
 	var insert_index = 0
 	for i in range(lines.size()):
-		var line = lines[i].strip()
+		var line = lines[i].strip_edges()
 		if line.begins_with("extends") or line.begins_with("class_name") or line == "":
 			insert_index = i + 1
 		else:
 			break
-	lines.insert_array(insert_index, export_lines)
+	# Insert export lines into lines array
+	for i in range(export_lines.size()):
+		lines.insert(insert_index + i, export_lines[i])
 
 	# Replace $nodeName with nodeName in code lines
 	for node_name in node_names.keys():
