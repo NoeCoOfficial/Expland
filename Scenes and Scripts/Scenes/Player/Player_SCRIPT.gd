@@ -1293,12 +1293,15 @@ func sleep_cycle(setSleeping : bool, incrementDay : bool, fadeInTime : float, ho
 	
 	var tween = get_tree().create_tween()
 	tween.tween_property(SleepLayerBlackOverlay, "modulate", Color(1, 1, 1, 1), fadeInTime)
-	tween.tween_interval(1.0)
-	tween.tween_property(DayText_Label, "modulate", Color(1, 1, 1, 1), 1.0)
 	
-	await get_tree().create_timer(fadeInTime + holdTime).timeout
 	
-	on_sleep_cycle_hold_finished(fadeOutTime, time)
+	if !TimeManager.CURRENT_DAY == 2 and !IslandManager.Current_Game_Mode == "STORY":
+		tween.tween_interval(1.0)
+		tween.tween_property(DayText_Label, "modulate", Color(1, 1, 1, 1), 1.0)
+		
+		await get_tree().create_timer(fadeInTime + holdTime).timeout
+		
+		on_sleep_cycle_hold_finished(fadeOutTime, time)
 
 func on_sleep_cycle_hold_finished(fadeOutTime, time : int):
 	
