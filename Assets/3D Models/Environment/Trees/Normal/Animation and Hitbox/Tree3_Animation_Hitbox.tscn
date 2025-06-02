@@ -1,6 +1,6 @@
 [gd_scene load_steps=55 format=4 uid="uid://ltr3serdxbbc"]
 
-[ext_resource type="Script" uid="uid://cgnhquwuw2h14" path="res://Textures/Icons/Script Icons/Scripts/TreeIcon_SCRIPT.gd" id="1_x25mm"]
+[ext_resource type="Script" uid="uid://cgnhquwuw2h14" path="res://Assets/Textures/Icons/Script Icons/Scripts/TreeIcon_SCRIPT.gd" id="1_x25mm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7huyo"]
 resource_name = "Material.005"

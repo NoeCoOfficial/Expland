@@ -1,6 +1,6 @@
 [gd_scene load_steps=38 format=4 uid="uid://dk6q4do6ixsph"]
 
-[ext_resource type="Script" uid="uid://cgnhquwuw2h14" path="res://Textures/Icons/Script Icons/Scripts/TreeIcon_SCRIPT.gd" id="1_dinl5"]
+[ext_resource type="Script" uid="uid://cgnhquwuw2h14" path="res://Assets/Textures/Icons/Script Icons/Scripts/TreeIcon_SCRIPT.gd" id="1_dinl5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_01og4"]
 resource_name = "Material.001"

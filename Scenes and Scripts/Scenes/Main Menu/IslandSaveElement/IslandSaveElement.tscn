@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="2_ptwj5"]
 [ext_resource type="StyleBox" uid="uid://cm8xotke6bccm" path="res://Resources/Styles and Themes/Styles/Default/LineEdit/Default_Normal_LineEdit.tres" id="3_gaeij"]
 [ext_resource type="StyleBox" uid="uid://cf1a43wkesukc" path="res://Resources/Styles and Themes/Styles/Default/LineEdit/Default_Focus_LineEdit.tres" id="4_4qh26"]
-[ext_resource type="Texture2D" uid="uid://b4lev783o86l7" path="res://Textures/Images/DefaultLoadImage.png" id="6_y0s30"]
+[ext_resource type="Texture2D" uid="uid://b4lev783o86l7" path="res://Assets/Textures/Images/DefaultLoadImage.png" id="6_y0s30"]
 [ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="7_hm3by"]
 [ext_resource type="StyleBox" uid="uid://dk6yg5shsrlga" path="res://Resources/Styles and Themes/Styles/Default/Button/Default_Hover.tres" id="8_3226v"]
 [ext_resource type="StyleBox" uid="uid://4bki1vu11lcb" path="res://Resources/Styles and Themes/Styles/Default/Button/Default_Pressed.tres" id="9_ng22a"]

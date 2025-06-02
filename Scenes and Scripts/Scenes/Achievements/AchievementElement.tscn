@@ -4,7 +4,7 @@
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="2_3xfan"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="3_wu26u"]
 [ext_resource type="FontFile" uid="uid://c4h0gd5a2e2qb" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf" id="4_w0pg6"]
-[ext_resource type="Texture2D" uid="uid://bsehw8xxc02m1" path="res://Textures/Achievements/WANDERER.png" id="5_dg3v7"]
+[ext_resource type="Texture2D" uid="uid://bsehw8xxc02m1" path="res://Assets/Textures/Achievements/WANDERER.png" id="5_dg3v7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_icby6"]
 corner_radius_top_left = 10

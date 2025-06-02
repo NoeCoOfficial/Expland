@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://lf4vntqbl3c6"]
 
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="1_a2ns7"]
-[ext_resource type="Script" uid="uid://dux7wdl4tm683" path="res://Textures/Icons/Script Icons/Scripts/KeyIcon_SCRIPT.gd" id="1_o03ou"]
+[ext_resource type="Script" uid="uid://dux7wdl4tm683" path="res://Assets/Textures/Icons/Script Icons/Scripts/KeyIcon_SCRIPT.gd" id="1_o03ou"]
 [ext_resource type="FontFile" uid="uid://c4h0gd5a2e2qb" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf" id="2_00rr7"]
-[ext_resource type="Texture2D" uid="uid://dgt5qdmjgbdsv" path="res://Textures/Icons/UpArrow_Icon.png" id="4_wywje"]
+[ext_resource type="Texture2D" uid="uid://dgt5qdmjgbdsv" path="res://Assets/Textures/Icons/UpArrow_Icon.png" id="4_wywje"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8e5id"]
 bg_color = Color(0, 0, 0, 1)
