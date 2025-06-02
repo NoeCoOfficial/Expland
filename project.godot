@@ -20,7 +20,7 @@ config/use_custom_user_dir=true
 config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
-config/icon="res://Textures/Icons/Expland-icon.png"
+config/icon="res://Textures/Icons/Expland/Expland-icon.png"
 
 [audio]
 
@@ -83,7 +83,7 @@ movie_writer/fps=120
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg", "res://addons/boujie_water_shader/plugin.cfg", "res://addons/dollar_to_export/plugin.cfg", "res://addons/notes_tab/plugin.cfg")
+enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg", "res://addons/boujie_water_shader/plugin.cfg", "res://addons/notes_tab/plugin.cfg")
 
 [file_customization]
 

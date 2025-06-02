@@ -35,7 +35,7 @@
 [ext_resource type="Shader" uid="uid://ddwwgv2rqfito" path="res://Resources/Shaders/GausianBlur.gdshader" id="33_utw0r"]
 [ext_resource type="PackedScene" uid="uid://cn1krf62jowgb" path="res://Scenes and Scripts/Scenes/Dialogue/MinimalDialogue.tscn" id="34_dbva5"]
 [ext_resource type="PackedScene" uid="uid://dble54a2rl76q" path="res://Scenes and Scripts/Scenes/The Island/Explorer Note/ExplorerNote.tscn" id="35_u7txv"]
-[ext_resource type="Texture2D" uid="uid://dhp1lqdlclos" path="res://Textures/Icons/Expland_TextWHITE_Icon.png" id="36_1llkr"]
+[ext_resource type="Texture2D" uid="uid://dhp1lqdlclos" path="res://Textures/Icons/Expland/Expland-TextWHITE_Icon.png" id="36_1llkr"]
 [ext_resource type="Texture2D" path="res://Textures/Explorer Notes/2_Lucent.png" id="37_iv1c1"]
 
 [sub_resource type="Animation" id="Animation_747t0"]
