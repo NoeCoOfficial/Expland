@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://djenc4llne53s"]
+[gd_scene load_steps=22 format=3 uid="uid://djenc4llne53s"]
 
 [ext_resource type="Script" uid="uid://c2rn7sdv7k58i" path="res://Scenes and Scripts/Scenes/Credits/CreditsLayer_SCRIPT.gd" id="1_wf8c4"]
 [ext_resource type="PackedScene" uid="uid://bjsti1e663lr8" path="res://Scenes and Scripts/Scenes/General/UI/BlurLayer.tscn" id="2_74o2j"]
@@ -10,6 +10,7 @@
 [ext_resource type="FontFile" uid="uid://b2o44xwqnsb5k" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf" id="6_qtck1"]
 [ext_resource type="Texture2D" uid="uid://cwskjvl8pplog" path="res://Textures/Icons/Exit_Icon.png" id="7_5nk2s"]
 [ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="7_qra30"]
+[ext_resource type="Texture2D" uid="uid://5jw0llyd55ke" path="res://Textures/Icons/Noe Co/Noe Co - Icon Transperant.png" id="8_ton5t"]
 [ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="8_uiqvs"]
 [ext_resource type="FontFile" uid="uid://btimp4hwg4jis" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Regular.otf" id="9_3uiju"]
 [ext_resource type="StyleBox" uid="uid://b13po6off8nno" path="res://Resources/Styles and Themes/Styles/Default/Button/WithMarginDefaultDarkGrey.tres" id="10_623a3"]
@@ -123,6 +124,24 @@ text = "Expland is made by Noe Co., a partnership of two looking to find joy in 
 horizontal_alignment = 1
 autowrap_mode = 3
 
+[node name="NoeCoIcon" type="Sprite2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
+position = Vector2(152, 143)
+scale = Vector2(0.291949, 0.291949)
+texture = ExtResource("8_ton5t")
+
+[node name="Space7" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("5_ome4s")
+theme_override_fonts/font = ExtResource("7_qra30")
+theme_override_font_sizes/font_size = 20
+text = "
+
+
+"
+horizontal_alignment = 1
+autowrap_mode = 3
+
 [node name="Text2" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
@@ -134,7 +153,7 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="Divider" type="Line2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
-position = Vector2(20, 133)
+position = Vector2(20, 199)
 points = PackedVector2Array(-2, 0, 264, 0)
 width = 1.5
 default_color = Color(0.233926, 0.233925, 0.233925, 1)
@@ -202,7 +221,7 @@ layout_mode = 2
 theme = ExtResource("5_ome4s")
 theme_override_fonts/font = ExtResource("9_3uiju")
 theme_override_font_sizes/font_size = 14
-text = "Game Designer, Visual Designer, Audio Designer, Storyteller, Tester (while developing), paperwork, 3D modelling, 2D assets, Ideas and brainstorming and Lore."
+text = "Game Designer, Visual Designer, Audio Designer, Storyteller, paperwork, 3D modelling, 2D assets, Ideas and Lore."
 horizontal_alignment = 1
 autowrap_mode = 3
 
@@ -244,7 +263,7 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="Divider3" type="Line2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
-position = Vector2(20, 351)
+position = Vector2(20, 438)
 points = PackedVector2Array(-2, 0, 264, 0)
 width = 1.5
 default_color = Color(0.233926, 0.233925, 0.233925, 1)
@@ -316,6 +335,35 @@ theme_override_font_sizes/font_size = 5
 horizontal_alignment = 1
 autowrap_mode = 3
 
+[node name="Text17" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("5_ome4s")
+theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_font_sizes/font_size = 20
+text = "The team at STEM VGC"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Text12" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("5_ome4s")
+theme_override_fonts/font = ExtResource("9_3uiju")
+theme_override_font_sizes/font_size = 14
+text = "Thank you for taking time to review our game for the competition. We are very grateful for all of your hard work!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Space8" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("5_ome4s")
+theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_font_sizes/font_size = 5
+horizontal_alignment = 1
+autowrap_mode = 3
+
 [node name="Text15" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
@@ -337,12 +385,12 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="GodotIcon" type="Sprite2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
-position = Vector2(115, 734)
+position = Vector2(115, 913)
 scale = Vector2(0.06, 0.06)
 texture = ExtResource("15_ny2xt")
 
 [node name="RedHeartIcon" type="Sprite2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
-position = Vector2(189.375, 736.044)
+position = Vector2(189.375, 915.044)
 scale = Vector2(0.0657484, 0.0545605)
 texture = ExtResource("11_m50j2")
 
@@ -391,7 +439,7 @@ theme_override_font_sizes/font_size = 30
 text = "OPEN      "
 
 [node name="OpenExternalLinkWhiteIcon" type="Sprite2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
-position = Vector2(188.375, 861.625)
+position = Vector2(188.375, 1042.63)
 scale = Vector2(0.103333, 0.103333)
 texture = ExtResource("12_lbc4b")
 
