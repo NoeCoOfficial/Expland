@@ -50,6 +50,7 @@ extends Control
 
 var current_name_submitted : String
 var game_mode
+var default_load_image = preload("uid://b4lev783o86l7")
 
 func _ready() -> void:
 	name = "IslandSaveElement"
@@ -85,7 +86,7 @@ func initializeProperties(island_name: String, gameplay_image_path: String) -> v
 
 func load_fallback_texture() -> void:
 	# Load and set a fallback texture
-	$PanelContainer/TextureRect.texture = preload("res://Textures/Images/DefaultLoadImage.png")
+	$PanelContainer/TextureRect.texture = default_load_image
 
 
 func _on_info_btn_pressed() -> void:
