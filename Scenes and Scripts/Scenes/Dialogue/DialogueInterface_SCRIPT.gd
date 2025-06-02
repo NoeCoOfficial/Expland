@@ -45,7 +45,7 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-@icon("res://Textures/Icons/Script Icons/32x32/dialogue.png")
+@icon("uid://eqsjorkyt7vx")
 extends Control
 
 signal FinishedDialogue(StoryModeID : int)

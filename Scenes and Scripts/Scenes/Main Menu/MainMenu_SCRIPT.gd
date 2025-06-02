@@ -45,7 +45,7 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-@icon("res://Textures/Icons/Script Icons/32x32/main_menu.png")
+@icon("uid://bf37ev5d10xuh")
 extends Control
 
 var is_in_gamemode_select = false

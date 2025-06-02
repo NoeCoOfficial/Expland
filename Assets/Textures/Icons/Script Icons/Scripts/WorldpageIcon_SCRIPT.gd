@@ -45,5 +45,5 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-@icon("res://Textures/Icons/Script Icons/32x32/world_page.png")
+@icon("uid://t12fwcy1apyo")
 extends Node
