@@ -45,7 +45,7 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-@icon("res://Textures/Icons/Script Icons/32x32/window_dialogue.png")
+@icon("uid://5ymuy8bqbfco")
 extends Control
 
 func _ready() -> void:
