@@ -45,7 +45,7 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-@icon("res://Textures/Icons/Script Icons/32x32/warning.png")
+@icon("uid://cs5aq1jo70fxs")
 extends Control
 
 var animation

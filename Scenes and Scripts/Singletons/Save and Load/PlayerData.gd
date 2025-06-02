@@ -45,7 +45,7 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-@icon("res://Textures/Icons/Script Icons/32x32/disk_save.png")
+@icon("uid://ctle0eecieh06")
 extends Node
 
 var SAVE_PATH = ""
