@@ -53,12 +53,14 @@ extends Control
 var target_mat
 
 func _ready() -> void:
+	Blur.hide()
 	target_mat = Blur.material
 	
 	target_mat.set_shader_parameter("blur_scale", 0.001)
 	target_mat.set_shader_parameter("darkness", 1.0)
 
 func fadeInBlur(time : float, blur_scale : float, stop_mouse : bool, darkness : float, pass_mouse : bool = false):
+	Blur.show()
 	if stop_mouse:
 		Stop_Mouse.mouse_filter = Control.MOUSE_FILTER_STOP
 	if pass_mouse:
@@ -75,4 +77,5 @@ func fadeOutBlur(time : float):
 	tween.tween_property(target_mat, "shader_parameter/darkness", 1.0, time)
 
 func on_fade_out_finished():
+	Blur.hide()
 	Stop_Mouse.mouse_filter = Control.MOUSE_FILTER_IGNORE

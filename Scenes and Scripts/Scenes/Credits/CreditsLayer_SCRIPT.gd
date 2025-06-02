@@ -63,7 +63,7 @@ func spawnCredits(animationTime : float):
 	
 	if PlayerSettingsData.quickAnimations:
 		$MainLayer.scale = Vector2(1.0, 1.0)
-		$GreyLayer.modulate = Color(1, 1, 1, 1)
+		
 	else:
 		var tween = get_tree().create_tween().set_parallel()
 		tween.tween_property($MainLayer, "scale", Vector2(1.0, 1.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
