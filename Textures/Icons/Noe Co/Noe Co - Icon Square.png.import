@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtj61dgvtnu1f"
-path="res://.godot/imported/RoundedSquare_NoeCoLogo.png-45f95853a1c8fae0233ffd420913b9f5.ctex"
+uid="uid://b8mrde7ujyuxo"
+path="res://.godot/imported/Noe Co - Icon Square.png-df933c5f28d4e908118cda88713e0456.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Icons/Noe Co/RoundedSquare_NoeCoLogo.png"
-dest_files=["res://.godot/imported/RoundedSquare_NoeCoLogo.png-45f95853a1c8fae0233ffd420913b9f5.ctex"]
+source_file="res://Textures/Icons/Noe Co/Noe Co - Icon Square.png"
+dest_files=["res://.godot/imported/Noe Co - Icon Square.png-df933c5f28d4e908118cda88713e0456.ctex"]
 
 [params]
 

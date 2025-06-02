@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cste75toepims"
-path="res://.godot/imported/NoeCoLogoSquare.png-0bac223f30398c15fcb643d2ba70d636.ctex"
+uid="uid://5jw0llyd55ke"
+path="res://.godot/imported/Noe Co - Icon Transperant.png-f333bc2b767cd7bf8176be747b730eed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Icons/Noe Co/NoeCoLogoSquare.png"
-dest_files=["res://.godot/imported/NoeCoLogoSquare.png-0bac223f30398c15fcb643d2ba70d636.ctex"]
+source_file="res://Textures/Icons/Noe Co/Noe Co - Icon Transperant.png"
+dest_files=["res://.godot/imported/Noe Co - Icon Transperant.png-f333bc2b767cd7bf8176be747b730eed.ctex"]
 
 [params]
 

@@ -3,8 +3,8 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dd3mfyhqmsgkk"
-path.s3tc="res://.godot/imported/Expland-TextBLACK_Icon.png-9a4f41e82f46e5d038e0100414d2dd7e.s3tc.ctex"
-path.etc2="res://.godot/imported/Expland-TextBLACK_Icon.png-9a4f41e82f46e5d038e0100414d2dd7e.etc2.ctex"
+path.s3tc="res://.godot/imported/Expland - TextBLACK.png-29ab3d266e0a90a55834a67b7d1483a5.s3tc.ctex"
+path.etc2="res://.godot/imported/Expland - TextBLACK.png-29ab3d266e0a90a55834a67b7d1483a5.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/Icons/Expland/Expland-TextBLACK_Icon.png"
-dest_files=["res://.godot/imported/Expland-TextBLACK_Icon.png-9a4f41e82f46e5d038e0100414d2dd7e.s3tc.ctex", "res://.godot/imported/Expland-TextBLACK_Icon.png-9a4f41e82f46e5d038e0100414d2dd7e.etc2.ctex"]
+source_file="res://Textures/Icons/Expland/Expland - TextBLACK.png"
+dest_files=["res://.godot/imported/Expland - TextBLACK.png-29ab3d266e0a90a55834a67b7d1483a5.s3tc.ctex", "res://.godot/imported/Expland - TextBLACK.png-29ab3d266e0a90a55834a67b7d1483a5.etc2.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=33 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" uid="uid://uvd1eie30b14" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
-[ext_resource type="Texture2D" uid="uid://dhp1lqdlclos" path="res://Textures/Icons/Expland/Expland-TextWHITE_Icon.png" id="2_numx3"]
+[ext_resource type="Texture2D" uid="uid://dhp1lqdlclos" path="res://Textures/Icons/Expland/Expland - TextWHITE.png" id="2_numx3"]
 [ext_resource type="PackedScene" uid="uid://4y07lcegxyxt" path="res://Scenes and Scripts/Scenes/Audio/MainMenu_Audio.tscn" id="3_wxdrf"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="4_grlcg"]
 [ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="5_dfh28"]

@@ -20,7 +20,7 @@ config/use_custom_user_dir=true
 config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
-config/icon="res://Textures/Icons/Expland/Expland-icon.png"
+config/icon="res://Textures/Icons/Expland/Expland - Icon.png"
 
 [audio]
 
