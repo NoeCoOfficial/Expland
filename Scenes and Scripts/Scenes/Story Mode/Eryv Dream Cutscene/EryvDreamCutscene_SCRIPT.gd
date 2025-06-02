@@ -59,11 +59,10 @@ func _ready() -> void:
 	$Player/Head/Camera3D/HUDLayer.hide()
 	$"PreControl Scene/EyeBlinkLayer/BottomBlink".position = Vector2(0.0, 688.0)
 	$"PreControl Scene/EyeBlinkLayer/TopBlink".position = Vector2(1152.0, -39.0)
-	$"PreControl Scene/Camera3D".fov = PlayerSettingsData.FOV
+	$"PreControl Scene/Camera3DRig/Camera3D".fov = PlayerSettingsData.FOV
 	StoryModeManager.is_in_cutscene = true
 	$Player.Fade_In = false
 	$Player.nodeSetup()
-	
 	
 	$"PreControl Scene/CameraMotion".play("motion")
 
@@ -76,7 +75,7 @@ func eryv_start_chase_player():
 func init_player_control():
 	$Player.show()
 	$Player/Head/Camera3D/HUDLayer.show()
-	$"PreControl Scene/Camera3D".clear_current(true)
+	$"PreControl Scene/Camera3DRig/Camera3D".clear_current(true)
 	StoryModeManager.is_in_cutscene = false
 	StoryModeManager.is_in_cutscene_can_move = true
 
@@ -99,7 +98,7 @@ func shake_camera(camera : Camera3D, duration : float, strength : float):
 	camera.global_position = original_position
 
 func camera_motion_shake():
-	shake_camera($"PreControl Scene/Camera3D", 2.0, 0.08)
+	shake_camera($"PreControl Scene/Camera3DRig/Camera3D", 2.0, 0.08)
 
 func play_eryv_feugcs():
 	$"The Eryv/Fuegcs1".play()
