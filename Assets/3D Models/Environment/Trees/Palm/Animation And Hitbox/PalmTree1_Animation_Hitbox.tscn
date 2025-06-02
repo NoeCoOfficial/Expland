@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dxlkxah5aisnt" path="res://Scenes and Scripts/Scenes/Environment/General/Leaf falling particles/PalmTreeLeafFallingParticles.tscn" id="4_3e0u3"]
 [ext_resource type="PackedScene" uid="uid://cmt00ehn4hfne" path="res://Scenes and Scripts/Scenes/General/UI/MessageWithKeyUI.tscn" id="4_8hv3t"]
 [ext_resource type="PackedScene" uid="uid://6exo537gjcsd" path="res://Scenes and Scripts/Scenes/Environment/Pickables/Coconut/Coconut.tscn" id="4_10sc7"]
-[ext_resource type="Texture2D" uid="uid://nmojsrl1t3nx" path="res://Textures/Icons/Input Prompts/mouse_right_outline.png" id="7_08hck"]
+[ext_resource type="Texture2D" uid="uid://nmojsrl1t3nx" path="res://Assets/Textures/Icons/Input Prompts/mouse_right_outline.png" id="7_08hck"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h3xl4"]
 resource_name = "TrunkColor"

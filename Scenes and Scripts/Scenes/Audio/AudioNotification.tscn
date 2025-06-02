@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://d3j4pc4a06lx4" path="res://Scenes and Scripts/Scenes/Audio/AudioNotification_SCRIPT.gd" id="1_xl5m5"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="2_7hn7g"]
-[ext_resource type="Texture2D" uid="uid://d3wid2ugl75bf" path="res://Textures/Icons/MusicWhite_Icon.png" id="3_qfyvc"]
+[ext_resource type="Texture2D" uid="uid://d3wid2ugl75bf" path="res://Assets/Textures/Icons/MusicWhite_Icon.png" id="3_qfyvc"]
 [ext_resource type="FontFile" uid="uid://b2o44xwqnsb5k" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf" id="4_xlxhp"]
-[ext_resource type="Texture2D" uid="uid://fih3i4yk6pip" path="res://Textures/Icons/PlayBtn_Icon.png" id="5_w5aau"]
-[ext_resource type="Texture2D" uid="uid://sirauob061k7" path="res://Textures/Icons/SideArrow_Icon.png" id="6_myn3j"]
+[ext_resource type="Texture2D" uid="uid://fih3i4yk6pip" path="res://Assets/Textures/Icons/PlayBtn_Icon.png" id="5_w5aau"]
+[ext_resource type="Texture2D" uid="uid://sirauob061k7" path="res://Assets/Textures/Icons/SideArrow_Icon.png" id="6_myn3j"]
 [ext_resource type="FontFile" uid="uid://c4h0gd5a2e2qb" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf" id="7_vmdvx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4gcdt"]

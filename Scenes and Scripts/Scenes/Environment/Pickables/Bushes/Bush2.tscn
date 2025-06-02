@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://muif2cwm287n" path="res://Audio/SFX/Environment/HarvestingFruit.mp3" id="2_gahrx"]
 [ext_resource type="Script" uid="uid://bi02uk7qwshyf" path="res://Scenes and Scripts/Scenes/Components/Interactable Component/Interactable_Component_SCRIPT.gd" id="3_607uj"]
 [ext_resource type="PackedScene" uid="uid://cmt00ehn4hfne" path="res://Scenes and Scripts/Scenes/General/UI/MessageWithKeyUI.tscn" id="4_3k56o"]
-[ext_resource type="Texture2D" uid="uid://nmojsrl1t3nx" path="res://Textures/Icons/Input Prompts/mouse_right_outline.png" id="5_cdx1i"]
+[ext_resource type="Texture2D" uid="uid://nmojsrl1t3nx" path="res://Assets/Textures/Icons/Input Prompts/mouse_right_outline.png" id="5_cdx1i"]
 [ext_resource type="FontFile" uid="uid://bel1qoyfluvci" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Bold.otf" id="6_838nu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m3rfc"]

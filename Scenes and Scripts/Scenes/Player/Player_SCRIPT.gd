@@ -45,7 +45,7 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-@icon("res://Textures/Icons/Script Icons/32x32/character.png")
+@icon("uid://chcrn3afs6kak")
 extends CharacterBody3D
 
 #region Variables

@@ -45,7 +45,7 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-@icon("res://Textures/Icons/Script Icons/32x32/credits.png")
+@icon("uid://bew0h7kp8fe1v")
 extends Control
 
 func _ready() -> void:

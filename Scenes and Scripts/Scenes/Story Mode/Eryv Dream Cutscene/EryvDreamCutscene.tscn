@@ -5,15 +5,15 @@
 [ext_resource type="Script" uid="uid://6516a37cmejq" path="res://Scenes and Scripts/Scenes/Player/Player_SCRIPT.gd" id="2_c8ubs"]
 [ext_resource type="PackedScene" uid="uid://befvxrvmvcjab" path="res://Scenes and Scripts/Scenes/Audio/Footstep Sounds/FootstepSounds_GRASS.tscn" id="3_x1v06"]
 [ext_resource type="PackedScene" uid="uid://22st751melpi" path="res://Scenes and Scripts/Scenes/Audio/Footstep Sounds/FootstepSounds_STONE.tscn" id="4_wa2yw"]
-[ext_resource type="Script" uid="uid://djnu0mq7nqgk2" path="res://Textures/Icons/Script Icons/Scripts/ClockIcon_SCRIPT.gd" id="5_geutv"]
+[ext_resource type="Script" uid="uid://djnu0mq7nqgk2" path="res://Assets/Textures/Icons/Script Icons/Scripts/ClockIcon_SCRIPT.gd" id="5_geutv"]
 [ext_resource type="PackedScene" uid="uid://8jr1q0oly2hr" path="res://Scenes and Scripts/Scenes/The Eryv (and related)/TheEryv.tscn" id="5_mfavh"]
 [ext_resource type="PackedScene" uid="uid://jdu8drxlcfv5" path="res://Scenes and Scripts/Scenes/Player/Character/PlayerCharacterShadow.tscn" id="6_5iwlc"]
 [ext_resource type="PackedScene" uid="uid://32wjv1fmedim" path="res://Scenes and Scripts/Scenes/Player/Character/PlayerCharacter.tscn" id="7_gahau"]
-[ext_resource type="Script" uid="uid://dilocovfy7y5b" path="res://Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="8_yhd85"]
+[ext_resource type="Script" uid="uid://dilocovfy7y5b" path="res://Assets/Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="8_yhd85"]
 [ext_resource type="PackedScene" uid="uid://djwgy3b85xfpn" path="res://Scenes and Scripts/Scenes/Player/Hand Item/HandItem.tscn" id="9_igarn"]
-[ext_resource type="Texture2D" uid="uid://tmqrfb1atg1j" path="res://Textures/Crosshairs/Expland_Crosshair.png" id="10_ncmp1"]
-[ext_resource type="Texture2D" uid="uid://bg100aqmtgfn4" path="res://Textures/Icons/WhiteHam_Icon.png" id="11_xiwe1"]
-[ext_resource type="Texture2D" uid="uid://b20d3fbxr6vhx" path="res://Textures/Icons/WhiteHeart_Icon.png" id="12_mfavh"]
+[ext_resource type="Texture2D" uid="uid://tmqrfb1atg1j" path="res://Assets/Textures/Crosshairs/Expland_Crosshair.png" id="10_ncmp1"]
+[ext_resource type="Texture2D" uid="uid://bg100aqmtgfn4" path="res://Assets/Textures/Icons/WhiteHam_Icon.png" id="11_xiwe1"]
+[ext_resource type="Texture2D" uid="uid://b20d3fbxr6vhx" path="res://Assets/Textures/Icons/WhiteHeart_Icon.png" id="12_mfavh"]
 [ext_resource type="PackedScene" uid="uid://b5eh6oa1yop7t" path="res://Scenes and Scripts/Scenes/Environment/General/Grass/MultiMesh Grass Clumps/MultiMeshGrassClump5.tscn" id="12_w04sd"]
 [ext_resource type="PackedScene" uid="uid://dd5w3i40so3ic" path="res://Scenes and Scripts/Scenes/Environment/General/Rocks/Rock1.tscn" id="13_a3bwp"]
 [ext_resource type="Texture2D" uid="uid://bx3jg6ecnsa15" path="res://Tests/Screenshot (8).png" id="13_so3kt"]
@@ -21,34 +21,34 @@
 [ext_resource type="PackedScene" uid="uid://dibnl8o04l6p2" path="res://Assets/3D Models/Environment/Trees/Pine/Animation and Hitbox/PineTree3_Animation_Hitbox.tscn" id="14_pwkkx"]
 [ext_resource type="FontFile" uid="uid://bel1qoyfluvci" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Bold.otf" id="15_o0bi3"]
 [ext_resource type="Material" uid="uid://bo77d7nagqoh4" path="res://Resources/Shader Materials/BuildingVignette.tres" id="16_w04sd"]
-[ext_resource type="Script" uid="uid://dux7wdl4tm683" path="res://Textures/Icons/Script Icons/Scripts/KeyIcon_SCRIPT.gd" id="17_a3bwp"]
+[ext_resource type="Script" uid="uid://dux7wdl4tm683" path="res://Assets/Textures/Icons/Script Icons/Scripts/KeyIcon_SCRIPT.gd" id="17_a3bwp"]
 [ext_resource type="FontFile" uid="uid://c4h0gd5a2e2qb" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf" id="18_pwkkx"]
-[ext_resource type="Texture2D" uid="uid://2qb1qs6h08t" path="res://Textures/Icons/Input Prompts/mouse_left_outline.png" id="19_6es53"]
-[ext_resource type="Texture2D" uid="uid://b6qs4d3wecwxo" path="res://Textures/Icons/Input Prompts/mouse_scroll_outline.png" id="20_p4r7k"]
-[ext_resource type="Texture2D" uid="uid://c2clf63v0gam8" path="res://Textures/Icons/Input Prompts/mouse_outline.png" id="21_lmeqo"]
+[ext_resource type="Texture2D" uid="uid://2qb1qs6h08t" path="res://Assets/Textures/Icons/Input Prompts/mouse_left_outline.png" id="19_6es53"]
+[ext_resource type="Texture2D" uid="uid://b6qs4d3wecwxo" path="res://Assets/Textures/Icons/Input Prompts/mouse_scroll_outline.png" id="20_p4r7k"]
+[ext_resource type="Texture2D" uid="uid://c2clf63v0gam8" path="res://Assets/Textures/Icons/Input Prompts/mouse_outline.png" id="21_lmeqo"]
 [ext_resource type="Script" uid="uid://bd3squcstkss1" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="22_hkbgw"]
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="23_am5e1"]
 [ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="24_yxye2"]
 [ext_resource type="StyleBox" uid="uid://c1a26qv61p5kw" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkgreyBGwithWhiteBorder.tres" id="25_umhd5"]
-[ext_resource type="Texture2D" uid="uid://b2eggg0vffmo4" path="res://Textures/Inventory/ROCK.png" id="26_vfymc"]
-[ext_resource type="Texture2D" uid="uid://m8ohdtvo6rfr" path="res://Textures/Inventory/RED FLOWER.png" id="27_ctc3c"]
-[ext_resource type="Texture2D" uid="uid://cavoja22gxr3s" path="res://Textures/Inventory/BLUE FLOWER.png" id="28_eed2x"]
-[ext_resource type="Texture2D" uid="uid://da0briqsyhmau" path="res://Textures/Inventory/PINK FLOWER.png" id="29_d7ust"]
-[ext_resource type="Texture2D" uid="uid://cqvxhihjcesqw" path="res://Textures/Inventory/YELLOW FLOWER.png" id="30_2hvf2"]
-[ext_resource type="Texture2D" uid="uid://bu54o8nhdxuoh" path="res://Textures/Inventory/BLANK FLOWER.png" id="31_kp7q6"]
-[ext_resource type="Texture2D" uid="uid://d2o42bjls3sl3" path="res://Textures/Inventory/WOOD PLANK.png" id="32_l267l"]
-[ext_resource type="Texture2D" uid="uid://dmyiq1y00bivg" path="res://Textures/Inventory/COCONUT.png" id="33_fpnc7"]
-[ext_resource type="Texture2D" uid="uid://1dbgnxe1pe1i" path="res://Textures/Inventory/HEALTH POTION.png" id="34_g48yv"]
-[ext_resource type="Texture2D" uid="uid://o3u6sxubmrbg" path="res://Textures/Inventory/HASTE POTION.png" id="35_gfb7v"]
-[ext_resource type="Texture2D" uid="uid://dkol2o53q7rck" path="res://Textures/Inventory/LUCK POTION.png" id="36_ld03s"]
-[ext_resource type="Texture2D" uid="uid://don2d5onyupya" path="res://Textures/Inventory/EFFICIENCY POTION.png" id="37_vh3of"]
-[ext_resource type="Texture2D" uid="uid://d0q61bcnprn5o" path="res://Textures/Inventory/NIGHT VISION POTION.png" id="38_qoh53"]
-[ext_resource type="Texture2D" uid="uid://mwa55qklwxe3" path="res://Textures/Inventory/REGENERATING POTION.png" id="39_yutp2"]
-[ext_resource type="Texture2D" uid="uid://fj1pvfgfyamb" path="res://Textures/Inventory/STAMINA POTION.png" id="40_2fo71"]
-[ext_resource type="Texture2D" uid="uid://bfiqh1ceg7rmt" path="res://Textures/Inventory/STRENGTH POTION.png" id="41_d0sna"]
-[ext_resource type="Texture2D" uid="uid://bxxnhb6vulkry" path="res://Textures/Inventory/PICKAXE.png" id="42_3uvxa"]
-[ext_resource type="Texture2D" uid="uid://dq8jg5iy6tfyc" path="res://Textures/Inventory/AXE.png" id="43_6cwqt"]
-[ext_resource type="Texture2D" uid="uid://dixs8s5v2su7q" path="res://Textures/Inventory/SWORD.png" id="44_vfc53"]
+[ext_resource type="Texture2D" uid="uid://b2eggg0vffmo4" path="res://Assets/Textures/Inventory/ROCK.png" id="26_vfymc"]
+[ext_resource type="Texture2D" uid="uid://m8ohdtvo6rfr" path="res://Assets/Textures/Inventory/RED FLOWER.png" id="27_ctc3c"]
+[ext_resource type="Texture2D" uid="uid://cavoja22gxr3s" path="res://Assets/Textures/Inventory/BLUE FLOWER.png" id="28_eed2x"]
+[ext_resource type="Texture2D" uid="uid://da0briqsyhmau" path="res://Assets/Textures/Inventory/PINK FLOWER.png" id="29_d7ust"]
+[ext_resource type="Texture2D" uid="uid://cqvxhihjcesqw" path="res://Assets/Textures/Inventory/YELLOW FLOWER.png" id="30_2hvf2"]
+[ext_resource type="Texture2D" uid="uid://bu54o8nhdxuoh" path="res://Assets/Textures/Inventory/BLANK FLOWER.png" id="31_kp7q6"]
+[ext_resource type="Texture2D" uid="uid://d2o42bjls3sl3" path="res://Assets/Textures/Inventory/WOOD PLANK.png" id="32_l267l"]
+[ext_resource type="Texture2D" uid="uid://dmyiq1y00bivg" path="res://Assets/Textures/Inventory/COCONUT.png" id="33_fpnc7"]
+[ext_resource type="Texture2D" uid="uid://1dbgnxe1pe1i" path="res://Assets/Textures/Inventory/HEALTH POTION.png" id="34_g48yv"]
+[ext_resource type="Texture2D" uid="uid://o3u6sxubmrbg" path="res://Assets/Textures/Inventory/HASTE POTION.png" id="35_gfb7v"]
+[ext_resource type="Texture2D" uid="uid://dkol2o53q7rck" path="res://Assets/Textures/Inventory/LUCK POTION.png" id="36_ld03s"]
+[ext_resource type="Texture2D" uid="uid://don2d5onyupya" path="res://Assets/Textures/Inventory/EFFICIENCY POTION.png" id="37_vh3of"]
+[ext_resource type="Texture2D" uid="uid://d0q61bcnprn5o" path="res://Assets/Textures/Inventory/NIGHT VISION POTION.png" id="38_qoh53"]
+[ext_resource type="Texture2D" uid="uid://mwa55qklwxe3" path="res://Assets/Textures/Inventory/REGENERATING POTION.png" id="39_yutp2"]
+[ext_resource type="Texture2D" uid="uid://fj1pvfgfyamb" path="res://Assets/Textures/Inventory/STAMINA POTION.png" id="40_2fo71"]
+[ext_resource type="Texture2D" uid="uid://bfiqh1ceg7rmt" path="res://Assets/Textures/Inventory/STRENGTH POTION.png" id="41_d0sna"]
+[ext_resource type="Texture2D" uid="uid://bxxnhb6vulkry" path="res://Assets/Textures/Inventory/PICKAXE.png" id="42_3uvxa"]
+[ext_resource type="Texture2D" uid="uid://dq8jg5iy6tfyc" path="res://Assets/Textures/Inventory/AXE.png" id="43_6cwqt"]
+[ext_resource type="Texture2D" uid="uid://dixs8s5v2su7q" path="res://Assets/Textures/Inventory/SWORD.png" id="44_vfc53"]
 [ext_resource type="PackedScene" uid="uid://dhhjltxmoydio" path="res://Scenes and Scripts/Scenes/Player/Inventory/InventorySlot.tscn" id="45_i4qp5"]
 [ext_resource type="PackedScene" uid="uid://du1ak3ldg8x4e" path="res://Scenes and Scripts/Scenes/Dialogue/DialogueInterface.tscn" id="46_sa0i7"]
 [ext_resource type="PackedScene" uid="uid://cn1krf62jowgb" path="res://Scenes and Scripts/Scenes/Dialogue/MinimalDialogue.tscn" id="47_x7bt6"]
@@ -64,8 +64,8 @@
 [ext_resource type="PackedScene" uid="uid://ynckscwc0643" path="res://Scenes and Scripts/Scenes/Alerts/Normal/AlertLayer.tscn" id="57_apqu5"]
 [ext_resource type="PackedScene" uid="uid://cq13w255wbu5l" path="res://Scenes and Scripts/Scenes/Minimal Alert/MinimalAlert.tscn" id="58_ngg4a"]
 [ext_resource type="Script" uid="uid://snus4y53incu" path="res://Scenes and Scripts/Utility Scripts/IgnoreMouseFilter.gd" id="59_02eud"]
-[ext_resource type="Texture2D" uid="uid://64jg78rc6wkb" path="res://Textures/Icons/Loading_Icon.png" id="60_ii0ge"]
-[ext_resource type="Texture2D" uid="uid://cliv00fuliseq" path="res://Textures/Icons/TickGreen_Icon.png" id="61_rpul5"]
+[ext_resource type="Texture2D" uid="uid://64jg78rc6wkb" path="res://Assets/Textures/Icons/Loading_Icon.png" id="60_ii0ge"]
+[ext_resource type="Texture2D" uid="uid://cliv00fuliseq" path="res://Assets/Textures/Icons/TickGreen_Icon.png" id="61_rpul5"]
 [ext_resource type="PackedScene" uid="uid://cjxbcx2vhofs" path="res://Scenes and Scripts/Scenes/Achievements/AchievementNotification.tscn" id="62_ru0fy"]
 [ext_resource type="Script" uid="uid://dbw4gstfj8x4u" path="res://Scenes and Scripts/Scenes/Player/Debug/Inputs_currently_pressing_label_SCRIPT.gd" id="63_lcuqo"]
 [ext_resource type="PackedScene" uid="uid://cemaw6qpjdvj0" path="res://Assets/3D Models/Environment/Trees/Pine/Animation and Hitbox/PineTree4_Animation_Hitbox.tscn" id="64_x1v06"]
@@ -2789,36 +2789,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 transform = Transform3D(-0.651061, 0, -5.69176e-08, 0, 0.651061, 0, 5.69176e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Player/Head/Player_Character_Shadow/Armature_003" index="0"]
-bones/0/position = Vector3(2.70488, -4.1361, -195.407)
-bones/0/rotation = Quaternion(-0.68308, -0.270074, 0.250447, 0.630665)
-bones/1/rotation = Quaternion(0.0810561, 0.0411479, -0.00944689, 0.995815)
-bones/2/rotation = Quaternion(0.100011, 0.0797323, -0.023302, 0.991513)
-bones/3/rotation = Quaternion(0.100011, 0.0797323, -0.0233019, 0.991513)
-bones/4/rotation = Quaternion(-0.066386, -0.010775, 0.00204119, 0.997734)
-bones/5/rotation = Quaternion(-0.0573985, 0.176877, -0.0112911, 0.982493)
-bones/7/rotation = Quaternion(0.594644, 0.402792, -0.567763, 0.402247)
-bones/8/rotation = Quaternion(0.420461, -0.107523, 0.0880613, 0.896603)
+bones/0/position = Vector3(2.82833, -4.00318, -195.605)
+bones/0/rotation = Quaternion(-0.683839, -0.269919, 0.249505, 0.630282)
+bones/1/rotation = Quaternion(0.0804325, 0.0407749, -0.00915411, 0.995884)
+bones/2/rotation = Quaternion(0.0986073, 0.0790332, -0.0228409, 0.99172)
+bones/3/rotation = Quaternion(0.0986073, 0.0790332, -0.0228409, 0.99172)
+bones/4/rotation = Quaternion(-0.0585527, -0.0108737, 0.00220281, 0.998223)
+bones/5/rotation = Quaternion(-0.0424345, 0.176365, -0.00741367, 0.983382)
+bones/7/rotation = Quaternion(0.590166, 0.408485, -0.567012, 0.404156)
+bones/8/rotation = Quaternion(0.423067, -0.106368, 0.0880488, 0.895516)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0391157, 0.0587799, 0.405816, 0.911223)
-bones/11/rotation = Quaternion(0.642685, -0.363579, 0.524543, 0.423817)
-bones/12/rotation = Quaternion(0.405046, 0.113222, 0.148758, 0.89498)
-bones/13/rotation = Quaternion(0.022202, 0.0244546, -0.362632, 0.931347)
-bones/15/rotation = Quaternion(0.0791511, 0.240251, 0.961641, -0.106119)
+bones/9/rotation = Quaternion(-0.0383051, 0.0590446, 0.407081, 0.910676)
+bones/11/rotation = Quaternion(0.637566, -0.370012, 0.524914, 0.425518)
+bones/12/rotation = Quaternion(0.410231, 0.109682, 0.147702, 0.893233)
+bones/13/rotation = Quaternion(0.027318, 0.0184149, -0.365302, 0.930306)
+bones/15/rotation = Quaternion(0.0793473, 0.23834, 0.962156, -0.105616)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.365966, 0.118181, -0.0366545, 0.922366)
-bones/17/rotation = Quaternion(0.566354, -0.0027369, -0.0265885, 0.823728)
-bones/18/rotation = Quaternion(0.289416, -0.0367937, -0.00943786, 0.956449)
-bones/20/rotation = Quaternion(-0.124545, 0.0386774, 0.982587, 0.132348)
-bones/21/rotation = Quaternion(-0.359289, 0.0703477, -0.0270953, 0.930177)
-bones/22/rotation = Quaternion(0.67994, 0.0548131, 0.10486, 0.723658)
+bones/16/rotation = Quaternion(-0.363854, 0.119107, -0.0367643, 0.923078)
+bones/17/rotation = Quaternion(0.565481, -0.00248633, -0.0261016, 0.824345)
+bones/18/rotation = Quaternion(0.289011, -0.0358633, -0.00927739, 0.956609)
+bones/20/rotation = Quaternion(-0.124584, 0.0355185, 0.982713, 0.132259)
+bones/21/rotation = Quaternion(-0.355639, 0.0716757, -0.0270388, 0.931479)
+bones/22/rotation = Quaternion(0.678294, 0.0548648, 0.105227, 0.725145)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.278183, 0.0568625, -0.0170235, 0.958692)
+bones/23/rotation = Quaternion(0.27791, 0.0565927, -0.0169288, 0.958789)
 
 [node name="Model_004" parent="Player/Head/Player_Character_Shadow/Armature_003/Skeleton3D" index="0"]
 cast_shadow = 3
 
 [node name="HandAttatchment" type="BoneAttachment3D" parent="Player/Head/Player_Character_Shadow/Armature_003/Skeleton3D" index="1"]
-transform = Transform3D(-0.302714, -0.384512, 0.872075, 0.94275, 0.0135568, 0.333224, -0.139952, 0.923021, 0.358395, -76.2599, -38.9501, -201.031)
+transform = Transform3D(-0.297577, -0.379885, 0.875863, 0.94326, 0.0245926, 0.331142, -0.147336, 0.924707, 0.351012, -75.9412, -38.782, -201.778)
 bone_name = "mixamorig_RightHand"
 bone_idx = 14
 
@@ -2826,45 +2826,45 @@ bone_idx = 14
 transform = Transform3D(-0.651061, 0, 5.69175e-08, 0, 0.651061, 0, -5.69175e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Player/Head/Player_Character/Armature_003" index="0"]
-bones/0/position = Vector3(2.70488, -4.1361, -195.407)
-bones/0/rotation = Quaternion(-0.68308, -0.270074, 0.250447, 0.630665)
-bones/1/rotation = Quaternion(0.0810561, 0.0411479, -0.00944689, 0.995815)
+bones/0/position = Vector3(2.82833, -4.00318, -195.605)
+bones/0/rotation = Quaternion(-0.683839, -0.269919, 0.249505, 0.630282)
+bones/1/rotation = Quaternion(0.0804325, 0.0407749, -0.00915411, 0.995884)
 bones/2/position = Vector3(1.19209e-07, 29.1135, -2.98023e-06)
-bones/2/rotation = Quaternion(0.100011, 0.0797323, -0.023302, 0.991513)
+bones/2/rotation = Quaternion(0.0986073, 0.0790332, -0.0228409, 0.99172)
 bones/3/position = Vector3(5.126e-06, 33.2726, 4.64916e-06)
-bones/3/rotation = Quaternion(0.100011, 0.0797323, -0.0233019, 0.991513)
+bones/3/rotation = Quaternion(0.0986073, 0.0790332, -0.0228409, 0.99172)
 bones/4/position = Vector3(5.24521e-06, 37.4316, 1.82406e-05)
-bones/4/rotation = Quaternion(-0.066386, -0.010775, 0.00204119, 0.997734)
+bones/4/rotation = Quaternion(-0.0585527, -0.0108737, 0.00220281, 0.998223)
 bones/5/position = Vector3(-2.86102e-06, 12.1577, 1.85682)
-bones/5/rotation = Quaternion(-0.0573985, 0.176877, -0.0112911, 0.982493)
+bones/5/rotation = Quaternion(-0.0424345, 0.176365, -0.00741367, 0.983382)
 bones/7/position = Vector3(15.5676, 33.9216, 0.214007)
-bones/7/rotation = Quaternion(0.594644, 0.402792, -0.567763, 0.402247)
+bones/7/rotation = Quaternion(0.590166, 0.408485, -0.567012, 0.404156)
 bones/8/position = Vector3(7.52916e-06, 31.6372, -3.73462e-05)
-bones/8/rotation = Quaternion(0.420461, -0.107523, 0.0880613, 0.896603)
+bones/8/rotation = Quaternion(0.423067, -0.106368, 0.0880488, 0.895516)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0391157, 0.0587799, 0.405816, 0.911223)
+bones/9/rotation = Quaternion(-0.0383051, 0.0590446, 0.407081, 0.910676)
 bones/10/position = Vector3(-5.75185e-06, 48.1225, -4.24013e-05)
 bones/11/position = Vector3(-15.5676, 33.9222, 0.223976)
-bones/11/rotation = Quaternion(0.642685, -0.363579, 0.524543, 0.423817)
+bones/11/rotation = Quaternion(0.637566, -0.370012, 0.524914, 0.425518)
 bones/12/position = Vector3(-1.65313e-05, 31.6372, 2.51814e-05)
-bones/12/rotation = Quaternion(0.405046, 0.113222, 0.148758, 0.89498)
+bones/12/rotation = Quaternion(0.410231, 0.109682, 0.147702, 0.893233)
 bones/13/position = Vector3(3.17927e-05, 70.8277, 3.58869e-05)
-bones/13/rotation = Quaternion(0.022202, 0.0244546, -0.362632, 0.931347)
+bones/13/rotation = Quaternion(0.027318, 0.0184149, -0.365302, 0.930306)
 bones/14/position = Vector3(-3.78489e-06, 48.1226, 3.61372e-05)
-bones/15/rotation = Quaternion(0.0791511, 0.240251, 0.961641, -0.106119)
+bones/15/rotation = Quaternion(0.0793473, 0.23834, 0.962156, -0.105616)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.365966, 0.118181, -0.0366545, 0.922366)
+bones/16/rotation = Quaternion(-0.363854, 0.119107, -0.0367643, 0.923078)
 bones/17/position = Vector3(8.16445e-06, 89.1268, 4.36753e-06)
-bones/17/rotation = Quaternion(0.566354, -0.0027369, -0.0265885, 0.823728)
+bones/17/rotation = Quaternion(0.565481, -0.00248633, -0.0261016, 0.824345)
 bones/18/position = Vector3(1.07865e-05, 26.9015, 2.76264e-06)
-bones/18/rotation = Quaternion(0.289416, -0.0367937, -0.00943786, 0.956449)
+bones/18/rotation = Quaternion(0.289011, -0.0358633, -0.00927739, 0.956609)
 bones/19/position = Vector3(-7.05104e-06, 10.3861, 1.60187e-07)
-bones/20/rotation = Quaternion(-0.124545, 0.0386774, 0.982587, 0.132348)
+bones/20/rotation = Quaternion(-0.124584, 0.0355185, 0.982713, 0.132259)
 bones/21/position = Vector3(7.35216e-06, 93.8847, 2.20229e-06)
-bones/21/rotation = Quaternion(-0.359289, 0.0703477, -0.0270953, 0.930177)
-bones/22/rotation = Quaternion(0.67994, 0.0548131, 0.10486, 0.723658)
+bones/21/rotation = Quaternion(-0.355639, 0.0716757, -0.0270388, 0.931479)
+bones/22/rotation = Quaternion(0.678294, 0.0548648, 0.105227, 0.725145)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.278183, 0.0568625, -0.0170235, 0.958692)
+bones/23/rotation = Quaternion(0.27791, 0.0565927, -0.0169288, 0.958789)
 bones/24/position = Vector3(3.21493e-06, 10.3578, 7.00355e-07)
 
 [node name="Model_004" parent="Player/Head/Player_Character/Armature_003/Skeleton3D" index="0"]

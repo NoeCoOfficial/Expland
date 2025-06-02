@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cn1krf62jowgb" path="res://Scenes and Scripts/Scenes/Dialogue/MinimalDialogue.tscn" id="4_7s4ab"]
 [ext_resource type="PackedScene" uid="uid://ck0guuhifgbmr" path="res://Assets/3D Models/Cutscenes/Story Mode/Start Cutscene/Models/Yacht.blend" id="4_os8dc"]
 [ext_resource type="Material" uid="uid://bb7q65pb3k66i" path="res://Resources/Shader Materials/VolumetricClouds.tres" id="4_w18yt"]
-[ext_resource type="Script" uid="uid://dn1b1gnwe5iap" path="res://Textures/Icons/Script Icons/Scripts/LightbulbIcon_SCRIPT.gd" id="6_to1x2"]
+[ext_resource type="Script" uid="uid://dn1b1gnwe5iap" path="res://Assets/Textures/Icons/Script Icons/Scripts/LightbulbIcon_SCRIPT.gd" id="6_to1x2"]
 [ext_resource type="Script" uid="uid://b750i1bt8l7b" path="res://Scenes and Scripts/Scenes/Environment/Water Mesh/RigidBody_WaterBuoyancy_SCRIPT.gd" id="6_w18yt"]
 [ext_resource type="PackedScene" uid="uid://boh6io7exec3j" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/Props/RedLever.tscn" id="8_ec70e"]
 [ext_resource type="PackedScene" uid="uid://crw6j1eee7306" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/Props/GreenLever.tscn" id="8_f3l76"]

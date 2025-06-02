@@ -45,7 +45,7 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-@icon("res://Textures/Icons/Script Icons/32x32/ui_toolbar.png")
+@icon("uid://b6tahbmabs2yv")
 extends Control
 
 func _ready() -> void:

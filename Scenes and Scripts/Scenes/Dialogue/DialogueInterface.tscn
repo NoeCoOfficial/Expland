@@ -7,8 +7,8 @@
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="4_ucycy"]
 [ext_resource type="FontFile" uid="uid://btimp4hwg4jis" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Regular.otf" id="5_0d6dj"]
 [ext_resource type="FontFile" uid="uid://b2o44xwqnsb5k" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf" id="6_b65nx"]
-[ext_resource type="Texture2D" uid="uid://2qb1qs6h08t" path="res://Textures/Icons/Input Prompts/mouse_left_outline.png" id="8_aqtf4"]
-[ext_resource type="Texture2D" uid="uid://sirauob061k7" path="res://Textures/Icons/SideArrow_Icon.png" id="9_3nwjr"]
+[ext_resource type="Texture2D" uid="uid://2qb1qs6h08t" path="res://Assets/Textures/Icons/Input Prompts/mouse_left_outline.png" id="8_aqtf4"]
+[ext_resource type="Texture2D" uid="uid://sirauob061k7" path="res://Assets/Textures/Icons/SideArrow_Icon.png" id="9_3nwjr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_63xh2"]
 bg_color = Color(0, 0, 0, 1)

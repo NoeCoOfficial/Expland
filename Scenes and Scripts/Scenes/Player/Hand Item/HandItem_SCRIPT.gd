@@ -45,7 +45,7 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-@icon("res://Textures/Icons/Script Icons/32x32/object_hand.png")
+@icon("uid://cwkqp0ys2ik5p")
 class_name HandItems extends Resource
 
 @export var ITEM_TYPE : String

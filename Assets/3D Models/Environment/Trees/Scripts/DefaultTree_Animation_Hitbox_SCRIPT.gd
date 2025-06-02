@@ -45,7 +45,7 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-@icon("res://Textures/Icons/Script Icons/32x32/object.png")
+@icon("uid://ckgujndjwymvr")
 extends Node3D
 
 func _ready() -> void:
