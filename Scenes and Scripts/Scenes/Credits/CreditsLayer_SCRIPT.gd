@@ -74,7 +74,10 @@ func despawnCredits(animationTime : float):
 	
 	if PlayerSettingsData.quickAnimations:
 		$MainLayer.scale = Vector2(0.0, 0.0)
+		$BlurLayer.fadeOutBlur(0.0)
 		self.visible = false
+		
+	
 	else:
 		var tween = get_tree().create_tween().set_parallel()
 		tween.tween_property($MainLayer, "scale", Vector2(0.0, 0.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)

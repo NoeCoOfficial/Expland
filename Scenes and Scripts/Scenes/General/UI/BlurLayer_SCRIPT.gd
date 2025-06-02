@@ -51,8 +51,10 @@ extends Control
 @export var Stop_Mouse : Control
 
 var target_mat
+var tween : Tween
 
 func _ready() -> void:
+	tween = get_tree().create_tween().set_parallel()
 	Blur.hide()
 	target_mat = Blur.material
 	
@@ -60,18 +62,23 @@ func _ready() -> void:
 	target_mat.set_shader_parameter("darkness", 1.0)
 
 func fadeInBlur(time : float, blur_scale : float, stop_mouse : bool, darkness : float, pass_mouse : bool = false):
+	if tween:
+		tween.stop()
+		tween.kill()
+	
 	Blur.show()
 	if stop_mouse:
 		Stop_Mouse.mouse_filter = Control.MOUSE_FILTER_STOP
 	if pass_mouse:
 		Stop_Mouse.mouse_filter = Control.MOUSE_FILTER_PASS
 	
-	var tween = get_tree().create_tween().set_parallel()
 	tween.tween_property(target_mat, "shader_parameter/blur_scale", blur_scale, time)
 	tween.tween_property(target_mat, "shader_parameter/darkness", darkness, time)
 
 func fadeOutBlur(time : float):
-	var tween = get_tree().create_tween().set_parallel()
+	if tween:
+		tween.stop()
+		tween.kill()
 	tween.connect("finished", on_fade_out_finished)
 	tween.tween_property(target_mat, "shader_parameter/blur_scale", 0.001, time)
 	tween.tween_property(target_mat, "shader_parameter/darkness", 1.0, time)
