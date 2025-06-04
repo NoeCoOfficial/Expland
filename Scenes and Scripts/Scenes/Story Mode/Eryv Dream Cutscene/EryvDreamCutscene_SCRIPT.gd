@@ -48,10 +48,9 @@
 extends Node3D
 
 @export var TheEryv : CharacterBody3D
-var scene_thread : Thread
+@export var finished_look_around_dead_cutscene : bool = false
 
 func _ready() -> void:
-	scene_thread = Thread.new()
 	var ambient_fade_in = get_tree().create_tween()
 	ambient_fade_in.tween_property($Environment/AmbientWindLoop, "volume_db", 5.0, 1).from(-10.0)
 	$Environment/AmbientWindLoop.play()
@@ -65,6 +64,9 @@ func _ready() -> void:
 	$Player.nodeSetup()
 	
 	$"PreControl Scene/CameraMotion".play("motion")
+
+func spawn_run_minimal_dialogue():
+	$Player/Head/Camera3D/MinimalDialogueLayer/MinimalDialogue.spawnMinimalDialogue(DialogueManager.StoryMode_EryvDream_Dialogue)
 
 func eryv_start_chase_player():
 	TheEryv.start_chase_player()
