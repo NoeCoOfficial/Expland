@@ -118,8 +118,8 @@ albedo_color = Color(0.212305, 0.212305, 0.212305, 1)
 size = Vector3(10.52, 1, 366.145)
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_so3kt"]
-vertices = PackedVector3Array(4.9451, 1, -51.0725, 4.9451, 1, -183.072, -5.0549, 1, -183.072, -2.5549, 1, -50.5725, -5.0549, 1, -50.3225, 2.9451, 1, -43.8225, 2.9451, 1, -43.3225, 4.9451, 1, -43.3225, -2.5549, 1, -43.8225, -0.0549026, 1, -43.0725, 0.195097, 1, -43.5725, -2.0549, 1, -45.8225, 2.1951, 1, -43.8225, -2.5549, 1, -48.5725, -5.0549, 1, -48.3225, -5.0549, 1, -45.5725, -5.0549, 1, -27.5725, -3.8049, 1, -27.5725, -3.8049, 1, -28.8225, -4.8049, 1, -43.3225, -5.0549, 1, -44.3225, -1.8049, 1, -28.3225, -1.0549, 1, -28.8225, -1.5549, 1, -30.3225, 1.1951, 1, -31.0725, 2.6951, 1, -41.8225, 0.945097, 1, -41.3225, 1.6951, 1, -29.8225, 4.9451, 1, -29.8225, 0.195097, 1, -41.3225, -0.804903, 1, -31.0725, -4.0549, 1, -26.5725, -1.3049, 1, -26.8225, 0.445097, 1, -27.5725, -0.0549026, 1, -17.8225, 1.1951, 1, -15.8225, 0.945097, 1, -14.3225, 2.9451, 1, -13.5725, -5.0549, 1, -15.8225, -2.0549, 1, -15.8225, -1.8049, 1, -17.0725, 1.4451, 1, -28.3225, 4.9451, 1, -12.8225, 2.9451, 1, -10.8225, 3.1951, 1, -11.8225, 2.4451, 1, -11.8225, 1.6951, 1, -11.5725, -1.0549, 1, -13.3225, -5.0549, 1, -12.0725, 0.195097, 1, -13.3225, -2.5549, 1, -9.32249, 1.1951, 1, -9.57249, 3.9451, 1, -10.3225, 4.9451, 1, -11.3225, -3.3049, 1, -7.82249, -1.5549, 1, -6.32249, 4.9451, 1, -9.07249, 4.1951, 1, -9.32249, 3.1951, 1, -5.82249, 3.6951, 1, -7.82249, 3.6951, 1, -8.57249, 2.9451, 1, -4.82249, -1.8049, 1, -5.82249, 4.9451, 1, -5.32249, 4.9451, 1, -7.32249, -4.0549, 1, -4.57249, -5.0549, 1, -7.07249, -5.0549, 1, -1.32249, -4.3049, 1, -2.07249, -2.3049, 1, -2.07249, -1.8049, 1, -1.32249, 2.6951, 1, -4.07249, 4.9451, 1, -1.32249, 4.9451, 1, -3.57249, -1.8049, 1, 0.177505, 3.9451, 1, -0.0724945, -2.3049, 1, 6.17751, -1.5549, 1, 5.17751, -1.8049, 1, 4.42751, -4.5549, 1, 4.67751, -5.0549, 1, 11.9275, -2.3049, 1, 11.9275, -2.5549, 1, 11.4275, -0.804903, 1, 10.4275, -1.8049, 1, 6.92751, -4.8049, 1, 7.67751, -1.3049, 1, 3.17751, -2.3049, 1, 0.677505, -3.0549, 1, 0.927505, -4.3049, 1, 0.427505, -5.0549, 1, -0.822495, 2.9451, 1, 5.67751, 3.1951, 1, 7.17751, 4.9451, 1, 7.17751, 4.9451, 1, 0.177505, 0.445097, 1, 4.67751, 2.4451, 1, 5.92751, 3.4451, 1, 7.92751, 1.6951, 1, 7.42751, 4.9451, 1, 12.4275, 1.6951, 1, 12.6775, -2.3049, 1, 12.4275, -0.0549026, 1, 14.1775, -5.0549, 1, 23.1775, 3.4451, 1, 23.1775, 4.9451, 1, 22.4275, 4.9451, 1, 13.9275, 3.6951, 1, 14.6775, 3.6951, 1, 21.9275, 1.9451, 1, 27.1775, 4.9451, 1, 27.9275, 4.9451, 1, 24.6775, 3.4451, 1, 24.1775, -5.0549, 1, 28.1775, 1.9451, 1, 28.1775, 1.6951, 1, 35.1775, 4.9451, 1, 36.1775, 4.9451, 1, 29.9275, 2.1951, 1, 29.9275, -5.0549, 1, 36.6775, 1.6951, 1, 36.6775, 4.9451, 1, 46.9275, 4.9451, 1, 45.9275, 3.1951, 1, 45.9275, -5.0549, 1, 46.4275, 3.1951, 1, 43.1775, 4.9451, 1, 43.6775, 4.9451, 1, 38.1775, 1.9451, 1, 38.1775, -5.0549, 1, 183.178, 4.9451, 1, 183.178, 4.9451, 1, 50.9275, -5.0549, 1, 49.9275)
-polygons = [PackedInt32Array(0, 3, 1), PackedInt32Array(1, 3, 2), PackedInt32Array(2, 3, 4), PackedInt32Array(7, 6, 5), PackedInt32Array(10, 9, 8), PackedInt32Array(8, 11, 10), PackedInt32Array(10, 11, 12), PackedInt32Array(14, 13, 15), PackedInt32Array(15, 13, 11), PackedInt32Array(5, 12, 11), PackedInt32Array(13, 3, 11), PackedInt32Array(11, 3, 5), PackedInt32Array(5, 3, 7), PackedInt32Array(7, 3, 0), PackedInt32Array(17, 16, 18), PackedInt32Array(18, 16, 19), PackedInt32Array(19, 16, 20), PackedInt32Array(22, 21, 23), PackedInt32Array(23, 21, 18), PackedInt32Array(26, 25, 24), PackedInt32Array(6, 7, 25), PackedInt32Array(25, 7, 24), PackedInt32Array(24, 7, 27), PackedInt32Array(27, 7, 28), PackedInt32Array(23, 18, 30), PackedInt32Array(30, 18, 29), PackedInt32Array(29, 18, 9), PackedInt32Array(9, 18, 8), PackedInt32Array(8, 18, 19), PackedInt32Array(26, 24, 29), PackedInt32Array(29, 24, 30), PackedInt32Array(31, 16, 17), PackedInt32Array(21, 22, 32), PackedInt32Array(32, 22, 33), PackedInt32Array(34, 32, 33), PackedInt32Array(35, 37, 36), PackedInt32Array(40, 39, 38), PackedInt32Array(41, 27, 28), PackedInt32Array(37, 35, 42), PackedInt32Array(42, 35, 34), PackedInt32Array(42, 34, 33), PackedInt32Array(42, 33, 41), PackedInt32Array(42, 41, 28), PackedInt32Array(32, 34, 31), PackedInt32Array(40, 38, 34), PackedInt32Array(34, 38, 31), PackedInt32Array(31, 38, 16), PackedInt32Array(44, 43, 45), PackedInt32Array(45, 43, 46), PackedInt32Array(39, 47, 38), PackedInt32Array(38, 47, 48), PackedInt32Array(45, 46, 37), PackedInt32Array(37, 46, 36), PackedInt32Array(36, 46, 49), PackedInt32Array(49, 46, 47), PackedInt32Array(47, 46, 51), PackedInt32Array(47, 51, 50), PackedInt32Array(47, 50, 48), PackedInt32Array(43, 44, 52), PackedInt32Array(52, 44, 53), PackedInt32Array(54, 50, 55), PackedInt32Array(55, 50, 51), PackedInt32Array(57, 52, 56), PackedInt32Array(56, 52, 53), PackedInt32Array(60, 59, 58), PackedInt32Array(59, 60, 57), PackedInt32Array(57, 60, 52), PackedInt32Array(58, 61, 60), PackedInt32Array(60, 61, 51), PackedInt32Array(51, 61, 55), PackedInt32Array(55, 61, 62), PackedInt32Array(59, 64, 58), PackedInt32Array(58, 64, 63), PackedInt32Array(68, 67, 65), PackedInt32Array(65, 67, 66), PackedInt32Array(69, 62, 70), PackedInt32Array(70, 62, 71), PackedInt32Array(71, 62, 61), PackedInt32Array(68, 65, 69), PackedInt32Array(69, 65, 62), PackedInt32Array(72, 75, 73), PackedInt32Array(73, 75, 71), PackedInt32Array(71, 75, 70), PackedInt32Array(70, 75, 74), PackedInt32Array(77, 76, 78), PackedInt32Array(78, 76, 79), PackedInt32Array(82, 81, 80), PackedInt32Array(82, 80, 83), PackedInt32Array(83, 80, 85), PackedInt32Array(83, 85, 84), PackedInt32Array(88, 87, 86), PackedInt32Array(78, 79, 86), PackedInt32Array(86, 79, 88), PackedInt32Array(88, 79, 89), PackedInt32Array(89, 79, 90), PackedInt32Array(90, 79, 85), PackedInt32Array(90, 85, 80), PackedInt32Array(92, 91, 93), PackedInt32Array(93, 91, 94), PackedInt32Array(94, 91, 75), PackedInt32Array(96, 95, 91), PackedInt32Array(91, 95, 86), PackedInt32Array(91, 86, 87), PackedInt32Array(91, 87, 74), PackedInt32Array(91, 74, 75), PackedInt32Array(97, 92, 93), PackedInt32Array(76, 77, 84), PackedInt32Array(84, 77, 95), PackedInt32Array(84, 95, 98), PackedInt32Array(98, 95, 96), PackedInt32Array(99, 97, 93), PackedInt32Array(98, 97, 84), PackedInt32Array(84, 97, 83), PackedInt32Array(83, 97, 100), PackedInt32Array(100, 97, 99), PackedInt32Array(80, 81, 101), PackedInt32Array(101, 102, 80), PackedInt32Array(80, 102, 103), PackedInt32Array(103, 102, 104), PackedInt32Array(108, 107, 105), PackedInt32Array(105, 107, 106), PackedInt32Array(108, 104, 107), PackedInt32Array(107, 104, 102), PackedInt32Array(112, 111, 109), PackedInt32Array(109, 111, 110), PackedInt32Array(109, 114, 113), PackedInt32Array(112, 109, 104), PackedInt32Array(104, 109, 103), PackedInt32Array(103, 109, 113), PackedInt32Array(118, 117, 115), PackedInt32Array(115, 117, 116), PackedInt32Array(118, 115, 114), PackedInt32Array(114, 115, 113), PackedInt32Array(113, 115, 119), PackedInt32Array(115, 120, 119), PackedInt32Array(122, 121, 123), PackedInt32Array(123, 121, 124), PackedInt32Array(126, 125, 127), PackedInt32Array(127, 125, 128), PackedInt32Array(125, 123, 128), PackedInt32Array(128, 123, 124), PackedInt32Array(128, 124, 119), PackedInt32Array(119, 120, 128), PackedInt32Array(130, 129, 131), PackedInt32Array(131, 129, 132)]
+vertices = PackedVector3Array(-5.0549, 1, -72.8225, -4.3049, 1, -72.8225, -4.3049, 1, -73.8225, -5.0549, 1, -183.072, -1.5549, 1, -73.8225, 1.6951, 1, -74.0725, 1.6951, 1, -75.5725, 4.4451, 1, -76.5725, 4.9451, 1, -76.5725, 4.9451, 1, -183.072, -4.0549, 1, -71.5725, -5.0549, 1, -70.0725, -2.8049, 1, -68.5725, -3.3049, 1, -68.3225, 3.6951, 1, -66.5725, 3.6951, 1, -67.3225, -2.8049, 1, -70.0725, -1.5549, 1, -72.0725, 4.9451, 1, -67.5725, 3.9451, 1, -73.3225, 1.9451, 1, -73.0725, -2.5549, 1, -50.5725, 4.4451, 1, -52.0725, 3.9451, 1, -54.5725, 3.9451, 1, -65.0725, -5.0549, 1, -68.0725, -5.0549, 1, -50.3225, 4.9451, 1, -54.5725, 4.9451, 1, -65.0725, 2.9451, 1, -43.8225, 2.9451, 1, -43.3225, 4.9451, 1, -43.3225, -2.5549, 1, -43.8225, -0.0549026, 1, -43.0725, 0.195097, 1, -43.5725, -2.0549, 1, -45.8225, 2.1951, 1, -43.8225, -2.5549, 1, -48.5725, -5.0549, 1, -48.3225, -5.0549, 1, -45.5725, 4.9451, 1, -51.8225, -5.0549, 1, -27.5725, -3.8049, 1, -27.5725, -3.8049, 1, -28.8225, -4.8049, 1, -43.3225, -5.0549, 1, -44.3225, -1.8049, 1, -28.3225, -1.0549, 1, -28.8225, -1.5549, 1, -30.3225, 1.1951, 1, -31.0725, 2.6951, 1, -41.8225, 0.945097, 1, -41.3225, 1.6951, 1, -29.8225, 4.9451, 1, -29.8225, 0.195097, 1, -41.3225, -0.804903, 1, -31.0725, -4.0549, 1, -26.5725, -1.3049, 1, -26.8225, 0.445097, 1, -27.5725, -0.0549026, 1, -17.8225, 1.1951, 1, -15.8225, 0.945097, 1, -14.3225, 2.9451, 1, -13.5725, -5.0549, 1, -15.8225, -2.0549, 1, -15.8225, -1.8049, 1, -17.0725, 1.4451, 1, -28.3225, 4.9451, 1, -12.8225, 2.9451, 1, -10.8225, 3.1951, 1, -11.8225, 2.4451, 1, -11.8225, 1.6951, 1, -11.5725, -1.0549, 1, -13.3225, -5.0549, 1, -12.0725, 0.195097, 1, -13.3225, -2.5549, 1, -9.32249, 1.1951, 1, -9.57249, 3.9451, 1, -10.3225, 4.9451, 1, -11.3225, -3.3049, 1, -7.82249, -1.5549, 1, -6.32249, 4.9451, 1, -9.07249, 4.1951, 1, -9.32249, 3.1951, 1, -5.82249, 3.6951, 1, -7.82249, 3.6951, 1, -8.57249, 2.9451, 1, -4.82249, -1.8049, 1, -5.82249, 4.9451, 1, -5.32249, 4.9451, 1, -7.32249, -4.0549, 1, -4.57249, -5.0549, 1, -7.07249, -5.0549, 1, -1.32249, -4.3049, 1, -2.07249, -2.3049, 1, -2.07249, -1.8049, 1, -1.32249, 2.6951, 1, -4.07249, 4.9451, 1, -1.32249, 4.9451, 1, -3.57249, -1.8049, 1, 0.177505, 3.9451, 1, -0.0724945, -2.3049, 1, 6.17751, -1.5549, 1, 5.17751, -1.8049, 1, 4.42751, -4.5549, 1, 4.67751, -5.0549, 1, 11.9275, -2.3049, 1, 11.9275, -2.5549, 1, 11.4275, -0.804903, 1, 10.4275, -1.8049, 1, 6.92751, -4.8049, 1, 7.67751, -1.3049, 1, 3.17751, -2.3049, 1, 0.677505, -3.0549, 1, 0.927505, -4.3049, 1, 0.427505, -5.0549, 1, -0.822495, 2.9451, 1, 5.67751, 3.1951, 1, 7.17751, 4.9451, 1, 7.17751, 4.9451, 1, 0.177505, 0.445097, 1, 4.67751, 2.4451, 1, 5.92751, 3.4451, 1, 7.92751, 1.6951, 1, 7.42751, 4.9451, 1, 12.4275, 1.6951, 1, 12.6775, -2.3049, 1, 12.4275, -0.0549026, 1, 14.1775, -5.0549, 1, 23.1775, 3.4451, 1, 23.1775, 4.9451, 1, 22.4275, 4.9451, 1, 13.9275, 3.6951, 1, 14.6775, 3.6951, 1, 21.9275, 1.9451, 1, 27.1775, 4.9451, 1, 27.9275, 4.9451, 1, 24.6775, 3.4451, 1, 24.1775, -5.0549, 1, 28.1775, 1.9451, 1, 28.1775, 1.6951, 1, 35.1775, 4.9451, 1, 36.1775, 4.9451, 1, 29.9275, 2.1951, 1, 29.9275, -5.0549, 1, 36.6775, 1.6951, 1, 36.6775, 4.9451, 1, 46.9275, 4.9451, 1, 45.9275, 3.1951, 1, 45.9275, -5.0549, 1, 46.4275, 3.1951, 1, 43.1775, 4.9451, 1, 43.6775, 4.9451, 1, 38.1775, 1.9451, 1, 38.1775, -5.0549, 1, 183.178, 4.9451, 1, 183.178, 4.9451, 1, 50.9275, -5.0549, 1, 49.9275)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 2), PackedInt32Array(9, 8, 7), PackedInt32Array(6, 2, 7), PackedInt32Array(7, 2, 9), PackedInt32Array(9, 2, 3), PackedInt32Array(1, 10, 0), PackedInt32Array(0, 10, 11), PackedInt32Array(15, 14, 12), PackedInt32Array(12, 14, 13), PackedInt32Array(11, 10, 16), PackedInt32Array(16, 10, 17), PackedInt32Array(16, 17, 12), PackedInt32Array(12, 17, 20), PackedInt32Array(12, 20, 19), PackedInt32Array(12, 19, 15), PackedInt32Array(15, 19, 18), PackedInt32Array(7, 8, 19), PackedInt32Array(19, 8, 18), PackedInt32Array(5, 20, 4), PackedInt32Array(4, 20, 17), PackedInt32Array(23, 22, 21), PackedInt32Array(14, 24, 13), PackedInt32Array(13, 24, 25), PackedInt32Array(25, 24, 23), PackedInt32Array(25, 23, 21), PackedInt32Array(25, 21, 26), PackedInt32Array(24, 28, 23), PackedInt32Array(23, 28, 27), PackedInt32Array(31, 30, 29), PackedInt32Array(34, 33, 32), PackedInt32Array(32, 35, 34), PackedInt32Array(34, 35, 36), PackedInt32Array(38, 37, 39), PackedInt32Array(39, 37, 35), PackedInt32Array(29, 36, 35), PackedInt32Array(37, 21, 35), PackedInt32Array(35, 21, 29), PackedInt32Array(29, 21, 31), PackedInt32Array(31, 21, 22), PackedInt32Array(31, 22, 40), PackedInt32Array(42, 41, 43), PackedInt32Array(43, 41, 44), PackedInt32Array(44, 41, 45), PackedInt32Array(47, 46, 48), PackedInt32Array(48, 46, 43), PackedInt32Array(51, 50, 49), PackedInt32Array(30, 31, 50), PackedInt32Array(50, 31, 49), PackedInt32Array(49, 31, 52), PackedInt32Array(52, 31, 53), PackedInt32Array(48, 43, 55), PackedInt32Array(55, 43, 54), PackedInt32Array(54, 43, 33), PackedInt32Array(33, 43, 32), PackedInt32Array(32, 43, 44), PackedInt32Array(51, 49, 54), PackedInt32Array(54, 49, 55), PackedInt32Array(56, 41, 42), PackedInt32Array(46, 47, 57), PackedInt32Array(57, 47, 58), PackedInt32Array(59, 57, 58), PackedInt32Array(60, 62, 61), PackedInt32Array(65, 64, 63), PackedInt32Array(66, 52, 53), PackedInt32Array(62, 60, 67), PackedInt32Array(67, 60, 59), PackedInt32Array(67, 59, 58), PackedInt32Array(67, 58, 66), PackedInt32Array(67, 66, 53), PackedInt32Array(57, 59, 56), PackedInt32Array(65, 63, 59), PackedInt32Array(59, 63, 56), PackedInt32Array(56, 63, 41), PackedInt32Array(69, 68, 70), PackedInt32Array(70, 68, 71), PackedInt32Array(64, 72, 63), PackedInt32Array(63, 72, 73), PackedInt32Array(70, 71, 62), PackedInt32Array(62, 71, 61), PackedInt32Array(61, 71, 74), PackedInt32Array(74, 71, 72), PackedInt32Array(72, 71, 76), PackedInt32Array(72, 76, 75), PackedInt32Array(72, 75, 73), PackedInt32Array(68, 69, 77), PackedInt32Array(77, 69, 78), PackedInt32Array(79, 75, 80), PackedInt32Array(80, 75, 76), PackedInt32Array(82, 77, 81), PackedInt32Array(81, 77, 78), PackedInt32Array(85, 84, 83), PackedInt32Array(84, 85, 82), PackedInt32Array(82, 85, 77), PackedInt32Array(83, 86, 85), PackedInt32Array(85, 86, 76), PackedInt32Array(76, 86, 80), PackedInt32Array(80, 86, 87), PackedInt32Array(84, 89, 83), PackedInt32Array(83, 89, 88), PackedInt32Array(93, 92, 90), PackedInt32Array(90, 92, 91), PackedInt32Array(94, 87, 95), PackedInt32Array(95, 87, 96), PackedInt32Array(96, 87, 86), PackedInt32Array(93, 90, 94), PackedInt32Array(94, 90, 87), PackedInt32Array(97, 100, 98), PackedInt32Array(98, 100, 96), PackedInt32Array(96, 100, 95), PackedInt32Array(95, 100, 99), PackedInt32Array(102, 101, 103), PackedInt32Array(103, 101, 104), PackedInt32Array(107, 106, 105), PackedInt32Array(107, 105, 108), PackedInt32Array(108, 105, 110), PackedInt32Array(108, 110, 109), PackedInt32Array(113, 112, 111), PackedInt32Array(103, 104, 111), PackedInt32Array(111, 104, 113), PackedInt32Array(113, 104, 114), PackedInt32Array(114, 104, 115), PackedInt32Array(115, 104, 110), PackedInt32Array(115, 110, 105), PackedInt32Array(117, 116, 118), PackedInt32Array(118, 116, 119), PackedInt32Array(119, 116, 100), PackedInt32Array(121, 120, 116), PackedInt32Array(116, 120, 111), PackedInt32Array(116, 111, 112), PackedInt32Array(116, 112, 99), PackedInt32Array(116, 99, 100), PackedInt32Array(122, 117, 118), PackedInt32Array(101, 102, 109), PackedInt32Array(109, 102, 120), PackedInt32Array(109, 120, 123), PackedInt32Array(123, 120, 121), PackedInt32Array(124, 122, 118), PackedInt32Array(123, 122, 109), PackedInt32Array(109, 122, 108), PackedInt32Array(108, 122, 125), PackedInt32Array(125, 122, 124), PackedInt32Array(105, 106, 126), PackedInt32Array(126, 127, 105), PackedInt32Array(105, 127, 128), PackedInt32Array(128, 127, 129), PackedInt32Array(133, 132, 130), PackedInt32Array(130, 132, 131), PackedInt32Array(133, 129, 132), PackedInt32Array(132, 129, 127), PackedInt32Array(137, 136, 134), PackedInt32Array(134, 136, 135), PackedInt32Array(134, 139, 138), PackedInt32Array(137, 134, 129), PackedInt32Array(129, 134, 128), PackedInt32Array(128, 134, 138), PackedInt32Array(143, 142, 140), PackedInt32Array(140, 142, 141), PackedInt32Array(143, 140, 139), PackedInt32Array(139, 140, 138), PackedInt32Array(138, 140, 144), PackedInt32Array(140, 145, 144), PackedInt32Array(147, 146, 148), PackedInt32Array(148, 146, 149), PackedInt32Array(151, 150, 152), PackedInt32Array(152, 150, 153), PackedInt32Array(150, 148, 153), PackedInt32Array(153, 148, 149), PackedInt32Array(153, 149, 144), PackedInt32Array(144, 145, 153), PackedInt32Array(155, 154, 156), PackedInt32Array(156, 154, 157)]
 agent_radius = 0.0
 vertices_per_polygon = 12.0
 
@@ -2331,6 +2331,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.76919, -0.0166312, -50.684
 vertices = PackedVector3Array(2.56586, 0, 0.0516434, -0.487166, 0, 0.464127, -0.12217, 0, 2.54821, 2.20554, 0, 1.99705)
 affect_navigation_mesh = true
 
+[node name="NavigationObstacle3D24" type="NavigationObstacle3D" parent="Structures/NavMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0984, -0.0166312, -70.5008)
+vertices = PackedVector3Array(2.18729, 0, 0.379486, -0.487166, 0, 0.464127, -0.12217, 0, 2.54821, 2.20554, 0, 1.99705)
+affect_navigation_mesh = true
+
+[node name="NavigationObstacle3D25" type="NavigationObstacle3D" parent="Structures/NavMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.93604, -0.0166312, -74.1908)
+vertices = PackedVector3Array(2.45914, 0, 0.102631, -0.487166, 0, 0.464127, -0.12217, 0, 2.54821, 2.41561, 0, 2.09338)
+affect_navigation_mesh = true
+
+[node name="NavigationObstacle3D26" type="NavigationObstacle3D" parent="Structures/NavMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91248, -0.0166312, -75.4544)
+vertices = PackedVector3Array(2.57838, 0, -1.13171, -0.511681, 0, 0.15181, -0.0187391, 0, 2.41864, 2.0631, 0, 2.19846)
+affect_navigation_mesh = true
+
+[node name="NavigationObstacle3D27" type="NavigationObstacle3D" parent="Structures/NavMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1257, -0.0166312, -67.3249)
+vertices = PackedVector3Array(2.57838, 0, -1.13171, -0.511681, 0, 0.15181, -0.0187391, 0, 2.41864, 2.0631, 0, 2.19846)
+affect_navigation_mesh = true
+
+[node name="NavigationObstacle3D28" type="NavigationObstacle3D" parent="Structures/NavMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.64366, -0.0166312, -54.6952)
+vertices = PackedVector3Array(1.7001, 0, -0.160187, -0.617103, 0, 0.0968513, -0.149783, 0, 2.93848, 2.0631, 0, 2.19846)
+affect_navigation_mesh = true
+
 [node name="Floor(NavMesh)" type="MeshInstance3D" parent="Structures/NavMesh"]
 transform = Transform3D(0.961008, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 visible = false
@@ -3035,36 +3060,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 transform = Transform3D(-0.651061, 0, -5.69176e-08, 0, 0.651061, 0, 5.69176e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Player/Head/Player_Character_Shadow/Armature_003" index="0"]
-bones/0/position = Vector3(2.91502, -2.43699, -196.436)
-bones/0/rotation = Quaternion(-0.684997, -0.270682, 0.24836, 0.629148)
-bones/1/rotation = Quaternion(0.0779122, 0.0408014, -0.00802284, 0.996093)
-bones/2/rotation = Quaternion(0.0927934, 0.079148, -0.0214366, 0.992303)
-bones/3/rotation = Quaternion(0.0921346, 0.079141, -0.021307, 0.992368)
-bones/4/rotation = Quaternion(-0.0456786, -0.0105528, 0.001846, 0.998899)
-bones/5/rotation = Quaternion(-0.0591488, 0.177137, -0.00197756, 0.982405)
-bones/7/rotation = Quaternion(0.571131, 0.430554, -0.56654, 0.409225)
-bones/8/rotation = Quaternion(0.436228, -0.0975347, 0.0886578, 0.89013)
+bones/0/position = Vector3(2.81913, -4.25437, -195.445)
+bones/0/rotation = Quaternion(-0.683196, -0.270058, 0.250144, 0.630666)
+bones/1/rotation = Quaternion(0.0808603, 0.0409029, -0.00936034, 0.995842)
+bones/2/rotation = Quaternion(0.0997795, 0.0792445, -0.0231764, 0.991578)
+bones/3/rotation = Quaternion(0.0997796, 0.0792445, -0.0231763, 0.991578)
+bones/4/rotation = Quaternion(-0.0642876, -0.0109638, 0.00235345, 0.997868)
+bones/5/rotation = Quaternion(-0.0491095, 0.176513, -0.0103474, 0.983018)
+bones/7/rotation = Quaternion(0.594333, 0.403429, -0.567159, 0.402919)
+bones/8/rotation = Quaternion(0.420494, -0.108073, 0.0884162, 0.896486)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0333738, 0.0660513, 0.419311, 0.904821)
-bones/11/rotation = Quaternion(0.617011, -0.393987, 0.525831, 0.433097)
-bones/12/rotation = Quaternion(0.433312, 0.0912333, 0.145994, 0.884648)
-bones/13/rotation = Quaternion(0.0402039, -0.00369766, -0.368971, 0.928564)
-bones/15/rotation = Quaternion(0.0802895, 0.230428, 0.964242, -0.103409)
+bones/9/rotation = Quaternion(-0.0392539, 0.0578426, 0.404921, 0.911676)
+bones/11/rotation = Quaternion(0.641732, -0.364844, 0.524569, 0.424141)
+bones/12/rotation = Quaternion(0.405539, 0.113527, 0.14729, 0.894961)
+bones/13/rotation = Quaternion(0.0234792, 0.0243267, -0.363614, 0.930936)
+bones/15/rotation = Quaternion(0.0791861, 0.240139, 0.961668, -0.106096)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.358662, 0.119565, -0.0362947, 0.925067)
-bones/17/rotation = Quaternion(0.565792, -0.000991793, -0.0233747, 0.824216)
-bones/18/rotation = Quaternion(0.289331, -0.0363986, -0.00960606, 0.956489)
-bones/20/rotation = Quaternion(-0.125533, 0.0207645, 0.982811, 0.133766)
-bones/21/rotation = Quaternion(-0.3366, 0.0728174, -0.0256191, 0.938478)
-bones/22/rotation = Quaternion(0.671652, 0.0555509, 0.107132, 0.730973)
+bones/16/rotation = Quaternion(-0.365117, 0.118419, -0.0366257, 0.922673)
+bones/17/rotation = Quaternion(0.565641, -0.00274326, -0.0265279, 0.82422)
+bones/18/rotation = Quaternion(0.288946, -0.0357548, -0.00921077, 0.956633)
+bones/20/rotation = Quaternion(-0.124336, 0.0388803, 0.982647, 0.132036)
+bones/21/rotation = Quaternion(-0.359199, 0.0708476, -0.0271833, 0.930171)
+bones/22/rotation = Quaternion(0.679588, 0.0546763, 0.104761, 0.724014)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.278094, 0.0568558, -0.0170528, 0.958718)
+bones/23/rotation = Quaternion(0.277873, 0.0565393, -0.0169037, 0.958804)
 
 [node name="Model_004" parent="Player/Head/Player_Character_Shadow/Armature_003/Skeleton3D" index="0"]
 cast_shadow = 3
 
 [node name="HandAttatchment" type="BoneAttachment3D" parent="Player/Head/Player_Character_Shadow/Armature_003/Skeleton3D" index="1"]
-transform = Transform3D(-0.274737, -0.357532, 0.892575, 0.948781, 0.049796, 0.311984, -0.155991, 0.932573, 0.325539, -74.7462, -37.471, -204.496)
+transform = Transform3D(-0.303364, -0.386125, 0.871136, 0.941625, 0.0185878, 0.33615, -0.145988, 0.922259, 0.357946, -76.3087, -38.8614, -201.157)
 bone_name = "mixamorig_RightHand"
 bone_idx = 14
 
@@ -3072,45 +3097,45 @@ bone_idx = 14
 transform = Transform3D(-0.651061, 0, 5.69175e-08, 0, 0.651061, 0, -5.69175e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Player/Head/Player_Character/Armature_003" index="0"]
-bones/0/position = Vector3(2.91502, -2.43699, -196.436)
-bones/0/rotation = Quaternion(-0.684997, -0.270682, 0.24836, 0.629148)
-bones/1/rotation = Quaternion(0.0779122, 0.0408014, -0.00802284, 0.996093)
+bones/0/position = Vector3(2.81913, -4.25437, -195.445)
+bones/0/rotation = Quaternion(-0.683196, -0.270058, 0.250144, 0.630666)
+bones/1/rotation = Quaternion(0.0808603, 0.0409029, -0.00936034, 0.995842)
 bones/2/position = Vector3(1.19209e-07, 29.1135, -2.98023e-06)
-bones/2/rotation = Quaternion(0.0927934, 0.079148, -0.0214366, 0.992303)
+bones/2/rotation = Quaternion(0.0997795, 0.0792445, -0.0231764, 0.991578)
 bones/3/position = Vector3(5.126e-06, 33.2726, 4.64916e-06)
-bones/3/rotation = Quaternion(0.0921346, 0.079141, -0.021307, 0.992368)
+bones/3/rotation = Quaternion(0.0997796, 0.0792445, -0.0231763, 0.991578)
 bones/4/position = Vector3(5.24521e-06, 37.4316, 1.82406e-05)
-bones/4/rotation = Quaternion(-0.0456786, -0.0105528, 0.001846, 0.998899)
+bones/4/rotation = Quaternion(-0.0642876, -0.0109638, 0.00235345, 0.997868)
 bones/5/position = Vector3(-2.86102e-06, 12.1577, 1.85682)
-bones/5/rotation = Quaternion(-0.0591488, 0.177137, -0.00197756, 0.982405)
+bones/5/rotation = Quaternion(-0.0491095, 0.176513, -0.0103474, 0.983018)
 bones/7/position = Vector3(15.5676, 33.9216, 0.214007)
-bones/7/rotation = Quaternion(0.571131, 0.430554, -0.56654, 0.409225)
+bones/7/rotation = Quaternion(0.594333, 0.403429, -0.567159, 0.402919)
 bones/8/position = Vector3(7.52916e-06, 31.6372, -3.73462e-05)
-bones/8/rotation = Quaternion(0.436228, -0.0975347, 0.0886578, 0.89013)
+bones/8/rotation = Quaternion(0.420494, -0.108073, 0.0884162, 0.896486)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0333738, 0.0660513, 0.419311, 0.904821)
+bones/9/rotation = Quaternion(-0.0392539, 0.0578426, 0.404921, 0.911676)
 bones/10/position = Vector3(-5.75185e-06, 48.1225, -4.24013e-05)
 bones/11/position = Vector3(-15.5676, 33.9222, 0.223976)
-bones/11/rotation = Quaternion(0.617011, -0.393987, 0.525831, 0.433097)
+bones/11/rotation = Quaternion(0.641732, -0.364844, 0.524569, 0.424141)
 bones/12/position = Vector3(-1.65313e-05, 31.6372, 2.51814e-05)
-bones/12/rotation = Quaternion(0.433312, 0.0912333, 0.145994, 0.884648)
+bones/12/rotation = Quaternion(0.405539, 0.113527, 0.14729, 0.894961)
 bones/13/position = Vector3(3.17927e-05, 70.8277, 3.58869e-05)
-bones/13/rotation = Quaternion(0.0402039, -0.00369766, -0.368971, 0.928564)
+bones/13/rotation = Quaternion(0.0234792, 0.0243267, -0.363614, 0.930936)
 bones/14/position = Vector3(-3.78489e-06, 48.1226, 3.61372e-05)
-bones/15/rotation = Quaternion(0.0802895, 0.230428, 0.964242, -0.103409)
+bones/15/rotation = Quaternion(0.0791861, 0.240139, 0.961668, -0.106096)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.358662, 0.119565, -0.0362947, 0.925067)
+bones/16/rotation = Quaternion(-0.365117, 0.118419, -0.0366257, 0.922673)
 bones/17/position = Vector3(8.16445e-06, 89.1268, 4.36753e-06)
-bones/17/rotation = Quaternion(0.565792, -0.000991793, -0.0233747, 0.824216)
+bones/17/rotation = Quaternion(0.565641, -0.00274326, -0.0265279, 0.82422)
 bones/18/position = Vector3(1.07865e-05, 26.9015, 2.76264e-06)
-bones/18/rotation = Quaternion(0.289331, -0.0363986, -0.00960606, 0.956489)
+bones/18/rotation = Quaternion(0.288946, -0.0357548, -0.00921077, 0.956633)
 bones/19/position = Vector3(-7.05104e-06, 10.3861, 1.60187e-07)
-bones/20/rotation = Quaternion(-0.125533, 0.0207645, 0.982811, 0.133766)
+bones/20/rotation = Quaternion(-0.124336, 0.0388803, 0.982647, 0.132036)
 bones/21/position = Vector3(7.35216e-06, 93.8847, 2.20229e-06)
-bones/21/rotation = Quaternion(-0.3366, 0.0728174, -0.0256191, 0.938478)
-bones/22/rotation = Quaternion(0.671652, 0.0555509, 0.107132, 0.730973)
+bones/21/rotation = Quaternion(-0.359199, 0.0708476, -0.0271833, 0.930171)
+bones/22/rotation = Quaternion(0.679588, 0.0546763, 0.104761, 0.724014)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.278094, 0.0568558, -0.0170528, 0.958718)
+bones/23/rotation = Quaternion(0.277873, 0.0565393, -0.0169037, 0.958804)
 bones/24/position = Vector3(3.21493e-06, 10.3578, 7.00355e-07)
 
 [node name="Model_004" parent="Player/Head/Player_Character/Armature_003/Skeleton3D" index="0"]
