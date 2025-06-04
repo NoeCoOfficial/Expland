@@ -49,6 +49,7 @@ extends Node3D
 
 @export var TheEryv : CharacterBody3D
 @export var finished_look_around_dead_cutscene : bool = false
+var eryv_chasing_player : bool = false
 
 func _ready() -> void:
 	var ambient_fade_in = get_tree().create_tween()
@@ -65,10 +66,17 @@ func _ready() -> void:
 	
 	$"PreControl Scene/CameraMotion".play("motion")
 
+func _input(event: InputEvent) -> void:
+	if !eryv_chasing_player:
+		if finished_look_around_dead_cutscene:
+			if Input.is_action_just_pressed("Jump") or Input.is_action_just_pressed("move_forward") or Input.is_action_just_pressed("move_backward") or Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right"):
+				eryv_start_chase_player()
+
 func spawn_run_minimal_dialogue():
 	$Player/Head/Camera3D/MinimalDialogueLayer/MinimalDialogue.spawnMinimalDialogue(DialogueManager.StoryMode_EryvDream_Dialogue)
 
 func eryv_start_chase_player():
+	eryv_chasing_player = true
 	TheEryv.start_chase_player()
 	$EryvPathUpdater.start()
 	$"The Eryv/Stomps".play()
