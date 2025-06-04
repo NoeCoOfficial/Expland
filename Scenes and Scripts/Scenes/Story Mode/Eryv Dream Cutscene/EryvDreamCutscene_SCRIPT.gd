@@ -124,6 +124,7 @@ func WAKE_UP():
 	$Environment/AmbientWindLoop.stop()
 	
 	
+	
 	$SceneChangeDebounce.start()
 
 
@@ -137,4 +138,5 @@ func _on_stomp_timer_timeout() -> void:
 
 
 func _on_eryv_fuegcs_interval_timeout() -> void:
+	shake_camera($"PreControl Scene/Camera3DRig/Camera3D", 2.0, 0.08)
 	$"The Eryv/RandomFuegcs".play()

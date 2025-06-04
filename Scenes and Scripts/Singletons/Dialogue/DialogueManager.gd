@@ -431,6 +431,13 @@ var StoryMode_Dialogue_ID_6 = [
 	"duration": 1.0},
 ]
 
+var StoryMode_EryvDream_Dialogue = [
+		{"message": 
+			'"I should run..."', 
+			"time": 0.9},
+	]
+
+
 var StoryMode_EryvDreamWakeUp_Dialogue = [
 		{"message": 
 			'"What a weird dream..."', 
