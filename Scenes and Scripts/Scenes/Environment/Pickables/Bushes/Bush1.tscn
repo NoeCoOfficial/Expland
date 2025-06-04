@@ -307,7 +307,6 @@ multimesh = SubResource("MultiMesh_q1i8w")
 transform = Transform3D(0.721925, 0, 0, 0, 1.26973, 0, 0, 0, 0.853852, 0, 0, 0)
 
 [node name="Collision" type="StaticBody3D" parent="Bush"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bush/Collision"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.794296, 0)

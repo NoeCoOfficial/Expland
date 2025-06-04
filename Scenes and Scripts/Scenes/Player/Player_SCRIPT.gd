@@ -1190,7 +1190,7 @@ func _on_save_and_quit_to_menu_pressed() -> void:
 		SaveManager.saveAllData()
 	transitioning_to_menu = true
 	Global.transitioning_to_main_menu_from_island = true
-	AudioManager.Current_Playlist.audibleOnlyFadeOutAllSongs()
+	#AudioManager.Current_Playlist.audibleOnlyFadeOutAllSongs()
 	if AudioManager.Current_Rain_SFX_Node:
 		AudioManager.Current_Rain_SFX_Node.stop_rain_loop(2.0)
 	
