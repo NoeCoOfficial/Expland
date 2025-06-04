@@ -59,9 +59,10 @@ var STORY_MODE_PROGRESSION_INFO = {
 	"DISPLAYED_6_DIALOGUE" : false,
 }
 
-var GAME_STATE = "NORMAL"
-var Health := 100
-var Hunger := 100
+var TIMES_SLEPT : int = 0
+var GAME_STATE : String = "NORMAL"
+var Health : int = 100
+var Hunger : int = 100
 
 var EffectNotificationScene = preload("uid://jajswfbkaut2")
 

@@ -1280,6 +1280,9 @@ func sleep_cycle(setSleeping : bool, incrementDay : bool, fadeInTime : float, ho
 	if setSleeping:
 		PlayerData.GAME_STATE = "SLEEPING"
 	
+	# Increment times slept to += 1.
+	PlayerData.TIMES_SLEPT += 1
+	
 	if incrementDay:
 		if TimeManager.CURRENT_TIME < 1440 and TimeManager.CURRENT_TIME >= 1080:
 			TimeManager.CURRENT_DAY = int(TimeManager.CURRENT_DAY + 1)

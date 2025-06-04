@@ -52,6 +52,11 @@ extends Node3D
 var eryv_chasing_player : bool = false
 
 func _ready() -> void:
+	# When we get back to The Island,
+	# Time will by 10 am (600/60)
+	TimeManager.CURRENT_TIME = 600
+	
+	
 	var ambient_fade_in = get_tree().create_tween()
 	ambient_fade_in.tween_property($Environment/AmbientWindLoop, "volume_db", 5.0, 1).from(-10.0)
 	$Environment/AmbientWindLoop.play()
