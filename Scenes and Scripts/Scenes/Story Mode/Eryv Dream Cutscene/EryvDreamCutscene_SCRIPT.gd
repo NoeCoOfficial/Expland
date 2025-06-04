@@ -137,4 +137,4 @@ func _on_stomp_timer_timeout() -> void:
 
 
 func _on_eryv_fuegcs_interval_timeout() -> void:
-	pass # Replace with function body.
+	$"The Eryv/RandomFuegcs".play()
