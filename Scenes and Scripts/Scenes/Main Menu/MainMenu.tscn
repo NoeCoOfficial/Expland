@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=34 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" uid="uid://uvd1eie30b14" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="Texture2D" uid="uid://dhp1lqdlclos" path="res://Assets/Textures/Icons/Expland/Expland - TextWHITE.png" id="2_numx3"]
@@ -29,6 +29,8 @@
 [ext_resource type="FontFile" uid="uid://b2o44xwqnsb5k" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf" id="35_hsmjp"]
 [ext_resource type="FontFile" uid="uid://c4h0gd5a2e2qb" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf" id="35_srfqj"]
 [ext_resource type="FontFile" uid="uid://duhkn1q8s6i3m" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Medium.otf" id="36_srfqj"]
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_jh64i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_syeyn"]
 bg_color = Color(0.125911, 0.125911, 0.125911, 1)
@@ -67,6 +69,16 @@ fade_timer_time_left_label = NodePath("MainLayer/AudioNotificationLayer/fade_tim
 [node name="Checks_Timer" type="Timer" parent="."]
 one_shot = true
 autostart = true
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="BackgroundLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = SubResource("VideoStreamTheora_jh64i")
 
 [node name="MainLayer" type="CanvasLayer" parent="."]
 
