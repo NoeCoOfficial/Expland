@@ -71,6 +71,9 @@ func eryv_start_chase_player():
 	$EryvPathUpdater.start()
 	$"The Eryv/Stomps".play()
 	$"The Eryv/StompTimer".start()
+	
+	# Start fuegcs interval timer
+	$EryvFuegcsInterval.start()
 
 func init_player_control():
 	$Player.show()
@@ -103,7 +106,6 @@ func camera_motion_shake():
 func play_eryv_feugcs():
 	$"The Eryv/Fuegcs1".play()
 
-
 #################################################
 
 func _on_player_wake_up_area_area_entered(area: Area3D) -> void:
@@ -129,9 +131,10 @@ func _on_scene_change_debounce_timeout() -> void:
 	get_tree().change_scene_to_packed(load("uid://c5jkrckgqd0w6"))
 
 
-
-
 func _on_stomp_timer_timeout() -> void:
 	$"The Eryv/Stomps".play()
 	$"The Eryv/StompTimer".start()
-	
+
+
+func _on_eryv_fuegcs_interval_timeout() -> void:
+	pass # Replace with function body.
