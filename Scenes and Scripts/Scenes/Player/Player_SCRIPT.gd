@@ -1277,11 +1277,12 @@ func spawn_minimal_alert_from_player(holdSec : float, fadeInTime : float, fadeOu
 	MinimalAlert.spawn_minimal_alert(holdSec, fadeInTime, fadeOutTime, message)
 
 func sleep_cycle(setSleeping : bool, incrementDay : bool, fadeInTime : float, holdTime : float, fadeOutTime : float, time : int):
-	if setSleeping:
-		PlayerData.GAME_STATE = "SLEEPING"
-	
+	var old_times_slept = PlayerData.TIMES_SLEPT
 	# Increment times slept to += 1.
 	PlayerData.TIMES_SLEPT += 1
+	
+	if setSleeping:
+		PlayerData.GAME_STATE = "SLEEPING"
 	
 	if incrementDay:
 		if TimeManager.CURRENT_TIME < 1440 and TimeManager.CURRENT_TIME >= 1080:
@@ -1294,13 +1295,11 @@ func sleep_cycle(setSleeping : bool, incrementDay : bool, fadeInTime : float, ho
 	SleepLayerBlackOverlay.visible = true
 	ProtectiveLayer.visible = true
 	
-	
-	
 	var fade_in_tween = get_tree().create_tween()
 	fade_in_tween.tween_property(SleepLayerBlackOverlay, "modulate", Color(1, 1, 1, 1), fadeInTime)
 	fade_in_tween.tween_interval(1.0)
-
-	if !TimeManager.CURRENT_DAY == 2 and !IslandManager.Current_Game_Mode == "STORY":
+	
+	if !PlayerData.TIMES_SLEPT == 0 and !IslandManager.Current_Game_Mode == "STORY":
 		fade_in_tween.tween_property(DayText_Label, "modulate", Color(1, 1, 1, 1), 1.0)
 		
 		await get_tree().create_timer(fadeInTime + holdTime).timeout
@@ -1309,9 +1308,6 @@ func sleep_cycle(setSleeping : bool, incrementDay : bool, fadeInTime : float, ho
 	else:
 		await get_tree().create_timer(3.0).timeout
 		get_tree().change_scene_to_file("res://Scenes and Scripts/Scenes/Story Mode/Eryv Dream Cutscene/EryvDreamCutscene.tscn")
-
-
-
 
 func on_sleep_cycle_hold_finished(fadeOutTime, time : int):
 	
