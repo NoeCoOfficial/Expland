@@ -71,14 +71,14 @@ gdscript/warnings/function_used_as_property=0
 
 [display]
 
+window/size/mode=4
 window/stretch/mode="canvas_items"
 display_server/driver.linuxbsd="wayland"
 window/version="0.7.5"
 
 [editor]
 
-movie_writer/mjpeg_quality=1.0
-movie_writer/movie_file="C:/Users/sebas/Godot Projects/Expland/Movies/NewMovie.avi"
+movie_writer/movie_file="C:/Users/sebas/Godot Projects/Expland/Output/ExplandBG1.avi"
 movie_writer/fps=120
 
 [editor_plugins]
