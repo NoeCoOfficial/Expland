@@ -1,9 +1,8 @@
-[gd_scene load_steps=34 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=32 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" uid="uid://uvd1eie30b14" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="PackedScene" uid="uid://d1petu3nr4sj5" path="res://Scenes and Scripts/Scenes/The Island/TheIslandForMainMenu.tscn" id="2_aolfw"]
 [ext_resource type="Texture2D" uid="uid://dhp1lqdlclos" path="res://Assets/Textures/Icons/Expland/Expland - TextWHITE.png" id="2_numx3"]
-[ext_resource type="PackedScene" uid="uid://4y07lcegxyxt" path="res://Scenes and Scripts/Scenes/Audio/MainMenu_Audio.tscn" id="3_wxdrf"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="4_grlcg"]
 [ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="5_dfh28"]
 [ext_resource type="Texture2D" uid="uid://fih3i4yk6pip" path="res://Assets/Textures/Icons/PlayBtn_Icon.png" id="6_ve3ie"]
@@ -25,7 +24,6 @@
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="21_v2lsw"]
 [ext_resource type="PackedScene" uid="uid://du1ak3ldg8x4e" path="res://Scenes and Scripts/Scenes/Dialogue/DialogueInterface.tscn" id="30_q7bh6"]
 [ext_resource type="PackedScene" uid="uid://cjxbcx2vhofs" path="res://Scenes and Scripts/Scenes/Achievements/AchievementNotification.tscn" id="31_ahd72"]
-[ext_resource type="PackedScene" uid="uid://bbc10j8mbwjbn" path="res://Scenes and Scripts/Scenes/Audio/AudioNotification.tscn" id="31_xncp6"]
 [ext_resource type="Script" uid="uid://b2koo4upy744h" path="res://Scenes and Scripts/Scenes/Alerts/Normal/AlertLayer_SCRIPT.gd" id="34_so3ya"]
 [ext_resource type="FontFile" uid="uid://b2o44xwqnsb5k" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf" id="35_hsmjp"]
 [ext_resource type="FontFile" uid="uid://c4h0gd5a2e2qb" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf" id="35_srfqj"]
@@ -61,11 +59,9 @@ Label/styles/normal = ExtResource("15_8lpeu")
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_8n1c6")
-fade_timer_time_left_label = NodePath("MainLayer/AudioNotificationLayer/fade_timer_time_left")
+fade_timer_time_left_label = NodePath("")
 
 [node name="World" parent="." instance=ExtResource("2_aolfw")]
-
-[node name="MainMenu_Audio" parent="." instance=ExtResource("3_wxdrf")]
 
 [node name="Checks_Timer" type="Timer" parent="."]
 one_shot = true
@@ -1033,36 +1029,6 @@ texture_normal = ExtResource("8_rn1to")
 ignore_texture_size = true
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
-
-[node name="AudioNotificationLayer" type="CanvasLayer" parent="MainLayer"]
-layer = 10
-
-[node name="fade_timer_time_left_title" type="Label" parent="MainLayer/AudioNotificationLayer"]
-modulate = Color(1, 1, 1, 0.789)
-offset_left = 967.0
-offset_top = 48.0
-offset_right = 1146.0
-offset_bottom = 71.0
-theme_override_fonts/font = ExtResource("5_dfh28")
-text = "Audio fade timer time left"
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="fade_timer_time_left" type="Label" parent="MainLayer/AudioNotificationLayer"]
-modulate = Color(1, 1, 1, 0.789)
-offset_left = 1103.0
-offset_top = 67.0
-offset_right = 1143.0
-offset_bottom = 90.0
-theme_override_fonts/font = ExtResource("5_dfh28")
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="AudioNotification" parent="MainLayer/AudioNotificationLayer" instance=ExtResource("31_xncp6")]
-offset_left = 1152.0
-offset_top = 401.0
-offset_right = 197.0
-offset_bottom = -159.0
 
 [node name="ProtectiveLayer" type="Control" parent="MainLayer"]
 layout_mode = 3
