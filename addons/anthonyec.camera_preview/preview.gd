@@ -313,8 +313,8 @@ func get_clamped_size(desired_size: Vector2) -> Vector2:
 	var editor_viewport_size = get_editor_viewport_size()
 
 	var max_bounds = Vector2(
-		editor_viewport_size.x * 0.6,
-		editor_viewport_size.y * 0.8
+		editor_viewport_size.x * 0.8,
+		editor_viewport_size.y * 1.0
 	)
 	
 	var clamped_size = desired_size
