@@ -55,11 +55,10 @@ Button/styles/normal = ExtResource("12_3uklh")
 Button/styles/pressed = SubResource("StyleBoxFlat_cjd7a")
 Label/styles/normal = ExtResource("15_8lpeu")
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("fade_timer_time_left_label")]
+[node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_8n1c6")
-fade_timer_time_left_label = NodePath("")
 
 [node name="World" parent="." instance=ExtResource("2_aolfw")]
 

@@ -58,7 +58,6 @@ var is_tweening = false
 @onready var DefaultXPos = $MainLayer/PlayButton.position.x
 
 @export_group("Node references")
-@export var fade_timer_time_left_label : Label
 
 # ---------------------------------------------------------------------------- #
 #                                    STARTUP                                   #
@@ -100,11 +99,6 @@ func initialize_globals() -> void:
 func initialize_ui() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	IslandManager.resetAttributes()
-	
-	if OS.is_debug_build():
-		fade_timer_time_left_label.show()
-	else:
-		fade_timer_time_left_label.hide()
 
 func initialize_buttons() -> void:
 	Utils.set_center_offset($MainLayer/PlayButton)
@@ -195,13 +189,6 @@ func _input(_event: InputEvent) -> void:
 			
 			if PauseManager.is_inside_credits:
 				$MainLayer/CreditsLayer.despawnCredits(0.5)
-
-# ---------------------------------------------------------------------------- #
-#                                    PROCESS                                   #
-# ---------------------------------------------------------------------------- #
-
-func _process(_delta: float) -> void:
-	fade_timer_time_left_label.text = str(int(AudioManager.FADE_TIMER_TIME_LEFT))
 
 # ---------------------------------------------------------------------------- #
 #                             SPAWN GAME MODE MENU                             #
@@ -381,10 +368,6 @@ func _on_checks_timer_timeout() -> void:
 		
 		if PlayerSettingsData.showStartupScreen:
 			call_deferred("change_to_startup_notice")
-		else:
-			$MainMenu_Audio.Start(false, true)
-	else:
-		$MainMenu_Audio.Start(false, true)
 
 func _on_island_name_text_edit_focus_entered() -> void:
 	AudioManager.canOperate_textField = false
