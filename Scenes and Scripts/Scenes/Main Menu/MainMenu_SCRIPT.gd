@@ -66,19 +66,12 @@ var is_tweening = false
 func _ready() -> void:
 	if !Global.is_first_time_in_menu:
 		Global.is_first_time_in_menu_no_startup = true
-	initialize_audio()
 	initialize_globals()
 	initialize_ui()
 	initialize_buttons()
 	await get_tree().create_timer(1).timeout
 	onStartup()
 	handle_protective_layer_visibility()
-
-func initialize_audio() -> void:
-	AudioManager.NotificationOnScreen = false
-	AudioManager.initNotificaton($MainLayer/AudioNotificationLayer/AudioNotification)
-	AudioManager.initNew($MainMenu_Audio, false, false, true)
-	AudioManager.canOperate_textField = true
 
 func initialize_globals() -> void:
 	AchievementsManager.CURRENT_ACHIEVEMENTS_UI = $MainLayer/AchievementsUI
