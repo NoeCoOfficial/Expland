@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bkbj6pcey3rc6" path="res://Assets/Textures/Icons/RedHeart_Icon.webp" id="11_m50j2"]
 [ext_resource type="StyleBox" uid="uid://com3tix0pshhk" path="res://Resources/Styles and Themes/Styles/Default/Label/Default_Label.tres" id="11_p84et"]
 [ext_resource type="Texture2D" uid="uid://dkkcljrkavbjx" path="res://Assets/Textures/Icons/OpenExternalLinkWhite_Icon.png" id="12_lbc4b"]
-[ext_resource type="Texture2D" uid="uid://ca5jdf2d4rrm4" path="res://Assets/Textures/Icons/Godot_Icon.png" id="15_ny2xt"]
+[ext_resource type="Texture2D" uid="uid://ca5jdf2d4rrm4" path="res://Assets/Textures/Icons/Other/Godot - Icon.png" id="15_ny2xt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1cec2"]
 bg_color = Color(0.125911, 0.125911, 0.125911, 1)
