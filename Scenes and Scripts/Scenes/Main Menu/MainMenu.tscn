@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=34 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" uid="uid://uvd1eie30b14" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="PackedScene" uid="uid://d1petu3nr4sj5" path="res://Scenes and Scripts/Scenes/The Island/TheIslandForMainMenu.tscn" id="2_aolfw"]
@@ -19,6 +19,7 @@
 [ext_resource type="StyleBox" uid="uid://com3tix0pshhk" path="res://Resources/Styles and Themes/Styles/Default/Label/Default_Label.tres" id="15_8lpeu"]
 [ext_resource type="Texture2D" uid="uid://ddboyvj4u3hwq" path="res://Assets/Textures/Icons/PadlockWhite_Icon.png" id="16_3n0bi"]
 [ext_resource type="PackedScene" uid="uid://bjsti1e663lr8" path="res://Scenes and Scripts/Scenes/General/UI/BlurLayer.tscn" id="16_elslp"]
+[ext_resource type="Texture2D" uid="uid://d0jxif3gujfuy" path="res://Assets/Textures/Images/StoryModeImage.png" id="17_jh64i"]
 [ext_resource type="PackedScene" uid="uid://djenc4llne53s" path="res://Scenes and Scripts/Scenes/Credits/CreditsLayer.tscn" id="19_0ti8x"]
 [ext_resource type="PackedScene" uid="uid://b7la7o37o5gld" path="res://Scenes and Scripts/Scenes/Achievements/AchievementsUI.tscn" id="19_gyuud"]
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="21_v2lsw"]
@@ -54,6 +55,18 @@ Button/styles/hover = SubResource("StyleBoxFlat_syeyn")
 Button/styles/normal = ExtResource("12_3uklh")
 Button/styles/pressed = SubResource("StyleBoxFlat_cjd7a")
 Label/styles/normal = ExtResource("15_8lpeu")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jh64i"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -431,6 +444,36 @@ theme_override_styles/pressed = ExtResource("11_613mu")
 theme_override_styles/normal = ExtResource("13_tj56a")
 script = ExtResource("10_y68f7")
 metadata/_edit_use_anchors_ = true
+
+[node name="RoundedCorners" type="Panel" parent="MainLayer/GameModeLayer/BG_StoryMode"]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.4999
+offset_top = -254.962
+offset_right = 94.4999
+offset_bottom = 254.962
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jh64i")
+
+[node name="Image" type="TextureRect" parent="MainLayer/GameModeLayer/BG_StoryMode/RoundedCorners"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 412.5
+offset_top = 244.5
+offset_right = 412.5
+offset_bottom = 244.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.566299, 0.566299)
+texture = ExtResource("17_jh64i")
 
 [node name="Title" type="Label" parent="MainLayer/GameModeLayer/BG_StoryMode"]
 layout_mode = 1
