@@ -55,6 +55,7 @@ func _ready() -> void:
 	# When we get back to The Island,
 	# Time will by 10 am (600/60)
 	TimeManager.CURRENT_TIME = 600
+	PlayerData.GAME_STATE == "NORMAL"
 	
 	
 	var ambient_fade_in = get_tree().create_tween()
