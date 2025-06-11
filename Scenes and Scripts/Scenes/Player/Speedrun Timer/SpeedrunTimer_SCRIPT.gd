@@ -46,3 +46,37 @@
 # ============================================================= #
 
 extends Node
+
+var is_running: bool = false
+var start_time: float = 0.0
+var elapsed_time: float = 0.0
+
+@export var TimeLabel : Label  # Timer node removed from use
+
+func _ready():
+	start_stopwatch()
+
+func _process(delta):
+	if is_running:
+		var current_time = Time.get_ticks_msec() / 1000.0
+		elapsed_time = current_time - start_time
+		TimeLabel.text = format_time(elapsed_time)
+
+func start_stopwatch():
+	if not is_running:
+		start_time = Time.get_ticks_msec() / 1000.0 - elapsed_time
+		is_running = true
+
+func stop_stopwatch():
+	is_running = false
+
+func reset_stopwatch():
+	is_running = false
+	elapsed_time = 0.0
+	TimeLabel.text = format_time(0.0)
+
+func format_time(seconds: float) -> String:
+	var minutes = int(seconds) / 60
+	var secs = int(seconds) % 60
+	var millis = int((seconds - int(seconds)) * 100)
+	return "%02d:%02d.%02d" % [minutes, secs, millis]

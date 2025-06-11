@@ -2,7 +2,15 @@
 
 [ext_resource type="Script" uid="uid://hpvqxge2ryb0" path="res://Scenes and Scripts/Scenes/Player/Speedrun Timer/SpeedrunTimer_SCRIPT.gd" id="1_aj3gd"]
 
-[node name="SpeedrunTimer" type="Node"]
+[node name="SpeedrunTimer" type="Node" node_paths=PackedStringArray("TimeLabel")]
 script = ExtResource("1_aj3gd")
+TimeLabel = NodePath("MainUILayer/TimeLabel")
 
-[node name="MainTimer" type="Timer" parent="."]
+[node name="MainUILayer" type="CanvasLayer" parent="."]
+
+[node name="TimeLabel" type="Label" parent="MainUILayer"]
+offset_left = 448.0
+offset_top = 243.0
+offset_right = 488.0
+offset_bottom = 266.0
+text = "skib"
