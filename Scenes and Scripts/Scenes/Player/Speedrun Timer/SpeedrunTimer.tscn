@@ -11,11 +11,12 @@ TimeLabel = NodePath("MainUILayer/TimeLabel")
 
 [node name="TimeLabel" type="Label" parent="MainUILayer"]
 modulate = Color(1, 1, 1, 0.721569)
-offset_left = 12.0
-offset_top = 603.0
-offset_right = 96.0
-offset_bottom = 645.0
+offset_left = 779.0
+offset_top = 607.0
+offset_right = 1144.0
+offset_bottom = 650.0
 theme = ExtResource("2_3532n")
 theme_override_font_sizes/font_size = 30
 text = "00:00.00"
+horizontal_alignment = 2
 vertical_alignment = 1

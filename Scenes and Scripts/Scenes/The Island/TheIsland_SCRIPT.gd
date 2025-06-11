@@ -137,6 +137,8 @@ func _ready() -> void:
 	
 	Player.nodeSetup()
 
+func stop_speed_run_timer():
+	TimeManager.stop()
 
 #####################################################
 
@@ -160,6 +162,7 @@ func spawnDemoScreen():
 
 
 func _on_ready() -> void:
+	TimeManager.start()
 	AudioManager.Current_Rain_SFX_Node = $Rain_SFX
 	
 	# Play and loop wind ambience sound

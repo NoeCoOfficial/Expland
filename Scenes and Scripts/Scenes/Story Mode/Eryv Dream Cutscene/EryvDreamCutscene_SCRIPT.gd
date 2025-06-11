@@ -130,6 +130,7 @@ func _on_player_wake_up_area_area_entered(area: Area3D) -> void:
 
 func WAKE_UP():
 	print("WAKE UP")
+	TimeManager.stop()
 	StoryModeManager.waking_up_from_eryv_dream = true
 	StoryModeManager.is_in_cutscene_can_move = false
 	StoryModeManager.is_in_cutscene = true
