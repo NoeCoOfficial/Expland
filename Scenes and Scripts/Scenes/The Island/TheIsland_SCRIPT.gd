@@ -537,9 +537,6 @@ func _on_water_detail_init_timer_timeout() -> void:
 
 
 
-
-
-
 func _on_main_menu_button_pressed() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/ExplandDemoNotice/BlackBGFadeOut".modulate = Color(1, 1, 1, 0)
@@ -557,3 +554,6 @@ func _demo_fade_out_finished():
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
+
+func _on_view_authordmd_button_pressed() -> void:
+	OS.shell_open("https://github.com/NoeCoOfficial/Expland/blob/main/AUTHORS.md")
