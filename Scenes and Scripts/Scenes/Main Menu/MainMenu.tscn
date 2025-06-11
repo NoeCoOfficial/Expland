@@ -1084,7 +1084,7 @@ metadata/_edit_use_anchors_ = true
 [node name="AlertLayer" type="CanvasLayer" parent="."]
 layer = 2
 
-[node name="AlertLayer" type="Control" parent="AlertLayer"]
+[node name="StoryModeDemoNotice" type="Control" parent="AlertLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1093,7 +1093,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("34_so3ya")
 
-[node name="GreyLayer" type="ColorRect" parent="AlertLayer/AlertLayer"]
+[node name="GreyLayer" type="ColorRect" parent="AlertLayer/StoryModeDemoNotice"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1103,7 +1103,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.643)
 script = ExtResource("10_y68f7")
 
-[node name="MainLayer" type="Control" parent="AlertLayer/AlertLayer"]
+[node name="MainLayer" type="Control" parent="AlertLayer/StoryModeDemoNotice"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1111,7 +1111,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BG" type="Button" parent="AlertLayer/AlertLayer/MainLayer"]
+[node name="BG" type="Button" parent="AlertLayer/StoryModeDemoNotice/MainLayer"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1130,7 +1130,7 @@ theme_override_styles/pressed = ExtResource("11_613mu")
 theme_override_styles/normal = ExtResource("11_613mu")
 script = ExtResource("10_y68f7")
 
-[node name="TextBG" type="Button" parent="AlertLayer/AlertLayer/MainLayer"]
+[node name="TextBG" type="Button" parent="AlertLayer/StoryModeDemoNotice/MainLayer"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.327257
@@ -1149,18 +1149,18 @@ theme_override_styles/pressed = ExtResource("21_v2lsw")
 theme_override_styles/normal = ExtResource("21_v2lsw")
 script = ExtResource("10_y68f7")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="AlertLayer/AlertLayer/MainLayer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="AlertLayer/StoryModeDemoNotice/MainLayer"]
 layout_mode = 0
 offset_left = 417.0
 offset_top = 162.0
 offset_right = 735.0
 offset_bottom = 533.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AlertLayer/AlertLayer/MainLayer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="AlertLayer/StoryModeDemoNotice/MainLayer/ScrollContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Text" type="Label" parent="AlertLayer/AlertLayer/MainLayer/ScrollContainer/VBoxContainer"]
+[node name="Text" type="Label" parent="AlertLayer/StoryModeDemoNotice/MainLayer/ScrollContainer/VBoxContainer"]
 visible = false
 custom_minimum_size = Vector2(300, 340)
 layout_mode = 2
@@ -1170,55 +1170,36 @@ text = "Text"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Text2" type="Label" parent="AlertLayer/AlertLayer/MainLayer/ScrollContainer/VBoxContainer"]
+[node name="Text2" type="Label" parent="AlertLayer/StoryModeDemoNotice/MainLayer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 theme = ExtResource("4_grlcg")
 theme_override_font_sizes/font_size = 18
-text = "This release came with alot of downgrades in preparation for better features that we are working on. The Inventory is pretty much non-existent right now, due to an entire revamp of the system we are doing. And yes, our code was THAT bad."
+text = "This is a demo of the Story Mode gamemode for Expland. It is not completely finished yet."
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Text3" type="Label" parent="AlertLayer/AlertLayer/MainLayer/ScrollContainer/VBoxContainer"]
+[node name="Text3" type="Label" parent="AlertLayer/StoryModeDemoNotice/MainLayer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 theme = ExtResource("4_grlcg")
 theme_override_fonts/font = ExtResource("35_hsmjp")
 theme_override_font_sizes/font_size = 30
-text = "What got removed"
+text = "What to expect"
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Text4" type="Label" parent="AlertLayer/AlertLayer/MainLayer/ScrollContainer/VBoxContainer"]
+[node name="Text4" type="Label" parent="AlertLayer/StoryModeDemoNotice/MainLayer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 theme = ExtResource("4_grlcg")
 theme_override_font_sizes/font_size = 18
-text = "- Chest
-- Workbench and Crafting system
-- Inventory saving
-- Bunch of other fundamental stuff"
+text = "- Bugs
+- Unfinished and/or undecorated parts of The Island
+- Around 15 minutes of gameplay"
 autowrap_mode = 3
 
-[node name="Text5" type="Label" parent="AlertLayer/AlertLayer/MainLayer/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(300, 50)
-layout_mode = 2
-theme = ExtResource("4_grlcg")
-theme_override_fonts/font = ExtResource("35_hsmjp")
-theme_override_font_sizes/font_size = 30
-text = "Stay tuned"
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="Text6" type="Label" parent="AlertLayer/AlertLayer/MainLayer/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(300, 50)
-layout_mode = 2
-theme = ExtResource("4_grlcg")
-theme_override_font_sizes/font_size = 18
-text = "An all-new update log can help you keep track of Expland updates. You can view it by pressing the button in the bottom right corner."
-autowrap_mode = 3
-
-[node name="Title" type="Label" parent="AlertLayer/AlertLayer/MainLayer"]
+[node name="Title" type="Label" parent="AlertLayer/StoryModeDemoNotice/MainLayer"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -1235,7 +1216,25 @@ text = "Title"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CloseButton" type="TextureButton" parent="AlertLayer/AlertLayer/MainLayer"]
+[node name="PlayButton" type="Button" parent="AlertLayer/StoryModeDemoNotice/MainLayer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.0
+offset_top = 150.0
+offset_right = 63.0
+offset_bottom = 208.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme = ExtResource("4_grlcg")
+theme_override_font_sizes/font_size = 40
+text = "PLAY"
+
+[node name="CloseButton" type="TextureButton" parent="AlertLayer/StoryModeDemoNotice/MainLayer"]
 layout_mode = 0
 anchor_left = 0.348958
 anchor_top = 0.157407
@@ -1310,8 +1309,9 @@ grow_vertical = 2
 [connection signal="mouse_entered" from="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/CloseButton" to="MainLayer/UpdatesLayer/UpdatesLayer" method="_on_close_button_mouse_entered"]
 [connection signal="mouse_exited" from="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/CloseButton" to="MainLayer/UpdatesLayer/UpdatesLayer" method="_on_close_button_mouse_exited"]
 [connection signal="pressed" from="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/CloseButton" to="MainLayer/UpdatesLayer/UpdatesLayer" method="_on_close_button_pressed"]
-[connection signal="mouse_entered" from="AlertLayer/AlertLayer/MainLayer/CloseButton" to="AlertLayer/AlertLayer" method="_on_close_button_mouse_entered"]
-[connection signal="mouse_exited" from="AlertLayer/AlertLayer/MainLayer/CloseButton" to="AlertLayer/AlertLayer" method="_on_close_button_mouse_exited"]
-[connection signal="pressed" from="AlertLayer/AlertLayer/MainLayer/CloseButton" to="AlertLayer/AlertLayer" method="_on_close_button_pressed"]
+[connection signal="pressed" from="AlertLayer/StoryModeDemoNotice/MainLayer/PlayButton" to="." method="_on_story_mode_demo_notice_play_button_pressed"]
+[connection signal="mouse_entered" from="AlertLayer/StoryModeDemoNotice/MainLayer/CloseButton" to="AlertLayer/StoryModeDemoNotice" method="_on_close_button_mouse_entered"]
+[connection signal="mouse_exited" from="AlertLayer/StoryModeDemoNotice/MainLayer/CloseButton" to="AlertLayer/StoryModeDemoNotice" method="_on_close_button_mouse_exited"]
+[connection signal="pressed" from="AlertLayer/StoryModeDemoNotice/MainLayer/CloseButton" to="AlertLayer/StoryModeDemoNotice" method="_on_close_button_pressed"]
 
 [editable path="MainLayer/AchievementsUI"]

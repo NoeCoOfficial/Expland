@@ -322,7 +322,30 @@ func _on_exit_gamemode_layer_button_pressed() -> void:
 # ---------------------------------------------------------------------------- #
 
 func _on_play_story_mode_button_pressed() -> void:
-	startStoryMode()
+	$AlertLayer/StoryModeDemoNotice.spawnAlert("Demo notice", "", 16, 0.5)
+	
+	#startStoryMode() TODO
+
+
+func _on_story_mode_demo_notice_play_button_pressed() -> void:
+	$MainLayer/ProtectiveLayer.visible = true
+	
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	$TopLayer/TransitionFadeOut.modulate = Color(1, 1, 1, 0)
+	$TopLayer/TransitionFadeOut.visible = true
+	
+	var tween = get_tree().create_tween()
+	tween.connect("finished", Callable(self, "_on_story_mode_demo_notice_play_button_pressed_fade_finished"))
+	
+	tween.tween_property($TopLayer/TransitionFadeOut, "modulate", Color(1, 1, 1, 1), 1)
+	tween.tween_interval(1)
+
+func _on_story_mode_demo_notice_play_button_pressed_fade_finished():
+	PauseManager.is_inside_alert = false
+	IslandManager.Current_Game_Mode = "STORY"
+	get_tree().change_scene_to_file("uid://c5jkrckgqd0w6")
+
 
 func _on_play_free_mode_button_pressed() -> void:
 	pass
