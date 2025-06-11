@@ -50,3 +50,39 @@ extends Node
 var CURRENT_TIME = 600 # Starting time is 10am.
 var CURRENT_DAY = 1
 var DAY_STATE = "DAY"
+
+
+
+
+# Speedrun timer
+
+var speedrun_timer_is_running : bool = false
+var speedrun_timer_start_time : float = 0.0
+var speedrun_timer_elapsed_time : float = 0.0
+
+func _process(delta):
+	if speedrun_timer_is_running:
+		var current_time = Time.get_ticks_msec() / 1000.0
+		speedrun_timer_elapsed_time = current_time - speedrun_timer_start_time
+
+func start():
+	if not speedrun_timer_is_running:
+		speedrun_timer_start_time = Time.get_ticks_msec() / 1000.0 - speedrun_timer_elapsed_time
+		speedrun_timer_is_running = true
+
+func stop():
+	speedrun_timer_is_running = false
+
+func reset():
+	speedrun_timer_is_running = false
+	speedrun_timer_elapsed_time = 0.0
+
+func get_time() -> float:
+	return speedrun_timer_elapsed_time
+
+func get_formatted_time() -> String:
+	var t = speedrun_timer_elapsed_time
+	var minutes = int(t) / 60
+	var secs = int(t) % 60
+	var millis = int((t - int(t)) * 100)
+	return "%02d:%02d.%02d" % [minutes, secs, millis]
