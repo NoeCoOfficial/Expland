@@ -45,5 +45,5 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-@icon("res://Textures/Icons/Script Icons/32x32/camera.png")
+@icon("uid://dilocovfy7y5b")
 extends Node

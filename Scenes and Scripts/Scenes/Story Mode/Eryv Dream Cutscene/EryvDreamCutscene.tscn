@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://8jr1q0oly2hr" path="res://Scenes and Scripts/Scenes/The Eryv (and related)/TheEryv.tscn" id="5_mfavh"]
 [ext_resource type="PackedScene" uid="uid://jdu8drxlcfv5" path="res://Scenes and Scripts/Scenes/Player/Character/PlayerCharacterShadow.tscn" id="6_5iwlc"]
 [ext_resource type="PackedScene" uid="uid://32wjv1fmedim" path="res://Scenes and Scripts/Scenes/Player/Character/PlayerCharacter.tscn" id="7_gahau"]
-[ext_resource type="Script" uid="uid://dilocovfy7y5b" path="res://Assets/Textures/Icons/Script Icons/Scripts/CameraIcon_SCRIPT.gd" id="8_yhd85"]
 [ext_resource type="PackedScene" uid="uid://djwgy3b85xfpn" path="res://Scenes and Scripts/Scenes/Player/Hand Item/HandItem.tscn" id="9_igarn"]
 [ext_resource type="Texture2D" uid="uid://tmqrfb1atg1j" path="res://Assets/Textures/Crosshairs/Expland_Crosshair.png" id="10_ncmp1"]
 [ext_resource type="Texture2D" uid="uid://bg100aqmtgfn4" path="res://Assets/Textures/Icons/WhiteHam_Icon.png" id="11_xiwe1"]
@@ -1911,6 +1910,58 @@ _data = {
 &"Slow Run_2": SubResource("Animation_lrtbu")
 }
 
+[sub_resource type="GDScript" id="GDScript_2hvf2"]
+script/source = "# ============================================================= #
+# CameraIcon_SCRIPT.gd
+# ============================================================= #
+#                       COPYRIGHT NOTICE                        #
+#                           Noe Co.                             #
+#            (2024 - Present) - All Rights Reserved             #
+#                                                               #
+#                     Noe Co. Game License                      #
+#                                                               #
+# Permission is hereby granted to any person to view, fork,     #
+# and make personal modifications to this software (the         #
+# \"Software\"), solely for private, non-commercial use.          #
+#                                                               #
+# Restrictions:                                                 #
+# 1. You may NOT distribute, publish, or make publicly          #
+#    available any part of the original or modified Software.   #
+# 2. You may NOT share, host, or release modified versions,     #
+#    including derivative works, in any public or commercial    #
+#    form.                                                      #
+# 3. You may NOT use the Software for commercial purposes       #
+#    without prior written permission from Noe Co.              #
+#                                                               #
+# Ownership:                                                    #
+# Noe Co. retains all rights, title, and interest in and to     #
+# the Software and associated intellectual property. This       #
+# license does not grant ownership of the Software.             #
+#                                                               #
+# Termination:                                                  #
+# This license is effective as of your initial access and       #
+# remains until terminated. Breach of any term results in       #
+# automatic termination, requiring destruction of all copies.   #
+#                                                               #
+# Disclaimer of Warranty:                                       #
+# THE SOFTWARE IS PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY      #
+# KIND. NOE CO. DISCLAIMS ALL WARRANTIES, WHETHER EXPRESS,      #
+# IMPLIED, OR STATUTORY, INCLUDING WARRANTIES OF                #
+# MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.          #
+#                                                               #
+# Limitation of Liability:                                      #
+# NOE CO. SHALL NOT BE LIABLE FOR ANY DAMAGES ARISING FROM      #
+# USE OR INABILITY TO USE THE SOFTWARE, INCLUDING INDIRECT,     #
+# INCIDENTAL, OR CONSEQUENTIAL DAMAGES.                         #
+#                                                               #
+#                   For inquiries, contact:                     #
+#                  noeco.official@gmail.com                     #
+# ============================================================= #
+
+@icon(\"uid://bdotskxguvs6y\")
+extends Node
+"
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_yqbml"]
 size = Vector3(0.015, 0.015, 3.035)
 
@@ -3687,36 +3738,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 transform = Transform3D(-0.651061, 0, -5.69176e-08, 0, 0.651061, 0, 5.69176e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Player/Head/Player_Character_Shadow/Armature_003" index="0"]
-bones/0/position = Vector3(2.91225, -2.41187, -196.445)
-bones/0/rotation = Quaternion(-0.684986, -0.27068, 0.248366, 0.62916)
-bones/1/rotation = Quaternion(0.0779309, 0.040803, -0.00802922, 0.996091)
-bones/2/rotation = Quaternion(0.0928304, 0.0791508, -0.0214494, 0.992299)
-bones/3/rotation = Quaternion(0.0920551, 0.0791384, -0.0212954, 0.992376)
-bones/4/rotation = Quaternion(-0.0457157, -0.0105466, 0.0018524, 0.998897)
-bones/5/rotation = Quaternion(-0.0599765, 0.17717, -0.00184285, 0.982349)
-bones/7/rotation = Quaternion(0.571214, 0.430453, -0.566585, 0.409153)
-bones/8/rotation = Quaternion(0.436177, -0.0975502, 0.0886364, 0.890156)
+bones/0/position = Vector3(2.6957, -3.59594, -195.728)
+bones/0/rotation = Quaternion(-0.6838, -0.270394, 0.249753, 0.630022)
+bones/1/rotation = Quaternion(0.0801961, 0.0410155, -0.00901386, 0.995894)
+bones/2/rotation = Quaternion(0.0981542, 0.0795973, -0.0229121, 0.991718)
+bones/3/rotation = Quaternion(0.0981542, 0.0795973, -0.0229121, 0.991718)
+bones/4/rotation = Quaternion(-0.0608224, -0.0106676, 0.00216204, 0.998089)
+bones/5/rotation = Quaternion(-0.0636982, 0.177355, -0.00813309, 0.98205)
+bones/7/rotation = Quaternion(0.589795, 0.408816, -0.567353, 0.403884)
+bones/8/rotation = Quaternion(0.424911, -0.104036, 0.0878021, 0.89494)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0333405, 0.0660821, 0.419427, 0.904766)
-bones/11/rotation = Quaternion(0.616975, -0.394027, 0.525838, 0.433104)
-bones/12/rotation = Quaternion(0.433412, 0.0911312, 0.14606, 0.884599)
-bones/13/rotation = Quaternion(0.0402845, -0.00386007, -0.368985, 0.928554)
-bones/15/rotation = Quaternion(0.0802987, 0.230458, 0.964233, -0.103422)
+bones/9/rotation = Quaternion(-0.0371908, 0.0614737, 0.410383, 0.909078)
+bones/11/rotation = Quaternion(0.637449, -0.370081, 0.524735, 0.425855)
+bones/12/rotation = Quaternion(0.414563, 0.106099, 0.148298, 0.891565)
+bones/13/rotation = Quaternion(0.0271799, 0.0154682, -0.365251, 0.930384)
+bones/15/rotation = Quaternion(0.0795329, 0.236951, 0.962507, -0.105404)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.358619, 0.11959, -0.0363198, 0.925079)
-bones/17/rotation = Quaternion(0.565797, -0.00100242, -0.0233947, 0.824212)
-bones/18/rotation = Quaternion(0.289337, -0.036408, -0.00961185, 0.956487)
-bones/20/rotation = Quaternion(-0.125546, 0.0205673, 0.982811, 0.133786)
-bones/21/rotation = Quaternion(-0.336429, 0.0728111, -0.0256142, 0.93854)
-bones/22/rotation = Quaternion(0.67168, 0.0555484, 0.107125, 0.730948)
+bones/16/rotation = Quaternion(-0.363817, 0.118547, -0.0364179, 0.923178)
+bones/17/rotation = Quaternion(0.566438, -0.00234085, -0.0258115, 0.823697)
+bones/18/rotation = Quaternion(0.289416, -0.0367166, -0.00951545, 0.956452)
+bones/20/rotation = Quaternion(-0.124542, 0.0329705, 0.982778, 0.132479)
+bones/21/rotation = Quaternion(-0.352308, 0.0712206, -0.026934, 0.932782)
+bones/22/rotation = Quaternion(0.677472, 0.0550877, 0.105671, 0.725831)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.278097, 0.0568604, -0.0170549, 0.958717)
+bones/23/rotation = Quaternion(0.278334, 0.0572012, -0.0172154, 0.958625)
 
 [node name="Model_004" parent="Player/Head/Player_Character_Shadow/Armature_003/Skeleton3D" index="0"]
 cast_shadow = 3
 
 [node name="HandAttatchment" type="BoneAttachment3D" parent="Player/Head/Player_Character_Shadow/Armature_003/Skeleton3D" index="1"]
-transform = Transform3D(-0.27465, -0.357117, 0.892768, 0.94885, 0.0497132, 0.311789, -0.155728, 0.932736, 0.325197, -74.7177, -37.4542, -204.503)
+transform = Transform3D(-0.293204, -0.368823, 0.882043, 0.945344, 0.0258353, 0.325049, -0.142674, 0.92914, 0.34109, -74.9961, -38.2976, -201.647)
 bone_name = "mixamorig_RightHand"
 bone_idx = 14
 
@@ -3724,45 +3775,45 @@ bone_idx = 14
 transform = Transform3D(-0.651061, 0, 5.69175e-08, 0, 0.651061, 0, -5.69175e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Player/Head/Player_Character/Armature_003" index="0"]
-bones/0/position = Vector3(2.91225, -2.41187, -196.445)
-bones/0/rotation = Quaternion(-0.684986, -0.27068, 0.248366, 0.62916)
-bones/1/rotation = Quaternion(0.0779309, 0.040803, -0.00802922, 0.996091)
+bones/0/position = Vector3(2.6957, -3.59594, -195.728)
+bones/0/rotation = Quaternion(-0.6838, -0.270394, 0.249753, 0.630022)
+bones/1/rotation = Quaternion(0.0801961, 0.0410155, -0.00901386, 0.995894)
 bones/2/position = Vector3(1.19209e-07, 29.1135, -2.98023e-06)
-bones/2/rotation = Quaternion(0.0928304, 0.0791508, -0.0214494, 0.992299)
+bones/2/rotation = Quaternion(0.0981542, 0.0795973, -0.0229121, 0.991718)
 bones/3/position = Vector3(5.126e-06, 33.2726, 4.64916e-06)
-bones/3/rotation = Quaternion(0.0920551, 0.0791384, -0.0212954, 0.992376)
+bones/3/rotation = Quaternion(0.0981542, 0.0795973, -0.0229121, 0.991718)
 bones/4/position = Vector3(5.24521e-06, 37.4316, 1.82406e-05)
-bones/4/rotation = Quaternion(-0.0457157, -0.0105466, 0.0018524, 0.998897)
+bones/4/rotation = Quaternion(-0.0608224, -0.0106676, 0.00216204, 0.998089)
 bones/5/position = Vector3(-2.86102e-06, 12.1577, 1.85682)
-bones/5/rotation = Quaternion(-0.0599765, 0.17717, -0.00184285, 0.982349)
+bones/5/rotation = Quaternion(-0.0636982, 0.177355, -0.00813309, 0.98205)
 bones/7/position = Vector3(15.5676, 33.9216, 0.214007)
-bones/7/rotation = Quaternion(0.571214, 0.430453, -0.566585, 0.409153)
+bones/7/rotation = Quaternion(0.589795, 0.408816, -0.567353, 0.403884)
 bones/8/position = Vector3(7.52916e-06, 31.6372, -3.73462e-05)
-bones/8/rotation = Quaternion(0.436177, -0.0975502, 0.0886364, 0.890156)
+bones/8/rotation = Quaternion(0.424911, -0.104036, 0.0878021, 0.89494)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0333405, 0.0660821, 0.419427, 0.904766)
+bones/9/rotation = Quaternion(-0.0371908, 0.0614737, 0.410383, 0.909078)
 bones/10/position = Vector3(-5.75185e-06, 48.1225, -4.24013e-05)
 bones/11/position = Vector3(-15.5676, 33.9222, 0.223976)
-bones/11/rotation = Quaternion(0.616975, -0.394027, 0.525838, 0.433104)
+bones/11/rotation = Quaternion(0.637449, -0.370081, 0.524735, 0.425855)
 bones/12/position = Vector3(-1.65313e-05, 31.6372, 2.51814e-05)
-bones/12/rotation = Quaternion(0.433412, 0.0911312, 0.14606, 0.884599)
+bones/12/rotation = Quaternion(0.414563, 0.106099, 0.148298, 0.891565)
 bones/13/position = Vector3(3.17927e-05, 70.8277, 3.58869e-05)
-bones/13/rotation = Quaternion(0.0402845, -0.00386007, -0.368985, 0.928554)
+bones/13/rotation = Quaternion(0.0271799, 0.0154682, -0.365251, 0.930384)
 bones/14/position = Vector3(-3.78489e-06, 48.1226, 3.61372e-05)
-bones/15/rotation = Quaternion(0.0802987, 0.230458, 0.964233, -0.103422)
+bones/15/rotation = Quaternion(0.0795329, 0.236951, 0.962507, -0.105404)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.358619, 0.11959, -0.0363198, 0.925079)
+bones/16/rotation = Quaternion(-0.363817, 0.118547, -0.0364179, 0.923178)
 bones/17/position = Vector3(8.16445e-06, 89.1268, 4.36753e-06)
-bones/17/rotation = Quaternion(0.565797, -0.00100242, -0.0233947, 0.824212)
+bones/17/rotation = Quaternion(0.566438, -0.00234085, -0.0258115, 0.823697)
 bones/18/position = Vector3(1.07865e-05, 26.9015, 2.76264e-06)
-bones/18/rotation = Quaternion(0.289337, -0.036408, -0.00961185, 0.956487)
+bones/18/rotation = Quaternion(0.289416, -0.0367166, -0.00951545, 0.956452)
 bones/19/position = Vector3(-7.05104e-06, 10.3861, 1.60187e-07)
-bones/20/rotation = Quaternion(-0.125546, 0.0205673, 0.982811, 0.133786)
+bones/20/rotation = Quaternion(-0.124542, 0.0329705, 0.982778, 0.132479)
 bones/21/position = Vector3(7.35216e-06, 93.8847, 2.20229e-06)
-bones/21/rotation = Quaternion(-0.336429, 0.0728111, -0.0256142, 0.93854)
-bones/22/rotation = Quaternion(0.67168, 0.0555484, 0.107125, 0.730948)
+bones/21/rotation = Quaternion(-0.352308, 0.0712206, -0.026934, 0.932782)
+bones/22/rotation = Quaternion(0.677472, 0.0550877, 0.105671, 0.725831)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.278097, 0.0568604, -0.0170549, 0.958717)
+bones/23/rotation = Quaternion(0.278334, 0.0572012, -0.0172154, 0.958625)
 bones/24/position = Vector3(3.21493e-06, 10.3578, 7.00355e-07)
 
 [node name="Model_004" parent="Player/Head/Player_Character/Armature_003/Skeleton3D" index="0"]
@@ -3782,7 +3833,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67172, 0, 0.0232197)
 [node name="Camera3D" type="Camera3D" parent="Player/Head"]
 cull_mask = 1048573
 fov = 110.0
-script = ExtResource("8_yhd85")
+script = SubResource("GDScript_2hvf2")
 
 [node name="BuildingInitItemRig" type="Node3D" parent="Player/Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
