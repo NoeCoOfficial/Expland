@@ -1,4 +1,4 @@
-[gd_scene load_steps=157 format=4 uid="uid://dchanymqqprcr"]
+[gd_scene load_steps=161 format=4 uid="uid://dchanymqqprcr"]
 
 [ext_resource type="Script" uid="uid://dseuqwvtxuxvt" path="res://Scenes and Scripts/Scenes/Story Mode/Eryv Dream Cutscene/EryvDreamCutscene_SCRIPT.gd" id="1_g7jna"]
 [ext_resource type="AudioStream" uid="uid://bcoae0b0f2u1" path="res://Audio/SFX/Environment/WindAmbience.mp3" id="2_0awra"]
@@ -25,8 +25,11 @@
 [ext_resource type="PackedScene" uid="uid://db72djj3fp14d" path="res://Scenes and Scripts/Scenes/Environment/General/Leaf falling particles/PineTreeLeafFallingParticles.tscn" id="16_eed2x"]
 [ext_resource type="Material" uid="uid://bo77d7nagqoh4" path="res://Resources/Shader Materials/BuildingVignette.tres" id="16_w04sd"]
 [ext_resource type="Script" uid="uid://dux7wdl4tm683" path="res://Assets/Textures/Icons/Script Icons/Scripts/KeyIcon_SCRIPT.gd" id="17_a3bwp"]
+[ext_resource type="PackedScene" uid="uid://dbnbe2fwi5ive" path="res://Scenes and Scripts/Scenes/Environment/General/Logs/Log1.tscn" id="18_2hvf2"]
 [ext_resource type="FontFile" uid="uid://c4h0gd5a2e2qb" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf" id="18_pwkkx"]
 [ext_resource type="Texture2D" uid="uid://2qb1qs6h08t" path="res://Assets/Textures/Icons/Input Prompts/mouse_left_outline.png" id="19_6es53"]
+[ext_resource type="PackedScene" uid="uid://cgpgkrj6jsgje" path="res://Scenes and Scripts/Scenes/Environment/General/Rocks/Rock7.tscn" id="19_kp7q6"]
+[ext_resource type="PackedScene" uid="uid://gi7lvy553bwp" path="res://Scenes and Scripts/Scenes/Environment/General/Rocks/Rock9.tscn" id="20_l267l"]
 [ext_resource type="Texture2D" uid="uid://b6qs4d3wecwxo" path="res://Assets/Textures/Icons/Input Prompts/mouse_scroll_outline.png" id="20_p4r7k"]
 [ext_resource type="Texture2D" uid="uid://c2clf63v0gam8" path="res://Assets/Textures/Icons/Input Prompts/mouse_outline.png" id="21_lmeqo"]
 [ext_resource type="Script" uid="uid://bd3squcstkss1" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="22_hkbgw"]
@@ -88,6 +91,7 @@
 [ext_resource type="AudioStream" uid="uid://b1on04l05jgj4" path="res://Audio/SFX/Eryv/Feugcs/Feugcs2.wav" id="82_yxye2"]
 [ext_resource type="AudioStream" uid="uid://dwhbng55o2ceu" path="res://Audio/SFX/Eryv/Feugcs/Feugcs3.wav" id="83_umhd5"]
 [ext_resource type="AudioStream" uid="uid://bd5r2ebmltnm7" path="res://Audio/SFX/Eryv/Feugcs/Feugcs4.wav" id="84_vfymc"]
+[ext_resource type="PackedScene" uid="uid://cygjfc3k1xy51" path="res://Scenes and Scripts/Scenes/Environment/General/Grass/MultiMesh Grass Clumps/MultiMeshGrassClump1.tscn" id="92_kp7q6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xe4rk"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -3071,7 +3075,7 @@ transform = Transform3D(-0.748186, 0.109299, 0.0597018, 0.111683, 0.749725, 0.02
 transform = Transform3D(-0.874897, 0, 0.0133622, 0, 0.875, 0, -0.0133622, 0, -0.874897, 10.344, 0.031352, -38.2119)
 
 [node name="PineTree84" parent="Structures" instance=ExtResource("64_x1v06")]
-transform = Transform3D(0.527568, -0.101164, 0.46953, 0.119744, 0.703132, 0.0169511, -0.465138, 0.0662693, 0.536913, -5.59243, 0.250965, -110.009)
+transform = Transform3D(0.540527, 0.0861257, 0.45764, -0.0223054, 0.705132, -0.106356, -0.465138, 0.0662693, 0.536913, -5.59243, 0.250965, -110.009)
 
 [node name="PineTree85" parent="Structures" instance=ExtResource("64_x1v06")]
 transform = Transform3D(0.418468, -0.137166, 0.56133, 0.160999, 0.693297, 0.0493902, -0.554963, 0.0977005, 0.437596, -9.03807, 0.250965, -121.973)
@@ -3081,6 +3085,9 @@ transform = Transform3D(0.418468, -0.137166, 0.56133, 0.213411, 0.680753, 0.0072
 
 [node name="PineTree87" parent="Structures" instance=ExtResource("69_so3kt")]
 transform = Transform3D(0.688477, -0.0807031, 0.307863, 0.0726167, 0.754171, 0.0353046, -0.30987, -0.00257145, 0.692291, -6.72321, 0.242537, -103.897)
+
+[node name="PineTree142" parent="Structures" instance=ExtResource("69_so3kt")]
+transform = Transform3D(0.720781, -0.0586937, -0.228743, 0.0726167, 0.754171, 0.0353046, 0.224711, -0.0554495, 0.722304, -6.72321, 0.242537, -93.3007)
 
 [node name="PineTree88" parent="Structures" instance=ExtResource("72_w04sd")]
 transform = Transform3D(0.776169, 0, 0.403962, 0, 0.875, 0, -0.403962, 0, 0.776169, -9.32553, 0.031352, -109.339)
@@ -3099,6 +3106,12 @@ transform = Transform3D(0.625549, -0.0402413, -0.427039, 0.0726167, 0.754171, 0.
 
 [node name="PineTree91" parent="Structures" instance=ExtResource("72_w04sd")]
 transform = Transform3D(0.868334, 0, 0.107803, 0, 0.875, 0, -0.107803, 0, 0.868334, -5.51214, 0.031352, -96.6908)
+
+[node name="PineTree140" parent="Structures" instance=ExtResource("72_w04sd")]
+transform = Transform3D(0.864038, 0.0869352, 0.10727, -0.0862729, 0.870671, -0.0107107, -0.107803, 0, 0.868334, 3.59946, 0.031352, -101.217)
+
+[node name="PineTree141" parent="Structures" instance=ExtResource("72_w04sd")]
+transform = Transform3D(0.864038, 0.0869352, 0.10727, -0.0862729, 0.870671, -0.0107107, -0.107803, 0, 0.868334, 0.991781, 0.031352, -131.934)
 
 [node name="PineTree92" parent="Structures" instance=ExtResource("69_so3kt")]
 transform = Transform3D(-0.652009, 0.0805251, -0.379068, 0.0726167, 0.754171, 0.0353046, 0.380662, -0.00594305, -0.656014, -4.84054, 0.242537, -85.3852)
@@ -3177,6 +3190,9 @@ transform = Transform3D(-0.6709, 0.11935, -0.211351, 0.119744, 0.703132, 0.01695
 
 [node name="PineTree111" parent="Structures" instance=ExtResource("69_so3kt")]
 transform = Transform3D(-0.754987, 0.0727211, -0.000553217, 0.0726167, 0.754171, 0.0353046, 0.00393475, 0.035089, -0.757659, 7.81948, 0.242537, -98.4426)
+
+[node name="PineTree139" parent="Structures" instance=ExtResource("69_so3kt")]
+transform = Transform3D(-0.368859, -0.194662, -0.633517, -0.0563988, 0.731615, -0.191967, 0.660346, -0.0462494, -0.370268, 10.38, 0.242537, -101.198)
 
 [node name="PineTree112" parent="Structures" instance=ExtResource("72_w04sd")]
 transform = Transform3D(-0.873309, 0, -0.0543625, 0, 0.875, 0, 0.0543625, 0, -0.873309, 7.99049, 0.031352, -92.4131)
@@ -3321,6 +3337,33 @@ transform = Transform3D(0.999588, 0, -0.0287068, 0, 1, 0, 0.0287068, 0, 0.999588
 
 [node name="Rock[4]5" parent="Structures" instance=ExtResource("71_o0bi3")]
 transform = Transform3D(0.990466, -0.137756, 0, 0.137756, 0.990466, 0, 0, 0, 1, -0.796345, 0.299835, -84.0505)
+
+[node name="Log[1]" parent="Structures" instance=ExtResource("18_2hvf2")]
+transform = Transform3D(0.510513, 0, -0.85987, 0, 1, 0, 0.85987, 0, 0.510513, -1.65371, 0.420128, -82.5775)
+
+[node name="MultiMeshGrassClump38" parent="Structures" instance=ExtResource("65_geutv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.32824, 0.191593, -94.8561)
+
+[node name="MultiMeshGrassClump39" parent="Structures" instance=ExtResource("65_geutv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.02061, 0.191593, -94.8561)
+
+[node name="MultiMeshGrassClump40" parent="Structures" instance=ExtResource("65_geutv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.583073, 0.258225, -106.632)
+
+[node name="MultiMeshGrassClump41" parent="Structures" instance=ExtResource("12_w04sd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.779266, 0.276122, -100.294)
+
+[node name="Rock[3]6" parent="Structures" instance=ExtResource("73_a3bwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26921, 0.463322, -93.7815)
+
+[node name="Rock[7]" parent="Structures" instance=ExtResource("19_kp7q6")]
+transform = Transform3D(1, 0, 0, 0, 0.991561, -0.129644, 0, 0.129644, 0.991561, 2.3706, 0.0236869, -96.1178)
+
+[node name="Rock[6]5" parent="Structures" instance=ExtResource("66_5iwlc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.98706, 0.0634971, -105.186)
+
+[node name="Rock[9]" parent="Structures" instance=ExtResource("20_l267l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.27168, -0.197932, -103.381)
 
 [node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("head", "camera", "HandItem", "HandItemRig", "PickupAttractionPos", "Character_Body", "Character_Anim_Player", "Character_Shadow_Body", "Character_Shadow_Anim_Player", "Slot1_Hotbar_Ref", "Slot2_Hotbar_Ref", "Slot3_Hotbar_Ref", "Slot4_Hotbar_Ref", "Slot5_Hotbar_Ref", "Slot6_Hotbar_Ref", "Slot7_Hotbar_Ref", "Slot8_Hotbar_Ref", "Slot9_Hotbar_Ref", "Outline_Slot1_Hotbar_Ref", "Outline_Slot2_Hotbar_Ref", "Outline_Slot3_Hotbar_Ref", "Outline_Slot4_Hotbar_Ref", "Outline_Slot5_Hotbar_Ref", "Outline_Slot6_Hotbar_Ref", "Outline_Slot7_Hotbar_Ref", "Outline_Slot8_Hotbar_Ref", "Outline_Slot9_Hotbar_Ref", "Slot1_Pocket_Ref", "Slot2_Pocket_Ref", "Slot3_Pocket_Ref", "Slot4_Pocket_Ref", "Slot5_Pocket_Ref", "Slot6_Pocket_Ref", "Slot7_Pocket_Ref", "Slot8_Pocket_Ref", "Slot9_Pocket_Ref", "Slot10_Pocket_Ref", "Slot11_Pocket_Ref", "Slot12_Pocket_Ref", "Slot13_Pocket_Ref", "Slot14_Pocket_Ref", "Slot15_Pocket_Ref", "Slot16_Pocket_Ref", "Slot17_Pocket_Ref", "Slot18_Pocket_Ref", "Slot19_Pocket_Ref", "Slot20_Pocket_Ref", "Slot21_Pocket_Ref", "Slot22_Pocket_Ref", "Slot23_Pocket_Ref", "Slot24_Pocket_Ref", "Slot25_Pocket_Ref", "InventoryLayer_CanvasLayer", "InventoryLayer_GreyLayer", "InventoryLayer_Pockets", "InventoryLayer_Hotbar", "InventoryLayer_HotbarSlotOutlines", "InventoryLayer_Chest", "InventoryLayer_Workbench", "BuildingUILayer", "BuildingUIEditLayer", "BuildingEditKeyMessage", "BuildingMakeStaticMessage", "BuildingVignette", "BuildingInitItemRig", "BuildingItemParent", "HUDLayer", "PauseLayer", "DebugLayer", "SettingsUI", "AchievementsUI", "AlertLayer", "CreditsLayer", "MinimalAlert", "TopLayerBlackOverlay", "SleepLayerBlackOverlay", "DayText_Label", "ProtectiveLayer", "Crosshair_Rect", "StaminaBar", "EffectNotificationGrid", "DialogueInterface", "DeathScreen_BlackOverlay", "OverlayLayer_Overlay", "ItemWorkshopLayer_MainLayer", "ItemWorkshopLayer_GreyLayer", "HUDLayer_HealthBar", "HUDLayer_HungerBar", "GetUp_Label", "RandomText_Label", "OverlayLayer_RedOverlay", "ManualSaveCooldown", "AutoSaveTimer", "StartDebugging_Btn", "SetTime_SpinBox", "SetTime_Button", "Is_Inside_Settings_Label", "Is_Moving_Label", "Is_Walking_Label", "Is_Sprinting_Label", "Is_Crouching_Label", "Is_In_Dialogue_Interface_Label", "Current_Time_Label", "Current_FPS_Label", "Player_Position_Label", "Player_VelocityY_Label", "Player_VelocityY_Accurate_Label", "Is_On_Floor_Label", "Inputs_Currently_Pressing_Label", "DAY_STATE_Label", "GAME_STATE_Label", "CURRENT_DAY_Label", "CURRENT_TIME_Label", "CURRENT_WEATHER_Label", "CURRENT_WEATHER_ARR_INDEX_Label", "WEATHER_TIMER_TIME_LEFT_Label") groups=["PlayerBody"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.599358, 0.321556)
@@ -3530,36 +3573,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 transform = Transform3D(-0.651061, 0, -5.69176e-08, 0, 0.651061, 0, 5.69176e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Player/Head/Player_Character_Shadow/Armature_003" index="0"]
-bones/0/position = Vector3(2.88161, -2.30774, -196.493)
-bones/0/rotation = Quaternion(-0.684845, -0.270648, 0.248433, 0.629299)
-bones/1/rotation = Quaternion(0.078161, 0.040822, -0.00810735, 0.996072)
-bones/2/rotation = Quaternion(0.0932824, 0.0791845, -0.0216062, 0.992251)
-bones/3/rotation = Quaternion(0.0926196, 0.0792478, -0.0215325, 0.992309)
-bones/4/rotation = Quaternion(-0.0472447, -0.0105268, 0.00202517, 0.998826)
-bones/5/rotation = Quaternion(-0.0691947, 0.177896, -0.00101585, 0.981613)
-bones/7/rotation = Quaternion(0.572855, 0.42854, -0.567052, 0.408218)
-bones/8/rotation = Quaternion(0.435549, -0.0977388, 0.0883743, 0.890469)
+bones/0/position = Vector3(2.88191, -3.56829, -195.832)
+bones/0/rotation = Quaternion(-0.684608, -0.269985, 0.248997, 0.629619)
+bones/1/rotation = Quaternion(0.0794816, 0.0408648, -0.00879657, 0.99596)
+bones/2/rotation = Quaternion(0.0967585, 0.0792186, -0.0224604, 0.991896)
+bones/3/rotation = Quaternion(0.0967657, 0.0792181, -0.022461, 0.991895)
+bones/4/rotation = Quaternion(-0.0516305, -0.0108221, 0.00236427, 0.998605)
+bones/5/rotation = Quaternion(-0.037407, 0.17637, -0.00584591, 0.983596)
+bones/7/rotation = Quaternion(0.584165, 0.415649, -0.566878, 0.405754)
+bones/8/rotation = Quaternion(0.42738, -0.103465, 0.0883328, 0.893778)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0335224, 0.0657436, 0.418905, 0.905026)
-bones/11/rotation = Quaternion(0.620189, -0.390381, 0.525728, 0.431947)
-bones/12/rotation = Quaternion(0.432646, 0.0917018, 0.146108, 0.884907)
-bones/13/rotation = Quaternion(0.0399212, -0.00324833, -0.368414, 0.928799)
-bones/15/rotation = Quaternion(0.0804106, 0.230819, 0.96412, -0.103581)
+bones/9/rotation = Quaternion(-0.0367265, 0.0614446, 0.41012, 0.909218)
+bones/11/rotation = Quaternion(0.631396, -0.377464, 0.525055, 0.427991)
+bones/12/rotation = Quaternion(0.416204, 0.104045, 0.148623, 0.890988)
+bones/13/rotation = Quaternion(0.0320605, 0.0111061, -0.365925, 0.930026)
+bones/15/rotation = Quaternion(0.0795038, 0.235775, 0.962875, -0.10469)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.359189, 0.119451, -0.03647, 0.92487)
-bones/17/rotation = Quaternion(0.565854, -0.00113256, -0.0236392, 0.824166)
-bones/18/rotation = Quaternion(0.289406, -0.0365234, -0.00968269, 0.95646)
-bones/20/rotation = Quaternion(-0.125533, 0.0213222, 0.982799, 0.133768)
-bones/21/rotation = Quaternion(-0.336133, 0.0725708, -0.0255013, 0.938668)
-bones/22/rotation = Quaternion(0.672028, 0.0555178, 0.107036, 0.730643)
+bones/16/rotation = Quaternion(-0.362376, 0.119234, -0.0365692, 0.92365)
+bones/17/rotation = Quaternion(0.565602, -0.00207587, -0.0253156, 0.824287)
+bones/18/rotation = Quaternion(0.28909, -0.0359951, -0.00935831, 0.956579)
+bones/20/rotation = Quaternion(-0.124889, 0.0315457, 0.982715, 0.132962)
+bones/21/rotation = Quaternion(-0.350615, 0.0716372, -0.0266452, 0.933396)
+bones/22/rotation = Quaternion(0.676537, 0.0551101, 0.105856, 0.726674)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.278136, 0.0569172, -0.0170817, 0.958702)
+bones/23/rotation = Quaternion(0.277955, 0.0566574, -0.0169593, 0.958772)
 
 [node name="Model_004" parent="Player/Head/Player_Character_Shadow/Armature_003/Skeleton3D" index="0"]
 cast_shadow = 3
 
 [node name="HandAttatchment" type="BoneAttachment3D" parent="Player/Head/Player_Character_Shadow/Armature_003/Skeleton3D" index="1"]
-transform = Transform3D(-0.275167, -0.349958, 0.89544, 0.949205, 0.0489644, 0.310825, -0.15262, 0.935485, 0.318708, -74.0348, -37.129, -203.995)
+transform = Transform3D(-0.2891, -0.373771, 0.881315, 0.94587, 0.0303026, 0.323128, -0.147482, 0.927026, 0.344779, -75.7496, -38.661, -202.763)
 bone_name = "mixamorig_RightHand"
 bone_idx = 14
 
@@ -3567,45 +3610,45 @@ bone_idx = 14
 transform = Transform3D(-0.651061, 0, 5.69175e-08, 0, 0.651061, 0, -5.69175e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Player/Head/Player_Character/Armature_003" index="0"]
-bones/0/position = Vector3(2.88161, -2.30774, -196.493)
-bones/0/rotation = Quaternion(-0.684845, -0.270648, 0.248433, 0.629299)
-bones/1/rotation = Quaternion(0.078161, 0.040822, -0.00810735, 0.996072)
+bones/0/position = Vector3(2.88191, -3.56829, -195.832)
+bones/0/rotation = Quaternion(-0.684608, -0.269985, 0.248997, 0.629619)
+bones/1/rotation = Quaternion(0.0794816, 0.0408648, -0.00879657, 0.99596)
 bones/2/position = Vector3(1.19209e-07, 29.1135, -2.98023e-06)
-bones/2/rotation = Quaternion(0.0932824, 0.0791845, -0.0216062, 0.992251)
+bones/2/rotation = Quaternion(0.0967585, 0.0792186, -0.0224604, 0.991896)
 bones/3/position = Vector3(5.126e-06, 33.2726, 4.64916e-06)
-bones/3/rotation = Quaternion(0.0926196, 0.0792478, -0.0215325, 0.992309)
+bones/3/rotation = Quaternion(0.0967657, 0.0792181, -0.022461, 0.991895)
 bones/4/position = Vector3(5.24521e-06, 37.4316, 1.82406e-05)
-bones/4/rotation = Quaternion(-0.0472447, -0.0105268, 0.00202517, 0.998826)
+bones/4/rotation = Quaternion(-0.0516305, -0.0108221, 0.00236427, 0.998605)
 bones/5/position = Vector3(-2.86102e-06, 12.1577, 1.85682)
-bones/5/rotation = Quaternion(-0.0691947, 0.177896, -0.00101585, 0.981613)
+bones/5/rotation = Quaternion(-0.037407, 0.17637, -0.00584591, 0.983596)
 bones/7/position = Vector3(15.5676, 33.9216, 0.214007)
-bones/7/rotation = Quaternion(0.572855, 0.42854, -0.567052, 0.408218)
+bones/7/rotation = Quaternion(0.584165, 0.415649, -0.566878, 0.405754)
 bones/8/position = Vector3(7.52916e-06, 31.6372, -3.73462e-05)
-bones/8/rotation = Quaternion(0.435549, -0.0977388, 0.0883743, 0.890469)
+bones/8/rotation = Quaternion(0.42738, -0.103465, 0.0883328, 0.893778)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0335224, 0.0657436, 0.418905, 0.905026)
+bones/9/rotation = Quaternion(-0.0367265, 0.0614446, 0.41012, 0.909218)
 bones/10/position = Vector3(-5.75185e-06, 48.1225, -4.24013e-05)
 bones/11/position = Vector3(-15.5676, 33.9222, 0.223976)
-bones/11/rotation = Quaternion(0.620189, -0.390381, 0.525728, 0.431947)
+bones/11/rotation = Quaternion(0.631396, -0.377464, 0.525055, 0.427991)
 bones/12/position = Vector3(-1.65313e-05, 31.6372, 2.51814e-05)
-bones/12/rotation = Quaternion(0.432646, 0.0917018, 0.146108, 0.884907)
+bones/12/rotation = Quaternion(0.416204, 0.104045, 0.148623, 0.890988)
 bones/13/position = Vector3(3.17927e-05, 70.8277, 3.58869e-05)
-bones/13/rotation = Quaternion(0.0399212, -0.00324833, -0.368414, 0.928799)
+bones/13/rotation = Quaternion(0.0320605, 0.0111061, -0.365925, 0.930026)
 bones/14/position = Vector3(-3.78489e-06, 48.1226, 3.61372e-05)
-bones/15/rotation = Quaternion(0.0804106, 0.230819, 0.96412, -0.103581)
+bones/15/rotation = Quaternion(0.0795038, 0.235775, 0.962875, -0.10469)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.359189, 0.119451, -0.03647, 0.92487)
+bones/16/rotation = Quaternion(-0.362376, 0.119234, -0.0365692, 0.92365)
 bones/17/position = Vector3(8.16445e-06, 89.1268, 4.36753e-06)
-bones/17/rotation = Quaternion(0.565854, -0.00113256, -0.0236392, 0.824166)
+bones/17/rotation = Quaternion(0.565602, -0.00207587, -0.0253156, 0.824287)
 bones/18/position = Vector3(1.07865e-05, 26.9015, 2.76264e-06)
-bones/18/rotation = Quaternion(0.289406, -0.0365234, -0.00968269, 0.95646)
+bones/18/rotation = Quaternion(0.28909, -0.0359951, -0.00935831, 0.956579)
 bones/19/position = Vector3(-7.05104e-06, 10.3861, 1.60187e-07)
-bones/20/rotation = Quaternion(-0.125533, 0.0213222, 0.982799, 0.133768)
+bones/20/rotation = Quaternion(-0.124889, 0.0315457, 0.982715, 0.132962)
 bones/21/position = Vector3(7.35216e-06, 93.8847, 2.20229e-06)
-bones/21/rotation = Quaternion(-0.336133, 0.0725708, -0.0255013, 0.938668)
-bones/22/rotation = Quaternion(0.672028, 0.0555178, 0.107036, 0.730643)
+bones/21/rotation = Quaternion(-0.350615, 0.0716372, -0.0266452, 0.933396)
+bones/22/rotation = Quaternion(0.676537, 0.0551101, 0.105856, 0.726674)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.278136, 0.0569172, -0.0170817, 0.958702)
+bones/23/rotation = Quaternion(0.277955, 0.0566574, -0.0169593, 0.958772)
 bones/24/position = Vector3(3.21493e-06, 10.3578, 7.00355e-07)
 
 [node name="Model_004" parent="Player/Head/Player_Character/Armature_003/Skeleton3D" index="0"]
@@ -7037,6 +7080,36 @@ mouse_filter = 2
 libraries = {
 &"": SubResource("AnimationLibrary_cqxma")
 }
+
+[node name="Rock[4]" parent="." instance=ExtResource("71_o0bi3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.67497, 0.131732, -107.517)
+
+[node name="MultiMeshGrassClump7" parent="." instance=ExtResource("65_geutv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.50106, 0.0842316, -104.977)
+
+[node name="MultiMeshGrassClump8" parent="." instance=ExtResource("65_geutv")]
+transform = Transform3D(0.903806, 0, 0.427942, 0, 1, 0, -0.427942, 0, 0.903806, -6.66959, 0.0842316, -113.098)
+
+[node name="MultiMeshGrassClump9" parent="." instance=ExtResource("65_geutv")]
+transform = Transform3D(0.903806, 0, 0.427942, 0, 1, 0, -0.427942, 0, 0.903806, -6.66959, 0.0842316, -102.448)
+
+[node name="MultiMeshGrassClump10" parent="." instance=ExtResource("65_geutv")]
+transform = Transform3D(0.903806, 0, 0.427942, 0, 1, 0, -0.427942, 0, 0.903806, 6.49821, 0.0842316, -121.5)
+
+[node name="MultiMeshGrassClump11" parent="." instance=ExtResource("65_geutv")]
+transform = Transform3D(-0.844917, 0, 0.534898, 0, 1, 0, -0.534898, 0, -0.844917, 6.49821, 0.0842316, -112.585)
+
+[node name="MultiMeshGrassClump12" parent="." instance=ExtResource("65_geutv")]
+transform = Transform3D(-0.844917, 0, 0.534898, 0, 1, 0, -0.534898, 0, -0.844917, -4.50563, 0.0842316, -122.158)
+
+[node name="MultiMeshGrassClump13" parent="." instance=ExtResource("65_geutv")]
+transform = Transform3D(0.960478, 0, 0.278354, 0, 1, 0, -0.278354, 0, 0.960478, 1.68429, 0.0842316, -130.451)
+
+[node name="MultiMeshGrassClump14" parent="." instance=ExtResource("65_geutv")]
+transform = Transform3D(0.960478, 0, 0.278354, 0, 1, 0, -0.278354, 0, 0.960478, -7.11612, 0.0842316, -130.451)
+
+[node name="MultiMeshGrassClump1" parent="." instance=ExtResource("92_kp7q6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.781553, -0.021841, -125.329)
 
 [connection signal="timeout" from="SceneChangeDebounce" to="." method="_on_scene_change_debounce_timeout"]
 [connection signal="timeout" from="EryvFuegcsInterval" to="." method="_on_eryv_fuegcs_interval_timeout"]
