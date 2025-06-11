@@ -122,6 +122,8 @@ func _ready() -> void:
 	
 	# Woken up from Eryv chase dream
 	if IslandManager.Current_Game_Mode == "STORY" and StoryModeManager.waking_up_from_eryv_dream:
+		print("woken up from eryv dream cutscene")
+		set_time(600) # Set time to 10am.
 		$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/StoryModeDreamWakeUpUI".show()
 		$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/StoryModeDreamWakeUpUI/BlackRect".show()
 		$Player/Head/Camera3D/HUDLayer.hide()
