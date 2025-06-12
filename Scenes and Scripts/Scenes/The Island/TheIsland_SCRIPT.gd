@@ -159,7 +159,8 @@ func spawnDemoScreen():
 
 
 func _on_ready() -> void:
-	TimeManager.speedrun_timer_start()
+	if !StoryModeManager.waking_up_from_eryv_dream:
+		TimeManager.speedrun_timer_start()
 	AudioManager.Current_Rain_SFX_Node = $Rain_SFX
 	
 	# Play and loop wind ambience sound
