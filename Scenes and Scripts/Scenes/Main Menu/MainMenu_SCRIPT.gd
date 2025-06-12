@@ -64,6 +64,7 @@ var is_tweening = false
 # ---------------------------------------------------------------------------- #
 
 func _ready() -> void:
+	TimeManager.speedrun_timer_reset()
 	if !Global.is_first_time_in_menu:
 		Global.is_first_time_in_menu_no_startup = true
 	initialize_globals()

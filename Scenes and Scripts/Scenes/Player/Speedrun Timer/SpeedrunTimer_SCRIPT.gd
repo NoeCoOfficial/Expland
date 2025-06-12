@@ -50,4 +50,4 @@ extends Node
 @export var TimeLabel : Label
 
 func _process(delta):
-	TimeLabel.text = TimeManager.get_formatted_time()
+	TimeLabel.text = TimeManager.speedrun_timer_get_formatted_time()

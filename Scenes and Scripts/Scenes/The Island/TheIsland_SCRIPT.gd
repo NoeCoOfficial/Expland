@@ -137,9 +137,6 @@ func _ready() -> void:
 	
 	Player.nodeSetup()
 
-func stop_speed_run_timer():
-	TimeManager.stop()
-
 #####################################################
 
 func eryvDreamWakeUpEffects():
@@ -162,7 +159,7 @@ func spawnDemoScreen():
 
 
 func _on_ready() -> void:
-	TimeManager.start()
+	TimeManager.speedrun_timer_start()
 	AudioManager.Current_Rain_SFX_Node = $Rain_SFX
 	
 	# Play and loop wind ambience sound

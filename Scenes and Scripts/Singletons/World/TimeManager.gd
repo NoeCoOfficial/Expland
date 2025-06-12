@@ -59,33 +59,46 @@ var DAY_STATE = "DAY"
 
 # Speedrun timer
 
-var speedrun_timer_is_running : bool = false
-var speedrun_timer_start_time : float = 0.0
-var speedrun_timer_elapsed_time : float = 0.0
+var speedrun_timer_is_running: bool = false
+var speedrun_timer_start_time: float = 0.0
+var speedrun_timer_elapsed_time: float = 0.0
 
-func _process(delta):
-	if speedrun_timer_is_running:
-		var current_time = Time.get_ticks_msec() / 1000.0
-		speedrun_timer_elapsed_time = current_time - speedrun_timer_start_time
+var _speedrun_timer_thread: Thread = null
+var _speedrun_timer_should_run: bool = true
 
-func start():
+func _ready():
+	_speedrun_timer_thread = Thread.new()
+	_speedrun_timer_thread.start(Callable(self, "_speedrun_timer_loop"))
+
+func _speedrun_timer_loop(_unused = null):
+	while _speedrun_timer_should_run:
+		if speedrun_timer_is_running:
+			var current_time = Time.get_ticks_msec() / 1000.0
+			speedrun_timer_elapsed_time = current_time - speedrun_timer_start_time
+		await get_tree().process_frame  # Keeps the update lightweight
+	return
+
+func speedrun_timer_start():
 	if not speedrun_timer_is_running:
 		speedrun_timer_start_time = Time.get_ticks_msec() / 1000.0 - speedrun_timer_elapsed_time
 		speedrun_timer_is_running = true
 
-func stop():
+func speedrun_timer_stop():
 	speedrun_timer_is_running = false
 
-func reset():
+func speedrun_timer_reset():
 	speedrun_timer_is_running = false
 	speedrun_timer_elapsed_time = 0.0
 
-func get_time() -> float:
+func speedrun_timer_get_time() -> float:
 	return speedrun_timer_elapsed_time
 
-func get_formatted_time() -> String:
+func speedrun_timer_get_formatted_time() -> String:
 	var t = speedrun_timer_elapsed_time
 	var minutes = int(t) / 60
 	var secs = int(t) % 60
 	var millis = int((t - int(t)) * 100)
 	return "%02d:%02d.%02d" % [minutes, secs, millis]
+
+func _exit_tree():
+	_speedrun_timer_should_run = false
