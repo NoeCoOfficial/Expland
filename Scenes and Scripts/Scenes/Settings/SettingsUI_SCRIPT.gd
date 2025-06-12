@@ -45,7 +45,7 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-@icon("res://Textures/Icons/Script Icons/32x32/settings_gear.png")
+@icon("uid://dpk5gdnlxv3o1")
 extends Control
 
 func nodeSetup():
