@@ -147,20 +147,20 @@ func loadSettings(save_path: String, SK : String):
 			printerr("Cannot parse %s as a json_string: (%s)" % [save_path, content])
 			return
 		
-		showStartupScreen = data.showStartupScreen
-		autosaveInterval = data.autosaveInterval
-		quickAnimations = data.quickAnimations
-		speedRunTimer = data.speedRunTimer
-		showTime = data.showTime
-		
-		PrettyShadows = data.PrettyShadows
-		
-		FOV = data.FOV
-		Sensitivity = data.Sensitivity
-		
-		sfx_Volume = data.sfx_Volume
-		music_Volume = data.music_Volume
-		Master_Volume = data.Master_Volume
+		showStartupScreen = data.get("showStartupScreen", showStartupScreen)
+		autosaveInterval = data.get("autosaveInterval", autosaveInterval)
+		quickAnimations = data.get("quickAnimations", quickAnimations)
+		speedRunTimer = data.get("speedRunTimer", speedRunTimer)
+		showTime = data.get("showTime", showTime)
+
+		PrettyShadows = data.get("PrettyShadows", PrettyShadows)
+
+		FOV = data.get("FOV", FOV)
+		Sensitivity = data.get("Sensitivity", Sensitivity)
+
+		sfx_Volume = data.get("sfx_Volume", sfx_Volume)
+		music_Volume = data.get("music_Volume", music_Volume)
+		Master_Volume = data.get("Master_Volume", Master_Volume)
 		
 	else:
 		printerr("Cannot open non-existent file at %s!" % [save_path])
