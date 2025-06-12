@@ -53,6 +53,7 @@ func nodeSetup():
 	
 	$GreyLayer.modulate = Color(1, 1, 1, 0)
 	
+	$MainLayer/SettingsTabContainer/General/SpeedrunTimerSwitch.button_pressed = PlayerSettingsData.speedRunTimer
 	$MainLayer/SettingsTabContainer/General/QASwitch.button_pressed = PlayerSettingsData.quickAnimations
 	$MainLayer/SettingsTabContainer/Graphics/PrettyShadowsSwitch.button_pressed = PlayerSettingsData.PrettyShadows
 	$MainLayer/SettingsTabContainer/General/SSCSwitch.button_pressed = PlayerSettingsData.showStartupScreen
@@ -168,3 +169,10 @@ func _on_qa_switch_toggled(toggled_on: bool) -> void:
 		PlayerSettingsData.quickAnimations = true
 	else:
 		PlayerSettingsData.quickAnimations = false
+
+
+func _on_speedrun_timer_switch_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		PlayerSettingsData.speedRunTimer = true
+	else:
+		PlayerSettingsData.speedRunTimer = false

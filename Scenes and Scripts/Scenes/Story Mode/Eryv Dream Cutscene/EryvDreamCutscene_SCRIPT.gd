@@ -140,8 +140,6 @@ func WAKE_UP():
 	$"The Eryv/Stomps".volume_db = -80.0
 	$Environment/AmbientWindLoop.stop()
 	
-	
-	
 	$SceneChangeDebounce.start()
 
 

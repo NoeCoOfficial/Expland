@@ -58,6 +58,9 @@ var showStartupScreen : bool = true
 var autosaveInterval : int = 60
 
 var quickAnimations : bool = false
+var speedRunTimer : bool = false
+
+
 # TODO: Do this setting
 var showTime : bool = false
 

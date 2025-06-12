@@ -51,3 +51,4 @@ extends Node
 
 func _process(delta):
 	TimeLabel.text = TimeManager.speedrun_timer_get_formatted_time()
+	TimeLabel.visible = PlayerSettingsData.speedRunTimer

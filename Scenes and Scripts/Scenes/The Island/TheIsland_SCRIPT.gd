@@ -544,7 +544,7 @@ func _on_main_menu_button_pressed() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/ExplandDemoNotice/BlackBGFadeOut".modulate = Color(1, 1, 1, 0)
 	$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/ExplandDemoNotice/BlackBGFadeOut".show()
-	var tween = get_tree().create_tween()
+	var tween = get_tree().create_tween().set_parallel()
 	tween.connect("finished", _demo_fade_out_finished)
 	tween.tween_property(
 		$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/ExplandDemoNotice/BlackBGFadeOut",
@@ -552,7 +552,23 @@ func _on_main_menu_button_pressed() -> void:
 		Color(1, 1, 1, 1),
 		1.0)
 
+	tween.tween_property(
+		$WindAmbience,
+		"volume_db",
+		-40.0,
+		1.0)
+
+	tween.tween_property(
+		$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/ExplandDemoNotice/VolumetricFog",
+		"volume_db",
+		-40.0,
+		1.0)
+
 func _demo_fade_out_finished():
+	StoryModeManager.is_in_cutscene = false
+	StoryModeManager.is_in_cutscene_can_move = false
+	StoryModeManager.waking_up_from_eryv_dream = false
+	
 	get_tree().change_scene_to_file("res://Scenes and Scripts/Scenes/Main Menu/MainMenu.tscn")
 
 func _on_quit_button_pressed() -> void:
