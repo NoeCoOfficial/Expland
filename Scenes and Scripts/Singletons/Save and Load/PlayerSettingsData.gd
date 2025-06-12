@@ -107,6 +107,7 @@ func saveSettings(save_path: String, SK : String):
 		"showStartupScreen" : showStartupScreen,
 		"autosaveInterval" : autosaveInterval,
 		"quickAnimations" : quickAnimations,
+		"speedRunTimer" : speedRunTimer,
 		"showTime" : showTime,
 		
 		# Graphics
@@ -149,6 +150,7 @@ func loadSettings(save_path: String, SK : String):
 		showStartupScreen = data.showStartupScreen
 		autosaveInterval = data.autosaveInterval
 		quickAnimations = data.quickAnimations
+		speedRunTimer = data.speedRunTimer
 		showTime = data.showTime
 		
 		PrettyShadows = data.PrettyShadows
@@ -173,21 +175,19 @@ func set_autosave_interval(value : int):
 
 func set_pretty_shadows(value : bool) -> void:
 	if !StoryModeManager.is_in_story_mode_first_cutscene_world:
-		if get_node("/root/World") != null:
+		if PlayerManager.WORLD != null:
 				if value:
 					PrettyShadows = true
-					var world = get_node("/root/World")
 					
-					if world.has_method("set_pretty_shadows"):
-						world.set_pretty_shadows(value)
+					if PlayerManager.WORLD.has_method("set_pretty_shadows"):
+						PlayerManager.WORLD.set_pretty_shadows(value)
 					else:
 						printerr("[PlayerSettingsData] Could not find set_pretty_shadows() method in world node.")
 				else:
 					PrettyShadows = false
-					var world = get_node("/root/World")
 					
-					if world.has_method("set_pretty_shadows"):
-						world.set_pretty_shadows(value)
+					if PlayerManager.WORLD.has_method("set_pretty_shadows"):
+						PlayerManager.WORLD.set_pretty_shadows(value)
 					else:
 						printerr("[PlayerSettingsData] Could not find set_pretty_shadows() method in world node.")
 		else:
