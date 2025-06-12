@@ -569,6 +569,9 @@ func _demo_fade_out_finished():
 	StoryModeManager.is_in_cutscene_can_move = false
 	StoryModeManager.waking_up_from_eryv_dream = false
 	
+	PlayerData.TIMES_SLEPT = 0
+	PlayerData.STORY_MODE_PROGRESSION_INFO = PlayerData.STORY_MODE_PROGRESSION_INFO_DEFAULTS.duplicate(true)
+	
 	get_tree().change_scene_to_file("res://Scenes and Scripts/Scenes/Main Menu/MainMenu.tscn")
 
 func _on_quit_button_pressed() -> void:
