@@ -1,28 +1,67 @@
+@tool
 class_name RandomMusic extends Node
 
 @export_group("Variables")
-@export var Streams : Array[AudioStream] ## The streams you want to play.
-@export var FadeInTime : float = 2.0 ## How long it takes to fade in to a song.
-@export var FadeOutTime : float = 2.0 ## How long it takes to fade out a song.
-@export var DefaultDB : float = 0.0 ## The default volume for the audio streams (in decibels)
-@export var SilentDB : float = -60.0 ## The value in decibels to fade in from/out to
-@export var LowerBoundRandomSec : float = 400.0 ## After a song finishes, a new song will start after at least this many seconds.
-@export var UpperBoundRandomSec : float = 1000.0 ## After a song finishes, a new song will start after at most this many seconds.
+@export var Streams : Array[AudioStream]
+@export var FadeInTime : float = 2.0
+@export var FadeOutTime : float = 2.0
+@export var DefaultDB : float = 0.0
+@export var SilentDB : float = -60.0
+@export var LowerBoundRandomSec : float = 400.0
+@export var UpperBoundRandomSec : float = 1000.0
 
-@export_group("References")
-@export var RandomMusicPlayer : AudioStreamPlayer
-@export var Countdown : Timer
+@onready var RandomMusicPlayer: AudioStreamPlayer = $RandomMusicPlayer
+@onready var Countdown: Timer = $Countdown
 
-func start():
-	pass
+var currently_playing_stream : AudioStream
+
+func _ready() -> void:
+	name = "RandomMusic++"
+
+func start(fade_In : bool = true):
+	var next_stream = getRandomSong()
+	if next_stream:
+		currently_playing_stream = next_stream
+		RandomMusicPlayer.stream = currently_playing_stream
+		RandomMusicPlayer.play()
+		if fade_In:
+			fadeIn(next_stream)
+		else:
+			RandomMusicPlayer.volume_db = DefaultDB
+
+func stop(fade_Out : bool = true):
+	if fade_Out and RandomMusicPlayer.playing:
+		fadeOut(currently_playing_stream)
+		await get_tree().create_timer(FadeOutTime).timeout
+		RandomMusicPlayer.stop()
+	else:
+		RandomMusicPlayer.stop()
+
+func getRandomSong(avoid_repeats: bool = true) -> AudioStream:
+	if Streams.is_empty():
+		return null
+	var available_streams = Streams.duplicate()
+	if avoid_repeats and currently_playing_stream and available_streams.has(currently_playing_stream) and available_streams.size() > 1:
+		available_streams.erase(currently_playing_stream)
+	var idx = randi() % available_streams.size()
+	return available_streams[idx]
 
 func fadeIn(stream : AudioStream):
 	if stream:
-		stream.volume_db = SilentDB
+		RandomMusicPlayer.volume_db = SilentDB
 		var tween = get_tree().create_tween()
-		tween.tween_property(stream, "volume_db", DefaultDB, FadeInTime)
+		tween.tween_property(RandomMusicPlayer, "volume_db", DefaultDB, FadeInTime)
 
 func fadeOut(stream : AudioStream):
 	if stream:
 		var tween = get_tree().create_tween()
-		tween.tween_property(stream, "volume_db", SilentDB, FadeOutTime)
+		tween.tween_property(RandomMusicPlayer, "volume_db", SilentDB, FadeOutTime)
+
+func _on_random_music_player_finished() -> void:
+	var wait_time = randf_range(LowerBoundRandomSec, UpperBoundRandomSec)
+	Countdown.wait_time = wait_time
+	Countdown.one_shot = true
+	Countdown.start()
+
+func _on_Countdown_timeout():
+	start(true)

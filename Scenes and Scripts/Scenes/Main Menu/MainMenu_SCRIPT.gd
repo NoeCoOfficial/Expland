@@ -73,6 +73,8 @@ func _ready() -> void:
 	await get_tree().create_timer(1).timeout
 	onStartup()
 	handle_protective_layer_visibility()
+	
+	$"RandomMusic++".start(true)
 
 func initialize_globals() -> void:
 	AchievementsManager.CURRENT_ACHIEVEMENTS_UI = $MainLayer/AchievementsUI
