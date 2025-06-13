@@ -1,13 +1,13 @@
 [gd_scene load_steps=39 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" uid="uid://uvd1eie30b14" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
-[ext_resource type="Script" uid="uid://7j8giepfc1wp" path="res://Scenes and Scripts/Scenes/RandomMusic++/RandomMusic++_SCRIPT.gd" id="2_57c8o"]
+[ext_resource type="PackedScene" uid="uid://bjvusmws0kct3" path="res://Scenes and Scripts/Scenes/RandomMusic++/RandomMusic++.tscn" id="2_57c8o"]
 [ext_resource type="PackedScene" uid="uid://d1petu3nr4sj5" path="res://Scenes and Scripts/Scenes/The Island/TheIslandForMainMenu.tscn" id="2_aolfw"]
 [ext_resource type="Texture2D" uid="uid://dhp1lqdlclos" path="res://Assets/Textures/Icons/Expland/Expland - TextWHITE.png" id="2_numx3"]
-[ext_resource type="AudioStream" uid="uid://ndvw5bmm5yqm" path="res://Audio/Music/Leafwind.mp3" id="3_3q40g"]
+[ext_resource type="AudioStream" uid="uid://cipuvbfdttvwh" path="res://Audio/Music/Begin Again.mp3" id="3_3q40g"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="4_grlcg"]
-[ext_resource type="AudioStream" uid="uid://blck4ptuqg5h0" path="res://Audio/Music/Low Sun.mp3" id="4_ynnl5"]
-[ext_resource type="AudioStream" uid="uid://uws1k05ns22p" path="res://Audio/Music/A New Beginning.mp3" id="5_6s6m5"]
+[ext_resource type="AudioStream" uid="uid://bm2yify34oc5g" path="res://Audio/Music/What Is This Place.mp3" id="4_ynnl5"]
+[ext_resource type="AudioStream" uid="uid://bttlh34nxqbca" path="res://Audio/Music/Something.mp3" id="5_6s6m5"]
 [ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="5_dfh28"]
 [ext_resource type="AudioStream" uid="uid://bm46v08yjtdxg" path="res://Audio/Music/The Before.mp3" id="6_vaol2"]
 [ext_resource type="Texture2D" uid="uid://fih3i4yk6pip" path="res://Assets/Textures/Icons/PlayBtn_Icon.png" id="6_ve3ie"]
@@ -78,10 +78,13 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_8n1c6")
 
-[node name="RandomMusic++" type="Node" parent="."]
-script = ExtResource("2_57c8o")
+[node name="RandomMusic++" parent="." instance=ExtResource("2_57c8o")]
 Streams = Array[AudioStream]([ExtResource("3_3q40g"), ExtResource("4_ynnl5"), ExtResource("5_6s6m5"), ExtResource("6_vaol2")])
-metadata/_custom_type_script = "uid://7j8giepfc1wp"
+FadeInTime = 4.0
+FadeOutTime = 6.0
+DefaultDB = -10.0
+LowerBoundRandomSec = 1.0
+UpperBoundRandomSec = 2.0
 
 [node name="World" parent="." instance=ExtResource("2_aolfw")]
 

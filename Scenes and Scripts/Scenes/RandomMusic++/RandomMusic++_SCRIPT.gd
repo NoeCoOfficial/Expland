@@ -1,5 +1,5 @@
 @tool
-class_name RandomMusic extends Node
+extends Node
 
 @export_group("Variables")
 @export var Streams : Array[AudioStream]
@@ -10,8 +10,9 @@ class_name RandomMusic extends Node
 @export var LowerBoundRandomSec : float = 400.0
 @export var UpperBoundRandomSec : float = 1000.0
 
-@onready var RandomMusicPlayer: AudioStreamPlayer = $RandomMusicPlayer
-@onready var Countdown: Timer = $Countdown
+@export_group("References")
+@export var RandomMusicPlayer : AudioStreamPlayer
+@export var Countdown : Timer
 
 var currently_playing_stream : AudioStream
 
@@ -20,7 +21,7 @@ func _ready() -> void:
 
 func start(fade_In : bool = true):
 	var next_stream = getRandomSong()
-	if next_stream:
+	if next_stream and RandomMusicPlayer:
 		currently_playing_stream = next_stream
 		RandomMusicPlayer.stream = currently_playing_stream
 		RandomMusicPlayer.play()
@@ -28,14 +29,19 @@ func start(fade_In : bool = true):
 			fadeIn(next_stream)
 		else:
 			RandomMusicPlayer.volume_db = DefaultDB
+	elif not RandomMusicPlayer:
+		push_warning("RandomMusicPlayer node not found!")
 
 func stop(fade_Out : bool = true):
-	if fade_Out and RandomMusicPlayer.playing:
-		fadeOut(currently_playing_stream)
-		await get_tree().create_timer(FadeOutTime).timeout
-		RandomMusicPlayer.stop()
+	if RandomMusicPlayer:
+		if fade_Out and RandomMusicPlayer.playing:
+			fadeOut(currently_playing_stream)
+			await get_tree().create_timer(FadeOutTime).timeout
+			RandomMusicPlayer.stop()
+		else:
+			RandomMusicPlayer.stop()
 	else:
-		RandomMusicPlayer.stop()
+		push_warning("RandomMusicPlayer node not found!")
 
 func getRandomSong(avoid_repeats: bool = true) -> AudioStream:
 	if Streams.is_empty():
@@ -47,13 +53,13 @@ func getRandomSong(avoid_repeats: bool = true) -> AudioStream:
 	return available_streams[idx]
 
 func fadeIn(stream : AudioStream):
-	if stream:
+	if stream and RandomMusicPlayer:
 		RandomMusicPlayer.volume_db = SilentDB
 		var tween = get_tree().create_tween()
 		tween.tween_property(RandomMusicPlayer, "volume_db", DefaultDB, FadeInTime)
 
 func fadeOut(stream : AudioStream):
-	if stream:
+	if stream and RandomMusicPlayer:
 		var tween = get_tree().create_tween()
 		tween.tween_property(RandomMusicPlayer, "volume_db", SilentDB, FadeOutTime)
 
@@ -63,5 +69,5 @@ func _on_random_music_player_finished() -> void:
 	Countdown.one_shot = true
 	Countdown.start()
 
-func _on_Countdown_timeout():
+func _on_countdown_timeout() -> void:
 	start(true)
