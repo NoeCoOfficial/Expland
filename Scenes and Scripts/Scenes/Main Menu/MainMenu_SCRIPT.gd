@@ -64,6 +64,7 @@ var is_tweening = false
 # ---------------------------------------------------------------------------- #
 
 func _ready() -> void:
+	TimeManager.speedrun_timer_reset()
 	if !Global.is_first_time_in_menu:
 		Global.is_first_time_in_menu_no_startup = true
 	initialize_globals()
@@ -72,6 +73,8 @@ func _ready() -> void:
 	await get_tree().create_timer(1).timeout
 	onStartup()
 	handle_protective_layer_visibility()
+	
+	$"RandomMusic++".start(true)
 
 func initialize_globals() -> void:
 	AchievementsManager.CURRENT_ACHIEVEMENTS_UI = $MainLayer/AchievementsUI

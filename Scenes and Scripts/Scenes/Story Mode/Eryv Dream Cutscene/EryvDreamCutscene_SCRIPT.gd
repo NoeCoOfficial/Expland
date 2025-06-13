@@ -48,7 +48,7 @@
 extends Node3D
 
 @export var TheEryv : CharacterBody3D
-@export var finished_look_around_dead_cutscene : bool = false
+var finished_look_around_dream_cutscene : bool = false
 var eryv_chasing_player : bool = false
 
 func _ready() -> void:
@@ -74,7 +74,7 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if !eryv_chasing_player:
-		if finished_look_around_dead_cutscene:
+		if finished_look_around_dream_cutscene:
 			if Input.is_action_just_pressed("Jump") or Input.is_action_just_pressed("move_forward") or Input.is_action_just_pressed("move_backward") or Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right"):
 				eryv_start_chase_player()
 
@@ -130,6 +130,7 @@ func _on_player_wake_up_area_area_entered(area: Area3D) -> void:
 
 func WAKE_UP():
 	print("WAKE UP")
+	TimeManager.speedrun_timer_stop()
 	StoryModeManager.waking_up_from_eryv_dream = true
 	StoryModeManager.is_in_cutscene_can_move = false
 	StoryModeManager.is_in_cutscene = true
@@ -138,8 +139,6 @@ func WAKE_UP():
 	$Player/Head/Camera3D/TopLayer/BlackThing.show()
 	$"The Eryv/Stomps".volume_db = -80.0
 	$Environment/AmbientWindLoop.stop()
-	
-	
 	
 	$SceneChangeDebounce.start()
 

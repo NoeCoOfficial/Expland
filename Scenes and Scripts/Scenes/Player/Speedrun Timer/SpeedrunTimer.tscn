@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvwj1lvhjxdji"]
+
+[ext_resource type="Script" uid="uid://hpvqxge2ryb0" path="res://Scenes and Scripts/Scenes/Player/Speedrun Timer/SpeedrunTimer_SCRIPT.gd" id="1_aj3gd"]
+[ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="2_3532n"]
+
+[node name="SpeedrunTimer" type="Node" node_paths=PackedStringArray("TimeLabel")]
+script = ExtResource("1_aj3gd")
+TimeLabel = NodePath("MainUILayer/TimeLabel")
+
+[node name="MainUILayer" type="CanvasLayer" parent="."]
+
+[node name="TimeLabel" type="Label" parent="MainUILayer"]
+modulate = Color(1, 1, 1, 0.721569)
+offset_left = 779.0
+offset_top = 607.0
+offset_right = 1144.0
+offset_bottom = 650.0
+theme = ExtResource("2_3532n")
+theme_override_font_sizes/font_size = 30
+text = "00:00.00"
+horizontal_alignment = 2
+vertical_alignment = 1

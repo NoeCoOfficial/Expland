@@ -140,11 +140,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("6_28g6n")
 theme_override_font_sizes/font_size = 21
-current_tab = 2
+current_tab = 0
 script = ExtResource("2_vw753")
 
 [node name="General" type="TabBar" parent="MainLayer/SettingsTabContainer"]
-visible = false
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("2_vw753")
@@ -229,6 +228,32 @@ offset_right = 205.5
 offset_bottom = 105.5
 focus_mode = 0
 
+[node name="SpeedrunTimerTTL" type="Label" parent="MainLayer/SettingsTabContainer/General"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0346668
+anchor_top = 0.0172414
+anchor_right = 0.306668
+anchor_bottom = 0.096059
+offset_left = 17.4995
+offset_top = 101.399
+offset_right = 45.4993
+offset_bottom = 101.399
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("4_m5nwd")
+theme_override_font_sizes/font_size = 17
+text = "Speedrun Timer"
+vertical_alignment = 1
+
+[node name="SpeedrunTimerSwitch" type="CheckButton" parent="MainLayer/SettingsTabContainer/General"]
+layout_mode = 0
+offset_left = 161.5
+offset_top = 111.5
+offset_right = 205.5
+offset_bottom = 135.5
+focus_mode = 0
+
 [node name="Graphics" type="TabBar" parent="MainLayer/SettingsTabContainer"]
 visible = false
 layout_mode = 2
@@ -266,6 +291,7 @@ focus_mode = 0
 button_pressed = true
 
 [node name="Video" type="TabBar" parent="MainLayer/SettingsTabContainer"]
+visible = false
 layout_mode = 2
 focus_mode = 0
 script = ExtResource("2_vw753")
@@ -360,7 +386,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="SENSITIVITYTTL" type="Label" parent="MainLayer/SettingsTabContainer/Video"]
-layout_mode = 2
+layout_mode = 0
 anchor_left = -0.0266681
 anchor_top = 0.140955
 anchor_right = 0.581334
@@ -524,6 +550,7 @@ script = ExtResource("2_vw753")
 [connection signal="toggled" from="MainLayer/SettingsTabContainer/General/SSCSwitch" to="." method="_on_ssc_switch_toggled"]
 [connection signal="value_changed" from="MainLayer/SettingsTabContainer/General/AutosaveIntervalSpinBox" to="." method="_on_autosave_interval_spin_box_value_changed"]
 [connection signal="toggled" from="MainLayer/SettingsTabContainer/General/QASwitch" to="." method="_on_qa_switch_toggled"]
+[connection signal="toggled" from="MainLayer/SettingsTabContainer/General/SpeedrunTimerSwitch" to="." method="_on_speedrun_timer_switch_toggled"]
 [connection signal="toggled" from="MainLayer/SettingsTabContainer/Graphics/PrettyShadowsSwitch" to="." method="_on_pretty_shadows_switch_toggled"]
 [connection signal="value_changed" from="MainLayer/SettingsTabContainer/Video/FOVSlider" to="." method="_on_fov_slider_value_changed"]
 [connection signal="value_changed" from="MainLayer/SettingsTabContainer/Video/SENSITIVITYSlider" to="." method="_on_sensitivity_slider_value_changed"]

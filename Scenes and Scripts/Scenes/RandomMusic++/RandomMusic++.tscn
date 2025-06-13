@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjvusmws0kct3"]
+
+[ext_resource type="Script" uid="uid://7j8giepfc1wp" path="res://Scenes and Scripts/Scenes/RandomMusic++/RandomMusic++_SCRIPT.gd" id="1_8qm0r"]
+
+[node name="RandomMusic++" type="Node" node_paths=PackedStringArray("RandomMusicPlayer", "Countdown")]
+script = ExtResource("1_8qm0r")
+RandomMusicPlayer = NodePath("RandomMusicPlayer")
+Countdown = NodePath("Countdown")
+
+[node name="RandomMusicPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Countdown" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="finished" from="RandomMusicPlayer" to="." method="_on_random_music_player_finished"]
+[connection signal="timeout" from="Countdown" to="." method="_on_countdown_timeout"]
