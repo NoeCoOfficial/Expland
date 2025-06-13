@@ -48,7 +48,7 @@
 extends Node3D
 
 @export var TheEryv : CharacterBody3D
-@export var finished_look_around_dead_cutscene : bool = false
+var finished_look_around_dream_cutscene : bool = false
 var eryv_chasing_player : bool = false
 
 func _ready() -> void:
@@ -74,7 +74,7 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if !eryv_chasing_player:
-		if finished_look_around_dead_cutscene:
+		if finished_look_around_dream_cutscene:
 			if Input.is_action_just_pressed("Jump") or Input.is_action_just_pressed("move_forward") or Input.is_action_just_pressed("move_backward") or Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right"):
 				eryv_start_chase_player()
 
