@@ -472,6 +472,7 @@ offset_right = 94.4999
 offset_bottom = 254.962
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_jh64i")
 
 [node name="Image" type="TextureRect" parent="MainLayer/GameModeLayer/BG_StoryMode/RoundedCorners"]
@@ -486,6 +487,7 @@ offset_bottom = 244.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.566299, 0.566299)
+mouse_filter = 2
 texture = ExtResource("17_jh64i")
 
 [node name="Title" type="Label" parent="MainLayer/GameModeLayer/BG_StoryMode"]
@@ -655,6 +657,7 @@ offset_right = 94.4999
 offset_bottom = 254.962
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_jh64i")
 
 [node name="Image" type="TextureRect" parent="MainLayer/GameModeLayer/BG_ParkourMode/RoundedCorners"]
@@ -669,6 +672,7 @@ offset_bottom = 244.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.566299, 0.566299)
+mouse_filter = 2
 texture = ExtResource("17_jh64i")
 
 [node name="Title" type="Label" parent="MainLayer/GameModeLayer/BG_ParkourMode"]
