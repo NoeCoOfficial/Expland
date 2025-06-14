@@ -121,9 +121,10 @@ script = ExtResource("1_ief1x")
 Player = NodePath("Player")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+transform = Transform3D(-0.842217, -0.537543, 0.0414573, -0.20167, 0.385419, 0.900434, -0.5, 0.75, -0.433013, 0, 0, 0)
 shadow_enabled = true
-directional_shadow_max_distance = 1.0
+directional_shadow_fade_start = 0.655
+directional_shadow_max_distance = 150.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_g8ryk")
