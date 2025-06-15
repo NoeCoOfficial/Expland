@@ -18,6 +18,8 @@ var currently_playing_stream : AudioStream
 
 func _ready() -> void:
 	name = "RandomMusic++"
+	if !Engine.is_editor_hint():
+		randomize()
 
 func start(fade_In : bool = true):
 	var next_stream = getRandomSong()
