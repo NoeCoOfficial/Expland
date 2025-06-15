@@ -796,7 +796,11 @@ func _ready():
 		PauseLayer.hide()
 		StartDebugging_Btn.hide()
 	
-	
+	for child in InventoryLayer_HotbarSlotOutlines.get_children():
+		if str(child.name).begins_with("Slot"):
+			child.hide()
+	InventoryManager.currently_selected_hotbar_slot = null
+	PlayerManager.PLAYER.HandItem.swap_items("")
 
 func on_fade_in_tween_finished():
 	pass

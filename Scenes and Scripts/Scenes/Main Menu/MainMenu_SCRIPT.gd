@@ -343,6 +343,8 @@ func _on_story_mode_demo_notice_play_button_pressed() -> void:
 	
 	tween.tween_property($TopLayer/TransitionFadeOut, "modulate", Color(1, 1, 1, 1), 1)
 	tween.tween_interval(1)
+	
+	$"RandomMusic++".fadeOut($"RandomMusic++".currently_playing_stream)
 
 func _on_story_mode_demo_notice_play_button_pressed_fade_finished():
 	PauseManager.is_inside_alert = false
@@ -354,7 +356,7 @@ func _on_play_free_mode_button_pressed() -> void:
 	pass
 
 func _on_play_parkour_mode_button_pressed() -> void:
-	pass
+	$"RandomMusic++".fadeOut($"RandomMusic++".currently_playing_stream)
 
 ###############################################################################
 

@@ -48,8 +48,8 @@
 extends Node3D
 
 @export var TheEryv : CharacterBody3D
-var finished_look_around_dream_cutscene : bool = false
-var eryv_chasing_player : bool = false
+@export var finished_look_around_dream_cutscene : bool = false
+@export var eryv_chasing_player : bool = false
 
 func _ready() -> void:
 	# When we get back to The Island,
