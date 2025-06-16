@@ -230,7 +230,7 @@ transform = Transform3D(0.155402, 0, 0, 0, 3.24008, 0, 0, 0, 0.154498, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_3hoff")
 
 [node name="Parkour Obstacle16" type="StaticBody3D" parent="Parkour/OGParkourCourse"]
-transform = Transform3D(-1.44824, 0, 1.43993, 0, 2.04225, 0, -1.43993, 0, -1.44824, 12.2022, 4.93629, -1.80895)
+transform = Transform3D(-1.44824, 0, 1.43993, 0, 2.04225, 0, -1.43993, 0, -1.44824, 12.2022, 5.16191, -1.80895)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Parkour/OGParkourCourse/Parkour Obstacle16"]
 transform = Transform3D(1.13795, 0, 8.9407e-08, 0, 0.156791, 0, -8.9407e-08, 0, 1.13795, -0.0145721, 0.425979, 0.0410156)
