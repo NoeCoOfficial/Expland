@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://nlp0xy1m65tp"]
+[gd_scene load_steps=62 format=3 uid="uid://nlp0xy1m65tp"]
 
 [ext_resource type="Script" uid="uid://uvb2g81nntt2" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/StoryMode_StartCutscene_SCRIPT.gd" id="1_4d7y3"]
 [ext_resource type="AudioStream" uid="uid://bbv0wur34rtob" path="res://Audio/SFX/Self/WaterSplash.mp3" id="2_smf4g"]
@@ -18,10 +18,6 @@
 [ext_resource type="Shader" uid="uid://ddwwgv2rqfito" path="res://Resources/Shaders/GausianBlur.gdshader" id="14_yeq2m"]
 [ext_resource type="Shader" uid="uid://1pe0vndnyexo" path="res://Resources/Shaders/Underwater.gdshader" id="17_gk6k1"]
 [ext_resource type="Texture2D" uid="uid://bx3jg6ecnsa15" path="res://Tests/Screenshot (8).png" id="17_n7233"]
-[ext_resource type="Material" uid="uid://byumtcccq4ew3" path="res://Assets/water/mat_water.tres" id="19_8afyb"]
-[ext_resource type="ArrayMesh" uid="uid://ix4vp1y05f1s" path="res://Assets/water/clipmap_high.obj" id="20_5c1th"]
-[ext_resource type="Script" uid="uid://dbxip3y4rh1va" path="res://Assets/water/water.gd" id="21_jxfk5"]
-[ext_resource type="Script" uid="uid://cqbpvt36rest3" path="res://Assets/water/wave_cascade_parameters.gd" id="22_a8ej0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w18yt"]
 sky_top_color = Color(0.379513, 0.678929, 0.950538, 1)
@@ -30,12 +26,12 @@ sky_curve = 0.0409602
 ground_bottom_color = Color(0.09, 0.09, 0.09, 1)
 ground_horizon_color = Color(0.301961, 0.552941, 0.827451, 1)
 
-[sub_resource type="Sky" id="Sky_ix38m"]
+[sub_resource type="Sky" id="Sky_n7233"]
 sky_material = SubResource("ProceduralSkyMaterial_w18yt")
 
 [sub_resource type="Environment" id="Environment_ec70e"]
 background_mode = 2
-sky = SubResource("Sky_ix38m")
+sky = SubResource("Sky_n7233")
 tonemap_mode = 2
 ssao_power = 9.74701
 ssao_detail = 2.21
@@ -438,51 +434,6 @@ shader_parameter/color_influence_y = 1.0
 shader_parameter/color_influence_gb = 1.44
 shader_parameter/wave_strength = 3.78
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8afyb"]
-albedo_color = Color(1, 0.14, 0.14, 1)
-
-[sub_resource type="Resource" id="Resource_juxsv"]
-script = ExtResource("22_a8ej0")
-tile_length = Vector2(200, 200)
-displacement_scale = 1.061
-normal_scale = 1.436
-wind_speed = 0.86
-wind_direction = -58.545
-fetch_length = 150.0
-swell = 0.497
-spread = 0.394
-detail = 1.0
-whitecap = 0.0
-foam_amount = 8.0
-
-[sub_resource type="Resource" id="Resource_2n6ox"]
-script = ExtResource("22_a8ej0")
-tile_length = Vector2(57, 57)
-displacement_scale = 0.75
-normal_scale = 1.0
-wind_speed = 0.325
-wind_direction = 15.0
-fetch_length = 150.0
-swell = 0.8
-spread = 0.4
-detail = 1.0
-whitecap = 0.5
-foam_amount = 0.0
-
-[sub_resource type="Resource" id="Resource_3vobf"]
-script = ExtResource("22_a8ej0")
-tile_length = Vector2(16, 16)
-displacement_scale = 0.0
-normal_scale = 0.25
-wind_speed = 20.0
-wind_direction = 20.0
-fetch_length = 550.0
-swell = 0.8
-spread = 0.4
-detail = 1.0
-whitecap = 0.287
-foam_amount = 4.079
-
 [node name="World" type="Node3D" node_paths=PackedStringArray("MD", "PlayerSpawnPos", "BlackFade", "StormTimer", "Tap_Cooldown", "TapInteractMessageLabel", "Camera_Sutle_Movement_Animation", "TapWaterMesh", "TapWaterFillMesh", "RedLever", "GreenLever", "BlueLever", "Default_Camera")]
 script = ExtResource("1_4d7y3")
 MD = NodePath("Camera3D/MainLayer/MinimalDialogue")
@@ -546,7 +497,6 @@ mesh = SubResource("PlaneMesh_ec70e")
 
 [node name="WaterMesh" parent="." instance=ExtResource("11_44ck5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.3728, 0)
-visible = false
 
 [node name="WaterMesh(INBOAT)" parent="." instance=ExtResource("11_44ck5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -16.2261, 0)
@@ -1200,16 +1150,6 @@ offset_bottom = 196.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-
-[node name="Water" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14.9213, 0)
-material_override = ExtResource("19_8afyb")
-extra_cull_margin = 10000.0
-mesh = ExtResource("20_5c1th")
-surface_material_override/0 = SubResource("StandardMaterial3D_8afyb")
-script = ExtResource("21_jxfk5")
-parameters = Array[ExtResource("22_a8ej0")]([SubResource("Resource_juxsv"), SubResource("Resource_2n6ox"), SubResource("Resource_3vobf")])
-map_size = 512
 
 [connection signal="timeout" from="StormTimer" to="." method="_on_storm_timer"]
 [connection signal="Action1_Triggered" from="Yacht Rig/Yacht/Yacht/Lever Interactable Component" to="." method="_on_red_lever_triggered"]
