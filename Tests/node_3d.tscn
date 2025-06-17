@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3 uid="uid://d02xuopj3xb3o"]
+
+[ext_resource type="Material" uid="uid://byumtcccq4ew3" path="res://Assets/water/mat_water.tres" id="1_2n6ox"]
+[ext_resource type="ArrayMesh" uid="uid://ix4vp1y05f1s" path="res://Assets/water/clipmap_high.obj" id="1_hy5eq"]
+[ext_resource type="Script" uid="uid://dbxip3y4rh1va" path="res://Assets/water/water.gd" id="1_m0jcp"]
+[ext_resource type="Script" uid="uid://cqbpvt36rest3" path="res://Assets/water/wave_cascade_parameters.gd" id="4_3vobf"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2n6ox"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_3vobf"]
+sky_material = SubResource("ProceduralSkyMaterial_2n6ox")
+
+[sub_resource type="Environment" id="Environment_juxsv"]
+background_mode = 2
+sky = SubResource("Sky_3vobf")
+glow_enabled = true
+adjustment_enabled = true
+
+[sub_resource type="Resource" id="Resource_juxsv"]
+script = ExtResource("4_3vobf")
+tile_length = Vector2(200, 200)
+displacement_scale = 1.061
+normal_scale = 1.436
+wind_speed = 0.86
+wind_direction = -58.545
+fetch_length = 150.0
+swell = 0.497
+spread = 0.394
+detail = 1.0
+whitecap = 0.0
+foam_amount = 8.0
+
+[sub_resource type="Resource" id="Resource_2n6ox"]
+script = ExtResource("4_3vobf")
+tile_length = Vector2(57, 57)
+displacement_scale = 0.75
+normal_scale = 1.0
+wind_speed = 0.325
+wind_direction = 15.0
+fetch_length = 150.0
+swell = 0.8
+spread = 0.4
+detail = 1.0
+whitecap = 0.5
+foam_amount = 0.0
+
+[sub_resource type="Resource" id="Resource_3vobf"]
+script = ExtResource("4_3vobf")
+tile_length = Vector2(16, 16)
+displacement_scale = 0.0
+normal_scale = 0.25
+wind_speed = 20.0
+wind_direction = 20.0
+fetch_length = 550.0
+swell = 0.8
+spread = 0.4
+detail = 1.0
+whitecap = 0.287
+foam_amount = 4.079
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.875464, -0.419794, 0.239446, 0, 0.495459, 0.868631, -0.483282, 0.760456, -0.433757, 0, 0, 0)
+light_color = Color(1, 0.955707, 0.87715, 1)
+shadow_enabled = true
+directional_shadow_max_distance = 1.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_juxsv")
+
+[node name="Water" type="MeshInstance3D" parent="."]
+material_override = ExtResource("1_2n6ox")
+extra_cull_margin = 10000.0
+mesh = ExtResource("1_hy5eq")
+script = ExtResource("1_m0jcp")
+parameters = Array[ExtResource("4_3vobf")]([SubResource("Resource_juxsv"), SubResource("Resource_2n6ox"), SubResource("Resource_3vobf")])
+map_size = 512

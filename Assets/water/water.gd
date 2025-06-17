@@ -10,13 +10,6 @@ const WATER_MESH_LOW := preload('res://Assets/water/clipmap_low.obj')
 
 enum MeshQuality { LOW, HIGH }
 
-@export_group('Wave Parameters')
-@export_color_no_alpha var water_color : Color = Color(0.1, 0.15, 0.18) :
-	set(value): water_color = value; RenderingServer.global_shader_parameter_set(&'water_color', water_color.srgb_to_linear())
-
-@export_color_no_alpha var foam_color : Color = Color(0.73, 0.67, 0.62) :
-	set(value): foam_color = value; RenderingServer.global_shader_parameter_set(&'foam_color', foam_color.srgb_to_linear())
-
 ## The parameters for wave cascades. Each parameter set represents one cascade.
 ## Recreates all compute piplines whenever a cascade is added or removed!
 @export var parameters : Array[WaveCascadeParameters] :
@@ -67,10 +60,6 @@ var normal_maps := Texture2DArrayRD.new()
 
 func _init() -> void:
 	rng.set_seed(1234) # This seed gives big waves!
-
-func _ready() -> void:
-	RenderingServer.global_shader_parameter_set(&'water_color', water_color.srgb_to_linear())
-	RenderingServer.global_shader_parameter_set(&'foam_color', foam_color.srgb_to_linear())
 
 func _process(delta : float) -> void:
 	# Update waves once every 1.0/updates_per_second.

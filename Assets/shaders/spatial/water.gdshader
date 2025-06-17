@@ -8,8 +8,8 @@ render_mode world_vertex_coords, shadows_disabled;
 #define MAX_CASCADES 8    // I am unsure how to generalize this.
 #define REFLECTANCE  0.02 // Reflectance from air to water (eta=1.33).
 
-global uniform vec4 water_color : source_color;
-global uniform vec4 foam_color : source_color;
+uniform vec4 water_color : source_color;
+uniform vec4 foam_color : source_color;
 
 uniform float roughness : hint_range(0.0, 1.0) = 0.4;
 uniform float normal_strength : hint_range(0.0, 1.0) = 1.0; // Global normal strength
