@@ -221,6 +221,8 @@ func _on_tap_toggled() -> void:
 func _on_tap_cooldown_timeout() -> void:
 	can_toggle_tap = true
 
+func playBlinkEffect():
+	$EyeBlinkLayer/BlinkAnimation.play("main")
 
 func _on_storm_timer() -> void:
-	print("STARTING STORM")
+	$"Falling Off Boat Cutscene".play("main")

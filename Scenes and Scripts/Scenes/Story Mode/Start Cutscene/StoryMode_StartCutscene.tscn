@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://nlp0xy1m65tp"]
+[gd_scene load_steps=54 format=3 uid="uid://nlp0xy1m65tp"]
 
 [ext_resource type="Script" uid="uid://uvb2g81nntt2" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/StoryMode_StartCutscene_SCRIPT.gd" id="1_4d7y3"]
 [ext_resource type="PackedScene" uid="uid://cn1krf62jowgb" path="res://Scenes and Scripts/Scenes/Dialogue/MinimalDialogue.tscn" id="4_7s4ab"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cmt00ehn4hfne" path="res://Scenes and Scripts/Scenes/General/UI/MessageWithKeyUI.tscn" id="10_w18yt"]
 [ext_resource type="PackedScene" uid="uid://cg37p3dc7fbqx" path="res://Scenes and Scripts/Scenes/Environment/Water Mesh/WaterMesh.tscn" id="11_44ck5"]
 [ext_resource type="Texture2D" uid="uid://2qb1qs6h08t" path="res://Assets/Textures/Icons/Input Prompts/mouse_left_outline.png" id="13_ec70e"]
+[ext_resource type="Shader" uid="uid://ddwwgv2rqfito" path="res://Resources/Shaders/GausianBlur.gdshader" id="14_yeq2m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w18yt"]
 sky_top_color = Color(0.379513, 0.678929, 0.950538, 1)
@@ -151,6 +152,141 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_l057t"),
 &"camera_sutle_movement": SubResource("Animation_f3l76")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_smf4g"]
+bg_color = Color(1, 1, 1, 0)
+shadow_color = Color(0, 0, 0, 0.694118)
+shadow_size = 162
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2wqp2"]
+shader = ExtResource("14_yeq2m")
+shader_parameter/blur_radius = 16
+shader_parameter/blur_scale = 0.0
+shader_parameter/darkness = 1.0
+shader_parameter/fade_direction = 3
+shader_parameter/fade_cutoff = 0.906
+shader_parameter/fade_intensity = 2.0
+
+[sub_resource type="Animation" id="Animation_5oxf6"]
+resource_name = "main"
+length = 0.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BottomBlink:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.16),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 688), Vector2(0, 272.935), Vector2(0, 688)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TopBlink:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.16),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1152, -39), Vector2(1152, 537), Vector2(1152, -39)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Blur:material:shader_parameter/blur_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.08, 0.5),
+"transitions": PackedFloat32Array(1, 1, 0.406126, 0.353554),
+"update": 0,
+"values": [0.0, 0.0, 2.597, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Blur:material:shader_parameter/darkness")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.08, 0.5),
+"transitions": PackedFloat32Array(1, 1, 0.406126, 0.353554),
+"update": 0,
+"values": [1.0, 1.0, 1.31, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Blur:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BottomBlink:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TopBlink:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cqxma"]
+_data = {
+&"main": SubResource("Animation_5oxf6")
+}
+
+[sub_resource type="Animation" id="Animation_yeq2m"]
+resource_name = "main"
+length = 10.0
+step = 0.0333333
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.43333),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"playBlinkEffect"
+}, {
+"args": [],
+"method": &"playBlinkEffect"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_smf4g"]
+_data = {
+&"main": SubResource("Animation_yeq2m")
 }
 
 [node name="World" type="Node3D" node_paths=PackedStringArray("MD", "PlayerSpawnPos", "BlackFade", "StormTimer", "Tap_Cooldown", "TapInteractMessageLabel", "Camera_Sutle_Movement_Animation", "TapWaterMesh", "TapWaterFillMesh", "RedLever", "GreenLever", "BlueLever", "Default_Camera")]
@@ -676,6 +812,148 @@ libraries = {
 &"": SubResource("AnimationLibrary_44ck5")
 }
 autoplay = "camera_sutle_movement"
+
+[node name="EyeBlinkLayer" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="BottomBlink" type="Control" parent="EyeBlinkLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 688.0
+offset_bottom = 688.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BottomBlink1" type="Panel" parent="EyeBlinkLayer/BottomBlink"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -558.539
+offset_top = -109.07
+offset_right = -558.539
+offset_bottom = 646.93
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.261799
+scale = Vector2(1.09649, 0.414059)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_smf4g")
+
+[node name="BottomBlink2" type="Panel" parent="EyeBlinkLayer/BottomBlink"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 544.461
+offset_top = 202.93
+offset_right = 544.461
+offset_bottom = 994.93
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.261799
+scale = Vector2(1.09649, 0.414059)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_smf4g")
+
+[node name="BottomBlink3" type="Panel" parent="EyeBlinkLayer/BottomBlink"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.5388
+offset_top = 138.93
+offset_right = -43.5388
+offset_bottom = 683.93
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.09649, 0.414059)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_smf4g")
+
+[node name="TopBlink" type="Control" parent="EyeBlinkLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1152.0
+offset_top = -39.0
+offset_right = 1152.0
+offset_bottom = -39.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -3.14159
+mouse_filter = 2
+
+[node name="TopBlink1" type="Panel" parent="EyeBlinkLayer/TopBlink"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -558.539
+offset_top = -109.07
+offset_right = -558.539
+offset_bottom = 646.93
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.261799
+scale = Vector2(1.09649, 0.414059)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_smf4g")
+
+[node name="TopBlink2" type="Panel" parent="EyeBlinkLayer/TopBlink"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 544.461
+offset_top = 202.93
+offset_right = 544.461
+offset_bottom = 994.93
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.261799
+scale = Vector2(1.09649, 0.414059)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_smf4g")
+
+[node name="TopBlink3" type="Panel" parent="EyeBlinkLayer/TopBlink"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.5388
+offset_top = 138.93
+offset_right = -43.5388
+offset_bottom = 683.93
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.09649, 0.414059)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_smf4g")
+
+[node name="Blur" type="ColorRect" parent="EyeBlinkLayer"]
+visible = false
+material = SubResource("ShaderMaterial_2wqp2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BlinkAnimation" type="AnimationPlayer" parent="EyeBlinkLayer"]
+libraries = {
+&"": SubResource("AnimationLibrary_cqxma")
+}
+
+[node name="Falling Off Boat Cutscene" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_smf4g")
+}
 
 [connection signal="timeout" from="StormTimer" to="." method="_on_storm_timer"]
 [connection signal="Action1_Triggered" from="Yacht Rig/Yacht/Yacht/Lever Interactable Component" to="." method="_on_red_lever_triggered"]
