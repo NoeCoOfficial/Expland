@@ -364,3 +364,18 @@ textures/vram_compression/import_s3tc_bptc=true
 textures/vram_compression/import_etc2_astc=true
 environment/volumetric_fog/volume_size=256
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+
+[shader_globals]
+
+displacements={
+"type": "sampler2DArray",
+"value": ""
+}
+normals={
+"type": "sampler2DArray",
+"value": ""
+}
+num_cascades={
+"type": "uint",
+"value": 3
+}

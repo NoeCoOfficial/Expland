@@ -17,12 +17,12 @@ var pass_num_cascades_remaining : int
 func init_gpu(num_cascades : int) -> void:
 	# --- DEVICE/SHADER CREATION ---
 	if not context: context = RenderingContext.create(RenderingServer.get_rendering_device())
-	var spectrum_compute_shader := context.load_shader('./assets/shaders/compute/spectrum_compute.glsl')
-	var fft_butterfly_shader := context.load_shader('./assets/shaders/compute/fft_butterfly.glsl')
-	var spectrum_modulate_shader := context.load_shader('./assets/shaders/compute/spectrum_modulate.glsl')
-	var fft_compute_shader := context.load_shader('./assets/shaders/compute/fft_compute.glsl')
-	var transpose_shader := context.load_shader('./assets/shaders/compute/transpose.glsl')
-	var fft_unpack_shader := context.load_shader('./assets/shaders/compute/fft_unpack.glsl')
+	var spectrum_compute_shader := context.load_shader('./Assets/shaders/compute/spectrum_compute.glsl')
+	var fft_butterfly_shader := context.load_shader('./Assets/shaders/compute/fft_butterfly.glsl')
+	var spectrum_modulate_shader := context.load_shader('./Assets/shaders/compute/spectrum_modulate.glsl')
+	var fft_compute_shader := context.load_shader('./Assets/shaders/compute/fft_compute.glsl')
+	var transpose_shader := context.load_shader('./Assets/shaders/compute/transpose.glsl')
+	var fft_unpack_shader := context.load_shader('./Assets/shaders/compute/fft_unpack.glsl')
 
 	# --- DESCRIPTOR PREPARATION ---
 	var dims := Vector2i(map_size, map_size)
