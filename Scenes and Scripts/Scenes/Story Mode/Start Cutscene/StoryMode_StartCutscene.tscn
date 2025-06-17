@@ -543,6 +543,7 @@ mesh = SubResource("PlaneMesh_ec70e")
 
 [node name="WaterMesh" parent="." instance=ExtResource("11_44ck5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.3728, 0)
+visible = false
 
 [node name="WaterMesh(INBOAT)" parent="." instance=ExtResource("11_44ck5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -16.2261, 0)
