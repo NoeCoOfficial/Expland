@@ -66,12 +66,17 @@ extends Node3D
 var tap_running : bool = false
 var can_toggle_tap : bool = true
 var tap_water_fill_tween : Tween
+var player : CharacterBody3D
 
 func _ready() -> void:
+	$"Yacht Rig/Yacht/FallOffCameraRig/Fall Off Cutscene Camera".fov = PlayerSettingsData.FOV
+	$Camera3D.fov = PlayerSettingsData.FOV
 	Global.is_in_main_menu = false
 	StoryModeManager.is_in_story_mode_first_cutscene_world = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	print("ENTERED STORY MODE START CUTSCENE")
+	await get_tree().create_timer(2.0).timeout
+	$WindAmbience.play()
 	fadeOutGreyOverlay()
 	cutscene_timeline()
 
@@ -96,6 +101,7 @@ func fadeInGreyOverlay():
 
 func onfadeInGreyOverlay_Finished():
 	var player_instance = player_scene.instantiate()
+	player = player_instance
 	Camera_Sutle_Movement_Animation.stop()
 	
 	self.add_child(player_instance)
@@ -226,4 +232,8 @@ func playBlinkEffect():
 	$EyeBlinkLayer/BlinkAnimation.play("main")
 
 func _on_storm_timer() -> void:
+	
 	$"Falling Off Boat Cutscene".play("main")
+
+func setPlayerVisibility(value : bool):
+	player.visible = value

@@ -1,7 +1,8 @@
-[gd_scene load_steps=56 format=3 uid="uid://nlp0xy1m65tp"]
+[gd_scene load_steps=57 format=3 uid="uid://nlp0xy1m65tp"]
 
 [ext_resource type="Script" uid="uid://uvb2g81nntt2" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/StoryMode_StartCutscene_SCRIPT.gd" id="1_4d7y3"]
 [ext_resource type="AudioStream" uid="uid://bbv0wur34rtob" path="res://Audio/SFX/Self/WaterSplash.mp3" id="2_smf4g"]
+[ext_resource type="AudioStream" uid="uid://bcoae0b0f2u1" path="res://Audio/SFX/Environment/WindAmbience.mp3" id="3_2wqp2"]
 [ext_resource type="PackedScene" uid="uid://cn1krf62jowgb" path="res://Scenes and Scripts/Scenes/Dialogue/MinimalDialogue.tscn" id="4_7s4ab"]
 [ext_resource type="PackedScene" uid="uid://ck0guuhifgbmr" path="res://Assets/3D Models/Cutscenes/Story Mode/Start Cutscene/Models/Yacht.blend" id="4_os8dc"]
 [ext_resource type="Material" uid="uid://bb7q65pb3k66i" path="res://Resources/Shader Materials/VolumetricClouds.tres" id="4_w18yt"]
@@ -287,11 +288,11 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Yacht Rig/Fall Off Cutscene Camera:rotation")
+tracks/1/path = NodePath("Yacht Rig/Yacht/FallOffCameraRig/Fall Off Cutscene Camera:rotation")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1.43991, 2.737, 4.24392, 5.72156, 7.469),
+"times": PackedFloat32Array(1.43991, 2.737, 4.24392, 5.72156, 6.747),
 "transitions": PackedFloat32Array(1.51572, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 1.309, 0), Vector3(0.102867, 1.30846, -0.11161), Vector3(0.296816, 1.51581, 0.0633311), Vector3(0.857043, 1.49044, 0.018626), Vector3(1.42756, -1.19377, -2.68865)]
@@ -299,11 +300,11 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Yacht Rig/Fall Off Cutscene Camera:position")
+tracks/2/path = NodePath("Yacht Rig/Yacht/FallOffCameraRig/Fall Off Cutscene Camera:position")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(2.16191, 3.866, 5.67, 6.392, 6.77675, 7.76437),
+"times": PackedFloat32Array(2.16191, 3.866, 5.67, 6.096, 6.527, 7.303),
 "transitions": PackedFloat32Array(1.56917, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(6.53059, 1.85262, 0.779112), Vector3(7.04012, 1.85262, 0.779112), Vector3(7.04012, 1.85262, 0.779112), Vector3(7.09027, 1.71587, 0.779112), Vector3(8.1135, 1.71587, 0.779112), Vector3(8.88345, -0.226466, 0.779112)]
@@ -311,7 +312,7 @@ tracks/2/keys = {
 tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Yacht Rig/Fall Off Cutscene Camera")
+tracks/3/path = NodePath("Yacht Rig/Yacht/FallOffCameraRig/Fall Off Cutscene Camera")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -329,7 +330,7 @@ tracks/4/path = NodePath("WaterSplash")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(7.6),
+"times": PackedFloat32Array(6.372),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [0.0],
@@ -343,10 +344,24 @@ tracks/5/path = NodePath("Overlay/BlackOverlay:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(7.6),
+"times": PackedFloat32Array(6.372),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.436),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"setPlayerVisibility"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_smf4g"]
@@ -354,7 +369,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Yacht Rig/Fall Off Cutscene Camera:rotation")
+tracks/0/path = NodePath("Yacht Rig/Yacht/FallOffCameraRig/Fall Off Cutscene Camera:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -366,7 +381,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Yacht Rig/Fall Off Cutscene Camera:position")
+tracks/1/path = NodePath("Yacht Rig/Yacht/FallOffCameraRig/Fall Off Cutscene Camera:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -413,8 +428,12 @@ Default_Camera = NodePath("Camera3D")
 [node name="WaterSplash" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_smf4g")
 
+[node name="WindAmbience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_2wqp2")
+bus = &"env"
+
 [node name="StormTimer" type="Timer" parent="."]
-wait_time = 120.0
+wait_time = 130.0
 one_shot = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -915,8 +934,12 @@ gizmo_extents = 0.6
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2415, 0.186864, 0.7236)
 gizmo_extents = 0.6
 
-[node name="Fall Off Cutscene Camera" type="Camera3D" parent="Yacht Rig"]
+[node name="FallOffCameraRig" type="Node3D" parent="Yacht Rig/Yacht"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.235951, 0.374834)
+
+[node name="Fall Off Cutscene Camera" type="Camera3D" parent="Yacht Rig/Yacht/FallOffCameraRig"]
 transform = Transform3D(0.246678, 0.12744, 0.960681, -0.11079, 0.988525, -0.102685, -0.962744, -0.0811035, 0.257967, 7.04012, 1.85262, 0.779112)
+fov = 90.0
 
 [node name="Camera_Sutle_Movement" type="AnimationPlayer" parent="."]
 libraries = {
