@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://nlp0xy1m65tp"]
+[gd_scene load_steps=47 format=3 uid="uid://nlp0xy1m65tp"]
 
 [ext_resource type="Script" uid="uid://uvb2g81nntt2" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/StoryMode_StartCutscene_SCRIPT.gd" id="1_4d7y3"]
 [ext_resource type="PackedScene" uid="uid://cn1krf62jowgb" path="res://Scenes and Scripts/Scenes/Dialogue/MinimalDialogue.tscn" id="4_7s4ab"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://tkmo4qdlscsu" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/Props/BlueLever.tscn" id="9_yeq2m"]
 [ext_resource type="PackedScene" uid="uid://cmt00ehn4hfne" path="res://Scenes and Scripts/Scenes/General/UI/MessageWithKeyUI.tscn" id="10_w18yt"]
 [ext_resource type="PackedScene" uid="uid://cg37p3dc7fbqx" path="res://Scenes and Scripts/Scenes/Environment/Water Mesh/WaterMesh.tscn" id="11_44ck5"]
+[ext_resource type="Texture2D" uid="uid://2qb1qs6h08t" path="res://Assets/Textures/Icons/Input Prompts/mouse_left_outline.png" id="13_ec70e"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w18yt"]
 sky_top_color = Color(0.379513, 0.678929, 0.950538, 1)
@@ -31,6 +32,9 @@ ssao_power = 9.74701
 ssao_detail = 2.21
 ssao_horizon = 0.59
 glow_enabled = true
+fog_sky_affect = 0.267
+volumetric_fog_density = 0.01
+volumetric_fog_detail_spread = 1.07177
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ec70e"]
 
@@ -205,6 +209,10 @@ mesh = SubResource("PlaneMesh_ec70e")
 
 [node name="WaterMesh" parent="." instance=ExtResource("11_44ck5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.3728, 0)
+
+[node name="WaterMesh(INBOAT)" parent="." instance=ExtResource("11_44ck5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -16.2261, 0)
+visible = false
 
 [node name="Yacht Rig" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22068, -13.4686, -17.6352)
@@ -458,6 +466,13 @@ offset_right = 27.0
 offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="KEY" parent="Yacht Rig/Yacht/Yacht/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1/Contents" index="4"]
+visible = false
+
+[node name="KEY_Image" parent="Yacht Rig/Yacht/Yacht/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1/Contents" index="5"]
+visible = true
+texture = ExtResource("13_ec70e")
 
 [node name="Message" parent="Yacht Rig/Yacht/Yacht/Interactable Component/Contents/UI/SubViewport/MessageWithKeyUI_1/Contents" index="7"]
 text = "Turn on"
