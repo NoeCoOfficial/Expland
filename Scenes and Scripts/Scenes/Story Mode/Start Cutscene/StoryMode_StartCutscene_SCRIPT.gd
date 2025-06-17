@@ -107,6 +107,7 @@ func onfadeInGreyOverlay_Finished():
 	BlackFade.hide()
 	$WaterMesh.hide()
 	$"WaterMesh(INBOAT)".show()
+	player_instance.camera.make_current()
 	new_player_dialogue_timeline()
 
 func new_player_dialogue_timeline():
