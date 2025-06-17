@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://nlp0xy1m65tp"]
+[gd_scene load_steps=70 format=3 uid="uid://nlp0xy1m65tp"]
 
 [ext_resource type="Script" uid="uid://uvb2g81nntt2" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/StoryMode_StartCutscene_SCRIPT.gd" id="1_4d7y3"]
 [ext_resource type="AudioStream" uid="uid://bbv0wur34rtob" path="res://Audio/SFX/Self/WaterSplash.mp3" id="2_smf4g"]
@@ -437,6 +437,9 @@ shader_parameter/color_influence_x = 1.0
 shader_parameter/color_influence_y = 1.0
 shader_parameter/color_influence_gb = 1.44
 shader_parameter/wave_strength = 3.78
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8afyb"]
+albedo_color = Color(1, 0.14, 0.14, 1)
 
 [sub_resource type="Resource" id="Resource_juxsv"]
 script = ExtResource("22_a8ej0")
@@ -1203,6 +1206,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14.9213, 0)
 material_override = ExtResource("19_8afyb")
 extra_cull_margin = 10000.0
 mesh = ExtResource("20_5c1th")
+surface_material_override/0 = SubResource("StandardMaterial3D_8afyb")
 script = ExtResource("21_jxfk5")
 parameters = Array[ExtResource("22_a8ej0")]([SubResource("Resource_juxsv"), SubResource("Resource_2n6ox"), SubResource("Resource_3vobf")])
 map_size = 512
