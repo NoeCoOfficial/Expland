@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://nlp0xy1m65tp"]
+[gd_scene load_steps=55 format=3 uid="uid://nlp0xy1m65tp"]
 
 [ext_resource type="Script" uid="uid://uvb2g81nntt2" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/StoryMode_StartCutscene_SCRIPT.gd" id="1_4d7y3"]
 [ext_resource type="PackedScene" uid="uid://cn1krf62jowgb" path="res://Scenes and Scripts/Scenes/Dialogue/MinimalDialogue.tscn" id="4_7s4ab"]
@@ -265,7 +265,7 @@ _data = {
 [sub_resource type="Animation" id="Animation_yeq2m"]
 resource_name = "main"
 length = 10.0
-step = 0.0333333
+step = 0.001
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -283,9 +283,85 @@ tracks/0/keys = {
 "method": &"playBlinkEffect"
 }]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Yacht Rig/Fall Off Cutscene Camera:current")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.44),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Yacht Rig/Fall Off Cutscene Camera:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.43991, 2.737, 4.24392, 5.72156, 7.469),
+"transitions": PackedFloat32Array(1.51572, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.309, 0), Vector3(0.102867, 1.30846, -0.11161), Vector3(0.296816, 1.51581, 0.0633311), Vector3(0.857043, 1.49044, 0.018626), Vector3(1.42756, -1.19377, -2.68865)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Yacht Rig/Fall Off Cutscene Camera:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.16191, 3.866, 5.67, 6.392, 6.77675, 7.76437),
+"transitions": PackedFloat32Array(1.56917, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(6.53059, 1.85262, 0.779112), Vector3(7.04012, 1.85262, 0.779112), Vector3(7.04012, 1.85262, 0.779112), Vector3(7.09027, 1.71587, 0.779112), Vector3(8.1135, 1.71587, 0.779112), Vector3(8.88345, -0.226466, 0.779112)]
+}
+
+[sub_resource type="Animation" id="Animation_smf4g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Yacht Rig/Fall Off Cutscene Camera:current")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Yacht Rig/Fall Off Cutscene Camera:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.102867, 1.30846, -0.11161)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Yacht Rig/Fall Off Cutscene Camera:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(7.04012, 1.85262, 0.779112)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_smf4g"]
 _data = {
+&"RESET": SubResource("Animation_smf4g"),
 &"main": SubResource("Animation_yeq2m")
 }
 
@@ -806,6 +882,9 @@ gizmo_extents = 0.6
 [node name="Probe6" type="Marker3D" parent="Yacht Rig/Yacht/ProbeContainer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2415, 0.186864, 0.7236)
 gizmo_extents = 0.6
+
+[node name="Fall Off Cutscene Camera" type="Camera3D" parent="Yacht Rig"]
+transform = Transform3D(0.246678, 0.12744, 0.960681, -0.11079, 0.988525, -0.102685, -0.962744, -0.0811035, 0.257967, 7.04012, 1.85262, 0.779112)
 
 [node name="Camera_Sutle_Movement" type="AnimationPlayer" parent="."]
 libraries = {
