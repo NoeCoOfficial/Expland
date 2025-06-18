@@ -1210,6 +1210,8 @@ func _on_save_and_quit_to_menu_pressed() -> void:
 	tween.tween_interval(1)
 
 func on_save_and_quit_to_menu_fade_finished():
+	if IslandManager.Current_Game_Mode != "PARKOUR":
+		PlayerManager.WORLD.RandomMusic.fadeOut(PlayerManager.WORLD.RandomMusic.currently_playing_stream)
 	var mainMenuScene = load("res://Scenes and Scripts/Scenes/Main Menu/MainMenu.tscn")
 	
 	get_tree().change_scene_to_packed(mainMenuScene)

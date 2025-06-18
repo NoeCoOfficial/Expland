@@ -590,4 +590,8 @@ func _on_join_discord_server_button_pressed() -> void:
 	OS.shell_open("https://discord.gg/QNgcKCAJn3")
 
 func _on_start_music_random_timer_timeout() -> void:
+	$"RandomMusic++".start()
+
+
+func _on_view_authorsmd_button_pressed() -> void:
 	OS.shell_open("https://github.com/NoeCoOfficial/Expland/blob/main/AUTHORS.md")

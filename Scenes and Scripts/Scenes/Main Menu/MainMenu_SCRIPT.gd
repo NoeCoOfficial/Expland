@@ -357,6 +357,25 @@ func _on_play_free_mode_button_pressed() -> void:
 
 func _on_play_parkour_mode_button_pressed() -> void:
 	$"RandomMusic++".fadeOut($"RandomMusic++".currently_playing_stream)
+	$MainLayer/ProtectiveLayer.visible = true
+	
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	$TopLayer/TransitionFadeOut.modulate = Color(1, 1, 1, 0)
+	$TopLayer/TransitionFadeOut.visible = true
+	
+	var tween = get_tree().create_tween()
+	tween.connect("finished", Callable(self, "_on_parkour_mode_demo_fade_finished"))
+	
+	tween.tween_property($TopLayer/TransitionFadeOut, "modulate", Color(1, 1, 1, 1), 1)
+	tween.tween_interval(1)
+	
+	$"RandomMusic++".fadeOut($"RandomMusic++".currently_playing_stream)
+
+func _on_parkour_mode_demo_fade_finished():
+	PauseManager.is_inside_alert = false
+	IslandManager.Current_Game_Mode = "PARKOUR"
+	get_tree().change_scene_to_file("uid://du8eqpvmsganl")
 
 ###############################################################################
 
