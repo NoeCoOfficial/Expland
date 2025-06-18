@@ -51,3 +51,42 @@ extends Node3D
 
 func _ready():
 	Player.nodeSetup()
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body.is_in_group("PlayerBody"):
+		StoryModeManager.is_in_cutscene = true
+		$CanvasLayers/EndScreen/EndScreenAnimation.play("main")
+
+
+func _on_main_menu_button_pressed() -> void:
+
+
+
+
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/ExplandDemoNotice/BlackBGFadeOut".modulate = Color(1, 1, 1, 0)
+	$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/ExplandDemoNotice/BlackBGFadeOut".show()
+	var tween = get_tree().create_tween().set_parallel()
+	tween.connect("finished", _end_screen_fade_out_finished)
+
+
+
+func _end_screen_fade_out_finished() -> void:
+	StoryModeManager.is_in_cutscene = false
+	StoryModeManager.is_in_cutscene_can_move = false
+	StoryModeManager.waking_up_from_eryv_dream = false
+	
+	PlayerData.TIMES_SLEPT = 0
+	PlayerData.STORY_MODE_PROGRESSION_INFO = PlayerData.STORY_MODE_PROGRESSION_INFO_DEFAULTS.duplicate(true)
+	
+	get_tree().change_scene_to_file("res://Scenes and Scripts/Scenes/Main Menu/MainMenu.tscn")
+
+func _on_quit_button_pressed() -> void:
+	get_tree().quit()
+
+func _on_view_authorsmd_button_pressed() -> void:
+	pass # Replace with function body.
+
+func _on_join_discord_server_button_pressed() -> void:
+	OS.shell_open("https://discord.gg/QNgcKCAJn3")
