@@ -57,6 +57,8 @@ func initializeIslandProperties(_Island_Name):
 @export var DayNightCycle_Rotation : AnimationPlayer
 @export var DayNightCycle_Sky : AnimationPlayer
 
+@export var RandomMusic : Node
+
 @export var Tick : Timer
 @export var IslandDeco : Node3D
 @export var Weather_Timer : Timer
@@ -100,6 +102,8 @@ func _ready() -> void:
 	
 	Tick.start()
 	
+
+	
 	if IslandManager.Current_Game_Mode == "STORY":
 		init_weather_instant_custom(0)
 	else:
@@ -136,6 +140,10 @@ func _ready() -> void:
 		$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/StoryModeDreamWakeUpUI".hide()
 	
 	Player.nodeSetup()
+	
+	$StartMusicRandomTimer.wait_time = randf_range(40.0, 100.0)
+	$StartMusicRandomTimer.start()
+	
 
 #####################################################
 
@@ -578,8 +586,8 @@ func _demo_fade_out_finished():
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
 
-func _on_view_authorsmd_button_pressed() -> void:
-	OS.shell_open("https://github.com/NoeCoOfficial/Expland/blob/main/AUTHORS.md")
-
 func _on_join_discord_server_button_pressed() -> void:
 	OS.shell_open("https://discord.gg/QNgcKCAJn3")
+
+func _on_start_music_random_timer_timeout() -> void:
+	OS.shell_open("https://github.com/NoeCoOfficial/Expland/blob/main/AUTHORS.md")
