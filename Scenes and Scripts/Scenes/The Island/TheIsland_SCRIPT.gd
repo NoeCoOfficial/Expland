@@ -578,7 +578,7 @@ func _demo_fade_out_finished():
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
 
-func _on_view_authordmd_button_pressed() -> void:
+func _on_view_authorsmd_button_pressed() -> void:
 	OS.shell_open("https://github.com/NoeCoOfficial/Expland/blob/main/AUTHORS.md")
 
 func _on_join_discord_server_button_pressed() -> void:

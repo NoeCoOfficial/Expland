@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://nlp0xy1m65tp"]
+[gd_scene load_steps=61 format=3 uid="uid://nlp0xy1m65tp"]
 
 [ext_resource type="Script" uid="uid://uvb2g81nntt2" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/StoryMode_StartCutscene_SCRIPT.gd" id="1_4d7y3"]
 [ext_resource type="AudioStream" uid="uid://bbv0wur34rtob" path="res://Audio/SFX/Self/WaterSplash.mp3" id="2_smf4g"]
@@ -26,12 +26,12 @@ sky_curve = 0.0409602
 ground_bottom_color = Color(0.09, 0.09, 0.09, 1)
 ground_horizon_color = Color(0.301961, 0.552941, 0.827451, 1)
 
-[sub_resource type="Sky" id="Sky_ix38m"]
+[sub_resource type="Sky" id="Sky_n7233"]
 sky_material = SubResource("ProceduralSkyMaterial_w18yt")
 
 [sub_resource type="Environment" id="Environment_ec70e"]
 background_mode = 2
-sky = SubResource("Sky_ix38m")
+sky = SubResource("Sky_n7233")
 tonemap_mode = 2
 ssao_power = 9.74701
 ssao_detail = 2.21
@@ -358,56 +358,19 @@ tracks/6/path = NodePath(".")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(1.436),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(1.436, 8.431),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [false],
 "method": &"setPlayerVisibility"
+}, {
+"args": [],
+"method": &"goToIsland"
 }]
-}
-
-[sub_resource type="Animation" id="Animation_smf4g"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Yacht Rig/Yacht/FallOffCameraRig/Fall Off Cutscene Camera:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.102867, 1.30846, -0.11161)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Yacht Rig/Yacht/FallOffCameraRig/Fall Off Cutscene Camera:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(7.04012, 1.85262, 0.779112)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Overlay/BlackOverlay:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_smf4g"]
 _data = {
-&"RESET": SubResource("Animation_smf4g"),
 &"main": SubResource("Animation_yeq2m")
 }
 
@@ -452,6 +415,7 @@ Default_Camera = NodePath("Camera3D")
 
 [node name="WaterSplash" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_smf4g")
+volume_db = -12.0
 
 [node name="WindAmbience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_2wqp2")
@@ -963,7 +927,7 @@ gizmo_extents = 0.6
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.235951, 0.374834)
 
 [node name="Fall Off Cutscene Camera" type="Camera3D" parent="Yacht Rig/Yacht/FallOffCameraRig"]
-transform = Transform3D(0.246678, 0.12744, 0.960681, -0.11079, 0.988525, -0.102685, -0.962744, -0.0811035, 0.257967, 7.04012, 1.85262, 0.779112)
+transform = Transform3D(0.0716769, 0.988558, -0.132721, -0.0624681, -0.128353, -0.989759, -0.99547, 0.0792337, 0.0525534, 8.88345, -0.226466, 0.779112)
 fov = 90.0
 
 [node name="Camera_Sutle_Movement" type="AnimationPlayer" parent="."]
@@ -1128,6 +1092,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="TextureRect" type="TextureRect" parent="Overlay"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1137,6 +1102,7 @@ texture = ExtResource("17_n7233")
 expand_mode = 1
 
 [node name="UnderwaterEffect" type="ColorRect" parent="Overlay"]
+visible = false
 material = SubResource("ShaderMaterial_8kx4n")
 anchors_preset = 15
 anchor_right = 1.0

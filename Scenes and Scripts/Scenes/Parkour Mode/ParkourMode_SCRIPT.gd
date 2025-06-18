@@ -51,3 +51,40 @@ extends Node3D
 
 func _ready():
 	Player.nodeSetup()
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body.is_in_group("PlayerBody"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		StoryModeManager.is_in_cutscene = true
+		$CanvasLayers/EndScreen/EndScreenAnimation.play("main")
+
+
+func _on_main_menu_button_pressed() -> void:
+	$CanvasLayers/TopLayer/BlackOverlay.modulate = Color(1, 1, 1, 0)
+	$CanvasLayers/TopLayer/BlackOverlay.show()
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	var tween = get_tree().create_tween().set_parallel()
+	tween.tween_property($CanvasLayers/TopLayer/BlackOverlay, "modulate", Color(1, 1, 1, 1), 1.0)
+	tween.connect("finished", _end_screen_fade_out_finished)
+
+
+func _end_screen_fade_out_finished() -> void:
+	StoryModeManager.is_in_cutscene = false
+	get_tree().change_scene_to_file("uid://234mnfypwndn")
+
+func _on_quit_button_pressed() -> void:
+	get_tree().quit()
+
+func _on_restart_pressed() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	StoryModeManager.is_in_cutscene = false
+	$CanvasLayers/EndScreen/Content.hide()
+	$CanvasLayers/EndScreen/BlackScreen.hide()
+	Player.position = Player.ResetPOS
+
+func _on_view_authorsmd_button_pressed() -> void:
+	OS.shell_open("https://github.com/NoeCoOfficial/Expland/blob/main/AUTHORS.md")
+
+func _on_join_discord_server_button_pressed() -> void:
+	OS.shell_open("https://discord.gg/QNgcKCAJn3")
