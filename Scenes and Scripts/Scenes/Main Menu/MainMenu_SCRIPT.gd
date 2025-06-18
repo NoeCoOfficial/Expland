@@ -349,7 +349,7 @@ func _on_story_mode_demo_notice_play_button_pressed() -> void:
 func _on_story_mode_demo_notice_play_button_pressed_fade_finished():
 	PauseManager.is_inside_alert = false
 	IslandManager.Current_Game_Mode = "STORY"
-	get_tree().change_scene_to_file("uid://c5jkrckgqd0w6")
+	get_tree().change_scene_to_file("uid://nlp0xy1m65tp")
 
 
 func _on_play_free_mode_button_pressed() -> void:
