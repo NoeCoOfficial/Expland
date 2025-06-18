@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://du8eqpvmsganl"]
+[gd_scene load_steps=71 format=3 uid="uid://du8eqpvmsganl"]
 
 [ext_resource type="Texture2D" uid="uid://chyejho8nqjis" path="res://Assets/Textures/Dev Textures/Dark/texture_01.png" id="1_gm4b5"]
 [ext_resource type="Script" uid="uid://c125y27habmmb" path="res://Scenes and Scripts/Scenes/Parkour Mode/ParkourMode_SCRIPT.gd" id="1_ief1x"]
@@ -236,48 +236,8 @@ tracks/3/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_jv0dl"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BlackScreen:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BlackScreen:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Content:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jv0dl"]
 _data = {
-&"RESET": SubResource("Animation_jv0dl"),
 &"main": SubResource("Animation_xqrhy")
 }
 
@@ -709,7 +669,7 @@ transform = Transform3D(0.155402, 0, 0, 0, 3.24008, 0, 0, 0, 0.154498, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_3hoff")
 
 [node name="Parkour Obstacle16" type="StaticBody3D" parent="Parkour/OGParkourCourse"]
-transform = Transform3D(-1.44824, 0, 1.43993, 0, 2.04225, 0, -1.43993, 0, -1.44824, 12.788, 5.16191, -1.80895)
+transform = Transform3D(-1.44824, 0, 1.43993, 0, 2.04225, 0, -1.43993, 0, -1.44824, 12.788, 4.60467, -1.80895)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Parkour/OGParkourCourse/Parkour Obstacle16"]
 transform = Transform3D(1.13795, 0, 8.9407e-08, 0, 0.156791, 0, -8.9407e-08, 0, 1.13795, -0.0145721, 0.425979, 0.0410156)
@@ -721,6 +681,7 @@ transform = Transform3D(1.13795, 0, 8.9407e-08, 0, 0.156791, 0, -8.9407e-08, 0, 
 shape = SubResource("ConcavePolygonShape3D_o3kls")
 
 [node name="Area3D" type="Area3D" parent="Parkour/OGParkourCourse/Parkour Obstacle16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0668499, 0)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Parkour/OGParkourCourse/Parkour Obstacle16/Area3D"]
 transform = Transform3D(1.13795, 0, 1.19209e-07, 0, 0.156791, 0, -1.19209e-07, 0, 1.13795, -0.0145721, 0.425979, 0.0410156)
@@ -857,6 +818,7 @@ layer = 100
 
 [node name="BlackScreen" type="ColorRect" parent="CanvasLayers/EndScreen"]
 visible = false
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -870,6 +832,8 @@ libraries = {
 }
 
 [node name="Content" type="Control" parent="CanvasLayers/EndScreen"]
+visible = false
+modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -904,9 +868,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -126.25
+offset_left = -193.25
 offset_top = 33.0
-offset_right = -4.75
+offset_right = -71.75
 offset_bottom = 78.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -915,6 +879,24 @@ theme = ExtResource("17_jv0dl")
 theme_override_fonts/font = ExtResource("18_nu6hr")
 text = "Main Menu"
 
+[node name="RestartButton" type="Button" parent="CanvasLayers/EndScreen/Content"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 70.75
+offset_top = 33.0
+offset_right = 192.25
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme = ExtResource("17_jv0dl")
+theme_override_fonts/font = ExtResource("18_nu6hr")
+text = "Restart"
+
 [node name="QuitButton" type="Button" parent="CanvasLayers/EndScreen/Content"]
 layout_mode = 1
 anchors_preset = 8
@@ -922,9 +904,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 5.75
+offset_left = -61.25
 offset_top = 33.0
-offset_right = 127.25
+offset_right = 60.25
 offset_bottom = 78.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -987,8 +969,21 @@ position = Vector2(184, 565)
 scale = Vector2(0.0309722, 0.0309722)
 texture = ExtResource("20_j17h6")
 
+[node name="TopLayer" type="CanvasLayer" parent="CanvasLayers"]
+layer = 128
+
+[node name="BlackOverlay" type="ColorRect" parent="CanvasLayers/TopLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [connection signal="body_entered" from="Parkour/OGParkourCourse/Parkour Obstacle16/Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="pressed" from="CanvasLayers/EndScreen/Content/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="CanvasLayers/EndScreen/Content/RestartButton" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="CanvasLayers/EndScreen/Content/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="CanvasLayers/EndScreen/Content/JoinDiscordServerButton" to="." method="_on_join_discord_server_button_pressed"]
 [connection signal="pressed" from="CanvasLayers/EndScreen/Content/ViewAuthorsmdButton" to="." method="_on_view_authorsmd_button_pressed"]
