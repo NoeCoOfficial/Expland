@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://bnfxgeivhiq4"]
+
+[ext_resource type="Material" uid="uid://byumtcccq4ew3" path="res://Assets/water/mat_water.tres" id="1_6bw2f"]
+[ext_resource type="ArrayMesh" uid="uid://ix4vp1y05f1s" path="res://Assets/water/clipmap_high.obj" id="1_tm62o"]
+[ext_resource type="Script" uid="uid://dbxip3y4rh1va" path="res://Assets/water/water.gd" id="2_npncg"]
+[ext_resource type="Script" uid="uid://cqbpvt36rest3" path="res://Assets/water/wave_cascade_parameters.gd" id="3_npncg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6bw2f"]
+albedo_color = Color(1, 0.14, 0.14, 1)
+
+[sub_resource type="Resource" id="Resource_juxsv"]
+script = ExtResource("3_npncg")
+tile_length = Vector2(200, 200)
+displacement_scale = 1.061
+normal_scale = 1.436
+wind_speed = 0.86
+wind_direction = -58.545
+fetch_length = 150.0
+swell = 0.497
+spread = 0.394
+detail = 1.0
+whitecap = 0.0
+foam_amount = 8.0
+
+[sub_resource type="Resource" id="Resource_2n6ox"]
+script = ExtResource("3_npncg")
+tile_length = Vector2(57, 57)
+displacement_scale = 0.75
+normal_scale = 1.0
+wind_speed = 0.325
+wind_direction = 15.0
+fetch_length = 150.0
+swell = 0.8
+spread = 0.4
+detail = 1.0
+whitecap = 0.5
+foam_amount = 1.246
+
+[sub_resource type="Resource" id="Resource_3vobf"]
+script = ExtResource("3_npncg")
+tile_length = Vector2(100, 100)
+displacement_scale = 0.0
+normal_scale = 0.25
+wind_speed = 20.0
+wind_direction = 20.0
+fetch_length = 550.0
+swell = 0.8
+spread = 0.4
+detail = 1.0
+whitecap = 0.335
+foam_amount = 5.0
+
+[node name="OceanWaves" type="Node3D"]
+
+[node name="Water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.83127, 0)
+material_override = ExtResource("1_6bw2f")
+transparency = 0.61
+extra_cull_margin = 10000.0
+mesh = ExtResource("1_tm62o")
+surface_material_override/0 = SubResource("StandardMaterial3D_6bw2f")
+script = ExtResource("2_npncg")
+parameters = Array[ExtResource("3_npncg")]([SubResource("Resource_juxsv"), SubResource("Resource_2n6ox"), SubResource("Resource_3vobf")])
+map_size = 512
