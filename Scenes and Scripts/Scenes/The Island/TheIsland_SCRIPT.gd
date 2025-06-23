@@ -161,7 +161,8 @@ func eryvDreamWakeUpDialogue():
 
 func spawnDemoScreen():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/ExplandDemoNotice/Buttons/TimeLabel".text = str(TimeManager.speedrun_timer_get_time())
+	$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/ExplandDemoNotice/Buttons/TimeLabel".text = TimeManager.speedrun_timer_get_formatted_time()
+	$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/ExplandDemoNotice/Buttons/TimeLabel".visible = PlayerSettingsData.speedRunTimer
 	$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/ExplandDemoNotice/ExplandDemoUIAnimation".play("main")
 
 #####################################################
