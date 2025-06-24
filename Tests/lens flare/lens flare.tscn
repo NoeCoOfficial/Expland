@@ -43,7 +43,7 @@ material_override = SubResource("StandardMaterial3D_rscwg")
 mesh = SubResource("BoxMesh_tspm7")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.838135, -0.150476, 0.524297, 0.155641, 0.98721, 0.0345282, -0.522787, 0.0526628, 0.850835, -1.48878, 2.55235, 4.20335)
+transform = Transform3D(0.838135, -0.150476, 0.524297, 0.155641, 0.98721, 0.0345283, -0.522787, 0.0526627, 0.850835, 1.16032, 2.55235, 2.64434)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera3D"]
 
