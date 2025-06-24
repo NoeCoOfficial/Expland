@@ -38,7 +38,7 @@ foam_amount = 1.246
 
 [sub_resource type="Resource" id="Resource_3vobf"]
 script = ExtResource("3_npncg")
-tile_length = Vector2(100, 100)
+tile_length = Vector2(66.85, 70.58)
 displacement_scale = 0.0
 normal_scale = 0.25
 wind_speed = 20.0
@@ -55,7 +55,6 @@ foam_amount = 5.0
 [node name="Water" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.83127, 0)
 material_override = ExtResource("1_6bw2f")
-transparency = 0.61
 extra_cull_margin = 10000.0
 mesh = ExtResource("1_tm62o")
 surface_material_override/0 = SubResource("StandardMaterial3D_6bw2f")
