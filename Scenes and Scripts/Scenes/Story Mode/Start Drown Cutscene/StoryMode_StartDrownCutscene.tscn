@@ -1,18 +1,9 @@
-[gd_scene load_steps=12 format=4 uid="uid://cyemtp45fk71j"]
+[gd_scene load_steps=11 format=3 uid="uid://cyemtp45fk71j"]
 
+[ext_resource type="Script" uid="uid://bf7hr424i38q6" path="res://Scenes and Scripts/Scenes/Story Mode/Start Drown Cutscene/StoryMode_StartDrownCutscene_SCRIPT.gd" id="1_icdj4"]
 [ext_resource type="PackedScene" uid="uid://bnfxgeivhiq4" path="res://Scenes and Scripts/Scenes/Environment/OceanWaves/OceanWaves.tscn" id="1_jvnar"]
-[ext_resource type="Shader" uid="uid://cjhn8nkfr4mn0" path="res://Assets/shaders/spatial/water.gdshader" id="2_mhxdo"]
 [ext_resource type="Script" uid="uid://dn1b1gnwe5iap" path="res://Assets/Textures/Icons/Script Icons/Scripts/LightbulbIcon_SCRIPT.gd" id="2_re8kt"]
 [ext_resource type="Shader" uid="uid://1pe0vndnyexo" path="res://Resources/Shaders/Underwater.gdshader" id="4_icdj4"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_icdj4"]
-render_priority = 1
-shader = ExtResource("2_mhxdo")
-shader_parameter/water_color = Color(0.017874, 0.0710567, 0.0764385, 1)
-shader_parameter/foam_color = Color(0.73, 0.67, 0.62, 1)
-shader_parameter/roughness = 1.0
-shader_parameter/normal_strength = 1.0
-shader_parameter/map_scales = PackedVector4Array(0.005, 0.005, 1.061, 1.436, 0.0175439, 0.0175439, 0.75, 1, 0.0149589, 0.0141683, 0, 0.25)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mhxdo"]
 sky_top_color = Color(0.379513, 0.678929, 0.950538, 1)
@@ -36,31 +27,28 @@ fog_sky_affect = 0.267
 volumetric_fog_density = 0.01
 volumetric_fog_detail_spread = 1.07177
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_icdj4"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gtwfc"]
 noise_type = 2
-frequency = 0.0013
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hh8oh"]
-noise = SubResource("FastNoiseLite_icdj4")
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5e08x"]
+seamless = true
+noise = SubResource("FastNoiseLite_gtwfc")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hh8oh"]
 shader = ExtResource("4_icdj4")
-shader_parameter/color = Color(0.330055, 0.702029, 0.880423, 1)
-shader_parameter/fast_noise = SubResource("NoiseTexture2D_hh8oh")
-shader_parameter/speed = Vector2(0.03, 0.31)
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/fast_noise = SubResource("NoiseTexture2D_5e08x")
+shader_parameter/speed = Vector2(0.03, 0.07)
 shader_parameter/time_multiplier = 1.0
 shader_parameter/color_influence_x = 1.0
 shader_parameter/color_influence_y = 1.0
-shader_parameter/color_influence_gb = 1.0
-shader_parameter/wave_strength = 2.1
+shader_parameter/color_influence_gb = 1.35
+shader_parameter/wave_strength = 4.01
 
 [node name="World" type="Node3D"]
+script = ExtResource("1_icdj4")
 
 [node name="OceanWaves" parent="." instance=ExtResource("1_jvnar")]
-
-[node name="Water" parent="OceanWaves" index="0"]
-material_override = SubResource("ShaderMaterial_icdj4")
-transparency = 0.28
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_icdj4")
@@ -75,16 +63,14 @@ directional_shadow_max_distance = 150.0
 script = ExtResource("2_re8kt")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10.3482, -4.52336e-07)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5.54551, -2.42404e-07)
 
 [node name="MainLayer" type="CanvasLayer" parent="Camera3D"]
 
-[node name="ColorRect" type="ColorRect" parent="Camera3D/MainLayer"]
+[node name="UnderwaterFilter" type="ColorRect" parent="Camera3D/MainLayer"]
 material = SubResource("ShaderMaterial_hh8oh")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[editable path="OceanWaves"]
