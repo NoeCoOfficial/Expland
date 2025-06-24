@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmj1hq62mxolu"]
+
+[ext_resource type="Shader" uid="uid://1pe0vndnyexo" path="res://Resources/Shaders/Underwater.gdshader" id="1_bgxy5"]
+[ext_resource type="Texture2D" uid="uid://bx3jg6ecnsa15" path="res://Tests/Screenshot (8).png" id="1_y1c7h"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gtwfc"]
+noise_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5e08x"]
+seamless = true
+noise = SubResource("FastNoiseLite_gtwfc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h7vdd"]
+shader = ExtResource("1_bgxy5")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/fast_noise = SubResource("NoiseTexture2D_5e08x")
+shader_parameter/speed = Vector2(0.03, 0.07)
+shader_parameter/time_multiplier = 1.0
+shader_parameter/color_influence_x = 1.0
+shader_parameter/color_influence_y = 1.0
+shader_parameter/color_influence_gb = 1.0
+shader_parameter/wave_strength = 4.01
+
+[node name="World" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="MainLayer" type="CanvasLayer" parent="Camera3D"]
+
+[node name="TextureRect" type="TextureRect" parent="Camera3D/MainLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_y1c7h")
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="Camera3D/MainLayer"]
+material = SubResource("ShaderMaterial_h7vdd")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
