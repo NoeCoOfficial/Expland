@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://cyemtp45fk71j"]
+[gd_scene load_steps=10 format=4 uid="uid://cyemtp45fk71j"]
 
 [ext_resource type="PackedScene" uid="uid://bnfxgeivhiq4" path="res://Scenes and Scripts/Scenes/Environment/OceanWaves/OceanWaves.tscn" id="1_jvnar"]
 [ext_resource type="Shader" uid="uid://cjhn8nkfr4mn0" path="res://Assets/shaders/spatial/water.gdshader" id="2_mhxdo"]
 [ext_resource type="Script" uid="uid://dn1b1gnwe5iap" path="res://Assets/Textures/Icons/Script Icons/Scripts/LightbulbIcon_SCRIPT.gd" id="2_re8kt"]
+[ext_resource type="Shader" uid="uid://1pe0vndnyexo" path="res://Resources/Shaders/Underwater.gdshader" id="4_icdj4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_icdj4"]
 render_priority = 1
@@ -35,6 +36,16 @@ fog_sky_affect = 0.267
 volumetric_fog_density = 0.01
 volumetric_fog_detail_spread = 1.07177
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hh8oh"]
+shader = ExtResource("4_icdj4")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/speed = Vector2(0.03, 0.07)
+shader_parameter/time_multiplier = 1.0
+shader_parameter/color_influence_x = 1.0
+shader_parameter/color_influence_y = 1.0
+shader_parameter/color_influence_gb = 1.0
+shader_parameter/wave_strength = 2.0
+
 [node name="World" type="Node3D"]
 
 [node name="OceanWaves" parent="." instance=ExtResource("1_jvnar")]
@@ -57,5 +68,15 @@ script = ExtResource("2_re8kt")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10.3482, -4.52336e-07)
+
+[node name="MainLayer" type="CanvasLayer" parent="Camera3D"]
+
+[node name="ColorRect" type="ColorRect" parent="Camera3D/MainLayer"]
+material = SubResource("ShaderMaterial_hh8oh")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [editable path="OceanWaves"]
