@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cyemtp45fk71j"]
+[gd_scene load_steps=15 format=3 uid="uid://cyemtp45fk71j"]
 
 [ext_resource type="Script" uid="uid://bf7hr424i38q6" path="res://Scenes and Scripts/Scenes/Story Mode/Start Drown Cutscene/StoryMode_StartDrownCutscene_SCRIPT.gd" id="1_icdj4"]
 [ext_resource type="PackedScene" uid="uid://bnfxgeivhiq4" path="res://Scenes and Scripts/Scenes/Environment/OceanWaves/OceanWaves.tscn" id="1_jvnar"]
 [ext_resource type="Script" uid="uid://dn1b1gnwe5iap" path="res://Assets/Textures/Icons/Script Icons/Scripts/LightbulbIcon_SCRIPT.gd" id="2_re8kt"]
 [ext_resource type="Shader" uid="uid://1pe0vndnyexo" path="res://Resources/Shaders/Underwater.gdshader" id="4_icdj4"]
+[ext_resource type="AudioStream" uid="uid://cy0k0isll7b0h" path="res://Audio/SFX/Environment/UnderwaterAmbience.mp3" id="5_hh8oh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mhxdo"]
 sky_top_color = Color(0.379513, 0.678929, 0.950538, 1)
@@ -22,10 +23,91 @@ tonemap_mode = 2
 ssao_power = 9.74701
 ssao_detail = 2.21
 ssao_horizon = 0.59
+sdfgi_enabled = true
+sdfgi_read_sky_light = false
+sdfgi_bounce_feedback = 1.6
 glow_enabled = true
 fog_sky_affect = 0.267
-volumetric_fog_density = 0.01
-volumetric_fog_detail_spread = 1.07177
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0604
+volumetric_fog_albedo = Color(0.5, 0.841667, 1, 1)
+volumetric_fog_anisotropy = 0.62
+volumetric_fog_length = 60.3
+volumetric_fog_detail_spread = 1.84672
+
+[sub_resource type="Animation" id="Animation_hh8oh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -53.0521, -1.17793e-06)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D/MainLayer/BlackOverlay:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_icdj4"]
+resource_name = "main"
+length = 35.0
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 26.1333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -2.702, 0), Vector3(0, -53.0521, -1.17793e-06)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D/MainLayer/BlackOverlay:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.933333, 4.66667, 24.3, 29.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UnderwaterAmbience:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 24.3, 30.2333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-11.216, -11.216, -80.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hh8oh"]
+_data = {
+&"RESET": SubResource("Animation_hh8oh"),
+&"main": SubResource("Animation_icdj4")
+}
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_gtwfc"]
 noise_type = 2
@@ -42,13 +124,11 @@ shader_parameter/speed = Vector2(0.03, 0.07)
 shader_parameter/time_multiplier = 1.0
 shader_parameter/color_influence_x = 1.0
 shader_parameter/color_influence_y = 1.0
-shader_parameter/color_influence_gb = 1.35
+shader_parameter/color_influence_gb = 1.13
 shader_parameter/wave_strength = 4.01
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_icdj4")
-
-[node name="OceanWaves" parent="." instance=ExtResource("1_jvnar")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_icdj4")
@@ -62,8 +142,19 @@ directional_shadow_fade_start = 0.655
 directional_shadow_max_distance = 150.0
 script = ExtResource("2_re8kt")
 
+[node name="UnderwaterAmbience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_hh8oh")
+volume_db = -11.216
+autoplay = true
+
+[node name="DrownAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hh8oh")
+}
+autoplay = "main"
+
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5.54551, -2.42404e-07)
+transform = Transform3D(-1, -8.74228e-08, 0, -3.82137e-15, 4.37114e-08, -1, 8.74228e-08, -1, -4.37114e-08, 0, -53.0521, -1.17793e-06)
 
 [node name="MainLayer" type="CanvasLayer" parent="Camera3D"]
 
@@ -74,3 +165,21 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="BlackOverlay" type="ColorRect" parent="Camera3D/MainLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="OceanWaves" parent="." instance=ExtResource("1_jvnar")]
+
+[node name="Water" parent="OceanWaves" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.62165, 0)
+transparency = 0.27
+
+[connection signal="animation_finished" from="DrownAnimation" to="." method="_on_drown_animation_animation_finished"]
+
+[editable path="OceanWaves"]
