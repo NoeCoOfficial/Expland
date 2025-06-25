@@ -32,7 +32,7 @@ var deletion_queue := DeletionQueue.new()
 var shader_cache : Dictionary
 var needs_sync := false
 
-static func create(device : RenderingDevice=null) -> RenderingContext:
+static func create(device : RenderingDevice = null) -> RenderingContext:
 	var context := RenderingContext.new()
 	context.device = RenderingServer.create_local_rendering_device() if not device else device
 	return context

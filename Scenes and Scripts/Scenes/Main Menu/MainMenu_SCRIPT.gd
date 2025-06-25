@@ -150,6 +150,7 @@ func onStartup():
 		$MainLayer/AchievementsButton.position = Vector2(947, 508.0)
 		$MainLayer/UpdatesButton.position = Vector2(1018, 556)
 		$MainLayer/CreditsButton.position = Vector2(1018, 605)
+		$MainLayer/JoinDiscordButton.position = Vector2(6.0, 605.0)
 	else:
 		var tween = get_tree().create_tween().set_parallel()
 		tween.tween_property($MainLayer/Logo, "position:x", -15, 1.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.5)
@@ -158,6 +159,7 @@ func onStartup():
 		tween.tween_property($MainLayer/SettingsButton, "position", Vector2(0, 297), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.2)
 		tween.tween_property($MainLayer/SettingsButtonTrigger, "position", Vector2(0, 297), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.2)
 		tween.tween_property($MainLayer/QuitButton, "position", Vector2(0, 383), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.4)
+		tween.tween_property($MainLayer/JoinDiscordButton, "position", Vector2(6.0, 605.0), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.6)
 		tween.tween_property($MainLayer/QuitButtonTrigger, "position", Vector2(0, 383), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.4)
 		tween.tween_property($MainLayer/AchievementsButton, "position", Vector2(947, 508), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.2)
 		tween.tween_property($MainLayer/UpdatesButton, "position", Vector2(1018, 556), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.3)
@@ -387,6 +389,9 @@ func _on_updates_button_pressed() -> void:
 
 func _on_credits_button_pressed() -> void:
 	$MainLayer/CreditsLayer.spawnCredits(0.5)
+
+func _on_join_discord_button_pressed() -> void:
+	OS.shell_open("https://discord.gg/QNgcKCAJn3")
 
 # ---------------------------------------------------------------------------- #
 #                                     OTHER                                    #
