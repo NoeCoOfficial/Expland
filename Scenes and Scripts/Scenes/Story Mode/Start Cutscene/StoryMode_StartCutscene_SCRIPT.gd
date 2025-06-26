@@ -237,3 +237,6 @@ func _on_storm_timer() -> void:
 
 func setPlayerVisibility(value : bool):
 	player.visible = value
+
+func goToDrownCutscene():
+	get_tree().change_scene_to_file("uid://cyemtp45fk71j")

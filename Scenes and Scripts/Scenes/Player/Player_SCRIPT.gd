@@ -73,9 +73,12 @@ var transitioning_to_menu = false
 
 @export_group("Gameplay") ## A group for gameplay variables
 
-@export_subgroup("Health") ## Health varibales subgroup 
+@export_subgroup("Health") ## Health variabales subgroup 
 @export var UseHealth := true ## Checks if health should be used. If false no health label/bar will be displayed and the player won't be able to die/take damage)
 @export var MaxHealth := 100 ## After death or when the game is first opened, the Health variable is set to this. 
+
+@export_subgroup("Hunger") ## Hunger variabales subgroup 
+@export var UseHunger := true
 
 @export_subgroup("Other") 
 @export var Position := Vector3(0, 0, 0) ## What the live position for the player is. This no longer does anything if changed in the inspector panel.
@@ -818,6 +821,11 @@ func nodeSetup(): # A function to setup the nodes. Called in the _ready function
 	DeathScreen_BlackOverlay.self_modulate = Color(0, 0, 0, 0) # set the black overlay self modulate to black
 	OverlayLayer_RedOverlay.self_modulate = Color(1, 0.016, 0, 0) # set the red overlay self modulate to red
 
+func disableHunger():
+	UseHunger = false
+	HUDLayer_HungerBar.hide()
+	$Head/Camera3D/HUDLayer/WhiteHamIcon.hide()
+
 func initInventorySlots():
 	InventoryManager.POCKET_SLOTS = [
 		Slot1_Pocket_Ref,
@@ -1381,15 +1389,16 @@ func _on_health_regen_timeout() -> void:
 	update_bar("HEALTH", true, PlayerData.Health)
 
 func _on_hunger_depletion_timeout() -> void:
-	if !PlayerManager.is_sprinting_moving:
-		PlayerData.Hunger -= 2
-	else:
-		PlayerData.Hunger -= 4
-	
-	if PlayerData.Hunger < 0:
-		PlayerData.Hunger = 0
+	if UseHunger:
+		if !PlayerManager.is_sprinting_moving:
+			PlayerData.Hunger -= 2
+		else:
+			PlayerData.Hunger -= 4
 		
-	update_bar("HUNGER", true, PlayerData.Hunger)
+		if PlayerData.Hunger < 0:
+			PlayerData.Hunger = 0
+			
+		update_bar("HUNGER", true, PlayerData.Hunger)
 
 func _on_health_depleting_from_hunger_timeout() -> void:
 	if PlayerData.Hunger <= 0:

@@ -277,14 +277,17 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.43333),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 1.43333, 8.827),
+"transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
 "args": [],
 "method": &"playBlinkEffect"
 }, {
 "args": [],
 "method": &"playBlinkEffect"
+}, {
+"args": [],
+"method": &"goToDrownCutscene"
 }]
 }
 tracks/1/type = "value"
@@ -358,14 +361,11 @@ tracks/6/path = NodePath(".")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(1.436, 8.431),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(1.436),
+"transitions": PackedFloat32Array(1),
 "values": [{
 "args": [false],
 "method": &"setPlayerVisibility"
-}, {
-"args": [],
-"method": &"goToIsland"
 }]
 }
 
@@ -422,7 +422,7 @@ stream = ExtResource("3_2wqp2")
 bus = &"env"
 
 [node name="StormTimer" type="Timer" parent="."]
-wait_time = 130.0
+wait_time = 60.0
 one_shot = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -927,7 +927,7 @@ gizmo_extents = 0.6
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.235951, 0.374834)
 
 [node name="Fall Off Cutscene Camera" type="Camera3D" parent="Yacht Rig/Yacht/FallOffCameraRig"]
-transform = Transform3D(0.0716769, 0.988558, -0.132721, -0.0624681, -0.128353, -0.989759, -0.99547, 0.0792337, 0.0525534, 8.88345, -0.226466, 0.779112)
+transform = Transform3D(0.0716769, 0.988558, -0.132721, -0.062468, -0.128353, -0.989759, -0.99547, 0.0792336, 0.0525534, 8.88345, -0.226466, 0.779112)
 fov = 90.0
 
 [node name="Camera_Sutle_Movement" type="AnimationPlayer" parent="."]

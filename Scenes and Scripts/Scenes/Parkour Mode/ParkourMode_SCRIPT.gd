@@ -51,7 +51,7 @@ extends Node3D
 
 func _ready():
 	Player.nodeSetup()
-
+	Player.disableHunger()
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.is_in_group("PlayerBody"):
@@ -88,3 +88,9 @@ func _on_view_authorsmd_button_pressed() -> void:
 
 func _on_join_discord_server_button_pressed() -> void:
 	OS.shell_open("https://discord.gg/QNgcKCAJn3")
+
+
+func _on_respawn_box_body_entered(body: Node3D) -> void:
+	if body.is_in_group(&"PlayerBody"):
+		Player.global_position = Vector3(-0.11, 0.957, 2.595)
+		

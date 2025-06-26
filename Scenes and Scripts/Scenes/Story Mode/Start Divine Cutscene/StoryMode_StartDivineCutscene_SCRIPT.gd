@@ -98,4 +98,5 @@ func _on_first_tween_finished():
 	divine_cutscene_tween_next.tween_property($Music, "volume_db", -60, 5.0).set_delay(32.0)
 
 func end():
-	print("END")
+	print("END DIVINE CUTSCENE")
+	get_tree().change_scene_to_file("uid://c5jkrckgqd0w6")
