@@ -53,7 +53,6 @@ var is_in_absolute_gamemode_select = false
 var is_tweening = false
 
 @onready var StartupNotice = preload("res://Scenes and Scripts/Scenes/Startup Notice/StartupNotice.tscn")
-@onready var world = preload("uid://c5jkrckgqd0w6")
 @onready var StoryModeStartCutscene = preload("uid://nlp0xy1m65tp")
 @onready var DefaultXPos = $MainLayer/PlayButton.position.x
 

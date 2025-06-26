@@ -237,6 +237,3 @@ func _on_storm_timer() -> void:
 
 func setPlayerVisibility(value : bool):
 	player.visible = value
-
-func goToIsland():
-	get_tree().change_scene_to_file("uid://c5jkrckgqd0w6")
