@@ -93,4 +93,3 @@ func _on_join_discord_server_button_pressed() -> void:
 func _on_respawn_box_body_entered(body: Node3D) -> void:
 	if body.is_in_group(&"PlayerBody"):
 		Player.global_position = Vector3(-0.11, 0.957, 2.595)
-		
