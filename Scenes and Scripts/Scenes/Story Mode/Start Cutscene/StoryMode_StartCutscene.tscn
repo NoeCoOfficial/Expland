@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://bcoae0b0f2u1" path="res://Audio/SFX/Environment/WindAmbience.mp3" id="3_2wqp2"]
 [ext_resource type="PackedScene" uid="uid://cn1krf62jowgb" path="res://Scenes and Scripts/Scenes/Dialogue/MinimalDialogue.tscn" id="4_7s4ab"]
 [ext_resource type="PackedScene" uid="uid://ck0guuhifgbmr" path="res://Assets/3D Models/Cutscenes/Story Mode/Start Cutscene/Models/Yacht.blend" id="4_os8dc"]
-[ext_resource type="Material" uid="uid://bb7q65pb3k66i" path="res://Resources/Shader Materials/VolumetricClouds.tres" id="4_w18yt"]
+[ext_resource type="Material" uid="uid://b53wf3cs61c28" path="res://Resources/Materials/CloudsMaterial.tres" id="5_n7233"]
 [ext_resource type="Script" uid="uid://dn1b1gnwe5iap" path="res://Assets/Textures/Icons/Script Icons/Scripts/LightbulbIcon_SCRIPT.gd" id="6_to1x2"]
 [ext_resource type="Script" uid="uid://b750i1bt8l7b" path="res://Scenes and Scripts/Scenes/Environment/Water Mesh/RigidBody_WaterBuoyancy_SCRIPT.gd" id="6_w18yt"]
 [ext_resource type="PackedScene" uid="uid://boh6io7exec3j" path="res://Scenes and Scripts/Scenes/Story Mode/Start Cutscene/Props/RedLever.tscn" id="8_ec70e"]
@@ -41,7 +41,8 @@ fog_sky_affect = 0.267
 volumetric_fog_density = 0.01
 volumetric_fog_detail_spread = 1.07177
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_ec70e"]
+[sub_resource type="BoxMesh" id="BoxMesh_8kx4n"]
+lightmap_size_hint = Vector2i(14, 21)
 
 [sub_resource type="InputEventAction" id="InputEventAction_44ck5"]
 action = &"Flip_Red_Lever"
@@ -422,7 +423,7 @@ stream = ExtResource("3_2wqp2")
 bus = &"env"
 
 [node name="StormTimer" type="Timer" parent="."]
-wait_time = 60.0
+wait_time = 130.0
 one_shot = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -436,6 +437,11 @@ shadow_enabled = true
 directional_shadow_fade_start = 0.655
 directional_shadow_max_distance = 150.0
 script = ExtResource("6_to1x2")
+
+[node name="Clouds" type="MeshInstance3D" parent="."]
+transform = Transform3D(8192, 0, 0, 0, 128, 0, 0, 0, 8192, 0, 128, 0)
+material_override = ExtResource("5_n7233")
+mesh = SubResource("BoxMesh_8kx4n")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.999733, 0.00652123, -0.0221486, 0, 0.959284, 0.282442, 0.0230887, -0.282367, 0.959029, 1.0524, -11.9805, -9.22791)
@@ -453,11 +459,6 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="MinimalDialogue" parent="Camera3D/MainLayer" instance=ExtResource("4_7s4ab")]
-
-[node name="Clouds" type="MeshInstance3D" parent="."]
-transform = Transform3D(3532.71, 0, 0, 0, 55.1987, 0, 0, 0, 3532.71, 0, 462.975, 0)
-material_override = ExtResource("4_w18yt")
-mesh = SubResource("PlaneMesh_ec70e")
 
 [node name="WaterMesh" parent="." instance=ExtResource("11_44ck5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.3728, 0)
