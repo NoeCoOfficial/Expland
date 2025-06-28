@@ -94,8 +94,8 @@ func _on_first_tween_finished():
 	divine_cutscene_tween_next.tween_property($TextAndStuff/useitwisely, "visible", false, 0.0).set_delay(29.0)
 	
 	divine_cutscene_tween_next.tween_property($FadeOut_Black, "modulate", Color(1, 1, 1, 1), 4.0).set_delay(32.0)
-	divine_cutscene_tween_next.tween_property($"Tinnitus Effect", "volume_db", -60, 5.0).set_delay(32.0)
-	divine_cutscene_tween_next.tween_property($Music, "volume_db", -60, 5.0).set_delay(32.0)
+	divine_cutscene_tween_next.tween_property($"Tinnitus Effect", "volume_db", -80, 5.0).set_delay(32.0)
+	divine_cutscene_tween_next.tween_property($Music, "volume_db", -80, 5.0).set_delay(32.0)
 
 func end():
 	print("END DIVINE CUTSCENE")
