@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://djenc4llne53s"]
+[gd_scene load_steps=22 format=3 uid="uid://djenc4llne53s"]
 
 [ext_resource type="Script" uid="uid://c2rn7sdv7k58i" path="res://Scenes and Scripts/Scenes/Credits/CreditsLayer_SCRIPT.gd" id="1_wf8c4"]
 [ext_resource type="PackedScene" uid="uid://bjsti1e663lr8" path="res://Scenes and Scripts/Scenes/General/UI/BlurLayer.tscn" id="2_74o2j"]
@@ -8,9 +8,7 @@
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="5_ome4s"]
 [ext_resource type="Texture2D" uid="uid://cwskjvl8pplog" path="res://Assets/Textures/Icons/Exit_Icon.png" id="7_5nk2s"]
 [ext_resource type="FontFile" uid="uid://0v0sdh6bdybe" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Extrabold.otf" id="7_gydmp"]
-[ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="7_qra30"]
 [ext_resource type="Texture2D" uid="uid://5jw0llyd55ke" path="res://Assets/Textures/Icons/Noe Co/Noe Co - Icon Transperant.png" id="8_ton5t"]
-[ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="8_uiqvs"]
 [ext_resource type="StyleBox" uid="uid://b13po6off8nno" path="res://Resources/Styles and Themes/Styles/Default/Button/WithMarginDefaultDarkGrey.tres" id="10_623a3"]
 [ext_resource type="FontFile" uid="uid://duhkn1q8s6i3m" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Medium.otf" id="10_rqx3k"]
 [ext_resource type="Texture2D" uid="uid://bkbj6pcey3rc6" path="res://Assets/Textures/Icons/RedHeart_Icon.webp" id="11_m50j2"]
@@ -135,7 +133,7 @@ texture = ExtResource("8_ton5t")
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("7_qra30")
+theme_override_fonts/font = ExtResource("12_6dcmc")
 theme_override_font_sizes/font_size = 20
 text = "
 
@@ -164,7 +162,7 @@ default_color = Color(0.233926, 0.233925, 0.233925, 1)
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_fonts/font = ExtResource("12_6dcmc")
 theme_override_font_sizes/font_size = 2
 horizontal_alignment = 1
 autowrap_mode = 3
@@ -173,7 +171,7 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_fonts/font = ExtResource("12_6dcmc")
 theme_override_font_sizes/font_size = 2
 horizontal_alignment = 1
 autowrap_mode = 3
@@ -202,7 +200,7 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_fonts/font = ExtResource("12_6dcmc")
 theme_override_font_sizes/font_size = 5
 horizontal_alignment = 1
 autowrap_mode = 3
@@ -231,7 +229,7 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_fonts/font = ExtResource("12_6dcmc")
 theme_override_font_sizes/font_size = 5
 horizontal_alignment = 1
 autowrap_mode = 3
@@ -240,7 +238,7 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_fonts/font = ExtResource("12_6dcmc")
 theme_override_font_sizes/font_size = 5
 horizontal_alignment = 1
 autowrap_mode = 3
@@ -249,7 +247,7 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_fonts/font = ExtResource("12_6dcmc")
 theme_override_font_sizes/font_size = 5
 horizontal_alignment = 1
 autowrap_mode = 3
@@ -274,7 +272,7 @@ default_color = Color(0.233926, 0.233925, 0.233925, 1)
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_fonts/font = ExtResource("12_6dcmc")
 theme_override_font_sizes/font_size = 10
 horizontal_alignment = 1
 autowrap_mode = 3
@@ -303,7 +301,7 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_fonts/font = ExtResource("12_6dcmc")
 theme_override_font_sizes/font_size = 5
 horizontal_alignment = 1
 autowrap_mode = 3
@@ -332,7 +330,7 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_fonts/font = ExtResource("12_6dcmc")
 theme_override_font_sizes/font_size = 5
 horizontal_alignment = 1
 autowrap_mode = 3
@@ -361,7 +359,7 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_fonts/font = ExtResource("12_6dcmc")
 theme_override_font_sizes/font_size = 5
 horizontal_alignment = 1
 autowrap_mode = 3
@@ -400,7 +398,7 @@ texture = ExtResource("11_m50j2")
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_fonts/font = ExtResource("12_6dcmc")
 theme_override_font_sizes/font_size = 60
 horizontal_alignment = 1
 autowrap_mode = 3
@@ -409,7 +407,7 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_fonts/font = ExtResource("12_6dcmc")
 theme_override_font_sizes/font_size = 5
 horizontal_alignment = 1
 autowrap_mode = 3
@@ -428,7 +426,7 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_fonts/font = ExtResource("12_6dcmc")
 theme_override_font_sizes/font_size = 5
 horizontal_alignment = 1
 autowrap_mode = 3

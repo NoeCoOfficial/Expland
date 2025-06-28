@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=48 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" uid="uid://uvd1eie30b14" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="PackedScene" uid="uid://bjvusmws0kct3" path="res://Scenes and Scripts/Scenes/RandomMusic++/RandomMusic++.tscn" id="2_57c8o"]
@@ -8,7 +8,6 @@
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="4_grlcg"]
 [ext_resource type="AudioStream" uid="uid://bm2yify34oc5g" path="res://Audio/Music/What Is This Place.mp3" id="4_ynnl5"]
 [ext_resource type="AudioStream" uid="uid://bttlh34nxqbca" path="res://Audio/Music/Something.mp3" id="5_6s6m5"]
-[ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="5_dfh28"]
 [ext_resource type="AudioStream" uid="uid://bm46v08yjtdxg" path="res://Audio/Music/The Before.mp3" id="6_vaol2"]
 [ext_resource type="Texture2D" uid="uid://fih3i4yk6pip" path="res://Assets/Textures/Icons/PlayBtn_Icon.png" id="6_ve3ie"]
 [ext_resource type="Texture2D" uid="uid://cfe0w5hyb6fyc" path="res://Assets/Textures/Icons/SettingsCog_Icon.png" id="7_7tdx1"]
@@ -68,7 +67,7 @@ corner_radius_bottom_left = 10
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="Theme" id="Theme_u5css"]
-default_font = ExtResource("5_dfh28")
+default_font = ExtResource("10_6s6m5")
 Button/styles/hover = SubResource("StyleBoxFlat_6s6m5")
 Button/styles/normal = SubResource("StyleBoxFlat_vaol2")
 Button/styles/pressed = SubResource("StyleBoxFlat_rvkj8")

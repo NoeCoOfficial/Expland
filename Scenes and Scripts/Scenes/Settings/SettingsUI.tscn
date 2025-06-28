@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://ctr6ax1ppdjnq" path="res://Scenes and Scripts/Scenes/Player/Settings/Volume/MusicSlider_SCRIPT.gd" id="8_e0fll"]
 [ext_resource type="Script" uid="uid://c22l7my55pytn" path="res://Scenes and Scripts/Scenes/Player/Settings/Volume/SFXSlider_SCRIPT.gd" id="9_vkpop"]
 [ext_resource type="StyleBox" uid="uid://com3tix0pshhk" path="res://Resources/Styles and Themes/Styles/Default/Label/Default_Label.tres" id="10_6yhy8"]
-[ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="11_mokm2"]
+[ext_resource type="FontFile" uid="uid://bel1qoyfluvci" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Bold.otf" id="11_mokm2"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_5ohsc"]
 thickness = 10
