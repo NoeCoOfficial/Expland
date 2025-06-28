@@ -193,7 +193,7 @@ data = {
 image = SubResource("Image_q2jql")
 
 [resource]
-default_font = ExtResource("5_wmy76")
+default_font = ExtResource("1_1tehp")
 Button/fonts/font = ExtResource("1_1tehp")
 Button/styles/hover = ExtResource("1_y4myn")
 Button/styles/normal = SubResource("StyleBoxFlat_1jyi8")

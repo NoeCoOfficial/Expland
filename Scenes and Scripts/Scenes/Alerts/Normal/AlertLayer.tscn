@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bd3squcstkss1" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="2_lgopv"]
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="4_cg1v1"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="5_qn44q"]
-[ext_resource type="FontFile" uid="uid://b2o44xwqnsb5k" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf" id="6_nuxxi"]
+[ext_resource type="FontFile" uid="uid://dv5dyurggyuoy" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Black.otf" id="6_3t52k"]
 [ext_resource type="Texture2D" uid="uid://cwskjvl8pplog" path="res://Assets/Textures/Icons/Exit_Icon.png" id="7_uo5nn"]
 
 [node name="AlertLayer" type="Control"]
@@ -104,7 +104,7 @@ offset_right = 127.5
 offset_bottom = 142.0
 grow_horizontal = 2
 theme = ExtResource("5_qn44q")
-theme_override_fonts/font = ExtResource("6_nuxxi")
+theme_override_fonts/font = ExtResource("6_3t52k")
 theme_override_font_sizes/font_size = 35
 text = "Title"
 horizontal_alignment = 1
