@@ -1,4 +1,4 @@
-[gd_scene load_steps=201 format=4 uid="uid://dchanymqqprcr"]
+[gd_scene load_steps=200 format=4 uid="uid://dchanymqqprcr"]
 
 [ext_resource type="Script" uid="uid://dseuqwvtxuxvt" path="res://Scenes and Scripts/Scenes/Story Mode/Eryv Dream Cutscene/EryvDreamCutscene_SCRIPT.gd" id="1_g7jna"]
 [ext_resource type="AudioStream" uid="uid://bcoae0b0f2u1" path="res://Audio/SFX/Environment/WindAmbience.mp3" id="2_0awra"]
@@ -20,7 +20,6 @@
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="14_0awra"]
 [ext_resource type="PackedScene" uid="uid://dibnl8o04l6p2" path="res://Assets/3D Models/Environment/Trees/Pine/Animation and Hitbox/PineTree3_Animation_Hitbox.tscn" id="14_pwkkx"]
 [ext_resource type="Script" uid="uid://be2hbme5pe50y" path="res://Assets/3D Models/Environment/Trees/Scripts/DefaultTree_Animation_Hitbox_SCRIPT.gd" id="15_ctc3c"]
-[ext_resource type="FontFile" uid="uid://bel1qoyfluvci" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Bold.otf" id="15_o0bi3"]
 [ext_resource type="PackedScene" uid="uid://4o5c1bfdm4rx" path="res://Scenes and Scripts/Scenes/Environment/General/Rocks/Rock2.tscn" id="15_umhd5"]
 [ext_resource type="PackedScene" uid="uid://db72djj3fp14d" path="res://Scenes and Scripts/Scenes/Environment/General/Leaf falling particles/PineTreeLeafFallingParticles.tscn" id="16_eed2x"]
 [ext_resource type="Material" uid="uid://bo77d7nagqoh4" path="res://Resources/Shader Materials/BuildingVignette.tres" id="16_w04sd"]
@@ -34,7 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://c2clf63v0gam8" path="res://Assets/Textures/Icons/Input Prompts/mouse_outline.png" id="21_lmeqo"]
 [ext_resource type="Script" uid="uid://bd3squcstkss1" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="22_hkbgw"]
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="23_am5e1"]
-[ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="24_yxye2"]
+[ext_resource type="FontFile" uid="uid://duhkn1q8s6i3m" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Medium.otf" id="24_yxye2"]
 [ext_resource type="StyleBox" uid="uid://c1a26qv61p5kw" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkgreyBGwithWhiteBorder.tres" id="25_umhd5"]
 [ext_resource type="Texture2D" uid="uid://b2eggg0vffmo4" path="res://Assets/Textures/Inventory/ROCK.png" id="26_vfymc"]
 [ext_resource type="Texture2D" uid="uid://m8ohdtvo6rfr" path="res://Assets/Textures/Inventory/RED FLOWER.png" id="27_ctc3c"]
@@ -4033,36 +4032,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
 transform = Transform3D(-0.651061, 0, -5.69176e-08, 0, 0.651061, 0, 5.69176e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Player/Head/Player_Character_Shadow/Armature_003" index="0"]
-bones/0/position = Vector3(2.82914, -3.94933, -195.641)
-bones/0/rotation = Quaternion(-0.683951, -0.269886, 0.249395, 0.630217)
-bones/1/rotation = Quaternion(0.0803099, 0.0407914, -0.00911077, 0.995893)
-bones/2/rotation = Quaternion(0.0983943, 0.0790044, -0.0227843, 0.991745)
-bones/3/rotation = Quaternion(0.0983943, 0.0790045, -0.0227843, 0.991745)
-bones/4/rotation = Quaternion(-0.0576932, -0.0108683, 0.00213671, 0.998273)
-bones/5/rotation = Quaternion(-0.0414583, 0.17623, -0.00695338, 0.983451)
-bones/7/rotation = Quaternion(0.589424, 0.409382, -0.566995, 0.404354)
-bones/8/rotation = Quaternion(0.423536, -0.10605, 0.0880189, 0.895334)
+bones/0/position = Vector3(2.92189, -2.49926, -196.414)
+bones/0/rotation = Quaternion(-0.685026, -0.270689, 0.248346, 0.62912)
+bones/1/rotation = Quaternion(0.0778656, 0.0407975, -0.00800702, 0.996097)
+bones/2/rotation = Quaternion(0.0927019, 0.0791412, -0.0214048, 0.992313)
+bones/3/rotation = Quaternion(0.0923317, 0.0791475, -0.0213357, 0.992348)
+bones/4/rotation = Quaternion(-0.0455864, -0.0105682, 0.00183014, 0.998903)
+bones/5/rotation = Quaternion(-0.0570969, 0.177053, -0.00231146, 0.982541)
+bones/7/rotation = Quaternion(0.570923, 0.430805, -0.566429, 0.409404)
+bones/8/rotation = Quaternion(0.436356, -0.0974966, 0.0887108, 0.890067)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0381264, 0.0592962, 0.407399, 0.910526)
-bones/11/rotation = Quaternion(0.636819, -0.370924, 0.524953, 0.425795)
-bones/12/rotation = Quaternion(0.410993, 0.108982, 0.147941, 0.892928)
-bones/13/rotation = Quaternion(0.0279719, 0.0174458, -0.36543, 0.930255)
-bones/15/rotation = Quaternion(0.0793751, 0.23799, 0.962251, -0.105513)
+bones/9/rotation = Quaternion(-0.0334563, 0.0659748, 0.419024, 0.904957)
+bones/11/rotation = Quaternion(0.617101, -0.393886, 0.525815, 0.433081)
+bones/12/rotation = Quaternion(0.433066, 0.0914862, 0.145833, 0.88477)
+bones/13/rotation = Quaternion(0.0400039, -0.00329512, -0.368936, 0.928588)
+bones/15/rotation = Quaternion(0.0802668, 0.230355, 0.964265, -0.103377)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.363606, 0.119151, -0.0367518, 0.92317)
-bones/17/rotation = Quaternion(0.565496, -0.00243403, -0.0260014, 0.824337)
-bones/18/rotation = Quaternion(0.289021, -0.0358801, -0.0092877, 0.956605)
-bones/20/rotation = Quaternion(-0.124629, 0.0349635, 0.982719, 0.132319)
-bones/21/rotation = Quaternion(-0.354916, 0.0717115, -0.0269772, 0.931753)
-bones/22/rotation = Quaternion(0.678094, 0.054894, 0.105299, 0.725319)
+bones/16/rotation = Quaternion(-0.358769, 0.119501, -0.0362325, 0.925036)
+bones/17/rotation = Quaternion(0.565781, -0.000965445, -0.0233252, 0.824225)
+bones/18/rotation = Quaternion(0.289317, -0.0363752, -0.00959171, 0.956494)
+bones/20/rotation = Quaternion(-0.125502, 0.0212534, 0.982811, 0.133716)
+bones/21/rotation = Quaternion(-0.337024, 0.0728331, -0.0256312, 0.938325)
+bones/22/rotation = Quaternion(0.671581, 0.0555571, 0.10715, 0.731034)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.277916, 0.0566009, -0.0169327, 0.958787)
+bones/23/rotation = Quaternion(0.278086, 0.0568443, -0.0170474, 0.958721)
 
 [node name="Model_004" parent="Player/Head/Player_Character_Shadow/Armature_003/Skeleton3D" index="0"]
 cast_shadow = 3
 
 [node name="HandAttatchment" type="BoneAttachment3D" parent="Player/Head/Player_Character_Shadow/Armature_003/Skeleton3D" index="1"]
-transform = Transform3D(-0.296718, -0.378944, 0.876561, 0.943557, 0.0251189, 0.330256, -0.147167, 0.925079, 0.350102, -75.8947, -38.7932, -201.912)
+transform = Transform3D(-0.274954, -0.35856, 0.892096, 0.948611, 0.0500009, 0.31247, -0.156645, 0.932167, 0.326386, -74.8169, -37.5127, -204.478)
 bone_name = "mixamorig_RightHand"
 bone_idx = 14
 
@@ -4070,45 +4069,45 @@ bone_idx = 14
 transform = Transform3D(-0.651061, 0, 5.69175e-08, 0, 0.651061, 0, -5.69175e-08, 0, -0.651061, -0.0444108, -1.66439, 0.997981)
 
 [node name="Skeleton3D" parent="Player/Head/Player_Character/Armature_003" index="0"]
-bones/0/position = Vector3(2.82914, -3.94933, -195.641)
-bones/0/rotation = Quaternion(-0.683951, -0.269886, 0.249395, 0.630217)
-bones/1/rotation = Quaternion(0.0803099, 0.0407914, -0.00911077, 0.995893)
+bones/0/position = Vector3(2.92189, -2.49926, -196.414)
+bones/0/rotation = Quaternion(-0.685026, -0.270689, 0.248346, 0.62912)
+bones/1/rotation = Quaternion(0.0778656, 0.0407975, -0.00800702, 0.996097)
 bones/2/position = Vector3(1.19209e-07, 29.1135, -2.98023e-06)
-bones/2/rotation = Quaternion(0.0983943, 0.0790044, -0.0227843, 0.991745)
+bones/2/rotation = Quaternion(0.0927019, 0.0791412, -0.0214048, 0.992313)
 bones/3/position = Vector3(5.126e-06, 33.2726, 4.64916e-06)
-bones/3/rotation = Quaternion(0.0983943, 0.0790045, -0.0227843, 0.991745)
+bones/3/rotation = Quaternion(0.0923317, 0.0791475, -0.0213357, 0.992348)
 bones/4/position = Vector3(5.24521e-06, 37.4316, 1.82406e-05)
-bones/4/rotation = Quaternion(-0.0576932, -0.0108683, 0.00213671, 0.998273)
+bones/4/rotation = Quaternion(-0.0455864, -0.0105682, 0.00183014, 0.998903)
 bones/5/position = Vector3(-2.86102e-06, 12.1577, 1.85682)
-bones/5/rotation = Quaternion(-0.0414583, 0.17623, -0.00695338, 0.983451)
+bones/5/rotation = Quaternion(-0.0570969, 0.177053, -0.00231146, 0.982541)
 bones/7/position = Vector3(15.5676, 33.9216, 0.214007)
-bones/7/rotation = Quaternion(0.589424, 0.409382, -0.566995, 0.404354)
+bones/7/rotation = Quaternion(0.570923, 0.430805, -0.566429, 0.409404)
 bones/8/position = Vector3(7.52916e-06, 31.6372, -3.73462e-05)
-bones/8/rotation = Quaternion(0.423536, -0.10605, 0.0880189, 0.895334)
+bones/8/rotation = Quaternion(0.436356, -0.0974966, 0.0887108, 0.890067)
 bones/9/position = Vector3(-5.12582e-06, 70.8272, -1.23944e-05)
-bones/9/rotation = Quaternion(-0.0381264, 0.0592962, 0.407399, 0.910526)
+bones/9/rotation = Quaternion(-0.0334563, 0.0659748, 0.419024, 0.904957)
 bones/10/position = Vector3(-5.75185e-06, 48.1225, -4.24013e-05)
 bones/11/position = Vector3(-15.5676, 33.9222, 0.223976)
-bones/11/rotation = Quaternion(0.636819, -0.370924, 0.524953, 0.425795)
+bones/11/rotation = Quaternion(0.617101, -0.393886, 0.525815, 0.433081)
 bones/12/position = Vector3(-1.65313e-05, 31.6372, 2.51814e-05)
-bones/12/rotation = Quaternion(0.410993, 0.108982, 0.147941, 0.892928)
+bones/12/rotation = Quaternion(0.433066, 0.0914862, 0.145833, 0.88477)
 bones/13/position = Vector3(3.17927e-05, 70.8277, 3.58869e-05)
-bones/13/rotation = Quaternion(0.0279719, 0.0174458, -0.36543, 0.930255)
+bones/13/rotation = Quaternion(0.0400039, -0.00329512, -0.368936, 0.928588)
 bones/14/position = Vector3(-3.78489e-06, 48.1226, 3.61372e-05)
-bones/15/rotation = Quaternion(0.0793751, 0.23799, 0.962251, -0.105513)
+bones/15/rotation = Quaternion(0.0802668, 0.230355, 0.964265, -0.103377)
 bones/16/position = Vector3(-5.00772e-06, 93.885, 4.61185e-06)
-bones/16/rotation = Quaternion(-0.363606, 0.119151, -0.0367518, 0.92317)
+bones/16/rotation = Quaternion(-0.358769, 0.119501, -0.0362325, 0.925036)
 bones/17/position = Vector3(8.16445e-06, 89.1268, 4.36753e-06)
-bones/17/rotation = Quaternion(0.565496, -0.00243403, -0.0260014, 0.824337)
+bones/17/rotation = Quaternion(0.565781, -0.000965445, -0.0233252, 0.824225)
 bones/18/position = Vector3(1.07865e-05, 26.9015, 2.76264e-06)
-bones/18/rotation = Quaternion(0.289021, -0.0358801, -0.0092877, 0.956605)
+bones/18/rotation = Quaternion(0.289317, -0.0363752, -0.00959171, 0.956494)
 bones/19/position = Vector3(-7.05104e-06, 10.3861, 1.60187e-07)
-bones/20/rotation = Quaternion(-0.124629, 0.0349635, 0.982719, 0.132319)
+bones/20/rotation = Quaternion(-0.125502, 0.0212534, 0.982811, 0.133716)
 bones/21/position = Vector3(7.35216e-06, 93.8847, 2.20229e-06)
-bones/21/rotation = Quaternion(-0.354916, 0.0717115, -0.0269772, 0.931753)
-bones/22/rotation = Quaternion(0.678094, 0.054894, 0.105299, 0.725319)
+bones/21/rotation = Quaternion(-0.337024, 0.0728331, -0.0256312, 0.938325)
+bones/22/rotation = Quaternion(0.671581, 0.0555571, 0.10715, 0.731034)
 bones/23/position = Vector3(1.81252e-05, 27.4118, -5.52306e-07)
-bones/23/rotation = Quaternion(0.277916, 0.0566009, -0.0169327, 0.958787)
+bones/23/rotation = Quaternion(0.278086, 0.0568443, -0.0170474, 0.958721)
 bones/24/position = Vector3(3.21493e-06, 10.3578, 7.00355e-07)
 
 [node name="Model_004" parent="Player/Head/Player_Character/Armature_003/Skeleton3D" index="0"]
@@ -4309,7 +4308,7 @@ scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(171.5, 26.496)
 theme = ExtResource("14_0awra")
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("15_o0bi3")
+theme_override_fonts/font = ExtResource("49_7b41r")
 theme_override_font_sizes/font_size = 46
 text = "Let's get started!"
 horizontal_alignment = 1
@@ -4335,7 +4334,7 @@ grow_vertical = 2
 pivot_offset = Vector2(281, 26.5)
 theme = ExtResource("14_0awra")
 theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("15_o0bi3")
+theme_override_fonts/font = ExtResource("49_7b41r")
 theme_override_font_sizes/font_size = 46
 text = "Use the WASD keys to move"
 horizontal_alignment = 1
