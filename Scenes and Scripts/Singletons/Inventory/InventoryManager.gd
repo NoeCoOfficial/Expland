@@ -175,7 +175,7 @@ const ITEM_TYPES = {
 		"DESCRIPTION" : "A small, juicy fruit that grows on bushes.",
 		"IMAGE_LOAD" : preload("uid://do7smo05g8ue5"),
 		"PICKUP_LOAD" : null,
-		"HAND_ITEM_RES" : null,
+		"HAND_ITEM_RES" : preload("uid://dqivk6uqfcapk"),
 		"MAX_STACK" : 8,
 	},
 	

@@ -582,7 +582,8 @@ func _demo_fade_out_finished():
 	PlayerData.TIMES_SLEPT = 0
 	PlayerData.STORY_MODE_PROGRESSION_INFO = PlayerData.STORY_MODE_PROGRESSION_INFO_DEFAULTS.duplicate(true)
 	
-	get_tree().change_scene_to_file("res://Scenes and Scripts/Scenes/Main Menu/MainMenu.tscn")
+	# Change scene to main menu
+	get_tree().change_scene_to_file("uid://234mnfypwndn")
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
@@ -591,7 +592,8 @@ func _on_join_discord_server_button_pressed() -> void:
 	OS.shell_open("https://discord.gg/QNgcKCAJn3")
 
 func _on_start_music_random_timer_timeout() -> void:
-	$"RandomMusic++".start()
+	if !StoryModeManager.waking_up_from_eryv_dream:
+		$"RandomMusic++".start()
 
 func _on_view_authorsmd_button_pressed() -> void:
 	OS.shell_open("https://github.com/NoeCoOfficial/Expland/blob/main/AUTHORS.md")
