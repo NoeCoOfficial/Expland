@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://5hf7lqmuhec5"]
+[gd_scene load_steps=7 format=3 uid="uid://bfvunfx8gx8id"]
 
 [ext_resource type="Script" uid="uid://dht8h20ta0snp" path="res://Scenes and Scripts/Scenes/Achievements/AchievementElement_SCRIPT.gd" id="1_4p8yf"]
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="2_3xfan"]
