@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cmt00ehn4hfne" path="res://Scenes and Scripts/Scenes/General/UI/MessageWithKeyUI.tscn" id="17_arxyc"]
 [ext_resource type="Texture2D" uid="uid://bt0tmvpctigpn" path="res://Assets/Textures/Dev Textures/Orange/texture_01.png" id="18_05iix"]
 [ext_resource type="Texture2D" uid="uid://cqkp640cq8j51" path="res://Assets/Textures/Dev Textures/Red/texture_12.png" id="19_rqri1"]
-[ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="20_0f5yv"]
+[ext_resource type="FontFile" uid="uid://duhkn1q8s6i3m" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Medium.otf" id="20_0f5yv"]
 [ext_resource type="Texture2D" uid="uid://cjk4fcgt2skld" path="res://Assets/Textures/Dev Textures/Red/texture_06.png" id="21_xuq5a"]
 [ext_resource type="PackedScene" uid="uid://dqalod7m5is51" path="res://Scenes and Scripts/Scenes/The Eryv (and related)/TheEryvStatue.tscn" id="22_0qj4q"]
 [ext_resource type="PackedScene" uid="uid://ceeflh1bhg0ei" path="res://Assets/3D Models/Interactive/Objects/Finalized/SackclothBed/SackclothBed_Finalized.tscn" id="23_giu8y"]

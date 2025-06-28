@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dux7wdl4tm683" path="res://Assets/Textures/Icons/Script Icons/Scripts/KeyIcon_SCRIPT.gd" id="1_dbd68"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="2_uipn6"]
-[ext_resource type="FontFile" uid="uid://c4h0gd5a2e2qb" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf" id="3_oa6c4"]
+[ext_resource type="FontFile" uid="uid://0v0sdh6bdybe" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Extrabold.otf" id="3_oa6c4"]
 [ext_resource type="Texture2D" uid="uid://dgt5qdmjgbdsv" path="res://Assets/Textures/Icons/UpArrow_Icon.png" id="4_qabf8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8e5id"]
