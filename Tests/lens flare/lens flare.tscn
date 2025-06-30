@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5ncgq0fsvt0c"]
+
+[ext_resource type="Material" uid="uid://54vtg7puv152" path="res://Tests/lens flare/lens flare shader mat.tres" id="1_6odds"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_272mx"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_g4ia0"]
+sky_material = SubResource("ProceduralSkyMaterial_272mx")
+
+[sub_resource type="Environment" id="Environment_yyt3l"]
+background_mode = 2
+sky = SubResource("Sky_g4ia0")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rscwg"]
+albedo_color = Color(0.22, 0.22, 0.22, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tspm7"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_yyt3l")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+light_energy = 3.75
+shadow_enabled = true
+directional_shadow_split_3 = 0.405
+directional_shadow_max_distance = 1.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(8.67007, 0, 0, 0, 1, 0, 0, 0, 5.52754, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_rscwg")
+mesh = SubResource("BoxMesh_tspm7")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-3.78981e-07, 1, 0, -8.67007, -4.37114e-08, 0, 0, 0, 5.52754, -4.01405, 0, 0)
+material_override = SubResource("StandardMaterial3D_rscwg")
+mesh = SubResource("BoxMesh_tspm7")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.838135, -0.150476, 0.524297, 0.155641, 0.98721, 0.0345283, -0.522787, 0.0526627, 0.850835, 1.16032, 2.55235, 2.64434)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera3D"]
+
+[node name="ColorRect" type="ColorRect" parent="Camera3D/CanvasLayer"]
+material = ExtResource("1_6odds")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.87962, 1.41724, 0)
+light_energy = 16.0
+omni_range = 2.379
+omni_attenuation = 10.0

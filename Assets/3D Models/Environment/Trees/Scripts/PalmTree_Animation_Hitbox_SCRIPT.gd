@@ -46,7 +46,7 @@
 # ============================================================= #
 
 @tool
-@icon("res://Textures/Icons/Script Icons/32x32/object.png")
+@icon("uid://ckgujndjwymvr")
 extends Node3D
 
 @onready var CoconutScene : PackedScene = preload("uid://6exo537gjcsd")

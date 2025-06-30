@@ -45,7 +45,7 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-@icon("res://Textures/Icons/Script Icons/32x32/credits.png")
+@icon("uid://bew0h7kp8fe1v")
 extends Control
 
 func _ready() -> void:
@@ -57,25 +57,30 @@ func _ready() -> void:
 
 func spawnCredits(animationTime : float):
 	PauseManager.is_inside_credits = true
-	$BlurLayer.fadeInBlur(0.5, 2.19, true, 0.8)
+	
 	
 	self.visible = true
 	
 	if PlayerSettingsData.quickAnimations:
 		$MainLayer.scale = Vector2(1.0, 1.0)
-		$GreyLayer.modulate = Color(1, 1, 1, 1)
+		$BlurLayer.fadeInBlur(0.0, 2.19, true, 0.8)
+	
 	else:
+		$BlurLayer.fadeInBlur(0.5, 2.19, true, 0.8)
 		var tween = get_tree().create_tween().set_parallel()
 		tween.tween_property($MainLayer, "scale", Vector2(1.0, 1.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func despawnCredits(animationTime : float):
 	PauseManager.is_inside_credits = false
-	$BlurLayer.fadeOutBlur(0.5)
 	
 	if PlayerSettingsData.quickAnimations:
 		$MainLayer.scale = Vector2(0.0, 0.0)
+		$BlurLayer.fadeOutBlur(0.0)
 		self.visible = false
+		
+	
 	else:
+		$BlurLayer.fadeOutBlur(0.5)
 		var tween = get_tree().create_tween().set_parallel()
 		tween.tween_property($MainLayer, "scale", Vector2(0.0, 0.0), animationTime).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 		

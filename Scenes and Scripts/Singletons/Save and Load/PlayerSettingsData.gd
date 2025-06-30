@@ -58,6 +58,9 @@ var showStartupScreen : bool = true
 var autosaveInterval : int = 60
 
 var quickAnimations : bool = false
+var speedRunTimer : bool = false
+
+
 # TODO: Do this setting
 var showTime : bool = false
 
@@ -104,6 +107,7 @@ func saveSettings(save_path: String, SK : String):
 		"showStartupScreen" : showStartupScreen,
 		"autosaveInterval" : autosaveInterval,
 		"quickAnimations" : quickAnimations,
+		"speedRunTimer" : speedRunTimer,
 		"showTime" : showTime,
 		
 		# Graphics
@@ -143,19 +147,20 @@ func loadSettings(save_path: String, SK : String):
 			printerr("Cannot parse %s as a json_string: (%s)" % [save_path, content])
 			return
 		
-		showStartupScreen = data.showStartupScreen
-		autosaveInterval = data.autosaveInterval
-		quickAnimations = data.quickAnimations
-		showTime = data.showTime
-		
-		PrettyShadows = data.PrettyShadows
-		
-		FOV = data.FOV
-		Sensitivity = data.Sensitivity
-		
-		sfx_Volume = data.sfx_Volume
-		music_Volume = data.music_Volume
-		Master_Volume = data.Master_Volume
+		showStartupScreen = data.get("showStartupScreen", showStartupScreen)
+		autosaveInterval = data.get("autosaveInterval", autosaveInterval)
+		quickAnimations = data.get("quickAnimations", quickAnimations)
+		speedRunTimer = data.get("speedRunTimer", speedRunTimer)
+		showTime = data.get("showTime", showTime)
+
+		PrettyShadows = data.get("PrettyShadows", PrettyShadows)
+
+		FOV = data.get("FOV", FOV)
+		Sensitivity = data.get("Sensitivity", Sensitivity)
+
+		sfx_Volume = data.get("sfx_Volume", sfx_Volume)
+		music_Volume = data.get("music_Volume", music_Volume)
+		Master_Volume = data.get("Master_Volume", Master_Volume)
 		
 	else:
 		printerr("Cannot open non-existent file at %s!" % [save_path])
@@ -170,21 +175,19 @@ func set_autosave_interval(value : int):
 
 func set_pretty_shadows(value : bool) -> void:
 	if !StoryModeManager.is_in_story_mode_first_cutscene_world:
-		if get_node("/root/World") != null:
+		if PlayerManager.WORLD != null:
 				if value:
 					PrettyShadows = true
-					var world = get_node("/root/World")
 					
-					if world.has_method("set_pretty_shadows"):
-						world.set_pretty_shadows(value)
+					if PlayerManager.WORLD.has_method("set_pretty_shadows"):
+						PlayerManager.WORLD.set_pretty_shadows(value)
 					else:
 						printerr("[PlayerSettingsData] Could not find set_pretty_shadows() method in world node.")
 				else:
 					PrettyShadows = false
-					var world = get_node("/root/World")
 					
-					if world.has_method("set_pretty_shadows"):
-						world.set_pretty_shadows(value)
+					if PlayerManager.WORLD.has_method("set_pretty_shadows"):
+						PlayerManager.WORLD.set_pretty_shadows(value)
 					else:
 						printerr("[PlayerSettingsData] Could not find set_pretty_shadows() method in world node.")
 		else:

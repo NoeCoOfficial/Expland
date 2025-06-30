@@ -42,7 +42,6 @@ shape = SubResource("ConcavePolygonShape3D_guo3h")
 
 [node name="Coconut" parent="." instance=ExtResource("1_guo3h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38312, 5.01716, 0)
-angular_damp = 3.0
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.70642, 9.09211)

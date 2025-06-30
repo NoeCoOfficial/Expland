@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dvem6nixyf605" path="res://Assets/3D Models/Environment/Structures/Shacks/Shack1/Shack1_SCRIPT.gd" id="1_q4oh4"]
 [ext_resource type="Script" uid="uid://bi02uk7qwshyf" path="res://Scenes and Scripts/Scenes/Components/Interactable Component/Interactable_Component_SCRIPT.gd" id="2_2s2t4"]
 [ext_resource type="PackedScene" uid="uid://cmt00ehn4hfne" path="res://Scenes and Scripts/Scenes/General/UI/MessageWithKeyUI.tscn" id="3_vnhmd"]
-[ext_resource type="Texture2D" uid="uid://nmojsrl1t3nx" path="res://Textures/Icons/Input Prompts/mouse_right_outline.png" id="4_vnhmd"]
+[ext_resource type="Texture2D" uid="uid://nmojsrl1t3nx" path="res://Assets/Textures/Icons/Input Prompts/mouse_right_outline.png" id="4_vnhmd"]
 
 [sub_resource type="Animation" id="Animation_q4oh4"]
 resource_name = "toggle"

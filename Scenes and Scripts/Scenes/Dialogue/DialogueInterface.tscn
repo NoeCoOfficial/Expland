@@ -1,14 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://du1ak3ldg8x4e"]
+[gd_scene load_steps=15 format=3 uid="uid://du1ak3ldg8x4e"]
 
 [ext_resource type="Script" uid="uid://bmxxfkia0520u" path="res://Scenes and Scripts/Scenes/Dialogue/DialogueInterface_SCRIPT.gd" id="1_s44uc"]
 [ext_resource type="StyleBox" uid="uid://3txnt8ebd3yh" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/BlackBGwithWhiteBorder.tres" id="2_mxch6"]
 [ext_resource type="Script" uid="uid://bd3squcstkss1" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="3_d38jh"]
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="4_tox4x"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="4_ucycy"]
-[ext_resource type="FontFile" uid="uid://btimp4hwg4jis" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Regular.otf" id="5_0d6dj"]
-[ext_resource type="FontFile" uid="uid://b2o44xwqnsb5k" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf" id="6_b65nx"]
-[ext_resource type="Texture2D" uid="uid://2qb1qs6h08t" path="res://Textures/Icons/Input Prompts/mouse_left_outline.png" id="8_aqtf4"]
-[ext_resource type="Texture2D" uid="uid://sirauob061k7" path="res://Textures/Icons/SideArrow_Icon.png" id="9_3nwjr"]
+[ext_resource type="FontFile" uid="uid://dv5dyurggyuoy" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Black.otf" id="6_aqtf4"]
+[ext_resource type="FontFile" uid="uid://dty34vto5mf00" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Regular.otf" id="7_aqtf4"]
+[ext_resource type="Texture2D" uid="uid://2qb1qs6h08t" path="res://Assets/Textures/Icons/Input Prompts/mouse_left_outline.png" id="8_aqtf4"]
+[ext_resource type="FontFile" uid="uid://bel1qoyfluvci" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Bold.otf" id="8_l27hd"]
+[ext_resource type="Texture2D" uid="uid://sirauob061k7" path="res://Assets/Textures/Icons/SideArrow_Icon.png" id="9_3nwjr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_63xh2"]
 bg_color = Color(0, 0, 0, 1)
@@ -118,7 +119,7 @@ offset_bottom = -152.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("4_ucycy")
-theme_override_fonts/font = ExtResource("6_b65nx")
+theme_override_fonts/font = ExtResource("6_aqtf4")
 theme_override_font_sizes/font_size = 25
 text = "Person"
 
@@ -136,7 +137,7 @@ offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("4_ucycy")
-theme_override_fonts/font = ExtResource("5_0d6dj")
+theme_override_fonts/font = ExtResource("7_aqtf4")
 theme_override_font_sizes/font_size = 23
 text = "Message"
 autowrap_mode = 3
@@ -148,6 +149,7 @@ offset_top = 9.0
 offset_right = 614.0
 offset_bottom = 27.0
 theme = ExtResource("4_ucycy")
+theme_override_fonts/font = ExtResource("8_l27hd")
 theme_override_font_sizes/font_size = 10
 text = "Press             to navigate "
 horizontal_alignment = 1

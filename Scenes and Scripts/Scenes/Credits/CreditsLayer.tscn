@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://djenc4llne53s"]
+[gd_scene load_steps=22 format=3 uid="uid://djenc4llne53s"]
 
 [ext_resource type="Script" uid="uid://c2rn7sdv7k58i" path="res://Scenes and Scripts/Scenes/Credits/CreditsLayer_SCRIPT.gd" id="1_wf8c4"]
 [ext_resource type="PackedScene" uid="uid://bjsti1e663lr8" path="res://Scenes and Scripts/Scenes/General/UI/BlurLayer.tscn" id="2_74o2j"]
@@ -6,17 +6,18 @@
 [ext_resource type="StyleBox" uid="uid://3txnt8ebd3yh" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/BlackBGwithWhiteBorder.tres" id="3_1pdi7"]
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="4_a8p6x"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="5_ome4s"]
-[ext_resource type="FontFile" uid="uid://c4h0gd5a2e2qb" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf" id="6_8b5y6"]
-[ext_resource type="FontFile" uid="uid://b2o44xwqnsb5k" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf" id="6_qtck1"]
-[ext_resource type="Texture2D" uid="uid://cwskjvl8pplog" path="res://Textures/Icons/Exit_Icon.png" id="7_5nk2s"]
-[ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="7_qra30"]
-[ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="8_uiqvs"]
-[ext_resource type="FontFile" uid="uid://btimp4hwg4jis" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Regular.otf" id="9_3uiju"]
+[ext_resource type="Texture2D" uid="uid://cwskjvl8pplog" path="res://Assets/Textures/Icons/Exit_Icon.png" id="7_5nk2s"]
+[ext_resource type="FontFile" uid="uid://0v0sdh6bdybe" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Extrabold.otf" id="7_gydmp"]
+[ext_resource type="Texture2D" uid="uid://5jw0llyd55ke" path="res://Assets/Textures/Icons/Noe Co/Noe Co - Icon Transperant.png" id="8_ton5t"]
 [ext_resource type="StyleBox" uid="uid://b13po6off8nno" path="res://Resources/Styles and Themes/Styles/Default/Button/WithMarginDefaultDarkGrey.tres" id="10_623a3"]
-[ext_resource type="Texture2D" uid="uid://bkbj6pcey3rc6" path="res://Textures/Icons/RedHeart_Icon.webp" id="11_m50j2"]
+[ext_resource type="FontFile" uid="uid://duhkn1q8s6i3m" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Medium.otf" id="10_rqx3k"]
+[ext_resource type="Texture2D" uid="uid://bkbj6pcey3rc6" path="res://Assets/Textures/Icons/RedHeart_Icon.webp" id="11_m50j2"]
 [ext_resource type="StyleBox" uid="uid://com3tix0pshhk" path="res://Resources/Styles and Themes/Styles/Default/Label/Default_Label.tres" id="11_p84et"]
-[ext_resource type="Texture2D" uid="uid://dkkcljrkavbjx" path="res://Textures/Icons/OpenExternalLinkWhite_Icon.png" id="12_lbc4b"]
-[ext_resource type="Texture2D" uid="uid://ca5jdf2d4rrm4" path="res://Textures/Icons/Godot_Icon.png" id="15_ny2xt"]
+[ext_resource type="FontFile" uid="uid://bel1qoyfluvci" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Bold.otf" id="12_6dcmc"]
+[ext_resource type="Texture2D" uid="uid://dkkcljrkavbjx" path="res://Assets/Textures/Icons/OpenExternalLinkWhite_Icon.png" id="12_lbc4b"]
+[ext_resource type="FontFile" uid="uid://dty34vto5mf00" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Regular.otf" id="13_x2a2e"]
+[ext_resource type="Texture2D" uid="uid://ca5jdf2d4rrm4" path="res://Assets/Textures/Icons/Other/Godot - Icon.png" id="15_ny2xt"]
+[ext_resource type="FontFile" uid="uid://dv5dyurggyuoy" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Black.otf" id="19_rqx3k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1cec2"]
 bg_color = Color(0.125911, 0.125911, 0.125911, 1)
@@ -38,7 +39,7 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="Theme" id="Theme_wxeot"]
-default_font = ExtResource("8_uiqvs")
+default_font = ExtResource("12_6dcmc")
 Button/styles/hover = SubResource("StyleBoxFlat_1cec2")
 Button/styles/normal = ExtResource("10_623a3")
 Button/styles/pressed = SubResource("StyleBoxFlat_71xan")
@@ -117,9 +118,27 @@ alignment = 1
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("6_8b5y6")
+theme_override_fonts/font = ExtResource("7_gydmp")
 theme_override_font_sizes/font_size = 23
 text = "Expland is made by Noe Co., a partnership of two looking to find joy in making games."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="NoeCoIcon" type="Sprite2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
+position = Vector2(152, 143)
+scale = Vector2(0.291949, 0.291949)
+texture = ExtResource("8_ton5t")
+
+[node name="Space7" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("5_ome4s")
+theme_override_fonts/font = ExtResource("12_6dcmc")
+theme_override_font_sizes/font_size = 20
+text = "
+
+
+"
 horizontal_alignment = 1
 autowrap_mode = 3
 
@@ -127,14 +146,14 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("7_qra30")
+theme_override_fonts/font = ExtResource("10_rqx3k")
 theme_override_font_sizes/font_size = 20
 text = "Expland is brought to you by:"
 horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="Divider" type="Line2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
-position = Vector2(20, 133)
+position = Vector2(20, 199)
 points = PackedVector2Array(-2, 0, 264, 0)
 width = 1.5
 default_color = Color(0.233926, 0.233925, 0.233925, 1)
@@ -143,7 +162,7 @@ default_color = Color(0.233926, 0.233925, 0.233925, 1)
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_fonts/font = ExtResource("12_6dcmc")
 theme_override_font_sizes/font_size = 2
 horizontal_alignment = 1
 autowrap_mode = 3
@@ -152,7 +171,7 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_fonts/font = ExtResource("12_6dcmc")
 theme_override_font_sizes/font_size = 2
 horizontal_alignment = 1
 autowrap_mode = 3
@@ -161,7 +180,7 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_fonts/font = ExtResource("12_6dcmc")
 theme_override_font_sizes/font_size = 20
 text = "Sebastian Suciu"
 horizontal_alignment = 1
@@ -171,7 +190,7 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("9_3uiju")
+theme_override_fonts/font = ExtResource("13_x2a2e")
 theme_override_font_sizes/font_size = 14
 text = "Game Designer, Visual Designer, Programmer, 3D modelling, 2D assets, paperwork and GitHub manager."
 horizontal_alignment = 1
@@ -181,7 +200,7 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_fonts/font = ExtResource("12_6dcmc")
 theme_override_font_sizes/font_size = 5
 horizontal_alignment = 1
 autowrap_mode = 3
@@ -190,7 +209,7 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_fonts/font = ExtResource("12_6dcmc")
 theme_override_font_sizes/font_size = 20
 text = "Tristan Taylor"
 horizontal_alignment = 1
@@ -200,9 +219,9 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("9_3uiju")
+theme_override_fonts/font = ExtResource("13_x2a2e")
 theme_override_font_sizes/font_size = 14
-text = "Game Designer, Visual Designer, Audio Designer, Storyteller, Tester (while developing), paperwork, 3D modelling, 2D assets, Ideas and brainstorming and Lore."
+text = "Game Designer, Visual Designer, Audio Designer, Storyteller, paperwork, 3D modelling, 2D assets, Ideas and Lore."
 horizontal_alignment = 1
 autowrap_mode = 3
 
@@ -210,7 +229,7 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_fonts/font = ExtResource("12_6dcmc")
 theme_override_font_sizes/font_size = 5
 horizontal_alignment = 1
 autowrap_mode = 3
@@ -219,7 +238,7 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_fonts/font = ExtResource("12_6dcmc")
 theme_override_font_sizes/font_size = 5
 horizontal_alignment = 1
 autowrap_mode = 3
@@ -228,7 +247,7 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_fonts/font = ExtResource("12_6dcmc")
 theme_override_font_sizes/font_size = 5
 horizontal_alignment = 1
 autowrap_mode = 3
@@ -237,14 +256,14 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("6_8b5y6")
+theme_override_fonts/font = ExtResource("7_gydmp")
 theme_override_font_sizes/font_size = 20
 text = "We would like to thank everyone who contributed to this huge project and supported us!"
 horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="Divider3" type="Line2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
-position = Vector2(20, 351)
+position = Vector2(20, 438)
 points = PackedVector2Array(-2, 0, 264, 0)
 width = 1.5
 default_color = Color(0.233926, 0.233925, 0.233925, 1)
@@ -253,7 +272,7 @@ default_color = Color(0.233926, 0.233925, 0.233925, 1)
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_fonts/font = ExtResource("12_6dcmc")
 theme_override_font_sizes/font_size = 10
 horizontal_alignment = 1
 autowrap_mode = 3
@@ -262,7 +281,7 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_fonts/font = ExtResource("12_6dcmc")
 theme_override_font_sizes/font_size = 20
 text = "Ingo Wolf"
 horizontal_alignment = 1
@@ -272,7 +291,7 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("9_3uiju")
+theme_override_fonts/font = ExtResource("13_x2a2e")
 theme_override_font_sizes/font_size = 14
 text = "For ever so kindly making us a website. Thank you!"
 horizontal_alignment = 1
@@ -282,7 +301,7 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_fonts/font = ExtResource("12_6dcmc")
 theme_override_font_sizes/font_size = 5
 horizontal_alignment = 1
 autowrap_mode = 3
@@ -291,7 +310,7 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_fonts/font = ExtResource("12_6dcmc")
 theme_override_font_sizes/font_size = 20
 text = "Mel Timpson"
 horizontal_alignment = 1
@@ -301,7 +320,7 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("9_3uiju")
+theme_override_fonts/font = ExtResource("13_x2a2e")
 theme_override_font_sizes/font_size = 14
 text = "For being the best school teacher and mentor, getting us through highschool. From the bottom of our hearts, thank you Miss!"
 horizontal_alignment = 1
@@ -311,7 +330,36 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_fonts/font = ExtResource("12_6dcmc")
+theme_override_font_sizes/font_size = 5
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Text17" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("5_ome4s")
+theme_override_fonts/font = ExtResource("12_6dcmc")
+theme_override_font_sizes/font_size = 20
+text = "The team at the STEM VGC"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Text12" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("5_ome4s")
+theme_override_fonts/font = ExtResource("13_x2a2e")
+theme_override_font_sizes/font_size = 14
+text = "Thank you for taking time to review our game for the competition. We are very grateful for all of your hard work!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Space8" type="Label" parent="MainLayer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme = ExtResource("5_ome4s")
+theme_override_fonts/font = ExtResource("12_6dcmc")
 theme_override_font_sizes/font_size = 5
 horizontal_alignment = 1
 autowrap_mode = 3
@@ -320,7 +368,7 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_fonts/font = ExtResource("12_6dcmc")
 theme_override_font_sizes/font_size = 20
 text = "Godot Engine"
 horizontal_alignment = 1
@@ -330,19 +378,19 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("9_3uiju")
+theme_override_fonts/font = ExtResource("13_x2a2e")
 theme_override_font_sizes/font_size = 14
 text = "Without Godot, this entire project may not have been possible. To all the contributors of the Godot Engine, we can't thank you enough!"
 horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="GodotIcon" type="Sprite2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
-position = Vector2(115, 734)
+position = Vector2(115, 913)
 scale = Vector2(0.06, 0.06)
 texture = ExtResource("15_ny2xt")
 
 [node name="RedHeartIcon" type="Sprite2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
-position = Vector2(189.375, 736.044)
+position = Vector2(189.375, 915.044)
 scale = Vector2(0.0657484, 0.0545605)
 texture = ExtResource("11_m50j2")
 
@@ -350,7 +398,7 @@ texture = ExtResource("11_m50j2")
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_fonts/font = ExtResource("12_6dcmc")
 theme_override_font_sizes/font_size = 60
 horizontal_alignment = 1
 autowrap_mode = 3
@@ -359,7 +407,7 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_fonts/font = ExtResource("12_6dcmc")
 theme_override_font_sizes/font_size = 5
 horizontal_alignment = 1
 autowrap_mode = 3
@@ -368,7 +416,7 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("9_3uiju")
+theme_override_fonts/font = ExtResource("13_x2a2e")
 theme_override_font_sizes/font_size = 14
 text = "You can find a full list of everyone involved by viewing the AUTHORS.md file, which can be accessed below. "
 horizontal_alignment = 1
@@ -378,7 +426,7 @@ autowrap_mode = 3
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("8_uiqvs")
+theme_override_fonts/font = ExtResource("12_6dcmc")
 theme_override_font_sizes/font_size = 5
 horizontal_alignment = 1
 autowrap_mode = 3
@@ -391,7 +439,7 @@ theme_override_font_sizes/font_size = 30
 text = "OPEN      "
 
 [node name="OpenExternalLinkWhiteIcon" type="Sprite2D" parent="MainLayer/ScrollContainer/VBoxContainer"]
-position = Vector2(188.375, 861.625)
+position = Vector2(188.375, 1042.63)
 scale = Vector2(0.103333, 0.103333)
 texture = ExtResource("12_lbc4b")
 
@@ -406,7 +454,7 @@ offset_right = 127.5
 offset_bottom = 142.0
 grow_horizontal = 2
 theme = ExtResource("5_ome4s")
-theme_override_fonts/font = ExtResource("6_qtck1")
+theme_override_fonts/font = ExtResource("19_rqx3k")
 theme_override_font_sizes/font_size = 35
 text = "Credits"
 horizontal_alignment = 1

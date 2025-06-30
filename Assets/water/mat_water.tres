@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=4 uid="uid://byumtcccq4ew3"]
+
+[ext_resource type="Shader" uid="uid://cjhn8nkfr4mn0" path="res://Assets/shaders/spatial/water.gdshader" id="1_uffek"]
+
+[resource]
+render_priority = 1
+shader = ExtResource("1_uffek")
+shader_parameter/water_color = Color(0.017874, 0.0710567, 0.0764385, 1)
+shader_parameter/foam_color = Color(0.73, 0.67, 0.62, 1)
+shader_parameter/roughness = 0.481
+shader_parameter/normal_strength = 1.0
+shader_parameter/map_scales = PackedVector4Array(0.005, 0.005, 1.061, 1.436, 0.0175439, 0.0175439, 0.75, 1, 0.0149589, 0.0141683, 0, 0.25)

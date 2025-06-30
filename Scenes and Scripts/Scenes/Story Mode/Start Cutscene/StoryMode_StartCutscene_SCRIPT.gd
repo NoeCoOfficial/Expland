@@ -66,12 +66,17 @@ extends Node3D
 var tap_running : bool = false
 var can_toggle_tap : bool = true
 var tap_water_fill_tween : Tween
+var player : CharacterBody3D
 
 func _ready() -> void:
+	$"Yacht Rig/Yacht/FallOffCameraRig/Fall Off Cutscene Camera".fov = PlayerSettingsData.FOV
+	$Camera3D.fov = PlayerSettingsData.FOV
 	Global.is_in_main_menu = false
 	StoryModeManager.is_in_story_mode_first_cutscene_world = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	print("ENTERED STORY MODE START CUTSCENE")
+	await get_tree().create_timer(2.0).timeout
+	$WindAmbience.play()
 	fadeOutGreyOverlay()
 	cutscene_timeline()
 
@@ -96,6 +101,7 @@ func fadeInGreyOverlay():
 
 func onfadeInGreyOverlay_Finished():
 	var player_instance = player_scene.instantiate()
+	player = player_instance
 	Camera_Sutle_Movement_Animation.stop()
 	
 	self.add_child(player_instance)
@@ -105,6 +111,9 @@ func onfadeInGreyOverlay_Finished():
 	player_instance.nodeSetup()
 	Default_Camera.clear_current(true)
 	BlackFade.hide()
+	$WaterMesh.hide()
+	$"WaterMesh(INBOAT)".show()
+	player_instance.camera.make_current()
 	new_player_dialogue_timeline()
 
 func new_player_dialogue_timeline():
@@ -219,6 +228,15 @@ func _on_tap_toggled() -> void:
 func _on_tap_cooldown_timeout() -> void:
 	can_toggle_tap = true
 
+func playBlinkEffect():
+	$EyeBlinkLayer/BlinkAnimation.play("main")
 
 func _on_storm_timer() -> void:
-	print("STARTING STORM")
+	
+	$"Falling Off Boat Cutscene".play("main")
+
+func setPlayerVisibility(value : bool):
+	player.visible = value
+
+func goToDrownCutscene():
+	get_tree().change_scene_to_file("uid://cyemtp45fk71j")

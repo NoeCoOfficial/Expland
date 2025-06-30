@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://d3j4pc4a06lx4" path="res://Scenes and Scripts/Scenes/Audio/AudioNotification_SCRIPT.gd" id="1_xl5m5"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="2_7hn7g"]
-[ext_resource type="Texture2D" uid="uid://d3wid2ugl75bf" path="res://Textures/Icons/MusicWhite_Icon.png" id="3_qfyvc"]
-[ext_resource type="FontFile" uid="uid://b2o44xwqnsb5k" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf" id="4_xlxhp"]
-[ext_resource type="Texture2D" uid="uid://fih3i4yk6pip" path="res://Textures/Icons/PlayBtn_Icon.png" id="5_w5aau"]
-[ext_resource type="Texture2D" uid="uid://sirauob061k7" path="res://Textures/Icons/SideArrow_Icon.png" id="6_myn3j"]
-[ext_resource type="FontFile" uid="uid://c4h0gd5a2e2qb" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf" id="7_vmdvx"]
+[ext_resource type="Texture2D" uid="uid://d3wid2ugl75bf" path="res://Assets/Textures/Icons/MusicWhite_Icon.png" id="3_qfyvc"]
+[ext_resource type="FontFile" uid="uid://dv5dyurggyuoy" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Black.otf" id="4_6bitm"]
+[ext_resource type="Texture2D" uid="uid://fih3i4yk6pip" path="res://Assets/Textures/Icons/PlayBtn_Icon.png" id="5_w5aau"]
+[ext_resource type="Texture2D" uid="uid://sirauob061k7" path="res://Assets/Textures/Icons/SideArrow_Icon.png" id="6_myn3j"]
+[ext_resource type="FontFile" uid="uid://0v0sdh6bdybe" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Extrabold.otf" id="7_5ojhj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4gcdt"]
 bg_color = Color(0, 0, 0, 1)
@@ -347,7 +347,7 @@ offset_bottom = -2.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_7hn7g")
-theme_override_fonts/font = ExtResource("4_xlxhp")
+theme_override_fonts/font = ExtResource("4_6bitm")
 theme_override_font_sizes/font_size = 13
 text = "SongName"
 horizontal_alignment = 1
@@ -450,7 +450,7 @@ offset_top = 11.0
 offset_right = 41.0
 offset_bottom = 46.0
 theme = ExtResource("2_7hn7g")
-theme_override_fonts/font = ExtResource("7_vmdvx")
+theme_override_fonts/font = ExtResource("7_5ojhj")
 theme_override_font_sizes/font_size = 30
 text = "K"
 horizontal_alignment = 1
@@ -516,7 +516,7 @@ offset_top = 11.0
 offset_right = 39.837
 offset_bottom = 46.0
 theme = ExtResource("2_7hn7g")
-theme_override_fonts/font = ExtResource("7_vmdvx")
+theme_override_fonts/font = ExtResource("7_5ojhj")
 theme_override_font_sizes/font_size = 30
 text = "J"
 horizontal_alignment = 1
@@ -582,7 +582,7 @@ offset_top = 11.0
 offset_right = 39.837
 offset_bottom = 46.0
 theme = ExtResource("2_7hn7g")
-theme_override_fonts/font = ExtResource("7_vmdvx")
+theme_override_fonts/font = ExtResource("7_5ojhj")
 theme_override_font_sizes/font_size = 30
 text = "L"
 horizontal_alignment = 1

@@ -1,6 +1,6 @@
 <h1 align="center">Expland by Noe Co.</h1>
 <p align="center">
-	<img align="center" src="/Textures/Icons/Expland-icon.png" width="200" height="200"/>
+	<img align="center" src="/Assets/Textures/Icons/Expland/Expland - Icon.png" width="200" height="200"/>
  
 </p>
 

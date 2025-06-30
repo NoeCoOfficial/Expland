@@ -45,23 +45,33 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-@icon("res://Textures/Icons/Script Icons/32x32/disk_save.png")
+@icon("uid://ctle0eecieh06")
 extends Node
 
 var SAVE_PATH = ""
 
 var STORY_MODE_PROGRESSION_INFO = {
 	"WOKEN_UP" : false,
-	"FIRST_STORY_MODE" : false,
+	"FIRST_STORY_MODE" : true,
 	"DISPLAYED_3_DIALOGUE" : false,
 	"DISPLAYED_4_DIALOGUE" : false,
 	"DISPLAYED_5_DIALOGUE" : false,
 	"DISPLAYED_6_DIALOGUE" : false,
 }
 
-var GAME_STATE = "NORMAL"
-var Health := 100
-var Hunger := 100
+var STORY_MODE_PROGRESSION_INFO_DEFAULTS = {
+	"WOKEN_UP" : false,
+	"FIRST_STORY_MODE" : true,
+	"DISPLAYED_3_DIALOGUE" : false,
+	"DISPLAYED_4_DIALOGUE" : false,
+	"DISPLAYED_5_DIALOGUE" : false,
+	"DISPLAYED_6_DIALOGUE" : false,
+}
+
+var TIMES_SLEPT : int = 0
+var GAME_STATE : String = "NORMAL"
+var Health : int = 100
+var Hunger : int = 100
 
 var EffectNotificationScene = preload("uid://jajswfbkaut2")
 

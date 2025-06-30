@@ -45,7 +45,7 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-@icon("res://Textures/Icons/Script Icons/32x32/ui_inventory.png")
+@icon("uid://cpoi7oxnrjxia")
 extends StaticBody2D
 
 

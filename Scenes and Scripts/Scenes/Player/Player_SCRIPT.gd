@@ -45,7 +45,7 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-@icon("res://Textures/Icons/Script Icons/32x32/character.png")
+@icon("uid://chcrn3afs6kak")
 extends CharacterBody3D
 
 #region Variables
@@ -73,9 +73,12 @@ var transitioning_to_menu = false
 
 @export_group("Gameplay") ## A group for gameplay variables
 
-@export_subgroup("Health") ## Health varibales subgroup 
+@export_subgroup("Health") ## Health variabales subgroup 
 @export var UseHealth := true ## Checks if health should be used. If false no health label/bar will be displayed and the player won't be able to die/take damage)
 @export var MaxHealth := 100 ## After death or when the game is first opened, the Health variable is set to this. 
+
+@export_subgroup("Hunger") ## Hunger variabales subgroup 
+@export var UseHunger := true
 
 @export_subgroup("Other") 
 @export var Position := Vector3(0, 0, 0) ## What the live position for the player is. This no longer does anything if changed in the inspector panel.
@@ -796,7 +799,11 @@ func _ready():
 		PauseLayer.hide()
 		StartDebugging_Btn.hide()
 	
-	
+	for child in InventoryLayer_HotbarSlotOutlines.get_children():
+		if str(child.name).begins_with("Slot"):
+			child.hide()
+	InventoryManager.currently_selected_hotbar_slot = null
+	PlayerManager.PLAYER.HandItem.swap_items("")
 
 func on_fade_in_tween_finished():
 	pass
@@ -813,6 +820,11 @@ func nodeSetup(): # A function to setup the nodes. Called in the _ready function
 	RandomText_Label.self_modulate = Color(0, 0, 0, 0) # set the random text self modulate to black
 	DeathScreen_BlackOverlay.self_modulate = Color(0, 0, 0, 0) # set the black overlay self modulate to black
 	OverlayLayer_RedOverlay.self_modulate = Color(1, 0.016, 0, 0) # set the red overlay self modulate to red
+
+func disableHunger():
+	UseHunger = false
+	HUDLayer_HungerBar.hide()
+	$Head/Camera3D/HUDLayer/WhiteHamIcon.hide()
 
 func initInventorySlots():
 	InventoryManager.POCKET_SLOTS = [
@@ -1190,7 +1202,7 @@ func _on_save_and_quit_to_menu_pressed() -> void:
 		SaveManager.saveAllData()
 	transitioning_to_menu = true
 	Global.transitioning_to_main_menu_from_island = true
-	AudioManager.Current_Playlist.audibleOnlyFadeOutAllSongs()
+	#AudioManager.Current_Playlist.audibleOnlyFadeOutAllSongs()
 	if AudioManager.Current_Rain_SFX_Node:
 		AudioManager.Current_Rain_SFX_Node.stop_rain_loop(2.0)
 	
@@ -1206,6 +1218,8 @@ func _on_save_and_quit_to_menu_pressed() -> void:
 	tween.tween_interval(1)
 
 func on_save_and_quit_to_menu_fade_finished():
+	if IslandManager.Current_Game_Mode != "PARKOUR":
+		PlayerManager.WORLD.RandomMusic.fadeOut(PlayerManager.WORLD.RandomMusic.currently_playing_stream)
 	var mainMenuScene = load("res://Scenes and Scripts/Scenes/Main Menu/MainMenu.tscn")
 	
 	get_tree().change_scene_to_packed(mainMenuScene)
@@ -1277,6 +1291,10 @@ func spawn_minimal_alert_from_player(holdSec : float, fadeInTime : float, fadeOu
 	MinimalAlert.spawn_minimal_alert(holdSec, fadeInTime, fadeOutTime, message)
 
 func sleep_cycle(setSleeping : bool, incrementDay : bool, fadeInTime : float, holdTime : float, fadeOutTime : float, time : int):
+	var old_times_slept = PlayerData.TIMES_SLEPT
+	# Increment times slept to += 1.
+	PlayerData.TIMES_SLEPT += 1
+	
 	if setSleeping:
 		PlayerData.GAME_STATE = "SLEEPING"
 	
@@ -1291,14 +1309,19 @@ func sleep_cycle(setSleeping : bool, incrementDay : bool, fadeInTime : float, ho
 	SleepLayerBlackOverlay.visible = true
 	ProtectiveLayer.visible = true
 	
-	var tween = get_tree().create_tween()
-	tween.tween_property(SleepLayerBlackOverlay, "modulate", Color(1, 1, 1, 1), fadeInTime)
-	tween.tween_interval(1.0)
-	tween.tween_property(DayText_Label, "modulate", Color(1, 1, 1, 1), 1.0)
+	var fade_in_tween = get_tree().create_tween()
+	fade_in_tween.tween_property(SleepLayerBlackOverlay, "modulate", Color(1, 1, 1, 1), fadeInTime)
+	fade_in_tween.tween_interval(1.0)
 	
-	await get_tree().create_timer(fadeInTime + holdTime).timeout
-	
-	on_sleep_cycle_hold_finished(fadeOutTime, time)
+	if !PlayerData.TIMES_SLEPT == 0 and !IslandManager.Current_Game_Mode == "STORY":
+		fade_in_tween.tween_property(DayText_Label, "modulate", Color(1, 1, 1, 1), 1.0)
+		
+		await get_tree().create_timer(fadeInTime + holdTime).timeout
+		
+		on_sleep_cycle_hold_finished(fadeOutTime, time)
+	else:
+		await get_tree().create_timer(3.0).timeout
+		get_tree().change_scene_to_file("res://Scenes and Scripts/Scenes/Story Mode/Eryv Dream Cutscene/EryvDreamCutscene.tscn")
 
 func on_sleep_cycle_hold_finished(fadeOutTime, time : int):
 	
@@ -1366,15 +1389,16 @@ func _on_health_regen_timeout() -> void:
 	update_bar("HEALTH", true, PlayerData.Health)
 
 func _on_hunger_depletion_timeout() -> void:
-	if !PlayerManager.is_sprinting_moving:
-		PlayerData.Hunger -= 2
-	else:
-		PlayerData.Hunger -= 4
-	
-	if PlayerData.Hunger < 0:
-		PlayerData.Hunger = 0
+	if UseHunger:
+		if !PlayerManager.is_sprinting_moving:
+			PlayerData.Hunger -= 2
+		else:
+			PlayerData.Hunger -= 4
 		
-	update_bar("HUNGER", true, PlayerData.Hunger)
+		if PlayerData.Hunger < 0:
+			PlayerData.Hunger = 0
+			
+		update_bar("HUNGER", true, PlayerData.Hunger)
 
 func _on_health_depleting_from_hunger_timeout() -> void:
 	if PlayerData.Hunger <= 0:

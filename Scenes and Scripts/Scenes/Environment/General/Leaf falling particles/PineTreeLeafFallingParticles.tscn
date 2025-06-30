@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://db72djj3fp14d"]
 
-[ext_resource type="Texture2D" uid="uid://mi37hconmk8c" path="res://Textures/Environment/PineTree_FallingLeaf.png" id="1_c81id"]
+[ext_resource type="Texture2D" uid="uid://mi37hconmk8c" path="res://Assets/Textures/Environment/PineTree_FallingLeaf.png" id="1_c81id"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0gu5t"]
 particle_flag_rotate_y = true

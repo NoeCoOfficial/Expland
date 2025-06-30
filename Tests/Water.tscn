@@ -1,0 +1,102 @@
+[gd_scene load_steps=13 format=3 uid="uid://co56gr2flcre3"]
+
+[ext_resource type="Material" uid="uid://byumtcccq4ew3" path="res://Assets/water/mat_water.tres" id="1_nmime"]
+[ext_resource type="ArrayMesh" uid="uid://ix4vp1y05f1s" path="res://Assets/water/clipmap_high.obj" id="2_bds5h"]
+[ext_resource type="Script" uid="uid://dbxip3y4rh1va" path="res://Assets/water/water.gd" id="3_elopv"]
+[ext_resource type="Script" uid="uid://cqbpvt36rest3" path="res://Assets/water/wave_cascade_parameters.gd" id="4_2ew4g"]
+[ext_resource type="Script" uid="uid://dn1b1gnwe5iap" path="res://Assets/Textures/Icons/Script Icons/Scripts/LightbulbIcon_SCRIPT.gd" id="5_kgix7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u6tc2"]
+albedo_color = Color(1, 0.14, 0.14, 1)
+
+[sub_resource type="Resource" id="Resource_juxsv"]
+script = ExtResource("4_2ew4g")
+tile_length = Vector2(200, 200)
+displacement_scale = 1.061
+normal_scale = 1.436
+wind_speed = 0.86
+wind_direction = -58.545
+fetch_length = 150.0
+swell = 0.497
+spread = 0.394
+detail = 1.0
+whitecap = 0.0
+foam_amount = 8.0
+
+[sub_resource type="Resource" id="Resource_2n6ox"]
+script = ExtResource("4_2ew4g")
+tile_length = Vector2(57, 57)
+displacement_scale = 0.75
+normal_scale = 1.0
+wind_speed = 0.325
+wind_direction = 15.0
+fetch_length = 150.0
+swell = 0.8
+spread = 0.4
+detail = 1.0
+whitecap = 0.5
+foam_amount = 0.0
+
+[sub_resource type="Resource" id="Resource_3vobf"]
+script = ExtResource("4_2ew4g")
+tile_length = Vector2(16, 16)
+displacement_scale = 0.0
+normal_scale = 0.25
+wind_speed = 20.0
+wind_direction = 20.0
+fetch_length = 550.0
+swell = 0.8
+spread = 0.4
+detail = 1.0
+whitecap = 0.287
+foam_amount = 4.079
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4c2wr"]
+sky_top_color = Color(0.379513, 0.678929, 0.950538, 1)
+sky_horizon_color = Color(0.51, 0.755, 1, 1)
+sky_curve = 0.0409602
+ground_bottom_color = Color(0.09, 0.09, 0.09, 1)
+ground_horizon_color = Color(0.301961, 0.552941, 0.827451, 1)
+
+[sub_resource type="Sky" id="Sky_ix38m"]
+sky_material = SubResource("ProceduralSkyMaterial_4c2wr")
+
+[sub_resource type="Environment" id="Environment_su2qf"]
+background_mode = 2
+sky = SubResource("Sky_ix38m")
+tonemap_mode = 2
+ssao_power = 9.74701
+ssao_detail = 2.21
+ssao_horizon = 0.59
+glow_enabled = true
+fog_sky_affect = 0.267
+volumetric_fog_density = 0.01
+volumetric_fog_detail_spread = 1.07177
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.83127, 0)
+material_override = ExtResource("1_nmime")
+transparency = 0.61
+extra_cull_margin = 10000.0
+mesh = ExtResource("2_bds5h")
+surface_material_override/0 = SubResource("StandardMaterial3D_u6tc2")
+script = ExtResource("3_elopv")
+parameters = Array[ExtResource("4_2ew4g")]([SubResource("Resource_juxsv"), SubResource("Resource_2n6ox"), SubResource("Resource_3vobf")])
+map_size = 512
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_su2qf")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.981398, -0.146113, 0.124539, -0.173272, -0.394734, 0.902309, -0.0826793, -0.907103, -0.412709, 0, 0, 0)
+light_energy = 1.692
+light_indirect_energy = 0.827
+shadow_enabled = true
+directional_shadow_fade_start = 0.655
+directional_shadow_max_distance = 150.0
+script = ExtResource("5_kgix7")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -5.96046e-08, 1, 0, -1, -5.96046e-08, 0, 15.0718, 0)

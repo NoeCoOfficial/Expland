@@ -20,7 +20,7 @@ config/use_custom_user_dir=true
 config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
-config/icon="res://Textures/Icons/Expland-icon.png"
+config/icon="res://Assets/Textures/Icons/Expland/Expland - Icon.png"
 
 [audio]
 
@@ -71,14 +71,14 @@ gdscript/warnings/function_used_as_property=0
 
 [display]
 
+window/size/mode=4
 window/stretch/mode="canvas_items"
 display_server/driver.linuxbsd="wayland"
 window/version="0.7.5"
 
 [editor]
 
-movie_writer/mjpeg_quality=1.0
-movie_writer/movie_file="C:/Users/sebas/Godot Projects/Expland/Movies/NewMovie.avi"
+movie_writer/movie_file="C:/Users/sebas/Godot Projects/Expland/Output/ExplandBG1.avi"
 movie_writer/fps=120
 
 [editor_plugins]
@@ -365,3 +365,18 @@ textures/vram_compression/import_s3tc_bptc=true
 textures/vram_compression/import_etc2_astc=true
 environment/volumetric_fog/volume_size=256
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+
+[shader_globals]
+
+displacements={
+"type": "sampler2DArray",
+"value": ""
+}
+normals={
+"type": "sampler2DArray",
+"value": ""
+}
+num_cascades={
+"type": "uint",
+"value": 3
+}

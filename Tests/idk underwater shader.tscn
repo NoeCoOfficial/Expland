@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmj1hq62mxolu"]
+
+[ext_resource type="Texture2D" uid="uid://bx3jg6ecnsa15" path="res://Tests/Screenshot (8).png" id="1_y1c7h"]
+[ext_resource type="Material" uid="uid://cqh7ycnbvghdp" path="res://Resources/Shader Materials/UnderwaterBasic.tres" id="2_bgxy5"]
+
+[node name="World" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="MainLayer" type="CanvasLayer" parent="Camera3D"]
+
+[node name="TextureRect" type="TextureRect" parent="Camera3D/MainLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_y1c7h")
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="Camera3D/MainLayer"]
+material = ExtResource("2_bgxy5")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

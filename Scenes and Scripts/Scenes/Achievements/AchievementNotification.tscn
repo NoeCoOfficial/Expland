@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://dw2pt8kkkfejl" path="res://Scenes and Scripts/Scenes/Achievements/AchievementNotification_SCRIPT.gd" id="1_wps2i"]
 [ext_resource type="AudioStream" uid="uid://d36vmo1jkyopc" path="res://Audio/SFX/General/unlockAchievement.mp3" id="2_h3d07"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="2_x6fve"]
-[ext_resource type="FontFile" uid="uid://b2o44xwqnsb5k" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf" id="4_1nshs"]
-[ext_resource type="Texture2D" uid="uid://bsehw8xxc02m1" path="res://Textures/Achievements/WANDERER.png" id="4_6h4ei"]
+[ext_resource type="Texture2D" uid="uid://bsehw8xxc02m1" path="res://Assets/Textures/Achievements/WANDERER.png" id="4_6h4ei"]
+[ext_resource type="FontFile" uid="uid://dv5dyurggyuoy" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Black.otf" id="4_iupqt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vwkia"]
 corner_radius_top_left = 10
@@ -93,7 +93,7 @@ offset_bottom = 12.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_x6fve")
-theme_override_fonts/font = ExtResource("4_1nshs")
+theme_override_fonts/font = ExtResource("4_iupqt")
 theme_override_font_sizes/font_size = 13
 text = "AchievementName"
 horizontal_alignment = 1

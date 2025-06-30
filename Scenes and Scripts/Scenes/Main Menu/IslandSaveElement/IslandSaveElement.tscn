@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dhuio3snbgvnj" path="res://Scenes and Scripts/Scenes/Main Menu/IslandSaveElement/IslandSaveElement_SCRIPT.gd" id="1_eww5b"]
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="2_drivp"]
-[ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="2_ptwj5"]
 [ext_resource type="StyleBox" uid="uid://cm8xotke6bccm" path="res://Resources/Styles and Themes/Styles/Default/LineEdit/Default_Normal_LineEdit.tres" id="3_gaeij"]
+[ext_resource type="FontFile" uid="uid://duhkn1q8s6i3m" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Medium.otf" id="3_u0eu4"]
 [ext_resource type="StyleBox" uid="uid://cf1a43wkesukc" path="res://Resources/Styles and Themes/Styles/Default/LineEdit/Default_Focus_LineEdit.tres" id="4_4qh26"]
-[ext_resource type="Texture2D" uid="uid://b4lev783o86l7" path="res://Textures/Images/DefaultLoadImage.png" id="6_y0s30"]
-[ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="7_hm3by"]
+[ext_resource type="Texture2D" uid="uid://b4lev783o86l7" path="res://Assets/Textures/Images/DefaultLoadImage.png" id="6_y0s30"]
+[ext_resource type="FontFile" uid="uid://bel1qoyfluvci" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Bold.otf" id="7_piyk7"]
 [ext_resource type="StyleBox" uid="uid://dk6yg5shsrlga" path="res://Resources/Styles and Themes/Styles/Default/Button/Default_Hover.tres" id="8_3226v"]
 [ext_resource type="StyleBox" uid="uid://4bki1vu11lcb" path="res://Resources/Styles and Themes/Styles/Default/Button/Default_Pressed.tres" id="9_ng22a"]
 [ext_resource type="StyleBox" uid="uid://dysjxkdohprwn" path="res://Resources/Styles and Themes/Styles/Default/Button/Default_Normal.tres" id="10_cxkgr"]
@@ -41,7 +41,7 @@ offset_top = 7.00001
 offset_right = 364.001
 offset_bottom = 33.0
 focus_mode = 1
-theme_override_fonts/font = ExtResource("2_ptwj5")
+theme_override_fonts/font = ExtResource("3_u0eu4")
 theme_override_font_sizes/font_size = 15
 theme_override_styles/focus = ExtResource("4_4qh26")
 theme_override_styles/read_only = ExtResource("3_gaeij")
@@ -79,7 +79,7 @@ offset_right = 262.0
 offset_bottom = 63.0
 grow_vertical = 0
 focus_mode = 0
-theme_override_fonts/font = ExtResource("7_hm3by")
+theme_override_fonts/font = ExtResource("7_piyk7")
 theme_override_styles/disabled = ExtResource("10_cxkgr")
 theme_override_styles/hover = ExtResource("8_3226v")
 theme_override_styles/pressed = ExtResource("9_ng22a")
@@ -96,7 +96,7 @@ offset_right = 262.0
 offset_bottom = 92.0
 grow_vertical = 0
 focus_mode = 0
-theme_override_fonts/font = ExtResource("7_hm3by")
+theme_override_fonts/font = ExtResource("7_piyk7")
 theme_override_styles/disabled = ExtResource("10_cxkgr")
 theme_override_styles/hover = ExtResource("8_3226v")
 theme_override_styles/pressed = ExtResource("9_ng22a")
@@ -113,7 +113,7 @@ offset_right = 358.0
 offset_bottom = 92.0
 grow_vertical = 0
 focus_mode = 0
-theme_override_fonts/font = ExtResource("7_hm3by")
+theme_override_fonts/font = ExtResource("7_piyk7")
 theme_override_styles/disabled = ExtResource("10_cxkgr")
 theme_override_styles/hover = ExtResource("8_3226v")
 theme_override_styles/pressed = ExtResource("9_ng22a")
@@ -130,7 +130,7 @@ offset_right = 357.0
 offset_bottom = 63.0
 grow_vertical = 0
 focus_mode = 0
-theme_override_fonts/font = ExtResource("7_hm3by")
+theme_override_fonts/font = ExtResource("7_piyk7")
 theme_override_styles/disabled = ExtResource("10_cxkgr")
 theme_override_styles/hover = ExtResource("8_3226v")
 theme_override_styles/pressed = ExtResource("9_ng22a")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cq13w255wbu5l"]
 
 [ext_resource type="Script" uid="uid://bylrv5n1qyibf" path="res://Scenes and Scripts/Scenes/Minimal Alert/MinimalAlert_SCRIPT.gd" id="1_pn0pq"]
-[ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="2_31a33"]
+[ext_resource type="FontFile" uid="uid://bel1qoyfluvci" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Bold.otf" id="2_31a33"]
 [ext_resource type="StyleBox" uid="uid://7f6os4nc5ig2" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/MinimalAlert_WithMargin.tres" id="3_iov33"]
 
 [node name="MinimalAlert" type="Control" node_paths=PackedStringArray("MainLayer")]

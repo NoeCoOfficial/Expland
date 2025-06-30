@@ -45,7 +45,7 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-@icon("res://Textures/Icons/Script Icons/32x32/world_page.png")
+@icon("uid://t12fwcy1apyo")
 extends Node
 
 func initializeIslandProperties(_Island_Name):
@@ -56,6 +56,8 @@ func initializeIslandProperties(_Island_Name):
 @export var DayNightCycle : AnimationPlayer
 @export var DayNightCycle_Rotation : AnimationPlayer
 @export var DayNightCycle_Sky : AnimationPlayer
+
+@export var RandomMusic : Node
 
 @export var Tick : Timer
 @export var IslandDeco : Node3D
@@ -88,6 +90,8 @@ func _ready() -> void:
 	Global.transitioning_to_main_menu_from_island = false
 	Global.is_in_main_menu = false
 	
+	StoryModeManager.is_in_story_mode_first_cutscene_world = false
+	
 	# TODO: LOAD DATA HERE OR SMTH
 	
 	set_pretty_shadows(PlayerSettingsData.PrettyShadows)
@@ -99,6 +103,8 @@ func _ready() -> void:
 		set_time(TimeManager.CURRENT_TIME)
 	
 	Tick.start()
+	
+
 	
 	if IslandManager.Current_Game_Mode == "STORY":
 		init_weather_instant_custom(0)
@@ -122,6 +128,8 @@ func _ready() -> void:
 	
 	# Woken up from Eryv chase dream
 	if IslandManager.Current_Game_Mode == "STORY" and StoryModeManager.waking_up_from_eryv_dream:
+		print("woken up from eryv dream cutscene")
+		set_time(600) # Set time to 10am.
 		$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/StoryModeDreamWakeUpUI".show()
 		$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/StoryModeDreamWakeUpUI/BlackRect".show()
 		$Player/Head/Camera3D/HUDLayer.hide()
@@ -134,7 +142,10 @@ func _ready() -> void:
 		$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/StoryModeDreamWakeUpUI".hide()
 	
 	Player.nodeSetup()
-
+	
+	$StartMusicRandomTimer.wait_time = randf_range(40.0, 100.0)
+	$StartMusicRandomTimer.start()
+	
 
 #####################################################
 
@@ -152,12 +163,16 @@ func eryvDreamWakeUpDialogue():
 
 func spawnDemoScreen():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/ExplandDemoNotice/Buttons/TimeLabel".text = TimeManager.speedrun_timer_get_formatted_time()
+	$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/ExplandDemoNotice/Buttons/TimeLabel".visible = PlayerSettingsData.speedRunTimer
 	$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/ExplandDemoNotice/ExplandDemoUIAnimation".play("main")
 
 #####################################################
 
 
 func _on_ready() -> void:
+	if !StoryModeManager.waking_up_from_eryv_dream:
+		TimeManager.speedrun_timer_start()
 	AudioManager.Current_Rain_SFX_Node = $Rain_SFX
 	
 	# Play and loop wind ambience sound
@@ -537,14 +552,11 @@ func _on_water_detail_init_timer_timeout() -> void:
 
 
 
-
-
-
 func _on_main_menu_button_pressed() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/ExplandDemoNotice/BlackBGFadeOut".modulate = Color(1, 1, 1, 0)
 	$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/ExplandDemoNotice/BlackBGFadeOut".show()
-	var tween = get_tree().create_tween()
+	var tween = get_tree().create_tween().set_parallel()
 	tween.connect("finished", _demo_fade_out_finished)
 	tween.tween_property(
 		$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/ExplandDemoNotice/BlackBGFadeOut",
@@ -552,8 +564,38 @@ func _on_main_menu_button_pressed() -> void:
 		Color(1, 1, 1, 1),
 		1.0)
 
+	tween.tween_property(
+		$WindAmbience,
+		"volume_db",
+		-80.0,
+		1.0)
+
+	tween.tween_property(
+		$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/ExplandDemoNotice/VolumetricFog",
+		"volume_db",
+		-80.0,
+		1.0)
+
 func _demo_fade_out_finished():
-	get_tree().change_scene_to_file("res://Scenes and Scripts/Scenes/Main Menu/MainMenu.tscn")
+	StoryModeManager.is_in_cutscene = false
+	StoryModeManager.is_in_cutscene_can_move = false
+	StoryModeManager.waking_up_from_eryv_dream = false
+	
+	PlayerData.TIMES_SLEPT = 0
+	PlayerData.STORY_MODE_PROGRESSION_INFO = PlayerData.STORY_MODE_PROGRESSION_INFO_DEFAULTS.duplicate(true)
+	
+	# Change scene to main menu
+	get_tree().change_scene_to_file("uid://234mnfypwndn")
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
+
+func _on_join_discord_server_button_pressed() -> void:
+	OS.shell_open("https://discord.gg/QNgcKCAJn3")
+
+func _on_start_music_random_timer_timeout() -> void:
+	if !StoryModeManager.waking_up_from_eryv_dream:
+		$"RandomMusic++".start()
+
+func _on_view_authorsmd_button_pressed() -> void:
+	OS.shell_open("https://github.com/NoeCoOfficial/Expland/blob/main/AUTHORS.md")

@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://cqh7ycnbvghdp"]
+
+[ext_resource type="Shader" uid="uid://1pe0vndnyexo" path="res://Resources/Shaders/Underwater.gdshader" id="1_bqxq7"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gtwfc"]
+noise_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5e08x"]
+seamless = true
+noise = SubResource("FastNoiseLite_gtwfc")
+
+[resource]
+shader = ExtResource("1_bqxq7")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/fast_noise = SubResource("NoiseTexture2D_5e08x")
+shader_parameter/speed = Vector2(0.03, 0.07)
+shader_parameter/time_multiplier = 1.0
+shader_parameter/color_influence_x = 1.0
+shader_parameter/color_influence_y = 1.0
+shader_parameter/color_influence_gb = 1.0
+shader_parameter/wave_strength = 4.01

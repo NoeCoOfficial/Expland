@@ -45,7 +45,7 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-@icon("res://Textures/Icons/Script Icons/32x32/window_frame_show.png")
+@icon("uid://dm55dckwe8kki")
 extends Control
 
 var tween = null

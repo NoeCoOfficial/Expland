@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bi02uk7qwshyf" path="res://Scenes and Scripts/Scenes/Components/Interactable Component/Interactable_Component_SCRIPT.gd" id="1_edqk2"]
 [ext_resource type="PackedScene" uid="uid://cmt00ehn4hfne" path="res://Scenes and Scripts/Scenes/General/UI/MessageWithKeyUI.tscn" id="2_ailw5"]
 [ext_resource type="FontFile" uid="uid://bel1qoyfluvci" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Bold.otf" id="3_ailw5"]
-[ext_resource type="Texture2D" uid="uid://nmojsrl1t3nx" path="res://Textures/Icons/Input Prompts/mouse_right_outline.png" id="5_07x6r"]
+[ext_resource type="Texture2D" uid="uid://nmojsrl1t3nx" path="res://Assets/Textures/Icons/Input Prompts/mouse_right_outline.png" id="5_07x6r"]
 [ext_resource type="AudioStream" uid="uid://muif2cwm287n" path="res://Audio/SFX/Environment/HarvestingFruit.mp3" id="5_xbmcn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m3rfc"]
@@ -307,7 +307,6 @@ multimesh = SubResource("MultiMesh_q1i8w")
 transform = Transform3D(0.721925, 0, 0, 0, 1.26973, 0, 0, 0, 0.853852, 0, 0, 0)
 
 [node name="Collision" type="StaticBody3D" parent="Bush"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bush/Collision"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.794296, 0)

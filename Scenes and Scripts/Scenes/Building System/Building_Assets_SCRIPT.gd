@@ -45,7 +45,7 @@
 #                  noeco.official@gmail.com                     #
 # ============================================================= #
 
-@icon("res://Textures/Icons/Script Icons/32x32/tools.png")
+@icon("uid://c77x552xep73n")
 class_name BuildingAsset extends Resource
 
 @export var ITEM_TYPE : String

@@ -48,10 +48,16 @@
 extends Node3D
 
 @export var TheEryv : CharacterBody3D
-var scene_thread : Thread
+@export var finished_look_around_dream_cutscene : bool = false
+@export var eryv_chasing_player : bool = false
 
 func _ready() -> void:
-	scene_thread = Thread.new()
+	# When we get back to The Island,
+	# Time will by 10 am (600/60)
+	TimeManager.CURRENT_TIME = 600
+	PlayerData.GAME_STATE = "NORMAL"
+	
+	
 	var ambient_fade_in = get_tree().create_tween()
 	ambient_fade_in.tween_property($Environment/AmbientWindLoop, "volume_db", 5.0, 1).from(-10.0)
 	$Environment/AmbientWindLoop.play()
@@ -59,24 +65,36 @@ func _ready() -> void:
 	$Player/Head/Camera3D/HUDLayer.hide()
 	$"PreControl Scene/EyeBlinkLayer/BottomBlink".position = Vector2(0.0, 688.0)
 	$"PreControl Scene/EyeBlinkLayer/TopBlink".position = Vector2(1152.0, -39.0)
-	$"PreControl Scene/Camera3D".fov = PlayerSettingsData.FOV
+	$"PreControl Scene/Camera3DRig/Camera3D".fov = PlayerSettingsData.FOV
 	StoryModeManager.is_in_cutscene = true
 	$Player.Fade_In = false
 	$Player.nodeSetup()
 	
-	
 	$"PreControl Scene/CameraMotion".play("motion")
 
+func _input(event: InputEvent) -> void:
+	if !eryv_chasing_player:
+		if finished_look_around_dream_cutscene:
+			if Input.is_action_just_pressed("Jump") or Input.is_action_just_pressed("move_forward") or Input.is_action_just_pressed("move_backward") or Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right"):
+				eryv_start_chase_player()
+
+func spawn_run_minimal_dialogue():
+	$Player/Head/Camera3D/MinimalDialogueLayer/MinimalDialogue.spawnMinimalDialogue(DialogueManager.StoryMode_EryvDream_Dialogue)
+
 func eryv_start_chase_player():
+	eryv_chasing_player = true
 	TheEryv.start_chase_player()
 	$EryvPathUpdater.start()
 	$"The Eryv/Stomps".play()
 	$"The Eryv/StompTimer".start()
+	
+	# Start fuegcs interval timer
+	$EryvFuegcsInterval.start()
 
 func init_player_control():
 	$Player.show()
 	$Player/Head/Camera3D/HUDLayer.show()
-	$"PreControl Scene/Camera3D".clear_current(true)
+	$"PreControl Scene/Camera3DRig/Camera3D".clear_current(true)
 	StoryModeManager.is_in_cutscene = false
 	StoryModeManager.is_in_cutscene_can_move = true
 
@@ -99,11 +117,10 @@ func shake_camera(camera : Camera3D, duration : float, strength : float):
 	camera.global_position = original_position
 
 func camera_motion_shake():
-	shake_camera($"PreControl Scene/Camera3D", 2.0, 0.08)
+	shake_camera($"PreControl Scene/Camera3DRig/Camera3D", 2.0, 0.08)
 
 func play_eryv_feugcs():
 	$"The Eryv/Fuegcs1".play()
-
 
 #################################################
 
@@ -113,6 +130,7 @@ func _on_player_wake_up_area_area_entered(area: Area3D) -> void:
 
 func WAKE_UP():
 	print("WAKE UP")
+	TimeManager.speedrun_timer_stop()
 	StoryModeManager.waking_up_from_eryv_dream = true
 	StoryModeManager.is_in_cutscene_can_move = false
 	StoryModeManager.is_in_cutscene = true
@@ -122,7 +140,6 @@ func WAKE_UP():
 	$"The Eryv/Stomps".volume_db = -80.0
 	$Environment/AmbientWindLoop.stop()
 	
-	
 	$SceneChangeDebounce.start()
 
 
@@ -130,9 +147,11 @@ func _on_scene_change_debounce_timeout() -> void:
 	get_tree().change_scene_to_packed(load("uid://c5jkrckgqd0w6"))
 
 
-
-
 func _on_stomp_timer_timeout() -> void:
 	$"The Eryv/Stomps".play()
 	$"The Eryv/StompTimer".start()
-	
+
+
+func _on_eryv_fuegcs_interval_timeout() -> void:
+	shake_camera($"PreControl Scene/Camera3DRig/Camera3D", 2.0, 0.08)
+	$"The Eryv/RandomFuegcs".play()

@@ -84,6 +84,13 @@ func collect_berries(silent : bool = false):
 	collected_berries = true
 	Berries.hide()
 	SpawnBerriesTimer.start()
+	
+	var free_slot = InventoryManager.get_free_slot_using_stacks(
+		InventoryManager.POCKET_SLOTS,
+		"BERRY")
+	
+	if free_slot != null:
+		free_slot.spawn_droppable("BERRY")
 
 func spawn_berries():
 	$"Interactable Component".show()

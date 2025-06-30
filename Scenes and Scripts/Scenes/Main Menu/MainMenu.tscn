@@ -1,122 +1,41 @@
-[gd_scene load_steps=50 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=47 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" uid="uid://uvd1eie30b14" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
-[ext_resource type="PackedScene" uid="uid://jb61th5px5nt" path="res://Assets/3D Models/Tests/Island/Island 2.blend" id="2_0llf6"]
-[ext_resource type="Script" uid="uid://dn1b1gnwe5iap" path="res://Textures/Icons/Script Icons/Scripts/LightbulbIcon_SCRIPT.gd" id="2_j6ch4"]
-[ext_resource type="Texture2D" uid="uid://dhp1lqdlclos" path="res://Textures/Icons/Expland_TextWHITE_Icon.png" id="2_numx3"]
-[ext_resource type="PackedScene" uid="uid://d0uinxy2wgtd3" path="res://Assets/3D Models/Environment/Trees/Normal/Models/Tree1.blend" id="3_hbjgs"]
-[ext_resource type="PackedScene" uid="uid://4y07lcegxyxt" path="res://Scenes and Scripts/Scenes/Audio/MainMenu_Audio.tscn" id="3_wxdrf"]
-[ext_resource type="PackedScene" uid="uid://cdbylnsm71dkk" path="res://Assets/3D Models/Environment/Trees/Normal/Models/Tree3.blend" id="4_drkdx"]
+[ext_resource type="PackedScene" uid="uid://bjvusmws0kct3" path="res://Scenes and Scripts/Scenes/RandomMusic++/RandomMusic++.tscn" id="2_57c8o"]
+[ext_resource type="PackedScene" uid="uid://d1petu3nr4sj5" path="res://Scenes and Scripts/Scenes/The Island/TheIslandForMainMenu.tscn" id="2_aolfw"]
+[ext_resource type="Texture2D" uid="uid://dhp1lqdlclos" path="res://Assets/Textures/Icons/Expland/Expland - TextWHITE.png" id="2_numx3"]
+[ext_resource type="AudioStream" uid="uid://cipuvbfdttvwh" path="res://Audio/Music/Begin Again.mp3" id="3_3q40g"]
 [ext_resource type="Theme" uid="uid://ceasxu5q233w7" path="res://Resources/Styles and Themes/Themes/Default.tres" id="4_grlcg"]
-[ext_resource type="FontFile" uid="uid://bhbimgl3hvve3" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Bold.otf" id="5_dfh28"]
-[ext_resource type="PackedScene" uid="uid://ckktuiw4a367o" path="res://Assets/3D Models/Environment/Rocks/Rock2.blend" id="5_mxq5r"]
-[ext_resource type="PackedScene" uid="uid://b5d0ah73v2doj" path="res://Assets/3D Models/Environment/Rocks/Rock5.blend" id="6_lssvk"]
-[ext_resource type="Texture2D" uid="uid://fih3i4yk6pip" path="res://Textures/Icons/PlayBtn_Icon.png" id="6_ve3ie"]
-[ext_resource type="Texture2D" uid="uid://cfe0w5hyb6fyc" path="res://Textures/Icons/SettingsCog_Icon.png" id="7_7tdx1"]
-[ext_resource type="PackedScene" uid="uid://bq7v171b1atvm" path="res://Assets/3D Models/Environment/Rocks/Rock7.blend" id="7_jmxkd"]
-[ext_resource type="PackedScene" uid="uid://c855wuotwp7n7" path="res://Assets/3D Models/Environment/Grass/Grass1.blend" id="8_0bg8c"]
-[ext_resource type="Texture2D" uid="uid://cwskjvl8pplog" path="res://Textures/Icons/Exit_Icon.png" id="8_rn1to"]
+[ext_resource type="AudioStream" uid="uid://bm2yify34oc5g" path="res://Audio/Music/What Is This Place.mp3" id="4_ynnl5"]
+[ext_resource type="AudioStream" uid="uid://bttlh34nxqbca" path="res://Audio/Music/Something.mp3" id="5_6s6m5"]
+[ext_resource type="AudioStream" uid="uid://bm46v08yjtdxg" path="res://Audio/Music/The Before.mp3" id="6_vaol2"]
+[ext_resource type="Texture2D" uid="uid://fih3i4yk6pip" path="res://Assets/Textures/Icons/PlayBtn_Icon.png" id="6_ve3ie"]
+[ext_resource type="Texture2D" uid="uid://cfe0w5hyb6fyc" path="res://Assets/Textures/Icons/SettingsCog_Icon.png" id="7_7tdx1"]
+[ext_resource type="Texture2D" uid="uid://cwskjvl8pplog" path="res://Assets/Textures/Icons/Exit_Icon.png" id="8_rn1to"]
 [ext_resource type="Script" uid="uid://snus4y53incu" path="res://Scenes and Scripts/Utility Scripts/IgnoreMouseFilter.gd" id="8_tu6ba"]
-[ext_resource type="PackedScene" uid="uid://dvk3qu1v8iisg" path="res://Assets/3D Models/Environment/Grass/Grass3.blend" id="9_w5mwr"]
+[ext_resource type="FontFile" uid="uid://bel1qoyfluvci" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Bold.otf" id="10_6s6m5"]
 [ext_resource type="PackedScene" uid="uid://ceabjbnv3nnyr" path="res://Scenes and Scripts/Scenes/Settings/SettingsUI.tscn" id="10_i36v3"]
-[ext_resource type="PackedScene" uid="uid://0stf8uio7dg2" path="res://Assets/3D Models/Environment/Trees/Normal/Models/Tree9.blend" id="10_ji46n"]
 [ext_resource type="Script" uid="uid://bd3squcstkss1" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="10_y68f7"]
-[ext_resource type="FontFile" uid="uid://bxegprouyv1nh" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Medium.otf" id="11_1cstc"]
 [ext_resource type="StyleBox" uid="uid://3txnt8ebd3yh" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/BlackBGwithWhiteBorder.tres" id="11_613mu"]
 [ext_resource type="StyleBox" uid="uid://b13po6off8nno" path="res://Resources/Styles and Themes/Styles/Default/Button/WithMarginDefaultDarkGrey.tres" id="12_3uklh"]
 [ext_resource type="StyleBox" uid="uid://c1a26qv61p5kw" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkgreyBGwithWhiteBorder.tres" id="13_tj56a"]
-[ext_resource type="FontFile" uid="uid://btimp4hwg4jis" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Regular.otf" id="14_8r23i"]
-[ext_resource type="StyleBox" uid="uid://com3tix0pshhk" path="res://Resources/Styles and Themes/Styles/Default/Label/Default_Label.tres" id="15_8lpeu"]
-[ext_resource type="Texture2D" uid="uid://ddboyvj4u3hwq" path="res://Textures/Icons/PadlockWhite_Icon.png" id="16_3n0bi"]
+[ext_resource type="Texture2D" uid="uid://bpaxxng1e7gs3" path="res://Assets/Textures/Icons/Other/Discord - Icon.png" id="15_ynnl5"]
+[ext_resource type="Texture2D" uid="uid://ddboyvj4u3hwq" path="res://Assets/Textures/Icons/PadlockWhite_Icon.png" id="16_3n0bi"]
 [ext_resource type="PackedScene" uid="uid://bjsti1e663lr8" path="res://Scenes and Scripts/Scenes/General/UI/BlurLayer.tscn" id="16_elslp"]
+[ext_resource type="Texture2D" uid="uid://d0jxif3gujfuy" path="res://Assets/Textures/Images/StoryModeImage.png" id="17_jh64i"]
 [ext_resource type="PackedScene" uid="uid://djenc4llne53s" path="res://Scenes and Scripts/Scenes/Credits/CreditsLayer.tscn" id="19_0ti8x"]
 [ext_resource type="PackedScene" uid="uid://b7la7o37o5gld" path="res://Scenes and Scripts/Scenes/Achievements/AchievementsUI.tscn" id="19_gyuud"]
 [ext_resource type="StyleBox" uid="uid://b4rpbqptdum20" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkGreyBGwithGreyBorder.tres" id="21_v2lsw"]
+[ext_resource type="FontFile" uid="uid://dty34vto5mf00" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Regular.otf" id="23_vaol2"]
+[ext_resource type="Texture2D" uid="uid://bldwaitgj21h2" path="res://Assets/Textures/Images/ParkourModeImage.png" id="25_ynnl5"]
 [ext_resource type="PackedScene" uid="uid://du1ak3ldg8x4e" path="res://Scenes and Scripts/Scenes/Dialogue/DialogueInterface.tscn" id="30_q7bh6"]
 [ext_resource type="PackedScene" uid="uid://cjxbcx2vhofs" path="res://Scenes and Scripts/Scenes/Achievements/AchievementNotification.tscn" id="31_ahd72"]
-[ext_resource type="PackedScene" uid="uid://bbc10j8mbwjbn" path="res://Scenes and Scripts/Scenes/Audio/AudioNotification.tscn" id="31_xncp6"]
+[ext_resource type="FontFile" uid="uid://dv5dyurggyuoy" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Black.otf" id="33_rvkj8"]
+[ext_resource type="FontFile" uid="uid://0v0sdh6bdybe" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Extrabold.otf" id="34_cyyd1"]
 [ext_resource type="Script" uid="uid://b2koo4upy744h" path="res://Scenes and Scripts/Scenes/Alerts/Normal/AlertLayer_SCRIPT.gd" id="34_so3ya"]
-[ext_resource type="FontFile" uid="uid://b2o44xwqnsb5k" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Black.otf" id="35_hsmjp"]
-[ext_resource type="FontFile" uid="uid://c4h0gd5a2e2qb" path="res://Fonts/CabinetGrotesk/CabinetGrotesk-Extrabold.otf" id="35_srfqj"]
 [ext_resource type="FontFile" uid="uid://duhkn1q8s6i3m" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Medium.otf" id="36_srfqj"]
-[ext_resource type="RibbonTrailMesh" uid="uid://dg43yr7xlvtnq" path="res://Resources/Meshes/Rain_Mesh.tres" id="43_cjd7a"]
 
-[sub_resource type="Animation" id="Animation_6cyol"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-62.5013, 6.30089, -14.5163)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, -1.53437, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_kvdnl"]
-resource_name = "camera movement"
-length = 200.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.266667, 63.1667, 131.333, 200),
-"transitions": PackedFloat32Array(0.870548, 0.870548, 0.870548, 0.870548, 0.870548),
-"update": 0,
-"values": [Vector3(-62.5013, 6.30089, -14.5163), Vector3(-62.5013, 6.30089, -14.5163), Vector3(-18.7433, 6.30089, 20.6403), Vector3(-21.1692, 9.78124, -50.3417), Vector3(-62.5013, 6.30089, -14.5163)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.266667, 63.1667, 131.333, 200),
-"transitions": PackedFloat32Array(0.870548, 0.870548, 0.870548, 0.870548, 0.870548),
-"update": 0,
-"values": [Vector3(0, -1.53437, 0), Vector3(0, -1.53437, 0), Vector3(0, -0.0801806, 0), Vector3(0, 2.53781, 0), Vector3(0, -1.53437, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_mddl5"]
-_data = {
-&"RESET": SubResource("Animation_6cyol"),
-&"camera movement": SubResource("Animation_kvdnl")
-}
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0rshe"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-
-[sub_resource type="Sky" id="Sky_7v7qm"]
-sky_material = SubResource("ProceduralSkyMaterial_0rshe")
-
-[sub_resource type="Environment" id="Environment_v4n35"]
-background_mode = 2
-sky = SubResource("Sky_7v7qm")
-tonemap_mode = 2
-glow_enabled = true
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_syeyn"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6s6m5"]
 bg_color = Color(0.125911, 0.125911, 0.125911, 1)
 border_width_left = 2
 border_width_top = 2
@@ -128,69 +47,136 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 expand_margin_top = 5.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjd7a"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vaol2"]
+bg_color = Color(0.125911, 0.125911, 0.125911, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_top = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rvkj8"]
 bg_color = Color(0.255659, 0.255659, 0.255659, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cyyd1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [sub_resource type="Theme" id="Theme_u5css"]
-default_font = ExtResource("5_dfh28")
-Button/styles/hover = SubResource("StyleBoxFlat_syeyn")
-Button/styles/normal = ExtResource("12_3uklh")
-Button/styles/pressed = SubResource("StyleBoxFlat_cjd7a")
-Label/styles/normal = ExtResource("15_8lpeu")
+default_font = ExtResource("10_6s6m5")
+Button/styles/hover = SubResource("StyleBoxFlat_6s6m5")
+Button/styles/normal = SubResource("StyleBoxFlat_vaol2")
+Button/styles/pressed = SubResource("StyleBoxFlat_rvkj8")
+Label/styles/normal = SubResource("StyleBoxFlat_cyyd1")
 
-[node name="MainMenu" type="Node3D" node_paths=PackedStringArray("fade_timer_time_left_label")]
+[sub_resource type="Theme" id="Theme_dfl71"]
+default_font = ExtResource("10_6s6m5")
+Button/styles/hover = SubResource("StyleBoxFlat_6s6m5")
+Button/styles/normal = SubResource("StyleBoxFlat_vaol2")
+Button/styles/pressed = SubResource("StyleBoxFlat_rvkj8")
+Label/styles/normal = SubResource("StyleBoxFlat_cyyd1")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dfl71"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kvy8l"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_syeyn"]
+bg_color = Color(0.125911, 0.125911, 0.125911, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjd7a"]
+bg_color = Color(0.255659, 0.255659, 0.255659, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3rsb3"]
+bg_color = Color(0.125911, 0.125911, 0.125911, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jh64i"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_8n1c6")
-fade_timer_time_left_label = NodePath("Camera3D/MainLayer/AudioNotificationLayer/fade_timer_time_left")
 
-[node name="CameraAnim" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_mddl5")
-}
-autoplay = "camera movement"
+[node name="RandomMusic++" parent="." instance=ExtResource("2_57c8o")]
+Streams = Array[AudioStream]([ExtResource("3_3q40g"), ExtResource("4_ynnl5"), ExtResource("5_6s6m5"), ExtResource("6_vaol2")])
+FadeInTime = 4.0
+FadeOutTime = 6.0
+DefaultDB = -10.0
+LowerBoundRandomSec = 1.0
+UpperBoundRandomSec = 2.0
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.216082, 0.976375, 0, -0.976375, 0.216082, 0, 28.1558, 0)
-light_color = Color(0.2673, 0.33, 0.33, 1)
-light_energy = 2.055
-shadow_enabled = true
-directional_shadow_split_3 = 0.348
-directional_shadow_blend_splits = true
-directional_shadow_fade_start = 0.618
-directional_shadow_max_distance = 154.5
-script = ExtResource("2_j6ch4")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_v4n35")
-
-[node name="Rain" type="CPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.6093, 57.3563, -11.877)
-amount = 5000
-lifetime = 0.84
-mesh = ExtResource("43_cjd7a")
-emission_shape = 3
-emission_box_extents = Vector3(100, 0.5, 100)
-direction = Vector3(0, -1, 0)
-spread = 5.0
-gravity = Vector3(0, -60, 0)
-initial_velocity_min = 47.09
-initial_velocity_max = 47.09
-
-[node name="MainMenu_Audio" parent="." instance=ExtResource("3_wxdrf")]
+[node name="World" parent="." instance=ExtResource("2_aolfw")]
 
 [node name="Checks_Timer" type="Timer" parent="."]
 one_shot = true
 autostart = true
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.0364183, 0, -0.999336, 0, 1, 0, 0.999336, 0, 0.0364183, -62.5013, 6.30089, -14.5163)
+[node name="MainLayer" type="CanvasLayer" parent="."]
 
-[node name="MainLayer" type="CanvasLayer" parent="Camera3D"]
-
-[node name="Logo" type="TextureRect" parent="Camera3D/MainLayer"]
+[node name="Logo" type="TextureRect" parent="MainLayer"]
 offset_left = -494.0
 offset_top = 24.0
 offset_right = -1.0
@@ -198,7 +184,7 @@ offset_bottom = 181.0
 texture = ExtResource("2_numx3")
 expand_mode = 1
 
-[node name="PlayButton" type="Control" parent="Camera3D/MainLayer"]
+[node name="PlayButton" type="Control" parent="MainLayer"]
 layout_mode = 3
 anchor_left = -0.302083
 anchor_top = 0.432099
@@ -210,7 +196,7 @@ offset_bottom = -0.00012207
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="LighterBG" type="ColorRect" parent="Camera3D/MainLayer/PlayButton"]
+[node name="LighterBG" type="ColorRect" parent="MainLayer/PlayButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -219,7 +205,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.501406, 0.501407, 0.501406, 1)
 
-[node name="DarkerBG" type="ColorRect" parent="Camera3D/MainLayer/PlayButton"]
+[node name="DarkerBG" type="ColorRect" parent="MainLayer/PlayButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -230,7 +216,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.125911, 0.125911, 0.125911, 1)
 
-[node name="Message" type="Label" parent="Camera3D/MainLayer/PlayButton"]
+[node name="Message" type="Label" parent="MainLayer/PlayButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -242,13 +228,13 @@ offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_grlcg")
-theme_override_fonts/font = ExtResource("5_dfh28")
+theme_override_fonts/font = ExtResource("10_6s6m5")
 theme_override_font_sizes/font_size = 59
 text = "PLAY"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Icon" type="TextureRect" parent="Camera3D/MainLayer/PlayButton"]
+[node name="Icon" type="TextureRect" parent="MainLayer/PlayButton"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.701149
@@ -261,7 +247,7 @@ texture = ExtResource("6_ve3ie")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="SettingsButton" type="Control" parent="Camera3D/MainLayer"]
+[node name="SettingsButton" type="Control" parent="MainLayer"]
 layout_mode = 3
 anchor_left = -0.302083
 anchor_top = 0.57716
@@ -269,7 +255,7 @@ anchor_bottom = 0.695988
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="LighterBG" type="ColorRect" parent="Camera3D/MainLayer/SettingsButton"]
+[node name="LighterBG" type="ColorRect" parent="MainLayer/SettingsButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -279,7 +265,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.501406, 0.501407, 0.501406, 1)
 
-[node name="DarkerBG" type="ColorRect" parent="Camera3D/MainLayer/SettingsButton"]
+[node name="DarkerBG" type="ColorRect" parent="MainLayer/SettingsButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -290,7 +276,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.125911, 0.125911, 0.125911, 1)
 
-[node name="Message" type="Label" parent="Camera3D/MainLayer/SettingsButton"]
+[node name="Message" type="Label" parent="MainLayer/SettingsButton"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.0574713
@@ -300,14 +286,14 @@ anchor_bottom = 1.05195
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_grlcg")
-theme_override_fonts/font = ExtResource("5_dfh28")
+theme_override_fonts/font = ExtResource("10_6s6m5")
 theme_override_font_sizes/font_size = 45
 text = "SETTINGS"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Icon" type="TextureRect" parent="Camera3D/MainLayer/SettingsButton"]
+[node name="Icon" type="TextureRect" parent="MainLayer/SettingsButton"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.625437
@@ -326,7 +312,7 @@ texture = ExtResource("7_7tdx1")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="QuitButton" type="Control" parent="Camera3D/MainLayer"]
+[node name="QuitButton" type="Control" parent="MainLayer"]
 layout_mode = 3
 anchor_left = -0.302083
 anchor_top = 0.725309
@@ -336,7 +322,7 @@ offset_bottom = -8.0
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="LighterBG" type="ColorRect" parent="Camera3D/MainLayer/QuitButton"]
+[node name="LighterBG" type="ColorRect" parent="MainLayer/QuitButton"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -347,7 +333,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.501406, 0.501407, 0.501406, 1)
 
-[node name="DarkerBG" type="ColorRect" parent="Camera3D/MainLayer/QuitButton"]
+[node name="DarkerBG" type="ColorRect" parent="MainLayer/QuitButton"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.0574713
@@ -359,7 +345,7 @@ grow_vertical = 2
 color = Color(0.125911, 0.125911, 0.125911, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="Message" type="Label" parent="Camera3D/MainLayer/QuitButton"]
+[node name="Message" type="Label" parent="MainLayer/QuitButton"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.163793
@@ -369,14 +355,14 @@ anchor_bottom = 1.07792
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_grlcg")
-theme_override_fonts/font = ExtResource("5_dfh28")
+theme_override_fonts/font = ExtResource("10_6s6m5")
 theme_override_font_sizes/font_size = 55
 text = "QUIT"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Icon" type="TextureRect" parent="Camera3D/MainLayer/QuitButton"]
+[node name="Icon" type="TextureRect" parent="MainLayer/QuitButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -392,7 +378,7 @@ grow_vertical = 2
 texture = ExtResource("8_rn1to")
 expand_mode = 1
 
-[node name="PlayButtonTrigger" type="Button" parent="Camera3D/MainLayer"]
+[node name="PlayButtonTrigger" type="Button" parent="MainLayer"]
 self_modulate = Color(1, 1, 1, 0)
 anchors_preset = -1
 anchor_left = -0.302083
@@ -403,7 +389,7 @@ grow_vertical = 2
 focus_mode = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="SettingsButtonTrigger" type="Button" parent="Camera3D/MainLayer"]
+[node name="SettingsButtonTrigger" type="Button" parent="MainLayer"]
 self_modulate = Color(1, 1, 1, 0)
 anchors_preset = -1
 anchor_left = -0.302083
@@ -414,7 +400,7 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="QuitButtonTrigger" type="Button" parent="Camera3D/MainLayer"]
+[node name="QuitButtonTrigger" type="Button" parent="MainLayer"]
 self_modulate = Color(1, 1, 1, 0)
 anchors_preset = -1
 anchor_left = -0.302083
@@ -426,7 +412,7 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="AchievementsButton" type="Button" parent="Camera3D/MainLayer"]
+[node name="AchievementsButton" type="Button" parent="MainLayer"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -440,11 +426,11 @@ grow_horizontal = 2
 grow_vertical = 0
 focus_mode = 0
 theme = SubResource("Theme_u5css")
-theme_override_fonts/font = ExtResource("11_1cstc")
+theme_override_fonts/font = ExtResource("36_srfqj")
 theme_override_font_sizes/font_size = 27
 text = "ACHIEVEMENTS"
 
-[node name="UpdatesButton" type="Button" parent="Camera3D/MainLayer"]
+[node name="UpdatesButton" type="Button" parent="MainLayer"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -458,11 +444,11 @@ grow_horizontal = 2
 grow_vertical = 0
 focus_mode = 0
 theme = SubResource("Theme_u5css")
-theme_override_fonts/font = ExtResource("11_1cstc")
+theme_override_fonts/font = ExtResource("36_srfqj")
 theme_override_font_sizes/font_size = 27
 text = "UPDATES"
 
-[node name="CreditsButton" type="Button" parent="Camera3D/MainLayer"]
+[node name="CreditsButton" type="Button" parent="MainLayer"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -476,11 +462,39 @@ grow_horizontal = 2
 grow_vertical = 0
 focus_mode = 0
 theme = SubResource("Theme_u5css")
-theme_override_fonts/font = ExtResource("11_1cstc")
+theme_override_fonts/font = ExtResource("36_srfqj")
 theme_override_font_sizes/font_size = 27
 text = "CREDITS"
 
-[node name="Version_LBL" type="Label" parent="Camera3D/MainLayer"]
+[node name="JoinDiscordButton" type="Button" parent="MainLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -830.0
+offset_top = -43.0
+offset_right = -582.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme = SubResource("Theme_dfl71")
+theme_override_font_sizes/font_size = 27
+theme_override_styles/focus = SubResource("StyleBoxFlat_dfl71")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_kvy8l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_syeyn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cjd7a")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3rsb3")
+text = "JOIN DISCORD"
+alignment = 0
+
+[node name="DiscordIcon" type="Sprite2D" parent="MainLayer/JoinDiscordButton"]
+position = Vector2(214, 17)
+scale = Vector2(0.040625, 0.040625)
+texture = ExtResource("15_ynnl5")
+
+[node name="Version_LBL" type="Label" parent="MainLayer"]
 visible = false
 modulate = Color(1, 1, 1, 0.259)
 anchors_preset = 1
@@ -495,7 +509,7 @@ theme = ExtResource("4_grlcg")
 theme_override_font_sizes/font_size = 26
 text = "v0.7.5"
 
-[node name="GreyLayer" type="ColorRect" parent="Camera3D/MainLayer"]
+[node name="GreyLayer" type="ColorRect" parent="MainLayer"]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -505,12 +519,12 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.643)
 script = ExtResource("10_y68f7")
 
-[node name="SettingsUI" parent="Camera3D/MainLayer" instance=ExtResource("10_i36v3")]
+[node name="SettingsUI" parent="MainLayer" instance=ExtResource("10_i36v3")]
 visible = false
 
-[node name="GamemodeBlurLayer" parent="Camera3D/MainLayer" instance=ExtResource("16_elslp")]
+[node name="GamemodeBlurLayer" parent="MainLayer" instance=ExtResource("16_elslp")]
 
-[node name="ExitGamemodeLayerButton" type="Button" parent="Camera3D/MainLayer"]
+[node name="ExitGamemodeLayerButton" type="Button" parent="MainLayer"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -527,7 +541,7 @@ theme = SubResource("Theme_u5css")
 theme_override_font_sizes/font_size = 40
 text = "EXIT"
 
-[node name="GameModeLayer" type="Control" parent="Camera3D/MainLayer"]
+[node name="GameModeLayer" type="Control" parent="MainLayer"]
 layout_mode = 3
 anchor_top = 1.0
 anchor_right = 1.0
@@ -536,7 +550,7 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="BG_StoryMode" type="Button" parent="Camera3D/MainLayer/GameModeLayer"]
+[node name="BG_StoryMode" type="Button" parent="MainLayer/GameModeLayer"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.217882
@@ -554,7 +568,39 @@ theme_override_styles/normal = ExtResource("13_tj56a")
 script = ExtResource("10_y68f7")
 metadata/_edit_use_anchors_ = true
 
-[node name="Title" type="Label" parent="Camera3D/MainLayer/GameModeLayer/BG_StoryMode"]
+[node name="RoundedCorners" type="Panel" parent="MainLayer/GameModeLayer/BG_StoryMode"]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.4999
+offset_top = -254.962
+offset_right = 94.4999
+offset_bottom = 254.962
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jh64i")
+
+[node name="Image" type="TextureRect" parent="MainLayer/GameModeLayer/BG_StoryMode/RoundedCorners"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 412.5
+offset_top = 244.5
+offset_right = 412.5
+offset_bottom = 244.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.566299, 0.566299)
+mouse_filter = 2
+texture = ExtResource("17_jh64i")
+
+[node name="Title" type="Label" parent="MainLayer/GameModeLayer/BG_StoryMode"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -570,7 +616,7 @@ text = "Story Mode"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Description" type="Label" parent="Camera3D/MainLayer/GameModeLayer/BG_StoryMode"]
+[node name="Description" type="Label" parent="MainLayer/GameModeLayer/BG_StoryMode"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -581,14 +627,201 @@ offset_right = 77.0
 offset_bottom = 109.0
 grow_horizontal = 2
 theme = ExtResource("4_grlcg")
-theme_override_fonts/font = ExtResource("14_8r23i")
+theme_override_fonts/font = ExtResource("23_vaol2")
 theme_override_font_sizes/font_size = 13
 text = "Uncover secrets and explore a mysterious world."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="PlayStoryModeButton" type="Button" parent="Camera3D/MainLayer/GameModeLayer/BG_StoryMode"]
+[node name="PlayStoryModeButton" type="Button" parent="MainLayer/GameModeLayer/BG_StoryMode"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -54.0
+offset_top = -67.0
+offset_right = 54.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme = SubResource("Theme_u5css")
+theme_override_fonts/font = ExtResource("10_6s6m5")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/disabled = ExtResource("12_3uklh")
+text = "PLAY"
+
+[node name="PadlockIcon" type="Sprite2D" parent="MainLayer/GameModeLayer/BG_StoryMode"]
+visible = false
+position = Vector2(98, 479)
+scale = Vector2(0.0927734, 0.0927734)
+texture = ExtResource("16_3n0bi")
+
+[node name="BG_FreeMode" type="Button" parent="MainLayer/GameModeLayer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.412327
+anchor_top = -0.882716
+anchor_right = 0.586806
+anchor_bottom = -0.0756169
+offset_top = 600.0
+offset_bottom = 600.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_styles/hover = ExtResource("11_613mu")
+theme_override_styles/pressed = ExtResource("11_613mu")
+theme_override_styles/normal = ExtResource("13_tj56a")
+script = ExtResource("10_y68f7")
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Label" parent="MainLayer/GameModeLayer/BG_FreeMode"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -77.0
+offset_top = 16.0
+offset_right = 77.0
+offset_bottom = 62.0
+grow_horizontal = 2
+theme = ExtResource("4_grlcg")
+theme_override_font_sizes/font_size = 35
+text = "Free Mode"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="MainLayer/GameModeLayer/BG_FreeMode"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -77.0
+offset_top = 49.0
+offset_right = 77.0
+offset_bottom = 109.0
+grow_horizontal = 2
+theme = ExtResource("4_grlcg")
+theme_override_fonts/font = ExtResource("23_vaol2")
+theme_override_font_sizes/font_size = 13
+text = "Freedom to visit The Island as you please. Just explore."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="PlayFreeModeButton" type="Button" parent="MainLayer/GameModeLayer/BG_FreeMode"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -54.0
+offset_top = -67.0
+offset_right = 54.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme = SubResource("Theme_u5css")
+theme_override_fonts/font = ExtResource("10_6s6m5")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/disabled = ExtResource("12_3uklh")
+disabled = true
+
+[node name="PadlockIcon" type="Sprite2D" parent="MainLayer/GameModeLayer/BG_FreeMode"]
+position = Vector2(98, 479)
+scale = Vector2(0.0927734, 0.0927734)
+texture = ExtResource("16_3n0bi")
+
+[node name="BG_ParkourMode" type="Button" parent="MainLayer/GameModeLayer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.609375
+anchor_top = -0.882716
+anchor_right = 0.783854
+anchor_bottom = -0.0756169
+offset_top = 600.0
+offset_bottom = 600.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_styles/hover = ExtResource("11_613mu")
+theme_override_styles/pressed = ExtResource("11_613mu")
+theme_override_styles/normal = ExtResource("13_tj56a")
+script = ExtResource("10_y68f7")
+metadata/_edit_use_anchors_ = true
+
+[node name="RoundedCorners" type="Panel" parent="MainLayer/GameModeLayer/BG_ParkourMode"]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.4999
+offset_top = -254.962
+offset_right = 94.4999
+offset_bottom = 254.962
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jh64i")
+
+[node name="Image" type="TextureRect" parent="MainLayer/GameModeLayer/BG_ParkourMode/RoundedCorners"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 540.5
+offset_top = 273.5
+offset_right = 540.5
+offset_bottom = 273.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.509445, 0.509445)
+mouse_filter = 2
+texture = ExtResource("25_ynnl5")
+
+[node name="Title" type="Label" parent="MainLayer/GameModeLayer/BG_ParkourMode"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -77.0
+offset_top = 16.0
+offset_right = 77.0
+offset_bottom = 62.0
+grow_horizontal = 2
+theme = ExtResource("4_grlcg")
+theme_override_font_sizes/font_size = 30
+text = "Parkour Mode"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="MainLayer/GameModeLayer/BG_ParkourMode"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -77.0
+offset_top = 51.0
+offset_right = 77.0
+offset_bottom = 111.0
+grow_horizontal = 2
+theme = ExtResource("4_grlcg")
+theme_override_fonts/font = ExtResource("23_vaol2")
+theme_override_font_sizes/font_size = 13
+text = "Jump and climb your way through some parkour."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="PlayParkourModeButton" type="Button" parent="MainLayer/GameModeLayer/BG_ParkourMode"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -607,186 +840,34 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/disabled = ExtResource("12_3uklh")
 text = "PLAY"
 
-[node name="PadlockIcon" type="Sprite2D" parent="Camera3D/MainLayer/GameModeLayer/BG_StoryMode"]
+[node name="PadlockIcon" type="Sprite2D" parent="MainLayer/GameModeLayer/BG_ParkourMode"]
 visible = false
 position = Vector2(98, 479)
 scale = Vector2(0.0927734, 0.0927734)
 texture = ExtResource("16_3n0bi")
 
-[node name="BG_FreeMode" type="Button" parent="Camera3D/MainLayer/GameModeLayer"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.412327
-anchor_top = -0.882716
-anchor_right = 0.586806
-anchor_bottom = -0.0756169
-offset_top = 600.0
-offset_bottom = 600.0
-grow_horizontal = 2
-grow_vertical = 2
-focus_mode = 0
-theme_override_styles/hover = ExtResource("11_613mu")
-theme_override_styles/pressed = ExtResource("11_613mu")
-theme_override_styles/normal = ExtResource("13_tj56a")
-script = ExtResource("10_y68f7")
-metadata/_edit_use_anchors_ = true
-
-[node name="Title" type="Label" parent="Camera3D/MainLayer/GameModeLayer/BG_FreeMode"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -77.0
-offset_top = 16.0
-offset_right = 77.0
-offset_bottom = 62.0
-grow_horizontal = 2
-theme = ExtResource("4_grlcg")
-theme_override_font_sizes/font_size = 35
-text = "Free Mode"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Description" type="Label" parent="Camera3D/MainLayer/GameModeLayer/BG_FreeMode"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -77.0
-offset_top = 49.0
-offset_right = 77.0
-offset_bottom = 109.0
-grow_horizontal = 2
-theme = ExtResource("4_grlcg")
-theme_override_fonts/font = ExtResource("14_8r23i")
-theme_override_font_sizes/font_size = 13
-text = "Freedom to visit The Island as you please. Just explore."
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="PlayFreeModeButton" type="Button" parent="Camera3D/MainLayer/GameModeLayer/BG_FreeMode"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -54.0
-offset_top = -67.0
-offset_right = 54.0
-offset_bottom = -16.0
-grow_horizontal = 2
-grow_vertical = 0
-focus_mode = 0
-theme = SubResource("Theme_u5css")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/disabled = ExtResource("12_3uklh")
-disabled = true
-
-[node name="PadlockIcon" type="Sprite2D" parent="Camera3D/MainLayer/GameModeLayer/BG_FreeMode"]
-position = Vector2(98, 479)
-scale = Vector2(0.0927734, 0.0927734)
-texture = ExtResource("16_3n0bi")
-
-[node name="BG_ParkourMode" type="Button" parent="Camera3D/MainLayer/GameModeLayer"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.609375
-anchor_top = -0.882716
-anchor_right = 0.783854
-anchor_bottom = -0.0756169
-offset_top = 600.0
-offset_bottom = 600.0
-grow_horizontal = 2
-grow_vertical = 2
-focus_mode = 0
-theme_override_styles/hover = ExtResource("11_613mu")
-theme_override_styles/pressed = ExtResource("11_613mu")
-theme_override_styles/normal = ExtResource("13_tj56a")
-script = ExtResource("10_y68f7")
-metadata/_edit_use_anchors_ = true
-
-[node name="Title" type="Label" parent="Camera3D/MainLayer/GameModeLayer/BG_ParkourMode"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -77.0
-offset_top = 16.0
-offset_right = 77.0
-offset_bottom = 62.0
-grow_horizontal = 2
-theme = ExtResource("4_grlcg")
-theme_override_font_sizes/font_size = 30
-text = "Parkour Mode"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Description" type="Label" parent="Camera3D/MainLayer/GameModeLayer/BG_ParkourMode"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -77.0
-offset_top = 51.0
-offset_right = 77.0
-offset_bottom = 111.0
-grow_horizontal = 2
-theme = ExtResource("4_grlcg")
-theme_override_fonts/font = ExtResource("14_8r23i")
-theme_override_font_sizes/font_size = 13
-text = "Jump and climb your way through some parkour levels."
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="PlayParkourModeButton" type="Button" parent="Camera3D/MainLayer/GameModeLayer/BG_ParkourMode"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -54.0
-offset_top = -67.0
-offset_right = 54.0
-offset_bottom = -16.0
-grow_horizontal = 2
-grow_vertical = 0
-focus_mode = 0
-theme = SubResource("Theme_u5css")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/disabled = ExtResource("12_3uklh")
-disabled = true
-
-[node name="PadlockIcon" type="Sprite2D" parent="Camera3D/MainLayer/GameModeLayer/BG_ParkourMode"]
-position = Vector2(98, 479)
-scale = Vector2(0.0927734, 0.0927734)
-texture = ExtResource("16_3n0bi")
-
-[node name="AchievementsUI" parent="Camera3D/MainLayer" instance=ExtResource("19_gyuud")]
+[node name="AchievementsUI" parent="MainLayer" instance=ExtResource("19_gyuud")]
 visible = false
 
-[node name="CreditsLayer" parent="Camera3D/MainLayer" instance=ExtResource("19_0ti8x")]
+[node name="CreditsLayer" parent="MainLayer" instance=ExtResource("19_0ti8x")]
 visible = false
 
-[node name="DialogueLayer" type="CanvasLayer" parent="Camera3D/MainLayer"]
+[node name="DialogueLayer" type="CanvasLayer" parent="MainLayer"]
 
-[node name="DialogueInterface" parent="Camera3D/MainLayer/DialogueLayer" instance=ExtResource("30_q7bh6")]
+[node name="DialogueInterface" parent="MainLayer/DialogueLayer" instance=ExtResource("30_q7bh6")]
 
-[node name="AchievementNotificationLayer" type="CanvasLayer" parent="Camera3D/MainLayer"]
+[node name="AchievementNotificationLayer" type="CanvasLayer" parent="MainLayer"]
 layer = 9
 
-[node name="AchievementNotification" parent="Camera3D/MainLayer/AchievementNotificationLayer" instance=ExtResource("31_ahd72")]
+[node name="AchievementNotification" parent="MainLayer/AchievementNotificationLayer" instance=ExtResource("31_ahd72")]
 offset_left = 1152.0
 offset_top = 12.0
 offset_right = 197.0
 offset_bottom = -548.0
 
-[node name="UpdatesLayer" type="CanvasLayer" parent="Camera3D/MainLayer"]
+[node name="UpdatesLayer" type="CanvasLayer" parent="MainLayer"]
 
-[node name="UpdatesLayer" type="Control" parent="Camera3D/MainLayer/UpdatesLayer"]
+[node name="UpdatesLayer" type="Control" parent="MainLayer/UpdatesLayer"]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -796,7 +877,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("34_so3ya")
 
-[node name="GreyLayer" type="ColorRect" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer"]
+[node name="GreyLayer" type="ColorRect" parent="MainLayer/UpdatesLayer/UpdatesLayer"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -806,7 +887,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.643)
 script = ExtResource("10_y68f7")
 
-[node name="MainLayer" type="Control" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer"]
+[node name="MainLayer" type="Control" parent="MainLayer/UpdatesLayer/UpdatesLayer"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -814,7 +895,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BG" type="Button" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer"]
+[node name="BG" type="Button" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -832,7 +913,7 @@ theme_override_styles/hover = ExtResource("11_613mu")
 theme_override_styles/pressed = ExtResource("11_613mu")
 theme_override_styles/normal = ExtResource("11_613mu")
 
-[node name="TextBG" type="Button" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer"]
+[node name="TextBG" type="Button" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -850,7 +931,7 @@ theme_override_styles/hover = ExtResource("21_v2lsw")
 theme_override_styles/pressed = ExtResource("21_v2lsw")
 theme_override_styles/normal = ExtResource("21_v2lsw")
 
-[node name="VersionBG" type="Button" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer"]
+[node name="VersionBG" type="Button" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -868,7 +949,7 @@ theme_override_styles/hover = ExtResource("21_v2lsw")
 theme_override_styles/pressed = ExtResource("21_v2lsw")
 theme_override_styles/normal = ExtResource("21_v2lsw")
 
-[node name="Title_Version" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer"]
+[node name="Title_Version" type="Label" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -882,29 +963,29 @@ offset_bottom = -147.984
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_grlcg")
-theme_override_fonts/font = ExtResource("35_hsmjp")
+theme_override_fonts/font = ExtResource("33_rvkj8")
 theme_override_font_sizes/font_size = 33
 text = "Version"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="VersionScrollContainer" type="ScrollContainer" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer"]
+[node name="VersionScrollContainer" type="ScrollContainer" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer"]
 layout_mode = 0
 offset_left = 227.0
 offset_top = 179.0
 offset_right = 527.0
 offset_bottom = 545.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer"]
 layout_mode = 2
 theme_override_constants/separation = 55
 alignment = 1
 
-[node name="v0_7_1" type="Control" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer"]
+[node name="v0_7_5" type="Control" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="v0_7_1_Btn" type="Button" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_7_1"]
+[node name="v0_7_5_Btn" type="Button" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_7_5"]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 4.0
@@ -913,7 +994,7 @@ offset_bottom = 55.0
 focus_mode = 0
 theme = ExtResource("4_grlcg")
 
-[node name="Title" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_7_1"]
+[node name="Title" type="Label" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_7_5"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -927,15 +1008,46 @@ offset_bottom = 45.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_grlcg")
-theme_override_fonts/font = ExtResource("35_srfqj")
+theme_override_fonts/font = ExtResource("34_cyyd1")
 theme_override_font_sizes/font_size = 25
-text = "v0.7.1 (Latest)"
+text = "v0.7.5 (Latest)"
 vertical_alignment = 1
 
-[node name="MoreComingSoon" type="Control" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer"]
+[node name="v0_7_1" type="Control" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="MoreComingSoonBtn" type="Button" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/MoreComingSoon"]
+[node name="v0_7_1_Btn" type="Button" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_7_1"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = 281.0
+offset_bottom = 55.0
+focus_mode = 0
+theme = ExtResource("4_grlcg")
+
+[node name="Title" type="Label" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_7_1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 14.0
+offset_top = 16.0
+offset_right = 272.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_grlcg")
+theme_override_fonts/font = ExtResource("34_cyyd1")
+theme_override_font_sizes/font_size = 25
+text = "v0.7.1"
+vertical_alignment = 1
+
+[node name="MoreComingSoon" type="Control" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MoreComingSoonBtn" type="Button" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/MoreComingSoon"]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 4.0
@@ -945,7 +1057,7 @@ focus_mode = 0
 theme = ExtResource("4_grlcg")
 disabled = true
 
-[node name="Title" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/MoreComingSoon"]
+[node name="Title" type="Label" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/MoreComingSoon"]
 modulate = Color(0.332881, 0.332881, 0.332881, 1)
 layout_mode = 1
 anchors_preset = 8
@@ -960,12 +1072,12 @@ offset_bottom = 45.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_grlcg")
-theme_override_fonts/font = ExtResource("35_srfqj")
+theme_override_fonts/font = ExtResource("34_cyyd1")
 theme_override_font_sizes/font_size = 25
 text = "More coming soon"
 vertical_alignment = 1
 
-[node name="VersionInfoTextScrollContainer" type="ScrollContainer" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer"]
+[node name="VersionInfoTextScrollContainer" type="ScrollContainer" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer"]
 layout_mode = 0
 offset_left = 540.0
 offset_top = 138.0
@@ -974,21 +1086,21 @@ offset_bottom = 542.0
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer"]
 layout_mode = 2
 theme_override_constants/separation = 1565
 alignment = 1
 
-[node name="v0_7_1" type="Control" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 659.214)
+[node name="v0_7_5" type="Control" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 381.604)
 layout_mode = 2
 
-[node name="Main" type="Control" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer/v0_7_1"]
+[node name="Main" type="Control" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer/v0_7_5"]
 anchors_preset = 0
 offset_right = 386.0
 offset_bottom = 404.0
 
-[node name="Title" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer/v0_7_1/Main"]
+[node name="Title" type="Label" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer/v0_7_5/Main"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1002,11 +1114,59 @@ offset_bottom = -136.504
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_grlcg")
-theme_override_fonts/font = ExtResource("35_srfqj")
+theme_override_fonts/font = ExtResource("34_cyyd1")
+theme_override_font_sizes/font_size = 46
+text = "v0.7.5"
+
+[node name="Decription1" type="Label" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer/v0_7_5/Main"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = -128.364
+offset_right = 148.0
+offset_bottom = -45.636
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_grlcg")
+theme_override_fonts/font = ExtResource("10_6s6m5")
+text = "The official demo for Expland! This is for submission to the STEM Video Game Challenge. This version is NOT the complete game. Thank you all for supporting us on this amazing journey."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="v0_7_1" type="Control" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 659.214)
+layout_mode = 2
+
+[node name="Main" type="Control" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer/v0_7_1"]
+anchors_preset = 0
+offset_right = 386.0
+offset_bottom = 404.0
+
+[node name="Title" type="Label" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer/v0_7_1/Main"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -189.496
+offset_right = 54.0
+offset_bottom = -136.504
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_grlcg")
+theme_override_fonts/font = ExtResource("34_cyyd1")
 theme_override_font_sizes/font_size = 46
 text = "v0.7.1"
 
-[node name="Decription1" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer/v0_7_1/Main"]
+[node name="Decription1" type="Label" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer/v0_7_1/Main"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1020,18 +1180,19 @@ offset_bottom = -55.636
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_grlcg")
+theme_override_fonts/font = ExtResource("10_6s6m5")
 text = "This update had more things removed than added! This was mostly in preperation for bigger features and system revamps."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Divider" type="Line2D" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer/v0_7_1/Main"]
+[node name="Divider" type="Line2D" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer/v0_7_1/Main"]
 position = Vector2(62, 159.136)
 points = PackedVector2Array(-2, 0, 264, 0)
 width = 1.5
 default_color = Color(0.233926, 0.233925, 0.233925, 1)
 
-[node name="Decription2" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer/v0_7_1/Main"]
+[node name="Decription2" type="Label" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer/v0_7_1/Main"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1045,13 +1206,13 @@ offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_grlcg")
-theme_override_fonts/font = ExtResource("35_hsmjp")
+theme_override_fonts/font = ExtResource("33_rvkj8")
 theme_override_font_sizes/font_size = 26
 text = "Player"
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Decription3" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer/v0_7_1/Main"]
+[node name="Decription3" type="Label" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer/v0_7_1/Main"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1078,7 +1239,7 @@ Fixed:
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Decription4" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer/v0_7_1/Main"]
+[node name="Decription4" type="Label" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer/v0_7_1/Main"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1092,13 +1253,13 @@ offset_bottom = 334.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_grlcg")
-theme_override_fonts/font = ExtResource("35_hsmjp")
+theme_override_fonts/font = ExtResource("33_rvkj8")
 theme_override_font_sizes/font_size = 26
 text = "Inventory"
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Decription5" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer/v0_7_1/Main"]
+[node name="Decription5" type="Label" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer/v0_7_1/Main"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1119,7 +1280,7 @@ text = "Changed:
 - Removed to ability to eat items"
 autowrap_mode = 3
 
-[node name="Title" type="Label" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer"]
+[node name="Title" type="Label" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1133,13 +1294,13 @@ offset_bottom = -201.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("4_grlcg")
-theme_override_fonts/font = ExtResource("35_hsmjp")
+theme_override_fonts/font = ExtResource("33_rvkj8")
 theme_override_font_sizes/font_size = 35
 text = "Updates"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CloseButton" type="TextureButton" parent="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer"]
+[node name="CloseButton" type="TextureButton" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.19184
@@ -1151,37 +1312,7 @@ ignore_texture_size = true
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="AudioNotificationLayer" type="CanvasLayer" parent="Camera3D/MainLayer"]
-layer = 10
-
-[node name="fade_timer_time_left_title" type="Label" parent="Camera3D/MainLayer/AudioNotificationLayer"]
-modulate = Color(1, 1, 1, 0.789)
-offset_left = 967.0
-offset_top = 48.0
-offset_right = 1146.0
-offset_bottom = 71.0
-theme_override_fonts/font = ExtResource("5_dfh28")
-text = "Audio fade timer time left"
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="fade_timer_time_left" type="Label" parent="Camera3D/MainLayer/AudioNotificationLayer"]
-modulate = Color(1, 1, 1, 0.789)
-offset_left = 1103.0
-offset_top = 67.0
-offset_right = 1143.0
-offset_bottom = 90.0
-theme_override_fonts/font = ExtResource("5_dfh28")
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="AudioNotification" parent="Camera3D/MainLayer/AudioNotificationLayer" instance=ExtResource("31_xncp6")]
-offset_left = 1152.0
-offset_top = 401.0
-offset_right = 197.0
-offset_bottom = -159.0
-
-[node name="ProtectiveLayer" type="Control" parent="Camera3D/MainLayer"]
+[node name="ProtectiveLayer" type="Control" parent="MainLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1190,10 +1321,10 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="AlertLayer" type="CanvasLayer" parent="Camera3D"]
+[node name="AlertLayer" type="CanvasLayer" parent="."]
 layer = 2
 
-[node name="AlertLayer" type="Control" parent="Camera3D/AlertLayer"]
+[node name="StoryModeDemoNotice" type="Control" parent="AlertLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1202,7 +1333,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("34_so3ya")
 
-[node name="GreyLayer" type="ColorRect" parent="Camera3D/AlertLayer/AlertLayer"]
+[node name="GreyLayer" type="ColorRect" parent="AlertLayer/StoryModeDemoNotice"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1212,7 +1343,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.643)
 script = ExtResource("10_y68f7")
 
-[node name="MainLayer" type="Control" parent="Camera3D/AlertLayer/AlertLayer"]
+[node name="MainLayer" type="Control" parent="AlertLayer/StoryModeDemoNotice"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1220,7 +1351,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BG" type="Button" parent="Camera3D/AlertLayer/AlertLayer/MainLayer"]
+[node name="BG" type="Button" parent="AlertLayer/StoryModeDemoNotice/MainLayer"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1239,7 +1370,7 @@ theme_override_styles/pressed = ExtResource("11_613mu")
 theme_override_styles/normal = ExtResource("11_613mu")
 script = ExtResource("10_y68f7")
 
-[node name="TextBG" type="Button" parent="Camera3D/AlertLayer/AlertLayer/MainLayer"]
+[node name="TextBG" type="Button" parent="AlertLayer/StoryModeDemoNotice/MainLayer"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.327257
@@ -1258,18 +1389,18 @@ theme_override_styles/pressed = ExtResource("21_v2lsw")
 theme_override_styles/normal = ExtResource("21_v2lsw")
 script = ExtResource("10_y68f7")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Camera3D/AlertLayer/AlertLayer/MainLayer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="AlertLayer/StoryModeDemoNotice/MainLayer"]
 layout_mode = 0
 offset_left = 417.0
 offset_top = 162.0
 offset_right = 735.0
 offset_bottom = 533.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Camera3D/AlertLayer/AlertLayer/MainLayer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="AlertLayer/StoryModeDemoNotice/MainLayer/ScrollContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Text" type="Label" parent="Camera3D/AlertLayer/AlertLayer/MainLayer/ScrollContainer/VBoxContainer"]
+[node name="Text" type="Label" parent="AlertLayer/StoryModeDemoNotice/MainLayer/ScrollContainer/VBoxContainer"]
 visible = false
 custom_minimum_size = Vector2(300, 340)
 layout_mode = 2
@@ -1279,55 +1410,36 @@ text = "Text"
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Text2" type="Label" parent="Camera3D/AlertLayer/AlertLayer/MainLayer/ScrollContainer/VBoxContainer"]
+[node name="Text2" type="Label" parent="AlertLayer/StoryModeDemoNotice/MainLayer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 theme = ExtResource("4_grlcg")
 theme_override_font_sizes/font_size = 18
-text = "This release came with alot of downgrades in preparation for better features that we are working on. The Inventory is pretty much non-existent right now, due to an entire revamp of the system we are doing. And yes, our code was THAT bad."
+text = "This is a demo of the Story Mode gamemode for Expland. It is not completely finished yet."
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="Text3" type="Label" parent="Camera3D/AlertLayer/AlertLayer/MainLayer/ScrollContainer/VBoxContainer"]
+[node name="Text3" type="Label" parent="AlertLayer/StoryModeDemoNotice/MainLayer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 theme = ExtResource("4_grlcg")
-theme_override_fonts/font = ExtResource("35_hsmjp")
+theme_override_fonts/font = ExtResource("33_rvkj8")
 theme_override_font_sizes/font_size = 30
-text = "What got removed"
+text = "What to expect"
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Text4" type="Label" parent="Camera3D/AlertLayer/AlertLayer/MainLayer/ScrollContainer/VBoxContainer"]
+[node name="Text4" type="Label" parent="AlertLayer/StoryModeDemoNotice/MainLayer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 theme = ExtResource("4_grlcg")
 theme_override_font_sizes/font_size = 18
-text = "- Chest
-- Workbench and Crafting system
-- Inventory saving
-- Bunch of other fundamental stuff"
+text = "- Bugs
+- Unfinished and/or undecorated parts of The Island
+- Around 15 minutes of gameplay"
 autowrap_mode = 3
 
-[node name="Text5" type="Label" parent="Camera3D/AlertLayer/AlertLayer/MainLayer/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(300, 50)
-layout_mode = 2
-theme = ExtResource("4_grlcg")
-theme_override_fonts/font = ExtResource("35_hsmjp")
-theme_override_font_sizes/font_size = 30
-text = "Stay tuned"
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="Text6" type="Label" parent="Camera3D/AlertLayer/AlertLayer/MainLayer/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(300, 50)
-layout_mode = 2
-theme = ExtResource("4_grlcg")
-theme_override_font_sizes/font_size = 18
-text = "An all-new update log can help you keep track of Expland updates. You can view it by pressing the button in the bottom right corner."
-autowrap_mode = 3
-
-[node name="Title" type="Label" parent="Camera3D/AlertLayer/AlertLayer/MainLayer"]
+[node name="Title" type="Label" parent="AlertLayer/StoryModeDemoNotice/MainLayer"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -1338,13 +1450,31 @@ offset_right = 127.5
 offset_bottom = 142.0
 grow_horizontal = 2
 theme = ExtResource("4_grlcg")
-theme_override_fonts/font = ExtResource("35_hsmjp")
+theme_override_fonts/font = ExtResource("33_rvkj8")
 theme_override_font_sizes/font_size = 35
 text = "Title"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CloseButton" type="TextureButton" parent="Camera3D/AlertLayer/AlertLayer/MainLayer"]
+[node name="PlayButton" type="Button" parent="AlertLayer/StoryModeDemoNotice/MainLayer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.0
+offset_top = 150.0
+offset_right = 63.0
+offset_bottom = 208.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme = ExtResource("4_grlcg")
+theme_override_font_sizes/font_size = 40
+text = "PLAY"
+
+[node name="CloseButton" type="TextureButton" parent="AlertLayer/StoryModeDemoNotice/MainLayer"]
 layout_mode = 0
 anchor_left = 0.348958
 anchor_top = 0.157407
@@ -1355,10 +1485,10 @@ ignore_texture_size = true
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="TopLayer" type="CanvasLayer" parent="Camera3D"]
+[node name="TopLayer" type="CanvasLayer" parent="."]
 layer = 128
 
-[node name="FadeOut" type="ColorRect" parent="Camera3D/TopLayer"]
+[node name="FadeOut" type="ColorRect" parent="TopLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1366,8 +1496,9 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("8_tu6ba")
+metadata/_edit_use_anchors_ = true
 
-[node name="TransitionFadeOut" type="ColorRect" parent="Camera3D/TopLayer"]
+[node name="TransitionFadeOut" type="ColorRect" parent="TopLayer"]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -1377,7 +1508,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("8_tu6ba")
 
-[node name="ProtectiveLayer" type="Control" parent="Camera3D/TopLayer"]
+[node name="ProtectiveLayer" type="Control" parent="TopLayer"]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -1386,82 +1517,43 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Island 2" parent="." instance=ExtResource("2_0llf6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.961196, 0, -443.656)
-
-[node name="Tree1" parent="." instance=ExtResource("3_hbjgs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.8422, 0, -14.2573)
-
-[node name="Tree3" parent="." instance=ExtResource("4_drkdx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.5838, -1.33267, -21.3538)
-
-[node name="Rock2_Broken" parent="." instance=ExtResource("5_mxq5r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48, 0, -16)
-
-[node name="Rock5_Mossy" parent="." instance=ExtResource("6_lssvk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.7251, 0, -12.0159)
-
-[node name="Rock7_Rough" parent="." instance=ExtResource("7_jmxkd")]
-transform = Transform3D(1.82805, 0, 0, 0, 1.82805, 0, 0, 0, 1.82805, -32.9636, 0, -14.2986)
-
-[node name="Grass1" parent="." instance=ExtResource("8_0bg8c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.6427, -2.11303, -8.51419)
-
-[node name="Grass2" parent="." instance=ExtResource("8_0bg8c")]
-transform = Transform3D(0.988803, 0.0614801, -0.135974, -0.0838108, 0.982701, -0.165147, 0.123469, 0.174694, 0.976851, -37.4431, -2.11303, -8.51419)
-
-[node name="Grass5" parent="." instance=ExtResource("8_0bg8c")]
-transform = Transform3D(0.988803, 0.0614801, -0.135974, -0.0838108, 0.982701, -0.165147, 0.123469, 0.174694, 0.976851, -44.5293, -2.11303, -8.51419)
-
-[node name="Grass6" parent="." instance=ExtResource("8_0bg8c")]
-transform = Transform3D(0.319844, 0.18521, -0.929192, -0.136605, 0.979476, 0.148211, 0.937571, 0.0795278, 0.33858, -44.5293, -2.11303, -10.402)
-
-[node name="Grass7" parent="." instance=ExtResource("8_0bg8c")]
-transform = Transform3D(0.319844, 0.18521, -0.929192, -0.136605, 0.979476, 0.148211, 0.937571, 0.0795278, 0.33858, -41.4302, -2.11303, -10.402)
-
-[node name="Grass3" parent="." instance=ExtResource("9_w5mwr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.3533, -1.39862, -12.7823)
-
-[node name="Grass4" parent="." instance=ExtResource("9_w5mwr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.1353, -1.39862, -12.7823)
-
-[node name="Tree9" parent="." instance=ExtResource("10_ji46n")]
-transform = Transform3D(1.98326, -0.0362428, 0.0278266, 0.0357732, 1.98318, 0.0333687, -0.0284278, -0.032858, 1.98331, -29.2633, -1.02503, -34.2344)
-
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="timeout" from="Checks_Timer" to="." method="_on_checks_timer_timeout"]
-[connection signal="button_down" from="Camera3D/MainLayer/PlayButtonTrigger" to="." method="_on_play_button_trigger_button_down"]
-[connection signal="button_up" from="Camera3D/MainLayer/PlayButtonTrigger" to="." method="_on_play_button_trigger_button_up"]
-[connection signal="mouse_entered" from="Camera3D/MainLayer/PlayButtonTrigger" to="." method="_on_play_button_trigger_mouse_entered"]
-[connection signal="mouse_exited" from="Camera3D/MainLayer/PlayButtonTrigger" to="." method="_on_play_button_trigger_mouse_exited"]
-[connection signal="pressed" from="Camera3D/MainLayer/PlayButtonTrigger" to="." method="_on_play_button_trigger_pressed"]
-[connection signal="button_down" from="Camera3D/MainLayer/SettingsButtonTrigger" to="." method="_on_settings_button_trigger_button_down"]
-[connection signal="button_up" from="Camera3D/MainLayer/SettingsButtonTrigger" to="." method="_on_settings_button_trigger_button_up"]
-[connection signal="mouse_entered" from="Camera3D/MainLayer/SettingsButtonTrigger" to="." method="_on_settings_button_trigger_mouse_entered"]
-[connection signal="mouse_exited" from="Camera3D/MainLayer/SettingsButtonTrigger" to="." method="_on_settings_button_trigger_mouse_exited"]
-[connection signal="pressed" from="Camera3D/MainLayer/SettingsButtonTrigger" to="." method="_on_settings_button_trigger_pressed"]
-[connection signal="button_down" from="Camera3D/MainLayer/QuitButtonTrigger" to="." method="_on_quit_button_trigger_button_down"]
-[connection signal="button_up" from="Camera3D/MainLayer/QuitButtonTrigger" to="." method="_on_quit_button_trigger_button_up"]
-[connection signal="mouse_entered" from="Camera3D/MainLayer/QuitButtonTrigger" to="." method="_on_quit_button_trigger_mouse_entered"]
-[connection signal="mouse_exited" from="Camera3D/MainLayer/QuitButtonTrigger" to="." method="_on_quit_button_trigger_mouse_exited"]
-[connection signal="pressed" from="Camera3D/MainLayer/QuitButtonTrigger" to="." method="_on_quit_button_trigger_pressed"]
-[connection signal="pressed" from="Camera3D/MainLayer/AchievementsButton" to="." method="_on_achievements_button_pressed"]
-[connection signal="pressed" from="Camera3D/MainLayer/UpdatesButton" to="." method="_on_updates_button_pressed"]
-[connection signal="pressed" from="Camera3D/MainLayer/CreditsButton" to="." method="_on_credits_button_pressed"]
-[connection signal="pressed" from="Camera3D/MainLayer/ExitGamemodeLayerButton" to="." method="_on_exit_gamemode_layer_button_pressed"]
-[connection signal="pressed" from="Camera3D/MainLayer/GameModeLayer/BG_StoryMode/PlayStoryModeButton" to="." method="_on_play_story_mode_button_pressed"]
-[connection signal="pressed" from="Camera3D/MainLayer/GameModeLayer/BG_FreeMode/PlayFreeModeButton" to="." method="_on_play_free_mode_button_pressed"]
-[connection signal="pressed" from="Camera3D/MainLayer/GameModeLayer/BG_ParkourMode/PlayParkourModeButton" to="." method="_on_play_parkour_mode_button_pressed"]
-[connection signal="FinishedDialogue" from="Camera3D/MainLayer/DialogueLayer/DialogueInterface" to="." method="_on_dialogue_interface_finished_dialogue"]
-[connection signal="pressed" from="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_7_1/v0_7_1_Btn" to="." method="_on_v_0_7_1_btn_pressed"]
-[connection signal="mouse_entered" from="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/CloseButton" to="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer" method="_on_close_button_mouse_entered"]
-[connection signal="mouse_exited" from="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/CloseButton" to="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer" method="_on_close_button_mouse_exited"]
-[connection signal="pressed" from="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/CloseButton" to="Camera3D/MainLayer/UpdatesLayer/UpdatesLayer" method="_on_close_button_pressed"]
-[connection signal="mouse_entered" from="Camera3D/AlertLayer/AlertLayer/MainLayer/CloseButton" to="Camera3D/AlertLayer/AlertLayer" method="_on_close_button_mouse_entered"]
-[connection signal="mouse_exited" from="Camera3D/AlertLayer/AlertLayer/MainLayer/CloseButton" to="Camera3D/AlertLayer/AlertLayer" method="_on_close_button_mouse_exited"]
-[connection signal="pressed" from="Camera3D/AlertLayer/AlertLayer/MainLayer/CloseButton" to="Camera3D/AlertLayer/AlertLayer" method="_on_close_button_pressed"]
+[connection signal="button_down" from="MainLayer/PlayButtonTrigger" to="." method="_on_play_button_trigger_button_down"]
+[connection signal="button_up" from="MainLayer/PlayButtonTrigger" to="." method="_on_play_button_trigger_button_up"]
+[connection signal="mouse_entered" from="MainLayer/PlayButtonTrigger" to="." method="_on_play_button_trigger_mouse_entered"]
+[connection signal="mouse_exited" from="MainLayer/PlayButtonTrigger" to="." method="_on_play_button_trigger_mouse_exited"]
+[connection signal="pressed" from="MainLayer/PlayButtonTrigger" to="." method="_on_play_button_trigger_pressed"]
+[connection signal="button_down" from="MainLayer/SettingsButtonTrigger" to="." method="_on_settings_button_trigger_button_down"]
+[connection signal="button_up" from="MainLayer/SettingsButtonTrigger" to="." method="_on_settings_button_trigger_button_up"]
+[connection signal="mouse_entered" from="MainLayer/SettingsButtonTrigger" to="." method="_on_settings_button_trigger_mouse_entered"]
+[connection signal="mouse_exited" from="MainLayer/SettingsButtonTrigger" to="." method="_on_settings_button_trigger_mouse_exited"]
+[connection signal="pressed" from="MainLayer/SettingsButtonTrigger" to="." method="_on_settings_button_trigger_pressed"]
+[connection signal="button_down" from="MainLayer/QuitButtonTrigger" to="." method="_on_quit_button_trigger_button_down"]
+[connection signal="button_up" from="MainLayer/QuitButtonTrigger" to="." method="_on_quit_button_trigger_button_up"]
+[connection signal="mouse_entered" from="MainLayer/QuitButtonTrigger" to="." method="_on_quit_button_trigger_mouse_entered"]
+[connection signal="mouse_exited" from="MainLayer/QuitButtonTrigger" to="." method="_on_quit_button_trigger_mouse_exited"]
+[connection signal="pressed" from="MainLayer/QuitButtonTrigger" to="." method="_on_quit_button_trigger_pressed"]
+[connection signal="pressed" from="MainLayer/AchievementsButton" to="." method="_on_achievements_button_pressed"]
+[connection signal="pressed" from="MainLayer/UpdatesButton" to="." method="_on_updates_button_pressed"]
+[connection signal="pressed" from="MainLayer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="MainLayer/JoinDiscordButton" to="." method="_on_join_discord_button_pressed"]
+[connection signal="pressed" from="MainLayer/ExitGamemodeLayerButton" to="." method="_on_exit_gamemode_layer_button_pressed"]
+[connection signal="pressed" from="MainLayer/GameModeLayer/BG_StoryMode/PlayStoryModeButton" to="." method="_on_play_story_mode_button_pressed"]
+[connection signal="pressed" from="MainLayer/GameModeLayer/BG_FreeMode/PlayFreeModeButton" to="." method="_on_play_free_mode_button_pressed"]
+[connection signal="pressed" from="MainLayer/GameModeLayer/BG_ParkourMode/PlayParkourModeButton" to="." method="_on_play_parkour_mode_button_pressed"]
+[connection signal="FinishedDialogue" from="MainLayer/DialogueLayer/DialogueInterface" to="." method="_on_dialogue_interface_finished_dialogue"]
+[connection signal="pressed" from="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_7_5/v0_7_5_Btn" to="." method="_on_v_0_7_5_btn_pressed"]
+[connection signal="pressed" from="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_7_1/v0_7_1_Btn" to="." method="_on_v_0_7_1_btn_pressed"]
+[connection signal="mouse_entered" from="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/CloseButton" to="MainLayer/UpdatesLayer/UpdatesLayer" method="_on_close_button_mouse_entered"]
+[connection signal="mouse_exited" from="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/CloseButton" to="MainLayer/UpdatesLayer/UpdatesLayer" method="_on_close_button_mouse_exited"]
+[connection signal="pressed" from="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/CloseButton" to="MainLayer/UpdatesLayer/UpdatesLayer" method="_on_close_button_pressed"]
+[connection signal="pressed" from="AlertLayer/StoryModeDemoNotice/MainLayer/PlayButton" to="." method="_on_story_mode_demo_notice_play_button_pressed"]
+[connection signal="mouse_entered" from="AlertLayer/StoryModeDemoNotice/MainLayer/CloseButton" to="AlertLayer/StoryModeDemoNotice" method="_on_close_button_mouse_entered"]
+[connection signal="mouse_exited" from="AlertLayer/StoryModeDemoNotice/MainLayer/CloseButton" to="AlertLayer/StoryModeDemoNotice" method="_on_close_button_mouse_exited"]
+[connection signal="pressed" from="AlertLayer/StoryModeDemoNotice/MainLayer/CloseButton" to="AlertLayer/StoryModeDemoNotice" method="_on_close_button_pressed"]
 
-[editable path="Camera3D/MainLayer/AchievementsUI"]
+[editable path="MainLayer/AchievementsUI"]

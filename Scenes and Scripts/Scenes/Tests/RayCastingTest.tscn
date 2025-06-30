@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=4 uid="uid://cnumc5i62ndco"]
 
 [ext_resource type="Script" uid="uid://cj53ti0v8mv7o" path="res://Scenes and Scripts/Scenes/Tests/ray_casting_test.gd" id="1_r8s1u"]
-[ext_resource type="Texture2D" uid="uid://vdb8b8u4kphm" path="res://Textures/Dev Textures/Purple/texture_04.png" id="2_babsl"]
+[ext_resource type="Texture2D" uid="uid://vdb8b8u4kphm" path="res://Assets/Textures/Dev Textures/Purple/texture_04.png" id="2_babsl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_373kv"]
 albedo_texture = ExtResource("2_babsl")
