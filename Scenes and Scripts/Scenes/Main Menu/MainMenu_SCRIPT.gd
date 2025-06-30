@@ -48,9 +48,10 @@
 @icon("uid://bf37ev5d10xuh")
 extends Control
 
-var is_in_gamemode_select = false
-var is_in_absolute_gamemode_select = false
-var is_tweening = false
+var is_in_gamemode_select : bool = false
+var is_in_absolute_gamemode_select : bool = false
+var is_tweening : bool = false
+var story_mode_demo_popup_showing : bool = false
 
 @onready var StartupNotice = preload("res://Scenes and Scripts/Scenes/Startup Notice/StartupNotice.tscn")
 @onready var StoryModeStartCutscene = preload("uid://nlp0xy1m65tp")
@@ -149,7 +150,7 @@ func onStartup():
 		$MainLayer/AchievementsButton.position = Vector2(947, 508.0)
 		$MainLayer/UpdatesButton.position = Vector2(1018, 556)
 		$MainLayer/CreditsButton.position = Vector2(1018, 605)
-		$MainLayer/JoinDiscordButton.position = Vector2(6.0, 605.0)
+		$MainLayer/JoinDiscordButton.position = Vector2(16.0, 605.0)
 	else:
 		var tween = get_tree().create_tween().set_parallel()
 		tween.tween_property($MainLayer/Logo, "position:x", -15, 1.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.5)
@@ -158,7 +159,7 @@ func onStartup():
 		tween.tween_property($MainLayer/SettingsButton, "position", Vector2(0, 297), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.2)
 		tween.tween_property($MainLayer/SettingsButtonTrigger, "position", Vector2(0, 297), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.2)
 		tween.tween_property($MainLayer/QuitButton, "position", Vector2(0, 383), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.4)
-		tween.tween_property($MainLayer/JoinDiscordButton, "position", Vector2(6.0, 605.0), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.6)
+		tween.tween_property($MainLayer/JoinDiscordButton, "position", Vector2(16.0, 605.0), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.6)
 		tween.tween_property($MainLayer/QuitButtonTrigger, "position", Vector2(0, 383), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.4)
 		tween.tween_property($MainLayer/AchievementsButton, "position", Vector2(947, 508), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.2)
 		tween.tween_property($MainLayer/UpdatesButton, "position", Vector2(1018, 556), 1).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(1.3)
@@ -171,7 +172,7 @@ func onStartup():
 func _input(_event: InputEvent) -> void:
 	if !Global.main_menu_transitioning_scene:
 		if Input.is_action_just_pressed("Exit") and !is_tweening and !DialogueManager.is_in_absolute_interface and !PauseManager.is_inside_alert:  # Check if not tweening
-			if is_in_gamemode_select and !DialogueManager.is_in_interface:
+			if is_in_gamemode_select and !DialogueManager.is_in_interface and !story_mode_demo_popup_showing:
 				deSpawnGameModeMenu()
 			
 		if Input.is_action_just_pressed("Exit") and !DialogueManager.is_in_absolute_interface:
@@ -327,7 +328,7 @@ func _on_exit_gamemode_layer_button_pressed() -> void:
 
 func _on_play_story_mode_button_pressed() -> void:
 	$AlertLayer/StoryModeDemoNotice.spawnAlert("Demo notice", "", 16, 0.5)
-	
+	story_mode_demo_popup_showing = true
 	#startStoryMode() TODO
 
 
@@ -473,3 +474,14 @@ func _on_v_0_7_1_btn_pressed() -> void:
 			child.visible = true
 		else:
 			child.visible = false
+
+func _on_v_0_7_5_btn_pressed() -> void:
+	for child in $MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer.get_children():
+		if str(child.name) == "v0_7_5":
+			child.visible = true
+		else:
+			child.visible = false
+
+
+func _on_story_mode_demo_notice_despawned() -> void:
+	story_mode_demo_popup_showing = false

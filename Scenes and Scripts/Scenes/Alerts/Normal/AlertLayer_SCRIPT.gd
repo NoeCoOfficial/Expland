@@ -48,6 +48,8 @@
 @icon("uid://5ymuy8bqbfco")
 extends Control
 
+signal despawned
+
 func _ready() -> void:
 	Utils.set_center_offset($MainLayer/CloseButton)
 	Utils.set_center_offset($MainLayer)
@@ -58,6 +60,7 @@ func _ready() -> void:
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Exit") and PauseManager.is_inside_alert:
+		despawned.emit()
 		despawnAlert(0.5)
 
 func spawnAlert(title : String, text : String, textFontSize : int, animationTime : float):
@@ -123,3 +126,4 @@ func _on_close_button_mouse_entered() -> void:
 
 func _on_close_button_pressed() -> void:
 	despawnAlert(0.5)
+	despawned.emit()

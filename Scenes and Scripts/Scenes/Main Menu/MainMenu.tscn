@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://234mnfypwndn"]
+[gd_scene load_steps=47 format=3 uid="uid://234mnfypwndn"]
 
 [ext_resource type="Script" uid="uid://uvd1eie30b14" path="res://Scenes and Scripts/Scenes/Main Menu/MainMenu_SCRIPT.gd" id="1_8n1c6"]
 [ext_resource type="PackedScene" uid="uid://bjvusmws0kct3" path="res://Scenes and Scripts/Scenes/RandomMusic++/RandomMusic++.tscn" id="2_57c8o"]
@@ -16,7 +16,6 @@
 [ext_resource type="FontFile" uid="uid://bel1qoyfluvci" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Bold.otf" id="10_6s6m5"]
 [ext_resource type="PackedScene" uid="uid://ceabjbnv3nnyr" path="res://Scenes and Scripts/Scenes/Settings/SettingsUI.tscn" id="10_i36v3"]
 [ext_resource type="Script" uid="uid://bd3squcstkss1" path="res://Scenes and Scripts/Utility Scripts/PassMouseFilter.gd" id="10_y68f7"]
-[ext_resource type="FontFile" uid="uid://duhkn1q8s6i3m" path="res://Fonts/CabinetGrotesk/Defaults/CabinetGrotesk-Medium.otf" id="11_1cstc"]
 [ext_resource type="StyleBox" uid="uid://3txnt8ebd3yh" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/BlackBGwithWhiteBorder.tres" id="11_613mu"]
 [ext_resource type="StyleBox" uid="uid://b13po6off8nno" path="res://Resources/Styles and Themes/Styles/Default/Button/WithMarginDefaultDarkGrey.tres" id="12_3uklh"]
 [ext_resource type="StyleBox" uid="uid://c1a26qv61p5kw" path="res://Resources/Styles and Themes/Styles/Default/Backgrounds and Foregrounds/DarkgreyBGwithWhiteBorder.tres" id="13_tj56a"]
@@ -427,7 +426,7 @@ grow_horizontal = 2
 grow_vertical = 0
 focus_mode = 0
 theme = SubResource("Theme_u5css")
-theme_override_fonts/font = ExtResource("11_1cstc")
+theme_override_fonts/font = ExtResource("36_srfqj")
 theme_override_font_sizes/font_size = 27
 text = "ACHIEVEMENTS"
 
@@ -445,7 +444,7 @@ grow_horizontal = 2
 grow_vertical = 0
 focus_mode = 0
 theme = SubResource("Theme_u5css")
-theme_override_fonts/font = ExtResource("11_1cstc")
+theme_override_fonts/font = ExtResource("36_srfqj")
 theme_override_font_sizes/font_size = 27
 text = "UPDATES"
 
@@ -463,7 +462,7 @@ grow_horizontal = 2
 grow_vertical = 0
 focus_mode = 0
 theme = SubResource("Theme_u5css")
-theme_override_fonts/font = ExtResource("11_1cstc")
+theme_override_fonts/font = ExtResource("36_srfqj")
 theme_override_font_sizes/font_size = 27
 text = "CREDITS"
 
@@ -983,6 +982,37 @@ layout_mode = 2
 theme_override_constants/separation = 55
 alignment = 1
 
+[node name="v0_7_5" type="Control" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="v0_7_5_Btn" type="Button" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_7_5"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = 281.0
+offset_bottom = 55.0
+focus_mode = 0
+theme = ExtResource("4_grlcg")
+
+[node name="Title" type="Label" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_7_5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 14.0
+offset_top = 16.0
+offset_right = 272.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_grlcg")
+theme_override_fonts/font = ExtResource("34_cyyd1")
+theme_override_font_sizes/font_size = 25
+text = "v0.7.5 (Latest)"
+vertical_alignment = 1
+
 [node name="v0_7_1" type="Control" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer"]
 layout_mode = 2
 
@@ -1011,7 +1041,7 @@ grow_vertical = 2
 theme = ExtResource("4_grlcg")
 theme_override_fonts/font = ExtResource("34_cyyd1")
 theme_override_font_sizes/font_size = 25
-text = "v0.7.1 (Latest)"
+text = "v0.7.1"
 vertical_alignment = 1
 
 [node name="MoreComingSoon" type="Control" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer"]
@@ -1061,7 +1091,55 @@ layout_mode = 2
 theme_override_constants/separation = 1565
 alignment = 1
 
+[node name="v0_7_5" type="Control" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 381.604)
+layout_mode = 2
+
+[node name="Main" type="Control" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer/v0_7_5"]
+anchors_preset = 0
+offset_right = 386.0
+offset_bottom = 404.0
+
+[node name="Title" type="Label" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer/v0_7_5/Main"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -189.496
+offset_right = 54.0
+offset_bottom = -136.504
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_grlcg")
+theme_override_fonts/font = ExtResource("34_cyyd1")
+theme_override_font_sizes/font_size = 46
+text = "v0.7.5"
+
+[node name="Decription1" type="Label" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer/v0_7_5/Main"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = -128.364
+offset_right = 148.0
+offset_bottom = -45.636
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_grlcg")
+theme_override_fonts/font = ExtResource("10_6s6m5")
+text = "The official demo for Expland! This is for submission to the STEM Video Game Challenge. This version is NOT the complete game. Thank you all for supporting us on this amazing journey."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
 [node name="v0_7_1" type="Control" parent="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionInfoTextScrollContainer/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(0, 659.214)
 layout_mode = 2
 
@@ -1468,10 +1546,12 @@ grow_vertical = 2
 [connection signal="pressed" from="MainLayer/GameModeLayer/BG_FreeMode/PlayFreeModeButton" to="." method="_on_play_free_mode_button_pressed"]
 [connection signal="pressed" from="MainLayer/GameModeLayer/BG_ParkourMode/PlayParkourModeButton" to="." method="_on_play_parkour_mode_button_pressed"]
 [connection signal="FinishedDialogue" from="MainLayer/DialogueLayer/DialogueInterface" to="." method="_on_dialogue_interface_finished_dialogue"]
+[connection signal="pressed" from="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_7_5/v0_7_5_Btn" to="." method="_on_v_0_7_5_btn_pressed"]
 [connection signal="pressed" from="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/VersionScrollContainer/VBoxContainer/v0_7_1/v0_7_1_Btn" to="." method="_on_v_0_7_1_btn_pressed"]
 [connection signal="mouse_entered" from="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/CloseButton" to="MainLayer/UpdatesLayer/UpdatesLayer" method="_on_close_button_mouse_entered"]
 [connection signal="mouse_exited" from="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/CloseButton" to="MainLayer/UpdatesLayer/UpdatesLayer" method="_on_close_button_mouse_exited"]
 [connection signal="pressed" from="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/CloseButton" to="MainLayer/UpdatesLayer/UpdatesLayer" method="_on_close_button_pressed"]
+[connection signal="despawned" from="AlertLayer/StoryModeDemoNotice" to="." method="_on_story_mode_demo_notice_despawned"]
 [connection signal="pressed" from="AlertLayer/StoryModeDemoNotice/MainLayer/PlayButton" to="." method="_on_story_mode_demo_notice_play_button_pressed"]
 [connection signal="mouse_entered" from="AlertLayer/StoryModeDemoNotice/MainLayer/CloseButton" to="AlertLayer/StoryModeDemoNotice" method="_on_close_button_mouse_entered"]
 [connection signal="mouse_exited" from="AlertLayer/StoryModeDemoNotice/MainLayer/CloseButton" to="AlertLayer/StoryModeDemoNotice" method="_on_close_button_mouse_exited"]
