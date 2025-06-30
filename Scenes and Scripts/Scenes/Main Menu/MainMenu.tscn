@@ -1551,7 +1551,6 @@ grow_vertical = 2
 [connection signal="mouse_entered" from="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/CloseButton" to="MainLayer/UpdatesLayer/UpdatesLayer" method="_on_close_button_mouse_entered"]
 [connection signal="mouse_exited" from="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/CloseButton" to="MainLayer/UpdatesLayer/UpdatesLayer" method="_on_close_button_mouse_exited"]
 [connection signal="pressed" from="MainLayer/UpdatesLayer/UpdatesLayer/MainLayer/CloseButton" to="MainLayer/UpdatesLayer/UpdatesLayer" method="_on_close_button_pressed"]
-[connection signal="despawned" from="AlertLayer/StoryModeDemoNotice" to="." method="_on_story_mode_demo_notice_despawned"]
 [connection signal="pressed" from="AlertLayer/StoryModeDemoNotice/MainLayer/PlayButton" to="." method="_on_story_mode_demo_notice_play_button_pressed"]
 [connection signal="mouse_entered" from="AlertLayer/StoryModeDemoNotice/MainLayer/CloseButton" to="AlertLayer/StoryModeDemoNotice" method="_on_close_button_mouse_entered"]
 [connection signal="mouse_exited" from="AlertLayer/StoryModeDemoNotice/MainLayer/CloseButton" to="AlertLayer/StoryModeDemoNotice" method="_on_close_button_mouse_exited"]

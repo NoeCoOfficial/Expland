@@ -172,9 +172,9 @@ func onStartup():
 func _input(_event: InputEvent) -> void:
 	if !Global.main_menu_transitioning_scene:
 		if Input.is_action_just_pressed("Exit") and !is_tweening and !DialogueManager.is_in_absolute_interface and !PauseManager.is_inside_alert:  # Check if not tweening
-			if is_in_gamemode_select and !DialogueManager.is_in_interface and !story_mode_demo_popup_showing:
+			if is_in_gamemode_select and !DialogueManager.is_in_interface:
 				deSpawnGameModeMenu()
-			
+		
 		if Input.is_action_just_pressed("Exit") and !DialogueManager.is_in_absolute_interface:
 			if PauseManager.is_inside_settings:
 				$MainLayer/SettingsUI.closeSettings(0.5)
@@ -328,7 +328,6 @@ func _on_exit_gamemode_layer_button_pressed() -> void:
 
 func _on_play_story_mode_button_pressed() -> void:
 	$AlertLayer/StoryModeDemoNotice.spawnAlert("Demo notice", "", 16, 0.5)
-	story_mode_demo_popup_showing = true
 	#startStoryMode() TODO
 
 
@@ -481,7 +480,3 @@ func _on_v_0_7_5_btn_pressed() -> void:
 			child.visible = true
 		else:
 			child.visible = false
-
-
-func _on_story_mode_demo_notice_despawned() -> void:
-	story_mode_demo_popup_showing = false

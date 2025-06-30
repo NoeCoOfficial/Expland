@@ -8,6 +8,7 @@ RandomMusicPlayer = NodePath("RandomMusicPlayer")
 Countdown = NodePath("Countdown")
 
 [node name="RandomMusicPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"music"
 
 [node name="Countdown" type="Timer" parent="."]
 one_shot = true
