@@ -14,7 +14,4 @@ We are almost at 2000 commits...
 This journey has been insane.
 2,000 commits. Thank you everyone!
 
-goofy 2
-
-
-woah this hasnt been edited in a while
+what the goof merge conflict
