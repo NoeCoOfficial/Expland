@@ -4,6 +4,7 @@
 
 [node name="RandomMusic++" type="Node" node_paths=PackedStringArray("RandomMusicPlayer", "Countdown")]
 script = ExtResource("1_8qm0r")
+SilentDB = -80.0
 RandomMusicPlayer = NodePath("RandomMusicPlayer")
 Countdown = NodePath("Countdown")
 

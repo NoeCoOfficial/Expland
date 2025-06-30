@@ -90,6 +90,8 @@ func _ready() -> void:
 	Global.transitioning_to_main_menu_from_island = false
 	Global.is_in_main_menu = false
 	
+	StoryModeManager.is_in_story_mode_first_cutscene_world = false
+	
 	# TODO: LOAD DATA HERE OR SMTH
 	
 	set_pretty_shadows(PlayerSettingsData.PrettyShadows)
@@ -565,13 +567,13 @@ func _on_main_menu_button_pressed() -> void:
 	tween.tween_property(
 		$WindAmbience,
 		"volume_db",
-		-40.0,
+		-80.0,
 		1.0)
 
 	tween.tween_property(
 		$"Story Mode/Cameras/StoryModeDreamWakeUpCameraRig/StoryModeDreamWakeUpCamera/ExplandDemoNotice/VolumetricFog",
 		"volume_db",
-		-40.0,
+		-80.0,
 		1.0)
 
 func _demo_fade_out_finished():
