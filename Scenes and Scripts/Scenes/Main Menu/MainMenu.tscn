@@ -1436,7 +1436,8 @@ theme = ExtResource("4_grlcg")
 theme_override_font_sizes/font_size = 18
 text = "- Bugs
 - Unfinished and/or undecorated parts of The Island
-- Around 15 minutes of gameplay"
+- Around 15 minutes of gameplay
+- Your game will NOT save if you exit/quit!"
 autowrap_mode = 3
 
 [node name="Title" type="Label" parent="AlertLayer/StoryModeDemoNotice/MainLayer"]
