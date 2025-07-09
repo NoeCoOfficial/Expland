@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3n4pfum0tnm1"]
+
+[ext_resource type="RibbonTrailMesh" uid="uid://dg43yr7xlvtnq" path="res://Resources/Meshes/Rain_Mesh.tres" id="1_yi8g6"]
+
+[node name="RainParticles" type="Node3D"]
+
+[node name="Rain" type="CPUParticles3D" parent="."]
+amount = 5000
+lifetime = 0.84
+mesh = ExtResource("1_yi8g6")
+emission_shape = 3
+emission_box_extents = Vector3(100, 0.5, 100)
+direction = Vector3(0, -1, 0)
+spread = 5.0
+gravity = Vector3(0, -60, 0)
+initial_velocity_min = 47.09
+initial_velocity_max = 47.09
