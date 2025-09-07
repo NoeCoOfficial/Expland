@@ -7,7 +7,7 @@
 
 ---
 <h3 align="center">Current version: v0.7.5 (pre-release)</h3>
-<h5 align="center">Any questions? See the FAQ below, or contact us via email at <i>noeco.official@gmail.com.</i></h5>
+<h5 align="center">Any questions? See the FAQ below, or contact us via email at <i>contact@noeco.xyz.</i></h5>
 
 ---
 
@@ -31,7 +31,7 @@ Follow our progress and get the latest updates on:
 - **The GitHub Repository:** [Expland GitHub](https://github.com/sebashtioon/Expland)
 - **Our Discord Server:** [Join our Discord server for discussions and updates](https://discord.gg/QNgcKCAJn3)
 ## 📧 Contact Us
-Thank you for being so interested in this game. We can’t wait to share more with you soon! If you have any questions or want to get involved, please get in touch with our email (noeco.official@gmail.com) and we will respond within **48 hours.**
+Thank you for being so interested in this game. We can’t wait to share more with you soon! If you have any questions or want to get involved, please get in touch with our email (contact@noeco.xyz) and we will respond within **48 hours.**
 
 
 ## ❓ FAQ
