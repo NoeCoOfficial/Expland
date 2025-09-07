@@ -1,4 +1,4 @@
-<h1 align="center">Expland by Noe Co. [PUBLIC &lt;v0.7.5 REPO]</h1>
+<h1 align="center">Expland by Noe Co. [ARCHIVED PUBLIC &lt;v0.7.5 REPO]</h1>
 
 <p align="center">
 	<img align="center" src="/Assets/Textures/Icons/Expland/Expland - Icon.png" width="200" height="200"/>
