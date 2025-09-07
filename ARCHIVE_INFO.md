@@ -1,0 +1,3 @@
+This repository has been archived on 7/09/2025. We are migrating to a new private repository where we will continue the development of Expland. New releases will probably be exported to a new Steam page in the near future. To stay tuned, visit our website (https://noeco.xyz) and click "Join newsletter" in the bottom right to recieve updates on development and general news.
+
+Thank you all for this amazing journey, but it's not over yet. We *will* be back!
